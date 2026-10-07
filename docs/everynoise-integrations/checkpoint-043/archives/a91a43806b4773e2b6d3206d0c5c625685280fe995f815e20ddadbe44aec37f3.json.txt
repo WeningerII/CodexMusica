@@ -1,0 +1,191 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "funk_das_antigas",
+          "name": "Funk das Antigas",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic audio recording microphone context; not a depiction of source DJ gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15189view1 Commons confirms Iain Fergusson original, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn15189view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15189view1"
+        ],
+        "fresh_rights_review": "Fresh15189view1 rights; exact historical023 bytes and visual receipt preserved, no fresh download claim."
+      },
+      "id": "funk_das_antigas",
+      "suggested_id": "funk_das_antigas",
+      "source_label": "funk das antigas",
+      "source_url": "https://everynoise.com/engenremap-funkdasantigas.html",
+      "allocation_ordinal": 2583,
+      "allocation_group_id": "104",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "funk_das_antigas",
+        "name": "Funk das Antigas",
+        "family": "electronic",
+        "lineage": "Funk das antigas keeps earlier Brazilian funk circulating through heritage bailes, DJs, dance groups and intergenerational celebrations. Funk melody, familiar MC refrains and older sound-system repertoire meet in a living culture of musical memory.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.latinElec",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "DJs connect familiar beats and refrains for shared dancing, while recurring passinho gatherings pass on movements and repertoire. Romantic songs and more forceful MC material coexist; live singers also participate in the wider revival circuit.",
+        "exemplars": [
+          "DJ Marlboro",
+          "MC Marcinho",
+          "Claudinho & Buchecha",
+          "Furacão 2000"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -21.7622,
+        -41.3181,
+        "Campos dos Goytacazes",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Official municipality documents recurring contemporary dance practice here. This is an editorial practice anchor within the wider Rio-state/Brazilian field, not an exclusive origin claim.",
+      "signature_tokens": [],
+      "model_policy": "Representative DJ selection/mixing branch positively documented by the municipality and heritage festival organizers. It preserves all recorded beats, melodies, sampled refrains and voices without guessing their generators. No claim that the whole broader field has no live MCs, or that this model reconstructs every festival role. Dance teacher/audience activity does not establish another musical sound-source card. Live singer count and embedded voices remain unknown. Controlled live-room presentation is authored; no source decks, global tuning, exact tempo or auditioned tracklist asserted. The literal up-tempo output is an authored brisk dance rendition consistent with the reported lively baile, not a measured tempo of all older recordings.",
+      "neighbor_distinction": "Actual full baile_funk already includes melô-rap, funk melody, later proibidão and modern variants; historical repertoire alone is not a new boundary. Funk das Antigas is an ongoing narrower heritage-circulation practice within that broad field: municipal recurrent teaching groups, funded named bailes and festival projects explicitly organize preservation and transmission across generations. It overlaps funk_melody but is not confined to that romantic sung substyle; the creator corpus also includes MCs and sound-system material beyond it. Exact community identity rests on institutional primary evidence, not different artists or an arbitrary date cutoff. No exclusive sonic grammar or alias claimed.",
+      "sources": [
+        {
+          "url": "https://campos.rj.gov.br/exibirNoticia.php?id_noticia=102496",
+          "title": "Campos official recurring heritage dance practice",
+          "support_notes": "Fresh15185view1: February2026 event DJ Luciano, professor Cosminho, Galeras do Passinho/Estrela Brilha twice-weekly groups, funk antigo/melody and intergenerational teaching."
+        },
+        {
+          "url": "https://www.rio.rj.gov.br/dlstatic/10112/13579468/4340164/PROJETOSAPTOSPARACAPTACAOEDITALDOPRODUTORN012021.pdf",
+          "title": "Municipal cultural-project record: Somos História do Funk",
+          "support_notes": "Fresh15189search1 full indexed project WEC1546: sound systems, DJs, artists and1980s/90s audiences; explicit memory/transmission mission. Project eligibility is not proof of eventual performance."
+        },
+        {
+          "url": "https://www.camaraniteroi.rj.gov.br/site/arquivos-ldo-loa-ppa/PPA/2025/40ebdd019af074253c0989d5ce56d915.pdf",
+          "title": "Niterói official cultural planning",
+          "support_notes": "Fresh15187search13 page157: continuing Baile Funk das Antigas activity,24-event target. A target is not an execution claim."
+        },
+        {
+          "url": "https://site.ib.itaborai.rj.gov.br/ita-folia-2026-carrossel-de-emocoes-sacode-avenida-22-de-maio-com-classicos-do-funk-carioca/",
+          "title": "Municipal report and performers’ heritage account",
+          "support_notes": "Fresh15190search0: repeated Carrossel participation, explicit funk das antigas and homage to Claudinho/Buchecha, MC Marcinho, Sapão and Doca. Wider live-group branch retained as context, not reduced into a false exact DJ roster."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-funkdasantigas.html",
+          "title": "Exact creator corpus",
+          "support_notes": "Fresh15189view0 full corpus includes DENNIS, DJ Marlboro, MC Marcinho, Claudinho/Buchecha, Furacão2000 and broader MC repertoire."
+        }
+      ],
+      "source_retrieval_caveat": "Municipal event and creator map directly read; large planning/project PDFs reproduced through full indexed relevant passages, not claimed read end-to-end. No music audition asserted.",
+      "prior_hold_preservation": "Prior ordinal2583 date-only boundary and opaque mix gaps retained in allocation/ledger. New documented ongoing heritage institutions supply a substantive candidate boundary; independent peer judgment pending.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Positive DJ practice; unknown playback architecture retained."
+        }
+      ],
+      "axis_review": "Representative amplified DJ dance branch: meter+1 coordinated dance pulse, soundTech+1 playback/production, percussion+1 beat-led dance, cyclicity+1 repeated dance phrases. Remaining nine dimensions uncertain0; no exact BPM, tuning or measured source axes asserted."
+    }
+  ],
+  "instrument_dependencies": []
+}

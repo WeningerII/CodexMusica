@@ -5,7 +5,7 @@
   "lineage": "A Christian-associated hard-rock network whose artists also participate in mainstream rock. The selected Skillet branch combines amplified band playing with independent bowed-string voices and keyboards, as documented on Comatose Comes Alive.",
   "recipe": "classic christian hard rock, distorted Rock, alternative branch. one note per syllable. humbucker electric guitar, carbon fiber composite modern alternative violin orchestral, cello, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic band keyboard rompler workstation. treated studio. large-diaphragm condenser, console-strip pre, california modern high-gain, parallel compression, parametric EQ. 24-bit digital hall reverb.",
   "recipe_chars": 486,
-  "score": 48.674,
+  "score": 48.611,
   "config": {
     "traditions": [
       "christian_hard_rock"
@@ -36,7 +36,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
-          "string_material": 0.144,
+          "string_material": 0.105,
           "bridge": 0.441,
           "scale_length": 0.8820000000000001,
           "string_gauge": 0.273,
@@ -68,7 +68,7 @@
           "orch_bow": 0,
           "orch_bow_stick": 2.275,
           "orch_articulation": 0.39,
-          "orch_rosin": -0.05
+          "orch_rosin": -0.035
         }
       },
       {
@@ -86,12 +86,12 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.144,
+          "cello_strings": 0.105,
           "cello_top_wood": -0.07,
           "cello_back_wood": -0.1,
           "cello_varnish": -0.035,
           "cello_setup_period": 0.26,
-          "cello_bow_grip": 0.639,
+          "cello_bow_grip": 0.6,
           "cello_rosin": 0.26,
           "cello_bow_stick": -0.05
         }
@@ -140,7 +140,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.144,
+          "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 11.931499999999998,
@@ -195,11 +195,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0,
+          "voice_ensemble_config": 0.03899999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.03899999999999999
         }
       }
     ],

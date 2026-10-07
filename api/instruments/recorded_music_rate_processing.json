@@ -1,0 +1,197 @@
+{
+  "id": "recorded_music_rate_processing",
+  "name": "Recorded music rate processing",
+  "short": "accelerated-recorded-song",
+  "family": "electronic",
+  "class": "digital_audio_processing",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "rate_process_vocal_material",
+      "name": "Recorded vocal material",
+      "variants": [
+        {
+          "id": "rate_process_sung_lead",
+          "name": "Recorded melodic sung lead; singer physiology and original tracking unspecified",
+          "default": true,
+          "descriptors": [
+            "vocal",
+            "melodic"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "rate_process_rap_vocal",
+          "name": "Recorded rap vocal phrases; melodic inflection, performer count and original tracking unspecified",
+          "default": false,
+          "descriptors": [
+            "vocal",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_backing_material",
+      "name": "Recorded accompaniment",
+      "variants": [
+        {
+          "id": "rate_process_produced_beat",
+          "name": "Produced rhythmic beat accompanying the recorded lead; generators and internal instrumentation unspecified",
+          "default": true,
+          "descriptors": [
+            "rhythmic",
+            "layered"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_speed",
+      "name": "Playback-rate transformation",
+      "variants": [
+        {
+          "id": "rate_process_accelerated",
+          "name": "Accelerated rendition of the recorded song; no measured multiplier or BPM asserted",
+          "default": true,
+          "descriptors": [
+            "fast"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_phrase",
+      "name": "Phrase organization",
+      "variants": [
+        {
+          "id": "rate_process_continuous_song",
+          "name": "Continuous song phrases retained in the authored remix; no arbitrary chopped-fragment effect",
+          "default": true,
+          "descriptors": [
+            "continuous"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_pitch_coupling",
+      "name": "Pitch/rate coupling",
+      "variants": [
+        {
+          "id": "rate_process_pitch_unspecified",
+          "name": "Whether pitch shifts with tempo or is compensated is unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Digital rate processing of recorded song material. Separate controls retain recorded vocal material, accompanying produced beat, positive acceleration, phrase continuity and unknown pitch coupling. This is an active temporal transformation of audio, not a synthesizer, live vocalist, unchanged opaque master or a claim of a particular software brand.",
+  "sources": [
+    "https://celebs.com.br/32061/ally-alexandrino-lanca-remix-de-sua-musica/",
+    "https://manual.audacityteam.org/man/change_speed.html"
+  ],
+  "_ownParts": [
+    {
+      "id": "rate_process_vocal_material",
+      "name": "Recorded vocal material",
+      "variants": [
+        {
+          "id": "rate_process_sung_lead",
+          "name": "Recorded melodic sung lead; singer physiology and original tracking unspecified",
+          "default": true,
+          "descriptors": [
+            "vocal",
+            "melodic"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "rate_process_rap_vocal",
+          "name": "Recorded rap vocal phrases; melodic inflection, performer count and original tracking unspecified",
+          "default": false,
+          "descriptors": [
+            "vocal",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_backing_material",
+      "name": "Recorded accompaniment",
+      "variants": [
+        {
+          "id": "rate_process_produced_beat",
+          "name": "Produced rhythmic beat accompanying the recorded lead; generators and internal instrumentation unspecified",
+          "default": true,
+          "descriptors": [
+            "rhythmic",
+            "layered"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_speed",
+      "name": "Playback-rate transformation",
+      "variants": [
+        {
+          "id": "rate_process_accelerated",
+          "name": "Accelerated rendition of the recorded song; no measured multiplier or BPM asserted",
+          "default": true,
+          "descriptors": [
+            "fast"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_phrase",
+      "name": "Phrase organization",
+      "variants": [
+        {
+          "id": "rate_process_continuous_song",
+          "name": "Continuous song phrases retained in the authored remix; no arbitrary chopped-fragment effect",
+          "default": true,
+          "descriptors": [
+            "continuous"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "rate_process_pitch_coupling",
+      "name": "Pitch/rate coupling",
+      "variants": [
+        {
+          "id": "rate_process_pitch_unspecified",
+          "name": "Whether pitch shifts with tempo or is compensated is unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

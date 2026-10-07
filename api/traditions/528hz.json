@@ -1,0 +1,56 @@
+{
+  "id": "528hz",
+  "name": "528 Hz",
+  "family": "electronic",
+  "lineage": "528 Hz labels listening releases organized around a nominal 528-hertz tone. The category appears in meditation and frequency-themed sound publishing, spanning pure tones and more layered musical settings.",
+  "recipe": "classic 528 hz, experimental Elec, ambient branch. analog sine oscillator z3000. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 179,
+  "score": 4.16,
+  "config": {
+    "traditions": [
+      "528hz"
+    ],
+    "instruments": [
+      {
+        "id": "analog_sine_oscillator_z3000",
+        "slots": {
+          "z3000_signal_identity": "z3000_direct_sine_signal"
+        },
+        "scores": {
+          "z3000_signal_identity": 4.159999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "analog_sine_oscillator_z3000": [
+        "z3000_signal_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "z3000_signal_identity": "z3000_direct_sine_signal"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -2,10 +2,10 @@
   "id": "progressive_electro_house",
   "name": "Progressive electro house",
   "family": "electronic",
-  "lineage": "A broad melodic-and-electro club discovery cluster whose roster includes Alesso, Swedish House Mafia, Hardwell, Eric Prydz and Don Diablo. This authored model selects a concise synth-hook and chopped-vocal branch documented by Don Diablo rather than assuming the label denotes only the early British progressive-house tradition.",
-  "recipe": "classic modern progressive electro house, electronic Dance, house branch, continental electronic dance makina bouncy techno. sampler drum machine, analog synth, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 389,
-  "score": 62.705,
+  "lineage": "A melodic electronic dance field linking progressive festival house with electro-oriented production. Layered synthesizer hooks, forceful programmed rhythms and edited vocal material connect its diverse club and festival repertoire.",
+  "recipe": "classic modern progressive electro house, electronic Dance, house branch, continental electronic dance makina bouncy techno. sampler drum machine, analog synth, layered sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 381,
+  "score": 53.97,
   "config": {
     "traditions": [
       "progressive_electro_house",
@@ -22,9 +22,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.8199999999999998,
+          "electronic_technique": 0.52,
           "sample_bitdepth": 0.045,
-          "sample_swing": 19.375000000000004,
+          "sample_swing": 21.875,
           "sample_processing": 0.15
         }
       },
@@ -51,15 +51,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "mpc_modern",
           "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.8199999999999998,
+          "electronic_technique": 0.52,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.195,
-          "sampler_workflow": 2.4699999999999998,
-          "sampler_classic_context": 31.72
+          "sampler_workflow": 1.0499999999999998,
+          "sampler_classic_context": 25.804999999999996
         }
       }
     ],
@@ -110,7 +110,7 @@
       "sample_processing": "one_shots_layered",
       "sampler_archetypes": "mpc_modern",
       "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_workflow": "sampler_loop_layered",
       "sampler_classic_context": "sampler_classic_edm",
       "electronic_technique": "electronic_lead_line",
       "oscillator": "saw_super",

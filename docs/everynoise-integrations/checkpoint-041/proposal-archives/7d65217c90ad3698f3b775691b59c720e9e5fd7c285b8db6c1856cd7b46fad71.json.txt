@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_REPAIR_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-dark_progressive_house.json",
+  "packet_sha256": "7e69a7b1002b54b04967e8b2c5f8944fc72a7a2b9bb9bcd5aa75ab780e3a6142",
+  "ids": [
+    "dark_progressive_house"
+  ],
+  "checked_at": "2026-10-03T22:34:57.557744+00:00",
+  "checks": [
+    "Root read genre prose, firsthand source support and substantive default rationale. Rap defaults restore produced beats; Dark Progressive House now models electronic production rather than one DJ set. Valid Festigal band and Haitian vocal/tanbou branches retained.",
+    "Root independently reran strict owning-control/photo-receipt audit and4formats; read full rich/prose outputs, author full4format semantic review retained. No artist/session public photo captions, required rights unchanged.",
+    "Original dossiers retained separately; final static/regression/CI pending."
+  ]
+}

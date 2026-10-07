@@ -1,0 +1,133 @@
+{
+  "id": "musica_chiapaneca",
+  "name": "Música chiapaneca",
+  "family": "global",
+  "lineage": "Música chiapaneca encompasses the regional repertoires and musical communities of Chiapas. Marimba ensembles, Indigenous-language songs, strings, winds and percussion contribute distinct traditions within this wider field.",
+  "recipe": "classic música chiapaneca, functional Song, Mexican branch. chiapanecan marimba, glockenspiel, electric bass, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 155,
+  "score": 3.05,
+  "config": {
+    "traditions": [
+      "musica_chiapaneca"
+    ],
+    "instruments": [
+      {
+        "id": "chiapanecan_marimba",
+        "slots": {
+          "chiapanecan_marimba_form": "chiapanecan_marimba_chiapaneca",
+          "chiapanecan_marimba_ensemble": "chiapanecan_marimba_grande_tenor",
+          "chiapanecan_marimba_material": "marimba_centroamericana_hormigo"
+        },
+        "scores": {
+          "chiapanecan_marimba_form": 2.605,
+          "chiapanecan_marimba_ensemble": 0.39,
+          "chiapanecan_marimba_material": -0.05
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_orch_25",
+          "glockenspiel_mallet": "glockenspiel_plastic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 0,
+          "glockenspiel_mallet": 0.168
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0.1365,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "chiapanecan_marimba": [
+        "chiapanecan_marimba_form",
+        "chiapanecan_marimba_ensemble",
+        "chiapanecan_marimba_material"
+      ],
+      "glockenspiel": [
+        "percussion_technique",
+        "glockenspiel_size",
+        "glockenspiel_mallet"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "chiapanecan_marimba_form": "chiapanecan_marimba_chiapaneca",
+      "chiapanecan_marimba_ensemble": "chiapanecan_marimba_grande_tenor",
+      "chiapanecan_marimba_material": "marimba_centroamericana_hormigo",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "glockenspiel_size": "glockenspiel_orch_25",
+      "glockenspiel_mallet": "glockenspiel_plastic",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+    },
+    "pin_parts": true
+  }
+}

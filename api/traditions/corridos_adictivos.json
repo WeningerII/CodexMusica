@@ -1,0 +1,173 @@
+{
+  "id": "corridos_adictivos",
+  "name": "Corridos Adictivos",
+  "family": "global",
+  "lineage": "Corridos Adictivos gathers contemporary regional Mexican corrido groups around narrative singing and compact instrumental accompaniment. Requinto lines, recurring bass patterns and brass or accordion colors carry stories of local identity, personal histories and contested power, alongside romantic repertoire circulating through the same performers.",
+  "recipe": "classic corridos adictivos, functional Song, Mexican branch. one note per syllable. credited requinto unspecified, tololoche, tenor horn eb. live tracking.",
+  "recipe_chars": 155,
+  "score": 4.204,
+  "config": {
+    "traditions": [
+      "corridos_adictivos"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.3045,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.4095,
+          "voice_multitrack_stack": 0.1995,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "credited_requinto_unspecified",
+        "slots": {
+          "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+          "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+          "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+          "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+          "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+        },
+        "scores": {
+          "credited_requinto_identity": 0,
+          "credited_requinto_construction": 0,
+          "credited_requinto_stringing": 0,
+          "credited_requinto_tuning": 0,
+          "credited_requinto_technique": 0
+        }
+      },
+      {
+        "id": "tololoche",
+        "slots": {
+          "tololoche_size": "tololoche_three_string",
+          "tololoche_technique": "tololoche_polka_pump"
+        },
+        "scores": {
+          "tololoche_size": 1.3,
+          "tololoche_technique": 0.3
+        }
+      },
+      {
+        "id": "tenor_horn_eb",
+        "slots": {
+          "tenor_horn_eb_identity": "tenor_horn_eb_scored"
+        },
+        "scores": {
+          "tenor_horn_eb_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "credited_requinto_unspecified": [
+        "credited_requinto_identity",
+        "credited_requinto_construction",
+        "credited_requinto_stringing",
+        "credited_requinto_tuning",
+        "credited_requinto_technique"
+      ],
+      "tololoche": [
+        "tololoche_size",
+        "tololoche_technique"
+      ],
+      "tenor_horn_eb": [
+        "tenor_horn_eb_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "tololoche_size": "tololoche_three_string",
+      "tololoche_technique": "tololoche_polka_pump",
+      "tenor_horn_eb_identity": "tenor_horn_eb_scored",
+      "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+      "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+      "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+      "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+      "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

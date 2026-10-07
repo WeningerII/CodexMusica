@@ -1,0 +1,127 @@
+{
+  "id": "italian_industrial",
+  "name": "Italian Industrial",
+  "family": "electronic",
+  "lineage": "Italian industrial and experimental electronics — tape-era experimentation, noise and electronic rhythm.",
+  "recipe": "classic italian industrial, experimental Elec, industrial noise branch. analog synth, drum machine analog, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 25.91,
+  "config": {
+    "traditions": [
+      "italian_industrial"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "noise_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "sample_hold"
+        },
+        "scores": {
+          "electronic_technique": 0.325,
+          "oscillator": 0.0315,
+          "filter_topology": 0.9870000000000001,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 0.063,
+          "snare_voice": 0,
+          "hat_voice": 0.1995,
+          "shuffle_quantize": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 0.325,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.5985,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 23.5
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "noise_osc",
+      "filter_topology": "transistor_ladder",
+      "envelope": "sustain_env",
+      "modulation": "sample_hold",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "shuffle_low",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_industrial"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

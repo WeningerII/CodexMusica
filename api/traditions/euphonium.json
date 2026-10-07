@@ -1,0 +1,97 @@
+{
+  "id": "euphonium",
+  "name": "Euphonium",
+  "family": "classical",
+  "lineage": "Euphonium repertoire spans solo concert performance and larger brass ensembles. Contemporary works also place the instrument alongside electronic accompaniment and other contrasting sound sources.",
+  "recipe": "classic euphonium, art Music, western modern branch. yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, sampler. shoebox concert hall.",
+  "recipe_chars": 182,
+  "score": 16.843,
+  "config": {
+    "traditions": [
+      "euphonium"
+    ],
+    "instruments": [
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "euph_use": "euph_orchestral",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "euph_use": 0.105,
+          "euphonium_pitch": 1.1365,
+          "euphonium_bell_metal": 1.3,
+          "euphonium_maker_school": 1.3
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 4.875,
+          "sampler_bit_depth": 1.95,
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 3.25
+        }
+      }
+    ],
+    "pinned": {
+      "euphonium": [
+        "wind_articulation",
+        "euph_use",
+        "euphonium_pitch",
+        "euphonium_bell_metal",
+        "euphonium_maker_school"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "wind_articulation": "wind_classical_legato",
+      "euph_use": "euph_orchestral",
+      "euphonium_pitch": "euphonium_bb",
+      "euphonium_bell_metal": "euphonium_yellow_brass",
+      "euphonium_maker_school": "euphonium_besson_sovereign",
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true
+  }
+}

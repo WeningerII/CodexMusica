@@ -1,0 +1,204 @@
+{
+  "entries": [
+    {
+      "source_label": "fotbollslatar",
+      "source_url": "https://everynoise.com/engenremap-fotbollslatar.html",
+      "suggested_id": "fotbollslatar",
+      "allocation_ordinal": 3309,
+      "allocation_group_id": "133",
+      "id": "fotbollslatar",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "fotbollslatar",
+        "name": "Fotbollslåtar",
+        "family": "vernacular",
+        "lineage": "Swedish football songs connect club supporters, national-team campaigns and popular songwriting. Commissioned tournament songs and club hymns circulate through records, broadcasts and communal singing, while familiar melodies acquire new supporter texts.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Memorable refrains, direct lyrics and shared singing give football songs their rallying character. A sung melody with chordal piano accompaniment offers one compact rendition of this repertoire, alongside crowd chants, rock bands and electronic productions.",
+        "exemplars": [
+          "Georg Åby Ericson",
+          "Hammarby Fotbollslag",
+          "Miss Li"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        59.3293,
+        18.0686,
+        "Stockholm",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial Swedish federation and popular-song circulation anchor, not birthplace or exact recording site.",
+      "signature_tokens": [],
+      "model_policy": "Representative song-and-piano arrangement of the Swedish football-song field, not a transcription of the1974 national-team recording. SvFF positively documents composer/pianist Åby and singing players; earlier retained evidence also names orchestra in that recording, which remains acknowledged and is not claimed reproduced by this compact default. The field includes instrumental bands and electronic productions, not mandatory roles in every rendition. Authored upright, block-chord accompaniment, a single connected syllabic melody and intimate parlor capture provide an editable songwriting rendition; neither solo staffing nor parlor acoustics describe the source recording. Functional-harmonic verse–chorus–bridge form is an authored arrangement choice, not a measured structure of every chant or song.",
+      "neighbor_distinction": "Full existing football is the international supporter-song umbrella and already admits accompanied and unaccompanied practices. Fotbollslåtar is an overlapping Swedish club/national-team commissioning and circulation community, positively documented by SvFF and original Swedish music-ethnology research, corroborated by creator corpus club hymns spanning Hammarby, Djurgården, Elfsborg, Malmö and national-team supporters. It is not distinguished merely by translating football or by choosing a different pianist. Swedish pop is broader and does not require this football institution/function; fan_chant encompasses crowd chanting beyond this Swedish song-production field. No claim every playlist track is football-themed.",
+      "source_scope_limitation": "Genre-level representative arrangement, not exact1974 master reconstruction or an assertion all football music has piano. Crowd and full-band alternatives remain in the public profile.",
+      "sources": [
+        {
+          "url": "https://www.svenskfotboll.se/nyheter/landslag/2024/07/50-ar-sedan-1974/",
+          "support_notes": "Official federation historical account names composer/piano and team singing; retained contradictory-to-duo-only orchestral credit is explicitly acknowledged rather than suppressing it."
+        },
+        {
+          "url": "https://www.svenskfotboll.se/nyheter/landslag/2023/06/vm-laten-2023/",
+          "support_notes": "Federation announces commissioned official song by Miss Li with songwriter/producer collaborators; establishes ongoing national institution, not exact instrumentation."
+        },
+        {
+          "url": "https://journals.lub.lu.se/rig/article/download/10428/9426/25281",
+          "support_notes": "Patrik Sandgren original field research distinguishes official club/national songs from supporter chants and connects Swedish repertory, records and performance."
+        },
+        {
+          "url": "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A2pmUHfzCVyrWGCUkmF4xah",
+          "support_notes": "Full exact creator corpus freshly read; club hymns and broader pop coexist. Hammarby Fotbollslag13, Djurgården59/60, Malmö66 and Elfsborg67 substantiate club-network scope; peripheral general pop retained."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15080view0",
+        "turn15081search0",
+        "turn15077view0",
+        "turn15082view0"
+      ],
+      "classification_evidence": "Full existing football is the international supporter-song umbrella and already admits accompanied and unaccompanied practices. Fotbollslåtar is an overlapping Swedish club/national-team commissioning and circulation community, positively documented by SvFF and original Swedish music-ethnology research, corroborated by creator corpus club hymns spanning Hammarby, Djurgården, Elfsborg, Malmö and national-team supporters. It is not distinguished merely by translating football or by choosing a different pianist. Swedish pop is broader and does not require this football institution/function; fan_chant encompasses crowd chanting beyond this Swedish song-production field. No claim every playlist track is football-themed.",
+      "source_retrieval_caveat": "Federation, original research PDF and creator full text freshly retrieved. No audio audition or exact master reconstruction.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "fotbollslatar",
+          "name": "Fotbollslåtar",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh14898view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn14898view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14898view0"
+        ],
+        "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_head": "453cd0f1",
+        "baseline": "/workspace/CodexMusica-qualified041"
+      },
+      "verification_status": "Pending independent category/practice and actual runtime review."
+    }
+  ],
+  "instrument_dependencies": []
+}

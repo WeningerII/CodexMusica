@@ -1,0 +1,50 @@
+{
+  "id": "british_industrial",
+  "name": "British Industrial",
+  "family": "electronic",
+  "lineage": "British industrial developed through DIY electronic experimentation, tape manipulation and confrontational performance in the1970s, with Sheffield and London networks central to its early circulation. Later musicians and selectors revisit that repertoire alongside its post-punk, electronic and dance continuations.",
+  "recipe": "classic british industrial, experimental Elec, industrial noise branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 119,
+  "score": 0.063,
+  "config": {
+    "traditions": [
+      "british_industrial"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

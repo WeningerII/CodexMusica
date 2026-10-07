@@ -1,0 +1,230 @@
+{
+  "id": "portuguese_experimental",
+  "name": "Portuguese Experimental",
+  "family": "global",
+  "lineage": "Maria da Rocha, Ernesto Rodrigues, Daniel Levin and João Madeira — Hoya (2023), quartet pieces. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s portuguese experimental, improv On Frame, jam free branch. European maple bosnian source flamed figure modern setup longer neck violin orchestral, European maple bosnian source flamed figure modern setup longer neck viola classical, European maple bosnian source flamed figure modern setup pirastro cellisto cello, European maple bosnian source flamed figure modern setup heavier bass bar double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 520,
+  "score": 30.27,
+  "config": {
+    "traditions": [
+      "portuguese_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "orch_strings": 0.3,
+          "orch_top_wood": -0.07,
+          "orch_back_wood": 2.34,
+          "orch_varnish": 0.7,
+          "orch_setup_period": 1.9044999999999999,
+          "orch_bow": 0,
+          "orch_bow_stick": 0.6499999999999999,
+          "orch_articulation": 0.3315,
+          "orch_rosin": 0.7314999999999999
+        }
+      },
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "viola_size": "viola_16_inch",
+          "viola_strings": "viola_synthetic",
+          "viola_top_wood": "viola_norway_spruce",
+          "viola_back_wood": "viola_bosnian_flamed_maple",
+          "viola_varnish": "viola_oil_amber",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_larsen_rosin"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "viola_size": 0,
+          "viola_strings": 0.6945,
+          "viola_top_wood": -0.07,
+          "viola_back_wood": 2.34,
+          "viola_varnish": 0.7,
+          "viola_setup_period": 1.9044999999999999,
+          "viola_bow_stick": 0.6499999999999999,
+          "viola_rosin": 1.063
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "cello_strings": 0.9314999999999999,
+          "cello_top_wood": -0.07,
+          "cello_back_wood": 2.34,
+          "cello_varnish": 0.7,
+          "cello_setup_period": 1.9044999999999999,
+          "cello_bow_grip": 0.0315,
+          "cello_rosin": 1.1365,
+          "cello_bow_stick": 0.6499999999999999
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_sul_ponticello",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "bass_size": 0.3,
+          "bass_strings": 0.78,
+          "bass_top_wood": -0.07,
+          "bass_back_wood": 2.34,
+          "bass_varnish": 0.7,
+          "bass_setup_period": 1.9044999999999999,
+          "bass_play": 0.1365,
+          "bass_rosin": 1.936,
+          "bass_bow_stick": 0.6499999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "viola_classical": [
+        "bowed_technique",
+        "viola_size",
+        "viola_strings",
+        "viola_top_wood",
+        "viola_back_wood",
+        "viola_varnish",
+        "viola_setup_period",
+        "viola_bow_stick",
+        "viola_rosin"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "double_bass": [
+        "bowed_technique",
+        "bass_size",
+        "bass_strings",
+        "bass_top_wood",
+        "bass_back_wood",
+        "bass_varnish",
+        "bass_setup_period",
+        "bass_play",
+        "bass_rosin",
+        "bass_bow_stick"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_sul_ponticello",
+      "orch_strings": "synthetic_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "viola_size": "viola_16_inch",
+      "viola_strings": "viola_synthetic",
+      "viola_top_wood": "viola_norway_spruce",
+      "viola_back_wood": "viola_bosnian_flamed_maple",
+      "viola_varnish": "viola_oil_amber",
+      "viola_setup_period": "viola_modern_setup",
+      "viola_bow_stick": "viola_pernambuco",
+      "viola_rosin": "viola_larsen_rosin",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "bass_size": "bass_three_quarter",
+      "bass_strings": "bass_steel",
+      "bass_top_wood": "norway_spruce_alpine_bass",
+      "bass_back_wood": "bosnian_flamed_maple_bass",
+      "bass_varnish": "oil_amber_varnish_bass",
+      "bass_setup_period": "modern_setup_bass",
+      "bass_play": "bass_arco",
+      "bass_rosin": "pop_kolstein_rosin",
+      "bass_bow_stick": "pernambuco_stick_bass"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

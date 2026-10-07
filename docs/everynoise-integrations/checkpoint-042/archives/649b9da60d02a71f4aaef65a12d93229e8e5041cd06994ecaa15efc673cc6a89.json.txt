@@ -1,0 +1,792 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 positions491–500; genre/data only",
+  "entries": [
+    {
+      "id": "german_ccm",
+      "before": {
+        "tradition": {
+          "id": "german_ccm",
+          "name": "German Ccm",
+          "family": "blues_gospel",
+          "lineage": "Albert Frey — Herr ich komme zu dir, Jochen Rieger four-part choir and piano edition. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "German CCM creator member Albert Frey composition in precisely selected publisher four-part choir/piano arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Albert Frey — Herr ich komme zu dir, Jochen Rieger four-part choir and piano edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "german_ccm",
+          "name": "German Ccm",
+          "family": "blues_gospel",
+          "lineage": "German CCM connects contemporary Christian songwriters, performers and audiences through recordings and shared repertoire. Choral arrangements provide one approach alongside solo and band-led performance.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "tuning": "twelve_tet",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A group of voices can sing contrasting parts with piano support. Clear phrasing and recurring melodic ideas carry devotional words, while accompaniment and ensemble size vary across settings.",
+          "exemplars": [
+            "Albert Frey"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered public prose and assess meaningful default choices.",
+      "sources": [
+        {
+          "url": "https://www.scm-shop.de/herr-ich-komme-zu-dir-158474.html",
+          "title": "Albert Frey — Herr ich komme zu dir, Jochen Rieger four-part choir and piano edition",
+          "support_notes": "German CCM creator member Albert Frey composition in precisely selected publisher four-part choir/piano arrangement.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3I9Qej7viaxaK9IUOtrhal",
+          "title": "The Sound of German Ccm",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear. A four-part choral score denotes musical sections, not a factual count of four people. Group delivery remains a representative choral arrangement. An authored concert presentation for choral groups, or live-room literary reading, is a meaningful representative alternative to dead-booth recording. Keep all physical and vocal controls; no historical venue claim.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Exact publisher edition explicitly four-part mixed choir; one authored singer per part,4 total."
+            },
+            {
+              "instrument": "grand_piano",
+              "source_role": "Selected edition explicitly piano accompaniment by Jochen Rieger, not another vocal-only edition."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "german_literature",
+      "before": {
+        "tradition": {
+          "id": "german_literature",
+          "name": "German Literature",
+          "family": "vernacular",
+          "lineage": "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Publisher identifies German-language literary audiobook, sole reader and unabridged edition. Spoken delivery, no invented instrumental accompaniment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "german_literature",
+          "name": "German Literature",
+          "family": "vernacular",
+          "lineage": "German literature in spoken performance brings written works into audiobook and live-reading traditions. Narrators use expressive timing and changing vocal emphasis to shape prose for listeners.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "spokenWord.narration",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A single speaking voice can carry a work through pauses, characterful phrasing and narrative momentum. Musical accompaniment is optional rather than necessary to the literary delivery.",
+          "exemplars": [
+            "Franz Kafka",
+            "Ulrich Matthes"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered public prose and assess meaningful default choices.",
+      "sources": [
+        {
+          "url": "https://www.argon-verlag.de/hoerbuch/franz-kafka-die-verwandlung-9783732402359",
+          "title": "Franz Kafka — Die Verwandlung, read by Ulrich Matthes (Argon2013)",
+          "support_notes": "Publisher identifies German-language literary audiobook, sole reader and unabridged edition. Spoken delivery, no invented instrumental accompaniment.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/69eKo1hKxQTZwMbrqrrATV",
+          "title": "The Sound of German Literature",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear. Remove global equal temperament from spoken narration. An authored concert presentation for choral groups, or live-room literary reading, is a meaningful representative alternative to dead-booth recording. Keep all physical and vocal controls; no historical venue claim.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Ulrich Matthes is explicitly sole reader of the selected unabridged edition; not the multireader Kafka box."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "german_soundtrack",
+      "before": {
+        "tradition": {
+          "id": "german_soundtrack",
+          "name": "German Soundtrack",
+          "family": "classical",
+          "lineage": "Hans Zimmer — Time from Inception, published piano solo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_minimalist_repeated",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernModern",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Licensed sheet-music distributor explicitly identifies Hans Zimmer film theme in piano-solo arrangement; exact solo score scope avoids importing original orchestration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Hans Zimmer — Time from Inception, published piano solo"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "german_soundtrack",
+          "name": "German Soundtrack",
+          "family": "classical",
+          "lineage": "German soundtrack music connects German composers with film and other screen repertoire. Themes circulate through original productions and renewed instrumental arrangements.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_minimalist_repeated",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernModern",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Solo piano can develop a recurring motif through repeated patterns and changing weight. Larger orchestral or electronic versions offer other colours around the same dramatic ideas.",
+          "exemplars": [
+            "Hans Zimmer"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered public prose and assess meaningful default choices.",
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/inception/time/MN0086727_D3",
+          "title": "Hans Zimmer — Time from Inception, published piano solo",
+          "support_notes": "Licensed sheet-music distributor explicitly identifies Hans Zimmer film theme in piano-solo arrangement; exact solo score scope avoids importing original orchestration.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0JC0SvamjkERHSSVifLM5N",
+          "title": "The Sound of German Soundtrack",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "grand_piano",
+              "source_role": "Published arrangement explicitly Instrumental Solo for piano; grand construction authored."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "german_worship",
+      "before": {
+        "tradition": {
+          "id": "german_worship",
+          "name": "German Worship",
+          "family": "blues_gospel",
+          "lineage": "Carsten Groß — Stille vor dir mein Vater, Jochen Rieger four-part choir and piano edition. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "German publisher lists selected edition as Worship, four-part mixed choir and piano accompaniment; exact role scope retained. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Carsten Groß — Stille vor dir mein Vater, Jochen Rieger four-part choir and piano edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "german_worship",
+          "name": "German Worship",
+          "family": "blues_gospel",
+          "lineage": "German worship repertoire supports Christian devotion through congregational, choral and individual singing. Published arrangements help songs move between different communities and ensemble sizes.",
+          "instruments": [
+            "voice",
+            "grand_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "tuning": "twelve_tet",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A group of voices with piano can bring contrasting parts together around a shared melody. Repeated phrases, changes in dynamics and clear textual delivery support participation and reflection.",
+          "exemplars": [
+            "Carsten Groß"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered public prose and assess meaningful default choices.",
+      "sources": [
+        {
+          "url": "https://www.scm-shop.de/stille-vor-dir-mein-vater-158847.html",
+          "title": "Carsten Groß — Stille vor dir mein Vater, Jochen Rieger four-part choir and piano edition",
+          "support_notes": "German publisher lists selected edition as Worship, four-part mixed choir and piano accompaniment; exact role scope retained.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear. A four-part choral score denotes musical sections, not a factual count of four people. Group delivery remains a representative choral arrangement. An authored concert presentation for choral groups, or live-room literary reading, is a meaningful representative alternative to dead-booth recording. Keep all physical and vocal controls; no historical venue claim.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+        "original_instrument_role_audit": {
+          "selected_roles": [
+            {
+              "instrument": "voice",
+              "source_role": "Publisher explicitly mixed four-part choir; authored one singer per scored part,4 total."
+            },
+            {
+              "instrument": "grand_piano",
+              "source_role": "Exact selected publisher edition explicitly piano accompaniment; other brass/unison alternatives excluded."
+            }
+          ],
+          "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+          "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+        }
+      }
+    },
+    {
+      "id": "glee_club",
+      "before": {
+        "tradition": {
+          "id": "glee_club",
+          "name": "Glee club",
+          "family": "classical",
+          "lineage": "Yale Glee Club — Jeffrey Douma arrangement of Woke Up This Morning, published SATB a cappella score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "choir_ensemble"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "choir_size": "mixed_4_part_satb",
+            "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+            "choir_regional_canonical_configuration": "choir_regional_none",
+            "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernModern",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Publisher G. Schirmer/Hal Leonard identifies an arrangement for Yale Glee Club, with complete SATB a cappella scoring: four choral sections and no instrumental accompaniment. Collegiate concert-choir category distinct from all choral music or a single gospel style. This models the complete named published arrangement; SATB means four sections, not four people. Exact choir headcount is unspecified. Chordal presentation is authored and does not claim every bar has identical texture. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Yale Glee Club — Jeffrey Douma arrangement of Woke Up This Morning, published SATB a cappella score"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "glee_club",
+          "name": "Glee club",
+          "family": "classical",
+          "lineage": "Glee clubs develop collegiate choral singing through rehearsals, concerts and arranged repertoire. Their musical activity connects student participation with varied concert traditions.",
+          "instruments": [
+            "choir_ensemble"
+          ],
+          "room": "concert_hall_shoebox",
+          "tuning": "twelve_tet",
+          "pin_parts": true,
+          "parts": {
+            "choir_size": "mixed_4_part_satb",
+            "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+            "choir_regional_canonical_configuration": "choir_regional_none",
+            "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernModern",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Mixed choral sections can sing without instruments, alternating blended chords with more independent lines. Ensemble phrasing and changes in dynamics shape the arrangement without implying one singer per part.",
+          "exemplars": [
+            "Yale Glee Club"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "REPAIR_READY",
+      "reason": "Restore genre-centered public prose and assess meaningful default choices.",
+      "sources": [
+        {
+          "url": "https://www.halleonard.com/product/50600533/woke-up-this-morning",
+          "title": "Yale Glee Club — Jeffrey Douma arrangement of Woke Up This Morning, published SATB a cappella score",
+          "support_notes": "Publisher G. Schirmer/Hal Leonard identifies an arrangement for Yale Glee Club, with complete SATB a cappella scoring: four choral sections and no instrumental accompaniment.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "policy": "Individually reviewed preserved primary genre/practice sources and owning parts. Public genre history/style replaces detailed source-session text, with all former evidence preserved. Instrument roles form a source-positive representative branch; physical settings are authored rather than measured source gear. A four-part choral score denotes musical sections, not a factual count of four people. Group delivery remains a representative choral arrangement. An authored concert presentation for choral groups, or live-room literary reading, is a meaningful representative alternative to dead-booth recording. Keep all physical and vocal controls; no historical venue claim.",
+        "instrumentation_changed": false,
+        "literal_review": "All four actual original browser/connector outputs individually inspected; generic affect coherent with the authored genre branch, all source-positive current families retained. Not final compiled API or full regression."
+      },
+      "preserved_provenance": {
+        "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-026-evidence.json",
+        "original_instrument_role_audit": {
+          "rationale": "Publisher G. Schirmer/Hal Leonard identifies an arrangement for Yale Glee Club, with complete SATB a cappella scoring: four choral sections and no instrumental accompaniment. Collegiate concert-choir category distinct from all choral music or a single gospel style. This models the complete named published arrangement; SATB means four sections, not four people. Exact choir headcount is unspecified. Chordal presentation is authored and does not claim every bar has identical texture.",
+          "instrumental_evidence": "https://www.halleonard.com/product/50600533/woke-up-this-morning",
+          "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+        }
+      }
+    }
+  ]
+}

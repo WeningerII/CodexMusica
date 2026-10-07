@@ -1,0 +1,58 @@
+{
+  "id": "pink_noise",
+  "name": "Pink noise",
+  "family": "electronic",
+  "lineage": "Electronically generated noise used in listening, sound design and experimental composition.",
+  "recipe": "classic pink noise, experimental Elec. software pink noise generator. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 168,
+  "score": 0.3,
+  "config": {
+    "traditions": [
+      "pink_noise"
+    ],
+    "instruments": [
+      {
+        "id": "software_pink_noise_generator",
+        "slots": {
+          "software_pink_noise_identity": "software_generated_pink_noise"
+        },
+        "scores": {
+          "software_pink_noise_identity": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "software_pink_noise_generator": [
+        "software_pink_noise_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "software_pink_noise_identity": "software_generated_pink_noise"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

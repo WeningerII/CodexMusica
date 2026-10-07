@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "baseline": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+  "old_genres": 6765,
+  "exact_approved_repairs": 197,
+  "other_old_genres_unchanged": 6568,
+  "new_genres": 16,
+  "old_owners_exact": 1658,
+  "new_owners": 1,
+  "traditions": 6781,
+  "instruments": 1659,
+  "candidate_sha256": "0d786fd4c67290ed0bc5b293b074bd07507f1fb9f5c6373688a4cac120093227"
+}

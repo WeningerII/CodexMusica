@@ -1,5 +1,5 @@
 {
-  "count": 1472,
+  "count": 1667,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8832,6 +8832,1176 @@
       "name": "Zills / sagat (Middle Eastern finger cymbals)",
       "family": "percussion",
       "href": "instruments/zills_sagat.json"
+    },
+    {
+      "id": "collegiate_brass_percussion_ensemble",
+      "name": "Collegiate brass and percussion ensemble",
+      "family": "ensemble",
+      "href": "instruments/collegiate_brass_percussion_ensemble.json"
+    },
+    {
+      "id": "string_orchestra_obbligato_violin",
+      "name": "String orchestra with obbligato violin",
+      "family": "ensemble",
+      "href": "instruments/string_orchestra_obbligato_violin.json"
+    },
+    {
+      "id": "credited_auxiliary_percussion",
+      "name": "Credited auxiliary percussion (source unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_auxiliary_percussion.json"
+    },
+    {
+      "id": "doromb_hungarian",
+      "name": "Doromb (Hungarian steel jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/doromb_hungarian.json"
+    },
+    {
+      "id": "nes_famicom_chip_system",
+      "name": "NES / Famicom chip synthesis system",
+      "family": "electronic",
+      "href": "instruments/nes_famicom_chip_system.json"
+    },
+    {
+      "id": "electronic_organ_unspecified",
+      "name": "Electronic organ (source-unspecified architecture)",
+      "family": "keyboard",
+      "href": "instruments/electronic_organ_unspecified.json"
+    },
+    {
+      "id": "dung_chen_contemporary",
+      "name": "Dung chen (contemporary source-unspecified construction)",
+      "family": "wind",
+      "href": "instruments/dung_chen_contemporary.json"
+    },
+    {
+      "id": "uyghur_dutar",
+      "name": "Uyghur dutar (source-unspecified construction)",
+      "family": "plucked_traditional",
+      "href": "instruments/uyghur_dutar.json"
+    },
+    {
+      "id": "janggu_concert_accompaniment",
+      "name": "Janggu (classical and sanjo concert accompaniment)",
+      "family": "percussion",
+      "href": "instruments/janggu_concert_accompaniment.json"
+    },
+    {
+      "id": "electric_cello_live_looping",
+      "name": "Electric cello with live looping",
+      "family": "bowed",
+      "href": "instruments/electric_cello_live_looping.json"
+    },
+    {
+      "id": "uilleann_pipes_three_quarter",
+      "name": "Uilleann pipes (three-quarter set)",
+      "family": "wind",
+      "href": "instruments/uilleann_pipes_three_quarter.json"
+    },
+    {
+      "id": "electronic_keyboard_unspecified",
+      "name": "Electronic keyboard (source-unspecified architecture)",
+      "family": "keyboard",
+      "href": "instruments/electronic_keyboard_unspecified.json"
+    },
+    {
+      "id": "vinyl_dj_playback",
+      "name": "Vinyl DJ playback and mixing setup",
+      "family": "electronic",
+      "href": "instruments/vinyl_dj_playback.json"
+    },
+    {
+      "id": "midi_programmed_sound_unspecified",
+      "name": "MIDI-programmed sound (source-unspecified generator)",
+      "family": "electronic",
+      "href": "instruments/midi_programmed_sound_unspecified.json"
+    },
+    {
+      "id": "sakha_concert_khomus",
+      "name": "Sakha concert khomus (nonritual jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/sakha_concert_khomus.json"
+    },
+    {
+      "id": "chepkong_lyre",
+      "name": "Chepkong (Kipsigis six-string laced bowl lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/chepkong_lyre.json"
+    },
+    {
+      "id": "credited_horns_unspecified",
+      "name": "Credited horns (source-unspecified instruments)",
+      "family": "wind",
+      "href": "instruments/credited_horns_unspecified.json"
+    },
+    {
+      "id": "ngoma_equatorial_harp",
+      "name": "Ngoma (Equatorial Guinean traditional harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/ngoma_equatorial_harp.json"
+    },
+    {
+      "id": "nadaswaram_concert_duo",
+      "name": "Nadaswaram (documented concert duo)",
+      "family": "wind",
+      "href": "instruments/nadaswaram_concert_duo.json"
+    },
+    {
+      "id": "braguinha_madeira",
+      "name": "Braguinha (Madeiran four-string machete)",
+      "family": "plucked_traditional",
+      "href": "instruments/braguinha_madeira.json"
+    },
+    {
+      "id": "viola_arame_madeira",
+      "name": "Viola de arame (Madeiran ten-string viola)",
+      "family": "plucked_traditional",
+      "href": "instruments/viola_arame_madeira.json"
+    },
+    {
+      "id": "dominican_metal_guiro",
+      "name": "Dominican metal güiro (pattern unspecified)",
+      "family": "percussion",
+      "href": "instruments/dominican_metal_guiro.json"
+    },
+    {
+      "id": "vivo_tahitian",
+      "name": "Vivo (Tahitian bamboo nose flute)",
+      "family": "wind",
+      "href": "instruments/vivo_tahitian.json"
+    },
+    {
+      "id": "pandero_source_unspecified",
+      "name": "Pandero (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/pandero_source_unspecified.json"
+    },
+    {
+      "id": "shaker_source_unspecified",
+      "name": "Shaker (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/shaker_source_unspecified.json"
+    },
+    {
+      "id": "guayo_source_unspecified",
+      "name": "Guayo (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/guayo_source_unspecified.json"
+    },
+    {
+      "id": "agogo_source_unspecified",
+      "name": "Agogo (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/agogo_source_unspecified.json"
+    },
+    {
+      "id": "timbales_stick_played",
+      "name": "Timbales (stick-played model)",
+      "family": "percussion",
+      "href": "instruments/timbales_stick_played.json"
+    },
+    {
+      "id": "conga_family_multi_register",
+      "name": "Conga family (credited multi-register set)",
+      "family": "percussion",
+      "href": "instruments/conga_family_multi_register.json"
+    },
+    {
+      "id": "comorian_gambusi",
+      "name": "Gambusi (Comorian four-string lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/comorian_gambusi.json"
+    },
+    {
+      "id": "viola_da_terra",
+      "name": "Viola da terra (Azorean twelve-string model)",
+      "family": "acoustic_strings",
+      "href": "instruments/viola_da_terra.json"
+    },
+    {
+      "id": "hand_cranked_paper_music_box",
+      "name": "Hand-cranked punch-tape music box",
+      "family": "percussion",
+      "href": "instruments/hand_cranked_paper_music_box.json"
+    },
+    {
+      "id": "toy_piano_concert",
+      "name": "Toy piano (concert playing model)",
+      "family": "keyboard",
+      "href": "instruments/toy_piano_concert.json"
+    },
+    {
+      "id": "timple_canario",
+      "name": "Timple (Canary Islands plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/timple_canario.json"
+    },
+    {
+      "id": "burari_papuan_flute",
+      "name": "Burári (southern Papuan one-hole cane flute)",
+      "family": "wind",
+      "href": "instruments/burari_papuan_flute.json"
+    },
+    {
+      "id": "rain_environmental_recording",
+      "name": "Rain environmental recording",
+      "family": "electronic",
+      "href": "instruments/rain_environmental_recording.json"
+    },
+    {
+      "id": "spoken_word_voice",
+      "name": "Spoken-word voice (separately credited speaker)",
+      "family": "voice",
+      "href": "instruments/spoken_word_voice.json"
+    },
+    {
+      "id": "saxophone_doubling_alto_soprano",
+      "name": "Alto and soprano saxophone doubling (one player)",
+      "family": "wind",
+      "href": "instruments/saxophone_doubling_alto_soprano.json"
+    },
+    {
+      "id": "snare_drum",
+      "name": "Standalone snare drum (general purpose)",
+      "family": "percussion",
+      "href": "instruments/snare_drum.json"
+    },
+    {
+      "id": "credited_harsh_noise",
+      "name": "Credited harsh-noise source (mechanism unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_harsh_noise.json"
+    },
+    {
+      "id": "ney_persian_interdental",
+      "name": "Persian ney (seven-segment cane, interdental)",
+      "family": "wind",
+      "href": "instruments/ney_persian_interdental.json"
+    },
+    {
+      "id": "donso_ngoni_eight_string",
+      "name": "Donso ngoni (eight-string hunters harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/donso_ngoni_eight_string.json"
+    },
+    {
+      "id": "keregne_mande",
+      "name": "Keregne (Mande metal scraper)",
+      "family": "percussion",
+      "href": "instruments/keregne_mande.json"
+    },
+    {
+      "id": "prepared_piano_cage_sonatas",
+      "name": "Prepared piano (Cage Sonatas mixed preparation)",
+      "family": "keyboard",
+      "href": "instruments/prepared_piano_cage_sonatas.json"
+    },
+    {
+      "id": "concert_triangle",
+      "name": "Concert triangle (general purpose)",
+      "family": "percussion",
+      "href": "instruments/concert_triangle.json"
+    },
+    {
+      "id": "hybrid_groovebox_electribe2",
+      "name": "Hybrid digital groovebox (Electribe 2 synthesis and PCM)",
+      "family": "electronic",
+      "href": "instruments/hybrid_groovebox_electribe2.json"
+    },
+    {
+      "id": "software_pink_noise_generator",
+      "name": "Software pink-noise generator",
+      "family": "electronic",
+      "href": "instruments/software_pink_noise_generator.json"
+    },
+    {
+      "id": "environmental_sound_collage",
+      "name": "Environmental sound collage",
+      "family": "electronic",
+      "href": "instruments/environmental_sound_collage.json"
+    },
+    {
+      "id": "credited_banjo_unspecified",
+      "name": "Credited banjo (configuration unspecified)",
+      "family": "plucked_traditional",
+      "href": "instruments/credited_banjo_unspecified.json"
+    },
+    {
+      "id": "saxophone_palette_soprano_unspecified",
+      "name": "Saxophone palette (soprano and unspecified saxophone)",
+      "family": "wind",
+      "href": "instruments/saxophone_palette_soprano_unspecified.json"
+    },
+    {
+      "id": "contraguitar",
+      "name": "Contraguitar (Viennese extended-bass guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/contraguitar.json"
+    },
+    {
+      "id": "credited_electronics_unspecified",
+      "name": "Credited electronics (source-unspecified generator)",
+      "family": "electronic",
+      "href": "instruments/credited_electronics_unspecified.json"
+    },
+    {
+      "id": "korg_kronos_workstation",
+      "name": "Korg KRONOS multi-engine workstation",
+      "family": "electronic",
+      "href": "instruments/korg_kronos_workstation.json"
+    },
+    {
+      "id": "acoustic_lap_steel_monteleone",
+      "name": "Monteleone acoustic lap steel",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_lap_steel_monteleone.json"
+    },
+    {
+      "id": "saxophone_section_soprano_alto_tenor",
+      "name": "Saxophone palette (soprano, alto and tenor)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_soprano_alto_tenor.json"
+    },
+    {
+      "id": "bahian_bacurinha_credited",
+      "name": "Bacurinha (credited Bahian pagode role)",
+      "family": "percussion",
+      "href": "instruments/bahian_bacurinha_credited.json"
+    },
+    {
+      "id": "torpedo_percussion_credited",
+      "name": "Torpedo (credited percussion role)",
+      "family": "percussion",
+      "href": "instruments/torpedo_percussion_credited.json"
+    },
+    {
+      "id": "credited_cymbals",
+      "name": "Cymbals (credited unspecified types)",
+      "family": "percussion",
+      "href": "instruments/credited_cymbals.json"
+    },
+    {
+      "id": "saxophone_section_alto_tenor_baritone",
+      "name": "Saxophone section (alto, tenor and baritone)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_tenor_baritone.json"
+    },
+    {
+      "id": "slide_archtop_guitar",
+      "name": "Slide archtop guitar",
+      "family": "electric_strings",
+      "href": "instruments/slide_archtop_guitar.json"
+    },
+    {
+      "id": "foot_operated_cymbal",
+      "name": "Foot-operated cymbal",
+      "family": "percussion",
+      "href": "instruments/foot_operated_cymbal.json"
+    },
+    {
+      "id": "credited_frame_drums",
+      "name": "Frame drums (credited unspecified types)",
+      "family": "percussion",
+      "href": "instruments/credited_frame_drums.json"
+    },
+    {
+      "id": "dunun_three_size_palette",
+      "name": "Dundun, sangban and kenkeni palette (one player)",
+      "family": "percussion",
+      "href": "instruments/dunun_three_size_palette.json"
+    },
+    {
+      "id": "credited_acoustic_bass",
+      "name": "Credited acoustic bass (construction unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_acoustic_bass.json"
+    },
+    {
+      "id": "ilimba_gogo",
+      "name": "Ilimba (Gogo lamellophone)",
+      "family": "percussion",
+      "href": "instruments/ilimba_gogo.json"
+    },
+    {
+      "id": "microtonal_guitar_unspecified",
+      "name": "Microtonal guitar (source-unspecified architecture)",
+      "family": "acoustic_strings",
+      "href": "instruments/microtonal_guitar_unspecified.json"
+    },
+    {
+      "id": "microtonal_mandolin_unspecified",
+      "name": "Microtonal mandolin (source-unspecified architecture)",
+      "family": "acoustic_strings",
+      "href": "instruments/microtonal_mandolin_unspecified.json"
+    },
+    {
+      "id": "octave_fiddle_unspecified",
+      "name": "Octave fiddle (source-unspecified construction)",
+      "family": "bowed",
+      "href": "instruments/octave_fiddle_unspecified.json"
+    },
+    {
+      "id": "munnharpe_unspecified",
+      "name": "Munnharpe (source-unspecified Norwegian jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/munnharpe_unspecified.json"
+    },
+    {
+      "id": "party_cans_credited",
+      "name": "Party cans (source-credited percussion)",
+      "family": "percussion",
+      "href": "instruments/party_cans_credited.json"
+    },
+    {
+      "id": "tenor_horn_eb",
+      "name": "E-flat tenor horn (alto horn)",
+      "family": "wind",
+      "href": "instruments/tenor_horn_eb.json"
+    },
+    {
+      "id": "baritone_horn_bb",
+      "name": "B-flat baritone horn",
+      "family": "wind",
+      "href": "instruments/baritone_horn_bb.json"
+    },
+    {
+      "id": "dj_playback_mixing_unspecified",
+      "name": "DJ playback and mixing (source medium unspecified)",
+      "family": "electronic",
+      "href": "instruments/dj_playback_mixing_unspecified.json"
+    },
+    {
+      "id": "software_sample_playback",
+      "name": "Software sample playback and arrangement",
+      "family": "electronic",
+      "href": "instruments/software_sample_playback.json"
+    },
+    {
+      "id": "digital_multiengine_synthesizer",
+      "name": "Digital multi-engine synthesizer",
+      "family": "electronic",
+      "href": "instruments/digital_multiengine_synthesizer.json"
+    },
+    {
+      "id": "digital_synthesis_drum_machine",
+      "name": "Digital synthesis drum machine",
+      "family": "electronic",
+      "href": "instruments/digital_synthesis_drum_machine.json"
+    },
+    {
+      "id": "davul_experimental_solo",
+      "name": "Solo experimental davul",
+      "family": "percussion",
+      "href": "instruments/davul_experimental_solo.json"
+    },
+    {
+      "id": "acoustic_guitar_bass_register",
+      "name": "Acoustic guitar with bass-register function",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_guitar_bass_register.json"
+    },
+    {
+      "id": "arp_2600_layered",
+      "name": "ARP 2600 layered synthesis",
+      "family": "electronic",
+      "href": "instruments/arp_2600_layered.json"
+    },
+    {
+      "id": "cheeze_machine_pro",
+      "name": "Cheeze Machine PRO virtual-analog synthesizer",
+      "family": "electronic",
+      "href": "instruments/cheeze_machine_pro.json"
+    },
+    {
+      "id": "credited_drums_unspecified",
+      "name": "Credited drums (source technology unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_drums_unspecified.json"
+    },
+    {
+      "id": "motif_xf8_sampled_piano",
+      "name": "Motif XF8 sampled-piano keyboard",
+      "family": "keyboard",
+      "href": "instruments/motif_xf8_sampled_piano.json"
+    },
+    {
+      "id": "garifuna_primero_drum",
+      "name": "Garifuna primero drum",
+      "family": "percussion",
+      "href": "instruments/garifuna_primero_drum.json"
+    },
+    {
+      "id": "credited_organ_unspecified",
+      "name": "Credited organ (mechanism unspecified)",
+      "family": "keyboard",
+      "href": "instruments/credited_organ_unspecified.json"
+    },
+    {
+      "id": "uhadi_song_bow",
+      "name": "Uhadi gourd bow for sung repertoire",
+      "family": "plucked_traditional",
+      "href": "instruments/uhadi_song_bow.json"
+    },
+    {
+      "id": "credited_washboard_unspecified",
+      "name": "Washboard with source-unspecified construction",
+      "family": "percussion",
+      "href": "instruments/credited_washboard_unspecified.json"
+    },
+    {
+      "id": "fixed_frequency_tone_recording",
+      "name": "Fixed-frequency tone recording",
+      "family": "electronic",
+      "href": "instruments/fixed_frequency_tone_recording.json"
+    },
+    {
+      "id": "credited_strings_unspecified",
+      "name": "Credited strings (instrumentation unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_strings_unspecified.json"
+    },
+    {
+      "id": "credited_temple_bells",
+      "name": "Credited temple bells (construction unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_temple_bells.json"
+    },
+    {
+      "id": "flute_whisper_tones",
+      "name": "Flute whisper tones",
+      "family": "wind",
+      "href": "instruments/flute_whisper_tones.json"
+    },
+    {
+      "id": "credited_ney",
+      "name": "Credited ney",
+      "family": "wind",
+      "href": "instruments/credited_ney.json"
+    },
+    {
+      "id": "credited_kawala",
+      "name": "Credited kawala",
+      "family": "wind",
+      "href": "instruments/credited_kawala.json"
+    },
+    {
+      "id": "whale_environmental_recording",
+      "name": "Whale environmental recording",
+      "family": "electronic",
+      "href": "instruments/whale_environmental_recording.json"
+    },
+    {
+      "id": "software_white_noise_generator",
+      "name": "Software white-noise generator",
+      "family": "electronic",
+      "href": "instruments/software_white_noise_generator.json"
+    },
+    {
+      "id": "good_ones_found_object_percussion",
+      "name": "Found-object percussion (cup, wrap, bucket, cushion and boots)",
+      "family": "percussion",
+      "href": "instruments/good_ones_found_object_percussion.json"
+    },
+    {
+      "id": "feedback_pedal_mixer_network",
+      "name": "Feedback pedal and mixer network",
+      "family": "electronic",
+      "href": "instruments/feedback_pedal_mixer_network.json"
+    },
+    {
+      "id": "found_household_percussion",
+      "name": "Household found percussion (bottle and bowl pair)",
+      "family": "percussion",
+      "href": "instruments/found_household_percussion.json"
+    },
+    {
+      "id": "credited_music_box_unspecified",
+      "name": "Music box (mechanism unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_music_box_unspecified.json"
+    },
+    {
+      "id": "hardware_tb303_bassline_complete",
+      "name": "303-type hardware bass-line synthesizer",
+      "family": "electronic",
+      "href": "instruments/hardware_tb303_bassline_complete.json"
+    },
+    {
+      "id": "hardware_cr78_rhythm_complete",
+      "name": "CR-78 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_cr78_rhythm_complete.json"
+    },
+    {
+      "id": "hardware_tr606_rhythm_complete",
+      "name": "TR-606 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_tr606_rhythm_complete.json"
+    },
+    {
+      "id": "hardware_tr808_rhythm_complete",
+      "name": "TR-808 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_tr808_rhythm_complete.json"
+    },
+    {
+      "id": "hardware_tr909_rhythm_complete",
+      "name": "TR-909 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_tr909_rhythm_complete.json"
+    },
+    {
+      "id": "software_singing_synthesis",
+      "name": "Software singing synthesis",
+      "family": "electronic",
+      "href": "instruments/software_singing_synthesis.json"
+    },
+    {
+      "id": "daw_melodic_source_unspecified",
+      "name": "DAW melodic source (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_melodic_source_unspecified.json"
+    },
+    {
+      "id": "daw_phrase_source_unspecified",
+      "name": "DAW phrase source (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_phrase_source_unspecified.json"
+    },
+    {
+      "id": "daw_bass_source_unspecified",
+      "name": "DAW bass source (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_bass_source_unspecified.json"
+    },
+    {
+      "id": "daw_percussion_source_unspecified",
+      "name": "DAW drum and percussion sources (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_percussion_source_unspecified.json"
+    },
+    {
+      "id": "credited_samples_unspecified",
+      "name": "Credited sample performance (source unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_samples_unspecified.json"
+    },
+    {
+      "id": "saxophone_section_alto_tenor",
+      "name": "Saxophone section (alto and tenor)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_tenor.json"
+    },
+    {
+      "id": "korg_volca_sample",
+      "name": "KORG volca sample",
+      "family": "electronic",
+      "href": "instruments/korg_volca_sample.json"
+    },
+    {
+      "id": "korg_volca_sample2",
+      "name": "KORG volca sample2",
+      "family": "electronic",
+      "href": "instruments/korg_volca_sample2.json"
+    },
+    {
+      "id": "korg_volca_keys",
+      "name": "KORG volca keys",
+      "family": "electronic",
+      "href": "instruments/korg_volca_keys.json"
+    },
+    {
+      "id": "korg_nts1_digital",
+      "name": "KORG Nu:Tekt NTS-1 digital kit",
+      "family": "electronic",
+      "href": "instruments/korg_nts1_digital.json"
+    },
+    {
+      "id": "esencia_spanish_corneta_section",
+      "name": "Spanish transposing corneta section (Esencia)",
+      "family": "wind",
+      "href": "instruments/esencia_spanish_corneta_section.json"
+    },
+    {
+      "id": "esencia_processional_drum_set",
+      "name": "Esencia processional drums and timbales",
+      "family": "percussion",
+      "href": "instruments/esencia_processional_drum_set.json"
+    },
+    {
+      "id": "analog_sine_oscillator_z3000",
+      "name": "Z3000 analog sine oscillator",
+      "family": "electronic",
+      "href": "instruments/analog_sine_oscillator_z3000.json"
+    },
+    {
+      "id": "electronic_synthesis_sequencing_unspecified",
+      "name": "Electronic synthesis and sequencing (source-unspecified architecture)",
+      "family": "electronic",
+      "href": "instruments/electronic_synthesis_sequencing_unspecified.json"
+    },
+    {
+      "id": "software_isochronic_tone_generator",
+      "name": "Software isochronic tone generator",
+      "family": "electronic",
+      "href": "instruments/software_isochronic_tone_generator.json"
+    },
+    {
+      "id": "credited_guira_unspecified",
+      "name": "Credited güira (construction unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_guira_unspecified.json"
+    },
+    {
+      "id": "thom_nuer_four_string",
+      "name": "Thom (Nuer four-string instrument)",
+      "family": "plucked_traditional",
+      "href": "instruments/thom_nuer_four_string.json"
+    },
+    {
+      "id": "saxophone_section_alto_two_baritones",
+      "name": "Saxophone section (alto and two baritones)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_two_baritones.json"
+    },
+    {
+      "id": "credited_programmed_drums_unspecified",
+      "name": "Credited programmed drums (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_programmed_drums_unspecified.json"
+    },
+    {
+      "id": "human_voice_ensemble_unspecified",
+      "name": "Human voice — source-unspecified ensemble and tracking",
+      "family": "voice",
+      "href": "instruments/human_voice_ensemble_unspecified.json"
+    },
+    {
+      "id": "credited_bouzouki_unspecified",
+      "name": "Credited bouzouki (configuration unspecified)",
+      "family": "plucked_traditional",
+      "href": "instruments/credited_bouzouki_unspecified.json"
+    },
+    {
+      "id": "zoom_rt123_rhythm_bass_machine",
+      "name": "Zoom RT-123 rhythm and bass machine",
+      "family": "electronic",
+      "href": "instruments/zoom_rt123_rhythm_bass_machine.json"
+    },
+    {
+      "id": "multi_method_sound_synthesis",
+      "name": "Multi-method sound synthesis",
+      "family": "electronic",
+      "href": "instruments/multi_method_sound_synthesis.json"
+    },
+    {
+      "id": "digital_percussion_pad",
+      "name": "Digital percussion pad (SPD-30 internal sound bank)",
+      "family": "electronic",
+      "href": "instruments/digital_percussion_pad.json"
+    },
+    {
+      "id": "hand_pumped_harmonium",
+      "name": "Hand-pumped harmonium",
+      "family": "free_reed",
+      "href": "instruments/hand_pumped_harmonium.json"
+    },
+    {
+      "id": "igbo_tonal_skin_drum_ensemble",
+      "name": "Owerri Igbo tonal skin-drum ensemble",
+      "family": "percussion",
+      "href": "instruments/igbo_tonal_skin_drum_ensemble.json"
+    },
+    {
+      "id": "credited_flute_unspecified",
+      "name": "Credited flute (source-unspecified construction)",
+      "family": "wind",
+      "href": "instruments/credited_flute_unspecified.json"
+    },
+    {
+      "id": "accordina",
+      "name": "Accordina",
+      "family": "free_reed",
+      "href": "instruments/accordina.json"
+    },
+    {
+      "id": "txirula",
+      "name": "Txirula",
+      "family": "wind",
+      "href": "instruments/txirula.json"
+    },
+    {
+      "id": "spoken_dramatic_cast",
+      "name": "Spoken dramatic cast",
+      "family": "voice",
+      "href": "instruments/spoken_dramatic_cast.json"
+    },
+    {
+      "id": "heligonka_cf",
+      "name": "Heligónka (two-row C/F)",
+      "family": "free_reed",
+      "href": "instruments/heligonka_cf.json"
+    },
+    {
+      "id": "senggayung_bamboo_tubes",
+      "name": "Senggayung struck bamboo tubes",
+      "family": "percussion",
+      "href": "instruments/senggayung_bamboo_tubes.json"
+    },
+    {
+      "id": "credited_synthesizer_unspecified",
+      "name": "Credited synthesizer (architecture unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_synthesizer_unspecified.json"
+    },
+    {
+      "id": "electronic_drum_kit_unspecified",
+      "name": "Electronic drum kit (architecture unspecified)",
+      "family": "electronic",
+      "href": "instruments/electronic_drum_kit_unspecified.json"
+    },
+    {
+      "id": "credited_sound_effect_unspecified",
+      "name": "Credited sound effect (mechanism unspecified)",
+      "family": "ensemble",
+      "href": "instruments/credited_sound_effect_unspecified.json"
+    },
+    {
+      "id": "viol_consort",
+      "name": "Viol consort — mixed treble,tenor and bass registers",
+      "family": "bowed",
+      "href": "instruments/viol_consort.json"
+    },
+    {
+      "id": "moog_matriarch",
+      "name": "Moog Matriarch",
+      "family": "electronic",
+      "href": "instruments/moog_matriarch.json"
+    },
+    {
+      "id": "sequential_prophet_xl",
+      "name": "Sequential Prophet XL",
+      "family": "electronic",
+      "href": "instruments/sequential_prophet_xl.json"
+    },
+    {
+      "id": "custom_therevox_unspecified",
+      "name": "Custom Therevox synthesizer",
+      "family": "electronic",
+      "href": "instruments/custom_therevox_unspecified.json"
+    },
+    {
+      "id": "flauta_pitiusa",
+      "name": "Flaüta pitiüsa (three-hole oleander duct flute)",
+      "family": "wind",
+      "href": "instruments/flauta_pitiusa.json"
+    },
+    {
+      "id": "tambor_pitius",
+      "name": "Tambor pitiús (pine double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/tambor_pitius.json"
+    },
+    {
+      "id": "castanyoles_pitiuses",
+      "name": "Castanyoles pitiüses (large juniper hand clappers)",
+      "family": "percussion",
+      "href": "instruments/castanyoles_pitiuses.json"
+    },
+    {
+      "id": "pandeirola_meia_lua",
+      "name": "Pandeirola meia-lua (jingled percussion)",
+      "family": "percussion",
+      "href": "instruments/pandeirola_meia_lua.json"
+    },
+    {
+      "id": "flauta_carrizo_tabasquena",
+      "name": "Flauta de carrizo tabasqueña",
+      "family": "wind",
+      "href": "instruments/flauta_carrizo_tabasquena.json"
+    },
+    {
+      "id": "requinto_tabasqueno",
+      "name": "Requinto tabasqueño (small double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/requinto_tabasqueno.json"
+    },
+    {
+      "id": "tambor_grande_tabasqueno",
+      "name": "Tambor grande tabasqueño (large double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/tambor_grande_tabasqueno.json"
+    },
+    {
+      "id": "comorian_firimbi",
+      "name": "Firimbi — Comorian open-ended flute",
+      "family": "wind",
+      "href": "instruments/comorian_firimbi.json"
+    },
+    {
+      "id": "live_signal_processing_unspecified",
+      "name": "Live signal processing (source-unspecified effects and mixing)",
+      "family": "electronic",
+      "href": "instruments/live_signal_processing_unspecified.json"
+    },
+    {
+      "id": "credited_environmental_ambience",
+      "name": "Credited incidental environmental ambience",
+      "family": "electronic",
+      "href": "instruments/credited_environmental_ambience.json"
+    },
+    {
+      "id": "chiapanecan_marimba",
+      "name": "Marimba chiapaneca",
+      "family": "percussion",
+      "href": "instruments/chiapanecan_marimba.json"
+    },
+    {
+      "id": "credited_requinto_unspecified",
+      "name": "Credited requinto (construction unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_requinto_unspecified.json"
+    },
+    {
+      "id": "credited_steel_guitar_unspecified",
+      "name": "Credited steel guitar (architecture unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_steel_guitar_unspecified.json"
+    },
+    {
+      "id": "native_american_flute_source_unspecified",
+      "name": "Native American flute (form unspecified)",
+      "family": "wind",
+      "href": "instruments/native_american_flute_source_unspecified.json"
+    },
+    {
+      "id": "hand_drum_source_unspecified",
+      "name": "Hand drum (construction unspecified)",
+      "family": "percussion",
+      "href": "instruments/hand_drum_source_unspecified.json"
+    },
+    {
+      "id": "live_loop_recording_playback",
+      "name": "Live loop recording and playback",
+      "family": "electronic",
+      "href": "instruments/live_loop_recording_playback.json"
+    },
+    {
+      "id": "credited_leather_percussion_unspecified",
+      "name": "Leather percussion (source-unspecified form)",
+      "family": "percussion",
+      "href": "instruments/credited_leather_percussion_unspecified.json"
+    },
+    {
+      "id": "credited_sapek_kayan",
+      "name": "Sapek Kayan (credited lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/credited_sapek_kayan.json"
+    },
+    {
+      "id": "credited_programming_unspecified",
+      "name": "Credited programmed sound (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_programming_unspecified.json"
+    },
+    {
+      "id": "gaita_extremena",
+      "name": "Gaita extremeña (three-hole tabor pipe)",
+      "family": "wind",
+      "href": "instruments/gaita_extremena.json"
+    },
+    {
+      "id": "andean_scordatura_guitar",
+      "name": "Andean scordatura guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/andean_scordatura_guitar.json"
+    },
+    {
+      "id": "gene_iii_drum_machine",
+      "name": "Gene III analog polyrhythmic drum machine",
+      "family": "electronic",
+      "href": "instruments/gene_iii_drum_machine.json"
+    },
+    {
+      "id": "credited_beat_unspecified",
+      "name": "Credited beat (production mechanism unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_beat_unspecified.json"
+    },
+    {
+      "id": "credited_drum_machine_unspecified",
+      "name": "Credited drum machine (generator and interface unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_drum_machine_unspecified.json"
+    },
+    {
+      "id": "credited_bamboo_flute_unspecified",
+      "name": "Credited bamboo flute",
+      "family": "wind",
+      "href": "instruments/credited_bamboo_flute_unspecified.json"
+    },
+    {
+      "id": "muri_tongpo",
+      "name": "Muri Tongpo",
+      "family": "wind",
+      "href": "instruments/muri_tongpo.json"
+    },
+    {
+      "id": "muri_jangkek",
+      "name": "Muri Jangkek",
+      "family": "wind",
+      "href": "instruments/muri_jangkek.json"
+    },
+    {
+      "id": "cheng_pi",
+      "name": "Cheng Pi",
+      "family": "percussion",
+      "href": "instruments/cheng_pi.json"
+    },
+    {
+      "id": "cheng_burup",
+      "name": "Cheng Burup pair",
+      "family": "percussion",
+      "href": "instruments/cheng_burup.json"
+    },
+    {
+      "id": "hudka_uttarakhand",
+      "name": "Hudka (Uttarakhand hourglass drum)",
+      "family": "percussion",
+      "href": "instruments/hudka_uttarakhand.json"
+    },
+    {
+      "id": "binaural_spatial_renderer",
+      "name": "Binaural spatial renderer",
+      "family": "electronic",
+      "href": "instruments/binaural_spatial_renderer.json"
+    },
+    {
+      "id": "octapad_unspecified",
+      "name": "Octapad multipad percussion (model and sound routing unspecified)",
+      "family": "electronic",
+      "href": "instruments/octapad_unspecified.json"
+    },
+    {
+      "id": "arpa_peruana",
+      "name": "Arpa peruana (Peruvian folk harp)",
+      "family": "acoustic_strings",
+      "href": "instruments/arpa_peruana.json"
+    },
+    {
+      "id": "sinyaka",
+      "name": "Sinyaka (internally filled calabash rattle)",
+      "family": "percussion",
+      "href": "instruments/sinyaka.json"
+    },
+    {
+      "id": "credited_bottle",
+      "name": "Bottle percussion",
+      "family": "percussion",
+      "href": "instruments/credited_bottle.json"
+    },
+    {
+      "id": "tbal_mauritanian",
+      "name": "Tbal (Moorish hemispherical hand drum)",
+      "family": "percussion",
+      "href": "instruments/tbal_mauritanian.json"
+    },
+    {
+      "id": "lukembi_congolese",
+      "name": "Lukembi (Congolese ten-key hollow-body lamellophone)",
+      "family": "plucked_traditional",
+      "href": "instruments/lukembi_congolese.json"
+    },
+    {
+      "id": "recorded_appliance_sound",
+      "name": "Recorded household-appliance sound",
+      "family": "electronic",
+      "href": "instruments/recorded_appliance_sound.json"
+    },
+    {
+      "id": "produced_808_bass",
+      "name": "Produced 808 low bass",
+      "family": "electronic",
+      "href": "instruments/produced_808_bass.json"
+    },
+    {
+      "id": "ho_dama_kettle_drum",
+      "name": "Ho dama kettle drum",
+      "family": "percussion",
+      "href": "instruments/ho_dama_kettle_drum.json"
+    },
+    {
+      "id": "ho_dumang_double_headed_drum",
+      "name": "Ho dumang double-headed drum",
+      "family": "percussion",
+      "href": "instruments/ho_dumang_double_headed_drum.json"
+    },
+    {
+      "id": "zongora_maramures",
+      "name": "Zongoră (Maramureș accompaniment guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/zongora_maramures.json"
+    },
+    {
+      "id": "doba_maramures",
+      "name": "Dobă (Maramureș drum)",
+      "family": "percussion",
+      "href": "instruments/doba_maramures.json"
+    },
+    {
+      "id": "cassette_pause_tape_looping",
+      "name": "Cassette pause-tape beat production",
+      "family": "electronic",
+      "href": "instruments/cassette_pause_tape_looping.json"
+    },
+    {
+      "id": "software_lofi_reworking",
+      "name": "Software lo-fi reworking processor",
+      "family": "electronic",
+      "href": "instruments/software_lofi_reworking.json"
+    },
+    {
+      "id": "triple_fipple_flute_tenenexpan",
+      "name": "Tenenexpan triple duct flute",
+      "family": "wind",
+      "href": "instruments/triple_fipple_flute_tenenexpan.json"
+    },
+    {
+      "id": "recorded_music_rate_processing",
+      "name": "Recorded music rate processing",
+      "family": "electronic",
+      "href": "instruments/recorded_music_rate_processing.json"
+    },
+    {
+      "id": "apple_es2_software_synth",
+      "name": "Apple ES2 software hybrid synthesizer",
+      "family": "electronic",
+      "href": "instruments/apple_es2_software_synth.json"
+    },
+    {
+      "id": "flamenco_zapateado_shoes",
+      "name": "Flamenco zapateado shoes",
+      "family": "percussion",
+      "href": "instruments/flamenco_zapateado_shoes.json"
+    },
+    {
+      "id": "produced_cowbell",
+      "name": "Produced cowbell sound",
+      "family": "electronic",
+      "href": "instruments/produced_cowbell.json"
+    },
+    {
+      "id": "russian_seven_string_guitar",
+      "name": "Russian seven-string guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/russian_seven_string_guitar.json"
+    },
+    {
+      "id": "dholki_nal",
+      "name": "Dholki / nal",
+      "family": "percussion",
+      "href": "instruments/dholki_nal.json"
     }
   ]
 }

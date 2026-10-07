@@ -1,0 +1,143 @@
+{
+  "id": "early_music_ensemble",
+  "name": "Early music ensemble",
+  "family": "classical",
+  "lineage": "Fretwork and Iestyn Davies — complete dated Purcell & Nyman: Music After Awhile concert programme,29October2019,Christ Church Cathedral,Vancouver. Presenter programme names Davies countertenor,Asako Morikawa and Emily Ashton treble viols,Joanna Levine tenor viol,Sam Stadlen and Richard Boothby bass viols. Five instrumentalists and one singer,three viol registers preserved in one explicitly composite consort owner. Whole programme includes Purcell fantasias and songs alongside contemporary Nyman commissions/arrangements. Complete event programme is the selected documented performance practice; linked presenter-issued If and Music for a While videos corroborate actual performance, not grounds for importing an unrelated album roster. No claim every musician sounds throughout every work; pre-concert discussion is not a musical speaker part. Authored modern concert rendition of the complete source palette,one accompanied voice plus mixed-register viol consort. Consort construction follows Viola da Gamba Society guidance: fretted bowed instruments,underhand bow grip and plain upper gut/silver-wound lower gut strings; this is explicit generic physical realization rather than measured Fretwork instrument makes or actual winding metals (silver is an authored choice). Wood species,bow-stick species,exact strings per instrument,concert pitch and temperament remain unspecified. Neutral vocal physiology remains unspecified despite the source countertenor label. Classical legato bow gesture,unprocessed one-lead voice and treated live-room capture are authored rendering choices,not a transcription of every articulation or measured cathedral acoustics; this is a fresh authored recording rendition, not venue reconstruction. No signal-chain hardware or global tuning imposed.",
+  "recipe": "classic early music ensemble, art Music. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. consort gut tied frets movable underhand grip plain gut viol consort. live tracking.",
+  "recipe_chars": 231,
+  "score": 35.09,
+  "config": {
+    "traditions": [
+      "early_music_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.1550000000000002,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.363,
+          "voice_multitrack_stack": 4.472999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "viol_consort",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viol_consort_registers": "viol_consort_two_treble_one_tenor_two_bass",
+          "viol_consort_frets": "viol_consort_tied_gut_frets",
+          "viol_consort_bow_grip": "viol_consort_underhand",
+          "tenor_violin_strings": "tenor_violin_strings_plain_wound_gut"
+        },
+        "scores": {
+          "bowed_technique": 7.112999999999999,
+          "viol_consort_registers": 7.536499999999999,
+          "viol_consort_frets": 2.5999999999999996,
+          "viol_consort_bow_grip": 2.6,
+          "tenor_violin_strings": 8.249999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "viol_consort": [
+        "bowed_technique",
+        "viol_consort_registers",
+        "viol_consort_frets",
+        "viol_consort_bow_grip",
+        "tenor_violin_strings"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "viol_consort_registers": "viol_consort_two_treble_one_tenor_two_bass",
+      "viol_consort_frets": "viol_consort_tied_gut_frets",
+      "viol_consort_bow_grip": "viol_consort_underhand",
+      "bowed_technique": "bowed_legato_classical",
+      "tenor_violin_strings": "tenor_violin_strings_plain_wound_gut"
+    },
+    "pin_parts": true
+  }
+}

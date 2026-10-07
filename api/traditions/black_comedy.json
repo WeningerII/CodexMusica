@@ -2,10 +2,10 @@
   "id": "black_comedy",
   "name": "Black Comedy",
   "family": "vernacular",
-  "lineage": "Michael Colyar — Cracker Barrel from Michael Colyar’s Back (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic mid-2010s black comedy, functional Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 147,
-  "score": 0.301,
+  "lineage": "Black comedy here denotes the African American stand-up comedy field represented by its performers and recorded routines.",
+  "recipe": "classic black comedy, spoken Word. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 133,
+  "score": 0.904,
   "config": {
     "traditions": [
       "black_comedy"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.09675,
-          "voice_ensemble_config": 0,
+          "voice_speech_song": 0.3884999999999999,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.20475,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.09449999999999999,
           "voice_tessitura": 0
         }
       }
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_register": "voice_register_source_unspecified",

@@ -1,0 +1,206 @@
+{
+  "entries": [
+    {
+      "source_label": "raspe",
+      "source_url": "https://everynoise.com/engenremap-raspe.html",
+      "suggested_id": "raspe",
+      "allocation_ordinal": 4198,
+      "allocation_group_id": "168",
+      "status": "frozen_pending_independent_review",
+      "id": "raspe",
+      "tradition": {
+        "id": "raspe",
+        "name": "Raspe",
+        "family": "electronic",
+        "lineage": "Dj Andy — whole self-issued MIX RASPE HONDURAS VOL 1, published20May2025 on his SoundCloud. Publisher names actual DJ mix and explicitly tags RASPE; his own profile lists a continuing mix practice including second Raspe volume, dembow and reggaeton programmes. All embedded source music/voices retained through the medium-neutral DJ owner. No duration, individual tracklist, exclusive-style purity, exact source decks/software or live-versus-offline recording asserted; direct page blocked but genuine indexed issuer metadata retrieved. No source masters reconstructed or additional live singer cards inferred. One protected medium-neutral DJ playback/mixing identity models the positively credited programme-making role, without asserting source music synthesis/sampling hardware. bassSystem.reggaeDiaspora and electronic family represent the documented dancehall/electronic regional crossover. Controlled live-room playback presentation and neutral axes are authored, not source venue measurements. No global tuning/capture apparatus invented.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "bassSystem.reggaeDiaspora",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Dj Andy — whole self-issued MIX RASPE HONDURAS VOL 1, published20May2025 on his SoundCloud. Publisher names actual DJ mix and explicitly tags RASPE; his own profile lists a continuing mix practice including second Raspe volume, dembow and reggaeton programmes. All embedded source music/voices retained through the medium-neutral DJ owner. No duration, individual tracklist, exclusive-style purity, exact source decks/software or live-versus-offline recording asserted; direct page blocked but genuine indexed issuer metadata retrieved. No source masters reconstructed or additional live singer cards inferred. Raspe is a positively named Honduran north-coast dancehall/electronic dance current. First-person2025 interview with producer ALEMVN and Fresh Bodden explains melodic electronics plus dancehall percussion, a north-coast dance term and circulation through KBP and other precursors into national/diasporic venues. Exact creator roster corroborates KBP, ALEMVN, Jr Clark, Big Nango and associated collaborations; it is not evidence every DJ selection belongs exclusively to this roster. Actual musica_hondurena is broader national repertoire and its Candú score only an exemplar; this is a narrower contemporary dance-production community with overlap, not a nationality-only claim. Garifuna punta/punta-rock specifically retain historical drum/dance lineage, whereas this source names a distinct electronic/dancehall fusion; Jamaican dancehall and reggaeton are influential broader/adjacent practices, not synonyms. Queued regionally named Latin/Caribbean scenes do not erase this positively identified Honduran current. Selected Dj Andy is not claimed a mapped artist; his issuer explicitly identifies requested style. One protected medium-neutral DJ playback/mixing identity models the positively credited programme-making role, without asserting source music synthesis/sampling hardware. bassSystem.reggaeDiaspora and electronic family represent the documented dancehall/electronic regional crossover. Controlled live-room playback presentation and neutral axes are authored, not source venue measurements. No global tuning/capture apparatus invented.",
+        "exemplars": [
+          "Dj Andy — MIX RASPE HONDURAS VOL1 (2025), complete issued DJ programme"
+        ],
+        "crossRefs": [],
+        "status": "documented"
+      },
+      "geo": [
+        15,
+        -86.5,
+        "Honduras",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Country-level repertoire-community anchor documented by primary producer interview and expressly named in selected mix; not DJ birthplace or source recording location (profile says Bronx).",
+      "signature_tokens": [],
+      "source_scope_limitation": "Dj Andy — whole self-issued MIX RASPE HONDURAS VOL 1, published20May2025 on his SoundCloud. Publisher names actual DJ mix and explicitly tags RASPE; his own profile lists a continuing mix practice including second Raspe volume, dembow and reggaeton programmes. All embedded source music/voices retained through the medium-neutral DJ owner. No duration, individual tracklist, exclusive-style purity, exact source decks/software or live-versus-offline recording asserted; direct page blocked but genuine indexed issuer metadata retrieved. No source masters reconstructed or additional live singer cards inferred.",
+      "neighbor_distinction": "Raspe is a positively named Honduran north-coast dancehall/electronic dance current. First-person2025 interview with producer ALEMVN and Fresh Bodden explains melodic electronics plus dancehall percussion, a north-coast dance term and circulation through KBP and other precursors into national/diasporic venues. Exact creator roster corroborates KBP, ALEMVN, Jr Clark, Big Nango and associated collaborations; it is not evidence every DJ selection belongs exclusively to this roster. Actual musica_hondurena is broader national repertoire and its Candú score only an exemplar; this is a narrower contemporary dance-production community with overlap, not a nationality-only claim. Garifuna punta/punta-rock specifically retain historical drum/dance lineage, whereas this source names a distinct electronic/dancehall fusion; Jamaican dancehall and reggaeton are influential broader/adjacent practices, not synonyms. Queued regionally named Latin/Caribbean scenes do not erase this positively identified Honduran current. Selected Dj Andy is not claimed a mapped artist; his issuer explicitly identifies requested style.",
+      "model_policy": "One protected medium-neutral DJ playback/mixing identity models the positively credited programme-making role, without asserting source music synthesis/sampling hardware. bassSystem.reggaeDiaspora and electronic family represent the documented dancehall/electronic regional crossover. Controlled live-room playback presentation and neutral axes are authored, not source venue measurements. No global tuning/capture apparatus invented.",
+      "instrument_role_audit": {
+        "scope": "Dj Andy — whole self-issued MIX RASPE HONDURAS VOL 1, published20May2025 on his SoundCloud. Publisher names actual DJ mix and explicitly tags RASPE; his own profile lists a continuing mix practice including second Raspe volume, dembow and reggaeton programmes. All embedded source music/voices retained through the medium-neutral DJ owner. No duration, individual tracklist, exclusive-style purity, exact source decks/software or live-versus-offline recording asserted; direct page blocked but genuine indexed issuer metadata retrieved. No source masters reconstructed or additional live singer cards inferred.",
+        "positive_sound_source_classes": [
+          "recorded-program playback and DJ mixing"
+        ],
+        "authored_defaults": "One protected medium-neutral DJ playback/mixing identity models the positively credited programme-making role, without asserting source music synthesis/sampling hardware. bassSystem.reggaeDiaspora and electronic family represent the documented dancehall/electronic regional crossover. Controlled live-room playback presentation and neutral axes are authored, not source venue measurements. No global tuning/capture apparatus invented."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0,
+        "decision": "No live vocal contribution stated; all embedded layers retained in whole programme, no false zero-headcount assertion."
+      },
+      "flat_pin_resolution": {
+        "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://soundcloud.com/dj-andy-284439340/mix-raspe-honduras-x-dj-andy",
+          "support_notes": "Fresh actual indexed turn728828search0 complete publisher metadata: MixRaspeHondurasVol1, DjAndy,20May2025, RASPE tag. Direct desktop/mobile blocked, no duration or tracklist claim.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://soundcloud.com/dj-andy-284439340",
+          "support_notes": "Fresh indexed turn728828search2 own Bronx profile and multiple actual credited mixes including second Raspe volume. Confirms programme-making role, not mere arbitrary compilation title.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.elheraldo.hn/entretenimiento/fresh-bodden-bienvenidos-al-raspe-el-genero-emergente-en-honduras-CF25026985",
+          "support_notes": "Fresh turn11028view2 full first-person interview,22March2025: ALEMVN explains musical construction and north-coast dance origin, KBP precursors and broader circulation.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/5Zd8bsx2I4OuO9VK9wSD5q",
+          "support_notes": "Fresh turn11028view0 exact full100 creator repertoire, KBP/JrClark/ALEMVN etc. Category bridge, no selected DJ exact membership asserted.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "raspe",
+          "name": "Raspe",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not DJ hardware, live singing, performer, Honduran instrument or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10920view3/10921view1 confirms original Iain Fergusson/Binksternet crop and CC BY2.5; historical exact bytes/visual retained without new download claim.",
+          "fresh_review_ref": "turn10920view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn10920view3",
+          "turn10921view1"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "frozen_pending_independent_review"
+}

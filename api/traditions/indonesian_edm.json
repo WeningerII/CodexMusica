@@ -2,10 +2,10 @@
   "id": "indonesian_edm",
   "name": "Indonesian edm",
   "family": "electronic",
-  "lineage": "Indonesian edm is represented by Bleu Clair — Sand Dunes vocal-sample production core. One documented branch receives an authored present-day studio realization.",
+  "lineage": "Indonesian EDM connects local electronic producers with international club and festival networks, including contemporary house and bass-oriented styles.",
   "recipe": "classic indonesian edm, electronic Dance, tech house branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 183,
-  "score": 6.491,
+  "score": 9.391,
   "config": {
     "traditions": [
       "indonesian_edm"
@@ -20,16 +20,19 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.126,
-          "sample_swing": 6.25,
-          "sample_processing": 0.18525000000000003
+          "electronic_technique": 0.2315,
+          "sample_bitdepth": 0.273,
+          "sample_swing": 8.75,
+          "sample_processing": 0.1365
         }
       }
     ],
     "pinned": {
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

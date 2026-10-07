@@ -2,10 +2,10 @@
   "id": "arabic_jazz",
   "name": "Arabic jazz",
   "family": "jazz",
-  "lineage": "Arab-music and jazz encounters, represented by Anouar Brahem’s drummerless Thimar trio. Oud, bass clarinet and plucked double bass keep their separate voices while sharing composed melodies and improvisation. This is one branch of a much wider transnational category.",
+  "lineage": "Arabic jazz brings Arab musical traditions into dialogue with jazz composition and improvisation. Transnational ensembles explore modal melody, ornament and responsive accompaniment through varied combinations of traditional and modern instruments.",
   "recipe": "classic European early-1970s arabic jazz, improv On Frame, American jazz branch. pyramid nylon arab school oud, expressive clarinet jazz bass clarinet, upright bass. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 288,
-  "score": 23.77,
+  "score": 27.971,
   "config": {
     "traditions": [
       "arabic_jazz"
@@ -51,7 +51,7 @@
         },
         "scores": {
           "upright_strings": 0.23099999999999998,
-          "upright_play": 11.25
+          "upright_play": 13.75
         }
       }
     ],
@@ -85,7 +85,6 @@
       "amp": null,
       "medium": "tape_30ips"
     },
-    "tuning": "maqam_24edo",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
@@ -93,7 +92,6 @@
     ]
   },
   "source": {
-    "tuning": "maqam_24edo",
     "room": "live_room",
     "parts": {
       "plucked_traditional_technique": "plucked_ornamented_melodic",

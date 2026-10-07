@@ -1,0 +1,80 @@
+{
+  "status": "PASS_FOR_INTEGRATION",
+  "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "baseline_head": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+  "scope": "Independent final semantic synthesis of all100 frozen evidence packets and17 dependencies, exact immutable/exclusion/default/merge review; no new claim that every primary URL or photo download was re-fetched in this final synthesis. Existing source peer reviews and retained primary receipts remain supporting evidence. Own authored group156/163 source rows require their other-agent peer reviews, not self-approval.",
+  "counts": {
+    "entries": 100,
+    "new_dependencies": 17,
+    "old_merged_instruments_byte_equivalent": 1489,
+    "effective_parts": 4191,
+    "protected_applicable_parts": 4187,
+    "explicit_unpinned_parts": 4,
+    "exact_inherited_photo_receipts": 117,
+    "excluded_possible_overlap_queue": 189,
+    "excluded_intersections": 0,
+    "existing_normalized_name_collisions": 0
+  },
+  "checks": [
+    "All immutable ordinal/group/id/label assignments match immutable entries.",
+    "All100 families are existing whitelist values; all parents now exist.",
+    "Regional and national umbrella categories have artist/repertoire bridges and scoped realization distinctions; they are not asserted equivalent to a narrower genre merely because one exemplar overlaps.",
+    "Source rosters preserve positively credited guests and release unions; one instrument-family card can represent several performers without changing declared human vocal counts.",
+    "Construction, playing techniques, tuning, chain and timbral subtype choices remain explicitly authored; generic credited keys/percussion use existing neutral owners where positive subtype evidence is absent.",
+    "All17 new dependency objects merge through the unchanged original engine without changing any existing1489 merged instrument.",
+    "D9 piano, five-voice Prophet5, traditional machine-hammered cymbals and owner-applicable part variants checked; no further physical/default warnings.",
+    "All four shared-key unpinned slots are honestly distinguished from protected compiled choices.",
+    "Inherited exact photo metadata matches retained023 receipts; contextual LOW photos do not claim actual performers or sessions."
+  ],
+  "amendment": "semantic-amendment119.json: only invalid musica_sergipana parent corrected to functionalSong.bluesElectric plus required_predecessor staging metadata; source packet retained with authoritative frozen override.",
+  "unpinned_followup": [
+    {
+      "id": "musica_ecuatoguineana",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "id": "musica_mato_grossense",
+      "instrument": "midi_programmed_sound_unspecified",
+      "part": "electronic_technique",
+      "imported_default": "midi_programmed_event_sequence"
+    },
+    {
+      "id": "ohio_indie",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "id": "palestinian_alternative",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal"
+    }
+  ],
+  "material_semantic_cases": {
+    "music_box": "Complete named concert work includes both music box and toy piano; video is not an audio instrument.",
+    "musica_andina_colombiana": "Documented touring trio includes five instrumental capabilities; creator category bridge and improvisatory practice evidence retained.",
+    "musica_canaria": "Named complete educational concert duo supports selected concert branch without borrowing unrelated artist-group personnel.",
+    "musica_sinfonica": "RV158 source-score realization explicitly separates authored continuo selection from an exact concert personnel claim.",
+    "musica_tradicional_dominicana": "Sarandunga hand-and-stick drums plus metal scraper owner; no forced merengue technique vocabulary.",
+    "musique_comorienne": "Full15-family/four-voice Afro Jazz Taarab album union; jazz-fusion taxonomy scoped to project, not entire nation.",
+    "nadaswaram": "Complete formally taught concert trio; isolated duo owner avoids unsupported temple ensemble assignment.",
+    "nz_children_s_music": "Verses/refrain evidenced; functional harmonization now explicitly authored rather than claimed analyzed source fact."
+  },
+  "supporting_reports": [
+    "frozen-defaults-review119.json",
+    "frozen-independent-mechanical119.json",
+    "semantic-amendment119.json"
+  ],
+  "remaining_gates": [
+    "Actual post-integration old-source/browser-card preservation",
+    "Completed API protected-pin and four-unpinned-choice audit",
+    "Any derived regression changes require causal review before targeted snapshot updates",
+    "Exact-head CI and predecessor green/merge remain parent-owned"
+  ],
+  "blocking_findings": [],
+  "previous_frozen_sha256": "42f3d40d72af77c541c2b4bc26f46e3d45d4c771f1b24615ad144f877b0c22a9",
+  "agogo_label_addendum": "agogo-label-amendment119.json: new dependency short label only, collision removed without source-role/default/old-owner change; long/photo names already explicitly source-unspecified."
+}

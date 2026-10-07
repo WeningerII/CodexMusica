@@ -5,7 +5,7 @@
   "lineage": "Ukrainian folk rock is represented here by Pororoka — Polyn selected string-and-keyboard core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic ukrainian folk rock, functional Song, folk rock branch. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth, folk diatonic bandura. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 273,
-  "score": 36.433,
+  "score": 36.602,
   "config": {
     "traditions": [
       "ukrainian_folk_rock"
@@ -64,7 +64,7 @@
           "string_tuning": 0,
           "top_wood": 0.2625,
           "back_sides": 0.105,
-          "string_acoustic": 0.4725
+          "string_acoustic": 0.504
         }
       },
       {
@@ -78,7 +78,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 8.19,
-          "poly_voices": 0.273,
+          "poly_voices": 0.40950000000000003,
           "poly_maker_lineage": -0.035
         }
       },

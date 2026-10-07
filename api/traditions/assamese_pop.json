@@ -2,10 +2,10 @@
   "id": "assamese_pop",
   "name": "Assamese pop",
   "family": "pop",
-  "lineage": "Assamese pop is represented here by Antara Nandy — Aakaxok Subo Khojo. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Assamese pop connects Assamese-language songwriting with contemporary popular arrangements.",
   "recipe": "classic assamese pop, functional Song, south Asian pop branch. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 14.566,
+  "score": 14.498,
   "config": {
     "traditions": [
       "assamese_pop"
@@ -21,7 +21,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.7,
+          "acoustic_technique": 11.2,
           "string_tuning": 0,
           "top_wood": 0.21000000000000002,
           "back_sides": 0.168,
@@ -32,14 +32,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.16799999999999998,
-          "poly_voices": 0,
+          "electronic_technique": 0.2,
+          "poly_archetypes": 0.3,
+          "poly_voices": 1,
           "poly_maker_lineage": -0.035
         }
       },

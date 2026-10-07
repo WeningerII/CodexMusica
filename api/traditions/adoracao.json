@@ -3,9 +3,9 @@
   "name": "Adoração (Brazilian evangelical worship)",
   "family": "blues_gospel",
   "lineage": "Brazilian Portuguese-language evangelical congregational worship music that consolidated in the 1990s-2000s out of Pentecostal and neo-Pentecostal churches in São Paulo, Rio and Belo Horizonte — codified by Diante do Trono (Ana Paula Valadão, from 1998) and later Fernandinho, Gabriela Rocha and Morada, built on slow-to-mid 4/4 and 6/8 anthem tempos (60-84 BPM), suspended-chord acoustic and delay-washed electric guitar, pad-and-piano beds, congregational unison singing rising to belted soprano ad-libs, and long modulating vamps recorded live before a stadium-scale congregation.",
-  "recipe": "classic mid-1990s adoração, ritual Devotional, pentecostal branch, christian gospel ritual devotional, Brazilian song functional song sacred steel ethiopian tewahedo zema chant. thick, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody polynesian himene tarava parallel thirds congregational sacred liturgical global choir ensemble, cedar maple steel silk dreadnought acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, alder stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced beech laminated maple laminated European tradition grand piano, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 949,
-  "score": 400.152,
+  "recipe": "classic mid-1990s adoração, ritual Devotional, pentecostal branch, christian gospel ritual devotional, Brazilian song functional song sacred steel ethiopian tewahedo zema chant. thick, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody polynesian himene tarava parallel thirds congregational sacred liturgical global choir ensemble, cedar maple steel silk dreadnought acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, alder stainless steel roundwound electric bass, brushes-and-sticks drum kit, soft felt lacquer voiced beech laminated maple laminated European tradition grand piano, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 924,
+  "score": 399.933,
   "config": {
     "traditions": [
       "adoracao",
@@ -102,7 +102,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 3.1423750000000004,
+          "electric_technique": 3.2953750000000004,
           "amp_make": 7.017875,
           "body_wood": 1.4949999999999999,
           "neck_wood": 1.4949999999999999,
@@ -144,12 +144,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 23.985000000000003,
-          "drumhead": 2.6,
+          "drumhead": 2.22875,
           "drum_kit_kick_pedal": 0
         }
       },

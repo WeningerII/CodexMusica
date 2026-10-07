@@ -5,7 +5,7 @@
   "lineage": "Estonia-connected jazz, represented by Kristjan Randalu’s Absence trio with electric guitarist Ben Monder and drummer Markku Ounaskari. This bassless ensemble opens carefully structured piano compositions to improvised color and interplay.",
   "recipe": "classic modern estonian jazz, improv On Frame, bop branch. grand piano, semi hollow, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 298,
-  "score": 35.526,
+  "score": 35.475,
   "config": {
     "traditions": [
       "estonian_jazz"
@@ -25,7 +25,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
+          "keyboard_technique": -0.05,
           "grand_piano_size": 0,
           "grand_piano_brand": 0,
           "piano_hammer": -0.07,
@@ -74,7 +74,7 @@
           "drum_technique": 9.49,
           "drumhead": 0.3315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.33599999999999997,
+          "shell_wood": 0.3,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0.3,

@@ -1,0 +1,133 @@
+{
+  "original_frozen_sha256": "535772d99877be6dc9bd1bfa3a3c848347301bbb0400cfb10d3a171f152fd746",
+  "integration_final_sha256": "9c6d6ca4cfc98b91739b03c82b90d01033e6a073a29c94a4e86ce7c2a1545f30",
+  "photo_source_metadata": [
+    {
+      "kind": "instrument",
+      "id": "arp_2600_layered",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "instrument",
+      "id": "cheeze_machine_pro",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "instrument",
+      "id": "credited_drums_unspecified",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "instrument",
+      "id": "dj_playback_mixing_unspecified",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "austrian_techno",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "chill_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "experimental_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "french_tech_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "future_ambient",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "italian_tech_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "japanese_progressive_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "mexican_tech_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "norwegian_house",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "world_fusion",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "wrestling",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "writing",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "wyoming_roots",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "xhosa",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "yemeni_traditional",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "yoga",
+      "source": "generic_recording_context"
+    },
+    {
+      "kind": "tradition",
+      "id": "yoruba_worship",
+      "source": "generic_recording_context"
+    }
+  ],
+  "signature_correction": {
+    "id": "turkish_experimental",
+    "removed": "percussive",
+    "reason": "No class in existing_soundword_vocab; remove newcandidate token only, preserve original vocabulary/rulings/DF/engine."
+  },
+  "scope": "Photo-source metadata, one newsignaturetoken removal, two newrow broadfamily corrections only; originalsourcepacket receipts and allolddata/code preserved.",
+  "taxonomy_corrections": [
+    {
+      "id": "wrock",
+      "field": "tradition.family",
+      "from": "rock_punk",
+      "to": "rock",
+      "reason": "Primary rock/wizard-rock or instrumental rock-metal; no sourcepunk classification."
+    },
+    {
+      "id": "wrestling",
+      "field": "tradition.family",
+      "from": "rock_punk",
+      "to": "rock",
+      "reason": "Primary rock/wizard-rock or instrumental rock-metal; no sourcepunk classification."
+    }
+  ]
+}

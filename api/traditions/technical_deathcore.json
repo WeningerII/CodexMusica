@@ -2,10 +2,10 @@
   "id": "technical_deathcore",
   "name": "Technical deathcore",
   "family": "rock_punk",
-  "lineage": "Technical deathcore is represented here by Rings of Saturn — Ultu Ulla. This selected branch has an authored present-day studio realization.",
-  "recipe": "classic technical deathcore, distorted Rock, death branch. modern metal basswood humbucker electric guitar, drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 237,
-  "score": 15.479,
+  "lineage": "Technical deathcore emphasizes intricate, tightly coordinated instrumental writing within deathcore’s extreme-metal vocabulary.",
+  "recipe": "classic technical deathcore, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, kevlar aramid extreme tension drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 391,
+  "score": 12.615,
   "config": {
     "traditions": [
       "technical_deathcore"
@@ -15,45 +15,45 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_two_hand_tapping",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "ceramic_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 0.39,
-          "amp_make": 1.8199999999999998,
-          "body_wood": 1.95,
-          "neck_wood": 0.7769999999999999,
-          "fretboard": 0.23099999999999998,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 0.2415,
-          "string_material": 0.1995,
-          "bridge": 1.69,
-          "scale_length": 1.95,
-          "string_gauge": 1.69,
-          "finish": 0.0315,
-          "string_tuning": 0.39
+          "amp_make": 3.0550000000000006,
+          "body_wood": 3.25,
+          "neck_wood": 0.3045,
+          "fretboard": 0.49349999999999994,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.273,
+          "string_material": 0.3045,
+          "bridge": 0.6405,
+          "scale_length": 0,
+          "string_gauge": 0.147,
+          "finish": 0,
+          "string_tuning": 0.0945
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "blast_beat_single_strokes",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
           "drum_technique": 0.39,
-          "drumhead": 0.8505,
+          "drumhead": 1.2349999999999999,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -75,7 +75,8 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -89,25 +90,26 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0315
+          "voice_multitrack_stack": 0.063,
+          "voice_tessitura": 0
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.08549999999999999,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       }
@@ -115,6 +117,16 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "drum_kit": [
@@ -137,10 +149,14 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ]
     },
     "room": "treated_studio",
@@ -182,7 +198,21 @@
       "string_tuning": "standard_tuning",
       "drum_technique": "blast_beat_single_strokes",
       "drum_kit_kick_pedal": "dk_kick_double",
-      "electronic_technique": "electronic_lead_line"
+      "electronic_technique": "electronic_lead_line",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

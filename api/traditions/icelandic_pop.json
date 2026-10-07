@@ -2,10 +2,10 @@
   "id": "icelandic_pop",
   "name": "Icelandic pop",
   "family": "pop",
-  "lineage": "Icelandic pop is represented here by Hildur — Afturábak electronic core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic icelandic pop, functional Song, pop rock branch. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 236,
-  "score": 7.36,
+  "lineage": "Icelandic pop encompasses local songwriting and contemporary band and electronic production.",
+  "recipe": "classic icelandic pop, functional Song, europop branch. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 1.19,
   "config": {
     "traditions": [
       "icelandic_pop"
@@ -15,30 +15,30 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.231,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "drum_machine_analog",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0.29400000000000004,
-          "sample_swing": 3.25,
-          "sample_processing": 0.0315
+          "kick_voice": 0,
+          "snare_voice": 0.2415,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       },
       {
@@ -73,17 +73,26 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.11699999999999999
+          "voice_multitrack_stack": 0.354
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ],
       "voice": [
         "voice_register",
@@ -139,7 +148,14 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

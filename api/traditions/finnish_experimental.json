@@ -1,0 +1,97 @@
+{
+  "id": "finnish_experimental",
+  "name": "Finnish experimental",
+  "family": "electronic",
+  "lineage": "Finnish experimental music brings composers, improvisers and recording artists into varied acoustic and electronic practices. Electroacoustic work can connect synthesized sound with listening to the surrounding environment.",
+  "recipe": "classic finnish experimental, experimental Elec, musique concrete branch. modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 21.872,
+  "config": {
+    "traditions": [
+      "finnish_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_simple_patch",
+          "mod_lineage": "mod_moog_east_coast"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0,
+          "mod_lineage": 0.325
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 8.731499999999999,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.735,
+          "sampler_workflow": 10.525,
+          "sampler_classic_context": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "mod_voltage_source": "mod_keyboard",
+      "mod_patch_density": "mod_simple_patch",
+      "mod_lineage": "mod_moog_east_coast",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

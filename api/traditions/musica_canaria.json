@@ -1,0 +1,91 @@
+{
+  "id": "musica_canaria",
+  "name": "Música Canaria",
+  "family": "vernacular",
+  "lineage": "Benito Cabrera and Tomás Fariña — Del Renacimiento a Los Beatles, complete published educational duo formation. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic música canaria, art Music. timple canario, classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 180,
+  "score": 1.439,
+  "config": {
+    "traditions": [
+      "musica_canaria"
+    ],
+    "instruments": [
+      {
+        "id": "timple_canario",
+        "slots": {
+          "timple_canario_form": "timple_canario_source_identified"
+        },
+        "scores": {
+          "timple_canario_form": 0
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.05000000000000002,
+          "string_tuning": 0,
+          "top_wood_classical": 0.1575,
+          "bracing_classical": 0.4515,
+          "string_classical": 0.39,
+          "attack_technique_cl": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "timple_canario": [
+        "timple_canario_form"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "timple_canario_form": "timple_canario_source_identified",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "cedar_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "carbon_cl",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

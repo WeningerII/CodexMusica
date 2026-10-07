@@ -1,0 +1,199 @@
+{
+  "entries": [
+    {
+      "source_label": "musica otavalena",
+      "source_url": "https://everynoise.com/engenremap-musicaotavalena.html",
+      "suggested_id": "musica_otavalena",
+      "allocation_ordinal": 3892,
+      "allocation_group_id": "156",
+      "status": "frozen_pending_independent_review",
+      "id": "musica_otavalena",
+      "tradition": {
+        "id": "musica_otavalena",
+        "name": "Música otavaleña",
+        "family": "global",
+        "lineage": "Proyecto Coraza — the whole separately announced closing DJ show for19November2011 at Plaza Roja,Guaranda, within Waranka Kawsay. The artist’s17November announcement expressly separates its live-band song programme from the closing dance DJ show. Select that entire second programme, not an arbitrarily stripped band performance or mastered studio track. Duration, tracklist, source media, extra live speech/singing and surviving recording are undocumented. Embedded voices remain within playback; zero added voice cards is not a measured zero human-voice count. This is a documented announced practice, not proof every announced element was performed or personal audio audition. A single protected medium-neutral DJ playback/mixing owner represents the positively announced complete DJ programme; no invented turntables, sampler mechanism or live-band omission inside that selected programme. Unknown vocal counts remain unknown. Broad groovePercussion is an explicitly authored dance-driven rendition compatible with the source dance-DJ announcement, not measured universal grammar. Controlled live-room listening environment is editorial, not outdoor Guaranda acoustics. Neutral axes, no global tuning and no unverified capture chain.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Proyecto Coraza — the whole separately announced closing DJ show for19November2011 at Plaza Roja,Guaranda, within Waranka Kawsay. The artist’s17November announcement expressly separates its live-band song programme from the closing dance DJ show. Select that entire second programme, not an arbitrarily stripped band performance or mastered studio track. Duration, tracklist, source media, extra live speech/singing and surviving recording are undocumented. Embedded voices remain within playback; zero added voice cards is not a measured zero human-voice count. This is a documented announced practice, not proof every announced element was performed or personal audio audition. The project’s own contemporaneous heading positively identifies traditional Otavaleña music plus electronic music. Its first-person biography describes collecting local Indigenous and mestizo festive repertoire around Imbabura/Otavalo and the Coraza cultural identity, alongside an established DJ/remix career. This supports a specific Otavalo community and repertoire field, not inferred merely from birthplace. Full existing musica_andina already includes Ecuador and village/stage transformations; substantial overlap is acknowledged, but the localized Indigenous/mestizo Otavalo field extends into this positively documented electronic dance practice and is not the whole pan-Andean category. Full ecuadorian_pop and ecuadorian_indie are wider national fields, not limited to their selected concert or album examples. Mexican cumbia_andina_mexicana is a different adoption/community lineage. No unique timbre, strict disjoint performers or all Otavaleña music being electronic is claimed. Exact EveryNoise map currently403; no creator artist membership asserted. Queued038 records checked alongside current6538 catalog. A single protected medium-neutral DJ playback/mixing owner represents the positively announced complete DJ programme; no invented turntables, sampler mechanism or live-band omission inside that selected programme. Unknown vocal counts remain unknown. Broad groovePercussion is an explicitly authored dance-driven rendition compatible with the source dance-DJ announcement, not measured universal grammar. Controlled live-room listening environment is editorial, not outdoor Guaranda acoustics. Neutral axes, no global tuning and no unverified capture chain.",
+        "exemplars": [
+          "Proyecto Coraza — complete separately announced closing DJ programme,Guaranda19November2011"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        0.234,
+        -78.262,
+        "Otavalo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "On-land Otavalo community anchor explicitly named by artist’s own contact and cultural biography; selected announced event Guaranda is a different location and is not silently relabeled.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Proyecto Coraza — the whole separately announced closing DJ show for19November2011 at Plaza Roja,Guaranda, within Waranka Kawsay. The artist’s17November announcement expressly separates its live-band song programme from the closing dance DJ show. Select that entire second programme, not an arbitrarily stripped band performance or mastered studio track. Duration, tracklist, source media, extra live speech/singing and surviving recording are undocumented. Embedded voices remain within playback; zero added voice cards is not a measured zero human-voice count. This is a documented announced practice, not proof every announced element was performed or personal audio audition.",
+      "neighbor_distinction": "The project’s own contemporaneous heading positively identifies traditional Otavaleña music plus electronic music. Its first-person biography describes collecting local Indigenous and mestizo festive repertoire around Imbabura/Otavalo and the Coraza cultural identity, alongside an established DJ/remix career. This supports a specific Otavalo community and repertoire field, not inferred merely from birthplace. Full existing musica_andina already includes Ecuador and village/stage transformations; substantial overlap is acknowledged, but the localized Indigenous/mestizo Otavalo field extends into this positively documented electronic dance practice and is not the whole pan-Andean category. Full ecuadorian_pop and ecuadorian_indie are wider national fields, not limited to their selected concert or album examples. Mexican cumbia_andina_mexicana is a different adoption/community lineage. No unique timbre, strict disjoint performers or all Otavaleña music being electronic is claimed. Exact EveryNoise map currently403; no creator artist membership asserted. Queued038 records checked alongside current6538 catalog.",
+      "model_policy": "A single protected medium-neutral DJ playback/mixing owner represents the positively announced complete DJ programme; no invented turntables, sampler mechanism or live-band omission inside that selected programme. Unknown vocal counts remain unknown. Broad groovePercussion is an explicitly authored dance-driven rendition compatible with the source dance-DJ announcement, not measured universal grammar. Controlled live-room listening environment is editorial, not outdoor Guaranda acoustics. Neutral axes, no global tuning and no unverified capture chain.",
+      "instrument_role_audit": {
+        "scope": "Proyecto Coraza — the whole separately announced closing DJ show for19November2011 at Plaza Roja,Guaranda, within Waranka Kawsay. The artist’s17November announcement expressly separates its live-band song programme from the closing dance DJ show. Select that entire second programme, not an arbitrarily stripped band performance or mastered studio track. Duration, tracklist, source media, extra live speech/singing and surviving recording are undocumented. Embedded voices remain within playback; zero added voice cards is not a measured zero human-voice count. This is a documented announced practice, not proof every announced element was performed or personal audio audition.",
+        "positive_sound_source_classes": [
+          "announced recorded-program DJ playback and mixing"
+        ],
+        "authored_defaults": "A single protected medium-neutral DJ playback/mixing owner represents the positively announced complete DJ programme; no invented turntables, sampler mechanism or live-band omission inside that selected programme. Unknown vocal counts remain unknown. Broad groovePercussion is an explicitly authored dance-driven rendition compatible with the source dance-DJ announcement, not measured universal grammar. Controlled live-room listening environment is editorial, not outdoor Guaranda acoustics. Neutral axes, no global tuning and no unverified capture chain."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "embedded_voice_count": "unknown",
+        "separately_performed_live_voice_count": "unknown",
+        "added_live_voice_cards": 0
+      },
+      "flat_pin_resolution": {
+        "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://proyecto-coraza.blogspot.com/2011/11/guaranda-presentacion-de-proyecto.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11172view1 exact historical announcement distinguishes complete live-band and closing DJ programmes; local-category heading explicit. No performed duration/tracklist inferred."
+        },
+        {
+          "url": "https://proyecto-coraza.blogspot.com/p/biografia.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11172view2 first-person local collection/repertoire identity and Jonny Oña DJ/remix practice. Distinct2006laserharp performance is not imported into2011DJ scope."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_otavalena",
+          "name": "Música otavaleña",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only, not Proyecto Coraza equipment, musicians, instruments or event venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11125view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5; inherited historical bytes/visual unchanged.",
+          "fresh_review_ref": "turn11125view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11125view0 rights/context; no fresh download or personal visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn11125view0"
+        ]
+      },
+      "classification_evidence": {
+        "mode": "first_person_named_local_repertoire_and_practice",
+        "note": "The project’s own contemporaneous heading positively identifies traditional Otavaleña music plus electronic music. Its first-person biography describes collecting local Indigenous and mestizo festive repertoire around Imbabura/Otavalo and the Coraza cultural identity, alongside an established DJ/remix career. This supports a specific Otavalo community and repertoire field, not inferred merely from birthplace. Full existing musica_andina already includes Ecuador and village/stage transformations; substantial overlap is acknowledged, but the localized Indigenous/mestizo Otavalo field extends into this positively documented electronic dance practice and is not the whole pan-Andean category. Full ecuadorian_pop and ecuadorian_indie are wider national fields, not limited to their selected concert or album examples. Mexican cumbia_andina_mexicana is a different adoption/community lineage. No unique timbre, strict disjoint performers or all Otavaleña music being electronic is claimed. Exact EveryNoise map currently403; no creator artist membership asserted. Queued038 records checked alongside current6538 catalog."
+      },
+      "source_retrieval_caveat": "Fresh complete artist announcement and biography directly retrieved and unmodified tool response saved in otavalena-secondpass-primary-raw117.json. Exact genre map403, no creator membership claim. No surviving programme audio verified."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "status": "source_ready_independent_scope_review_pending"
+}

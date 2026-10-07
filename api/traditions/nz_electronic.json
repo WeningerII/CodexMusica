@@ -2,10 +2,10 @@
   "id": "nz_electronic",
   "name": "NZ electronic",
   "family": "electronic",
-  "lineage": "NZ electronic is represented here by Pitch Black — pre-Ableton live sampler/workstation core. This is a documented branch with an authored present-day studio realization.",
+  "lineage": "New Zealand electronic music includes studio producers and live acts working across dance-oriented and exploratory styles. Local scenes connect with international performance and production networks.",
   "recipe": "classic nz electronic, electronic Dance. sampler, rompler workstation. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 150,
-  "score": 0.475,
+  "score": 4.618,
   "config": {
     "traditions": [
       "nz_electronic"
@@ -23,9 +23,9 @@
         "scores": {
           "electronic_technique": -0.1,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": -0.1,
-          "sampler_classic_context": 0.325
+          "sampler_bit_depth": 0.063,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 4.615
         }
       },
       {
@@ -37,9 +37,9 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.25,
+          "electronic_technique": -0.035,
           "rompler_preset_bank": -0.1,
-          "rompler_context": 0.25,
+          "rompler_context": -0.035,
           "rompler_lineage": 0
         }
       }

@@ -1,0 +1,80 @@
+{
+  "id": "dragspel",
+  "name": "Dragspel",
+  "family": "vernacular",
+  "lineage": "Dragspel connects Sweden’s accordion repertoire with musicians, clubs, gatherings and publishing traditions. Solo playing and ensemble exchange sustain local tunes alongside international dance and popular melodies.",
+  "recipe": "classic dragspel, functional Song. accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 144,
+  "score": 1.071,
+  "config": {
+    "traditions": [
+      "dragspel"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": 0.2,
+          "accordion_reed_material": 0,
+          "musette_offset": 0,
+          "reed_config": 0,
+          "bellows": 0.1365,
+          "voicing_chamber": 0.735,
+          "accordion_maker_school": 0
+        }
+      }
+    ],
+    "pinned": {
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "no_cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

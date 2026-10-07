@@ -1,0 +1,58 @@
+{
+  "id": "rhythm_game",
+  "name": "Rhythm Game",
+  "family": "classical",
+  "lineage": "Rhythm-game music connects compositions and recordings to games organized around musical timing and player interaction. The repertoire spans electronic production, popular songs and instrumental themes, with independent arrangements extending beyond the game.",
+  "recipe": "classic rhythm game, art Music. upright piano. shoebox concert hall.",
+  "recipe_chars": 68,
+  "score": -0.069,
+  "config": {
+    "traditions": [
+      "rhythm_game"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

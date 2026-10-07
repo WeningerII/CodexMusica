@@ -1,0 +1,77 @@
+[
+  {
+    "check": "regression_prefaces",
+    "exit_code": 0,
+    "seconds": 0.8
+  },
+  {
+    "check": "check_slot_picks",
+    "exit_code": 0,
+    "seconds": 2.2
+  },
+  {
+    "check": "app_recipe_regression",
+    "exit_code": 0,
+    "seconds": 10.4
+  },
+  {
+    "check": "equivalence",
+    "exit_code": 0,
+    "seconds": 11.6
+  },
+  {
+    "check": "check_lazy_app",
+    "exit_code": 0,
+    "seconds": 16.6
+  },
+  {
+    "check": "check_minified_equivalence",
+    "exit_code": 0,
+    "seconds": 28.7
+  },
+  {
+    "check": "check_connector_parity",
+    "exit_code": 0,
+    "seconds": 0.8
+  },
+  {
+    "check": "check_workspace_ops",
+    "exit_code": 0,
+    "seconds": 2.2
+  },
+  {
+    "check": "check_app_parity",
+    "exit_code": 0,
+    "seconds": 106.2
+  },
+  {
+    "check": "check_edit_parity",
+    "exit_code": 0,
+    "seconds": 5.1
+  },
+  {
+    "check": "check_edit_differential",
+    "exit_code": 0,
+    "seconds": 49.7
+  },
+  {
+    "check": "check_connector_contract",
+    "exit_code": 0,
+    "seconds": 1.9
+  },
+  {
+    "check": "check_name_isolation",
+    "exit_code": 0,
+    "seconds": 12.4
+  },
+  {
+    "check": "check_publish_guard",
+    "exit_code": 0,
+    "seconds": 0.2
+  },
+  {
+    "check": "eval_capabilities",
+    "exit_code": 0,
+    "seconds": 52.7
+  }
+]

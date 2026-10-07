@@ -5,7 +5,7 @@
   "lineage": "Jazz caraibes is represented by Grégory Privat — Yonn piano-and-voice core. This documented branch has an authored present-day studio realization.",
   "recipe": "classic jazz caraibes, improv On Frame, Latin jazz branch. solo with instrumental accompaniment. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 277,
-  "score": 10.518,
+  "score": 11.074,
   "config": {
     "traditions": [
       "jazz_caraibes"
@@ -16,7 +16,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -26,13 +26,13 @@
         },
         "scores": {
           "keyboard_technique": 1.3595,
-          "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.1995,
+          "grand_piano_size": 0.063,
+          "grand_piano_brand": 0.21,
           "piano_hammer": 2.4564999999999997,
-          "piano_rim": 1.1965,
+          "piano_rim": 1.2385,
           "piano_soundboard": 0.975,
-          "piano_pinblock": 1.1019999999999999,
-          "piano_plate": 1.1334999999999997,
+          "piano_pinblock": 1.0704999999999998,
+          "piano_plate": 1.2069999999999999,
           "piano_pitch_standard": 0.975
         }
       },
@@ -68,11 +68,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8685,
-          "voice_ornament_system": 0.0315,
+          "voice_ensemble_config": 1.4249999999999998,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.0315
+          "voice_multitrack_stack": 0
         }
       }
     ],

@@ -1,0 +1,242 @@
+{
+  "entries": [
+    {
+      "source_label": "musica bautista",
+      "source_url": "https://everynoise.com/engenremap-musicabautista.html",
+      "suggested_id": "musica_bautista",
+      "allocation_ordinal": 3833,
+      "allocation_group_id": "154",
+      "id": "musica_bautista",
+      "tradition": {
+        "id": "musica_bautista",
+        "name": "Música Bautista",
+        "family": "blues_gospel",
+        "lineage": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims. Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims. Música Bautista is a Spanish-language Baptist congregational and devotional circulation field, not a synonym for every Christian recording or every unaccompanied hymn. The exact creator corpus includes this exact edition at item67 alongside named Baptist rondallas, small vocal groups and solo devotional acts. Existing black gospel and southern_gospel include Baptist churches within specific African-American or white Southern-US historical practices; they do not exhaust Spanish-speaking Baptist circulation. Full contemporary_worship and praise_and_worship are broader functional and band-production fields and can include Baptist participants; the denominational community axis overlaps them rather than excluding them. Existing methodist_hymnody is explicitly Wesleyan/English historical practice, not every shared Protestant tune. Existing latin_christian explicitly covers the broader transnational Spanish-language Christian commercial and ministry field, including gospel, rap, rock and worship; the Baptist congregational network is an overlapping denominational subset, not absent from that umbrella. Full deep_latin_christian stores a selected OCP setting; the independently documented Catholic institutional concentration discussed in latin_christian is not a definition of every Christian ministry. The acapella edition is a complete source realization, not an assertion all Baptist music is unaccompanied. Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed.",
+        "exemplars": [
+          "Cánticos de Alabanza — Digno de Honor, complete acapella2020"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        15,
+        -90,
+        "Latin America",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Explicitly approximate regional editorial land anchor for the Spanish-speaking Latin American Baptist circulation field, not artist birthplace, residence or recording location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=CJAKD4n7Nec",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh official issuer11399youtube12 whole named acapella2020 edition; original unmodified result saved bautista-acapella-primary-sourceaudit.json."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4HQZD4l64PzfulJAncOXgF",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11398view0/11399search2 exact edition item67, broader named Baptist rondalla/devotional network."
+        },
+        {
+          "url": "https://ministerioalabanzapv.com/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Prior direct11220view0 firsthand Iglesia Cristiana Bautista Palabra de Verdad ministry demonstrates ongoing multi-instrument and vocal Baptist worship practice; its roster is not transferred into the selected edition."
+        }
+      ],
+      "neighbor_distinction": "Música Bautista is a Spanish-language Baptist congregational and devotional circulation field, not a synonym for every Christian recording or every unaccompanied hymn. The exact creator corpus includes this exact edition at item67 alongside named Baptist rondallas, small vocal groups and solo devotional acts. Existing black gospel and southern_gospel include Baptist churches within specific African-American or white Southern-US historical practices; they do not exhaust Spanish-speaking Baptist circulation. Full contemporary_worship and praise_and_worship are broader functional and band-production fields and can include Baptist participants; the denominational community axis overlaps them rather than excluding them. Existing methodist_hymnody is explicitly Wesleyan/English historical practice, not every shared Protestant tune. Existing latin_christian explicitly covers the broader transnational Spanish-language Christian commercial and ministry field, including gospel, rap, rock and worship; the Baptist congregational network is an overlapping denominational subset, not absent from that umbrella. Full deep_latin_christian stores a selected OCP setting; the independently documented Catholic institutional concentration discussed in latin_christian is not a definition of every Christian ministry. The acapella edition is a complete source realization, not an assertion all Baptist music is unaccompanied.",
+      "model_policy": "Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "baseline_existing_instruments": 1638
+      },
+      "classification_evidence": {
+        "mode": "exact_creator_and_firsthand_denomination",
+        "note": "Música Bautista is a Spanish-language Baptist congregational and devotional circulation field, not a synonym for every Christian recording or every unaccompanied hymn. The exact creator corpus includes this exact edition at item67 alongside named Baptist rondallas, small vocal groups and solo devotional acts. Existing black gospel and southern_gospel include Baptist churches within specific African-American or white Southern-US historical practices; they do not exhaust Spanish-speaking Baptist circulation. Full contemporary_worship and praise_and_worship are broader functional and band-production fields and can include Baptist participants; the denominational community axis overlaps them rather than excluding them. Existing methodist_hymnody is explicitly Wesleyan/English historical practice, not every shared Protestant tune. Existing latin_christian explicitly covers the broader transnational Spanish-language Christian commercial and ministry field, including gospel, rap, rock and worship; the Baptist congregational network is an overlapping denominational subset, not absent from that umbrella. Full deep_latin_christian stores a selected OCP setting; the independently documented Catholic institutional concentration discussed in latin_christian is not a definition of every Christian ministry. The acapella edition is a complete source realization, not an assertion all Baptist music is unaccompanied."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "decision": "Complete acapella edition positively vocal; precise singer count and stack unspecified."
+      },
+      "instrument_role_audit": {
+        "scope": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims.",
+        "roles": {
+          "human_voice_ensemble_unspecified": "Entire issued vocal palette, count unknown"
+        },
+        "authored_defaults": "Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad ritualDevotional.christianGospel follows the explicit devotional hymn practice. Existing unknown-count human vocal owner retains all17 controls, neutral source-unspecified physiology, pitch organization, ornament and stacking. Small-note-group neumatic word setting and natural unprocessed delivery are authored hymn-realization choices, not analysis of the released melody or production. Spacious shoebox-hall listening rendition is editorial, not an original venue assertion. No global tuning or capture equipment imposed."
+        }
+      ],
+      "verification_status": "pending_independent_review",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_bautista",
+          "name": "Música Bautista",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context only; not Cánticos de Alabanza or its actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11260view1 confirms the exact Commons CC BY2.5 credit and permitted crop; inherited023 binary/visual receipt remains historical, no new transfer.",
+          "fresh_review_ref": "turn11260view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11260view1"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All17 owning controls protected, no shared collision."
+      },
+      "primary_retrieval_refs": [
+        "turn11399youtube12",
+        "turn11398view0",
+        "turn11399search2",
+        "turn11220view0"
+      ],
+      "source_retrieval_caveat": "Actual issuer indexed full description retained; no audio audition or unknown ensemble count invented.",
+      "source_scope_limitation": "Cánticos de Alabanza — complete separately issued Digno de Honor (Versión Acapella),2:11, from Himnos Majestuosos Vol.1, released9November2020. Official issuer Routenote artist channel explicitly identifies the acapella edition; whole human vocal palette retained with unknown singer count, voice parts and overdub stack. No instruments imported from other versions, and displayed lyrics are not a second spoken role. No audio audition or measured production claims.",
+      "status": "ready_for_independent_review"
+    }
+  ],
+  "equivalences": [],
+  "blockers": [],
+  "status": "DRAFT_PENDING_REVIEW"
+}

@@ -2,10 +2,10 @@
   "id": "german_power_metal",
   "name": "German power metal",
   "family": "rock_punk",
-  "lineage": "Germany’s power-metal scene is represented here by Blind Guardian’s guitar-led band core: harmonized electric-guitar leads, electric bass, drums and layered melodic voice. The artist’s official history establishes its Krefeld origin and evolution from speed metal, while its 1995 album notes explicitly credit Hansi Kürsch’s bass role. This selected recording model emphasizes electric-band passages and choral vocal layering rather than claiming that all German power metal requires a full orchestra.",
-  "recipe": "classic mid-1990s german power metal, distorted Rock, metal branch. equal tempered, one note per syllable, all voices same rhythm, aurally tuned. humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 438,
-  "score": 33.457,
+  "lineage": "German power metal developed through exchanges between speed-metal energy and melodic heavy-metal writing. Blind Guardian exemplify a guitar-led approach with layered singing and intricate ensemble coordination.",
+  "recipe": "classic modern german power metal, distorted Rock, metal branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 377,
+  "score": 23.839,
   "config": {
     "traditions": [
       "german_power_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 1.5255,
           "amp_make": 0,
           "body_wood": 0.5775,
           "neck_wood": 0.105,
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
-          "string_gauge": 1.552,
+          "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 0.3045
+          "string_tuning": 0.063
         }
       },
       {
@@ -61,9 +61,9 @@
           "body_wood": 0.5775,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,17 +83,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 0.7245,
-          "drum_kit_kick_pedal": 3.3799999999999994,
+          "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.42,
-          "shell_thickness": 0.1365,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 5.359500000000001,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 3.8495000000000004,
+          "cymbal_finish": 0.105
         }
       },
       {
@@ -105,34 +105,36 @@
           "voice_effort": "effort_projected",
           "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_homophonic_block",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_hall_reverb_long",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.3,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
-          "voice_microtone": 3.563000000000001,
+          "voice_articulation": 0.1365,
+          "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.0815000000000001,
-          "voice_ensemble_config": 1.2994999999999999,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.13000000000000003,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
+          "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.105
+          "voice_multitrack_stack": 0.21,
+          "voice_tessitura": 0
         }
       }
     ],
@@ -159,7 +161,8 @@
         "string_type",
         "scale_length_b",
         "fretted_or_not",
-        "bass_technique"
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -190,7 +193,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "treated_studio",
@@ -204,7 +208,6 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
@@ -212,25 +215,25 @@
     ]
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
       "voice_articulation": "legato_voice",
       "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_homophonic_block",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_projected",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "tempered_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_homophonic_block",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_aural_relative",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_hall_reverb_long",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_overdriven_lead",
       "body_wood": "mahogany_h",
       "neck_wood": "maple_neck_h",
@@ -259,7 +262,8 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish"
+      "cymbal_finish": "traditional_finish",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

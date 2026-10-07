@@ -2,10 +2,10 @@
   "id": "aarhus_indie",
   "name": "Aarhus indie",
   "family": "global",
-  "lineage": "Aarhus indie is represented by Gaardens — Sunset, instrumental track 6. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic aarhus indie, distorted Rock, alternative branch. soft down tuning humbucker electric guitar, digital subtractive, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, pre muffled edge muffled sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 339,
-  "score": 34.695,
+  "lineage": "Aarhus indie is the independent music scene associated with Aarhus, Denmark. Its bands and producers work across guitar music, electronic textures and song-based or instrumental composition, linked through a shared local creative community.",
+  "recipe": "classic aarhus indie, distorted Rock, alternative branch. humbucker electric guitar, credited synthesizer unspecified, upright piano, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 258,
+  "score": 14.64,
   "config": {
     "traditions": [
       "aarhus_indie"
@@ -16,89 +16,83 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
-          "string_tuning": "eb_standard"
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.868,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.40950000000000003,
+          "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.2730000000000001,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.2730000000000001,
-          "finish": 1,
-          "string_tuning": 2.34
+          "bridge": 0.5775,
+          "scale_length": 1.8795000000000002,
+          "string_gauge": 0.5775,
+          "finish": 0,
+          "string_tuning": 1.95
         }
       },
       {
-        "id": "digital_subtractive",
+        "id": "credited_synthesizer_unspecified",
         "slots": {
-          "electronic_technique": "electronic_arpeggiated",
-          "va_archetypes": "novation_supernova",
-          "digital_subtractive_context": "digital_subtractive_trance"
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "va_archetypes": 0.1365,
-          "digital_subtractive_context": 4.68
+          "credited_synthesizer_identity": 0
         }
       },
       {
-        "id": "grand_piano",
+        "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.9870000000000001,
-          "grand_piano_brand": 0.9870000000000001,
-          "piano_hammer": 2.8600000000000003,
-          "piano_rim": 4.16,
-          "piano_soundboard": 0.7945,
-          "piano_pinblock": 1.063,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 1.885
+          "keyboard_technique": -0.1,
+          "upright_use": 0.9870000000000001,
+          "upright_piano_size": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.1364999999999998,
+          "drumhead": 0.651,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
-        "electric_technique"
+        "electric_technique",
+        "body_wood",
+        "neck_wood"
+      ],
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
       ],
       "drum_kit": [
         "drum_technique"
@@ -124,7 +118,13 @@
     "room": "treated_studio",
     "parts": {
       "electric_technique": "electric_clean_strummed",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

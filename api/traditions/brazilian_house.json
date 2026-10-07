@@ -2,10 +2,10 @@
   "id": "brazilian_house",
   "name": "Brazilian house",
   "family": "electronic",
-  "lineage": "Brazilian house-production network, with the selected melodic and hybrid studio strand documented through Gui Boratto. His practice combines hardware/soft synthesis, sequenced electronics and guitar/piano musicianship; this is a regional umbrella and does not require samba instrumentation in every track.",
+  "lineage": "Brazilian house music encompasses melodic, vocal and groove-centered electronic production within the country’s club and independent-label networks. Synthesizers and programmed rhythms frequently meet influences from musicians working across dance music and pop.",
   "recipe": "classic modern brazilian house, electronic Dance, house branch, tech house house tech-house brazilian tech house. analog synth, TR-909, single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 368,
-  "score": 37.916,
+  "score": 33.895,
   "config": {
     "traditions": [
       "brazilian_house",
@@ -23,10 +23,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 0.95,
+          "electronic_technique": -0.05,
           "oscillator": 0.195,
-          "filter_topology": 2.0865,
-          "envelope": 0.15,
+          "filter_topology": 0.845,
+          "envelope": 0.21,
           "modulation": 0
         }
       },
@@ -38,9 +38,9 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 32.75,
-          "drum_machine_909_context": 0.845,
-          "tr909_production_origin": -0.28
+          "tr909_voice": 30.499999999999996,
+          "drum_machine_909_context": 2.145,
+          "tr909_production_origin": -0.9800000000000001
         }
       },
       {
@@ -61,15 +61,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.15000000000000002,
+          "electric_technique": 0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 0.127125,
+          "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 0.12999999999999998,
-          "pickup_magnet": 0.18,
-          "string_material": 0.09,
-          "string_gauge": 0.18712499999999999,
-          "bridge": 0.09,
+          "pickup_magnet": 0.24,
+          "string_material": 0.045,
+          "string_gauge": 0.21,
+          "bridge": 0.195,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0.045,

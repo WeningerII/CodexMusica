@@ -1,0 +1,56 @@
+{
+  "id": "sound_effects",
+  "name": "Sound effects",
+  "family": "electronic",
+  "lineage": "R.J. Stefanski — Reservoir (2020), complete seven-piece environmental-sound collage album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s sound effects, experimental Elec. environmental field recording environmental sound collage. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 4.3,
+  "config": {
+    "traditions": [
+      "sound_effects"
+    ],
+    "instruments": [
+      {
+        "id": "environmental_sound_collage",
+        "slots": {
+          "environmental_collage_source": "environmental_field_recording_collage"
+        },
+        "scores": {
+          "environmental_collage_source": 4.2995
+        }
+      }
+    ],
+    "pinned": {
+      "environmental_sound_collage": [
+        "environmental_collage_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "environmental_collage_source": "environmental_field_recording_collage"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

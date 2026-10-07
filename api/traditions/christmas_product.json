@@ -1,0 +1,58 @@
+{
+  "id": "christmas_product",
+  "name": "Christmas Product",
+  "family": "vernacular",
+  "lineage": "Christmas Product is a seasonal recording field gathering familiar holiday songs, carols and purpose-made festive listening. Commercial catalogues circulate vocal and instrumental versions across styles, from family singalongs to piano arrangements.",
+  "recipe": "classic christmas product, functional Song. upright piano. parlor.",
+  "recipe_chars": 66,
+  "score": 0.9,
+  "config": {
+    "traditions": [
+      "christmas_product"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0,
+          "upright_piano_size": 1
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

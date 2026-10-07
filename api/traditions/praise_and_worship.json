@@ -5,7 +5,7 @@
   "lineage": "Contemporary congregational church music formed in the 1970s Jesus-Movement and Vineyard/Maranatha! circles of Southern California and codified globally from the 1990s by Hillsong (Sydney), Integrity/Hosanna!, and later Bethel and Elevation — mid-tempo 4/4 or 6/8 at 70-90 BPM, diatonic I-V-vi-IV loops in guitar-friendly keys, layered acoustic and delay-drenched electric guitar with pad synth beds, worship-leader voice doubled by a congregation-scale choir, and open-ended repeated 'bridge' vamps designed for extended live singing.",
   "recipe": "classic mid-1970s praise and worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, pop rock folk rock adoração contemporary worship. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, cedar maple phosphor bronze modern martin strummed dreadnought acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, singing lead analog poly synth. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 947,
-  "score": 373.567,
+  "score": 373.252,
   "config": {
     "traditions": [
       "praise_and_worship",
@@ -38,7 +38,7 @@
           "voice_quality": 28.08625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0150000000000006,
+          "voice_vibrato": 3.1650000000000005,
           "voice_articulation": 21.125,
           "voice_microtone": 20.735,
           "voice_tradition": 21.58,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 1.4899999999999998,
           "voice_processing_chain": 8.36875,
-          "voice_multitrack_stack": 5.435000000000001
+          "voice_multitrack_stack": 5.240000000000001
         }
       },
       {
@@ -77,7 +77,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 5.4887500000000005,
+          "acoustic_technique": 5.57875,
           "string_tuning": 0.945,
           "top_wood": 2.25375,
           "back_sides": 1.71375,
@@ -135,7 +135,7 @@
           "pickup_config": 0.65,
           "string_type": 8.775000000000002,
           "scale_length_b": 1.95,
-          "fretted_or_not": 1.9537499999999999,
+          "fretted_or_not": 2.0437499999999997,
           "bass_technique": 6.745000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -149,7 +149,7 @@
         },
         "scores": {
           "drum_technique": 20.995000000000005,
-          "drumhead": 3.7150000000000003,
+          "drumhead": 3.325,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -167,12 +167,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 15.60125,
+          "keyboard_technique": 15.796249999999999,
           "grand_piano_size": 1.95,
           "grand_piano_brand": 2.145,
           "piano_hammer": 3.7700000000000005,
           "piano_rim": 3.79,
-          "piano_soundboard": 3.67,
+          "piano_soundboard": 3.325,
           "piano_pinblock": 0.8999999999999999,
           "piano_plate": 0.995,
           "piano_pitch_standard": 5.850000000000001
@@ -187,7 +187,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.058750000000001,
+          "electronic_technique": 6.148750000000001,
           "poly_archetypes": 3.5100000000000002,
           "poly_voices": 2.9693750000000003,
           "poly_maker_lineage": -0.385

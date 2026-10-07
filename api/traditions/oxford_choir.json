@@ -2,10 +2,10 @@
   "id": "oxford_choir",
   "name": "Oxford choir",
   "family": "classical",
-  "lineage": "Oxford choir is represented by Choir of Merton College Oxford — Pärt: The Woman with the Alabaster Box, The Merton Collection. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+  "lineage": "Oxford choral music connects collegiate worship, education, concerts and recording activity. Choirs interpret sacred and secular works across historical periods and contemporary composition.",
   "recipe": "classic oxford choir, art Music, western modern branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 154,
-  "score": 0.683,
+  "score": 0.844,
   "config": {
     "traditions": [
       "oxford_choir"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.381,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.27299999999999996,
-          "voice_multitrack_stack": 0.1365
+          "voice_multitrack_stack": 0.1905
         }
       }
     ],

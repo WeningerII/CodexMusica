@@ -1,0 +1,79 @@
+{
+  "id": "future_bounce",
+  "name": "Future Bounce",
+  "family": "electronic",
+  "lineage": "Future bounce developed within future-house production and festival culture, with Mike Williams, Brooks and Mesto among its prominent practitioners. It shares house rhythm and electronic production with the wider field while emphasizing buoyant melodic figures and sharply shaped releases of energy.",
+  "recipe": "classic future bounce, electronic Dance, house branch. digital subtractive, TR-909. treated studio.",
+  "recipe_chars": 99,
+  "score": 9.019,
+  "config": {
+    "traditions": [
+      "future_bounce"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_pop"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "va_archetypes": 0,
+          "digital_subtractive_context": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 8.75,
+          "drum_machine_909_context": 0.40950000000000003,
+          "tr909_production_origin": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_pop",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
+    },
+    "pin_parts": true
+  }
+}

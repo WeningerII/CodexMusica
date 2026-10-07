@@ -5,7 +5,7 @@
   "lineage": "Women-led Chilean rap represented by Ana Tijoux’s documented live-band repertoire.",
   "recipe": "classic modern rap feminino chileno, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. analog poly synth, electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 332,
-  "score": 29.63,
+  "score": 30.026,
   "config": {
     "traditions": [
       "rap_feminino_chileno"
@@ -59,9 +59,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.597,
+          "electronic_technique": 2.6510000000000002,
           "poly_archetypes": 0.054,
-          "poly_voices": 0.276,
+          "poly_voices": 0.40199999999999997,
           "poly_maker_lineage": -1.7769999999999997
         }
       },
@@ -73,17 +73,17 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0.325,
-          "body_wood": 0.054,
+          "body_wood": 0.162,
           "pickup_config": 0.105,
           "string_type": 0.2955,
-          "scale_length_b": 0.105,
-          "fretted_or_not": 0.054,
+          "scale_length_b": 0.267,
+          "fretted_or_not": 0,
           "bass_technique": -0.035,
           "electric_bass_string_configuration": 0
         }

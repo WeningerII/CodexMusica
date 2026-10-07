@@ -1,0 +1,231 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "flint_hip_hop",
+        "name": "Flint hip hop",
+        "family": "hip_hop",
+        "lineage": "Flint hip hop has a local history of rappers, producers, record shops, venues and radio, with MC Breed and the Dayton Family among its important earlier reference points. A later wave around Rio Da Yung OG, YN Jay, Bfb Da Packman and producer Enrgy brought renewed attention to the city’s collaborations and street-rap sound. Exchanges with Detroit and the wider Michigan scene remain central.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.usHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Direct rhythmic verses and producer-built beats place personality, neighborhood experience and punchlines in the foreground. Contemporary street-rap branches use animated, sometimes conversational flows and sharp comic turns, while the broader local tradition includes varied narrative and production approaches. Repeated beat figures leave space for each MC’s phrasing.",
+        "exemplars": [
+          "MC Breed",
+          "The Dayton Family",
+          "Rio Da Yung OG",
+          "Bfb Da Packman",
+          "Enrgy"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "flint_hip_hop",
+          "name": "Flint hip hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13810view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn13810view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13810view0; historical image bytes/visual observation inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13810view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rhythmic lead MC over a producer-built beat, directly supported by practitioner accounts of the Flint scene and Enrgy’s collaborations. This is a genre-level arrangement, not reconstruction of a specific song or album. A single unprocessed accompanied lead and dry studio are editable authored defaults; other rappers, hooks, samples and production methods remain possible. Beat mechanism is unspecified rather than guessing a particular drum machine, sampler or synthesizer from a finished track."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rhythmic lead MC over a producer-built beat, directly supported by practitioner accounts of the Flint scene and Enrgy’s collaborations. This is a genre-level arrangement, not reconstruction of a specific song or album. A single unprocessed accompanied lead and dry studio are editable authored defaults; other rappers, hooks, samples and production methods remain possible. Beat mechanism is unspecified rather than guessing a particular drum machine, sampler or synthesizer from a finished track."
+        }
+      ],
+      "source_label": "flint hip hop",
+      "source_url": "https://everynoise.com/engenremap-flinthiphop.html",
+      "suggested_id": "flint_hip_hop",
+      "allocation_ordinal": 292,
+      "allocation_group_id": "012",
+      "id": "flint_hip_hop",
+      "status": "ready_for_independent_review",
+      "geo": [
+        43.0125,
+        -83.6875,
+        "Flint",
+        "North America"
+      ],
+      "geo_rationale": "Explicit local community anchor from StoryCorps firsthand archive and rapper interviews.",
+      "signature_tokens": [],
+      "model_policy": "Representative rhythmic lead MC over a producer-built beat, directly supported by practitioner accounts of the Flint scene and Enrgy’s collaborations. This is a genre-level arrangement, not reconstruction of a specific song or album. A single unprocessed accompanied lead and dry studio are editable authored defaults; other rappers, hooks, samples and production methods remain possible. Beat mechanism is unspecified rather than guessing a particular drum machine, sampler or synthesizer from a finished track.",
+      "neighbor_distinction": "Full Detroit hip-hop already spans Dilla-era production and later artists; it is not only the classic sample-based branch. Detroit trap explicitly overlaps the contemporary conversational punchline style. Flint hip hop is a positively documented local community and history, including 1990s venues/radio/MC Breed and later Enrgy-connected production, rather than a disjoint rhythmic species or all Michigan rap. Shared influences and collaboration do not erase the separately documented scene, and artist birthplace alone is not the basis.",
+      "classification_evidence": "Full Detroit hip-hop already spans Dilla-era production and later artists; it is not only the classic sample-based branch. Detroit trap explicitly overlaps the contemporary conversational punchline style. Flint hip hop is a positively documented local community and history, including 1990s venues/radio/MC Breed and later Enrgy-connected production, rather than a disjoint rhythmic species or all Michigan rap. Shared influences and collaboration do not erase the separately documented scene, and artist birthplace alone is not the basis.",
+      "source_scope_limitation": "Representative rhythmic lead MC over a producer-built beat, directly supported by practitioner accounts of the Flint scene and Enrgy’s collaborations. This is a genre-level arrangement, not reconstruction of a specific song or album. A single unprocessed accompanied lead and dry studio are editable authored defaults; other rappers, hooks, samples and production methods remain possible. Beat mechanism is unspecified rather than guessing a particular drum machine, sampler or synthesizer from a finished track.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Published first-person rap practice and institutional history."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Firsthand rapper specifically credits producer-built beats in local scene; architecture remains unspecified."
+        }
+      ],
+      "vocal_count_audit": {
+        "genre_headcount": "variable",
+        "authored_default": "one accompanied MC",
+        "recording_reconstruction": false
+      },
+      "sources": [
+        {
+          "url": "https://archive.storycorps.org/interviews/mby019074/",
+          "primary": true,
+          "evidence_ref": "turn13828view0",
+          "supports": "Institutional firsthand oral-history metadata and subject log document Flint1990s musicians, venues, production, promotion and local radio; audio not auditioned."
+        },
+        {
+          "url": "https://djbooth.net/features/2021-07-22-bfb-da-packman-interview-audiomack/",
+          "primary": true,
+          "evidence_ref": "turn13828view1",
+          "supports": "Original practitioner interview explicitly identifies Flint scene and Enrgy/Rio producer-MC impact within broader Michigan; contemporary lyrical approach."
+        },
+        {
+          "url": "https://www.powmag.net/p/ysr-gramz-interview-flint",
+          "primary": true,
+          "evidence_ref": "turn13828view2",
+          "supports": "Original local rapper interview discusses Flint collaborators and Detroit influence; not a claim of mutually exclusive scenes."
+        }
+      ],
+      "source_retrieval_caveat": "Fresh full rapper interview and institutional oral-history subject log retrieved. StoryCorps audio and commercial recordings not auditioned; only published text used."
+    }
+  ],
+  "instrument_dependencies": []
+}

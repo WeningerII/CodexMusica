@@ -101,8 +101,10 @@ class JournalCapacity(unittest.TestCase):
             self.assertTrue(saved['new_run_required'])
 
     def test_deferred_prompt_reserves_before_question_and_keeps_prior_journal(self):
+        # ~~'\x01' * 70000~~ (420 KB escaped) -> 180000 (1.08 MB): still past
+        # the working cap, which rose 384 KiB -> 1 MiB on 2026-10-04.
         with tempfile.TemporaryDirectory() as tmp, \
-             patch('quality.propose.render_line', return_value='\x01' * 70000):
+             patch('quality.propose.render_line', return_value='\x01' * 180000):
             path = str(Path(tmp)/'state')
             one, _, disclosure = LH._defer_proposer(path, ['original'])
             before = json.loads(json.dumps(disclosure.state))
@@ -119,7 +121,10 @@ class JournalCapacity(unittest.TestCase):
             b.round_no = 1
         # Three complete briefs exceed the real journal bound, two fit.
         # High-plane characters exercise UTF-8 byte counting, not char count.
-        prompts = {b.line_no: f'COMPLETE L{b.line_no}\n' + '\U0001f4a7' * 35000
+        # ~~35000~~ -> 100000 four-byte characters (400 KB a brief) since the
+        # working cap rose 384 KiB -> 1 MiB on 2026-10-04: two still fit, three
+        # still do not.
+        prompts = {b.line_no: f'COMPLETE L{b.line_no}\n' + '\U0001f4a7' * 100000
                    for b in briefs}
         def render_one(b, *args, **kwargs):
             return prompts[b.line_no]
@@ -187,8 +192,10 @@ class JournalCapacity(unittest.TestCase):
         for b in briefs:
             b.round_no = 1
         with tempfile.TemporaryDirectory() as tmp, \
-             patch('quality.propose.render_line', return_value='\x01' * 70000), \
-             patch('quality.propose.render_batch', return_value='\x01' * 80000):
+             patch('quality.propose.render_line', return_value='\x01' * 180000), \
+             patch('quality.propose.render_batch', return_value='\x01' * 200000):
+            # ~~70000 / 80000~~ -> 180000 / 200000 since the working cap rose
+            # 384 KiB -> 1 MiB on 2026-10-04: neither the pivot nor the batch fits.
             path = str(Path(tmp)/'state')
             one, _, disclosure = LH._defer_proposer(path, lines)
             before = json.loads(json.dumps(disclosure.state))
@@ -213,7 +220,9 @@ class JournalCapacity(unittest.TestCase):
             before = json.loads(json.dumps(result.state))
             with self.assertRaises(LH._JournalCapacity) as stopped:
                 resumed.record(1, 0, 1, 'the accepted candidate', True,
-                               ['oversized reason' * 40000])
+                               # ~~* 40000~~ (640 KB) -> * 80000 (1.28 MB),
+                               # past the 1 MiB cap of 2026-10-04.
+                               ['oversized reason' * 80000])
             self.assertEqual(stopped.exception.state, before)
             self.assertEqual(stopped.exception.state['answered']['propose'][0]['text'],
                              'the accepted candidate')

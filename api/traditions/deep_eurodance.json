@@ -1,0 +1,140 @@
+{
+  "id": "deep_eurodance",
+  "name": "Deep Eurodance",
+  "family": "electronic",
+  "lineage": "1990-present Eurodance discovery and revival practice. Deep Eurodance gathers lesser-known European dance-pop releases and later independent continuations of the 1990s sound. Melodic singing, repeating keyboard hooks and tightly arranged electronic rhythm connect archival club mixes with renewed small-label production.",
+  "recipe": "classic modern deep eurodance, electronic Dance, eurodance branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. electronic synthesis sequencing unspecified, software sample playback. treated studio.",
+  "recipe_chars": 252,
+  "score": 4.764,
+  "config": {
+    "traditions": [
+      "deep_eurodance"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.24149999999999996,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.3465,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.0815000000000001,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electronic_synthesis_sequencing_unspecified",
+        "slots": {
+          "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified"
+        },
+        "scores": {
+          "electronic_synthesis_sequencing_identity": 0.39
+        }
+      },
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electronic_synthesis_sequencing_unspecified": [
+        "electronic_synthesis_sequencing_identity"
+      ],
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified",
+      "software_sample_playback_identity": "software_sample_playback_digital"
+    },
+    "pin_parts": true
+  }
+}

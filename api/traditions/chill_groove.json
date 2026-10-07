@@ -1,0 +1,159 @@
+{
+  "id": "chill_groove",
+  "name": "Chill groove",
+  "family": "jazz",
+  "lineage": "Chill groove brings melodic smooth jazz into contact with lounge, soul and relaxed listening music. Ensembles such as Threestyle move between these overlapping traditions in recordings and live performance.",
+  "recipe": "classic chill groove, improv On Frame, smooth vocal branch. tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, pocket fingerstyle locked electric bass, carved top solid spruce Gibson canon thomastik flatwound archtop. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 65.293,
+  "config": {
+    "traditions": [
+      "chill_groove"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": 2.5365,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.1995,
+          "sax_technique": 8.75,
+          "sax_maker_school": 11.309999999999999
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.4095,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 2.673,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "archtop_jazz",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "archtop_body": "archtop_full_hollow",
+          "archtop_pickup": "archtop_set_humbucker",
+          "archtop_top_wood": "archtop_carved_spruce",
+          "archtop_strings": "thomastik_jazz_flat",
+          "archtop_technique": "archtop_walking_chords",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "archtop_body": 9.2225,
+          "archtop_pickup": 0.4725,
+          "archtop_top_wood": 8.855,
+          "archtop_strings": 11.375,
+          "archtop_technique": 9.491000000000001,
+          "archtop_string_tuning": 0
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "archtop_jazz": [
+        "amp_make",
+        "archtop_body",
+        "archtop_pickup",
+        "archtop_top_wood",
+        "archtop_strings",
+        "archtop_technique",
+        "archtop_string_tuning"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "archtop_body": "archtop_full_hollow",
+      "archtop_pickup": "archtop_set_humbucker",
+      "archtop_top_wood": "archtop_carved_spruce",
+      "archtop_strings": "thomastik_jazz_flat",
+      "archtop_technique": "archtop_walking_chords",
+      "archtop_string_tuning": "archtop_tuning_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

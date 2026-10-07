@@ -1,0 +1,182 @@
+{
+ "generated": "2026-10-04T06:47:01.312Z",
+ "profiled": false,
+ "worker": "warm",
+ "tool_budget_ms": 600000,
+ "song_lines": 16,
+ "seed": 0,
+ "total_ms": 127018,
+ "calls": [
+  {
+   "n": 1,
+   "flow": "create",
+   "tool": "lyric_sweep",
+   "ms": 748,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "answered — no authenticated grading verdict; whole-draft findings are unknown",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 2,
+   "flow": "create",
+   "tool": "lyric_screen",
+   "ms": 28811,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "answered — screened response; whole-draft findings were not measured",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 3,
+   "flow": "create",
+   "tool": "lyric_plan",
+   "ms": 766,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "answered — planned response; whole-draft findings were not measured",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 4,
+   "flow": "create",
+   "tool": "lyric_grade",
+   "ms": 10890,
+   "exit_code": 2,
+   "status": null,
+   "meaning": "measured — coverage incomplete; this is an uncertified draft, not a successful song",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 5,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 8343,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose_batch",
+    "lines": [
+     11,
+     12,
+     13,
+     14
+    ],
+    "attempt": 0,
+    "round": 1
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 6,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 22921,
+   "exit_code": 4,
+   "status": "awaiting_proposal",
+   "meaning": null,
+   "refusal": null,
+   "asked": {
+    "kind": "propose",
+    "line": 12,
+    "attempt": 0,
+    "round": 2
+   },
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 7,
+   "flow": "create",
+   "tool": "lyric_revise",
+   "ms": 9027,
+   "exit_code": 2,
+   "status": "uncertified",
+   "meaning": "measured — coverage incomplete; this is an uncertified draft, not a successful song",
+   "refusal": null,
+   "asked": null,
+   "stop": "[FINISHED — seed 0 — exit 2 — ROUND_LIMIT after 2 round(s) — no line flag stands — COVERAGE UNCERTIFIED: meter:PROMINENCE_UNDECIDED:L11, meter:COUNT_IS_A_LOWER_BOUND:L16]",
+   "error": null
+  },
+  {
+   "n": 8,
+   "flow": "pasted",
+   "tool": "lyric_recover",
+   "ms": 5353,
+   "exit_code": 3,
+   "status": null,
+   "meaning": "recovered with REFUSALS — each coordinate under `refusals` carries its reason and must be DECLARED by the caller before the graders can ask about it (the meter always: counting gives syllables, not a grid). Hand `lines` with `mandate` to lyric_check and lyric_revise.",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 9,
+   "flow": "pasted",
+   "tool": "lyric_check",
+   "ms": 26551,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "answered — no flag stands",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 10,
+   "flow": "pasted",
+   "tool": "lyric_revise",
+   "ms": 6040,
+   "exit_code": 0,
+   "status": "finished_clean",
+   "meaning": "answered — no flag stands",
+   "refusal": null,
+   "asked": null,
+   "stop": "[FINISHED — declared mandate — exit 0 — SUCCESS after 0 round(s) — no line flag stands]",
+   "error": null
+  },
+  {
+   "n": 11,
+   "flow": "pasted",
+   "tool": "lyric_verify",
+   "ms": 6717,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "REJECTED — read accepted and reasons; exit zero means the comparison answered.",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  },
+  {
+   "n": 12,
+   "flow": "lookup",
+   "tool": "lyric_types",
+   "ms": 848,
+   "exit_code": 0,
+   "status": null,
+   "meaning": "answered — no authenticated grading verdict; whole-draft findings are unknown",
+   "refusal": null,
+   "asked": null,
+   "stop": null,
+   "error": null
+  }
+ ]
+}

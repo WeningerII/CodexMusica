@@ -1,0 +1,229 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "rap_angolano",
+        "name": "Rap Angolano",
+        "family": "hip_hop",
+        "lineage": "Angolan rap developed through local crews, radio programmes, home studios and exchanges with wider hip-hop networks. Luanda and other cities sustained varied commercial and independent approaches, with practitioners debating how local experience and language should shape the music.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic verses sit over producer-built accompaniment, with personal storytelling, social criticism and everyday observations among the recurring themes. Sample construction and other beat-making methods support contrasting flows, while collaborations connect Angolan performers with the wider Portuguese-speaking world.",
+        "exemplars": [
+          "MC K",
+          "Flagelo Urbano",
+          "Phay Grand",
+          "DH"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "rap_angolano",
+          "name": "Rap Angolano",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rapper plus produced accompaniment, supported by firsthand Angolan MC/producer accounts. No attempt to reconstruct the previously held acappella clip or a particular full album. The beat is a real separately described production role; its generic owner leaves exact hardware and sample architecture open. One unprocessed rhythmic lead and controlled studio are deliberate representative choices, not an exact headcount or universal treatment. Optional collaborations, live instruments and melodic hooks elsewhere in the field are not claimed absent."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rapper plus produced accompaniment, supported by firsthand Angolan MC/producer accounts. No attempt to reconstruct the previously held acappella clip or a particular full album. The beat is a real separately described production role; its generic owner leaves exact hardware and sample architecture open. One unprocessed rhythmic lead and controlled studio are deliberate representative choices, not an exact headcount or universal treatment. Optional collaborations, live instruments and melodic hooks elsewhere in the field are not claimed absent."
+        }
+      ],
+      "source_label": "rap angolano",
+      "source_url": "https://everynoise.com/engenremap-rapangolano.html",
+      "suggested_id": "rap_angolano",
+      "allocation_ordinal": 461,
+      "allocation_group_id": "019",
+      "id": "rap_angolano",
+      "status": "ready_for_independent_review",
+      "geo": [
+        -8.839,
+        13.2894,
+        "Luanda",
+        "Africa"
+      ],
+      "geo_rationale": "Documented studio and movement hub, not sole regional origin.",
+      "signature_tokens": [],
+      "model_policy": "Representative rapper plus produced accompaniment, supported by firsthand Angolan MC/producer accounts. No attempt to reconstruct the previously held acappella clip or a particular full album. The beat is a real separately described production role; its generic owner leaves exact hardware and sample architecture open. One unprocessed rhythmic lead and controlled studio are deliberate representative choices, not an exact headcount or universal treatment. Optional collaborations, live instruments and melodic hooks elsewhere in the field are not claimed absent.",
+      "neighbor_distinction": "Música Angolana is the broad national music umbrella and is not limited to Aline Frazão’s acoustic example. Kuduro and Afro House Angolano concern different dance-centred practices, despite shared producers and acknowledged historical connections; the practitioner explicitly discusses rap and kuduro as related but debated fields. Portuguese Rap/Tuga has linguistic and diaspora overlap but is not identical to Angola’s own radio, crew and studio history. The candidate describes the whole national rap field, not an invented exclusively protest-oriented or underground subset.",
+      "classification_evidence": "Música Angolana is the broad national music umbrella and is not limited to Aline Frazão’s acoustic example. Kuduro and Afro House Angolano concern different dance-centred practices, despite shared producers and acknowledged historical connections; the practitioner explicitly discusses rap and kuduro as related but debated fields. Portuguese Rap/Tuga has linguistic and diaspora overlap but is not identical to Angola’s own radio, crew and studio history. The candidate describes the whole national rap field, not an invented exclusively protest-oriented or underground subset.",
+      "source_scope_limitation": "Representative rapper plus produced accompaniment, supported by firsthand Angolan MC/producer accounts. No attempt to reconstruct the previously held acappella clip or a particular full album. The beat is a real separately described production role; its generic owner leaves exact hardware and sample architecture open. One unprocessed rhythmic lead and controlled studio are deliberate representative choices, not an exact headcount or universal treatment. Optional collaborations, live instruments and melodic hooks elsewhere in the field are not claimed absent.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Firsthand Flagelo Urbano interview describes writing and performing rap within Angolan scene."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Original MAD TAPES producer interview explicitly connects beat production to rapper rhymes; separate Angolan producer interview describes sample fragments/drums constructed into beats. No finished-master substitution."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with produced accompaniment",
+        "no_exact_recording_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://desacato.info/entrevista-com-rapper-produtor-e-jurista-flagelo-urbano/",
+          "primary": true,
+          "evidence_ref": "turn13813view1",
+          "supports": "Original2012 artist interview: Benguela/Luanda development, local radio/crew history, home studio, lyrical practice and distinction/debate with kuduro. Personal commercial/underground value judgments are not adopted as objective facts."
+        },
+        {
+          "url": "https://madtapes.blogspot.com/2008/02/dh-entrevista.html",
+          "primary": true,
+          "evidence_ref": "turn13812search10",
+          "supports": "Original MAD TAPES/Samurai interview with Angolan producer DH: beat production and rapper rhyme relationships. Indexed primary excerpt reproduced; direct open inaccessible."
+        },
+        {
+          "url": "https://www.noticiario-periferico.com/2009/02/entrevista-com-um-dos-melhores.html?m=0",
+          "primary": true,
+          "evidence_ref": "turn13812search5",
+          "supports": "Publisher-hosted firsthand producer interview explicitly describes cutting samples and assembling drum components into beats. Used as practice evidence, not session reconstruction."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

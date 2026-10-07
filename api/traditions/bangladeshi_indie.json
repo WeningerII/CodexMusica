@@ -2,10 +2,10 @@
   "id": "bangladeshi_indie",
   "name": "Bangladeshi indie",
   "family": "vernacular",
-  "lineage": "Rushnaf Wadud / Blunderware — Afim Chaash, acoustic live branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic bangladeshi indie, ballad Poetry, indie folk branch. unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 256,
-  "score": 2.753,
+  "lineage": "Bangladeshi indie includes independently produced song and band music, with artists combining local-language expression and varied rock influences. Dhaka’s Blunderware draws together Bengali song, folk, blues and alternative approaches.",
+  "recipe": "classic bangladeshi indie, ballad Poetry, indie folk branch. solo with instrumental accompaniment. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 226,
+  "score": 2.741,
   "config": {
     "traditions": [
       "bangladeshi_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 0.5834999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.2415,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": -0.07,
+          "acoustic_technique": 0.26,
           "string_tuning": 0,
           "top_wood": 0.21,
           "back_sides": -0.05,

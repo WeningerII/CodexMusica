@@ -1,0 +1,468 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "baseline_head": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+  "merged_predecessor_equivalence": {
+    "status": "PASS",
+    "required_predecessor": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+    "merged_main": "f6e92a02751536004cef9ae7f4bc31ec11dd1d7f",
+    "identical_tree": "5e07e1961f20a55b40137c03b54087697895d255",
+    "pull_request": 469,
+    "exact_head_ci_run": 37081116479,
+    "ci_conclusion": "success"
+  },
+  "current_counts": {
+    "traditions": 5738,
+    "instruments": 1519
+  },
+  "old_api": {
+    "traditions": 5638,
+    "identical": 5600,
+    "derived_changed": 38,
+    "recipe_changed": 5,
+    "material_slot_changes": 24,
+    "material_changed_entries": 13,
+    "old_instruments_identical": 1506,
+    "source_identity_roster_environment_protected_pin_changes": 0
+  },
+  "new_api": {
+    "traditions": 100,
+    "instrument_dependencies": 13,
+    "effective_parts": 3817,
+    "protected_applicable_pins": 3812,
+    "all_protected_pins_preserved": true,
+    "unpinned_actual_choices": [
+      {
+        "tradition": "neo_mellow",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_variant": "electronic_keyboard_melodic_chordal",
+        "compiled_protected": false,
+        "changed_from_import": false
+      },
+      {
+        "tradition": "nepali_indie",
+        "instrument": "electric_guitar_humbucker",
+        "part": "electric_technique",
+        "flat_value": "electric_bass_pocket",
+        "imported_default": "electric_clean_strummed",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_variant": "electric_arpeggiated_clean",
+        "compiled_protected": false,
+        "changed_from_import": true
+      },
+      {
+        "tradition": "pei_indie",
+        "instrument": "grand_piano",
+        "part": "keyboard_technique",
+        "flat_value": "electronic_keyboard_melodic_chordal",
+        "imported_default": "keyboard_block_chord_pop",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_variant": "keyboard_block_chord_pop",
+        "compiled_protected": false,
+        "changed_from_import": false
+      },
+      {
+        "tradition": "persian_alternative",
+        "instrument": "grand_piano",
+        "part": "keyboard_technique",
+        "flat_value": "electronic_keyboard_melodic_chordal",
+        "imported_default": "keyboard_block_chord_pop",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_variant": "keyboard_block_chord_pop",
+        "compiled_protected": false,
+        "changed_from_import": false
+      },
+      {
+        "tradition": "santa_fe_indie",
+        "instrument": "electronic_organ_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_organ_melodic_sustained",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_variant": "electronic_organ_melodic_sustained",
+        "compiled_protected": false,
+        "changed_from_import": false
+      }
+    ]
+  },
+  "causal_method": "Unchanged original baseline/current solvers replay all38 changed API recipes, complete configs and rounded scores exactly. A third temporary process removes ONLY new100 traditions/extras from memory, retains13 new instrument definitions, and restores all38 baseline recipes/configs/scores. No source/API/snapshot edits. At most2 simultaneous review processes.",
+  "causal_interpretation": "Expected original adjacency/staple-candidate scoring effects of new source rows.24 existing unprotected selected variants materially move; this is acknowledged as changed derived output, not improved historical reconstruction or mutated authored defaults. Existing actual browser cards preserved independently.",
+  "causal_rows": [
+    {
+      "id": "atmospheric_sludge",
+      "baseline_staples": ["atmospheric_sludge"],
+      "current_staples": ["atmospheric_sludge"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 32.57574999999999,
+      "current_score": 32.83375
+    },
+    {
+      "id": "bahai",
+      "baseline_staples": ["bahai"],
+      "current_staples": ["bahai"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 4.4990000000000006,
+      "current_score": 4.5440000000000005
+    },
+    {
+      "id": "bakersfield_sound",
+      "baseline_staples": ["bakersfield_sound", "redneck_rock", "classic_texas_country"],
+      "current_staples": ["bakersfield_sound", "redneck_rock", "classic_texas_country"],
+      "new_source_neighbor_ids": ["neo_honky_tonk"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 672.0072500000001,
+      "current_score": 669.7542500000002
+    },
+    {
+      "id": "canadian_ccm",
+      "baseline_staples": ["canadian_ccm"],
+      "current_staples": ["canadian_ccm"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.1975000000000002,
+      "current_score": 2.2695000000000003
+    },
+    {
+      "id": "canadian_comedy",
+      "baseline_staples": ["canadian_comedy"],
+      "current_staples": ["canadian_comedy"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.4369999999999998,
+      "current_score": 1.5944999999999996
+    },
+    {
+      "id": "clean_comedy",
+      "baseline_staples": ["clean_comedy"],
+      "current_staples": ["clean_comedy"],
+      "new_source_neighbor_ids": ["new_comedy"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.392,
+      "current_score": 1.4235
+    },
+    {
+      "id": "dansk_comedy",
+      "baseline_staples": ["dansk_comedy"],
+      "current_staples": ["dansk_comedy"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.6995,
+      "current_score": 1.7085
+    },
+    {
+      "id": "dark_folk",
+      "baseline_staples": ["dark_folk", "futurepop", "electro_industrial"],
+      "current_staples": ["dark_folk", "old_school_ebm", "futurepop"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["old_school_ebm"],
+      "baseline_score": 185.50999999999996,
+      "current_score": 178.03999999999996
+    },
+    {
+      "id": "deep_acoustic_pop",
+      "baseline_staples": ["deep_acoustic_pop"],
+      "current_staples": ["deep_acoustic_pop"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": [],
+      "baseline_score": 6.7585,
+      "current_score": 6.518
+    },
+    {
+      "id": "desert_rock_palm",
+      "baseline_staples": ["desert_rock_palm", "sludge_metal", "venezuelan_metal"],
+      "current_staples": ["desert_rock_palm", "sludge_metal", "venezuelan_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 306.295,
+      "current_score": 305.95300000000003
+    },
+    {
+      "id": "detskie_rasskazy",
+      "baseline_staples": ["detskie_rasskazy"],
+      "current_staples": ["detskie_rasskazy"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.0895,
+      "current_score": 2.0985
+    },
+    {
+      "id": "doom",
+      "baseline_staples": ["doom", "sludge_metal", "venezuelan_metal"],
+      "current_staples": ["doom", "sludge_metal", "venezuelan_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 606.67,
+      "current_score": 604.663
+    },
+    {
+      "id": "doom_blues",
+      "baseline_staples": ["doom_blues", "sludge", "atmospheric_sludge"],
+      "current_staples": ["doom_blues", "sludge", "atmospheric_sludge"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 447.15999999999997,
+      "current_score": 446.4699999999999
+    },
+    {
+      "id": "emoviolence",
+      "baseline_staples": ["emoviolence", "sludge", "atmospheric_sludge"],
+      "current_staples": ["emoviolence", "sludge", "mincecore"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["progressive_sludge"],
+      "baseline_score": 314.2917499999999,
+      "current_score": 318.69050000000004
+    },
+    {
+      "id": "erotik",
+      "baseline_staples": ["erotik"],
+      "current_staples": ["erotik"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.3094999999999999,
+      "current_score": 1.3185
+    },
+    {
+      "id": "experimental_poetry",
+      "baseline_staples": ["experimental_poetry"],
+      "current_staples": ["experimental_poetry"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.78,
+      "current_score": 0.8069999999999999
+    },
+    {
+      "id": "grunge",
+      "baseline_staples": ["grunge", "venezuelan_metal", "louisiana_metal"],
+      "current_staples": ["grunge", "venezuelan_metal", "louisiana_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 267.41600000000005,
+      "current_score": 266.837
+    },
+    {
+      "id": "italian_library_music",
+      "baseline_staples": ["italian_library_music"],
+      "current_staples": ["italian_library_music"],
+      "new_source_neighbor_ids": ["oud"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 25.6995,
+      "current_score": 25.801499999999997
+    },
+    {
+      "id": "komedi",
+      "baseline_staples": ["komedi"],
+      "current_staples": ["komedi"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.34,
+      "current_score": 2.367
+    },
+    {
+      "id": "kundalini",
+      "baseline_staples": ["kundalini"],
+      "current_staples": ["kundalini"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 3.2814999999999994,
+      "current_score": 3.3129999999999997
+    },
+    {
+      "id": "language",
+      "baseline_staples": ["language"],
+      "current_staples": ["language"],
+      "new_source_neighbor_ids": ["neue_deutsche_todeskunst", "oratory", "poetry"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 3.135,
+      "current_score": 3.1215
+    },
+    {
+      "id": "livetronica",
+      "baseline_staples": ["livetronica"],
+      "current_staples": ["livetronica"],
+      "new_source_neighbor_ids": ["oud"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 20.195499999999996,
+      "current_score": 20.429499999999997
+    },
+    {
+      "id": "louisiana_metal",
+      "baseline_staples": ["louisiana_metal"],
+      "current_staples": ["louisiana_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 54.0055,
+      "current_score": 54.22599999999999
+    },
+    {
+      "id": "marcha_funebre",
+      "baseline_staples": ["marcha_funebre"],
+      "current_staples": ["marcha_funebre"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 17.749000000000002,
+      "current_score": 17.917
+    },
+    {
+      "id": "messianic_praise",
+      "baseline_staples": ["messianic_praise"],
+      "current_staples": ["messianic_praise"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 14.8545,
+      "current_score": 15.0195
+    },
+    {
+      "id": "musica_indigena_brasileira",
+      "baseline_staples": ["musica_indigena_brasileira"],
+      "current_staples": ["musica_indigena_brasileira"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.6735,
+      "current_score": 0.768
+    },
+    {
+      "id": "musica_instrumental_cristiana",
+      "baseline_staples": ["musica_instrumental_cristiana"],
+      "current_staples": ["musica_instrumental_cristiana"],
+      "new_source_neighbor_ids": ["papuri"],
+      "new_source_candidate_ids": [],
+      "baseline_score": -0.48050000000000004,
+      "current_score": -0.4505
+    },
+    {
+      "id": "neo_traditional_bluegrass",
+      "baseline_staples": ["neo_traditional_bluegrass", "classic_texas_country", "country_gospel"],
+      "current_staples": ["neo_traditional_bluegrass", "classic_texas_country", "country_gospel"],
+      "new_source_neighbor_ids": ["neo_honky_tonk"],
+      "new_source_candidate_ids": ["neo_honky_tonk"],
+      "baseline_score": 426.84125,
+      "current_score": 424.38
+    },
+    {
+      "id": "novelty_song",
+      "baseline_staples": ["novelty_song", "adult_standards", "music_hall"],
+      "current_staples": ["novelty_song", "adult_standards", "music_hall"],
+      "new_source_neighbor_ids": ["new_comedy"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 191.59500000000003,
+      "current_score": 190.67500000000004
+    },
+    {
+      "id": "poetry_slam",
+      "baseline_staples": ["poetry_slam", "oldtime_radio_announcer", "sports_play_by_play"],
+      "current_staples": ["poetry_slam", "oldtime_radio_announcer", "sports_play_by_play"],
+      "new_source_neighbor_ids": ["new_comedy"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 142.28199999999998,
+      "current_score": 142.09749999999997
+    },
+    {
+      "id": "portland_metal",
+      "baseline_staples": ["portland_metal"],
+      "current_staples": ["portland_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 71.48775,
+      "current_score": 71.875875
+    },
+    {
+      "id": "reactionary_bluegrass",
+      "baseline_staples": [
+        "reactionary_bluegrass",
+        "classic_texas_country",
+        "neotraditional_country"
+      ],
+      "current_staples": [
+        "reactionary_bluegrass",
+        "classic_texas_country",
+        "neotraditional_country"
+      ],
+      "new_source_neighbor_ids": ["neo_honky_tonk"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 426.8092321428571,
+      "current_score": 425.48223214285713
+    },
+    {
+      "id": "standup_comedy",
+      "baseline_staples": ["standup_comedy", "sports_play_by_play", "oldtime_radio_announcer"],
+      "current_staples": ["standup_comedy", "sports_play_by_play", "oldtime_radio_announcer"],
+      "new_source_neighbor_ids": ["new_comedy"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 134.7025,
+      "current_score": 134.62
+    },
+    {
+      "id": "stoner_metal",
+      "baseline_staples": ["stoner_metal", "sludge_metal", "atmospheric_sludge"],
+      "current_staples": ["stoner_metal", "sludge_metal", "atmospheric_sludge"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 442.832,
+      "current_score": 440.9864999999999
+    },
+    {
+      "id": "stoner_rock",
+      "baseline_staples": ["stoner_rock", "sludge_metal", "venezuelan_metal"],
+      "current_staples": ["stoner_rock", "sludge_metal", "venezuelan_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 377.56149999999997,
+      "current_score": 377.404
+    },
+    {
+      "id": "swiss_country",
+      "baseline_staples": ["swiss_country"],
+      "current_staples": ["swiss_country"],
+      "new_source_neighbor_ids": ["neo_honky_tonk"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 79.9145,
+      "current_score": 80.6495
+    },
+    {
+      "id": "urban_cowboy",
+      "baseline_staples": ["urban_cowboy", "christian_country", "neotraditional_country"],
+      "current_staples": ["urban_cowboy", "christian_country", "neotraditional_country"],
+      "new_source_neighbor_ids": ["neo_honky_tonk"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 674.1700000000002,
+      "current_score": 671.8600000000002
+    },
+    {
+      "id": "venezuelan_metal",
+      "baseline_staples": ["venezuelan_metal"],
+      "current_staples": ["venezuelan_metal"],
+      "new_source_neighbor_ids": ["progressive_sludge"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 48.37875000000001,
+      "current_score": 48.50475
+    }
+  ],
+  "full_delta_report": "api-delta-independent-review119.json",
+  "projection_and_source_pin_proof": "api-projection-review119.json",
+  "errors": [],
+  "remaining_required": "Root serial regression and any targeted fixture causal review; exact-head CI.",
+  "no_repo_mutations": true,
+  "previous_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+  "geo_only_rebinding": {
+    "status": "PASS",
+    "old_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+    "new_frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+    "exact_delta": [
+      ["/entries/56/geo/0", 12.8797, 15.5],
+      ["/entries/56/geo/1", 121.774, 121.0],
+      [
+        "/entries/56/geo_rationale",
+        "Representative point for documented scene or repertoire; not a claimed recording address.",
+        "Approximate country-level land point on Luzon for the documented Filipino Papuri repertoire. Editorial map anchor only; not an asserted performer hometown, ministry office or recording location."
+      ]
+    ],
+    "api_inputs_unchanged": true,
+    "policy": "Country land anchor remains editorial; no performer hometown or session-location assertion. No API recomputation required: source inputs identical."
+  }
+}

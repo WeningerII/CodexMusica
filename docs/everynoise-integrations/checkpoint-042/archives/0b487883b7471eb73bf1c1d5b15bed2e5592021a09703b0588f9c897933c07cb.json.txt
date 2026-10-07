@@ -1,0 +1,59 @@
+{
+  "status": "PASS_INCREMENTAL21_ADDITIONS_OVER302_PENDING_BASE_REPAIR_FINAL_QUALIFICATION",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "repairs": {
+    "path": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+    "sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+    "count": 302
+  },
+  "additions": {
+    "path": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v2/qualified21.json",
+    "sha256": "8cc58e3872f0b354ff669f1848d75aa8329ee59a6c0bcae4d9f93de6a407a8c9",
+    "count": 21
+  },
+  "counts_after": {
+    "traditions": 6746,
+    "instruments": 1653
+  },
+  "id_collisions": [],
+  "target_qualification": {
+    "entries": 21,
+    "protected_controls": 344,
+    "literal_browser_formats": 84,
+    "compiled_api_contexts": 21,
+    "same_as_standalone_approved": true
+  },
+  "old_api": {
+    "graph_coverage": 6725,
+    "graphs_identical_to302": 6724,
+    "changed_graph_ids": [
+      "dub_poetry"
+    ],
+    "incremental_replay_musical_and_recipe_equal": true
+  },
+  "old_fixtures": {
+    "definition_coverage": 1174,
+    "unique_ids": 1149,
+    "graphs_identical_to302": 1173,
+    "changed_graph_ids": [
+      "dub_poetry"
+    ],
+    "incremental_replay_musical_and_recipe_equal": true
+  },
+  "limitations": [
+    "Does not supersede302 own final qualification. Its978static API replay has zero unapproved config drift;119 still finishing fixture qualification and root reviewing20 same-config recipe changes.",
+    "No production/source edits, full API build, snapshot updates, or CI executed by reviewer.",
+    "Original23 frozen sourceprojection preserved; Jain Bhajan and Marathi Balgeet remain individually source-approved but held from integration because of old-context changes."
+  ],
+  "evidence": {
+    "api-combined-graph.json": "e9da7afdc888a297d15ae2efdd51ab5718f71c3829515ee918b021136f5c26eb",
+    "fixture-combined-graph.json": "daf8f4c7c15145ebefc18bc33c7674e4a4e3152507830f61573fe171cc976e9e",
+    "api-incremental-diff.json": "d5af2a62277c1b5ae865757e6368e7278dce778bf18ded010825d245a1487d8a",
+    "fixture-incremental-diff.json": "9b36a698d070f772b3ff80a987fa96f17b91357b592a193e15eb59722aa20355",
+    "api-repairs-replays.json": "3f08b793588b96ce96abb5099e2813a06aa6f331562e6b314a8c86352bf2ebdd",
+    "api-combined-replays.json": "79343dbdbf43888651e62debec24fe3723d29211f4d698429ad4ad82de51d142",
+    "fixture-repairs-replays.json": "cad0fea50dbf619fcf39a886f4507ee698d99f4f38426bef0cd741f254f73b4d",
+    "fixture-combined-replays.json": "5e7ced6bb33b51ba04470feb08d7f0ffd27cd1d7af7f1764e2fda5ef72ab31de",
+    "combined-new-runtime.json": "39c03b7ad22996a6c21245b1e32a0ba7cf34bd1282540791288d5d4712d9253d"
+  }
+}

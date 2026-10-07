@@ -5,7 +5,7 @@
   "lineage": "UK Black-British soft-soul reggae subgenre that emerged from 1976 onward as the Black British response to Jamaican roots-reggae — codified through Louisa Mark (Caught You in a Lie 1975), Janet Kay (Silly Games 1979, the #2 UK chart breakthrough), Carroll Thompson, Sandra Cross, Brown Sugar, the Investigators production team (Dennis Bovell); female-vocal-led with softer mixing aesthetic and lyrical content centering on female romantic interiority",
   "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song british soul doo-wop. thick, blues-shouter, slow rate, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, Hammond a 100 built in Leslie home spinet gospel runs slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 705,
-  "score": 356.552,
+  "score": 356.387,
   "config": {
     "traditions": [
       "lovers_rock",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 29.999999999999993,
-          "voice_quality": 5.619500000000002,
+          "voice_quality": 5.600000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.17,
-          "voice_articulation": 18.0995,
+          "voice_articulation": 18.095000000000002,
           "voice_microtone": 11.634999999999994,
-          "voice_tradition": 22.1895,
+          "voice_tradition": 22.169999999999998,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 19.444999999999997,
           "voice_speech_song": 16.379999999999995,
@@ -70,8 +70,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 18.194499999999998,
-          "amp_make": 20.844,
+          "electric_technique": 18.189999999999998,
+          "amp_make": 20.805,
           "body_wood": 1.235,
           "neck_wood": 1.235,
           "fretboard": 1.17,
@@ -98,7 +98,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 24.688000000000002,
+          "amp_make": 24.64,
           "body_wood": 1.235,
           "pickup_config": 0,
           "string_type": 27.4625,
@@ -132,10 +132,10 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 20.299999999999997,
+          "keyboard_technique": 20.285,
           "drawbar_setting": 5,
           "rotary_speed": 17.77,
-          "percussion_setting": 2.375,
+          "percussion_setting": 2.36,
           "tonewheel_model": 7.54,
           "leslie_cabinet_model": 0.585
         }

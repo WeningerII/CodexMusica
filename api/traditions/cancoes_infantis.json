@@ -2,10 +2,10 @@
   "id": "cancoes_infantis",
   "name": "Cancoes infantis",
   "family": "vernacular",
-  "lineage": "Palavra Cantada — 30 Anos. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic cancoes infantis, functional Song. grand piano, dreadnought acoustic humbucker electric guitar, electric bass, dark musical bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 259,
-  "score": 2.679,
+  "lineage": "Portuguese-language children’s songs connect play, learning and family listening. In Brazil, Palavra Cantada has developed a contemporary repertoire through the songwriting and performances of Sandra Peres and Paulo Tatit.",
+  "recipe": "classic cancoes infantis, functional Song. a 440 modern pitch us standard grand piano, dreadnought acoustic humbucker electric guitar, electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 258,
+  "score": 1.981,
   "config": {
     "traditions": [
       "cancoes_infantis"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
+          "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -68,13 +68,13 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.1905,
+          "grand_piano_brand": 0.39,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 1.2349999999999999
         }
       },
       {
@@ -122,7 +122,7 @@
           "string_material": 0.054,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.17,
           "finish": 0,
           "string_tuning": 0
         }
@@ -173,7 +173,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.054,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.15000000000000002,
           "cymbal_finish": 0

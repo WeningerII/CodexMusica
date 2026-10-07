@@ -3,14 +3,13 @@
   "name": "Guitarrada (Portuguese Guitar Instrumental)",
   "family": "vernacular",
   "lineage": "Instrumental repertoire for the pear-shaped twelve-string guitarra portuguesa, codified in Lisbon and Coimbra from the 1920s by Armandinho and later Carlos Paredes, in which the fado accompanist becomes soloist — fan-shaped preservation of fado harmonic frames plus variações, played with fingernail plectra, dense tremolo and cascading triplet runs over viola de fado bass-chord accompaniment at variable rubato tempi.",
-  "recipe": "classic Iberian mid-1920s guitarrada, ballad Poetry, fado lisboa branch, chanson fado fado coimbra, iberian functional song asturian folk. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, cedar fingerpicked classical nylon-string guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, viola campanica. coimbra university outdoor quad. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 578,
-  "score": 85.688,
+  "recipe": "classic Iberian mid-1920s guitarrada, ballad Poetry, fado lisboa branch, chanson fado fado coimbra, iberian functional song. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, cedar fingerpicked classical nylon-string guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, viola campanica. coimbra university outdoor quad. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 564,
+  "score": 79.843,
   "config": {
     "traditions": [
       "guitarrada_portuguesa",
-      "fado_coimbra_university",
-      "asturian_folk"
+      "fado_coimbra_university"
     ],
     "instruments": [
       {
@@ -23,7 +22,7 @@
           "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
         },
         "scores": {
-          "guitarra_tuning_school": 23.645000000000003,
+          "guitarra_tuning_school": 23.045,
           "guitarra_body_wood": 1.8199999999999998,
           "guitarra_top_wood": 15.225000000000001,
           "guitarra_strings": 1.885,
@@ -38,15 +37,15 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
           "string_classical": "plain_lamb_gut_classical_guitar",
-          "attack_technique_cl": "apoyando_cl"
+          "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 8.045,
+          "acoustic_technique": 5.745,
           "string_tuning": 0,
-          "top_wood_classical": 6.175,
-          "bracing_classical": 1.6899999999999997,
+          "top_wood_classical": 4.68,
+          "bracing_classical": 0.845,
           "string_classical": 0.7,
-          "attack_technique_cl": 1.1375
+          "attack_technique_cl": 0.195
         }
       },
       {
@@ -64,15 +63,15 @@
           "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": 0.6749999999999999,
-          "bass_size": 0.65,
-          "bass_strings": 1.8849999999999998,
+          "bowed_technique": 0.4875,
+          "bass_size": 0.195,
+          "bass_strings": 1.2349999999999999,
           "bass_top_wood": 0.4875,
           "bass_back_wood": 0.4225,
           "bass_varnish": 0.325,
-          "bass_setup_period": 1.685,
-          "bass_play": 0.39,
-          "bass_rosin": 2.9350000000000005,
+          "bass_setup_period": 1.17,
+          "bass_play": 0.195,
+          "bass_rosin": 2.1125,
           "bass_bow_stick": 3.2499999999999996
         }
       },
@@ -88,6 +87,11 @@
         }
       }
     ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "attack_technique_cl"
+      ]
+    },
     "room": "coimbra_university_outdoor_quad",
     "archetype": "arch_paris_chanson_orchestral",
     "inline_chain": {
@@ -107,6 +111,10 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "coimbra_university_outdoor_quad",
+    "parts": {
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_tube_german_v72",
     "chain_comp": "comp_la2a_optical",

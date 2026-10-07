@@ -2,10 +2,10 @@
   "id": "classic_colombian_pop",
   "name": "Classic colombian pop",
   "family": "pop",
-  "lineage": "Classic colombian pop is represented here by Afrosound — label-documented continuing ensemble. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic classic colombian pop, functional Song, pop rock branch. duet, live take. humbucker electric guitar, ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, congas, bongos. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 349,
-  "score": 69.645,
+  "lineage": "Classic Colombian pop connects established popular repertoire with tropical dance music and guitar-led interpretations of regional and international styles.",
+  "recipe": "classic classic colombian pop, functional Song, pop rock branch. humbucker electric guitar, ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, congas, bongos. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 332,
+  "score": 61.9,
   "config": {
     "traditions": [
       "classic_colombian_pop"
@@ -22,7 +22,7 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -35,13 +35,13 @@
           "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 2.3,
+          "pickup_winding": 2,
           "string_material": 0.0315,
-          "bridge": 1.4365,
+          "bridge": 0.2415,
           "scale_length": 0.6405000000000001,
-          "string_gauge": 1.4995,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -62,7 +62,7 @@
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,20 +76,20 @@
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 12.391,
+          "keyboard_technique": 11.641,
           "grand_piano_size": 0.16799999999999998,
           "grand_piano_brand": 0.399,
-          "piano_hammer": 12.181,
-          "piano_rim": 12.013,
-          "piano_soundboard": 12.023499999999999,
-          "piano_pinblock": 0.26,
+          "piano_hammer": 11.431,
+          "piano_rim": 11.263,
+          "piano_soundboard": 11.273499999999999,
+          "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -154,11 +154,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.063,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.063
+          "voice_multitrack_stack": 0.063
         }
       }
     ],

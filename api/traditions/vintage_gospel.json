@@ -2,10 +2,10 @@
   "id": "vintage_gospel",
   "name": "Vintage gospel",
   "family": "blues_gospel",
-  "lineage": "Vintage gospel: Blind Willie Harris — Where He Leads Me I Will Follow (c. February 1929). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-  "recipe": "classic late-1920s vintage gospel, ritual Devotional, christian gospel branch. spruce martin lifespan sealed dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 236,
-  "score": 4.455,
+  "lineage": "Vintage gospel brings together historical recordings of Christian spirituals and gospel, including soloists, vocal quartets, choirs and guitar evangelists. Archival repertories preserve the diverse African American devotional practices heard in early commercial recordings.",
+  "recipe": "classic vintage gospel, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. low density tonewood vintage spruce dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 269,
+  "score": 4.176,
   "config": {
     "traditions": [
       "vintage_gospel"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.162,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
@@ -59,14 +59,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "engelmann",
           "back_sides": "koa_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.1,
           "string_tuning": 0,
           "top_wood": 2,
           "back_sides": 0.294,
-          "string_acoustic": 1.69
+          "string_acoustic": 0.7575000000000001
         }
       }
     ],

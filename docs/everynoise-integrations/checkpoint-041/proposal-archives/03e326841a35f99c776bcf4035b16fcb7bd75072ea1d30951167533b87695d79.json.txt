@@ -1,0 +1,2150 @@
+{
+  "entries": [
+    {
+      "source_label": "ethnotronica",
+      "source_url": "https://everynoise.com/engenremap-ethnotronica.html",
+      "suggested_id": "ethnotronica",
+      "allocation_ordinal": 3256,
+      "allocation_group_id": "131",
+      "id": "ethnotronica",
+      "tradition": {
+        "id": "ethnotronica",
+        "name": "Ethnotronica",
+        "family": "electronic",
+        "lineage": "Ethnotronica brings electronic production into dialogue with regional acoustic traditions. The term circulates through international performance and DJ networks, including Indian-classical electronic collaborations and cross-cultural dance production.",
+        "instruments": [
+          "bansuri",
+          "tabla",
+          "sampler_classic"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_assam_bamboo",
+          "bansuri_lineage": "bansuri_pannalal_ghosh",
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "fresh_syahi",
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Regional melodic instruments and percussion can interact with repeating electronic phrases, processed textures and dance rhythms. An Indian-influenced setting combines bansuri flute, tabla and electronic layers; other collaborations use different cultural sources.",
+        "exemplars": [
+          "Filter Coffee",
+          "DJ Rafadelic"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.0907,
+        5.1214,
+        "Utrecht",
+        "Europe"
+      ],
+      "geo_rationale": "Artist own biography identifies Utrecht base; scene/practitioner anchor, not claimed original broadcast studio or programme recording coordinates.",
+      "sources": [
+        {
+          "url": "https://www.concertzender.nl/programma/solta_a_franga_422374/",
+          "support_notes": "Fresh full12703view2: broadcaster complete21-selection dated programme; explicit ethnotronica mix creditedDJRafadelic, cultural/style breadth and exclusive re-edits.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rafadelic.wordpress.com/",
+          "support_notes": "Fresh12701view0 own Symmetry section links exact broadcast and confirms ethnotronica/multi-label DJ mix. Other shows not imported.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://rafadelic.wordpress.com/biography/",
+          "support_notes": "Fresh12703view3 artist identifies DJ/producer fromUtrecht and cross-cultural dancefloor practice. General historical equipment not asserted for selected programme.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.indiearth.com/filter-coffee-with-a-spoonful-of-bass/",
+          "support_notes": "Fresh12700view0 presenter and firsthand2014 artist interview: Indian-classical/electronic duo adopts ethnotronica terminology; category-only corroboration, none of their palette transferred.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://filtercoffeemusic.godaddysites.com/",
+          "support_notes": "Fresh13700search0 own full duo profile: bansuri/tabla, electronic processors and soundscape; genre-level practice, not exact simultaneous concert inventory."
+        },
+        {
+          "url": "https://www.mumbaitheatreguide.com/dramas/Articles/14/oct/13-filter-coffee-band.asp",
+          "support_notes": "Fresh13700search8 promoter description explicitly electronic loops/processing and Indian flute/tabla; additional vocalist is a distinct expanded event and not a universal genre requirement."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification.",
+      "model_policy": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement.",
+      "instrument_role_audit": {
+        "scope": "Representative genre practice; not original exact programme reconstruction",
+        "families": [
+          "bansuri",
+          "tabla",
+          "sampler_classic"
+        ],
+        "policy": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement."
+      },
+      "vocal_count_audit": {
+        "genre_configuration": "instrumental production branch; recorded or sampled vocal content may vary",
+        "source_counts": "See archived original_entry for source-specific programme counts. No assertion original electronic music has zero embedded human voices."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "bansuri",
+          "parts": {
+            "wind_articulation": "wind_continuous_legato",
+            "bansuri_length": "classical_bansuri",
+            "bansuri_ornament": "meend_bansuri",
+            "bansuri_body_material": "bansuri_assam_bamboo",
+            "bansuri_lineage": "bansuri_pannalal_ghosh"
+          },
+          "policy": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement."
+        },
+        {
+          "instrument": "tabla",
+          "parts": {
+            "tabla_dayan": "shisham_dayan",
+            "tabla_bayan": "copper_bayan",
+            "tabla_syahi": "fresh_syahi"
+          },
+          "policy": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement."
+        },
+        {
+          "instrument": "sampler_classic",
+          "parts": {
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_post"
+          },
+          "policy": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement."
+        }
+      ],
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing owners only; current per-owner controls resolved. Original programme/poetry audits archived under format_repair.original_entry."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ethnotronica",
+          "name": "Ethnotronica",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh12710view0 Commons CC BY2.5 IainFergusson/Binksternet crop verified; exact historical023 bytes/visual receipt inherited, not freshdownload.",
+          "fresh_review_ref": "turn12710view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12710view0"
+        ],
+        "fresh_rights_review": "Fresh12710view0 rights only; exact023 historicalbyte/visual evidence retained."
+      },
+      "source_scope_limitation": "Current configuration is representative genre practice, not a reconstruction of the earlier complete source programme or poem recording. Earlier exact scope preserved in format_repair.original_entry.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All current owning controls protected, no orphan key or incompatible shared value."
+      },
+      "classification_evidence": "Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification.",
+      "primary_retrieval_refs": [
+        "turn12703view2",
+        "turn12701view0",
+        "turn12703view3",
+        "turn12700view0"
+      ],
+      "source_retrieval_caveat": "Full broadcaster and artist text independently accessible. Actual map403 and embedded Mixcloud player inaccessible; neither needed to infer an unobserved audio roster. No auditory inspection or measured duration claimed. Original raw broadcaster/biography tool receipt saved ethnotronica-primary-raw117.json, including failed map/player requests honestly.",
+      "verification_status": "Author complete-primary candidate; original mechanics/four formats and independent peer required.",
+      "authored_render_scope": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement.",
+      "source_review_refs": [
+        "turn12703view2",
+        "turn12701view0",
+        "turn12703view3",
+        "turn12700view0"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume117-16.json",
+        "before_packet_sha256": "1d4773642dab4547482db39844c9272f86f6cb79ac91efe3b25bb5489b966a2d",
+        "before": {
+          "tradition": {
+            "id": "ethnotronica",
+            "name": "Ethnotronica",
+            "family": "electronic",
+            "lineage": "DJ Rafadelic — whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition. Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "DJ Rafadelic — whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition. Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification. Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+            "exemplars": [
+              "DJ Rafadelic — Symetry, whole21-selection Concertzender programme,1December2017"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "original_entry": {
+          "source_label": "ethnotronica",
+          "source_url": "https://everynoise.com/engenremap-ethnotronica.html",
+          "suggested_id": "ethnotronica",
+          "allocation_ordinal": 3256,
+          "allocation_group_id": "131",
+          "id": "ethnotronica",
+          "tradition": {
+            "id": "ethnotronica",
+            "name": "Ethnotronica",
+            "family": "electronic",
+            "lineage": "DJ Rafadelic — whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition. Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "DJ Rafadelic — whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition. Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification. Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+            "exemplars": [
+              "DJ Rafadelic — Symetry, whole21-selection Concertzender programme,1December2017"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            52.0907,
+            5.1214,
+            "Utrecht",
+            "Europe"
+          ],
+          "geo_rationale": "Artist own biography identifies Utrecht base; scene/practitioner anchor, not claimed original broadcast studio or programme recording coordinates.",
+          "sources": [
+            {
+              "url": "https://www.concertzender.nl/programma/solta_a_franga_422374/",
+              "support_notes": "Fresh full12703view2: broadcaster complete21-selection dated programme; explicit ethnotronica mix creditedDJRafadelic, cultural/style breadth and exclusive re-edits.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://rafadelic.wordpress.com/",
+              "support_notes": "Fresh12701view0 own Symmetry section links exact broadcast and confirms ethnotronica/multi-label DJ mix. Other shows not imported.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://rafadelic.wordpress.com/biography/",
+              "support_notes": "Fresh12703view3 artist identifies DJ/producer fromUtrecht and cross-cultural dancefloor practice. General historical equipment not asserted for selected programme.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://www.indiearth.com/filter-coffee-with-a-spoonful-of-bass/",
+              "support_notes": "Fresh12700view0 presenter and firsthand2014 artist interview: Indian-classical/electronic duo adopts ethnotronica terminology; category-only corroboration, none of their palette transferred.",
+              "checked_date": "2026-10-03"
+            }
+          ],
+          "signature_tokens": [],
+          "neighbor_distinction": "Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification.",
+          "model_policy": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+          "instrument_role_audit": {
+            "scope": "DJ Rafadelic — whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition.",
+            "cards": 1,
+            "roles": [
+              "Whole issued DJ mix with all21 selections and re-edits"
+            ],
+            "defaults": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred."
+          },
+          "vocal_count_audit": {
+            "additional_voice_cards": 0,
+            "actual_live_singer_count": "unknown/not documented",
+            "embedded_voice_count": "unknown",
+            "reason": "Complete credited DJ mix retains all underlying recorded voices; no separately documented live-vocal performance. No count inferred from source silence."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred."
+            }
+          ],
+          "dependency_audit": {
+            "reused_instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "new_instruments": []
+          },
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "ethnotronica",
+              "name": "Ethnotronica",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context; not Rafadelic, source DJ equipment, venue or culturally specific depiction.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh12710view0 Commons CC BY2.5 IainFergusson/Binksternet crop verified; exact historical023 bytes/visual receipt inherited, not freshdownload.",
+              "fresh_review_ref": "turn12710view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn12710view0"
+            ],
+            "fresh_rights_review": "Fresh12710view0 rights only; exact023 historicalbyte/visual evidence retained."
+          },
+          "source_scope_limitation": "DJ Rafadelic — whole Symetry programme, Concertzender Solta a Franga,1December2017. Broadcaster publishes all21 selections and explicitly credits the DJ mix; artist links the same programme as Symmetry. Entire programme includes exclusive re-edits and recorded voices/instruments, not an extracted single or unknown studio master relabeled playback. Actual playback medium, added live voices, embedded performer counts and measured duration are unspecified; no audition claimed. One existing DJ playback/mixing owner preserves the complete issued assembly, without asserting source-track instruments are live in this rendition.",
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "note": "Only applicable identity part protected."
+          },
+          "classification_evidence": "Ethnotronica names a cross-cultural electronic production and performance field, positively used by this broadcaster and DJ for a multi-label programme and independently adopted by Filter Coffee in their firsthand IndiEarth interview. It overlaps folktronica, organic house, organic electronic, downtempo and world chill. Full existing folktronica specifically describes British/North-American folk-revival acoustic textures with glitch/editing; this named international cross-cultural field also includes Indian-classical electronica and multi-region dance/re-edit networks. Organic electronic broadly concerns acoustic/electronic interaction, which need not carry culturally specific source idioms; organic house is the emotive house network, not all cross-cultural electronics. World chill is relaxation-oriented cross-cultural production; this programme is positively framed as a party without borders and is not limited to chill. World fusion is broad cross-cultural fusion including acoustic/improvised interaction, while ethnotronica specifically foregrounds electronic construction. Worldbeat_80s concerns Anglophone1980s pop-studio hybrids. These are overlapping scopes, not strict acoustic disjointness or differences inferred from one exemplar. Creator map currently inaccessible; no invented creator membership. Primary exact genre usage establishes classification.",
+          "primary_retrieval_refs": [
+            "turn12703view2",
+            "turn12701view0",
+            "turn12703view3",
+            "turn12700view0"
+          ],
+          "source_retrieval_caveat": "Full broadcaster and artist text independently accessible. Actual map403 and embedded Mixcloud player inaccessible; neither needed to infer an unobserved audio roster. No auditory inspection or measured duration claimed. Original raw broadcaster/biography tool receipt saved ethnotronica-primary-raw117.json, including failed map/player requests honestly.",
+          "verification_status": "Author complete-primary candidate; original mechanics/four formats and independent peer required.",
+          "authored_render_scope": "Authored dance-listening realization uses the existing source-neutral DJ playback/mixing identity and its one applicable control. Controlled live-room capture and brisk, cyclically beat-led presentation are editorial choices compatible with the positively dance-oriented programme, not measured source acoustics, tempo or every selection structure. Broad electronicDance parent applies to this selected DJ dance programme, not every ethnotronica work. No equal-temperament, signal chain, deck architecture, live acoustic roles or live-singer headcount inferred.",
+          "source_review_refs": [
+            "turn12703view2",
+            "turn12701view0",
+            "turn12703view3",
+            "turn12700view0"
+          ]
+        },
+        "decision": "genre_profile_repair",
+        "reason": "Replace narrow programme/recital default with source-supported representative genre production or songwriting; concise public profile and separate evidence.",
+        "default_review": "Replace DJ-only sourceprogramme with a representative documented live-production branch: bansuri, tabla and layered electronic phrases. Artist-owned profile13700search0 and promoter/interview13699view0 positively establish Indian classical flute, tabla/percussion and electronic soundscape. Compact full genre arrangement does not claim all alternate guest/flute instruments simultaneously. Classical concert bansuri with meend/legato, Assam bamboo and foundational concert lineage; shisham/copper tabla with fresh syahi; modern24bit phrase-layer sampler are explicit authored controls, not measured artist gear. Loop role positively corroborated promoter13700search8. No added singer required in this documented instrumental duo branch. Layered sampler phrases may use small repeated/retriggered segments within the sustained electronic bed; emitted micro-stuttering is an authored processing texture, not a source-performance measurement.",
+        "original_source_dossier_preserved": true
+      }
+    },
+    {
+      "source_label": "hyperpop en espanol",
+      "source_url": "https://everynoise.com/engenremap-hyperpopenespanol.html",
+      "suggested_id": "hyperpop_en_espanol",
+      "allocation_ordinal": 3448,
+      "allocation_group_id": "138",
+      "id": "hyperpop_en_espanol",
+      "tradition": {
+        "id": "hyperpop_en_espanol",
+        "name": "Hyperpop en Español",
+        "family": "electronic",
+        "lineage": "Hyperpop en Español is the Spanish-language community within the wider internet-era hyperpop field. Artists connect pop songwriting with electronic experimentation, drawing on club music, online collaboration and influences from several generations of pop.",
+        "instruments": [
+          "voice",
+          "wavetable_synth",
+          "drum_machine_analog"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_technique": "electronic_lead_line",
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_poly"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.popExperimental",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Bright electronic melodies, produced rhythms and digitally treated singing push pop hooks toward exaggerated textures. Rave influences and quick stylistic changes coexist with personal, song-centred expression.",
+        "exemplars": [
+          "Rakky Ripper",
+          "Rojuu",
+          "Fran Laoren"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        40.421,
+        -3.697,
+        "Madrid",
+        "Europe"
+      ],
+      "geo_rationale": "Promoter positively names Sala Vesta, Calle del Barquillo29,Madrid; venue-locality point, not artist birthplace or audio-session coordinates.",
+      "sources": [
+        {
+          "url": "https://ra.co/events/1595579?returnUrl=/dj/rakkyripper/past-events",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11790view0 promoter-administered event: date/venue, individual DJ roster and explicit Rakky DJ programme/style description. Announcement, not evidence actual set was recorded or went exactly as advertised."
+        },
+        {
+          "url": "https://metalmagazine.eu/es/post/rakky-ripper",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh full11816view0 first-person answers distinguish Spanish-language emergence from English-language PCMusic lineage; broad stylistic self-description and community purpose."
+        },
+        {
+          "url": "https://acero.metalmagazine.eu/post/rakky-ripper",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11816view1 first-person nuanced later account of hyperpop expansion and her own preferred pop-electronic label; avoid rigid or exclusive taxonomy."
+        },
+        {
+          "url": "https://lamadraza.ugr.es/evento/tecnologia-y-autenticidad-voces-con-autotune/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11796search1 full university own event/bio independently identifies Spanish hyperpop practice and international DJ programme context."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/67WXwFxh6c7BJujM1zvn25",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11807view0 full100 exact creator corpus establishes named discovery community. Rakky absent current100, so no creator-member claim for her."
+        },
+        {
+          "url": "https://metalmagazine.eu/es/post/rakky-ripper",
+          "support_notes": "Fresh13699view1 firsthand singer/beatmaking/electronic-pop practice supports genre production default separately from earlier announced DJ set."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Hyperpop en Español is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Español playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop.",
+      "model_policy": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published.",
+      "instrument_role_audit": {
+        "scope": "Representative genre practice; not original exact programme reconstruction",
+        "families": [
+          "voice",
+          "wavetable_synth",
+          "drum_machine_analog"
+        ],
+        "policy": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published."
+      },
+      "vocal_count_audit": {
+        "genre_configuration": "authored one accompanied melodic lead",
+        "source_counts": "See archived original_entry for source-specific programme counts. No assertion original electronic music has zero embedded human voices."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published."
+        },
+        {
+          "instrument": "wavetable_synth",
+          "parts": {
+            "electronic_technique": "electronic_lead_line",
+            "wt_position": "wt_morphing",
+            "wt_family": "wt_industrial",
+            "wt_polyphony": "wt_poly"
+          },
+          "policy": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published."
+        },
+        {
+          "instrument": "drum_machine_analog",
+          "parts": {
+            "kick_voice": "bridged_t_kick",
+            "snare_voice": "tone_noise_snare",
+            "hat_voice": "square_summed_hat",
+            "shuffle_quantize": "straight_quantize"
+          },
+          "policy": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published."
+        }
+      ],
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing owners only; current per-owner controls resolved. Original programme/poetry audits archived under format_repair.original_entry."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "hyperpop_en_espanol",
+          "name": "Hyperpop en Español",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11816view2 confirms CC BY2.5 IainFergusson/Binksternet crop. Exact historical023 bytes and visual receipts reused unchanged; no fresh download.",
+          "fresh_review_ref": "turn11816view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11816view2"
+        ]
+      },
+      "source_scope_limitation": "Current configuration is representative genre practice, not a reconstruction of the earlier complete source programme or poem recording. Earlier exact scope preserved in format_repair.original_entry.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All current owning controls protected, no orphan key or incompatible shared value."
+      },
+      "classification_evidence": "Hyperpop en Español is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Español playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop.",
+      "primary_retrieval_refs": [
+        "turn11790view0",
+        "turn11816view0",
+        "turn11816view1",
+        "turn11796search1",
+        "turn11807view0"
+      ],
+      "source_retrieval_caveat": "Actual primary promoter announcement and firsthand interviews retrieved; no issued show audio, duration, tracklist or performance observation. Prior inaccessible BBC mix not used as chosen performance. Complete advertised practice is selected transparently.",
+      "verification_status": "Author source packet; mechanical and four original formats required before independent review.",
+      "authored_render_scope": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published.",
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume117-4.json",
+        "before_packet_sha256": "5e709b8ee2e2eaa2ea345176254ff497e769ce7c3aa1d98328c1bc471cef10e5",
+        "before": {
+          "tradition": {
+            "id": "hyperpop_en_espanol",
+            "name": "Hyperpop en Español",
+            "family": "electronic",
+            "lineage": "Rakky Ripper — complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59–06:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks. Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "experimentalElec.popExperimental",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Rakky Ripper — complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59–06:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks. Hyperpop en Español is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Español playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop. Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+            "exemplars": [
+              "Rakky Ripper — whole announced INSULTO x KEKA DJ programme,30September2022"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "original_entry": {
+          "source_label": "hyperpop en espanol",
+          "source_url": "https://everynoise.com/engenremap-hyperpopenespanol.html",
+          "suggested_id": "hyperpop_en_espanol",
+          "allocation_ordinal": 3448,
+          "allocation_group_id": "138",
+          "id": "hyperpop_en_espanol",
+          "tradition": {
+            "id": "hyperpop_en_espanol",
+            "name": "Hyperpop en Español",
+            "family": "electronic",
+            "lineage": "Rakky Ripper — complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59–06:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks. Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "experimentalElec.popExperimental",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Rakky Ripper — complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59–06:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks. Hyperpop en Español is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Español playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop. Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+            "exemplars": [
+              "Rakky Ripper — whole announced INSULTO x KEKA DJ programme,30September2022"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            40.421,
+            -3.697,
+            "Madrid",
+            "Europe"
+          ],
+          "geo_rationale": "Promoter positively names Sala Vesta, Calle del Barquillo29,Madrid; venue-locality point, not artist birthplace or audio-session coordinates.",
+          "sources": [
+            {
+              "url": "https://ra.co/events/1595579?returnUrl=/dj/rakkyripper/past-events",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh full11790view0 promoter-administered event: date/venue, individual DJ roster and explicit Rakky DJ programme/style description. Announcement, not evidence actual set was recorded or went exactly as advertised."
+            },
+            {
+              "url": "https://metalmagazine.eu/es/post/rakky-ripper",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh full11816view0 first-person answers distinguish Spanish-language emergence from English-language PCMusic lineage; broad stylistic self-description and community purpose."
+            },
+            {
+              "url": "https://acero.metalmagazine.eu/post/rakky-ripper",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh11816view1 first-person nuanced later account of hyperpop expansion and her own preferred pop-electronic label; avoid rigid or exclusive taxonomy."
+            },
+            {
+              "url": "https://lamadraza.ugr.es/evento/tecnologia-y-autenticidad-voces-con-autotune/",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh11796search1 full university own event/bio independently identifies Spanish hyperpop practice and international DJ programme context."
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/67WXwFxh6c7BJujM1zvn25",
+              "checked_date": "2026-10-03",
+              "support_notes": "Fresh11807view0 full100 exact creator corpus establishes named discovery community. Rakky absent current100, so no creator-member claim for her."
+            }
+          ],
+          "signature_tokens": [],
+          "neighbor_distinction": "Hyperpop en Español is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Español playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop.",
+          "model_policy": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style.",
+          "instrument_role_audit": {
+            "scope": "Rakky Ripper — complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59–06:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks.",
+            "cards": 1,
+            "roles": [
+              "Positively advertised complete Rakky DJ playback/mixing programme; all embedded content retained"
+            ],
+            "defaults": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style."
+          },
+          "vocal_count_audit": {
+            "additional_voice_cards": 0,
+            "actual_live_singer_count": "unknown/not documented",
+            "embedded_voice_count": "unknown",
+            "reason": "Whole explicitly announced DJ practice modeled; no separate live singer positively credited. No exact personnel count inferred from absence."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style."
+            }
+          ],
+          "dependency_audit": {
+            "reused_instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "new_instruments": []
+          },
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "hyperpop_en_espanol",
+              "name": "Hyperpop en Español",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording-microphone context; not Rakky, DJ apparatus, original venue or capture hardware.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh Commons11816view2 confirms CC BY2.5 IainFergusson/Binksternet crop. Exact historical023 bytes and visual receipts reused unchanged; no fresh download.",
+              "fresh_review_ref": "turn11816view2"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn11816view2"
+            ]
+          },
+          "source_scope_limitation": "Rakky Ripper — complete separately advertised DJ programme at INSULTO x KEKA Hard Fantasy II, Sala Vesta, Madrid,30September2022. The promoter names the guest DJs individually and positively describes Rakky's DJ selection/mixing of nightcore remixes, emo revival, psytrance, happy hardcore and rave branches with pop. Model the whole announced Rakky DJ practice, not an extracted section, the entire multi-DJ night or her unrelated live singing shows. No issued recording or eyewitness performance confirmation, exact set duration, titles or actual additional live-vocal count is available;23:59–06:00 is the event window and is not assigned to her set. Underlying recorded voices/instruments remain fully within the positively advertised DJ role; their inventory/count is unknown. This documented DJ programme is not a sampler stand-in for opaque original studio tracks.",
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "note": "Only applicable identity part protected."
+          },
+          "classification_evidence": "Hyperpop en Español is the narrower Spanish-language hyperpop community within the full international hyperpop field. Rakky's firsthand Metal interview explicitly describes the need for this music in Spanish beyond UK/US English-language production, and identifies her music with hyperpop/bubblegum-bass while preferring the broad term pop. Her later ACERO interview candidly questions hyperpop's widened boundaries and changing scene; no rigid acoustic essence or exclusive self-label is imposed. University Granada and the event promoter independently locate her within the Spanish hyperpop network. The exact creator's full Hyperpop en Español playlist includes Rojuu,Fran Laoren,Orslok,Mda and many others; Rakky is not present in the current retrieved100 tracks, so her bridge relies on direct practitioner/institution evidence, not invented creator membership. Existing hyperpop already encompasses global queer/internet and maximalist electronic-pop practices; this is an overlapping language/community subset, not a new production technique or temporal exclusion. Hyperpop_rap is a rap-focused convergence, not the whole sung/pop/rave field; Spanish indie pop and Spanish pop rock retain wider/different scene scopes rather than being reduced to their particular exemplars. Existing German/French/Indonesian hyperpop are other national/language communities. The selected DJ programme deliberately crosses adjacent rave styles and is not claimed uniformly Spanish-language or exclusively hyperpop.",
+          "primary_retrieval_refs": [
+            "turn11790view0",
+            "turn11816view0",
+            "turn11816view1",
+            "turn11796search1",
+            "turn11807view0"
+          ],
+          "source_retrieval_caveat": "Actual primary promoter announcement and firsthand interviews retrieved; no issued show audio, duration, tracklist or performance observation. Prior inaccessible BBC mix not used as chosen performance. Complete advertised practice is selected transparently.",
+          "verification_status": "Author source packet; mechanical and four original formats required before independent review.",
+          "authored_render_scope": "Authored recording realization retains the whole positively described DJ playback/mixing role through existing dj_playback_mixing_unspecified, preserving embedded source music and voices without inventing their original instrumentation. Single applicable identity control protected. Actual additional live singers are unknown/not documented; zero additional voice cards is not an assertion of zero humans on stage. Medium, deck/software mechanism, scratching, filters, microphone, capture chain, measured tuning and set list remain unknown. Controlled live room and neutral axes are authored, not observed venue acoustics. Broad experimentalElec.popExperimental follows the positively documented hyperpop community/pop-experimentation DJ practice; adjacent faster rave repertoire does not narrow all selections to one style."
+        },
+        "decision": "genre_profile_repair",
+        "reason": "Replace narrow programme/recital default with source-supported representative genre production or songwriting; concise public profile and separate evidence.",
+        "default_review": "Replace DJ-only programme with representative electronic-pop production: melodic lead, wavetable synth and electronic drums. Firsthand Rakky interview13699view1 explicitly describes singing, self-made software beats and bright electronic/bubblegum-pop music; university Autotune event supplies processing context. Morphing digital-wave polyphonic melodic synthesis, analogue-style kick/noise snare/metallic hats, straight quantization and fast vocal retuning are authored contemporary hyperpop settings, not claimed exact Rakky equipment or song transcription. Keep physiology/pitch organisation unspecified; no omitted source master because this is genre practice. The original catalog hyperpop profile independently uses wavetable synthesis; this is an appropriate genre production architecture, not a claim about Rakky’s device. Initial virtual-analog pluck draft produced unrelated oro-rolling and is preserved as rejected, not published.",
+        "original_source_dossier_preserved": true
+      }
+    },
+    {
+      "source_label": "indie liguria",
+      "source_url": "https://everynoise.com/engenremap-indieliguria.html",
+      "suggested_id": "indie_liguria",
+      "allocation_ordinal": 3482,
+      "allocation_group_id": "140",
+      "id": "indie_liguria",
+      "tradition": {
+        "id": "indie_liguria",
+        "name": "Indie Liguria",
+        "family": "electronic",
+        "lineage": "Indie Liguria links independent music communities in Liguria, including Genoa’s bands, producers and small-label networks. Songwriting, electronic production and cross-cultural collaborations coexist within this regional scene.",
+        "instruments": [
+          "sampler_drum_machine"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Guitar-led and vocal music share the scene with producer-led tracks built from digital beats, edited fragments and layered textures. A sample-based production setting represents this electronic strand without defining the whole community as dance music.",
+        "exemplars": [
+          "FiloQ",
+          "Pioggia Rossa Dischi"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        44.41,
+        8.93,
+        "Genoa",
+        "Europe"
+      ],
+      "geo_rationale": "Management and municipality positively anchor the producer and local independent practice in Genoa. Community anchor, not invented mix-recording location.",
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/GarrinchaSoundSystem/garricha-soundsystem-mixtape-vol7-filo-q/",
+          "support_notes": "Fresh full13058view0 issuer seventh electronic mixtape40:20, partial included-artist list only; whole programme retained.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.highgrade.it/en/profile/filoq/",
+          "support_notes": "Fresh13055view1 management profile: Genoa-based DJ/producer, Magellano and cross-style independent production collaborations.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://smart.comune.genova.it/comunicati-stampa-articoli/genova-celebra-l%E2%80%9981%C2%B0-anniversario-della-liberazione-con-un-programma",
+          "support_notes": "Fresh full13056view0 and13057view1: municipal own2026 programme, PioggiaRossaDischi independent-scene stage explicitly includes FiloQ DJ practice. This different2026 duo event supplies community evidence only; AleBavo not imported into earlier solo mixtape.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3N6f07zAIQH4yQ2IfJ1Yn7?theme=0",
+          "support_notes": "Fresh13045view2/13050view0 exact creator playlist, FiloQ11/65 and cross-style Ligurian network; selected mixtape not asserted an included track.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.highgrade.it/en/profile/filoq/",
+          "support_notes": "Fresh13701view0 full management biography explicitly describes digital beats and cut-and-paste production, separately from DJ format."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members.",
+      "model_policy": "Replace DJ-playback-only setup with constructive sample production grounded in management firstparty13701view0: digital beats and cut-and-paste traditional music, jazz and electronics. Existing sampler models the assembled rhythmic/melodic/recorded-vocal material, not a fake live ensemble.16bit resolution, moderate swing and rolling chopped processing are authored modern production choices, not exact device inventory or mandatory jungle tempo. Other local bands remain in public scope.",
+      "instrument_role_audit": {
+        "scope": "Representative genre practice; not original exact programme reconstruction",
+        "families": [
+          "sampler_drum_machine"
+        ],
+        "policy": "Replace DJ-playback-only setup with constructive sample production grounded in management firstparty13701view0: digital beats and cut-and-paste traditional music, jazz and electronics. Existing sampler models the assembled rhythmic/melodic/recorded-vocal material, not a fake live ensemble.16bit resolution, moderate swing and rolling chopped processing are authored modern production choices, not exact device inventory or mandatory jungle tempo. Other local bands remain in public scope."
+      },
+      "vocal_count_audit": {
+        "genre_configuration": "instrumental production branch; recorded or sampled vocal content may vary",
+        "source_counts": "See archived original_entry for source-specific programme counts. No assertion original electronic music has zero embedded human voices."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "sampler_drum_machine",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "sample_bitdepth": "sixteen_bit",
+            "sample_swing": "mid_swing",
+            "sample_processing": "chopped_break"
+          },
+          "policy": "Replace DJ-playback-only setup with constructive sample production grounded in management firstparty13701view0: digital beats and cut-and-paste traditional music, jazz and electronics. Existing sampler models the assembled rhythmic/melodic/recorded-vocal material, not a fake live ensemble.16bit resolution, moderate swing and rolling chopped processing are authored modern production choices, not exact device inventory or mandatory jungle tempo. Other local bands remain in public scope."
+        }
+      ],
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing owners only; current per-owner controls resolved. Original programme/poetry audits archived under format_repair.original_entry."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_liguria",
+          "name": "Indie Liguria",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn13059view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13059view0"
+        ],
+        "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+      },
+      "source_scope_limitation": "Current configuration is representative genre practice, not a reconstruction of the earlier complete source programme or poem recording. Earlier exact scope preserved in format_repair.original_entry.",
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All current owning controls protected, no orphan key or incompatible shared value."
+      },
+      "classification_evidence": "Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members.",
+      "primary_retrieval_refs": [
+        "turn13058view0",
+        "turn13055view1",
+        "turn13057view1",
+        "turn13050view0"
+      ],
+      "source_retrieval_caveat": "All four primary sources freshly retrieved. Programme display establishes40:20 duration; no audio audition or complete tracklist claimed. Saved actual unmodified fullmix and municipal responses in filoq-fullmix-primary117.json and filoq-source-primary117.json. Previous Gremo complex album remains separately preserved; this is a different whole issued performance.",
+      "verification_status": "Complete primary candidate; independent peer required.",
+      "authored_render_scope": "Replace DJ-playback-only setup with constructive sample production grounded in management firstparty13701view0: digital beats and cut-and-paste traditional music, jazz and electronics. Existing sampler models the assembled rhythmic/melodic/recorded-vocal material, not a fake live ensemble.16bit resolution, moderate swing and rolling chopped processing are authored modern production choices, not exact device inventory or mandatory jungle tempo. Other local bands remain in public scope.",
+      "source_review_refs": [
+        "turn13058view0",
+        "turn13055view1",
+        "turn13057view1",
+        "turn13050view0"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume117-20.json",
+        "before_packet_sha256": "d1f7bfba294c595f5f6d67ff91ee4a5c5b34f83f61441ace72fbe570aa5c2d77",
+        "before": {
+          "tradition": {
+            "id": "indie_liguria",
+            "name": "Indie Liguria",
+            "family": "electronic",
+            "lineage": "FiloQ — whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks. Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "FiloQ — whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks. Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members. Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+            "exemplars": [
+              "FiloQ — whole Garricha Soundsystem Mixtape Vol.7,40:20"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "original_entry": {
+          "source_label": "indie liguria",
+          "source_url": "https://everynoise.com/engenremap-indieliguria.html",
+          "suggested_id": "indie_liguria",
+          "allocation_ordinal": 3482,
+          "allocation_group_id": "140",
+          "id": "indie_liguria",
+          "tradition": {
+            "id": "indie_liguria",
+            "name": "Indie Liguria",
+            "family": "electronic",
+            "lineage": "FiloQ — whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks. Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "FiloQ — whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks. Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members. Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+            "exemplars": [
+              "FiloQ — whole Garricha Soundsystem Mixtape Vol.7,40:20"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            44.41,
+            8.93,
+            "Genoa",
+            "Europe"
+          ],
+          "geo_rationale": "Management and municipality positively anchor the producer and local independent practice in Genoa. Community anchor, not invented mix-recording location.",
+          "sources": [
+            {
+              "url": "https://www.mixcloud.com/GarrinchaSoundSystem/garricha-soundsystem-mixtape-vol7-filo-q/",
+              "support_notes": "Fresh full13058view0 issuer seventh electronic mixtape40:20, partial included-artist list only; whole programme retained.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://www.highgrade.it/en/profile/filoq/",
+              "support_notes": "Fresh13055view1 management profile: Genoa-based DJ/producer, Magellano and cross-style independent production collaborations.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://smart.comune.genova.it/comunicati-stampa-articoli/genova-celebra-l%E2%80%9981%C2%B0-anniversario-della-liberazione-con-un-programma",
+              "support_notes": "Fresh full13056view0 and13057view1: municipal own2026 programme, PioggiaRossaDischi independent-scene stage explicitly includes FiloQ DJ practice. This different2026 duo event supplies community evidence only; AleBavo not imported into earlier solo mixtape.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/3N6f07zAIQH4yQ2IfJ1Yn7?theme=0",
+              "support_notes": "Fresh13045view2/13050view0 exact creator playlist, FiloQ11/65 and cross-style Ligurian network; selected mixtape not asserted an included track.",
+              "checked_date": "2026-10-03"
+            }
+          ],
+          "signature_tokens": [],
+          "neighbor_distinction": "Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members.",
+          "model_policy": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+          "instrument_role_audit": {
+            "scope": "FiloQ — whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks.",
+            "cards": 1,
+            "roles": [
+              "Complete40:20 issued DJ programme including all recorded music/voices"
+            ],
+            "defaults": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count."
+          },
+          "vocal_count_audit": {
+            "additional_voice_cards": 0,
+            "actual_live_singer_count": "unknown/not documented",
+            "embedded_voice_count": "unknown",
+            "reason": "Complete issued DJ programme preserves every embedded voice. Added live-vocal practice is not documented; zero voice cards is not a measured absence of singers."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count."
+            }
+          ],
+          "dependency_audit": {
+            "reused_instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "new_instruments": []
+          },
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "indie_liguria",
+              "name": "Indie Liguria",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context; not FiloQ, DJ equipment or a depicted Ligurian venue.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+              "fresh_review_ref": "turn13059view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn13059view0"
+            ],
+            "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+          },
+          "source_scope_limitation": "FiloQ — whole Garricha Soundsystem Mixtape Vol.7, issuer Garrincha Soundsystem, displayed40:20. This separately issued DJ programme is the selected complete practice, not the previous Gremo album with roles removed. Issuer labels its seventh electronic mixtape and lists some included recording artists; the complete tracklist is unavailable. Playback medium, workflow, embedded performer counts and added live singers are undocumented; no audition claimed. The existing source-neutral playback/mixing owner preserves the entire recorded assembly, not a fictitious live performance of its underlying tracks.",
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "note": "Only applicable identity part protected."
+          },
+          "classification_evidence": "Indie Liguria is the regional independent-production and concert community, overlapping several musical styles. Exact creator playlist includes FiloQ at11/65, alongside Ex-Otago, Izi, Port-Royal, Magellano and other contrasting practices. The municipal Eraora programme explicitly places FiloQ in Pioggia Rossa Dischi local/visiting independent-scene programming, and his management identifies his Genoa-based electronic/global-beat production network. This is positive community participation, not birthplace alone. Existing italian_indie_pop is a national pop field and not limited to its Fitness Forever example; this regional cross-style field overlaps it but also positively includes DJ/electronic and rap networks. Full rap_genovese describes the melodic trap wave; full canzone_genovese describes Ligurian-dialect literary/urban song. Neither exhausts the named regional independent community. The chosen mix contains international repertoire and is not claimed exclusively Ligurian compositions, nor a universal sound for all regional members.",
+          "primary_retrieval_refs": [
+            "turn13058view0",
+            "turn13055view1",
+            "turn13057view1",
+            "turn13050view0"
+          ],
+          "source_retrieval_caveat": "All four primary sources freshly retrieved. Programme display establishes40:20 duration; no audio audition or complete tracklist claimed. Saved actual unmodified fullmix and municipal responses in filoq-fullmix-primary117.json and filoq-source-primary117.json. Previous Gremo complex album remains separately preserved; this is a different whole issued performance.",
+          "verification_status": "Complete primary candidate; independent peer required.",
+          "authored_render_scope": "Authored dance-listening realization retains the existing DJ playback/mixing identity and its one protected source-neutral control. Controlled live room, brisk presentation and broad electronicDance parent describe an editorial beat-led realization of this groove/big-beat-tagged mixtape; not measured source room, tempo or a claim that every Indie Liguria work is dance music. No invented deck architecture, equal temperament, signal chain, acoustic instrument roster or live singer count.",
+          "source_review_refs": [
+            "turn13058view0",
+            "turn13055view1",
+            "turn13057view1",
+            "turn13050view0"
+          ]
+        },
+        "decision": "genre_profile_repair",
+        "reason": "Replace narrow programme/recital default with source-supported representative genre production or songwriting; concise public profile and separate evidence.",
+        "default_review": "Replace DJ-playback-only setup with constructive sample production grounded in management firstparty13701view0: digital beats and cut-and-paste traditional music, jazz and electronics. Existing sampler models the assembled rhythmic/melodic/recorded-vocal material, not a fake live ensemble.16bit resolution, moderate swing and rolling chopped processing are authored modern production choices, not exact device inventory or mandatory jungle tempo. Other local bands remain in public scope.",
+        "original_source_dossier_preserved": true
+      }
+    },
+    {
+      "source_label": "indie nica",
+      "source_url": "https://everynoise.com/engenremap-indienica.html",
+      "suggested_id": "indie_nica",
+      "allocation_ordinal": 3485,
+      "allocation_group_id": "140",
+      "status": "candidate_for_independent_review",
+      "id": "indie_nica",
+      "tradition": {
+        "id": "indie_nica",
+        "name": "Indie Nica",
+        "family": "vernacular",
+        "lineage": "Indie Nica is Nicaragua’s independent music community, including self-managed songwriters, bands and production networks. Artists work across acoustic song, alternative music and other contemporary styles, both locally and in diaspora.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Personal songwriting and melodic singing can be carried by piano or guitar, while band and electronic settings broaden the sound. Literary expression and spoken poetry also intersect with the scene.",
+        "exemplars": [
+          "Ceshia Ubau",
+          "El Bosque"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        12.1364,
+        -86.2514,
+        "Managua",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Artist-owned profile positively identifies Managua/Nicaragua. Community origin anchor; actual selected recording is credited CostaRica and masteringGuatemala, neither silently relocated toManagua.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://ceshiaubau.bandcamp.com/album/me-es-urgente",
+          "support_notes": "Fresh full13103view0 all5poems and complete sole text/voice/piano credits, CostaRica2020 home recording and separate Guatemala mix. Artist explicitly spoken-word poetry.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4gM9aDyGSr2FVAKAmehvRV",
+          "support_notes": "Fresh13103view2 full exactcreator field; CeshiaUbau19 with Marzo2020, a different work; ElBosque2. No claim selectedEP appears in playlist.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://ondalocalni.com/noticias/1815-luz-disco-ceshia-ubau-latin-grammy/",
+          "support_notes": "Fresh13103view1/13104view0 firsthand artist account explicitly independent self-managed/no label practice. LaterLuz arrangements not imported.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://podcasts.apple.com/co/podcast/m%C3%BAsica-en-el-bosque/id1576932690",
+          "support_notes": "Fresh full13106view0 creator-owned ElBosque podcast, episode1 IndieNicaragua and regional independent artist/production community. Podcast is classification corroboration, not selected audio rendition.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://ondalocalni.com/noticias/1815-luz-disco-ceshia-ubau-latin-grammy/",
+          "support_notes": "Fresh13701view1 firsthand self-managed singer-songwriter work and piano training support general song branch instead of exact five-poem recital."
+        }
+      ],
+      "neighbor_distinction": "Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent.",
+      "model_policy": "Replace compulsory spoken-poetry delivery with representative sung piano-led songwriting. Firsthand OndaLocal13701view1 explicitly documents independent singer-songwriter practice and piano background; the earlier own poetry EP remains an optional branch, not silently rewritten into singing. Small melodic note groups, one unstacked accompanied lead and block-chord upright support are authored song defaults. Broad functionalSong denotes an authored functional-harmonic verse/refrain/bridge treatment, not every experimental work. Generated up-tempo is a brisk authored song option, not a claimed universal tempo or original poetry recitation.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing owners only; current per-owner controls resolved. Original programme/poetry audits archived under format_repair.original_entry."
+      },
+      "classification_evidence": "Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent.",
+      "vocal_count_audit": {
+        "genre_configuration": "authored one accompanied melodic lead",
+        "source_counts": "See archived original_entry for source-specific programme counts. No assertion original electronic music has zero embedded human voices."
+      },
+      "instrument_role_audit": {
+        "scope": "Representative genre practice; not original exact programme reconstruction",
+        "families": [
+          "voice",
+          "upright_piano"
+        ],
+        "policy": "Replace compulsory spoken-poetry delivery with representative sung piano-led songwriting. Firsthand OndaLocal13701view1 explicitly documents independent singer-songwriter practice and piano background; the earlier own poetry EP remains an optional branch, not silently rewritten into singing. Small melodic note groups, one unstacked accompanied lead and block-chord upright support are authored song defaults. Broad functionalSong denotes an authored functional-harmonic verse/refrain/bridge treatment, not every experimental work. Generated up-tempo is a brisk authored song option, not a claimed universal tempo or original poetry recitation."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Replace compulsory spoken-poetry delivery with representative sung piano-led songwriting. Firsthand OndaLocal13701view1 explicitly documents independent singer-songwriter practice and piano background; the earlier own poetry EP remains an optional branch, not silently rewritten into singing. Small melodic note groups, one unstacked accompanied lead and block-chord upright support are authored song defaults. Broad functionalSong denotes an authored functional-harmonic verse/refrain/bridge treatment, not every experimental work. Generated up-tempo is a brisk authored song option, not a claimed universal tempo or original poetry recitation."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Replace compulsory spoken-poetry delivery with representative sung piano-led songwriting. Firsthand OndaLocal13701view1 explicitly documents independent singer-songwriter practice and piano background; the earlier own poetry EP remains an optional branch, not silently rewritten into singing. Small melodic note groups, one unstacked accompanied lead and block-chord upright support are authored song defaults. Broad functionalSong denotes an authored functional-harmonic verse/refrain/bridge treatment, not every experimental work. Generated up-tempo is a brisk authored song option, not a claimed universal tempo or original poetry recitation."
+        }
+      ],
+      "verification_status": "Complete source candidate; original full mechanics/fourformats and independent peer required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All current owning controls protected, no orphan key or incompatible shared value."
+      },
+      "primary_retrieval_refs": [
+        "turn13103view0",
+        "turn13103view2",
+        "turn13104view0",
+        "turn13106view0"
+      ],
+      "source_scope_limitation": "Current configuration is representative genre practice, not a reconstruction of the earlier complete source programme or poem recording. Earlier exact scope preserved in format_repair.original_entry.",
+      "source_retrieval_caveat": "Full artist-issued EP, exact creator roster, firsthand interview and own podcast metadata freshly retrieved. Raw initial EP/interview/playlist tool response saved indie-nica-primary117.json. No auditory inspection; later Luz album musicians not transferred. Historical old DiganWhisky source remains separately preserved.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_nica",
+          "name": "Indie Nica",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn13059view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13059view0"
+        ],
+        "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+      },
+      "authored_render_scope": "Replace compulsory spoken-poetry delivery with representative sung piano-led songwriting. Firsthand OndaLocal13701view1 explicitly documents independent singer-songwriter practice and piano background; the earlier own poetry EP remains an optional branch, not silently rewritten into singing. Small melodic note groups, one unstacked accompanied lead and block-chord upright support are authored song defaults. Broad functionalSong denotes an authored functional-harmonic verse/refrain/bridge treatment, not every experimental work. Generated up-tempo is a brisk authored song option, not a claimed universal tempo or original poetry recitation.",
+      "source_review_refs": [
+        "turn13103view0",
+        "turn13103view2",
+        "turn13104view0",
+        "turn13106view0"
+      ],
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume117-22.json",
+        "before_packet_sha256": "1ed4ce309fd005c8b5844337cf7d8f505cefd94ff02f6bd90e45752d6573c925",
+        "before": {
+          "tradition": {
+            "id": "indie_nica",
+            "name": "Indie Nica",
+            "family": "vernacular",
+            "lineage": "Ceshia Ubau — Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed. Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+            "instruments": [
+              "voice",
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_pure_spoken_no_pitch",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "spokenWord",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Ceshia Ubau — Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed. Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent. Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+            "exemplars": [
+              "Ceshia Ubau — Me es urgente, complete five-poem2020 EP"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "original_entry": {
+          "source_label": "indie nica",
+          "source_url": "https://everynoise.com/engenremap-indienica.html",
+          "suggested_id": "indie_nica",
+          "allocation_ordinal": 3485,
+          "allocation_group_id": "140",
+          "status": "candidate_for_independent_review",
+          "id": "indie_nica",
+          "tradition": {
+            "id": "indie_nica",
+            "name": "Indie Nica",
+            "family": "vernacular",
+            "lineage": "Ceshia Ubau — Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed. Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+            "instruments": [
+              "voice",
+              "upright_piano"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_pure_spoken_no_pitch",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "spokenWord",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Ceshia Ubau — Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed. Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent. Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+            "exemplars": [
+              "Ceshia Ubau — Me es urgente, complete five-poem2020 EP"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            12.1364,
+            -86.2514,
+            "Managua",
+            "Latin America & Caribbean"
+          ],
+          "geo_rationale": "Artist-owned profile positively identifies Managua/Nicaragua. Community origin anchor; actual selected recording is credited CostaRica and masteringGuatemala, neither silently relocated toManagua.",
+          "signature_tokens": [],
+          "sources": [
+            {
+              "url": "https://ceshiaubau.bandcamp.com/album/me-es-urgente",
+              "support_notes": "Fresh full13103view0 all5poems and complete sole text/voice/piano credits, CostaRica2020 home recording and separate Guatemala mix. Artist explicitly spoken-word poetry.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/4gM9aDyGSr2FVAKAmehvRV",
+              "support_notes": "Fresh13103view2 full exactcreator field; CeshiaUbau19 with Marzo2020, a different work; ElBosque2. No claim selectedEP appears in playlist.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://ondalocalni.com/noticias/1815-luz-disco-ceshia-ubau-latin-grammy/",
+              "support_notes": "Fresh13103view1/13104view0 firsthand artist account explicitly independent self-managed/no label practice. LaterLuz arrangements not imported.",
+              "checked_date": "2026-10-03"
+            },
+            {
+              "url": "https://podcasts.apple.com/co/podcast/m%C3%BAsica-en-el-bosque/id1576932690",
+              "support_notes": "Fresh full13106view0 creator-owned ElBosque podcast, episode1 IndieNicaragua and regional independent artist/production community. Podcast is classification corroboration, not selected audio rendition.",
+              "checked_date": "2026-10-03"
+            }
+          ],
+          "neighbor_distinction": "Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent.",
+          "model_policy": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+          "dependency_audit": {
+            "baseline_existing": 1638,
+            "new_instruments": [],
+            "distinction": "Existing voice and upright piano used; no instrument identity change."
+          },
+          "classification_evidence": "Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent.",
+          "vocal_count_audit": {
+            "singers": 0,
+            "reciters": 1,
+            "total_performers": 1,
+            "basis": "Artist credits text/voice/piano to herself across full spoken-poetry EP. Actual layering unspecified; one authored live voice, not measured recording-track count."
+          },
+          "instrument_role_audit": {
+            "scope": "Ceshia Ubau — Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed.",
+            "cards": 2,
+            "roles": [
+              "One speaking poet",
+              "Same performer on piano"
+            ],
+            "defaults": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_pure_spoken_no_pitch",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader."
+            },
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader."
+            }
+          ],
+          "verification_status": "Complete source candidate; original full mechanics/fourformats and independent peer required.",
+          "flat_pin_conflicts": [],
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "note": "All17 voice and3 piano controls protected, no shared key collision."
+          },
+          "primary_retrieval_refs": [
+            "turn13103view0",
+            "turn13103view2",
+            "turn13104view0",
+            "turn13106view0"
+          ],
+          "source_scope_limitation": "Ceshia Ubau — Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed.",
+          "source_retrieval_caveat": "Full artist-issued EP, exact creator roster, firsthand interview and own podcast metadata freshly retrieved. Raw initial EP/interview/playlist tool response saved indie-nica-primary117.json. No auditory inspection; later Luz album musicians not transferred. Historical old DiganWhisky source remains separately preserved.",
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "indie_nica",
+              "name": "Indie Nica",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording context; not CeshiaUbau, her piano, actual microphone or home studio.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+              "fresh_review_ref": "turn13059view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn13059view0"
+            ],
+            "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+          },
+          "authored_render_scope": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+          "source_review_refs": [
+            "turn13103view0",
+            "turn13103view2",
+            "turn13104view0",
+            "turn13106view0"
+          ]
+        },
+        "decision": "genre_profile_repair",
+        "reason": "Replace narrow programme/recital default with source-supported representative genre production or songwriting; concise public profile and separate evidence.",
+        "default_review": "Replace compulsory spoken-poetry delivery with representative sung piano-led songwriting. Firsthand OndaLocal13701view1 explicitly documents independent singer-songwriter practice and piano background; the earlier own poetry EP remains an optional branch, not silently rewritten into singing. Small melodic note groups, one unstacked accompanied lead and block-chord upright support are authored song defaults. Broad functionalSong denotes an authored functional-harmonic verse/refrain/bridge treatment, not every experimental work. Generated up-tempo is a brisk authored song option, not a claimed universal tempo or original poetry recitation.",
+        "original_source_dossier_preserved": true
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "Genre-profile derivatives pending independent review; original packets preserved"
+}

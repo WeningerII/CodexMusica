@@ -3,14 +3,14 @@
   "name": "Protovapor",
   "family": "electronic",
   "lineage": "The 2009-2011 American experimental precursor stratum to vaporwave — hypnagogic-pop and plunderphonic cassette work by Daniel Lopatin (as Chuck Person), James Ferraro and Ford & Lopatin — using slowed, looped and echo-drenched fragments of 1980s soft rock, VHS library music and early digital synth demos, with no fixed tempo grid, degraded cassette speed drift, and structures built from a single repeated four-bar cell.",
-  "recipe": "classic 2009-2011 protovapor, experimental Elec, retro aesthetic branch, lofi experimental electric, musique concrete experimental electric anime lo-fi lo-fi beats. thick, breath veiled tone, straight onset, interlocked note trading. field textural sampler, block chord tape replay keyboard, sub bass analog poly synth, sub bass digital subtractive, sustained pad string machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 487,
-  "score": 246.685,
+  "recipe": "classic 2009-2011 protovapor, experimental Elec, retro aesthetic branch, lofi experimental electric, musique concrete experimental electric lo-fi product anime lo-fi. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, block chord tape replay keyboard, plucked short envelope analog poly synth, plucked short envelope digital subtractive, string machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 507,
+  "score": 216.292,
   "config": {
     "traditions": [
       "protovapor",
-      "anime_lofi",
-      "lofi_beats"
+      "lo_fi_product",
+      "anime_lofi"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 16.950000000000003,
-          "sampler_archetypes": 5.590000000000001,
-          "sampler_bit_depth": 2.67,
-          "sampler_workflow": 18.035,
-          "sampler_classic_context": 23.725
+          "electronic_technique": 15.200000000000001,
+          "sampler_archetypes": 5.329999999999999,
+          "sampler_bit_depth": 3.57,
+          "sampler_workflow": 16.285,
+          "sampler_classic_context": 19.1425
         }
       },
       {
@@ -38,7 +38,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 4.465000000000001,
+          "keyboard_technique": 4.315,
           "tape_voice": 0.045,
           "tape_state": 0.345
         }
@@ -46,29 +46,29 @@
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 3.9450000000000003,
+          "electronic_technique": 3.725,
           "poly_archetypes": 1.3,
           "poly_voices": 0.135,
-          "poly_maker_lineage": -1.4050000000000002
+          "poly_maker_lineage": -1.555
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_pluck_short",
           "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.9450000000000003,
+          "electronic_technique": 3.725,
           "va_archetypes": 0.5,
-          "digital_subtractive_context": 18.785
+          "digital_subtractive_context": 16.054999999999996
         }
       },
       {
@@ -78,7 +78,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
@@ -92,22 +92,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.644999999999996,
-          "voice_quality": 6.435000000000001,
+          "voice_register": 7.395000000000001,
+          "voice_quality": 6.500000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4699999999999998,
-          "voice_articulation": 19.174999999999997,
-          "voice_microtone": 18.784999999999993,
-          "voice_tradition": 20.2925,
-          "voice_mechanism_compound": 4.42,
-          "voice_estill_quality": 4.2250000000000005,
-          "voice_speech_song": 19.369999999999997,
-          "voice_ensemble_config": 19.824999999999996,
-          "voice_ornament_system": 2.175,
+          "voice_vibrato": 2.2782142857142857,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 16.054999999999993,
+          "voice_tradition": 18.44607142857143,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.5750000000000006,
+          "voice_speech_song": 16.639999999999993,
+          "voice_ensemble_config": 17.744999999999994,
+          "voice_ornament_system": 1.825,
           "voice_pitch_organization": 3.48,
           "voice_processing_chain": 8.245,
-          "voice_multitrack_stack": 4.972500000000001
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -119,7 +119,7 @@
           "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": 3.835,
+          "electronic_technique": 1.335,
           "sm_voice_count": 1.95,
           "sm_chorus": 0.435,
           "sm_voicing": 0.045

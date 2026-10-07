@@ -2,10 +2,10 @@
   "id": "italian_metal",
   "name": "Italian metal",
   "family": "rock_punk",
-  "lineage": "Italian metal as a national scene umbrella, represented by Fleshgod Apocalypse’s symphonic death-metal practice. Exact defaults are an authored contemporary realization.",
-  "recipe": "classic modern italian metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, drum kit, soft felt lacquer voiced 17 ply hard rock maple a 441 grand piano, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 492,
-  "score": 69.341,
+  "lineage": "Italian metal spans classic, extreme, folk and progressive scenes. Fleshgod Apocalypse exemplifies its orchestral technical-death branch.",
+  "recipe": "classic modern italian metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, blast beat drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 470,
+  "score": 38.067,
   "config": {
     "traditions": [
       "italian_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.17925,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.39,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -58,53 +58,53 @@
           "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 14.662749999999997,
-          "amp_make": 7.215,
-          "body_wood": 7.409999999999999,
-          "neck_wood": 0.5775,
-          "fretboard": 0.315,
-          "pickup_magnet": 0.24712499999999998,
-          "pickup_winding": 0.6315,
+          "electric_technique": 9.12,
+          "amp_make": 4.355,
+          "body_wood": 4.55,
+          "neck_wood": 0.105,
+          "fretboard": 0.168,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
-          "scale_length": 7.409999999999999,
-          "string_gauge": 0.7875,
-          "finish": 0.105,
-          "string_tuning": 0.39
+          "bridge": 0.2415,
+          "scale_length": 0,
+          "string_gauge": 0.5775,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.155,
-          "pickup_config": 0.21,
-          "string_type": 4.875,
-          "scale_length_b": 0.5775,
-          "fretted_or_not": 0.39,
-          "bass_technique": 3.7,
+          "body_wood": 4.55,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7630000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,38 +112,38 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "blast_beat_single_strokes",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.39,
-          "drumhead": 0.6641250000000001,
+          "drum_technique": 1.2705000000000002,
+          "drumhead": 0.95,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.5775,
-          "grand_piano_brand": 4.5874999999999995,
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 1.4365,
+          "grand_piano_brand": 0.1995,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 1.8199999999999998,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 0.26,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": 3.185
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -156,8 +156,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.313,
-          "rompler_context": 1.1715,
+          "rompler_preset_bank": -0.035,
+          "rompler_context": 0.78,
           "rompler_lineage": 0
         }
       }
@@ -184,13 +184,40 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "rompler_workstation": [
         "electronic_technique",
@@ -242,7 +269,31 @@
       "electronic_technique": "electronic_pad_drone",
       "rompler_preset_bank": "rompler_preset_piano_orchestral",
       "rompler_context": "rompler_context_rock_band",
-      "rompler_lineage": "rompler_lineage_unspecified"
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_11_hum",
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

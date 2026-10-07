@@ -1,0 +1,1259 @@
+{
+  "id": "gene_iii_drum_machine",
+  "name": "Gene III analog polyrhythmic drum machine",
+  "short": "Gene III drum machine",
+  "family": "electronic",
+  "class": "gene_iii_drum_machine",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Manufacturer-documented four-voice analog Gene III with continuous grid-free trigger positions, individual pitch/decay/level and trigger-pair assignments, independent bar lengths and global reset/tempo/pattern controls. Neutral authored axes. Default timing reflects positively identified UTO Plumbing practice; other exact settings remain unknown. Output-induced germanium drive and expansion are available controls, not claims they were used. Play/stop transport omitted from sounding-recipe choices because stopped transport emits no performance. No optional external module sound role is invented.",
+  "parts": [
+    {
+      "id": "gene_iii_architecture",
+      "name": "Gene III architecture",
+      "variants": [
+        {
+          "id": "gene_iii_architecture_four_analog_voices",
+          "name": "Four analog voices: bass drum, tom, snare, hi-hat/module",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_quantization",
+      "name": "Trigger quantization",
+      "variants": [
+        {
+          "id": "gene_iii_quantization_off",
+          "name": "Grid-free continuous trigger positions, quantization off",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_quantization_half",
+          "name": "50 percent quantization assistance",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_quantization_full",
+          "name": "100 percent quantization assistance",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_pitch",
+      "name": "Bass Drum pitch",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_decay",
+      "name": "Bass Drum decay",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_level",
+      "name": "Bass Drum level",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_trigger_positions",
+      "name": "Bass Drum trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_pattern_assignment",
+      "name": "Bass Drum pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_pitch",
+      "name": "Tom pitch",
+      "variants": [
+        {
+          "id": "gene_iii_tom_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_decay",
+      "name": "Tom decay",
+      "variants": [
+        {
+          "id": "gene_iii_tom_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_level",
+      "name": "Tom level",
+      "variants": [
+        {
+          "id": "gene_iii_tom_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_trigger_positions",
+      "name": "Tom trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_tom_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_pattern_assignment",
+      "name": "Tom pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_tom_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_pitch",
+      "name": "Snare pitch",
+      "variants": [
+        {
+          "id": "gene_iii_snare_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_decay",
+      "name": "Snare decay",
+      "variants": [
+        {
+          "id": "gene_iii_snare_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_level",
+      "name": "Snare level",
+      "variants": [
+        {
+          "id": "gene_iii_snare_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_trigger_positions",
+      "name": "Snare trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_snare_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_pattern_assignment",
+      "name": "Snare pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_snare_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_pitch",
+      "name": "Hat Module pitch",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_decay",
+      "name": "Hat Module decay",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_level",
+      "name": "Hat Module level",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_trigger_positions",
+      "name": "Hat Module trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_pattern_assignment",
+      "name": "Hat Module pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bar_lengths",
+      "name": "Upper/lower voice-pair bar lengths",
+      "variants": [
+        {
+          "id": "gene_iii_bar_lengths_unspecified",
+          "name": "Independent top/bottom bar lengths; exact lengths unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_reset",
+      "name": "Four-round polyrhythm reset",
+      "variants": [
+        {
+          "id": "gene_iii_reset_unspecified",
+          "name": "Four-round reset control present; source reset state unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_reset_enabled",
+          "name": "Authored four-round reset engaged",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_reset_disabled",
+          "name": "Authored four-round reset disengaged",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tempo",
+      "name": "Internal tempo",
+      "variants": [
+        {
+          "id": "gene_iii_tempo_unclocked",
+          "name": "Autonomous internal timing; no measured BPM or external synchronization",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tempo_unspecified",
+          "name": "Source-unspecified tempo/control state",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_patterns",
+      "name": "Global X/Y/alternate selector",
+      "variants": [
+        {
+          "id": "gene_iii_patterns_unspecified",
+          "name": "Pattern selector state unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_patterns_x",
+          "name": "Authored X pattern",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_patterns_y",
+          "name": "Authored Y pattern",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_patterns_alternate",
+          "name": "Authored alternating X/Y",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_expansion",
+      "name": "Hi-hat/module selector",
+      "variants": [
+        {
+          "id": "gene_iii_hat_expansion_unspecified",
+          "name": "Source-unspecified hi-hat versus expansion-module use; no added module asserted",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_expansion_hat",
+          "name": "Authored built-in hi-hat",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_expansion_module",
+          "name": "Authored expansion-module input",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_output",
+      "name": "Output routing",
+      "variants": [
+        {
+          "id": "gene_iii_output_unspecified",
+          "name": "Source-unspecified routing",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_output_stereo",
+          "name": "Two voices per side, stereo outputs",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_output_mono",
+          "name": "Left output sums all four voices in mono",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "https://genesynths.com/products/gene-iii",
+    "https://danstafaceb.com/uto-interview-part-of-fire"
+  ],
+  "_ownParts": [
+    {
+      "id": "gene_iii_architecture",
+      "name": "Gene III architecture",
+      "variants": [
+        {
+          "id": "gene_iii_architecture_four_analog_voices",
+          "name": "Four analog voices: bass drum, tom, snare, hi-hat/module",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_quantization",
+      "name": "Trigger quantization",
+      "variants": [
+        {
+          "id": "gene_iii_quantization_off",
+          "name": "Grid-free continuous trigger positions, quantization off",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_quantization_half",
+          "name": "50 percent quantization assistance",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_quantization_full",
+          "name": "100 percent quantization assistance",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_pitch",
+      "name": "Bass Drum pitch",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_decay",
+      "name": "Bass Drum decay",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_level",
+      "name": "Bass Drum level",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_bass_drum_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_trigger_positions",
+      "name": "Bass Drum trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bass_drum_pattern_assignment",
+      "name": "Bass Drum pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_bass_drum_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_pitch",
+      "name": "Tom pitch",
+      "variants": [
+        {
+          "id": "gene_iii_tom_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_decay",
+      "name": "Tom decay",
+      "variants": [
+        {
+          "id": "gene_iii_tom_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_level",
+      "name": "Tom level",
+      "variants": [
+        {
+          "id": "gene_iii_tom_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tom_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_trigger_positions",
+      "name": "Tom trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_tom_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tom_pattern_assignment",
+      "name": "Tom pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_tom_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_pitch",
+      "name": "Snare pitch",
+      "variants": [
+        {
+          "id": "gene_iii_snare_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_decay",
+      "name": "Snare decay",
+      "variants": [
+        {
+          "id": "gene_iii_snare_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_level",
+      "name": "Snare level",
+      "variants": [
+        {
+          "id": "gene_iii_snare_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_snare_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_trigger_positions",
+      "name": "Snare trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_snare_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_snare_pattern_assignment",
+      "name": "Snare pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_snare_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_pitch",
+      "name": "Hat Module pitch",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_pitch_unspecified",
+          "name": "Source-unspecified pitch setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_pitch_low",
+          "name": "Authored low pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_pitch_high",
+          "name": "Authored high pitch",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_decay",
+      "name": "Hat Module decay",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_decay_unspecified",
+          "name": "Source-unspecified decay setting",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_decay_short",
+          "name": "Authored short decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_decay_long",
+          "name": "Authored long decay",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_level",
+      "name": "Hat Module level",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_level_unspecified",
+          "name": "Source-unspecified output level; no overdrive inference",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_level_clean",
+          "name": "Authored clean output level",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_module_level_driven",
+          "name": "Authored output-induced germanium overdrive",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_trigger_positions",
+      "name": "Hat Module trigger positions",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_trigger_positions_unspecified",
+          "name": "Four continuously positioned triggers; exact positions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_module_pattern_assignment",
+      "name": "Hat Module pattern assignment",
+      "variants": [
+        {
+          "id": "gene_iii_hat_module_pattern_assignment_unspecified",
+          "name": "Two trigger pairs with X/all/Y assignment; selected assignment unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_bar_lengths",
+      "name": "Upper/lower voice-pair bar lengths",
+      "variants": [
+        {
+          "id": "gene_iii_bar_lengths_unspecified",
+          "name": "Independent top/bottom bar lengths; exact lengths unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_reset",
+      "name": "Four-round polyrhythm reset",
+      "variants": [
+        {
+          "id": "gene_iii_reset_unspecified",
+          "name": "Four-round reset control present; source reset state unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_reset_enabled",
+          "name": "Authored four-round reset engaged",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_reset_disabled",
+          "name": "Authored four-round reset disengaged",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_tempo",
+      "name": "Internal tempo",
+      "variants": [
+        {
+          "id": "gene_iii_tempo_unclocked",
+          "name": "Autonomous internal timing; no measured BPM or external synchronization",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_tempo_unspecified",
+          "name": "Source-unspecified tempo/control state",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_patterns",
+      "name": "Global X/Y/alternate selector",
+      "variants": [
+        {
+          "id": "gene_iii_patterns_unspecified",
+          "name": "Pattern selector state unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_patterns_x",
+          "name": "Authored X pattern",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_patterns_y",
+          "name": "Authored Y pattern",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_patterns_alternate",
+          "name": "Authored alternating X/Y",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_hat_expansion",
+      "name": "Hi-hat/module selector",
+      "variants": [
+        {
+          "id": "gene_iii_hat_expansion_unspecified",
+          "name": "Source-unspecified hi-hat versus expansion-module use; no added module asserted",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_expansion_hat",
+          "name": "Authored built-in hi-hat",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_hat_expansion_module",
+          "name": "Authored expansion-module input",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "gene_iii_output",
+      "name": "Output routing",
+      "variants": [
+        {
+          "id": "gene_iii_output_unspecified",
+          "name": "Source-unspecified routing",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_output_stereo",
+          "name": "Two voices per side, stereo outputs",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "gene_iii_output_mono",
+          "name": "Left output sums all four voices in mono",
+          "default": false,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

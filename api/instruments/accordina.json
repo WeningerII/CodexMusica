@@ -1,0 +1,85 @@
+{
+  "id": "accordina",
+  "name": "Accordina",
+  "short": "Accordina",
+  "family": "free_reed",
+  "class": "accordina",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "accordina_identity",
+      "name": "Accordina documented identity",
+      "variants": [
+        {
+          "id": "accordina_mouth_blown_button_free_reed",
+          "name": "Mouth-blown button-keyboard free-reed instrument; source model,reed count and material unknown.",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "free_reed_technique",
+      "name": "Accordina breath articulation, unspecified",
+      "variants": [
+        {
+          "id": "accordina_breath_articulation_source_unspecified",
+          "name": "Mouth-blown free reed; articulation unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [],
+          "applies_to": [
+            "accordina"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Mouth-blown button-keyboard free-reed instrument; source model,reed count and material unknown. Neutral axes are editorial routing values, not measured performance. No shared owner overrides.",
+  "sources": [
+    "https://mielotxin.com/en/mielotxin-eng/",
+    "https://emuseum.nmmusd.org/objects/15381/blow-accordion"
+  ],
+  "_ownParts": [
+    {
+      "id": "accordina_identity",
+      "name": "Accordina documented identity",
+      "variants": [
+        {
+          "id": "accordina_mouth_blown_button_free_reed",
+          "name": "Mouth-blown button-keyboard free-reed instrument; source model,reed count and material unknown.",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "free_reed_technique",
+      "name": "Accordina breath articulation, unspecified",
+      "variants": [
+        {
+          "id": "accordina_breath_articulation_source_unspecified",
+          "name": "Mouth-blown free reed; articulation unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [],
+          "applies_to": [
+            "accordina"
+          ]
+        }
+      ]
+    }
+  ]
+}

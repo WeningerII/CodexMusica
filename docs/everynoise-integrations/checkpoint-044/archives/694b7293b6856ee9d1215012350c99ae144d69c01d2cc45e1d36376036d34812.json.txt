@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice015-underground-amapiano.json",
+  "packet_sha256": "bf45ebe49e89f64f4da727f88b01f4fcbde4c2d0562acbf4845dd933c8e5edea",
+  "sha256": "bf45ebe49e89f64f4da727f88b01f4fcbde4c2d0562acbf4845dd933c8e5edea",
+  "supersedes_scope_judgment_only": {
+    "prior_report": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4474-independent-review461.json",
+    "prior_report_sha256": "d4616af7908071ffede3bc531c7b39936c19f6ce1774858e8fcd1f804583ff51",
+    "preserved_unchanged": true
+  },
+  "scope_reassessment": "The earlier HOLD imposed an additional requirement to establish a separate unified scene corresponding to the creator cohort. The user requests missing named-label coverage, including overlapping discovery subsets; neither exclusive timbre nor institutional independence is required. There is no affirmative evidence of exact semantic duplication, and the candidate never asserts the UK producer circuit and SouthAfrican creator cohort are identical.",
+  "positive_basis": "Actual creator UndergroundAmapiano grouping plus independently reproduced practitioner use of that same named subset, selection practice and specialist circulation support the proposed overlapping discovery profile. Public prose describes this limited scope, without a hard popularity threshold or exclusive sonic definition. The UK interview is explicitly contextual circulation evidence, not claimed proof of identical network membership.",
+  "retained_limitations": "Source does not establish a precisely bounded stable canon or identical UK/SA community. Those claims are not made. No new sonic distinction is invented and no alias inferred.",
+  "prior_checks_retained": {
+    "source_refs": [
+      "turn15432view0",
+      "turn15432view1",
+      "turn15432view2"
+    ],
+    "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/4474-runtime.json",
+    "runtime_sha256": "4b22c26e8e47adbbf9a79ee70d856e1239631d2396b3d3601ba8c9a3e4c2c99c",
+    "controls": 1,
+    "browser_formats": 4,
+    "compiled_original_api": "PASS targetonly, original ownercontrol preserved",
+    "atlas": "PASS exact immutable allocation and JohannesburgAfrica",
+    "photo": "PASS genericLOW historical exact bytes/visual plus freshCommons15413view2 rights",
+    "old_owner_preservation": 1658
+  },
+  "candidate_changes": [],
+  "registry_changes": [],
+  "integration_limit": "Individual source/runtime PASS only; future combined global qualification required. Existing043 source unchanged."
+}

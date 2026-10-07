@@ -2,10 +2,10 @@
   "id": "korean_jazz",
   "name": "Korean jazz",
   "family": "jazz",
-  "lineage": "Korean jazz musicians and international collaborations; selected Youn Sun Nah vocal–piano duo",
-  "recipe": "classic modern korean jazz, improv On Frame, American jazz branch. one note per syllable, unprocessed natural acoustic, single lead single track no stacking. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 315,
-  "score": 4.622,
+  "lineage": "Korean jazz connects local musicians and international collaborators across instrumental and vocal practices. Song interpretation, modern harmony and improvisation support formats ranging from intimate duos to larger ensembles.",
+  "recipe": "classic modern korean jazz, improv On Frame, American jazz branch. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 323,
+  "score": 23.397,
   "config": {
     "traditions": [
       "korean_jazz"
@@ -37,17 +37,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": -0.2,
+          "voice_articulation": -0.14,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 0.54975
+          "voice_processing_chain": 0.3045,
+          "voice_multitrack_stack": 0.33599999999999997
         }
       },
       {
@@ -64,15 +64,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.325,
+          "keyboard_technique": 0.2815,
           "grand_piano_size": 0.147,
           "grand_piano_brand": 0.39,
-          "piano_hammer": -0.07,
-          "piano_rim": 0.26,
-          "piano_soundboard": -0.07,
-          "piano_pinblock": -0.1,
-          "piano_plate": -0.1,
-          "piano_pitch_standard": 0.325
+          "piano_hammer": 3.1115,
+          "piano_rim": 3.0065,
+          "piano_soundboard": 2.555,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 3.25
         }
       }
     ],

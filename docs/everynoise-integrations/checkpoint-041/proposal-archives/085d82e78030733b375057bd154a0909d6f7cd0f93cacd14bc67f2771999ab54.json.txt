@@ -1,0 +1,488 @@
+{
+  "entries": [
+    {
+      "source_label": "maltese hip hop",
+      "source_url": "https://everynoise.com/engenremap-maltesehiphop.html",
+      "suggested_id": "maltese_hip_hop",
+      "allocation_ordinal": 394,
+      "allocation_group_id": "016",
+      "id": "maltese_hip_hop",
+      "tradition": {
+        "id": "maltese_hip_hop",
+        "name": "Maltese Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Lapes — Erġajna Ġejna, whole4:35 Official Rehearsal Video issued on the artist label page. Edition-specific full Crew: Lapes MC, Nadine vocals, Myles guitars, DJ Mac scratch DJ, Funky Monkey drum machine. Five people and four instrument-family cards retain two human voices, guitar, scratching and drum-machine role. This is the separate full rehearsal rendition, not the2022 concert that also has New Victorians/Owen Leuellen, not Il-Mawra with piano/drummer, and not the current abbreviated band biography. No source audio audition or exact rehearsal date asserted. Recorded material manipulated by scratch DJ may contain unknown additional recorded voices; these remain within the turntable source role, not falsely counted as zero or named live singers. Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "turntable",
+          "credited_drum_machine_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch",
+          "credited_drum_machine_generator": "credited_drum_machine_generator_unspecified",
+          "credited_drum_machine_pattern": "credited_drum_machine_pattern_recurring",
+          "credited_drum_machine_interface": "credited_drum_machine_interface_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Lapes — Erġajna Ġejna, whole4:35 Official Rehearsal Video issued on the artist label page. Edition-specific full Crew: Lapes MC, Nadine vocals, Myles guitars, DJ Mac scratch DJ, Funky Monkey drum machine. Five people and four instrument-family cards retain two human voices, guitar, scratching and drum-machine role. This is the separate full rehearsal rendition, not the2022 concert that also has New Victorians/Owen Leuellen, not Il-Mawra with piano/drummer, and not the current abbreviated band biography. No source audio audition or exact rehearsal date asserted. Recorded material manipulated by scratch DJ may contain unknown additional recorded voices; these remain within the turntable source role, not falsely counted as zero or named live singers. Maltese Hip Hop is the documented Malta rap/DJ production and performance community. Artist’s own141Records label biography explicitly identifies Maltese rap and links Marmalja/NoBlingShow/Lapes plus DJ Mac, whose own label profile expressly locates his turntablist practice in Maltese hip hop. This is positive musical/community evidence rather than nationality alone; no exact EveryNoise membership asserted. Existing maltese_pop is a wider national popular-song field, not restricted to TheBusker and not excluding rap; this narrower rap/DJ community overlaps it. Existing maltese_ghana describes improvised folksong/guitar exchange; the label itself records prior għana/hiphop fusion without equating the whole fields. Global hiphop and neighboring national rap communities remain overlapping umbrellas. No strict disjoint acoustic grammar claimed. Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo.",
+        "exemplars": [
+          "Lapes — complete Erġajna Ġejna official rehearsal rendition4:35"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.8992,
+        14.5141,
+        "Valletta",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial Malta capital/community anchor, not measured Valhalla studio location. Label’s separately described national concert takes place in Valletta.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Maltese Hip Hop is the documented Malta rap/DJ production and performance community. Artist’s own141Records label biography explicitly identifies Maltese rap and links Marmalja/NoBlingShow/Lapes plus DJ Mac, whose own label profile expressly locates his turntablist practice in Maltese hip hop. This is positive musical/community evidence rather than nationality alone; no exact EveryNoise membership asserted. Existing maltese_pop is a wider national popular-song field, not restricted to TheBusker and not excluding rap; this narrower rap/DJ community overlaps it. Existing maltese_ghana describes improvised folksong/guitar exchange; the label itself records prior għana/hiphop fusion without equating the whole fields. Global hiphop and neighboring national rap communities remain overlapping umbrellas. No strict disjoint acoustic grammar claimed.",
+      "classification_evidence": "Maltese Hip Hop is the documented Malta rap/DJ production and performance community. Artist’s own141Records label biography explicitly identifies Maltese rap and links Marmalja/NoBlingShow/Lapes plus DJ Mac, whose own label profile expressly locates his turntablist practice in Maltese hip hop. This is positive musical/community evidence rather than nationality alone; no exact EveryNoise membership asserted. Existing maltese_pop is a wider national popular-song field, not restricted to TheBusker and not excluding rap; this narrower rap/DJ community overlaps it. Existing maltese_ghana describes improvised folksong/guitar exchange; the label itself records prior għana/hiphop fusion without equating the whole fields. Global hiphop and neighboring national rap communities remain overlapping umbrellas. No strict disjoint acoustic grammar claimed.",
+      "model_policy": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo.",
+      "sources": [
+        {
+          "url": "https://www.141records.com/lapes",
+          "support_notes": "12485view1 and12492search0 own label embeds complete4:35 rehearsal and full five-person credits; separate videos individually scoped."
+        },
+        {
+          "url": "https://www.141records.com/djmac",
+          "support_notes": "12485view0 first-party biography identifies national hiphop community, turntable cuts/scratches/mixes; no unrelated releases imported."
+        },
+        {
+          "url": "https://www.roland.com/us/products/TR-8/",
+          "support_notes": "12493search1 maker establishes pattern and real-time triggering as drum-machine practice alternatives. This is general control context, NOT source model or exact interface identification."
+        }
+      ],
+      "vocal_count_audit": {
+        "human_performers": 2,
+        "roles": [
+          "Lapes MC",
+          "Nadine sung voice"
+        ],
+        "recorded_source_voice_count": "unknown in scratched records",
+        "tracking": "unknown original; authored live-duet realization"
+      },
+      "instrument_role_audit": {
+        "scope": "Lapes — Erġajna Ġejna, whole4:35 Official Rehearsal Video issued on the artist label page. Edition-specific full Crew: Lapes MC, Nadine vocals, Myles guitars, DJ Mac scratch DJ, Funky Monkey drum machine. Five people and four instrument-family cards retain two human voices, guitar, scratching and drum-machine role. This is the separate full rehearsal rendition, not the2022 concert that also has New Victorians/Owen Leuellen, not Il-Mawra with piano/drummer, and not the current abbreviated band biography. No source audio audition or exact rehearsal date asserted. Recorded material manipulated by scratch DJ may contain unknown additional recorded voices; these remain within the turntable source role, not falsely counted as zero or named live singers.",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Lapes and Nadine",
+            "authored_realization": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+          },
+          {
+            "instrument": "electric_guitar_humbucker",
+            "source_role": "Myles guitars",
+            "authored_realization": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+          },
+          {
+            "instrument": "turntable",
+            "source_role": "DJ Mac scratching",
+            "authored_realization": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+          },
+          {
+            "instrument": "credited_drum_machine_unspecified",
+            "source_role": "Funky Monkey drum machine",
+            "authored_realization": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+          }
+        ],
+        "omissions": "None in selected complete rehearsal credits; other independent videos not merged."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+        },
+        {
+          "instrument": "turntable",
+          "parts": {
+            "electronic_technique": "electronic_sample_chopped",
+            "turntable_technique": "turntable_scratch"
+          },
+          "policy": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+        },
+        {
+          "instrument": "credited_drum_machine_unspecified",
+          "parts": {
+            "credited_drum_machine_generator": "credited_drum_machine_generator_unspecified",
+            "credited_drum_machine_pattern": "credited_drum_machine_pattern_recurring",
+            "credited_drum_machine_interface": "credited_drum_machine_interface_unspecified"
+          },
+          "policy": "Broad mcRhythm models source-positive rap with separately retained sung voice, not an assertion that both performers rap. Existing two-live-singer configuration represents two present vocal performers with interval relationship unspecified; live one-take/no-overdub setting is an authored rehearsal-style rendition, not measured original tracking. Voice physiology and text-setting mechanics otherwise neutral, retaining rapper and singer without forcing a shared pitch method. Source-bare guitar is realized as clean-strummed alder/maple/rosewood humbucker electric guitar with nickel strings; electrical architecture/materials not claimed as original gear. Turntable scratching positively sourced; existing chopped-sample control models cut manipulation, not unrelated instrumental samples or fake source performers. New source-unspecified drum-machine identity retains positive rhythm-device class while generator (sampled/analog/digital), exact make/model, pad interface, clocking and presets stay unknown. Authored recurring rhythm pattern is a compatible drum-machine realization; no BPM, fixed grid, MIDI or sample architecture inferred. Controlled live room is editorial, no tuning/capture apparatus imposed. Generic brisk or energetic affect in rendering is an authored hip-hop rendition, not a measured performance tempo."
+        }
+      ],
+      "dependency_audit": "One reserved genuine source-positive drum-machine owner. Existing analog/sampled models assert unknown architecture; credited programmed drums obscures named device and credited bare drums is broader unspecified acoustic/electronic role. Existing owners unchanged.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Every applicable owning control protected; no shared-key collision.",
+      "primary_retrieval_refs": [
+        "turn12485view1",
+        "turn12492search0",
+        "turn12485view0",
+        "turn12493search1"
+      ],
+      "source_retrieval_caveat": "Full label page12485view1 and fresh indexed12492search0 directly reproduce complete rehearsal credits; full unmodified indexed response saved. Later direct retry timed out, not claimed as positive capture. No audio audition.",
+      "source_scope_limitation": "Lapes — Erġajna Ġejna, whole4:35 Official Rehearsal Video issued on the artist label page. Edition-specific full Crew: Lapes MC, Nadine vocals, Myles guitars, DJ Mac scratch DJ, Funky Monkey drum machine. Five people and four instrument-family cards retain two human voices, guitar, scratching and drum-machine role. This is the separate full rehearsal rendition, not the2022 concert that also has New Victorians/Owen Leuellen, not Il-Mawra with piano/drummer, and not the current abbreviated band biography. No source audio audition or exact rehearsal date asserted. Recorded material manipulated by scratch DJ may contain unknown additional recorded voices; these remain within the turntable source role, not falsely counted as zero or named live singers.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "maltese_hip_hop",
+          "name": "Maltese Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not Lapes portrait, drum machine or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      },
+      "verification_status": "Author preflight PASS35 protected owning parts,no fallback/errors,1638 old owners preserved,one new3control device owner,two exact inherited photo receipts. Original four browser/connector formats PASS max642characters; independent review pending.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "credited_drum_machine_unspecified",
+        "name": "Credited drum machine (generator and interface unspecified)",
+        "short": "Credited drum machine",
+        "family": "electronic",
+        "class": "credited_drum_machine_unspecified",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "description": "Positively credited drum-machine rhythm device. Keep source-unknown generator architecture and trigger/interface behavior distinct from an acoustic kit or a claimed analog/sampled machine. Authored repeating rhythmic organization is a realization option, not a measurement. Neutral axes are editorial.",
+        "sources": [
+          "https://www.141records.com/lapes",
+          "https://www.roland.com/us/products/TR-8/"
+        ],
+        "parts": [
+          {
+            "id": "credited_drum_machine_generator",
+            "name": "Sound-generator identity",
+            "variants": [
+              {
+                "id": "credited_drum_machine_generator_unspecified",
+                "name": "Drum machine; analog, sampled or digital generator unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "credited_drum_machine_pattern",
+            "name": "Authored rhythmic organization",
+            "variants": [
+              {
+                "id": "credited_drum_machine_pattern_recurring",
+                "name": "Authored recurring rhythm pattern; exact timing and sounds unspecified",
+                "default": true,
+                "descriptors": [
+                  "rhythmic"
+                ],
+                "match_tokens": [
+                  "rhythmic"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "credited_drum_machine_interface",
+            "name": "Control and trigger uncertainty",
+            "variants": [
+              {
+                "id": "credited_drum_machine_interface_unspecified",
+                "name": "Source controls, live triggers, clock and routing unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_drum_machine_unspecified",
+          "name": "Credited drum machine (generator and interface unspecified)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not a drum-machine depiction or source model.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_drum_machine_unspecified",
+        "name": "Credited drum machine (generator and interface unspecified)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "LOW generic recording microphone context, not a drum-machine depiction or source model.",
+        "match_confidence": "low"
+      },
+      "sources": [
+        "https://www.141records.com/lapes",
+        "https://www.roland.com/us/products/TR-8/"
+      ],
+      "rationale": "One reserved genuine source-positive drum-machine owner. Existing analog/sampled models assert unknown architecture; credited programmed drums obscures named device and credited bare drums is broader unspecified acoustic/electronic role. Existing owners unchanged."
+    }
+  ],
+  "status": "candidate_for_independent_review"
+}

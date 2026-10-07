@@ -1,0 +1,278 @@
+{
+  "id": "viol_consort",
+  "name": "Viol consort — mixed treble,tenor and bass registers",
+  "short": "mixed-register viol consort",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_local_song_melody",
+          "name": "Bowed local song melody (school unspecified)",
+          "auto": false,
+          "descriptors": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viol_consort_registers",
+      "name": "Consort register allocation",
+      "variants": [
+        {
+          "id": "viol_consort_two_treble_one_tenor_two_bass",
+          "name": "Two treble,one tenor and two bass viols",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "consort",
+            "ensemble"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "viol_consort_frets",
+      "name": "Fret mechanism",
+      "variants": [
+        {
+          "id": "viol_consort_tied_gut_frets",
+          "name": "Movable tied gut frets",
+          "default": true,
+          "descriptors": [
+            "gut-tied-frets",
+            "movable"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "viol_consort_bow_grip",
+      "name": "Bow grip",
+      "variants": [
+        {
+          "id": "viol_consort_underhand",
+          "name": "Underhand bow grip;stick material unspecified",
+          "default": true,
+          "descriptors": [
+            "underhand-grip"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tenor_violin_strings_plain_wound_gut",
+          "default": true,
+          "name": "Plain gut trebles with silver-wound gut basses (period canonical)",
+          "descriptors": [
+            "plain-gut",
+            "silver-wound",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "tenor_violin_strings_synthetic",
+          "name": "Synthetic core (modern octet build)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_local_song_melody",
+          "name": "Bowed local song melody (school unspecified)",
+          "auto": false,
+          "descriptors": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viol_consort_registers",
+      "name": "Consort register allocation",
+      "variants": [
+        {
+          "id": "viol_consort_two_treble_one_tenor_two_bass",
+          "name": "Two treble,one tenor and two bass viols",
+          "default": true,
+          "descriptors": [
+            "bowed",
+            "consort",
+            "ensemble"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "viol_consort_frets",
+      "name": "Fret mechanism",
+      "variants": [
+        {
+          "id": "viol_consort_tied_gut_frets",
+          "name": "Movable tied gut frets",
+          "default": true,
+          "descriptors": [
+            "gut-tied-frets",
+            "movable"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "viol_consort_bow_grip",
+      "name": "Bow grip",
+      "variants": [
+        {
+          "id": "viol_consort_underhand",
+          "name": "Underhand bow grip;stick material unspecified",
+          "default": true,
+          "descriptors": [
+            "underhand-grip"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tenor_violin_strings",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tenor_violin_strings_plain_wound_gut",
+          "default": true,
+          "name": "Plain gut trebles with silver-wound gut basses (period canonical)",
+          "descriptors": [
+            "plain-gut",
+            "silver-wound",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "pre-1700-period"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "tenor_violin_strings_synthetic",
+          "name": "Synthetic core (modern octet build)",
+          "descriptors": [
+            "synthetic",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

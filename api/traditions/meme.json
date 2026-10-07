@@ -1,0 +1,82 @@
+{
+  "id": "meme",
+  "name": "Meme music",
+  "family": "pop",
+  "lineage": "Meme music forms a changing repertoire through online quotation, remixing and humorous recontextualization. Older pop songs, game and film themes, novelty recordings and instrumental tunes can acquire new meanings through repeated reuse.",
+  "recipe": "classic meme music, functional Song. a 440 modern pitch us standard block chord grand piano. live tracking.",
+  "recipe_chars": 107,
+  "score": 6.326,
+  "config": {
+    "traditions": [
+      "meme"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 4.95,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.1905,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.625
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

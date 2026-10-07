@@ -1,0 +1,95 @@
+{
+  "id": "lo_fi_brasileiro",
+  "name": "Lo-Fi Brasileiro",
+  "family": "electronic",
+  "lineage": "Lo-fi brasileiro connects Brazil’s independent beat producers, labels and online listening communities. Lo-Fi Brasil and Tangerina Music support varied approaches linking lo-fi hip-hop, chillhop, ambient texture and local musical experience.",
+  "recipe": "classic lo-fi brasileiro, mc Rhythm. chopped sampler, dreadnought acoustic guitar. treated studio.",
+  "recipe_chars": 98,
+  "score": 19.415,
+  "config": {
+    "traditions": [
+      "lo_fi_brasileiro"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "emu_sp1200",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 1.876,
+          "sampler_archetypes": 9.533,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 1.4629999999999999,
+          "sampler_classic_context": 6.629999999999999
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze",
+      "acoustic_technique": "acoustic_flatpicked",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "emu_sp1200",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "entries": [
+    {
+      "source_label": "japanese vgm",
+      "source_url": "https://everynoise.com/engenremap-japanesevgm.html",
+      "suggested_id": "japanese_vgm",
+      "allocation_ordinal": 3573,
+      "allocation_group_id": "143",
+      "id": "japanese_vgm",
+      "status": "candidate_pending_independent_review",
+      "tradition": {
+        "id": "japanese_vgm",
+        "name": "Japanese VGM",
+        "family": "pop",
+        "lineage": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted. Broad functionalSong describes a newly authored functional-harmonic verse-chorus-bridge piano rendition of this game theme, not a measured claim about the complete printed form or original interactive cue. Preserve source3/4 and moderate printed88 pulse conceptually; no up-tempo change is asserted. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored construction/touch/room choices, not original session equipment or exact purchased notation. Complete one-piano role retained; no imposed global tuning, signal chain, conductor or additional instruments. Notation alone is not grounds to classify this as classical art music.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted. Japanese VGM denotes the Japanese game-music production, circulation and adaptation field, not an ethnicity test or a claim every creator is resident in Japan. Original research by Lehtonen documents a historically specific Japanese media/author/composer institution that promoted game cues into a public genre beyond in-game use; Merlini independently studies its cross-style compositional culture. Exact creator field includes Uematsu and Japanese game sound teams alongside international adapters and Chinese game composers. Existing video_game_music already includes Japanese console history and later orchestral delivery; it remains a broader global umbrella, not an exclusively Western or chip-only field. Existing vgm_instrumental and vgm_remix, plus lo_fi_vgm and queued rhythm_game, overlap through performance, reworking, treatment or game-mechanic axes; none is silently reduced to one exemplar. This regional-industrial repertoire field crosses those axes and includes original score as well as worldwide reinterpretations. Current piano edition is only a bounded representative, not the category-defining distinction. Japanese soundtrack/anison/KoreanSoundtrack fields concern adjacent screen/repertoire communities and may share composers; game music is not presumed synonymous with animation music. Broad functionalSong describes a newly authored functional-harmonic verse-chorus-bridge piano rendition of this game theme, not a measured claim about the complete printed form or original interactive cue. Preserve source3/4 and moderate printed88 pulse conceptually; no up-tempo change is asserted. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored construction/touch/room choices, not original session equipment or exact purchased notation. Complete one-piano role retained; no imposed global tuning, signal chain, conductor or additional instruments. Notation alone is not grounds to classify this as classical art music.",
+        "exemplars": [
+          "Nobuo Uematsu — To Zanarkand (complete licensed piano edition MN0056311)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.6762,
+        139.6503,
+        "Tokyo",
+        "East Asia"
+      ],
+      "geo_rationale": "The Tenth Mosaic official2026 game-culture event at Institut francais du Japon Tokyo presents Japanese game-music composers and performances. Tokyo is an editorial field-community anchor, not the location of this sheet edition or a claimed Uematsu session.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Japanese VGM denotes the Japanese game-music production, circulation and adaptation field, not an ethnicity test or a claim every creator is resident in Japan. Original research by Lehtonen documents a historically specific Japanese media/author/composer institution that promoted game cues into a public genre beyond in-game use; Merlini independently studies its cross-style compositional culture. Exact creator field includes Uematsu and Japanese game sound teams alongside international adapters and Chinese game composers. Existing video_game_music already includes Japanese console history and later orchestral delivery; it remains a broader global umbrella, not an exclusively Western or chip-only field. Existing vgm_instrumental and vgm_remix, plus lo_fi_vgm and queued rhythm_game, overlap through performance, reworking, treatment or game-mechanic axes; none is silently reduced to one exemplar. This regional-industrial repertoire field crosses those axes and includes original score as well as worldwide reinterpretations. Current piano edition is only a bounded representative, not the category-defining distinction. Japanese soundtrack/anison/KoreanSoundtrack fields concern adjacent screen/repertoire communities and may share composers; game music is not presumed synonymous with animation music.",
+      "classification_evidence": "Japanese VGM denotes the Japanese game-music production, circulation and adaptation field, not an ethnicity test or a claim every creator is resident in Japan. Original research by Lehtonen documents a historically specific Japanese media/author/composer institution that promoted game cues into a public genre beyond in-game use; Merlini independently studies its cross-style compositional culture. Exact creator field includes Uematsu and Japanese game sound teams alongside international adapters and Chinese game composers. Existing video_game_music already includes Japanese console history and later orchestral delivery; it remains a broader global umbrella, not an exclusively Western or chip-only field. Existing vgm_instrumental and vgm_remix, plus lo_fi_vgm and queued rhythm_game, overlap through performance, reworking, treatment or game-mechanic axes; none is silently reduced to one exemplar. This regional-industrial repertoire field crosses those axes and includes original score as well as worldwide reinterpretations. Current piano edition is only a bounded representative, not the category-defining distinction. Japanese soundtrack/anison/KoreanSoundtrack fields concern adjacent screen/repertoire communities and may share composers; game music is not presumed synonymous with animation music.",
+      "model_policy": "Broad functionalSong describes a newly authored functional-harmonic verse-chorus-bridge piano rendition of this game theme, not a measured claim about the complete printed form or original interactive cue. Preserve source3/4 and moderate printed88 pulse conceptually; no up-tempo change is asserted. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored construction/touch/room choices, not original session equipment or exact purchased notation. Complete one-piano role retained; no imposed global tuning, signal chain, conductor or additional instruments. Notation alone is not grounds to classify this as classical art music.",
+      "source_scope_limitation": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted.",
+      "source_retrieval_caveat": "Licensed publisher full metadata and original scholarly abstracts read; complete score not purchased. Creator full map independently indexed, later direct retry failed; exact Uematsu membership retained candidly. Institutional game-culture event establishes Tokyo editorial field anchor, not recording place.",
+      "vocal_count_audit": {
+        "count": 0,
+        "basis": "Publisher positively labels complete instrumental piano solo, one player without other musicians."
+      },
+      "instrument_role_audit": {
+        "upright_piano": "Whole printed piano-only edition; standard upright architecture authored."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad functionalSong describes a newly authored functional-harmonic verse-chorus-bridge piano rendition of this game theme, not a measured claim about the complete printed form or original interactive cue. Preserve source3/4 and moderate printed88 pulse conceptually; no up-tempo change is asserted. Source-unspecified piano architecture is realized as a standard studio upright with connected legato phrases and pedal resonance in a controlled live room. These are authored construction/touch/room choices, not original session equipment or exact purchased notation. Complete one-piano role retained; no imposed global tuning, signal chain, conductor or additional instruments. Notation alone is not grounds to classify this as classical art music."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All three applicable original upright controls explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/final-fantasy-x/to-zanarkand/MN0056311",
+          "support_notes": "Nobuo Uematsu — To Zanarkand, Final Fantasy X, complete licensed Musicnotes instrumental-solo piano edition MN0056311, two pages. Publisher explicitly specifies solo piano for one player without other musicians, E minor,3/4,q=88; original composition2001, publishing administered Warner Chappell. Selected scope is this complete separately issued piano edition, not the full original game soundtrack or an orchestral reconstruction. No singer, game sound effects, chip hardware, orchestra or extra performer is inferred. Paid full score and original game audio were not auditioned; exact printed voicings and performance duration remain unasserted.",
+          "retrieval_ref": "turn12660view0"
+        },
+        {
+          "url": "https://online.ucpress.edu/jsmg/article-abstract/5/2/86/200504/Early-Discourse-About-Video-Game-Music-in?redirectedFrom=fulltext",
+          "support_notes": "Original2024 Japanese media-history research establishes public genre-building institution beyond game background cues, not source performing roles.",
+          "retrieval_ref": "turn12656view1"
+        },
+        {
+          "url": "https://online.ucpress.edu/jsmg/article-abstract/4/3/30/196925/The-Eclectic-Case-of-Japanese-Video-Game-Music?redirectedFrom=fulltext",
+          "support_notes": "Original2023 research abstract analyzes specific cross-style Japanese compositional culture; not every repertoire work must exhibit all proposed features.",
+          "retrieval_ref": "turn12653search1"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-japanesevgm.html",
+          "support_notes": "Full indexed exact creator field includes Uematsu,SEGA,SquareEnix,HoYoMiX and adapters. Later direct retry failed; no false fresh direct read.",
+          "retrieval_ref": "turn12631search0"
+        },
+        {
+          "url": "https://thetenthmosaic.jp/",
+          "support_notes": "Official2026 Tokyo institution game-culture event includes game-music live performances and creators, supporting living public community and editorial geographic anchor.",
+          "retrieval_ref": "turn12656view2"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "japanese_vgm",
+          "name": "Japanese VGM",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context, not Uematsu, source piano, game console or original recording equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12593view0 confirms Iain Fergusson/Binksternet CC BY2.5 and prior crop; exact023 historical bytes and visual receipt inherited.",
+          "fresh_review_ref": "turn12593view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12593view0"
+        ]
+      },
+      "verification_status": "Pending original three-control and four-format preflight, then independent source/category review.",
+      "primary_retrieval_refs": [
+        "turn12660view0",
+        "turn12656view1",
+        "turn12653search1",
+        "turn12631search0",
+        "turn12656view2"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

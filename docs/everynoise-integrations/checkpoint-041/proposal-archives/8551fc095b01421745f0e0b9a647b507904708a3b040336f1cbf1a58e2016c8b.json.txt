@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume461-malaysian-tamil-rap-practice.json",
+  "sha256": "c8a3abea87b54e1f38d2a34eeafcb91d94e47bbaf914be0e5c129eb9edc13254",
+  "peer_review": "/tmp/batch040/resume461-malaysian-tamil-rap-independent-review119.json",
+  "checked_at": "2026-10-04T00:16:10.675606+00:00",
+  "checks": [
+    "Root inspected public history/sound, representative controls and all four literal output strings; original browser/connector parity and strict owning-control/photo audit pass.",
+    "Peer fresh primary-source, taxonomy overlap and rights review retained. German derivative changes only history/sound organization, verified byte-equivalent other fields.",
+    "Final integration and combined pipeline validation remain pending."
+  ]
+}

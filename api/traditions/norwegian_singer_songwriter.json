@@ -5,7 +5,7 @@
   "lineage": "Norwegian performer-songwriters work across jazz-inflected pop, acoustic song and studio arrangements. Sondre Lerche’s explicit solo nylon-string-guitar programme supplies the selected intimate branch.",
   "recipe": "classic modern norwegian singer-songwriter, ballad Poetry. thick, breath veiled tone, straight onset, equal tempered. nylon classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 292,
-  "score": 32.45,
+  "score": 33.048,
   "config": {
     "traditions": [
       "norwegian_singer_songwriter"
@@ -36,15 +36,15 @@
           "voice_quality": 2.600000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.45,
+          "voice_vibrato": 2.58,
           "voice_articulation": 0,
           "voice_microtone": 4.9365000000000006,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.6499999999999999,
-          "voice_estill_quality": 1.65,
+          "voice_estill_quality": 1.728,
           "voice_speech_song": 3.575000000000001,
           "voice_ensemble_config": 2.990000000000001,
-          "voice_ornament_system": 0.8499999999999999,
+          "voice_ornament_system": 0.8889999999999999,
           "voice_pitch_organization": 0.6499999999999999,
           "voice_processing_chain": 2.45,
           "voice_multitrack_stack": 1
@@ -61,10 +61,10 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 0.589,
+          "acoustic_technique": 0.5499999999999999,
           "string_tuning": 0,
           "top_wood_classical": 0.273,
-          "bracing_classical": 0.611,
+          "bracing_classical": 1.0010000000000001,
           "string_classical": 1.6,
           "attack_technique_cl": 0.3
         }

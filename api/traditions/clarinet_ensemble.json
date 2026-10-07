@@ -1,0 +1,74 @@
+{
+  "id": "clarinet_ensemble",
+  "name": "Clarinet ensemble",
+  "family": "vernacular",
+  "lineage": "Clarinet ensembles bring several players of the clarinet family together in chamber performance. Repertoire includes composed works and contemporary experimental pieces, as illustrated by John McCowen’s clarinet quartets.",
+  "recipe": "classic clarinet ensemble, art Music. clarinet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 146,
+  "score": 1.769,
+  "config": {
+    "traditions": [
+      "clarinet_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 1.575,
+          "clarinet_reed": 0.0315,
+          "clarinet_articulation": 0.3675
+        }
+      }
+    ],
+    "pinned": {
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "a_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

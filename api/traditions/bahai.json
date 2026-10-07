@@ -3,9 +3,9 @@
   "name": "Bahá’í music",
   "family": "sacred",
   "lineage": "Bahá’í music: Sarah Mohebiany — The Day Will Come (The last words of the Báb, 2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s bahá’í music, ritual Devotional. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 193,
-  "score": 2.766,
+  "recipe": "classic early-2020s bahá’í music, ritual Devotional. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 5.629,
   "config": {
     "traditions": [
       "bahai"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.14825,
-          "voice_ensemble_config": 0.08775,
+          "voice_speech_song": 0.504,
+          "voice_ensemble_config": 1.2915,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.07925,
-          "voice_multitrack_stack": 0.039,
+          "voice_processing_chain": 0.23099999999999998,
+          "voice_multitrack_stack": 0.8084999999999999,
           "voice_tessitura": 0
         }
       },
@@ -66,12 +66,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.3,
-          "piano_hammer": 0.9037499999999999,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.0735,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 1.005,
           "piano_rim": -0.035,
-          "piano_soundboard": 1.0365,
+          "piano_soundboard": 1.17,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
           "piano_pitch_standard": 0.325

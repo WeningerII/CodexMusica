@@ -1,0 +1,68 @@
+{
+  "id": "moog",
+  "name": "Moog",
+  "family": "electronic",
+  "lineage": "Caught In Joy — Disconnected (24 July 2025), complete four-track album. The artist explicitly states that the entire hand-played ambient album uses only a Moog Minimoog Model D recorded to reel-to-reel tape. All four tracks are retained; no drum machine, sampled acoustic instrument, singer or other synthesizer is inferred from the artist’s other albums. The analog synthesizer represents the actual sound-making instrument, not playback of an opaque finished master. Existing analog_mono_synth retains the source-positive Minimoog Model D, voltage-controlled oscillators and four-pole Moog ladder filter, corroborated by the manufacturer manual. Lead-line keyboard gesture is an authored representative hand-played realization, not a claim every album layer uses one preset. Room and equal-tempered tuning are authored; no exact oscillator settings, tape speed, serial year, microphone or tracking topology is invented. The low-confidence microphone image is generic recording context, not a Moog instrument depiction or source-session equipment.",
+  "recipe": "classic mid-2020s moog, experimental Elec, ambient branch. moog lineage canonical minimoog 1970 trumansburg ny analog mono synth. treated studio.",
+  "recipe_chars": 145,
+  "score": 18.846,
+  "config": {
+    "traditions": [
+      "moog"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 1.2,
+          "mono_oscillator": 1.3,
+          "mono_filter": 2.9045,
+          "mono_archetypes": 2.9045,
+          "mono_maker_lineage": 10.536999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert"
+    },
+    "pin_parts": true
+  }
+}

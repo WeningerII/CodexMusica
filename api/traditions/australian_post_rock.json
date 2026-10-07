@@ -5,7 +5,7 @@
   "lineage": "Australian post-rock is represented here by sleepmakeswaves. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic australian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 48.128,
+  "score": 48.169,
   "config": {
     "traditions": [
       "australian_post_rock"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 5.2,
-          "body_wood": 0.693,
+          "body_wood": 0.7319999999999999,
           "neck_wood": 0.378,
           "fretboard": 0.378,
           "pickup_magnet": 0.252,
           "pickup_winding": 0.33599999999999997,
           "string_material": 0.378,
           "bridge": 1.69,
-          "scale_length": 1.1025,
-          "string_gauge": 1.69,
+          "scale_length": 1.1415,
+          "string_gauge": 1.667,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0.376125
         }
       },
       {

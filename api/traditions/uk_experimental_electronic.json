@@ -2,10 +2,10 @@
   "id": "uk_experimental_electronic",
   "name": "Uk experimental electronic",
   "family": "electronic",
-  "lineage": "Uk experimental electronic is represented by Rich Chappelow / Bilnd — Lenticular machine-only core. This documented branch has an authored present-day studio realization.",
+  "lineage": "UK experimental electronic music includes artists exploring synthesis, sampling and unconventional composition or performance systems. Individual projects develop different relationships between sound design, rhythm and musical form.",
   "recipe": "classic uk experimental electronic, experimental Elec. analog mono synth, glitched textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 180,
-  "score": 23.555,
+  "score": 18.006,
   "config": {
     "traditions": [
       "uk_experimental_electronic"
@@ -21,28 +21,28 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": -0.05,
-          "mono_oscillator": 0.29025,
+          "electronic_technique": -0.035,
+          "mono_oscillator": 0.2475,
           "mono_filter": 0.21,
           "mono_archetypes": 0.105,
-          "mono_maker_lineage": 0.25
+          "mono_maker_lineage": -0.05
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_s1000",
+          "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 10.2,
-          "sampler_archetypes": 2.5,
+          "electronic_technique": 8.731499999999999,
+          "sampler_archetypes": 0.2475,
           "sampler_bit_depth": 0,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 10.149999999999999
+          "sampler_classic_context": 8.65
         }
       }
     ],

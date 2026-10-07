@@ -1,0 +1,77 @@
+{
+  "id": "music_box",
+  "name": "Music box",
+  "family": "classical",
+  "lineage": "Mechanical music-box repertoire, extending from familiar miniature melodies to contemporary concert composition.",
+  "recipe": "classic music box, art Music, western modern branch. music box naive celeste toy piano concert, melodic mechanical hand cranked paper music box. shoebox concert hall.",
+  "recipe_chars": 166,
+  "score": 10.457,
+  "config": {
+    "traditions": [
+      "music_box"
+    ],
+    "instruments": [
+      {
+        "id": "toy_piano_concert",
+        "slots": {
+          "keyboard_technique": "toy_piano_concert_delicate_melodic",
+          "toy_piano_type": "toy_piano_schoenhut_rods",
+          "toy_piano_aesthetic": "toy_piano_naive_celeste"
+        },
+        "scores": {
+          "keyboard_technique": 0.39,
+          "toy_piano_type": 0,
+          "toy_piano_aesthetic": 7.93
+        }
+      },
+      {
+        "id": "hand_cranked_paper_music_box",
+        "slots": {
+          "paper_music_box_mechanism": "paper_music_box_punched_strip",
+          "paper_music_box_control": "paper_music_box_manual_crank"
+        },
+        "scores": {
+          "paper_music_box_mechanism": 1.1365,
+          "paper_music_box_control": 1
+        }
+      }
+    ],
+    "pinned": {
+      "toy_piano_concert": [
+        "keyboard_technique",
+        "toy_piano_type",
+        "toy_piano_aesthetic"
+      ],
+      "hand_cranked_paper_music_box": [
+        "paper_music_box_mechanism",
+        "paper_music_box_control"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "toy_piano_concert_delicate_melodic",
+      "toy_piano_type": "toy_piano_schoenhut_rods",
+      "toy_piano_aesthetic": "toy_piano_naive_celeste",
+      "paper_music_box_mechanism": "paper_music_box_punched_strip",
+      "paper_music_box_control": "paper_music_box_manual_crank"
+    },
+    "pin_parts": true
+  }
+}

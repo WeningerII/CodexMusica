@@ -1,0 +1,60 @@
+{
+  "id": "romantico",
+  "name": "Romántico",
+  "family": "vernacular",
+  "lineage": "Romántico gathers instrumental interpretations of romantic songs and familiar melodies, especially Latin American boleros and popular standards. Piano, guitar, harp, saxophone and light-orchestra recordings share this listening field, carrying recognizable song melodies across different instrumental colours.",
+  "recipe": "classic romántico, functional Song. upright piano. live tracking.",
+  "recipe_chars": 65,
+  "score": -0.016,
+  "config": {
+    "traditions": [
+      "romantico"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "upright_use": 0.054,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

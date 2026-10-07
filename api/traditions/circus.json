@@ -1,0 +1,70 @@
+{
+  "id": "circus",
+  "name": "Circus",
+  "family": "vernacular",
+  "lineage": "Juanita Beck — Calliope Circus Tunes, late1960s Cuca recording preserved by Windjammers Unlimited. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic circus, groove Percussion, American marching branch. steam driven steam calliope. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 188,
+  "score": 7.129,
+  "config": {
+    "traditions": [
+      "circus"
+    ],
+    "instruments": [
+      {
+        "id": "steam_calliope",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "steam_calliope_form": "steam_calliope_form_showman",
+          "steam_calliope_performance": "steam_calliope_performance_circus_march",
+          "steam_calliope_build": "steam_calliope_build_brass_steam"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "steam_calliope_form": 6.8675,
+          "steam_calliope_performance": 0.4315,
+          "steam_calliope_build": -0.1
+        }
+      }
+    ],
+    "pinned": {
+      "steam_calliope": [
+        "keyboard_technique",
+        "steam_calliope_form",
+        "steam_calliope_performance",
+        "steam_calliope_build"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "steam_calliope_form": "steam_calliope_form_showman",
+      "steam_calliope_performance": "steam_calliope_performance_circus_march",
+      "steam_calliope_build": "steam_calliope_build_brass_steam"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

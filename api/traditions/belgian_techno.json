@@ -5,7 +5,7 @@
   "lineage": "Belgium-based techno production and club networks represented by Charlotte de Witte, Amelie Lens, Joyhauser and Marco Bailey. The selected branch follows de Witte’s documented stripped, slowly evolving construction from kick, bass, background texture and treated samples.",
   "recipe": "classic modern belgian techno, electronic Dance, techno branch, house electronic dance ballroom latin house. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 357,
-  "score": 63.495,
+  "score": 63.48,
   "config": {
     "traditions": [
       "belgian_techno",
@@ -22,7 +22,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 1.1049999999999998,
+          "electronic_technique": 1.0524999999999998,
           "sample_bitdepth": 0.22499999999999998,
           "sample_swing": 15.545,
           "sample_processing": 0
@@ -55,9 +55,9 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.1049999999999998,
+          "electronic_technique": 1.0524999999999998,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.3,
+          "sampler_bit_depth": 0.39,
           "sampler_workflow": 0.7149999999999999,
           "sampler_classic_context": 42.08749999999999
         }

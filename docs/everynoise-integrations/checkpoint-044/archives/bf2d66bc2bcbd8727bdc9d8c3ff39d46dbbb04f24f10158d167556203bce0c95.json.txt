@@ -1,0 +1,234 @@
+{
+  "entries": [
+    {
+      "source_label": "swazi traditional",
+      "source_url": "https://everynoise.com/engenremap-swazitraditional.html",
+      "suggested_id": "swazi_traditional",
+      "allocation_ordinal": 4369,
+      "allocation_group_id": "175",
+      "id": "swazi_traditional",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "swazi_traditional",
+        "name": "Swazi Traditional",
+        "family": "global",
+        "lineage": "Swazi traditional music sustains communal song, dance and ceremonial life in Eswatini. Royal-village repertoires, regimental songs and women’s seasonal celebrations connect musical participation with social memory, public honor and the agricultural calendar.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "field_recording",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "praiseSong",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 2,
+          "improv": 0,
+          "soundTech": -2,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": -2,
+          "cyclicity": 1
+        },
+        "description": "Shared melodies and coordinated vocal entries accompany public dancing and collective celebration. Songs can affirm community ties, honor royalty and mark seasonal ceremonies; male, female and mixed groups maintain different repertories within the wider tradition.",
+        "exemplars": [
+          "Lutsango LwakaNgwane",
+          "Group of Swazi Men",
+          "Women and men of the Queen Mother’s Village"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -26.4333,
+        31.2,
+        "Lobamba",
+        "Africa"
+      ],
+      "geo_rationale": "Approximate cultural/royal ceremonial anchor supported by official Eswatini tourism; not a claim that the selected Buganu session occurred at this exact point.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/embed/playlist/1vSYauLcP94YFZ2JniVyUQ",
+          "support_notes": "Exact creator51 recordings15433view0, traditional village and regimental performers; not recentmusic-generated prose."
+        },
+        {
+          "url": "https://www.thekingdomofeswatini.com/news-blogs/how-marula-beer-is-brewed/",
+          "support_notes": "Official tourism first-hand event account15429search0 describes rehearsed unison women’s singing/newly composed songs and dance; 25-litre containers are beer drums."
+        },
+        {
+          "url": "https://www.thekingdomofeswatini.com/eswatini-experiences/events/marula-festival/",
+          "support_notes": "Official festival account15429search3 documents praise/thanks and collective song/dance for royal seasonal ceremony; no health-effect claims adopted."
+        },
+        {
+          "url": "https://www.thekingdomofeswatini.com/news-blogs/the-buganu-ceremony-a-taste-of-tradition-and-tourism-triumph/",
+          "support_notes": "Official2026 event witness15429search2 confirms Lutsango traditional cultural transmission and coordinated singing/dance."
+        },
+        {
+          "url": "https://www.thekingdomofeswatini.com/eswatini-experiences/events/incwala-festival/",
+          "support_notes": "Official Lobamba cultural/royal location anchor only,15429search11. Does not transfer restricted rites or musical inventory to the selected public Buganu branch."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15433view0",
+        "turn15429search0",
+        "turn15429search2",
+        "turn15429search3"
+      ],
+      "model_policy": "Representative Lutsango communal ceremonial singing branch documented by Eswatini Tourism Authority: women rehearse newly composed songs, sing in unison and dance at the Buganu celebration. The selected setting is group song honoring the occasion and royalty, not a transcription of any restricted Incwala rite or a named historical recording. Existing voice controls preserve a live ensemble, singing and punctuated projected delivery; syllabic word-setting and punctuated articulation are authored expressive choices, not measured phonetics. Unknown singer count/register and local pitch system are not invented. No harmonic choir arrangement, Western vocal school or live band is inferred. Source 25-litre drums are beverage containers, not evidence of percussion. Outdoor field recording is an authored presentation of the public event. Broad praiseSong is used for this public honor/thanks branch; no hereditary professional praise-singer or Zulu izibongo identity is asserted.",
+      "authored_render_scope": "Representative Lutsango communal ceremonial singing branch documented by Eswatini Tourism Authority: women rehearse newly composed songs, sing in unison and dance at the Buganu celebration. The selected setting is group song honoring the occasion and royalty, not a transcription of any restricted Incwala rite or a named historical recording. Existing voice controls preserve a live ensemble, singing and punctuated projected delivery; syllabic word-setting and punctuated articulation are authored expressive choices, not measured phonetics. Unknown singer count/register and local pitch system are not invented. No harmonic choir arrangement, Western vocal school or live band is inferred. Source 25-litre drums are beverage containers, not evidence of percussion. Outdoor field recording is an authored presentation of the public event. Broad praiseSong is used for this public honor/thanks branch; no hereditary professional praise-singer or Zulu izibongo identity is asserted.",
+      "neighbor_distinction": "Full existing Swazi Pop covers contemporary Eswatini popular songwriting, soul, R&B and electronic approaches; Swazi Hip Hop is a contemporary rap field. Neither excludes local heritage influences, but this creator field positively foregrounds traditional royal-village, community and regimental performers. Full Isicathamiya and Mbube are Zulu/South African migrant-hostel and choral traditions with their own institutions, not generic names for all southern African singing. Full Zulu Izibongo is praise-poetry, not an umbrella replacing every Swazi sung ceremonial practice. The selected women’s communal branch is only one part of the broader Swazi traditional corpus, which includes male, mixed and instrumental-associated repertories.",
+      "classification_evidence": "Full existing Swazi Pop covers contemporary Eswatini popular songwriting, soul, R&B and electronic approaches; Swazi Hip Hop is a contemporary rap field. Neither excludes local heritage influences, but this creator field positively foregrounds traditional royal-village, community and regimental performers. Full Isicathamiya and Mbube are Zulu/South African migrant-hostel and choral traditions with their own institutions, not generic names for all southern African singing. Full Zulu Izibongo is praise-poetry, not an umbrella replacing every Swazi sung ceremonial practice. The selected women’s communal branch is only one part of the broader Swazi traditional corpus, which includes male, mixed and instrumental-associated repertories.",
+      "source_scope_limitation": "Genre-level public communal ceremonial practice, not exact-session roster reconstruction. Restricted Incwala material is not reproduced or selected; named historical recordings only identify creator field.",
+      "source_retrieval_caveat": "Official tourism full indexed accounts and exact creator playlist reproduced; third-party generated summary used only to discover playlist URL.",
+      "instrument_role_audit": {
+        "voice": "Source-positive live women’s unison singing and public dance; source does not positively identify accompanying instruments for this branch."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_projected",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "staccato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative Lutsango communal ceremonial singing branch documented by Eswatini Tourism Authority: women rehearse newly composed songs, sing in unison and dance at the Buganu celebration. The selected setting is group song honoring the occasion and royalty, not a transcription of any restricted Incwala rite or a named historical recording. Existing voice controls preserve a live ensemble, singing and punctuated projected delivery; syllabic word-setting and punctuated articulation are authored expressive choices, not measured phonetics. Unknown singer count/register and local pitch system are not invented. No harmonic choir arrangement, Western vocal school or live band is inferred. Source 25-litre drums are beverage containers, not evidence of percussion. Outdoor field recording is an authored presentation of the public event. Broad praiseSong is used for this public honor/thanks branch; no hereditary professional praise-singer or Zulu izibongo identity is asserted."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "swazi_traditional",
+          "name": "Swazi Traditional",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15408view2 confirms creator/crop and CC BY2.5; inherited exact byte/visual receipts retained.",
+          "fresh_review_ref": "turn15408view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15408view2"
+        ],
+        "fresh_rights_review": "Fresh15408view2 rights only; historical byte/visual receipt unchanged."
+      },
+      "default_review": "All17 voice controls protected. Actual clapping-and-syllabicizing preface describes punctuated syllabic group articulation here, consistent with its underlying lexicon; it does not assert a separately performed hand-clap instrument. No categorical foreign vocal school or exact singer count is imported.",
+      "signature_tokens": []
+    }
+  ]
+}

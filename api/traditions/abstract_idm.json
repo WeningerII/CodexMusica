@@ -1,0 +1,97 @@
+{
+  "id": "abstract_idm",
+  "name": "Abstract IDM",
+  "family": "electronic",
+  "lineage": "Abstract IDM develops the experimental side of electronic listening music through unstable rhythms, resampling and evolving textures. Independent producers and labels connect detailed digital editing with ambience and melodic fragments, treating irregularity and transformation as compositional material.",
+  "recipe": "classic abstract idm, experimental Elec, idm glitch branch. glitched textural granular synth, daw melodic source daw bass source daw percussion source unspecified. treated studio.",
+  "recipe_chars": 179,
+  "score": 18.146,
+  "config": {
+    "traditions": [
+      "abstract_idm"
+    ],
+    "instruments": [
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_idm",
+          "granular_synth_source": "granular_synth_synthesized"
+        },
+        "scores": {
+          "electronic_technique": 15.1365,
+          "granular_use": 0.40950000000000003,
+          "granular_synth_source": 2.6
+        }
+      },
+      {
+        "id": "daw_melodic_source_unspecified",
+        "slots": {
+          "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_melodic_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_bass_source_unspecified",
+        "slots": {
+          "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_bass_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_percussion_source_unspecified",
+        "slots": {
+          "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_percussion_source_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "granular_synth": [
+        "electronic_technique",
+        "granular_use",
+        "granular_synth_source"
+      ],
+      "daw_melodic_source_unspecified": [
+        "daw_melodic_source_unspecified_identity"
+      ],
+      "daw_bass_source_unspecified": [
+        "daw_bass_source_unspecified_identity"
+      ],
+      "daw_percussion_source_unspecified": [
+        "daw_percussion_source_unspecified_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_glitch_textural",
+      "granular_use": "granular_idm",
+      "granular_synth_source": "granular_synth_synthesized",
+      "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified",
+      "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified",
+      "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+    },
+    "pin_parts": true
+  }
+}

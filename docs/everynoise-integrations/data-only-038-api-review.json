@@ -1,0 +1,278 @@
+{
+  "status": "PASS",
+  "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "baseline": "572c288153ab7092b5571f5e572667c311e9828e",
+  "summary": {
+    "old_traditions": 6338,
+    "unchanged_old_payloads": 6332,
+    "derived_changed_payloads": 6,
+    "changed_recipes": 3,
+    "changed_unprotected_slots": 13,
+    "old_instruments_unchanged": 1609,
+    "new_traditions": 100,
+    "new_instruments": 19,
+    "new_owning_parts": 2157,
+    "new_protected_parts": 2155
+  },
+  "old_rows": [
+    {
+      "id": "antifolk_nyc",
+      "original_solver_baseline_current_exact": true,
+      "remove_only_new100_restores": {
+        "id": "antifolk_nyc",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "new_neighbor_edges": [],
+      "staples_before": ["antifolk_nyc", "bedroom_pop", "hypnagogic_pop"],
+      "staples_after": ["antifolk_nyc", "bedroom_pop", "lo_fi_vgm"],
+      "recipe_changed": true,
+      "material_unprotected_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_jingju_role",
+          "after": "voice_ornament_none",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_vedic_three_tone",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "before": "scale_short",
+          "after": "scale_gibson",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_12",
+          "after": "g_10",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "mahogany",
+          "after": "alder",
+          "runtime_protected": false
+        }
+      ],
+      "source_and_roster_environment_preserved": true,
+      "classification": "Material optimizer-selected variant/staple drift, not authored-source change"
+    },
+    {
+      "id": "dweilorkest",
+      "original_solver_baseline_current_exact": true,
+      "remove_only_new100_restores": {
+        "id": "dweilorkest",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "new_neighbor_edges": [
+        {
+          "id": "musica_tabasquena",
+          "weight": 0.5,
+          "srcs": ["axis"]
+        }
+      ],
+      "staples_before": ["dweilorkest"],
+      "staples_after": ["dweilorkest"],
+      "recipe_changed": false,
+      "material_unprotected_slot_changes": [],
+      "source_and_roster_environment_preserved": true,
+      "classification": "Derived per-variant scores and aggregate score only; selected settings and recipe unchanged"
+    },
+    {
+      "id": "goa_trance",
+      "original_solver_baseline_current_exact": true,
+      "remove_only_new100_restores": {
+        "id": "goa_trance",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "new_neighbor_edges": [],
+      "staples_before": ["goa_trance", "marathi_devotional", "baps"],
+      "staples_after": ["goa_trance", "marathi_devotional", "odia_bhajan"],
+      "recipe_changed": true,
+      "material_unprotected_slot_changes": [
+        {
+          "instrument": "digital_subtractive",
+          "part": "electronic_technique",
+          "before": "electronic_bass_sub",
+          "after": "electronic_lead_line",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_archetypes",
+          "before": "emu_emax",
+          "after": "akai_s1000",
+          "runtime_protected": false
+        }
+      ],
+      "source_and_roster_environment_preserved": true,
+      "classification": "Material optimizer-selected variant/staple drift, not authored-source change"
+    },
+    {
+      "id": "instrumental_lullaby",
+      "original_solver_baseline_current_exact": true,
+      "remove_only_new100_restores": {
+        "id": "instrumental_lullaby",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "new_neighbor_edges": [
+        {
+          "id": "musique_traditionnelle_comorienne",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "staples_before": ["instrumental_lullaby"],
+      "staples_after": ["instrumental_lullaby"],
+      "recipe_changed": false,
+      "material_unprotected_slot_changes": [],
+      "source_and_roster_environment_preserved": true,
+      "classification": "Derived per-variant scores and aggregate score only; selected settings and recipe unchanged"
+    },
+    {
+      "id": "neurostep",
+      "original_solver_baseline_current_exact": true,
+      "remove_only_new100_restores": {
+        "id": "neurostep",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "new_neighbor_edges": [
+        {
+          "id": "tearout",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "staples_before": ["neurostep"],
+      "staples_after": ["neurostep"],
+      "recipe_changed": false,
+      "material_unprotected_slot_changes": [],
+      "source_and_roster_environment_preserved": true,
+      "classification": "Derived per-variant scores and aggregate score only; selected settings and recipe unchanged"
+    },
+    {
+      "id": "paisley_underground",
+      "original_solver_baseline_current_exact": true,
+      "remove_only_new100_restores": {
+        "id": "paisley_underground",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "new_neighbor_edges": [],
+      "staples_before": ["paisley_underground", "knoxville_indie", "armenian_indie"],
+      "staples_after": ["paisley_underground", "knoxville_indie", "montana_roots"],
+      "recipe_changed": true,
+      "material_unprotected_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_none",
+          "after": "voice_ornament_jingju_role",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "terminal_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "japanese_min_yo_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_vedic_three_tone",
+          "after": "voice_pitch_just_intonation",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_false_fold_distorted",
+          "after": "voice_mechanism_M0_pulse_borrowed",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted",
+          "runtime_protected": false
+        }
+      ],
+      "source_and_roster_environment_preserved": true,
+      "classification": "Material optimizer-selected variant/staple drift, not authored-source change"
+    }
+  ],
+  "new_compiled_fallbacks": [
+    {
+      "tradition": "reiki",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "flat_value": "keyboard_classical_legato",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "talentkonkurranse",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "flat_value": "keyboard_block_chord_pop",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    }
+  ],
+  "new_semantic_report": "api-new-semantic-review119.json",
+  "causal_method": "Unchanged original search/score/translate replayed independently on exact predecessor and current source. Remove only100 new traditions/extras in isolated process memory restores all6 old recipes/configs/scores exactly;19 new owners remain loaded, proving catalog-neighbor changes rather than old-source or engine mutation. No repository edits.",
+  "limits": "Optimizer changes in old unprotected settings include cross-cultural voice variants and physical guitar/bass settings; these are candid derived search choices, not newly researched claims or changes to old authored/browser defaults. Source pin_parts/valid applicable pins and environment are preserved. Snapshot fixtures require their own exact configuration review before update.",
+  "supporting_reports": [
+    "api-delta-independent-review119.json",
+    "api-causal-trace-baseline119.json",
+    "api-causal-trace-current119.json",
+    "api-counterfactual119.json",
+    "api-validation-details119.json",
+    "api-projection-review119.json",
+    "compiled-unpinned-review119.json",
+    "integration-review119.json",
+    "api-new-semantic-review119.json",
+    "geo-amendment-review119.json"
+  ],
+  "errors": [],
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json",
+  "new_semantic_status": "PASS100 full compiled recipes"
+}

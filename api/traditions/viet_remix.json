@@ -1,0 +1,50 @@
+{
+  "id": "viet_remix",
+  "name": "Viet Remix",
+  "family": "electronic",
+  "lineage": "Viet remix circulates Vietnamese songs in remixed dance versions, nonstop DJ programmes and online listening communities. Pop ballads and older sentimental repertoire can acquire energetic electronic arrangements, while Vinahouse club practice forms a prominent overlapping branch.",
+  "recipe": "classic viet remix, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 98,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "viet_remix"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

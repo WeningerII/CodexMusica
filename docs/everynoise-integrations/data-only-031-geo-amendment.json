@@ -1,0 +1,11 @@
+{
+  "status": "Data-only geographic correction",
+  "previous_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+  "final_frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "id": "papuri",
+  "before": [12.8797, 121.774, "Philippines", "Southeast Asia"],
+  "after": [15.5, 121.0, "Philippines", "Southeast Asia"],
+  "rationale": "Approximate country-level land point on Luzon for the documented Filipino Papuri repertoire. Editorial map anchor only; not an asserted performer hometown, ministry office or recording location.",
+  "source": "https://amplify.febcanada.org/philippines/",
+  "reason": "Original atlas gate rejects offshore country centroid; preserve national specificity while selecting representative land point. No role, default, signature or recipe input changed."
+}

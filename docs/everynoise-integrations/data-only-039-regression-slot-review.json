@@ -1,0 +1,385 @@
+{
+  "rows": [
+    {
+      "id": "chinese_traditional_ensemble",
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "vocal_fry",
+          "after": "chest_voice",
+          "source_pin_parts": false,
+          "source_variant": "falsetto",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_retune_10_50ms_natural",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_retune_50_100ms_subtle",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    },
+    {
+      "id": "ethio_pop_modern",
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_single_source",
+          "after": "voice_mechanism_M0_pulse_borrowed",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_speech",
+          "after": "voice_estill_nasal_twang",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_ethiopian_qenet",
+          "after": "voice_pitch_thai_7_equal_step",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_just_intonation",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "finish",
+          "before": "oil_satin",
+          "after": "nitro",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "drop_d",
+          "after": "dadgad",
+          "source_pin_parts": false,
+          "source_variant": "standard_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_archetypes",
+          "before": "oberheim_obxa",
+          "after": "prophet_5",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    },
+    {
+      "id": "modal_jazz",
+      "slot_changes": [
+        {
+          "instrument": "saxophone",
+          "part": "sax_body_alloy",
+          "before": "phosphor_bronze_sax",
+          "after": "nickel_silver_sax",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_size",
+          "before": "trumpet_b_flat",
+          "after": "flugelhorn",
+          "source_pin_parts": false,
+          "source_variant": "trumpet_b_flat",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "before": "harmon_out",
+          "after": "no_mute_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_size",
+          "before": "grand_7_foot",
+          "after": "grand_9_foot",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "ronsen_wurzen_hammer",
+          "after": "abel_hammer",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "mason_hamlin_oversize_rim",
+          "after": "steinway_17_ply_hard_rock_maple_rim",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "asian_multi_laminate_pinblock",
+          "after": "hexagrip_7_ply_quartersawn_maple",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_plate",
+          "before": "v_pro_vacuum_cast_plate",
+          "after": "gray_iron_full_perimeter_plate",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_441_japanese",
+          "after": "a_442_european",
+          "source_pin_parts": false,
+          "source_variant": "a_440_modern",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "before": "brushes_jazz",
+          "after": "brushes_and_sticks",
+          "source_pin_parts": false,
+          "source_variant": "brushes_jazz",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "vintage_ambassador_drumhead",
+          "after": "fiberskyn_drumhead",
+          "source_pin_parts": false,
+          "source_variant": "calfskin_drum",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    },
+    {
+      "id": "freak_folk_2000s",
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_jingju_role",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pelog_7",
+          "after": "voice_pitch_slendro_5",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_tuning",
+          "before": "eb_standard",
+          "after": "d_standard",
+          "source_pin_parts": false,
+          "source_variant": "dadgad",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_bow",
+          "before": "dark_rosin",
+          "after": "magic_rosin_fiddle",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "sul_tasto",
+          "after": "arco",
+          "source_pin_parts": false,
+          "source_variant": "arco",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "musette_offset",
+          "before": "demi_swing",
+          "after": "dry_tuning",
+          "source_pin_parts": false,
+          "source_variant": "dry_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_strings",
+          "before": "copper_wound_gut_violin",
+          "after": "plain_lamb_gut_violin",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_articulation",
+          "before": "pizz_orch",
+          "after": "arco_orch",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    },
+    {
+      "id": "coupe_decale_ivorian",
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "straight_tone",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "soapbar",
+          "after": "humbucker_mm",
+          "source_pin_parts": false,
+          "source_variant": "soapbar",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    },
+    {
+      "id": "salsa_dura",
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "fast_vibrato",
+          "after": "straight_tone",
+          "source_pin_parts": false,
+          "source_variant": "slow_vibrato",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "before": "harmon_in",
+          "after": "no_mute_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_bell_metal",
+          "before": "trumpet_yellow_brass",
+          "after": "trumpet_red_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_mute",
+          "before": "cup_mute_trb",
+          "after": "no_mute_trb",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "cencerro",
+          "part": "cencerro_build",
+          "before": "cencerro_welded_steel",
+          "after": "cencerro_cattle_bell",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,140 @@
+{
+  "id": "gaita_extremena",
+  "name": "Gaita extremeña (three-hole tabor pipe)",
+  "short": "gaita extremeña",
+  "family": "wind",
+  "class": "three_hole_tabor_pipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "sources": [
+    "https://www.canalextremadura.es/radio/palabras-mayores/sones-de-la-tierra-en-palabras-mayores-canciones-instrumentales",
+    "https://www.tamborileros.com/repextre.php",
+    "https://www.tamborileros.com/juanma.php",
+    "https://tesauros.cultura.gob.es/tesauros/bienesculturales/1184002.html"
+  ],
+  "parts": [
+    {
+      "id": "gaita_extremena_form",
+      "name": "Pipe form",
+      "variants": [
+        {
+          "id": "gaita_extremena_three_hole",
+          "name": "Three-hole duct pipe, pitch unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_extremena_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "gaita_extremena_self_accompanied",
+          "name": "One-handed melody with other hand striking tamboril",
+          "default": true,
+          "descriptors": [
+            "one-handed",
+            "self-accompanied",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "tabor-paired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_extremena_body",
+      "name": "Body material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "gaita_extremena_wood_unspecified",
+          "name": "Wooden body, species unspecified",
+          "default": true,
+          "descriptors": [
+            "woody"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "wooden-bore"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaita_extremena_form",
+      "name": "Pipe form",
+      "variants": [
+        {
+          "id": "gaita_extremena_three_hole",
+          "name": "Three-hole duct pipe, pitch unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_extremena_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "gaita_extremena_self_accompanied",
+          "name": "One-handed melody with other hand striking tamboril",
+          "default": true,
+          "descriptors": [
+            "one-handed",
+            "self-accompanied",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "tabor-paired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaita_extremena_body",
+      "name": "Body material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "gaita_extremena_wood_unspecified",
+          "name": "Wooden body, species unspecified",
+          "default": true,
+          "descriptors": [
+            "woody"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "wooden-bore"
+          ]
+        }
+      ]
+    }
+  ]
+}

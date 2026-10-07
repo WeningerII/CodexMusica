@@ -1,0 +1,50 @@
+{
+  "id": "re_techno",
+  "name": "Re:techno",
+  "family": "electronic",
+  "lineage": "Re:techno connects club-oriented producers and DJs working across techno, hardgroove and loop-led dance music. Repeated rhythmic figures and percussion-driven tracks support extended sets and shifting combinations on the dance floor.",
+  "recipe": "classic re:techno, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 83,
+  "score": 0.332,
+  "config": {
+    "traditions": [
+      "re_techno"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.3315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

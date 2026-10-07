@@ -1,0 +1,1095 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+  "authorized_exact_fixture_ids": [
+    "choro",
+    "maya_marimba",
+    "tarantella_napoletana",
+    "freak_folk_2000s",
+    "samba_jazz",
+    "japanese_matsuri_taiko",
+    "mizrahi_israeli",
+    "festejo_afroperuano",
+    "currulao_pacifico",
+    "forro_pe_de_serra",
+    "lambada_carimbo",
+    "bengali_ghum_paranir_gan",
+    "bengali_chhotoder_chora"
+  ],
+  "source_extras_roster_environment_protected_settings_unchanged": true,
+  "material_unprotected_slot_changes": 88,
+  "rows": [
+    {
+      "id": "choro",
+      "old_output": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba pagode. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, low mid rich spectrum broken in fast cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, powell boston canonical American orchestral flute, softer tone ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "new_output": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba bloco. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, low mid rich spectrum broken in fast cedar classical nylon-string guitar, samba foundation mahogany samba canon steel modern strummed cavaquinho, yamaha modern Japanese mid to premium flute, ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "baseline_staples": ["choro", "samba", "pagode"],
+      "current_staples": ["choro", "samba", "bloco"],
+      "baseline_score": 215.56999999999996,
+      "current_score": 230.65749999999997,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "part": "acoustic_technique",
+          "before": "acoustic_strummed_ringing",
+          "after": "acoustic_chord_melody",
+          "source_pin_parts": false,
+          "source_variant": "acoustic_fingerpicked",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "flute",
+          "part": "wind_articulation",
+          "before": "wind_continuous_legato",
+          "after": "wind_classical_legato",
+          "source_pin_parts": false,
+          "source_variant": "wind_bebop_runs",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "flute",
+          "part": "flute_maker_school",
+          "before": "flute_powell_boston",
+          "after": "flute_yamaha",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "clarinet",
+          "part": "wind_articulation",
+          "before": "wind_dixieland_lead",
+          "after": "wind_classical_legato",
+          "source_pin_parts": false,
+          "source_variant": "wind_bebop_runs",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "maya_marimba",
+      "old_output": "classic Mexican modern maya marimba, groove Percussion, Latin am branch, Brazilian groove percussion pagode. gourd resonated multi player full ensemble marimba centroamericana, large diameter venice catlin high twist renaissance bass double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Mexican modern maya marimba, groove Percussion, Latin am branch, Brazilian groove percussion bloco pagode. gourd resonated multi player full ensemble marimba centroamericana, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["maya_marimba", "pagode"],
+      "current_staples": ["maya_marimba", "bloco", "pagode"],
+      "baseline_score": 12.837499999999997,
+      "current_score": 35.357499999999995,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "double_bass",
+          "part": "bass_top_wood",
+          "before": "norway_spruce_alpine_bass",
+          "after": "carpathian_spruce_bass",
+          "source_pin_parts": false,
+          "source_variant": "norway_spruce_alpine_bass",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_varnish",
+          "before": "oil_amber_varnish_bass",
+          "after": "cremonese_pre_1750_varnish_bass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_setup_period",
+          "before": "modern_setup_bass",
+          "after": "baroque_setup_bass",
+          "source_pin_parts": false,
+          "source_variant": "modern_setup_bass",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_rosin",
+          "before": "pop_kolstein_rosin",
+          "after": "nyman_bass_rosin",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_bow_stick",
+          "before": "pernambuco_stick_bass",
+          "after": "brazilwood_stick_bass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "tarantella_napoletana",
+      "old_output": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song pagode catalan sardana. thick, breath veiled tone, straight note core, interlocked note trading. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, campanian healing rite tammorra, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song bloco pagode. thick, breath veiled tone, breath pulsed, interlocked note trading. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, fast driving healing rite tammorra, sitka spruce spruce fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["tarantella_napoletana", "pagode", "catalan_sardana"],
+      "current_staples": ["tarantella_napoletana", "bloco", "pagode"],
+      "baseline_score": 246.68749999999997,
+      "current_score": 272.7675,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "straight_tone",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_vedic_three_tone",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "tammorra",
+          "part": "tammorra_form",
+          "before": "tammorra_grande",
+          "after": "tammorra_tamburello_salentino",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "string_tuning",
+          "before": "eb_standard",
+          "after": "standard_tuning",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "string_acoustic_parlor",
+          "before": "eighty_twenty_p",
+          "after": "silk_steel_p",
+          "source_pin_parts": false,
+          "source_variant": "phosphor_p",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "freak_folk_2000s",
+      "old_output": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric dark pop glitch pop. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "new_output": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop français dark pop. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, carpathian spruce European maple bosnian source flamed figure French Polish violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "baseline_staples": ["freak_folk_2000s", "dark_pop", "glitch_pop"],
+      "current_staples": ["freak_folk_2000s", "hyperpop_francais", "dark_pop"],
+      "baseline_score": 292.785,
+      "current_score": 346.77,
+      "new_neighbor_ids": ["hyperpop_francais"],
+      "new_candidate_ids": ["hyperpop_francais"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "terminal_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "slow_vibrato",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_pelog_7",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_tuning",
+          "before": "standard_tuning",
+          "after": "eb_standard",
+          "source_pin_parts": false,
+          "source_variant": "dadgad",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_mute",
+          "before": "practice_mute",
+          "after": "no_mute",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "pizz",
+          "after": "sul_tasto",
+          "source_pin_parts": false,
+          "source_variant": "arco",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "musette_offset",
+          "before": "dry_tuning",
+          "after": "demi_swing",
+          "source_pin_parts": false,
+          "source_variant": "dry_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "reed_config",
+          "before": "lmmh",
+          "after": "lmmm",
+          "source_pin_parts": false,
+          "source_variant": "lmm",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_top_wood",
+          "before": "norway_spruce_alpine_violin",
+          "after": "carpathian_spruce_violin",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_varnish",
+          "before": "modern_synthetic_varnish_violin",
+          "after": "french_polish_violin",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "glockenspiel",
+          "part": "glockenspiel_size",
+          "before": "glockenspiel_orch_3",
+          "after": "glockenspiel_orch_25",
+          "source_pin_parts": false,
+          "source_variant": "glockenspiel_orch_25",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "samba_jazz",
+      "old_output": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode roda de samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "new_output": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion bloco forró instrumental. no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, samba bateria, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, tight backbore high register lead trumpet trumpet, yamaha modern Japanese mid to premium flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "baseline_staples": ["samba_jazz", "pagode", "roda_de_samba"],
+      "current_staples": ["samba_jazz", "bloco", "forro_instrumental"],
+      "baseline_score": 167.8825,
+      "current_score": 221.35749999999996,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco", "forro_instrumental"],
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "keyboard_technique",
+          "before": "keyboard_block_chord_pop",
+          "after": "keyboard_jazz_comping",
+          "source_pin_parts": false,
+          "source_variant": "keyboard_jazz_comping",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_size",
+          "before": "grand_7_foot",
+          "after": "grand_9_foot",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "ronsen_wurzen_hammer",
+          "after": "abel_hammer",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "asian_laminated_rim_birch_maple",
+          "after": "european_laminated_rim_beech_maple",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_soundboard",
+          "before": "european_spruce_soundboard",
+          "after": "asian_spruce_soundboard",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_432_alternative",
+          "after": "a_441_japanese",
+          "source_pin_parts": false,
+          "source_variant": "a_440_modern",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "vintage_ambassador_drumhead",
+          "after": "fiberskyn_drumhead",
+          "source_pin_parts": false,
+          "source_variant": "calfskin_drum",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "saxophone",
+          "part": "wind_articulation",
+          "before": "wind_punchy_ensemble",
+          "after": "wind_bebop_runs",
+          "source_pin_parts": false,
+          "source_variant": "wind_punchy_ensemble",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "saxophone",
+          "part": "sax_body_alloy",
+          "before": "phosphor_bronze_sax",
+          "after": "nickel_silver_sax",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "wind_articulation",
+          "before": "wind_punchy_ensemble",
+          "after": "wind_bebop_runs",
+          "source_pin_parts": false,
+          "source_variant": "wind_punchy_ensemble",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_size",
+          "before": "trumpet_b_flat",
+          "after": "flugelhorn",
+          "source_pin_parts": false,
+          "source_variant": "trumpet_b_flat",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "before": "straight_mute",
+          "after": "no_mute_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_technique",
+          "before": "trumpet_punchy_ensemble",
+          "after": "trumpet_bebop_lines",
+          "source_pin_parts": false,
+          "source_variant": "trumpet_punchy_ensemble",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "flute",
+          "part": "wind_articulation",
+          "before": "wind_breath_quiet",
+          "after": "wind_bebop_runs",
+          "source_pin_parts": false,
+          "source_variant": "wind_punchy_ensemble",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "flute",
+          "part": "flute_material",
+          "before": "gold_flute",
+          "after": "platinum_flute",
+          "source_pin_parts": false,
+          "source_variant": "silver_flute",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "flute",
+          "part": "flute_maker_school",
+          "before": "flute_powell_boston",
+          "after": "flute_yamaha",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "japanese_matsuri_taiko",
+      "old_output": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music tibetan chöd rite. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music fo jing. thick, declaimed, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium silk nagauta jiuta shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["japanese_matsuri_taiko", "chinese_xiqing_wedding", "tibetan_chod_rite"],
+      "current_staples": ["japanese_matsuri_taiko", "chinese_xiqing_wedding", "fo_jing"],
+      "baseline_score": 170.12499999999997,
+      "current_score": 174.69499999999994,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["fo_jing"],
+      "slot_changes": [
+        {
+          "instrument": "taiko_drum",
+          "part": "taiko_size",
+          "before": "taiko_shime_daiko",
+          "after": "taiko_o_daiko",
+          "source_pin_parts": false,
+          "source_variant": "taiko_chu_daiko",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "shamisen",
+          "part": "shamisen_strings",
+          "before": "shamisen_nylon_tsugaru",
+          "after": "shamisen_silk_traditional",
+          "source_pin_parts": false,
+          "source_variant": "shamisen_nylon_tsugaru",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "shamisen",
+          "part": "shamisen_tradition",
+          "before": "shamisen_nagauta",
+          "after": "shamisen_min_yo",
+          "source_pin_parts": false,
+          "source_variant": "shamisen_tsugaru",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "aspirated_voice",
+          "after": "praise_voice",
+          "source_pin_parts": false,
+          "source_variant": "speech_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_ventricular_subharmonic",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_single_lead",
+          "source_pin_parts": false,
+          "source_variant": "voice_multitrack_single_lead",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "mizrahi_israeli",
+      "old_output": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "new_output": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, alder electric bass. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "baseline_staples": ["mizrahi_israeli", "iraqi_maqam", "malhun_maghrebi"],
+      "current_staples": ["mizrahi_israeli", "iraqi_maqam", "malhun_maghrebi"],
+      "baseline_score": 189.65250000000003,
+      "current_score": 186.8,
+      "new_neighbor_ids": ["judaica"],
+      "new_candidate_ids": [],
+      "slot_changes": [
+        {
+          "instrument": "darbuka",
+          "part": "darbuka_skin",
+          "before": "darbuka_fish_skin",
+          "after": "darbuka_synthetic_mylar",
+          "source_pin_parts": false,
+          "source_variant": "darbuka_synthetic_mylar",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "mahogany_b",
+          "after": "alder_b",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted",
+          "source_pin_parts": false,
+          "source_variant": "fretted",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "bass_technique",
+          "before": "fingerstyle_walking",
+          "after": "fingerpicked_country_b",
+          "source_pin_parts": false,
+          "source_variant": "fingerstyle_locked",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "festejo_afroperuano",
+      "old_output": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, breath veiled tone, straight note core, interlocked note trading. lead open slap hand drum congas, fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion bloco pagode. thick, breath veiled tone, straight note core, interlocked note trading. lead open slap hand drum congas, sitka spruce spruce fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["festejo_afroperuano", "pagode", "baiao"],
+      "current_staples": ["festejo_afroperuano", "bloco", "pagode"],
+      "baseline_score": 164.20499999999996,
+      "current_score": 201.525,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "yoruba_tonal_vocal_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "string_acoustic_parlor",
+          "before": "coated_nano_p",
+          "after": "silk_steel_p",
+          "source_pin_parts": false,
+          "source_variant": "phosphor_p",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "currulao_pacifico",
+      "old_output": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion pagode carimbó. extended whistle, breath veiled tone, slow rate, interlocked note trading. two player palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion bloco pagode. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. ostinato low driving palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["currulao_pacifico", "pagode", "carimbo"],
+      "current_staples": ["currulao_pacifico", "bloco", "pagode"],
+      "baseline_score": 131.14249999999998,
+      "current_score": 167.415,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "extended_whistle_register",
+          "after": "vocal_fry",
+          "source_pin_parts": false,
+          "source_variant": "mix_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "straight_tone",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_sub_semitone_third_glide",
+          "after": "voice_pitch_vedic_three_tone",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "marimba_de_chonta",
+          "part": "marimba_de_chonta_role",
+          "before": "marimba_de_chonta_duet",
+          "after": "marimba_de_chonta_bordon",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "forro_pe_de_serra",
+      "old_output": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. thick, breath veiled tone, pure, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion bloco pagode. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["forro_pe_de_serra", "pagode", "baiao"],
+      "current_staples": ["forro_pe_de_serra", "bloco", "pagode"],
+      "baseline_score": 139.13249999999996,
+      "current_score": 174.86249999999998,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "vocal_fry",
+          "source_pin_parts": false,
+          "source_variant": "chest_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "straight_tone",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "straight_tone",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "carnatic_classical_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "accordion_reed_material",
+          "before": "tipo_a_mano",
+          "after": "steel_reeds",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "lambada_carimbo",
+      "old_output": "classic Southern American mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "new_output": "classic Southern American mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion bloco pagode. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. basswood clean strummed single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "baseline_staples": ["lambada_carimbo", "pagode", "samba_rock"],
+      "current_staples": ["lambada_carimbo", "bloco", "pagode"],
+      "baseline_score": 165.24749999999997,
+      "current_score": 185.80749999999998,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["bloco"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "extended_whistle_register",
+          "source_pin_parts": false,
+          "source_variant": "mix_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "straight_tone",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_belt",
+          "after": "voice_estill_opera",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_sub_semitone_third_glide",
+          "after": "voice_pitch_vedic_three_tone",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "before": "amp_american_fender_blackface",
+          "after": "amp_roland_jc120",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "mahogany",
+          "after": "basswood",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "neck_wood",
+          "before": "wenge_neck",
+          "after": "mahogany_neck",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "fretboard",
+          "before": "ebony_fb",
+          "after": "pau_ferro_fb",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_11",
+          "after": "g_10",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "before": "locking_trem",
+          "after": "hardtail",
+          "source_pin_parts": false,
+          "source_variant": "vintage_trem",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "drop_d",
+          "after": "open_g",
+          "source_pin_parts": false,
+          "source_variant": "standard_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "bengali_ghum_paranir_gan",
+      "old_output": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song hindustani vocal ragini. thick, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song hindustani vocal ragini. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["bengali_ghum_paranir_gan", "hindustani_vocal", "ragini"],
+      "current_staples": ["bengali_ghum_paranir_gan", "hindustani_vocal", "ragini"],
+      "baseline_score": 164.6825,
+      "current_score": 165.2325,
+      "new_neighbor_ids": ["haryanvi_ragni"],
+      "new_candidate_ids": [],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "vocal_fry",
+          "source_pin_parts": false,
+          "source_variant": "head_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_plate_reverb_medium",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "bengali_chhotoder_chora",
+      "old_output": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, breath veiled tone, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry haryanvi ragni cambodian chapei dang veng. thick, breath veiled tone, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["bengali_chhotoder_chora", "cambodian_chapei_dang_veng", "hindi_lori"],
+      "current_staples": [
+        "bengali_chhotoder_chora",
+        "haryanvi_ragni",
+        "cambodian_chapei_dang_veng"
+      ],
+      "baseline_score": 130.55874999999997,
+      "current_score": 181.48125000000002,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["haryanvi_ragni"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "carnatic_classical_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_tahrir_tekye_chain",
+          "after": "voice_mechanism_M0_pulse_borrowed",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_hindustani_meend_gamak",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_carnatic_22_shruti",
+          "after": "voice_pitch_tonal_language_constrained",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_carnatic_22_shruti",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    }
+  ],
+  "causal_method": "Original regression fixture definitions and 100-iteration original solver replay, independently on exact baseline and current catalog. Baseline matches committed snapshot and current matches failed regression log. Removing only new100 traditions/extras from process memory restores both exact recipes, complete configs and scores while retaining all14 new instruments.",
+  "cause": "Original global neighbor/staple scoring changes from the new100. bloco enters the Brazilian sibling staple candidate pool for choro, maya_marimba, tarantella_napoletana, samba_jazz, festejo_afroperuano, currulao_pacifico, forro_pe_de_serra and lambada_carimbo; forro_instrumental also enters samba_jazz. hyperpop_francais enters freak_folk_2000s; fo_jing replaces a devotional staple in japanese_matsuri_taiko; judaica changes neighbor scoring for mizrahi_israeli without changing selected staples; haryanvi_ragni changes Bengali rhyme staple and lullaby neighbor scoring. These individually recorded candidate/neighbor effects coexist with the decisive exact100-removal restoration proof.",
+  "interpretation": "88 material valid unprotected slot changes are acknowledged explicitly, including named vocal training/pitch systems, processing, drum/wood/metal/construction choices. Some generated settings are culturally broad or historically awkward both before and after; this review does not certify them as source facts. Original old source data and actual imported/browser cards are unchanged, and no protected slot changed. This is acceptance of required original-solver recomputation after an authorized append, not authoring or correcting historical old music models.",
+  "errors": [],
+  "scope": "Only listed fixtures eligible for parent original targeted snapshot update; full serial regression and exact-head CI remain required. Reviewer changed no repository/source/API/snapshot.",
+  "final_lineage_amendment": "Current replay uses final eb181924 integration; all13 outputs still exactly match the before-era regression failure log, proving the isolated Indonesian lineage prose correction did not change these fixtures."
+}

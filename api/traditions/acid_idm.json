@@ -1,0 +1,104 @@
+{
+  "id": "acid_idm",
+  "name": "Acid IDM",
+  "family": "electronic",
+  "lineage": "Acid IDM connects the resonant bass sequences of acid music with experimental electronic rhythm and arrangement. Performers such as Surreal Pneuma work across live machine performance, hypnotic repetition and fragmented structures.",
+  "recipe": "classic acid idm, experimental Elec, idm glitch branch. hardware tb303 bassline complete, drum machine analog, sampler. live tracking.",
+  "recipe_chars": 134,
+  "score": 4.58,
+  "config": {
+    "traditions": [
+      "acid_idm"
+    ],
+    "instruments": [
+      {
+        "id": "hardware_tb303_bassline_complete",
+        "slots": {
+          "hardware_tb303_bassline_complete_identity": "hardware_tb303_bassline_complete_documented_model"
+        },
+        "scores": {
+          "hardware_tb303_bassline_complete_identity": 0
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0.0735,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.147,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 4.55
+        }
+      }
+    ],
+    "pinned": {
+      "hardware_tb303_bassline_complete": [
+        "hardware_tb303_bassline_complete_identity"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "hardware_tb303_bassline_complete_identity": "hardware_tb303_bassline_complete_documented_model",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true
+  }
+}

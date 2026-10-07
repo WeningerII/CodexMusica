@@ -2,10 +2,10 @@
   "id": "rap_francais_nouvelle_vague",
   "name": "Rap français nouvelle vague",
   "family": "hip_hop",
-  "lineage": "French new-wave rap discovery field; selected Gracy Hopkins crossover with Crayon and Jo Lowenthal on Misplaced.",
+  "lineage": "A French rap discovery field connecting contemporary MC writing with melodic vocals and electronic production.",
   "recipe": "classic modern rap français nouvelle vague, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 374,
-  "score": 33.302,
+  "score": 38.44,
   "config": {
     "traditions": [
       "rap_francais_nouvelle_vague"
@@ -33,16 +33,16 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 11.375,
+          "voice_quality": 14.04,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.288,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.309999999999999,
+          "voice_speech_song": 12.818999999999999,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -55,13 +55,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 2.297,
+          "electronic_technique": 2.3510000000000004,
           "poly_archetypes": 0.054,
-          "poly_voices": 0.3,
+          "poly_voices": 1.3,
           "poly_maker_lineage": -1.4769999999999999
         }
       },
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 3.9,
           "sample_processing": 0.105
         }

@@ -1,0 +1,58 @@
+{
+  "id": "thai_instrumental",
+  "name": "Thai instrumental",
+  "family": "global",
+  "lineage": "Thai instrumental connects traditional ensembles and contemporary instrumental artists across a varied national listening field. Piano, guitar, traditional instruments and other approaches circulate through recordings and live performance.",
+  "recipe": "classic thai instrumental, improv On Frame. upright piano. live tracking.",
+  "recipe_chars": 73,
+  "score": -0.035,
+  "config": {
+    "traditions": [
+      "thai_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

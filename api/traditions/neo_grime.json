@@ -1,0 +1,83 @@
+{
+  "id": "neo_grime",
+  "name": "Neo Grime",
+  "family": "electronic",
+  "lineage": "Neo grime connects grime influence with wave-related electronic communities and production approaches. Producers and promoters develop this overlapping field through shared releases, mixes and events, without making it identical to all wave or instrumental grime.",
+  "recipe": "classic neo grime, bass System, uk soundsystem branch. digital subtractive, drum machine analog. treated studio.",
+  "recipe_chars": 112,
+  "score": 4.68,
+  "config": {
+    "traditions": [
+      "neo_grime"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.105,
+          "digital_subtractive_context": 4.68
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true
+  }
+}

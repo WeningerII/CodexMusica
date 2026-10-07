@@ -5,7 +5,7 @@
   "lineage": "2000s American indie-folk subgenre characterized by acoustic-guitar-led intimate arrangement, literate-introspective lyrical content, and indie-rock-derived production aesthetic — codified through Iron and Wine (The Creek Drank the Cradle 2002), Sufjan Stevens (Illinois 2005), Bon Iver (For Emma Forever Ago 2007), Fleet Foxes (Fleet Foxes 2008), and the broader Sub Pop and Saddle Creek roster of the period",
   "recipe": "classic mid-2000s indie folk, ballad Poetry, indie folk branch, pop rock functional song folk rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut flatwound thomastik fingerpicked acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, bowl back Italian redwood hard rock maple thomastik flatwound mandolin. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 670,
-  "score": 514.276,
+  "score": 514.164,
   "config": {
     "traditions": [
       "indie_folk_2000s",
@@ -41,7 +41,7 @@
           "voice_vibrato": 7.409999999999999,
           "voice_articulation": 19.174999999999994,
           "voice_microtone": 37.72500000000001,
-          "voice_tradition": 38.780624999999986,
+          "voice_tradition": 38.72249999999998,
           "voice_mechanism_compound": 3.185,
           "voice_estill_quality": 6.337500000000001,
           "voice_speech_song": 24.894999999999992,
@@ -112,7 +112,7 @@
           "amp_make": 14.202499999999997,
           "body_wood": 1.235,
           "pickup_config": 0.4312499999999999,
-          "string_type": 30.06249999999999,
+          "string_type": 30.043749999999992,
           "scale_length_b": 1.04,
           "fretted_or_not": 0.195,
           "bass_technique": 23.314999999999994,
@@ -145,11 +145,11 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 12.900625,
-          "mandolin_shape": 13.701249999999995,
+          "acoustic_technique": 12.895,
+          "mandolin_shape": 13.689999999999996,
           "mandolin_top": 1.04,
           "mandolin_back": 12.024999999999999,
-          "mandolin_bracing": 0.7649999999999999,
+          "mandolin_bracing": 0.74625,
           "mandolin_strings": 5.949999999999999,
           "mandolin_fingerboard": 0.975,
           "mandolin_pickup": 23.334999999999994

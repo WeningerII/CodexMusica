@@ -1,0 +1,276 @@
+{
+  "entries": [
+    {
+      "source_label": "santali pop",
+      "source_url": "https://everynoise.com/engenremap-santalipop.html",
+      "suggested_id": "santali_pop",
+      "allocation_ordinal": 1869,
+      "allocation_group_id": "075",
+      "id": "santali_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "santali_pop",
+        "name": "Santali Pop",
+        "family": "pop",
+        "lineage": "Santali pop \u2014 contemporary popular songs in the Santal language, carried by cassette and video production, regional performers and a newer generation of online musicians.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_parlor",
+          "ukulele",
+          "cajon_peruano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p",
+          "ukulele_size": "ukulele_concert",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_mahogany",
+          "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+          "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.southAsianPop",
+        "axes": {
+          "harm": 1,
+          "voice": 1,
+          "soundTech": 0,
+          "percussion": 0
+        },
+        "description": "Santali pop brings Santal-language melodies, romance and community concerns into contemporary popular-song formats. Cassette and video industries helped build regional audiences, while online performers now revisit earlier songs and make new acoustic and electronically produced recordings. Traditional musical memory, neighboring popular styles and youthful experimentation coexist across this varied field.",
+        "exemplars": [
+          "Lal Sushant Soren",
+          "The Notebook Unofficial"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        24.27,
+        87.25,
+        "Dumka",
+        "South Asia"
+      ],
+      "geo_rationale": "Documented contemporary Soren family practice in Dumka, within the broader eastern Indian Santali field; not sole genre origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.edexlive.com/news/2021/Sep/15/this-cover-band-of-jharkhand-is-trying-to-make-santhali-music-reach-other-parts-of-india-and-beyond-24032.html",
+          "title": "First-person Shruti Soren interview on contemporary Santali cover-band practice",
+          "support_notes": "Fresh13509view0: Santali cassette-song revival and community audience; singing, guitar, ukulele and caj\u00f3n positively described. Genre-practice representative palette, not exact-video reconstruction."
+        },
+        {
+          "url": "https://nomadit.co.uk/conference/easa2016/paper/28767",
+          "title": "Markus Schleiter, participatory ethnography of Santali popular music videos",
+          "support_notes": "Fresh13509view1: researcher participated in production and identifies indigenous pop song/media field, contemporary romancing and village-dance connections, challenging reductive fixed traditional-identity assumptions."
+        },
+        {
+          "url": "https://www.thedailystar.net/news-detail-8738",
+          "title": "Rathin Kisku on the changing Santal music scene",
+          "support_notes": "Fresh13495view0 documents firsthand contemporary western/electronic additions and cross-cultural Santali song practice; not used as exact Soren instrumentation."
+        }
+      ],
+      "neighbor_distinction": "Santali Pop is a language/community popular-music field across eastern India, not an alias for Bengali Baul. The actual Baul row describes a Bengali mystic-itinerant tradition and its specific lineage; modern Santali music can borrow from Baul but also includes love songs, commercial videos and contemporary covers. West Bengali Pop describes a neighboring state/language popular field and does not cover the broader Santali-language community across Jharkhand, Odisha and adjacent regions. Acoustic treatment here is representative, not a claim that all Santali pop is acoustic or separate from Indian popular music.",
+      "model_policy": "Representative acoustic pop rendition within the documented modern Santali field, informed by the Soren cousins\u2019 firsthand account of singing with guitar, ukulele and caj\u00f3n. All positively described families are retained; no claim of reconstructing one video, simultaneous original instruments, five original singers or exact band personnel. A single accompanied sung lead, compact silk-and-steel parlor guitar, mahogany concert ukulele and ordinary unsnared rear-port caj\u00f3n are explicit authored choices where source construction is unspecified. Neutral caj\u00f3n role avoids importing festejo/marinera repertoire. Functional-harmonic verse-chorus-bridge arrangement, syllabic delivery and spacious acoustic-recital capture are authored popular-song choices, not measured source settings.",
+      "source_scope_limitation": "Genre-level practice synthesis. Source singer count and exact simultaneous tracking unknown; chosen lead and acoustic construction are authored. Traditional madol/flute and electronic variants remain part of the wider field, not falsely declared absent.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "count_basis": "Authored representative lead; source ensemble headcount is not converted into exact singer count."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Sung lead"
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "role": "Guitar chords"
+        },
+        {
+          "instrument": "ukulele",
+          "role": "Ukulele chords"
+        },
+        {
+          "instrument": "cajon_peruano",
+          "role": "Box-drum rhythm"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative acoustic pop rendition within the documented modern Santali field, informed by the Soren cousins\u2019 firsthand account of singing with guitar, ukulele and caj\u00f3n. All positively described families are retained; no claim of reconstructing one video, simultaneous original instruments, five original singers or exact band personnel. A single accompanied sung lead, compact silk-and-steel parlor guitar, mahogany concert ukulele and ordinary unsnared rear-port caj\u00f3n are explicit authored choices where source construction is unspecified. Neutral caj\u00f3n role avoids importing festejo/marinera repertoire. Functional-harmonic verse-chorus-bridge arrangement, syllabic delivery and spacious acoustic-recital capture are authored popular-song choices, not measured source settings."
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "parts": {
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood_parlor": "sitka_p",
+            "back_sides_parlor": "mahogany_bs_p",
+            "string_acoustic_parlor": "silk_steel_p"
+          },
+          "policy": "Representative acoustic pop rendition within the documented modern Santali field, informed by the Soren cousins\u2019 firsthand account of singing with guitar, ukulele and caj\u00f3n. All positively described families are retained; no claim of reconstructing one video, simultaneous original instruments, five original singers or exact band personnel. A single accompanied sung lead, compact silk-and-steel parlor guitar, mahogany concert ukulele and ordinary unsnared rear-port caj\u00f3n are explicit authored choices where source construction is unspecified. Neutral caj\u00f3n role avoids importing festejo/marinera repertoire. Functional-harmonic verse-chorus-bridge arrangement, syllabic delivery and spacious acoustic-recital capture are authored popular-song choices, not measured source settings."
+        },
+        {
+          "instrument": "ukulele",
+          "parts": {
+            "ukulele_size": "ukulele_concert",
+            "ukulele_style": "ukulele_strum",
+            "ukulele_wood": "ukulele_mahogany"
+          },
+          "policy": "Representative acoustic pop rendition within the documented modern Santali field, informed by the Soren cousins\u2019 firsthand account of singing with guitar, ukulele and caj\u00f3n. All positively described families are retained; no claim of reconstructing one video, simultaneous original instruments, five original singers or exact band personnel. A single accompanied sung lead, compact silk-and-steel parlor guitar, mahogany concert ukulele and ordinary unsnared rear-port caj\u00f3n are explicit authored choices where source construction is unspecified. Neutral caj\u00f3n role avoids importing festejo/marinera repertoire. Functional-harmonic verse-chorus-bridge arrangement, syllabic delivery and spacious acoustic-recital capture are authored popular-song choices, not measured source settings."
+        },
+        {
+          "instrument": "cajon_peruano",
+          "parts": {
+            "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+            "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+          },
+          "policy": "Representative acoustic pop rendition within the documented modern Santali field, informed by the Soren cousins\u2019 firsthand account of singing with guitar, ukulele and caj\u00f3n. All positively described families are retained; no claim of reconstructing one video, simultaneous original instruments, five original singers or exact band personnel. A single accompanied sung lead, compact silk-and-steel parlor guitar, mahogany concert ukulele and ordinary unsnared rear-port caj\u00f3n are explicit authored choices where source construction is unspecified. Neutral caj\u00f3n role avoids importing festejo/marinera repertoire. Functional-harmonic verse-chorus-bridge arrangement, syllabic delivery and spacious acoustic-recital capture are authored popular-song choices, not measured source settings."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "acoustic_guitar_parlor",
+          "ukulele",
+          "cajon_peruano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owning controls protected; no cross-owner conflicts."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "santali_pop",
+          "name": "Santali Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13451view0 confirms original credit and CC BY2.5; exact historical bytes retained.",
+          "fresh_review_ref": "turn13451view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13451view0"
+        ],
+        "fresh_rights_review": "Fresh13451view0; historical exact URL/bytes/visual receipt inherited unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

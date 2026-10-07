@@ -1,0 +1,80 @@
+{
+  "id": "halloween",
+  "name": "Halloween",
+  "family": "classical",
+  "lineage": "Halloween music gathers seasonal songs, theatrical effects and concert repertoire around playful fright and supernatural imagery. Community celebrations and curated listening bring novelty recordings, organ classics, soundtrack material and other styles into a shared seasonal setting.",
+  "recipe": "classic halloween, art Music, western common practice branch. schnitger hamburg canonical north German Baroque late 17th century pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 239,
+  "score": 10.467,
+  "config": {
+    "traditions": [
+      "halloween"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_neo_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+          "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+          "pipe_organ_temperament": "pipe_organ_werckmeister_iii",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 2.8,
+          "pipe_organ_class": 0,
+          "pipe_organ_context": 5.2,
+          "pipe_organ_voicing_school": 1.3125000000000002,
+          "pipe_organ_pipe_alloy": 0.40950000000000003,
+          "pipe_organ_temperament": 0.336,
+          "pipe_organ_action": 0.40950000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_neo_baroque",
+      "pipe_organ_context": "pipe_organ_concert",
+      "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+      "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+      "pipe_organ_temperament": "pipe_organ_werckmeister_iii",
+      "pipe_organ_action": "pipe_organ_mechanical_tracker"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

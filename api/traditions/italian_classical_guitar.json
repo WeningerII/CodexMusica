@@ -2,10 +2,10 @@
   "id": "italian_classical_guitar",
   "name": "Italian classical guitar",
   "family": "classical",
-  "lineage": "Italian classical guitar is represented by Giulio Tampalini — Tárrega: Guitar Edition. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "lineage": "Italian classical guitar connects concert performance and musical education with a broad international guitar repertoire. Solo recitals, chamber collaborations and new works sustain varied approaches to the instrument.",
   "recipe": "classic italian classical guitar, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 12.333,
+  "score": 12.325,
   "config": {
     "traditions": [
       "italian_classical_guitar"
@@ -16,17 +16,17 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood_classical": "cedar_cl",
+          "top_wood_classical": "spruce_cl",
           "bracing_classical": "double_top_cl",
           "string_classical": "carbon_cl",
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": -0.25,
+          "acoustic_technique": 0.06500000000000002,
           "string_tuning": 0,
-          "top_wood_classical": 0.4935,
+          "top_wood_classical": 0.5595,
           "bracing_classical": 3.9,
-          "string_classical": 4.29,
+          "string_classical": 3.9,
           "attack_technique_cl": 3.9
         }
       }

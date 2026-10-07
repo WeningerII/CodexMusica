@@ -3,14 +3,14 @@
   "name": "Experimental Rock",
   "family": "rock",
   "lineage": "Emerged internationally 1967-1980 through Captain Beefheart, Faust, This Heat, Frank Zappa and later Sonic Youth and Swans, using the rock band as raw material rather than form — polymetric interlocking parts, altered and prepared guitars, tape splicing and musique concrete inserts, non-functional harmony, extended or absent song structure, and vocals treated as timbre, usually self-produced in converted non-studio spaces on multitrack tape.",
-  "recipe": "classic mid-1970s experimental rock, distorted Rock, experimental branch, noise rock distorted rock, musique concrete experimental electric polish noise rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, prepared piano, emu modular 1971 1978 analog studio grade east coast precision textural modular synth, alto multiphonic saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe": "classic mid-1970s experimental rock, distorted Rock, experimental branch, noise rock distorted rock, musique concrete experimental electric east anglia indie. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, prepared piano, emu modular 1971 1978 analog studio grade east coast precision textural modular synth, alto multiphonic saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 758,
-  "score": 397.29,
+  "score": 396.228,
   "config": {
     "traditions": [
       "experimental_rock",
       "noise_rock",
-      "polish_noise_rock"
+      "east_anglia_indie"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.479999999999999,
-          "amp_make": 18.264999999999997,
-          "body_wood": 0.39,
+          "electric_technique": 11.229999999999999,
+          "amp_make": 17.809999999999995,
+          "body_wood": 0.585,
           "neck_wood": 1.54,
-          "fretboard": 1.645,
-          "pickup_magnet": 0.40499999999999997,
+          "fretboard": 1.54,
+          "pickup_magnet": 0.3,
           "pickup_winding": 0.6514285714285715,
-          "string_material": 1.645,
+          "string_material": 1.54,
           "bridge": 0.845,
-          "scale_length": 1.8849999999999998,
+          "scale_length": 1.975,
           "string_gauge": 0.845,
-          "finish": 1.045,
-          "string_tuning": 19.37
+          "finish": 1.195,
+          "string_tuning": 18.915
         }
       },
       {
@@ -51,21 +51,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.615,
+          "amp_make": 16.965,
           "body_wood": 0.195,
-          "pickup_config": 0.315,
-          "string_type": 39.175,
-          "scale_length_b": 0.21,
+          "pickup_config": 0.195,
+          "string_type": 38.135,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.24,
-          "bass_technique": 34.57,
+          "bass_technique": 33.32,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 33.625,
-          "drumhead": 2.490714285714286,
+          "drum_technique": 32.375,
+          "drumhead": 3.095714285714286,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -103,21 +103,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 33.333928571428594,
-          "voice_quality": 4.940000000000001,
+          "voice_register": 32.08392857142858,
+          "voice_quality": 5.785000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
-          "voice_articulation": 14.299999999999995,
-          "voice_microtone": 33.58500000000001,
-          "voice_tradition": 15.29607142857143,
-          "voice_mechanism_compound": 11.927499999999998,
-          "voice_estill_quality": 0.7799999999999998,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 14.429999999999994,
+          "voice_articulation": 16.184999999999995,
+          "voice_microtone": 32.230000000000004,
+          "voice_tradition": 16.03607142857143,
+          "voice_mechanism_compound": 11.764999999999999,
+          "voice_estill_quality": 0.9749999999999999,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 16.899999999999995,
           "voice_ornament_system": 1.24,
-          "voice_pitch_organization": 0.19500000000000003,
-          "voice_processing_chain": 5.719999999999999,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 5.07,
           "voice_multitrack_stack": 5.7700000000000005
         }
       },
@@ -145,10 +145,10 @@
           "mod_lineage": "mod_emu_modular"
         },
         "scores": {
-          "electronic_technique": 12.205000000000002,
+          "electronic_technique": 12.160000000000002,
           "mod_voltage_source": 0.39,
-          "mod_patch_density": 2.1107142857142858,
-          "mod_lineage": 2.21
+          "mod_patch_density": 2.3057142857142856,
+          "mod_lineage": 2.33
         }
       },
       {
@@ -157,19 +157,19 @@
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_multiphonic_avant",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 12.325,
+          "wind_articulation": 11.075,
           "sax_size": 1.625,
           "sax_reed": 1.54,
-          "sax_body_alloy": -0.05,
+          "sax_body_alloy": -0.035,
           "sax_mouthpiece": 1.585,
-          "sax_technique": 12.375,
-          "sax_maker_school": 0.36
+          "sax_technique": 11.125,
+          "sax_maker_school": 0.255
         }
       }
     ],

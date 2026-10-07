@@ -1,0 +1,298 @@
+{
+  "entries": [
+    {
+      "source_label": "polish indie",
+      "source_url": "https://everynoise.com/engenremap-polishindie.html",
+      "suggested_id": "polish_indie",
+      "allocation_ordinal": 4144,
+      "allocation_group_id": "166",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "id": "polish_indie",
+      "tradition": {
+        "id": "polish_indie",
+        "name": "Polish Indie",
+        "family": "rock",
+        "lineage": "Guiding Lights — complete nine-track instrumental album The Document, issued9February2024 by Instant Classic. Full album credits name Joanna Świderska on bass, Piotr Mączkowski on drums and Łukasz Ciszak on guitar and synths. Retain all four sound families across three people, zero singers expressly supported by the issuer. Synths are not omitted merely because the core band is called a trio. The earlier Cold Reading drum-machine working method in retrospective interview text is not imported into this separate album. Recording credits identify Zalesie Dolne and Warsaw, August2022–March2023. No audition claimed. Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "credited_synthesizer_unspecified"
+        ],
+        "pin_parts": true,
+        "parts": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "room": "live_room"
+      },
+      "extras": {
+        "parent": "distortedRock.alternative",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Guiding Lights — complete nine-track instrumental album The Document, issued9February2024 by Instant Classic. Full album credits name Joanna Świderska on bass, Piotr Mączkowski on drums and Łukasz Ciszak on guitar and synths. Retain all four sound families across three people, zero singers expressly supported by the issuer. Synths are not omitted merely because the core band is called a trio. The earlier Cold Reading drum-machine working method in retrospective interview text is not imported into this separate album. Recording credits identify Zalesie Dolne and Warsaw, August2022–March2023. No audition claimed. Polish Indie is the wider independent Polish music network, not simply another spelling of Polish Indie Rock. Adam Mickiewicz Institute’s own curatorial presentation explicitly includes instrumental house/nu-disco, jazz improvisation, hip-hop/electronics and Warsaw Village Band folk alongside rock bands. Instant Classic identifies itself as an independent label unconstrained by genre; the selected artists explicitly discuss their own independence from image-led career marketing. Full existing polish_indie_rock and polish_alternative_rock are represented through Trupa Trupa and Happy Pills but are not reduced to those exemplars: both name rock fields. Queued Polish Alternative is a broader alternative-pop/electronics field and substantially overlaps; independent production/circulation is the distinct positively documented community axis, not an assertion that alternative and indie artists are disjoint. No exact creator membership for Guiding Lights is asserted because the map could not be retrieved. The selected instrumental rock album is one complete branch, not the entire cross-style field. Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community.",
+        "exemplars": [
+          "Guiding Lights — complete The Document,2024"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.2297,
+        21.0122,
+        "Warsaw",
+        "Europe"
+      ],
+      "geo_rationale": "Issuer expressly identifies Warsaw-based trio and Warsaw recording; editorial city anchor, not exclusive source site.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Polish Indie is the wider independent Polish music network, not simply another spelling of Polish Indie Rock. Adam Mickiewicz Institute’s own curatorial presentation explicitly includes instrumental house/nu-disco, jazz improvisation, hip-hop/electronics and Warsaw Village Band folk alongside rock bands. Instant Classic identifies itself as an independent label unconstrained by genre; the selected artists explicitly discuss their own independence from image-led career marketing. Full existing polish_indie_rock and polish_alternative_rock are represented through Trupa Trupa and Happy Pills but are not reduced to those exemplars: both name rock fields. Queued Polish Alternative is a broader alternative-pop/electronics field and substantially overlaps; independent production/circulation is the distinct positively documented community axis, not an assertion that alternative and indie artists are disjoint. No exact creator membership for Guiding Lights is asserted because the map could not be retrieved. The selected instrumental rock album is one complete branch, not the entire cross-style field.",
+      "classification_evidence": {
+        "mode": "institutional_curator_and_firstperson_independent_practice",
+        "note": "Polish Indie is the wider independent Polish music network, not simply another spelling of Polish Indie Rock. Adam Mickiewicz Institute’s own curatorial presentation explicitly includes instrumental house/nu-disco, jazz improvisation, hip-hop/electronics and Warsaw Village Band folk alongside rock bands. Instant Classic identifies itself as an independent label unconstrained by genre; the selected artists explicitly discuss their own independence from image-led career marketing. Full existing polish_indie_rock and polish_alternative_rock are represented through Trupa Trupa and Happy Pills but are not reduced to those exemplars: both name rock fields. Queued Polish Alternative is a broader alternative-pop/electronics field and substantially overlaps; independent production/circulation is the distinct positively documented community axis, not an assertion that alternative and indie artists are disjoint. No exact creator membership for Guiding Lights is asserted because the map could not be retrieved. The selected instrumental rock album is one complete branch, not the entire cross-style field."
+      },
+      "model_policy": "Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community.",
+      "source_scope_limitation": "Guiding Lights — complete nine-track instrumental album The Document, issued9February2024 by Instant Classic. Full album credits name Joanna Świderska on bass, Piotr Mączkowski on drums and Łukasz Ciszak on guitar and synths. Retain all four sound families across three people, zero singers expressly supported by the issuer. Synths are not omitted merely because the core band is called a trio. The earlier Cold Reading drum-machine working method in retrospective interview text is not imported into this separate album. Recording credits identify Zalesie Dolne and Warsaw, August2022–March2023. No audition claimed.",
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "reason": "Issuer explicitly calls all nine tracks instrumental and describes removal of singing."
+      },
+      "instrument_role_audit": {
+        "scope": "Guiding Lights — complete nine-track instrumental album The Document, issued9February2024 by Instant Classic. Full album credits name Joanna Świderska on bass, Piotr Mączkowski on drums and Łukasz Ciszak on guitar and synths. Retain all four sound families across three people, zero singers expressly supported by the issuer. Synths are not omitted merely because the core band is called a trio. The earlier Cold Reading drum-machine working method in retrospective interview text is not imported into this separate album. Recording credits identify Zalesie Dolne and Warsaw, August2022–March2023. No audition claimed.",
+        "selected_people": 3,
+        "sound_families": 4,
+        "roles": {
+          "Joanna Świderska": [
+            "bass"
+          ],
+          "Piotr Mączkowski": [
+            "drums"
+          ],
+          "Łukasz Ciszak": [
+            "guitar",
+            "synths"
+          ]
+        },
+        "authored_defaults": "Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All effective owning parts pinned where present; only the four source families retained. No borrowed voice/organ/horn controls."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "credited_synthesizer_unspecified"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Source-unspecified synthesizer architecture remains neutral. Generic guitar and bass receive explicit authored alder humbucker guitar and soapbar bass, clean strummed guitar and fingerstyle bass. These are coherent new constructions/gestures, not original models. Drum kit uses authored maple shells, ordinary stick rock playing and traditional-finish B20 cymbals; no measured hardware assertion. Controlled live-room acoustics reflect an editorial direct recording presentation consistent with issuer dry-production description, not measured original rooms or microphones. No global temperament, capture chain, drummer transfer or hidden voice inferred. DistortedRock.alternative scopes this selected garage/math-rock album, not every music in the broader independent community."
+        }
+      ],
+      "verification_status": "Original merged33 applicable controls all protected,1638 existing owners unchanged,no newdependencies. Actual four original formats personally inspected below1000; full four-family palette retained, no unrelated cultural name. Source dry/direct production compatible authored controlled room. Exact023photo inherited and fresh Commons10917view0.",
+      "sources": [
+        {
+          "url": "https://instantclassic.bandcamp.com/album/the-document",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11043view2 complete nine-track album, full three-person/four-role credits, explicit instrumental edition and Warsaw-based practice; label and artists firsthand independence. Earlier drum-machine discussion belongs to Cold Reading, excluded."
+        },
+        {
+          "url": "https://culture.pl/en/article/top-10-polish-indie-bands",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11043view0 Institute’s2013 actual curatorial independent-music field crosses house/nu-disco,jazz,rap/electronics,folk and rock. Does not identify Guiding Lights, whose direct label independently supplies bridge."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "polish_indie",
+          "name": "Polish Indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "LOW generic recording-microphone context only; not Guiding Lights or its source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Served thumbnail of existing Binksternet crop; no additional crop. Preserve Iain Fergusson photo and Binksternet derivative credit.",
+          "evidence": "Fresh10917view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical exact bytes/visual inherited, no fresh transfer.",
+          "fresh_review_ref": "turn10917view0"
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [
+            250,
+            720
+          ],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [
+            250,
+            720
+          ],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn10917view0"
+        ]
+      },
+      "source_retrieval_caveat": "Full issuer album read. Exact creator map403, no specific membership asserted. No audition.",
+      "primary_retrieval_refs": [
+        "turn11043view0",
+        "turn11043view2"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_for_independent_review"
+}

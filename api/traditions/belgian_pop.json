@@ -2,10 +2,10 @@
   "id": "belgian_pop",
   "name": "Belgian pop",
   "family": "pop",
-  "lineage": "Belgian pop is represented here by Oberbaum — I Should Be Softer selected piano/guitar core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic belgian pop, functional Song, europop branch. duet, live take. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 348,
-  "score": 58.081,
+  "lineage": "Belgian pop connects local songwriters and performers through melodic popular music and alternative approaches.",
+  "recipe": "classic belgian pop, functional Song, europop branch. duet, live take. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, block chord grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 282,
+  "score": 24.225,
   "config": {
     "traditions": [
       "belgian_pop"
@@ -15,33 +15,33 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_unspecified",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.15000000000000002,
-          "amp_make": 0.9549999999999998,
+          "amp_make": 0,
           "body_wood": 1.0605000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.2415,
           "string_material": 0,
-          "bridge": 1.3315000000000001,
+          "bridge": 0.273,
           "scale_length": 0.8505,
-          "string_gauge": 1.3315000000000001,
+          "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
@@ -51,7 +51,7 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "half_round",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -61,7 +61,7 @@
           "body_wood": 0.546,
           "pickup_config": 0.2415,
           "string_type": 0.273,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 9.055,
+          "drumhead": 8.305,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -123,25 +123,25 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 8.95,
-          "grand_piano_size": 0.3045,
+          "keyboard_technique": 8.2,
+          "grand_piano_size": 0,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 9.1915,
-          "piano_rim": 10.4095,
-          "piano_soundboard": 8.95,
-          "piano_pinblock": 0.26,
-          "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 0.325
         }
       }
     ],
@@ -174,6 +174,17 @@
         "voice_pitch_organization",
         "voice_processing_chain",
         "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -215,7 +226,16 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

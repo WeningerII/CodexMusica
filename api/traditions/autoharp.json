@@ -2,10 +2,10 @@
   "id": "autoharp",
   "name": "Autoharp",
   "family": "vernacular",
-  "lineage": "Autoharp: Kenneth Benfield — Way Down in the Country (Mountain Music: Played on the Autoharp). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "lineage": "The autoharp moved from late-nineteenth-century popular music into the musical life of the Southern Appalachian mountains. Mountain performers developed varied approaches to the instrument, carrying local songs and instrumental repertoire into home music-making and recordings.",
   "recipe": "classic autoharp, ballad Poetry, anglo singer song branch. folk steel modern canonical 36 37 string set autoharp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 212,
-  "score": 3.605,
+  "score": 4.49,
   "config": {
     "traditions": [
       "autoharp"
@@ -21,9 +21,9 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": -0.07,
+          "acoustic_technique": 0.26,
           "autoharp_chord_bars": 1.6064999999999998,
-          "autoharp_context": 0.7454999999999998,
+          "autoharp_context": 1.3,
           "autoharp_strings": 1.2914999999999999,
           "autoharp_body_wood": 0.0315
         }

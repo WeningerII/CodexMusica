@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/resume117-15-piano-genre-profile117-evidence-corrected117.json",
+  "sha256": "bd76c5bfa5aee890704bf036da2d47b21b39fce3973d676bcbdb896d11c7f0bb",
+  "peer_review": "/tmp/batch040/resume117-15-piano-genre-profile117-evidence-corrected117-independent-review-sourceaudit.json",
+  "checked_at": "2026-10-04T04:15:36.692727+00:00",
+  "checks": [
+    "Root reviewed whole author-song field against full Nova Canco and Musica Catalana scopes. Fresh Institut Ramon Llull explicitly supports both chanson/Nova Canco and North American folk inheritances, and Gemma Humet documents voice/piano Miralls. Overlapping broader songwriter practice is not distinguished merely by date or exemplar.",
+    "All four original literal outputs read; max418characters;20 owning controls protected. Natural connected singing and chordal piano coherent. Fresh Commons rights verified against exact inherited microphone image evidence.",
+    "Separate accepted evidence only; excluded from frozen/current checkpoint. Final integrated checks pending."
+  ]
+}

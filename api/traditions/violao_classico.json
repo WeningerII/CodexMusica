@@ -1,0 +1,70 @@
+{
+  "id": "violao_classico",
+  "name": "Violão Clássico",
+  "family": "classical",
+  "lineage": "Brazilian concert-guitar practice connecting conservatory training, solo recitals and chamber performance with an international classical repertoire.",
+  "recipe": "classic violão clássico, art Music. low mid rich spectrum nylon classical nylon-string guitar. shoebox concert hall.",
+  "recipe_chars": 116,
+  "score": 7.567,
+  "config": {
+    "traditions": [
+      "violao_classico"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 0,
+          "top_wood_classical": 0.1575,
+          "bracing_classical": 0.9099999999999999,
+          "string_classical": 1.0499999999999998,
+          "attack_technique_cl": 5.7
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "apoyando_cl"
+    },
+    "pin_parts": true
+  }
+}

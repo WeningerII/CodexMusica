@@ -5,7 +5,7 @@
   "lineage": "American easy-listening instrumental style codified in Los Angeles and New York 1954-1965 by Martin Denny, Les Baxter, Esquivel and Henry Mancini for the new stereo hi-fi market — 80-120 BPM cocktail-tempo arrangements of standards and originals for vibraphone, muted brass, bongos and wordless choir, lush non-functional added-note harmony, exaggerated stereo ping-pong panning and bird calls or novelty percussion as ornament",
   "recipe": "classic Los Angeles mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, europop functional song torch song. vibraphone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, bongos, growly gut upright bass, brass yellow brass couesnon vintage canonical pre 1970 breath tone airy low dynamic level flugelhorn, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, block chord celesta, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 813,
-  "score": 220.41,
+  "score": 220.785,
   "config": {
     "traditions": [
       "lounge_exotica",
@@ -23,7 +23,7 @@
         },
         "scores": {
           "percussion_technique": 0.375,
-          "vibe_motor": 19.35,
+          "vibe_motor": 19.245,
           "vibe_mallets": 17.75,
           "vibe_bar_material": 0
         }
@@ -47,7 +47,7 @@
           "grand_piano_brand": 1.8850000000000002,
           "piano_hammer": 5.785,
           "piano_rim": 6.175,
-          "piano_soundboard": 3.7,
+          "piano_soundboard": 3.895,
           "piano_pinblock": -0.05,
           "piano_plate": 0.12999999999999998,
           "piano_pitch_standard": 3.8999999999999995
@@ -56,13 +56,13 @@
       {
         "id": "bongos",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
+          "percussion_technique": "percussion_open_slap",
           "bongos_skin": "bongos_goatskin",
           "bongos_context": "bongos_charanga",
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.7,
+          "percussion_technique": 0.895,
           "bongos_skin": 0,
           "bongos_context": 0.195,
           "bongos_shell_wood": 0
@@ -92,7 +92,7 @@
           "wind_articulation": 4.175000000000001,
           "flugel_use": 2.58,
           "flugelhorn_pitch": 0,
-          "flugelhorn_bell_metal": 1.995,
+          "flugelhorn_bell_metal": 1.95,
           "flugelhorn_maker_school": 17.7
         }
       },
@@ -115,12 +115,12 @@
         "id": "celesta",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "celesta_model": "celesta_schiedmayer",
+          "celesta_model": "celesta_yamaha",
           "celesta_context": "celesta_orch"
         },
         "scores": {
           "keyboard_technique": 4.09,
-          "celesta_model": 0.195,
+          "celesta_model": 0.5699999999999998,
           "celesta_context": 2.34
         }
       },
@@ -136,7 +136,7 @@
         },
         "scores": {
           "keyboard_technique": 4.09,
-          "drawbar_setting": 20.355,
+          "drawbar_setting": 20.115,
           "rotary_speed": 0.8249999999999998,
           "percussion_setting": 18.095,
           "tonewheel_model": 23.399999999999995,

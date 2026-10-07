@@ -2,10 +2,10 @@
   "id": "boston_rock",
   "name": "Boston rock",
   "family": "rock_punk",
-  "lineage": "A regional rock discovery label for which this default selects Pixies’ Boston-rooted alternative guitar-band practice. Their contrasting single-coil and humbucker guitar setups supply a practical model alongside electric bass, drums and singing.",
-  "recipe": "classic modern boston rock, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. humbucker electric single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive analog bucket-brigade delay.",
+  "lineage": "Boston rock encompasses guitar bands shaped by the city’s venues, independent recordings and regional music networks. Its alternative-rock strand combines direct song forms with contrasting guitar colors and abrupt shifts in energy.",
+  "recipe": "classic modern boston rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment. humbucker electric single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive analog bucket-brigade delay.",
   "recipe_chars": 470,
-  "score": 51.947,
+  "score": 60.346,
   "config": {
     "traditions": [
       "boston_rock"
@@ -14,7 +14,7 @@
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_overdriven_lead",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck_h",
@@ -29,13 +29,13 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.954,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
           "neck_wood": 0.441,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 0.714,
+          "pickup_winding": 0.39,
           "string_material": 0.105,
           "bridge": 0.441,
           "scale_length": 0.8820000000000001,
@@ -47,30 +47,30 @@
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_overdriven_lead",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_unspecified",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_5",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated_h",
           "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.954,
+          "electric_technique": 1.8199999999999998,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
           "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.18,
+          "pickup_magnet": 0.1365,
           "string_material": 0.105,
           "string_gauge": 0.441,
-          "bridge": 0.4965,
+          "bridge": 0.1365,
           "scale_length": 0.8820000000000001,
           "finish": 0,
           "string_tuning": 0,
@@ -94,9 +94,9 @@
           "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.3165,
+          "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 9.45,
+          "bass_technique": 11.2,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,16 +116,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 9.5,
-          "drumhead": 0.3165,
+          "drum_technique": 11.25,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 9.431499999999998,
-          "cymbal_lathing": 9.536499999999998,
+          "cymbal_hammering": 11.181499999999998,
+          "cymbal_lathing": 11.340499999999999,
           "cymbal_finish": 0
         }
       },
@@ -160,12 +160,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
@@ -301,7 +301,7 @@
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
-      "electric_technique": "electric_overdriven_lead"
+      "electric_technique": "electric_power_chord"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "integration_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "baseline": "0c3e9a6767273aaab31f77f8492b977c72fb40a1",
+  "baseline_equivalence": "07b920338cbcfea21f74dccd39b3e9bdb29b069f exact merged tree; predecessor-equivalence119.json",
+  "raw_and_merged": {
+    "raw_traditions_old_unchanged": 6038,
+    "raw_instruments_old_unchanged": 1566,
+    "old_extras_unchanged": 6038,
+    "merged_instruments_old_unchanged": 1566,
+    "data/geo.json_old_keys": 6038,
+    "references/_tradition_signatures.json_old_keys": 4016,
+    "old_images_unchanged": 7554,
+    "new_images": 120
+  },
+  "browser": {
+    "instruments": 1566,
+    "traditions": 6038,
+    "cards": 26120
+  },
+  "new_applicable_parts": 2066,
+  "new_protected_parts": 2064,
+  "unpinned_owner_slots": [
+    {
+      "tradition": "bangladeshi_hip_hop",
+      "instrument": "rhodes_electric",
+      "part": "keyboard_technique",
+      "flat_value": "electronic_keyboard_melodic_chordal",
+      "imported_default": "keyboard_block_chord_pop",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "latin_arena_pop",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    }
+  ],
+  "amendments": [
+    ["/entries/8/extras/axes/percussion", 0.5, 0],
+    ["/entries/8/extras/axes/cyclicity", 0.5, 0],
+    ["/entries/48/tradition/parts/grand_piano_size", "grand_7_foot", "grand_9_foot"],
+    ["/entries/48/resolved_parts_audit/4/parts/grand_piano_size", "grand_7_foot", "grand_9_foot"]
+  ],
+  "errors": [],
+  "pending": "Completed static API review, original regression causal review, and exact-head CI remain separate gates."
+}

@@ -5,7 +5,7 @@
   "lineage": "A Dutch groove-led house/tech-house discovery network including Chris Stussy, ANOTR, Joris Voorn and Franky Rizardo. Stussy’s first-person production account grounds the selected model in software drum-machine voices, pitched drum samples, analog-style synth emulations, filtered pads and bass sketches.",
   "recipe": "classic modern dutch tech house, electronic Dance, tech house branch. sampler drum machine, analog analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 321,
-  "score": 4.663,
+  "score": 5.162,
   "config": {
     "traditions": [
       "dutch_tech_house"
@@ -22,8 +22,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.0315,
-          "sample_swing": 0.14925,
-          "sample_processing": 0.10575
+          "sample_swing": 0.11775,
+          "sample_processing": 0.16799999999999998
         }
       },
       {
@@ -37,9 +37,9 @@
         },
         "scores": {
           "electronic_technique": 1.4949999999999999,
-          "oscillator": 0.3315,
-          "filter_topology": 0.3075,
-          "envelope": 0.07425,
+          "oscillator": 0.363,
+          "filter_topology": 0.3045,
+          "envelope": 0.2415,
           "modulation": 0
         }
       },
@@ -53,8 +53,8 @@
         },
         "scores": {
           "electronic_technique": 1.4949999999999999,
-          "poly_archetypes": 0.0315,
-          "poly_voices": 0.0315,
+          "poly_archetypes": 0.16799999999999998,
+          "poly_voices": 0.16799999999999998,
           "poly_maker_lineage": -1.145
         }
       }

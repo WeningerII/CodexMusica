@@ -1,0 +1,2905 @@
+{
+  "scope": "Integrated source import through original browser and connector; all four formats; static compiler tested separately.",
+  "entries": [
+    {
+      "id": "chill_out_trance",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 204,
+          "recipe": "Chill-Out Trance, huge dj-playback-and-mixing: amplified layered, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 76,
+          "recipe": "Chill-Out Trance, huge dj-playback-and-mixing, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 204,
+          "recipe": "Chill-Out Trance, huge dj-playback-and-mixing: amplified layered, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 79,
+          "recipe": "Chill-Out Trance, huge DJ playback and mixing · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "early_music_ensemble",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 366,
+          "recipe": "Early music ensemble, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, dignified mixed-register-viol-consort: gut-tied-frets silver-wound plain-gut bowed underhand-grip movable consort low-tension ensemble legato sustained, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 121,
+          "recipe": "Early music ensemble, up-tempo voice, dignified mixed-register-viol-consort, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 366,
+          "recipe": "Early music ensemble, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, dignified mixed-register-viol-consort: gut-tied-frets silver-wound plain-gut bowed underhand-grip movable consort low-tension ensemble legato sustained, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 172,
+          "recipe": "Early music ensemble, up-tempo voice · Treated live room (reflective but controlled),\ndignified mixed-register viol consort · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "indonesian_indigenous_traditional",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 189,
+          "recipe": "Indonesian indigenous traditional, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 95,
+          "recipe": "Indonesian indigenous traditional, up-tempo voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 189,
+          "recipe": "Indonesian indigenous traditional, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 98,
+          "recipe": "Indonesian indigenous traditional, up-tempo voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "japanese_beats",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 139,
+          "recipe": "Japanese beats, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 93,
+          "recipe": "Japanese beats, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 139,
+          "recipe": "Japanese beats, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 96,
+          "recipe": "Japanese beats, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "japanese_traditional",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 281,
+          "recipe": "Japanese traditional, eager shakuhachi: madake-bamboo-phyllostachys-canonical-japanese-root-section kinko-ryu-canonical-edo-period-concert continuous-airflow microtonal legato traditional versatile expressive, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 84,
+          "recipe": "Japanese traditional, eager shakuhachi, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 281,
+          "recipe": "Japanese traditional, eager shakuhachi: madake-bamboo-phyllostachys-canonical-japanese-root-section kinko-ryu-canonical-edo-period-concert continuous-airflow microtonal legato traditional versatile expressive, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 87,
+          "recipe": "Japanese traditional, eager shakuhachi · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "japanese_vtuber",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 567,
+          "recipe": "Japanese VTuber, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 orchestral block-chord soloistic singing, twelve-tone-equal-temperament: Western, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 117,
+          "recipe": "Japanese VTuber, magnificent grand-piano, twelve-tone-equal-temperament, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 567,
+          "recipe": "Japanese VTuber, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 orchestral block-chord soloistic singing, twelve-tone-equal-temperament: Western, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 121,
+          "recipe": "Japanese VTuber, magnificent grand piano · Twelve-tone equal temperament · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "kazakh_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 369,
+          "recipe": "Kazakh indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 115,
+          "recipe": "Kazakh indie, up-tempo voice, callous orchestra-model-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 369,
+          "recipe": "Kazakh indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 166,
+          "recipe": "Kazakh indie, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "lagu_madura",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 230,
+          "recipe": "Lagu Madura, huge voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 54,
+          "recipe": "Lagu Madura, huge voice, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 230,
+          "recipe": "Lagu Madura, huge voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 57,
+          "recipe": "Lagu Madura, huge voice · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "lagu_timur",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 669,
+          "recipe": "Lagu Timur, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-performer-unison-double-recorded-take small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, witty electronic-keyboard: amplified chordal melodic, bodacious credited-electronics, cheery unspecified-credited-percussion, eager credited-strings-instrumentation-unspecified: melodic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 264,
+          "recipe": "Lagu Timur, up-tempo voice, callous orchestra-model-acoustic-guitar, witty electronic-keyboard, bodacious credited-electronics, cheery unspecified-credited-percussion, eager credited-strings-instrumentation-unspecified, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 669,
+          "recipe": "Lagu Timur, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-performer-unison-double-recorded-take small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, witty electronic-keyboard: amplified chordal melodic, bodacious credited-electronics, cheery unspecified-credited-percussion, eager credited-strings-instrumentation-unspecified: melodic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 509,
+          "recipe": "Lagu Timur, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\nbodacious Credited electronics · Treated live room (reflective but controlled),\ncheery Unspecified credited percussion · Treated live room (reflective but controlled),\neager Credited strings (instrumentation unspecified) · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "latincore",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 996,
+          "recipe": "Latincore, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted breathing present subtle classic full-bodied low-mid-thick glassy thin snappy low-mid-rich-spectrum treble-extended woody, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 158,
+          "recipe": "Latincore, up-tempo voice, cheery humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 996,
+          "recipe": "Latincore, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted breathing present subtle classic full-bodied low-mid-thick glassy thin snappy low-mid-rich-spectrum treble-extended woody, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 305,
+          "recipe": "Latincore, up-tempo voice · Treated live room (reflective but controlled),\ncheery humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "latintronica",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 146,
+          "recipe": "Latintronica, complex dj-playback-and-mixing: amplified layered, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 82,
+          "recipe": "Latintronica, complex dj-playback-and-mixing, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 146,
+          "recipe": "Latintronica, complex dj-playback-and-mixing: amplified layered, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 85,
+          "recipe": "Latintronica, complex DJ playback and mixing · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "liechtenstein",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 458,
+          "recipe": "Liechtenstein, widescreen pipe-organ: equal-temperament-modern-standard-post-1850 henry-willis-canonical-english-victorian-1850s-1900 pneumatic-canonical-late-19th-century-romantic high-lead-25-75-canonical-flue-stops-mellow-romantic grand pedal-resonant swelling composed-tradition orchestral legato recital art-music, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 67,
+          "recipe": "Liechtenstein, widescreen pipe-organ, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 458,
+          "recipe": "Liechtenstein, widescreen pipe-organ: equal-temperament-modern-standard-post-1850 henry-willis-canonical-english-victorian-1850s-1900 pneumatic-canonical-late-19th-century-romantic high-lead-25-75-canonical-flue-stops-mellow-romantic grand pedal-resonant swelling composed-tradition orchestral legato recital art-music, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 70,
+          "recipe": "Liechtenstein, widescreen pipe organ · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "lo_fi_vgm",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 176,
+          "recipe": "Lo-fi VGM, up-tempo moog-matriarch, bodacious sequential-prophet-xl, cheery custom-therevox-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Lo-fi VGM, up-tempo moog-matriarch, bodacious sequential-prophet-xl, cheery custom-therevox-synthesizer, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 176,
+          "recipe": "Lo-fi VGM, up-tempo moog-matriarch, bodacious sequential-prophet-xl, cheery custom-therevox-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 248,
+          "recipe": "Lo-fi VGM, up-tempo Moog Matriarch · Treated live room (reflective but controlled),\nbodacious Sequential Prophet XL · Treated live room (reflective but controlled),\ncheery Custom Therevox synthesizer · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "lustrum",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 992,
+          "recipe": "Lustrum, up-tempo voice: unprocessed-natural-acoustic ensemble choral-response duet live-take, bodacious electronic-drum-kit, cheery credited-sound-effect, eager credited-synthesizer, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 orchestral block-chord soloistic singing, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass cu-zn-70-30 balanced-bright rubber modern-standard alto low-overtone-rich continuous-airflow treble-extended legato traditional, witty credited-strings-instrumentation-unspecified: melodic, feisty credited-samples, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 284,
+          "recipe": "Lustrum, up-tempo voice, bodacious electronic-drum-kit, cheery credited-sound-effect, eager credited-synthesizer, magnificent grand-piano, tongue-tying saxophone, witty credited-strings-instrumentation-unspecified, feisty credited-samples, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 992,
+          "recipe": "Lustrum, up-tempo voice: unprocessed-natural-acoustic ensemble choral-response duet live-take, bodacious electronic-drum-kit, cheery credited-sound-effect, eager credited-synthesizer, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 orchestral block-chord soloistic singing, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass cu-zn-70-30 balanced-bright rubber modern-standard alto low-overtone-rich continuous-airflow treble-extended legato traditional, witty credited-strings-instrumentation-unspecified: melodic, feisty credited-samples, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 625,
+          "recipe": "Lustrum, up-tempo voice · Treated live room (reflective but controlled),\nbodacious Electronic drum kit · Treated live room (reflective but controlled),\ncheery Credited sound effect · Treated live room (reflective but controlled),\neager Credited synthesizer · Treated live room (reflective but controlled),\nmagnificent grand piano · Treated live room (reflective but controlled),\ntongue-tying saxophone · Treated live room (reflective but controlled),\nwitty Credited strings (instrumentation unspecified) · Treated live room (reflective but controlled),\nfeisty Credited samples · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "malaysian_traditional",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 339,
+          "recipe": "Malaysian Traditional, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious sape: wax-set-frets adau-carved-single-bole kenyah long-bodied songful warbling wire-strung hypnotic contemporary, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 99,
+          "recipe": "Malaysian Traditional, up-tempo voice, bodacious sape, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 339,
+          "recipe": "Malaysian Traditional, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious sape: wax-set-frets adau-carved-single-bole kenyah long-bodied songful warbling wire-strung hypnotic contemporary, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 150,
+          "recipe": "Malaysian Traditional, up-tempo voice · Treated live room (reflective but controlled),\nbodacious sape · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "marathi_remix",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 138,
+          "recipe": "Marathi Remix, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 92,
+          "recipe": "Marathi Remix, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 138,
+          "recipe": "Marathi Remix, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 95,
+          "recipe": "Marathi Remix, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "montana_roots",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 519,
+          "recipe": "Montana roots, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 111,
+          "recipe": "Montana roots, up-tempo voice, cheery dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 519,
+          "recipe": "Montana roots, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 162,
+          "recipe": "Montana roots, up-tempo voice · Treated live room (reflective but controlled),\ncheery dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "moog",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 269,
+          "recipe": "Moog, psy-pulsing analog-mono-synth: moog-lineage-canonical-minimoog-1970-trumansburg-ny analog-drift-character low-mid-thick singing lead vintage, twelve-tone-equal-temperament: Western, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 104,
+          "recipe": "Moog, psy-pulsing analog-mono-synth, twelve-tone-equal-temperament, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 269,
+          "recipe": "Moog, psy-pulsing analog-mono-synth: moog-lineage-canonical-minimoog-1970-trumansburg-ny analog-drift-character low-mid-thick singing lead vintage, twelve-tone-equal-temperament: Western, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 108,
+          "recipe": "Moog, psy-pulsing analog mono synth · Twelve-tone equal temperament · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "moroccan_traditional",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 302,
+          "recipe": "Moroccan traditional, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-unaccompanied text-still-legible unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 82,
+          "recipe": "Moroccan traditional, up-tempo voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 302,
+          "recipe": "Moroccan traditional, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-unaccompanied text-still-legible unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 85,
+          "recipe": "Moroccan traditional, up-tempo voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "motivation",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 233,
+          "recipe": "Motivation, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 72,
+          "recipe": "Motivation, up-tempo voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 233,
+          "recipe": "Motivation, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 75,
+          "recipe": "Motivation, up-tempo voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "multidisciplinary",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 204,
+          "recipe": "Multidisciplinary, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 86,
+          "recipe": "Multidisciplinary, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 204,
+          "recipe": "Multidisciplinary, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 89,
+          "recipe": "Multidisciplinary, refined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_blumenauense",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 993,
+          "recipe": "Música blumenauense, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic group-vocals live-ensemble live-take, cheery dreadnought-acoustic feisty humbucker-solid-body-electric guitar: alder low-density-tonewood ceramic indian-rosewood nickel ebony spruce bronze mahogany dimensional conventional-tuning nitrocellulose standard-pitch fast-decay-low-resonance hot, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive, apollonian cello: norway-spruce european-maple synthetic pirastro-cellisto cello-specific endpin-fitted linseed-base longer-fingerboard balanced-grip acer-pseudoplatanus amber-tinted bosnian-source classical-canon flamed-figure heavier-bass-bar longer-neck, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 240,
+          "recipe": "Música blumenauense, up-tempo voice, cheery dreadnought-acoustic feisty humbucker-solid-body-electric guitar, confident electric-bass, apollonian cello, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 985,
+          "recipe": "Música blumenauense, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic group-vocals live-ensemble live-take, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy, feisty humbucker-solid-body-electric-guitar: alder ceramic nickel ebony mahogany conventional-tuning nitrocellulose standard-pitch fast-decay-low-resonance hot, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied, apollonian cello: norway-spruce european-maple synthetic pirastro-cellisto cello-specific endpin-fitted linseed-base longer-fingerboard balanced-grip acer-pseudoplatanus amber-tinted, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 491,
+          "recipe": "Música blumenauense, up-tempo voice · Treated live room (reflective but controlled),\ncheery dreadnought acoustic guitar · Treated live room (reflective but controlled),\nfeisty humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nconfident electric bass · Treated live room (reflective but controlled),\napollonian cello · Treated live room (reflective but controlled),\nbodacious Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_calabrese",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 522,
+          "recipe": "Musica calabrese, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 114,
+          "recipe": "Musica calabrese, up-tempo voice, cheery dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 522,
+          "recipe": "Musica calabrese, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 165,
+          "recipe": "Musica calabrese, up-tempo voice · Treated live room (reflective but controlled),\ncheery dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_capixaba",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 891,
+          "recipe": "Música capixaba, up-tempo voice: plate-reverb-medium-decay-vocal-classic group-vocals live-ensemble live-take, feisty humbucker-solid-body-electric-guitar: alder ceramic nickel ebony mahogany conventional-tuning feedback nitrocellulose standard-pitch fast-decay-low-resonance hot low-coloration-balanced slinky sterile treble-rolled-off compressed focused-narrow-output breathing present subtle full-bodied low-mid-thick thin low-mid-rich-spectrum percussive cutting woody sustained vintage modern mellow, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive modern articulate, bodacious credited-synthesizer, cheery credited-electronics, eager dj-playback-and-mixing: amplified layered, fun live-signal-processing, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 266,
+          "recipe": "Música capixaba, up-tempo voice, feisty humbucker-solid-body-electric-guitar, confident electric-bass, bodacious credited-synthesizer, cheery credited-electronics, eager dj-playback-and-mixing, fun live-signal-processing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 891,
+          "recipe": "Música capixaba, up-tempo voice: plate-reverb-medium-decay-vocal-classic group-vocals live-ensemble live-take, feisty humbucker-solid-body-electric-guitar: alder ceramic nickel ebony mahogany conventional-tuning feedback nitrocellulose standard-pitch fast-decay-low-resonance hot low-coloration-balanced slinky sterile treble-rolled-off compressed focused-narrow-output breathing present subtle full-bodied low-mid-thick thin low-mid-rich-spectrum percussive cutting woody sustained vintage modern mellow, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive modern articulate, bodacious credited-synthesizer, cheery credited-electronics, eager dj-playback-and-mixing: amplified layered, fun live-signal-processing, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 557,
+          "recipe": "Música capixaba, up-tempo voice · Treated live room (reflective but controlled),\nfeisty humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nconfident electric bass · Treated live room (reflective but controlled),\nbodacious Credited synthesizer · Treated live room (reflective but controlled),\ncheery Credited electronics · Treated live room (reflective but controlled),\neager DJ playback and mixing · Treated live room (reflective but controlled),\nfun Live signal processing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_caririense",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 583,
+          "recipe": "Música caririense, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning feedback nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy low-mid-rich-spectrum treble-extended woody sustained vintage versatile mellow, up-tempo meia-lua-pandeirola: plastic jingling rhythmic, treated-live-room-reflective-but-controlled: present lively controlled, digital-delay: digital-clean-pass no-loss-feedback delay modern."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 153,
+          "recipe": "Música caririense, cheery humbucker-solid-body-electric-guitar, up-tempo meia-lua-pandeirola, treated-live-room-reflective-but-controlled, digital-delay."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 591,
+          "recipe": "Música caririense, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning feedback nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy low-mid-rich-spectrum treble-extended woody sustained vintage versatile mellow, up-tempo meia-lua-pandeirola: plastic jingling rhythmic, treated-live-room-reflective-but-controlled: present lively controlled, effects-digital-delay: digital-clean-pass no-loss-feedback delay modern."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 239,
+          "recipe": "Música caririense, cheery humbucker solid-body electric guitar · Treated live room (reflective but controlled) · effects: Digital delay,\nup-tempo meia-lua pandeirola · Treated live room (reflective but controlled) · effects: Digital delay,"
+        }
+      ]
+    },
+    {
+      "id": "musica_cearense",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 521,
+          "recipe": "Música cearense, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 113,
+          "recipe": "Música cearense, up-tempo voice, cheery dreadnought-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 521,
+          "recipe": "Música cearense, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-lead-single-track-no-stacking small-note-groups-per-syllable solo-with-instrumental-accompaniment text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 164,
+          "recipe": "Música cearense, up-tempo voice · Treated live room (reflective but controlled),\ncheery dreadnought acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_chiapaneca",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 501,
+          "recipe": "Música chiapaneca, up-tempo chiapanecan-marimba: hormigo-tonewood buzzing-tela full-ensemble multi-player box-resonated sweet-toned chordal warm, bodacious glockenspiel: plastic general mid-attack mallets concert, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive modern articulate, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 182,
+          "recipe": "Música chiapaneca, up-tempo chiapanecan-marimba, bodacious glockenspiel, confident electric-bass, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 501,
+          "recipe": "Música chiapaneca, up-tempo chiapanecan-marimba: hormigo-tonewood buzzing-tela full-ensemble multi-player box-resonated sweet-toned chordal warm, bodacious glockenspiel: plastic general mid-attack mallets concert, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive modern articulate, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 329,
+          "recipe": "Música chiapaneca, up-tempo Chiapanecan marimba · Treated live room (reflective but controlled),\nbodacious glockenspiel · Treated live room (reflective but controlled),\nconfident electric bass · Treated live room (reflective but controlled),\ncheery Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_colombiana_instrumental",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 217,
+          "recipe": "Música colombiana instrumental, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 99,
+          "recipe": "Música colombiana instrumental, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 217,
+          "recipe": "Música colombiana instrumental, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 102,
+          "recipe": "Música colombiana instrumental, refined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_mocambicana",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 250,
+          "recipe": "Música moçambicana, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, bodacious campanica: sparse deep-toned droning mellow, cheery credited-electronics, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 130,
+          "recipe": "Música moçambicana, up-tempo voice, bodacious campanica, cheery credited-electronics, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 250,
+          "recipe": "Música moçambicana, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, bodacious campanica: sparse deep-toned droning mellow, cheery credited-electronics, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 229,
+          "recipe": "Música moçambicana, up-tempo voice · Treated live room (reflective but controlled),\nbodacious campanica · Treated live room (reflective but controlled),\ncheery Credited electronics · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_para_criancas",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 987,
+          "recipe": "Música para crianças, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-leader-group-response small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive modern full articulate, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage modern dark articulate, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 164,
+          "recipe": "Música para crianças, up-tempo voice, callous orchestra-model-acoustic-guitar, raging electric-bass, trudging drum-kit, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 987,
+          "recipe": "Música para crianças, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable single-leader-group-response small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive modern full articulate, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant vintage modern dark articulate, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 311,
+          "recipe": "Música para crianças, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_paranaense",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 374,
+          "recipe": "Música paranaense, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 120,
+          "recipe": "Música paranaense, up-tempo voice, callous orchestra-model-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 374,
+          "recipe": "Música paranaense, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 171,
+          "recipe": "Música paranaense, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_per_bambini",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 373,
+          "recipe": "Musica per bambini, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-with-instrumental-accompaniment speech-rhythm-only unprocessed-natural-acoustic, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 103,
+          "recipe": "Musica per bambini, up-tempo voice, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 373,
+          "recipe": "Musica per bambini, up-tempo voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-with-instrumental-accompaniment speech-rhythm-only unprocessed-natural-acoustic, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 154,
+          "recipe": "Musica per bambini, up-tempo voice · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_piauiense",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 993,
+          "recipe": "Música piauiense, bodacious voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, up-tempo single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch treble-rolled-off breathing present taut fast-attack-transient glassy thin snappy strummed low-mid-rich-spectrum, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive, marrow-deep drum-kit: bell-bronze maple both-sides-lathed bright-uniform brushes-and-sticks full-lathed jazz-trained machine-hammered organized-rows ride-driven standard-finish symmetric-pattern attacky washy all-purpose bright-clear musical undamped-resonance low-fundamental-tuning overtone-rich crisp balanced, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 172,
+          "recipe": "Música piauiense, bodacious voice, up-tempo single-coil-solid-body-electric-guitar, raging electric-bass, marrow-deep drum-kit, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 993,
+          "recipe": "Música piauiense, bodacious voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, up-tempo single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch treble-rolled-off breathing present taut fast-attack-transient glassy thin snappy strummed low-mid-rich-spectrum, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive, marrow-deep drum-kit: bell-bronze maple both-sides-lathed bright-uniform brushes-and-sticks full-lathed jazz-trained machine-hammered organized-rows ride-driven standard-finish symmetric-pattern attacky washy all-purpose bright-clear musical undamped-resonance low-fundamental-tuning overtone-rich crisp balanced, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 319,
+          "recipe": "Música piauiense, bodacious voice · Treated live room (reflective but controlled),\nup-tempo single-coil solid-body electric guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\nmarrow-deep drum kit · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_piemonteisa",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 375,
+          "recipe": "Mùsica piemontèisa, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 121,
+          "recipe": "Mùsica piemontèisa, up-tempo voice, callous orchestra-model-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 375,
+          "recipe": "Mùsica piemontèisa, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 172,
+          "recipe": "Mùsica piemontèisa, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_pitiusa",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 258,
+          "recipe": "Música pitiusa, up-tempo flaüta-pitiüsa: wood one-handed, bodacious tambor-pitiús: pine goatskin double-headed rope-tensioned buzzing, cheery castanyoles-pitiüses: wood hand-held paired, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 139,
+          "recipe": "Música pitiusa, up-tempo flaüta-pitiüsa, bodacious tambor-pitiús, cheery castanyoles-pitiüses, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 258,
+          "recipe": "Música pitiusa, up-tempo flaüta-pitiüsa: wood one-handed, bodacious tambor-pitiús: pine goatskin double-headed rope-tensioned buzzing, cheery castanyoles-pitiüses: wood hand-held paired, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 238,
+          "recipe": "Música pitiusa, up-tempo flaüta pitiüsa · Treated live room (reflective but controlled),\nbodacious tambor pitiús · Treated live room (reflective but controlled),\ncheery castanyoles pitiüses · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_puntana",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 663,
+          "recipe": "Música puntana, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive modern full articulate, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 205,
+          "recipe": "Música puntana, up-tempo voice, callous orchestra-model-acoustic-guitar, raging electric-bass, refined upright-piano, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 663,
+          "recipe": "Música puntana, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive modern full articulate, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 400,
+          "recipe": "Música puntana, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),\nbodacious Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_rapa_nui",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 987,
+          "recipe": "Música rapa nui, bodacious voice: unprocessed-natural-acoustic duet live-ensemble live-take, up-tempo single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch treble-rolled-off breathing present taut fast-attack-transient glassy thin snappy strummed low-mid-rich-spectrum, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive, marrow-deep drum-kit: bell-bronze maple both-sides-lathed bright-uniform brushes-and-sticks full-lathed jazz-trained machine-hammered organized-rows ride-driven standard-finish symmetric-pattern attacky washy all-purpose bright-clear musical undamped-resonance low-fundamental-tuning overtone-rich crisp balanced, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 211,
+          "recipe": "Música rapa nui, bodacious voice, up-tempo single-coil-solid-body-electric-guitar, raging electric-bass, marrow-deep drum-kit, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 987,
+          "recipe": "Música rapa nui, bodacious voice: unprocessed-natural-acoustic duet live-ensemble live-take, up-tempo single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch treble-rolled-off breathing present taut fast-attack-transient glassy thin snappy strummed low-mid-rich-spectrum, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive, marrow-deep drum-kit: bell-bronze maple both-sides-lathed bright-uniform brushes-and-sticks full-lathed jazz-trained machine-hammered organized-rows ride-driven standard-finish symmetric-pattern attacky washy all-purpose bright-clear musical undamped-resonance low-fundamental-tuning overtone-rich crisp balanced, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 406,
+          "recipe": "Música rapa nui, bodacious voice · Treated live room (reflective but controlled),\nup-tempo single-coil solid-body electric guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\nmarrow-deep drum kit · Treated live room (reflective but controlled),\ncheery Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_sudcaliforniana",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 681,
+          "recipe": "Música sudcaliforniana, bodacious voice: plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, cheery credited-requinto: plucked, up-tempo tuba: yellow-brass-canonical-orchestral horn-section besson-sovereign-british-brass-band British-tradition piston-valves-american-school ensemble-bass fast-attack-transient foundational, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 167,
+          "recipe": "Música sudcaliforniana, bodacious voice, callous orchestra-model-acoustic-guitar, cheery credited-requinto, up-tempo tuba, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 681,
+          "recipe": "Música sudcaliforniana, bodacious voice: plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, cheery credited-requinto: plucked, up-tempo tuba: yellow-brass-canonical-orchestral horn-section besson-sovereign-british-brass-band British-tradition piston-valves-american-school ensemble-bass fast-attack-transient foundational, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 314,
+          "recipe": "Música sudcaliforniana, bodacious voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\ncheery Credited requinto · Treated live room (reflective but controlled),\nup-tempo tuba · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_tabasquena",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 230,
+          "recipe": "Música tabasqueña, up-tempo tabascan-cane-flute: cane, bodacious tabascan-requinto cheery tabascan-large drum: goatskin mahogany double-headed rope-tensioned, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Música tabasqueña, up-tempo tabascan-cane-flute, bodacious tabascan-requinto cheery tabascan-large drum, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 284,
+          "recipe": "Música tabasqueña, up-tempo tabascan-cane-flute: cane, bodacious tabascan-requinto-drum: goatskin mahogany double-headed rope-tensioned, cheery tabascan-large-drum: goatskin mahogany double-headed rope-tensioned, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 254,
+          "recipe": "Música tabasqueña, up-tempo Tabascan cane flute · Treated live room (reflective but controlled),\nbodacious Tabascan requinto drum · Treated live room (reflective but controlled),\ncheery Tabascan large drum · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musica_tradicional_cubana",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 775,
+          "recipe": "Música tradicional cubana, bodacious voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic group-vocals live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, eager credited-requinto: plucked, up-tempo tres: cedar-canonical-cuban steel-modern octaves lead-melody dance-rhythm strummed traditional melodic rhythmic foundational, cheery laud-cubano: fast-picked metallic-shimmer clicky brilliant sharp-attack virtuosic bright-attack piercing, feisty unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 229,
+          "recipe": "Música tradicional cubana, bodacious voice, callous orchestra-model-acoustic-guitar, eager credited-requinto, up-tempo tres, cheery laud-cubano, feisty unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 775,
+          "recipe": "Música tradicional cubana, bodacious voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic group-vocals live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, eager credited-requinto: plucked, up-tempo tres: cedar-canonical-cuban steel-modern octaves lead-melody dance-rhythm strummed traditional melodic rhythmic foundational, cheery laud-cubano: fast-picked metallic-shimmer clicky brilliant sharp-attack virtuosic bright-attack piercing, feisty unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 472,
+          "recipe": "Música tradicional cubana, bodacious voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\neager Credited requinto · Treated live room (reflective but controlled),\nup-tempo tres · Treated live room (reflective but controlled),\ncheery laud cubano · Treated live room (reflective but controlled),\nfeisty Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musical_advocacy",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 193,
+          "recipe": "Musical advocacy, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 85,
+          "recipe": "Musical advocacy, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 193,
+          "recipe": "Musical advocacy, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 88,
+          "recipe": "Musical advocacy, refined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musicas_espiritas",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 329,
+          "recipe": "Músicas espíritas, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 120,
+          "recipe": "Músicas espíritas, up-tempo voice, callous orchestra-model-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 329,
+          "recipe": "Músicas espíritas, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 171,
+          "recipe": "Músicas espíritas, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musiqi_ye_zanan",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 266,
+          "recipe": "Musiqi-ye Zanān, up-tempo voice: single-lead-single-track-no-stacking solo-unaccompanied unprocessed-natural-acoustic, bodacious incidental-environmental-ambience: environmental field-recording, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 122,
+          "recipe": "Musiqi-ye Zanān, up-tempo voice, bodacious incidental-environmental-ambience, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 266,
+          "recipe": "Musiqi-ye Zanān, up-tempo voice: single-lead-single-track-no-stacking solo-unaccompanied unprocessed-natural-acoustic, bodacious incidental-environmental-ambience: environmental field-recording, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 173,
+          "recipe": "Musiqi-ye Zanān, up-tempo voice · Treated live room (reflective but controlled),\nbodacious Incidental environmental ambience · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musique_alsacienne",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 279,
+          "recipe": "Musique alsacienne, crystalline accordion: leather steel single-voiced jazz-ready immediate bellows-articulated phrased supple direct responsive loud treble-extended focused dry projecting traditional clean, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 87,
+          "recipe": "Musique alsacienne, crystalline accordion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 279,
+          "recipe": "Musique alsacienne, crystalline accordion: leather steel single-voiced jazz-ready immediate bellows-articulated phrased supple direct responsive loud treble-extended focused dry projecting traditional clean, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 90,
+          "recipe": "Musique alsacienne, crystalline accordion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musique_centrafricaine",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 197,
+          "recipe": "Musique centrafricaine, up-tempo voice: single-lead-single-track-no-stacking solo-unaccompanied unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 84,
+          "recipe": "Musique centrafricaine, up-tempo voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 197,
+          "recipe": "Musique centrafricaine, up-tempo voice: single-lead-single-track-no-stacking solo-unaccompanied unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 87,
+          "recipe": "Musique centrafricaine, up-tempo voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musique_mahoraise",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 991,
+          "recipe": "Musique mahoraise, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic duet live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled, crystalline accordion: leather steel single-voiced jazz-ready immediate bellows-articulated phrased supple direct responsive loud treble-extended focused dry, bodacious cajón: wood rear-sound-port unsnared, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 207,
+          "recipe": "Musique mahoraise, up-tempo voice, callous orchestra-model-acoustic-guitar, raging electric-bass, magnificent grand-piano, crystalline accordion, bodacious cajón, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 991,
+          "recipe": "Musique mahoraise, up-tempo voice: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic duet live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry, raging electric-bass: alder nickel focused-low-end-decay mid-rich hi-fi fingerstyle locked roundwound pocket growly fast-attack-transient balanced percussive, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled, crystalline accordion: leather steel single-voiced jazz-ready immediate bellows-articulated phrased supple direct responsive loud treble-extended focused dry, bodacious cajón: wood rear-sound-port unsnared, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 450,
+          "recipe": "Musique mahoraise, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\nmagnificent grand piano · Treated live room (reflective but controlled),\ncrystalline accordion · Treated live room (reflective but controlled),\nbodacious cajón · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musique_militaire",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 350,
+          "recipe": "Musique militaire, huge voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 83,
+          "recipe": "Musique militaire, huge voice, immense upright-piano, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 350,
+          "recipe": "Musique militaire, huge voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 119,
+          "recipe": "Musique militaire, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "musique_tchadienne",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 373,
+          "recipe": "Musique tchadienne, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 164,
+          "recipe": "Musique tchadienne, up-tempo voice, callous orchestra-model-acoustic-guitar, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 373,
+          "recipe": "Musique tchadienne, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 263,
+          "recipe": "Musique tchadienne, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\nbodacious Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musique_traditionnelle_comorienne",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 310,
+          "recipe": "Musique traditionnelle comorienne, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious comorian-firimbi-flute: plastic circular-breathing continuous sustaining, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 129,
+          "recipe": "Musique traditionnelle comorienne, up-tempo voice, bodacious comorian-firimbi-flute, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 310,
+          "recipe": "Musique traditionnelle comorienne, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious comorian-firimbi-flute: plastic circular-breathing continuous sustaining, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 180,
+          "recipe": "Musique traditionnelle comorienne, up-tempo voice · Treated live room (reflective but controlled),\nbodacious Comorian firimbi flute · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "musique_urbaine_kinshasa",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Musique urbaine Kinshasa, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 103,
+          "recipe": "Musique urbaine Kinshasa, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Musique urbaine Kinshasa, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 106,
+          "recipe": "Musique urbaine Kinshasa, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "muzica_ardeleneasca",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 248,
+          "recipe": "Muzica ardeleneasca, jaunty fluier: folk-diatonic staccato lively clear agile dance-driving woody traditional bright, spoken-flowing human-voice-count-unspecified: rhythmic-spoken-flow-no-pitch syncopated-speech-rhythm unprocessed-natural-acoustic."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 81,
+          "recipe": "Muzica ardeleneasca, jaunty fluier, spoken-flowing human-voice-count-unspecified."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 248,
+          "recipe": "Muzica ardeleneasca, jaunty fluier: folk-diatonic staccato lively clear agile dance-driving woody traditional bright, spoken-flowing human-voice-count-unspecified: rhythmic-spoken-flow-no-pitch syncopated-speech-rhythm unprocessed-natural-acoustic."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 81,
+          "recipe": "Muzica ardeleneasca, jaunty fluier,\nspoken-flowing human-voice-count-unspecified,"
+        }
+      ]
+    },
+    {
+      "id": "muzica_bisericeasca",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 225,
+          "recipe": "Muzică bisericească, huge human-voice-count-unspecified: unprocessed-natural-acoustic, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 86,
+          "recipe": "Muzică bisericească, huge human-voice-count-unspecified, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 225,
+          "recipe": "Muzică bisericească, huge human-voice-count-unspecified: unprocessed-natural-acoustic, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 89,
+          "recipe": "Muzică bisericească, huge human-voice-count-unspecified · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "muzica_crestina",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 372,
+          "recipe": "Muzică creștină, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass cu-zn-70-30 balanced-bright rubber modern-standard alto low-overtone-rich continuous-airflow treble-extended legato traditional versatile lyrical, witty electronic-keyboard: amplified chordal melodic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 112,
+          "recipe": "Muzică creștină, tongue-tying saxophone, witty electronic-keyboard, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 372,
+          "recipe": "Muzică creștină, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass cu-zn-70-30 balanced-bright rubber modern-standard alto low-overtone-rich continuous-airflow treble-extended legato traditional versatile lyrical, witty electronic-keyboard: amplified chordal melodic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 163,
+          "recipe": "Muzică creștină, tongue-tying saxophone · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "muzica_moldoveneasca",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 82,
+          "recipe": "Muzica moldoveneasca, human-voice-count-unspecified: unprocessed-natural-acoustic."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 52,
+          "recipe": "Muzica moldoveneasca, human-voice-count-unspecified."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 82,
+          "recipe": "Muzica moldoveneasca, human-voice-count-unspecified: unprocessed-natural-acoustic."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 52,
+          "recipe": "Muzica moldoveneasca, human-voice-count-unspecified,"
+        }
+      ]
+    },
+    {
+      "id": "muzika_lyeladim",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 409,
+          "recipe": "Muzika l’yeladim, huge voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, dignified flute: silver powell-boston-canonical-american-orchestral articulate-low-distortion pure controlled sustaining agile treble-extended projecting legato modern airy, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 76,
+          "recipe": "Muzika l’yeladim, huge voice, dignified flute, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 409,
+          "recipe": "Muzika l’yeladim, huge voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, dignified flute: silver powell-boston-canonical-american-orchestral articulate-low-distortion pure controlled sustaining agile treble-extended projecting legato modern airy, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 112,
+          "recipe": "Muzika l’yeladim, huge voice · Treated concert hall (shoebox),\ndignified flute · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "nederlandse_hardstyle",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 146,
+          "recipe": "Nederlandse hardstyle, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 100,
+          "recipe": "Nederlandse hardstyle, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 146,
+          "recipe": "Nederlandse hardstyle, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 103,
+          "recipe": "Nederlandse hardstyle, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nederreggae",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 990,
+          "recipe": "Nederreggae, bodacious voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle, marrow-deep drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered, witty electronic-keyboard: amplified chordal, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup, eager trombone: yellow-brass-canonical-70-30-bach-42-standard horn-section bach-42-canonical-american-orchestral-tenor section-locked standard-backbore tenor-standard, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass horn-section cu-zn-70-30 balanced-bright rubber cool, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 256,
+          "recipe": "Nederreggae, bodacious voice, hip-rocking humbucker-solid-body-electric-guitar, confident electric-bass, marrow-deep drum-kit, witty electronic-keyboard, up-tempo trumpet, eager trombone, tongue-tying saxophone, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 990,
+          "recipe": "Nederreggae, bodacious voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle, marrow-deep drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered, witty electronic-keyboard: amplified chordal, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup, eager trombone: yellow-brass-canonical-70-30-bach-42-standard horn-section bach-42-canonical-american-orchestral-tenor section-locked standard-backbore tenor-standard, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass horn-section cu-zn-70-30 balanced-bright rubber cool, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 595,
+          "recipe": "Nederreggae, bodacious voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nconfident electric bass · Treated live room (reflective but controlled),\nmarrow-deep drum kit · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\nup-tempo trumpet · Treated live room (reflective but controlled),\neager trombone · Treated live room (reflective but controlled),\ntongue-tying saxophone · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nephop",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 295,
+          "recipe": "NepHop, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch syncopated-speech-rhythm unprocessed-natural-acoustic group-vocals live-ensemble live-take, up-tempo spoken-word-voice: speech-derived, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 102,
+          "recipe": "NepHop, spoken-flowing voice, up-tempo spoken-word-voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 295,
+          "recipe": "NepHop, spoken-flowing voice: mc-flow rap rhythmic-speech rhythmic-spoken-flow-no-pitch syncopated-speech-rhythm unprocessed-natural-acoustic group-vocals live-ensemble live-take, up-tempo spoken-word-voice: speech-derived, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 153,
+          "recipe": "NepHop, spoken-flowing voice · Treated live room (reflective but controlled),\nup-tempo spoken-word voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "normal_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 394,
+          "recipe": "Normal indie, huge human-voice-count-unspecified: unprocessed-natural-acoustic, immense orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange rhythm undamped-resonance strummed low-mid-rich-spectrum balanced woody dry full, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 120,
+          "recipe": "Normal indie, huge human-voice-count-unspecified, immense orchestra-model-acoustic-guitar, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 394,
+          "recipe": "Normal indie, huge human-voice-count-unspecified: unprocessed-natural-acoustic, immense orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange rhythm undamped-resonance strummed low-mid-rich-spectrum balanced woody dry full, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 156,
+          "recipe": "Normal indie, huge human-voice-count-unspecified · Treated concert hall (shoebox),\nimmense orchestra-model acoustic guitar · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "norsk_lovsang",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 997,
+          "recipe": "Norsk lovsang, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, witty electronic-keyboard: amplified chordal, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 196,
+          "recipe": "Norsk lovsang, up-tempo voice, hip-rocking humbucker-solid-body-electric-guitar, confident electric-bass, trudging drum-kit, witty electronic-keyboard, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 997,
+          "recipe": "Norsk lovsang, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, confident electric-bass: alder nickel focused-low-end-decay low-coloration-balanced hi-fi fingerstyle locked roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, witty electronic-keyboard: amplified chordal, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 391,
+          "recipe": "Norsk lovsang, up-tempo voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nconfident electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "north_alabama_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 997,
+          "recipe": "North Alabama indie, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 241,
+          "recipe": "North Alabama indie, up-tempo voice, hip-rocking humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, magnificent grand-piano, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 997,
+          "recipe": "North Alabama indie, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 484,
+          "recipe": "North Alabama indie, up-tempo voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nmagnificent grand piano · Treated live room (reflective but controlled),\nbodacious Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "northeast_indian_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 587,
+          "recipe": "Northeast Indian indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy strummed low-mid-rich-spectrum treble-extended woody vintage versatile clean mellow, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 134,
+          "recipe": "Northeast Indian indie, up-tempo voice, hip-rocking humbucker-solid-body-electric-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 587,
+          "recipe": "Northeast Indian indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy strummed low-mid-rich-spectrum treble-extended woody vintage versatile clean mellow, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 185,
+          "recipe": "Northeast Indian indie, up-tempo voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "northern_irish_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 994,
+          "recipe": "Northern Irish indie, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate, callous dreadnought-acoustic hip-rocking humbucker-solid-body-electric guitar: alder alnico nickel phosphor-bronze maple rosewood mahogany modern-martin bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, bodacious credited-synthesizer, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 300,
+          "recipe": "Northern Irish indie, up-tempo voice, magnificent grand-piano, callous dreadnought-acoustic hip-rocking humbucker-solid-body-electric guitar, focused electric-bass, bodacious credited-synthesizer, trudging drum-kit, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 1000,
+          "recipe": "Northern Irish indie, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly, bodacious credited-synthesizer, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 647,
+          "recipe": "Northern Irish indie, up-tempo voice · Treated live room (reflective but controlled),\nmagnificent grand piano · Treated live room (reflective but controlled),\ncallous dreadnought acoustic guitar · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\nbodacious Credited synthesizer · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\ncheery Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "northwest_china_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 994,
+          "recipe": "Northwest China indie, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, bodacious credited-synthesizer, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 247,
+          "recipe": "Northwest China indie, up-tempo voice, hip-rocking humbucker-solid-body-electric-guitar, focused electric-bass, bodacious credited-synthesizer, trudging drum-kit, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 994,
+          "recipe": "Northwest China indie, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, bodacious credited-synthesizer, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused, cheery unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 490,
+          "recipe": "Northwest China indie, up-tempo voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\nbodacious Credited synthesizer · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\ncheery Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "norwegian_experimental",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 256,
+          "recipe": "Norwegian experimental, happy 12-string-acoustic: phosphor-bronze jumbo-projection natural-chorus wide-frequency chime-shimmer octave-doubled-courses light-gauge fingerpicked balanced, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 94,
+          "recipe": "Norwegian experimental, happy 12-string-acoustic, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 256,
+          "recipe": "Norwegian experimental, happy 12-string-acoustic: phosphor-bronze jumbo-projection natural-chorus wide-frequency chime-shimmer octave-doubled-courses light-gauge fingerpicked balanced, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 97,
+          "recipe": "Norwegian experimental, happy 12-string acoustic · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nova_musica_carioca",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 480,
+          "recipe": "Nova música carioca, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 145,
+          "recipe": "Nova música carioca, up-tempo voice, refined upright-piano, callous orchestra-model-acoustic-guitar, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 480,
+          "recipe": "Nova música carioca, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry full, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 244,
+          "recipe": "Nova música carioca, up-tempo voice · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nu_gabber",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 255,
+          "recipe": "Nu gabber, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 105,
+          "recipe": "Nu gabber, up-tempo voice, bodacious dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 255,
+          "recipe": "Nu gabber, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 156,
+          "recipe": "Nu gabber, up-tempo voice · Treated live room (reflective but controlled),\nbodacious DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nueva_ola_chilena",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 996,
+          "recipe": "Nueva ola chilena, bodacious voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass horn-section cu-zn-70-30 balanced-bright, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly, eager trombone: yellow-brass-canonical-70-30-bach-42-standard horn-section bach-42-canonical-american-orchestral-tenor section-locked standard-backbore, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 253,
+          "recipe": "Nueva ola chilena, bodacious voice, hip-rocking humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, refined upright-piano, tongue-tying saxophone, up-tempo trumpet, eager trombone, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 996,
+          "recipe": "Nueva ola chilena, bodacious voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord, tongue-tying saxophone: selmer-mark-vi-canonical-1954-1974-jazz-paris yellow-brass horn-section cu-zn-70-30 balanced-bright, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly, eager trombone: yellow-brass-canonical-70-30-bach-42-standard horn-section bach-42-canonical-american-orchestral-tenor section-locked standard-backbore, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 592,
+          "recipe": "Nueva ola chilena, bodacious voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),\ntongue-tying saxophone · Treated live room (reflective but controlled),\nup-tempo trumpet · Treated live room (reflective but controlled),\neager trombone · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nueva_ola_peruana",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 994,
+          "recipe": "Nueva ola peruana, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, witty electronic-keyboard: amplified chordal, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 198,
+          "recipe": "Nueva ola peruana, up-tempo voice, hip-rocking humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, witty electronic-keyboard, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 994,
+          "recipe": "Nueva ola peruana, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, witty electronic-keyboard: amplified chordal, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 393,
+          "recipe": "Nueva ola peruana, up-tempo voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "nz_christian",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 995,
+          "recipe": "NZ Christian, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, witty electronic-keyboard: amplified chordal, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 236,
+          "recipe": "NZ Christian, up-tempo voice, hip-rocking humbucker-solid-body-electric-guitar, focused electric-bass, witty electronic-keyboard, trudging drum-kit, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 995,
+          "recipe": "NZ Christian, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch low-coloration-balanced slinky treble-rolled-off breathing present subtle classic full-bodied low-mid-thick glassy thin, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, witty electronic-keyboard: amplified chordal, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended, bodacious unspecified-credited-percussion, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 479,
+          "recipe": "NZ Christian, up-tempo voice · Treated live room (reflective but controlled),\nhip-rocking humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nbodacious Unspecified credited percussion · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "oceania_soundtrack",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 269,
+          "recipe": "Oceania soundtrack, huge upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 69,
+          "recipe": "Oceania soundtrack, huge upright-piano, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 269,
+          "recipe": "Oceania soundtrack, huge upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 72,
+          "recipe": "Oceania soundtrack, huge upright piano · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "odia_bhajan",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 463,
+          "recipe": "Odia bhajan, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious credited-flute: flute-like, refined tabla: copper indian-rosewood vivid pitched sustaining ringing classical deep, witty hand-pumped-harmonium: vocal-male vocal-accompaniment low-overtone-rich song-accompaniment chordal grounding sustained melodic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 143,
+          "recipe": "Odia bhajan, up-tempo voice, bodacious credited-flute, refined tabla, witty hand-pumped-harmonium, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 463,
+          "recipe": "Odia bhajan, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, bodacious credited-flute: flute-like, refined tabla: copper indian-rosewood vivid pitched sustaining ringing classical deep, witty hand-pumped-harmonium: vocal-male vocal-accompaniment low-overtone-rich song-accompaniment chordal grounding sustained melodic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 290,
+          "recipe": "Odia bhajan, up-tempo voice · Treated live room (reflective but controlled),\nbodacious credited flute · Treated live room (reflective but controlled),\nrefined tabla · Treated live room (reflective but controlled),\nwitty hand-pumped harmonium · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "oktoberfest",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 344,
+          "recipe": "Oktoberfest, refined clarinet: dense-hardwood african-blackwood grenadilla narrow-q-precise low-overtone-rich continuous-airflow controlled agile balanced legato traditional versatile articulate, up-tempo bassclarinet: classical-legato low-c sonorous extended smooth dark, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 98,
+          "recipe": "Oktoberfest, refined clarinet, up-tempo bassclarinet, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 344,
+          "recipe": "Oktoberfest, refined clarinet: dense-hardwood african-blackwood grenadilla narrow-q-precise low-overtone-rich continuous-airflow controlled agile balanced legato traditional versatile articulate, up-tempo bassclarinet: classical-legato low-c sonorous extended smooth dark, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Oktoberfest, refined clarinet · Treated live room (reflective but controlled),\nup-tempo bassclarinet · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "pinoy_traditional",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 260,
+          "recipe": "Pinoy traditional, up-tempo voice: declamatory-free-rhythm recitative-rhythmically-free-pitched-speech single-lead-single-track-no-stacking solo-unaccompanied unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 79,
+          "recipe": "Pinoy traditional, up-tempo voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 260,
+          "recipe": "Pinoy traditional, up-tempo voice: declamatory-free-rhythm recitative-rhythmically-free-pitched-speech single-lead-single-track-no-stacking solo-unaccompanied unprocessed-natural-acoustic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 82,
+          "recipe": "Pinoy traditional, up-tempo voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "pittsburgh_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 124,
+          "recipe": "Pittsburgh indie, frosty credited-samples, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 79,
+          "recipe": "Pittsburgh indie, frosty credited-samples, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 124,
+          "recipe": "Pittsburgh indie, frosty credited-samples, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 82,
+          "recipe": "Pittsburgh indie, frosty Credited samples · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "pontianak_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 999,
+          "recipe": "Pontianak indie, bodacious voice: unprocessed-natural-acoustic duet live-ensemble live-take, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup fast-attack-transient undamped-resonance direct ensemble treble-extended cutting, eager credited-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 211,
+          "recipe": "Pontianak indie, bodacious voice, cheery humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, up-tempo trumpet, eager credited-synthesizer, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 999,
+          "recipe": "Pontianak indie, bodacious voice: unprocessed-natural-acoustic duet live-ensemble live-take, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple rosewood bloomy conventional-tuning nitrocellulose oily-pore-damping power-chord standard-pitch low-coloration-balanced slinky, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear, up-tempo trumpet: yellow-brass-canonical-70-30-bach-stradivarius horn-section bach-stradivarius-180-canonical-american-orchestral narrower-rim student-friendly medium-cup fast-attack-transient undamped-resonance direct ensemble treble-extended cutting, eager credited-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 454,
+          "recipe": "Pontianak indie, bodacious voice · Treated live room (reflective but controlled),\ncheery humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nup-tempo trumpet · Treated live room (reflective but controlled),\neager Credited synthesizer · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "popping",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 141,
+          "recipe": "Popping, complex dj-playback-and-mixing: amplified layered, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 77,
+          "recipe": "Popping, complex dj-playback-and-mixing, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 141,
+          "recipe": "Popping, complex dj-playback-and-mixing: amplified layered, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 80,
+          "recipe": "Popping, complex DJ playback and mixing · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "psytech",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 132,
+          "recipe": "Psytech, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 86,
+          "recipe": "Psytech, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 132,
+          "recipe": "Psytech, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 89,
+          "recipe": "Psytech, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "puglia_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 990,
+          "recipe": "Puglia indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry, raging electric-bass: alder nickel focused-low-end-decay mid-rich fingerstyle locked scooped roundwound pocket growly fast-attack-transient balanced percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic, bodacious credited-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 213,
+          "recipe": "Puglia indie, up-tempo voice, callous orchestra-model-acoustic-guitar, raging electric-bass, trudging drum-kit, magnificent grand-piano, bodacious credited-synthesizer, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 990,
+          "recipe": "Puglia indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, callous orchestra-model-acoustic-guitar: phosphor-bronze mahogany fingerpicker-clear midrange flatpicked articulated low-mid-rich-spectrum balanced woody dry, raging electric-bass: alder nickel focused-low-end-decay mid-rich fingerstyle locked scooped roundwound pocket growly fast-attack-transient balanced percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical, magnificent grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic, bodacious credited-synthesizer, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 456,
+          "recipe": "Puglia indie, up-tempo voice · Treated live room (reflective but controlled),\ncallous orchestra-model acoustic guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nmagnificent grand piano · Treated live room (reflective but controlled),\nbodacious Credited synthesizer · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "purple_sound",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 137,
+          "recipe": "Purple sound, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 91,
+          "recipe": "Purple sound, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 137,
+          "recipe": "Purple sound, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 94,
+          "recipe": "Purple sound, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "qanun",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Qanun, refined kanun: synthetic kanun ornamented sustained modern consistent, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 66,
+          "recipe": "Qanun, refined kanun, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 149,
+          "recipe": "Qanun, refined kanun: synthetic kanun ornamented sustained modern consistent, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 69,
+          "recipe": "Qanun, refined kanun · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "reiki",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 682,
+          "recipe": "Reiki, breath-coloring grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 pedal-resonant orchestral soloistic singing legato, huge electronic-keyboard: amplified chordal melodic, immense credited-sound-effect, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 122,
+          "recipe": "Reiki, breath-coloring grand-piano, huge electronic-keyboard, immense credited-sound-effect, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 682,
+          "recipe": "Reiki, breath-coloring grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 pedal-resonant orchestral soloistic singing legato, huge electronic-keyboard: amplified chordal melodic, immense credited-sound-effect, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 191,
+          "recipe": "Reiki, breath-coloring grand piano · Treated concert hall (shoebox),\nhuge Electronic keyboard · Treated concert hall (shoebox),\nimmense Credited sound effect · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "rosary",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 238,
+          "recipe": "Rosary, ascetic voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 59,
+          "recipe": "Rosary, ascetic voice, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 238,
+          "recipe": "Rosary, ascetic voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 62,
+          "recipe": "Rosary, ascetic voice · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "rozpravky",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 241,
+          "recipe": "Rozprávky, ascetic voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 62,
+          "recipe": "Rozprávky, ascetic voice, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 241,
+          "recipe": "Rozprávky, ascetic voice: no-pitch-organization-speech single-lead-single-track-no-stacking solo-unaccompanied speech-rhythm-only unprocessed-natural-acoustic, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 65,
+          "recipe": "Rozprávky, ascetic voice · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "sad_sierreno",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 584,
+          "recipe": "Sad sierreño, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, raging electric bodacious upright bass: alder nickel gut focused-low-end-decay mid-rich fingerstyle locked scooped roundwound pocket growly fast-attack-transient thumpy round balanced percussive vintage articulate, cheery e-flat-tenor-horn-alto-horn, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 187,
+          "recipe": "Sad sierreño, up-tempo voice, callous dreadnought-acoustic-guitar, raging electric bodacious upright bass, cheery e-flat-tenor-horn-alto-horn, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 591,
+          "recipe": "Sad sierreño, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, callous dreadnought-acoustic-guitar: phosphor-bronze mahogany modern-martin midrange-thick flatpicked fundamental articulated low-mid-rich-spectrum balanced woody dry full, raging electric-bass: alder nickel focused-low-end-decay mid-rich fingerstyle locked scooped roundwound pocket growly fast-attack-transient balanced percussive articulate, bodacious upright-bass: gut thumpy round vintage, cheery e-flat-tenor-horn-alto-horn, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 390,
+          "recipe": "Sad sierreño, up-tempo voice · Treated live room (reflective but controlled),\ncallous dreadnought acoustic guitar · Treated live room (reflective but controlled),\nraging electric bass · Treated live room (reflective but controlled),\nbodacious upright bass · Treated live room (reflective but controlled),\ncheery e-flat tenor horn (alto horn) · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "smooth_saxophone",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 572,
+          "recipe": "Smooth saxophone, dignified soprano-alto-tenor-saxophone-palette: controlled legato, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple bloomy conventional-tuning nitrocellulose standard-pitch low-coloration-balanced slinky treble-rolled-off attack-forward breathing present subtle classic full-bodied low-mid-thick glassy thin snappy strummed low-mid-rich-spectrum treble-extended woody vintage versatile clean mellow, frosty credited-programmed-drums: programmed, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 186,
+          "recipe": "Smooth saxophone, dignified soprano-alto-tenor-saxophone-palette, hip-rocking humbucker-solid-body-electric-guitar, frosty credited-programmed-drums, treated-recording-studio-dead-booth."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 572,
+          "recipe": "Smooth saxophone, dignified soprano-alto-tenor-saxophone-palette: controlled legato, hip-rocking humbucker-solid-body-electric-guitar: alder alnico nickel maple bloomy conventional-tuning nitrocellulose standard-pitch low-coloration-balanced slinky treble-rolled-off attack-forward breathing present subtle classic full-bodied low-mid-thick glassy thin snappy strummed low-mid-rich-spectrum treble-extended woody vintage versatile clean mellow, frosty credited-programmed-drums: programmed, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 269,
+          "recipe": "Smooth saxophone, dignified Soprano-alto-tenor saxophone palette · Treated recording studio (dead booth),\nhip-rocking humbucker solid-body electric guitar · Treated recording studio (dead booth),\nfrosty Credited programmed drums · Treated recording studio (dead booth),"
+        }
+      ]
+    },
+    {
+      "id": "sound_team",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 603,
+          "recipe": "Sound team, breath-coloring grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 pedal-resonant orchestral soloistic singing legato, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 70,
+          "recipe": "Sound team, breath-coloring grand-piano, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 603,
+          "recipe": "Sound team, breath-coloring grand-piano: gray-iron hard-rock-maple-molding lacquer-voiced quartersawn-maple sitka-spruce 17-ply 3.25-inch-thick 6mm-rim 7-ply 9mm-center bronzed-lacquered cast-plate cnc-milled cross-grained-45-90 diaphragmatic double-crowned full-perimeter modern-pitch requires-voicing soft-felt tuning-stability us-standard 8-12-rings-per-inch continuous-bent one-piece romantic-orchestra a-440 pedal-resonant orchestral soloistic singing legato, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 73,
+          "recipe": "Sound team, breath-coloring grand piano · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "springfield_mo_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 980,
+          "recipe": "Springfield MO indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple bloomy conventional-tuning nitrocellulose power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted attack-forward breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 169,
+          "recipe": "Springfield MO indie, up-tempo voice, cheery humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 980,
+          "recipe": "Springfield MO indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple bloomy conventional-tuning nitrocellulose power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted attack-forward breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused resonant, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 316,
+          "recipe": "Springfield MO indie, up-tempo voice · Treated live room (reflective but controlled),\ncheery humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "talentkonkurranse",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 988,
+          "recipe": "Talentkonkurranse, up-tempo voice: single-performer-unison-double-recorded-take solo-with-instrumental-accompaniment unprocessed-natural-acoustic, happy single-coil-solid-body-electric bodacious steel guitar: alder alnico nickel maple low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose standard-pitch low-coloration-balanced treble-rolled-off attack-forward breathing present taut, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord, witty electronic-keyboard: amplified chordal, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced scooped roundwound growly full-bodied fingerpicked narrative percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 233,
+          "recipe": "Talentkonkurranse, up-tempo voice, happy single-coil-solid-body-electric bodacious steel guitar, refined upright-piano, witty electronic-keyboard, focused electric-bass, trudging drum-kit, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 993,
+          "recipe": "Talentkonkurranse, up-tempo voice: single-performer-unison-double-recorded-take solo-with-instrumental-accompaniment unprocessed-natural-acoustic, happy single-coil-solid-body-electric-guitar: alder alnico nickel maple low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose standard-pitch low-coloration-balanced treble-rolled-off attack-forward breathing, bodacious steel-guitar: plucked sliding, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord, witty electronic-keyboard: amplified chordal, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced scooped roundwound growly full-bodied fingerpicked narrative percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 532,
+          "recipe": "Talentkonkurranse, up-tempo voice · Treated live room (reflective but controlled),\nhappy single-coil solid-body electric guitar · Treated live room (reflective but controlled),\nbodacious steel guitar · Treated live room (reflective but controlled),\nrefined upright piano · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "tamaulipas_indie",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 995,
+          "recipe": "Tamaulipas indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple bloomy conventional-tuning nitrocellulose power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted attack-forward breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused, bodacious credited-samples, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 193,
+          "recipe": "Tamaulipas indie, up-tempo voice, cheery humbucker-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, bodacious credited-samples, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 995,
+          "recipe": "Tamaulipas indie, up-tempo voice: single-lead-single-track-no-stacking solo-with-instrumental-accompaniment unprocessed-natural-acoustic, cheery humbucker-solid-body-electric-guitar: alder alnico nickel maple bloomy conventional-tuning nitrocellulose power-chord standard-pitch low-coloration-balanced slinky treble-rolled-off distorted attack-forward breathing present subtle classic full-bodied low-mid-thick glassy thin snappy, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused, bodacious credited-samples, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 388,
+          "recipe": "Tamaulipas indie, up-tempo voice · Treated live room (reflective but controlled),\ncheery humbucker solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nbodacious Credited samples · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "tearout",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 132,
+          "recipe": "Tearout, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 86,
+          "recipe": "Tearout, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 132,
+          "recipe": "Tearout, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 89,
+          "recipe": "Tearout, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "thai_bl_ost",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 198,
+          "recipe": "Thai BL OST, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 80,
+          "recipe": "Thai BL OST, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 198,
+          "recipe": "Thai BL OST, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 83,
+          "recipe": "Thai BL OST, refined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "thai_instrumental",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 204,
+          "recipe": "Thai instrumental, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 86,
+          "recipe": "Thai instrumental, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 204,
+          "recipe": "Thai instrumental, refined upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 89,
+          "recipe": "Thai instrumental, refined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "urban_contemporary",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 259,
+          "recipe": "Urban Contemporary, huge upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 69,
+          "recipe": "Urban Contemporary, huge upright-piano, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 259,
+          "recipe": "Urban Contemporary, huge upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 72,
+          "recipe": "Urban Contemporary, huge upright piano · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "viet_instrumental",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 190,
+          "recipe": "Viet Instrumental, eager đàn-tranh: paulownia steel-modern pre-modern ornamented sustained melodic expressive lyrical, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 80,
+          "recipe": "Viet Instrumental, eager đàn-tranh, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 190,
+          "recipe": "Viet Instrumental, eager đàn-tranh: paulownia steel-modern pre-modern ornamented sustained melodic expressive lyrical, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 83,
+          "recipe": "Viet Instrumental, eager đàn tranh · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "waiata_mo_tamariki",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 497,
+          "recipe": "Waiata mō Tamariki, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 84,
+          "recipe": "Waiata mō Tamariki, huge voice, immense upright-piano, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 497,
+          "recipe": "Waiata mō Tamariki, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 120,
+          "recipe": "Waiata mō Tamariki, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "weightless",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 135,
+          "recipe": "Weightless, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 89,
+          "recipe": "Weightless, up-tempo dj-playback-and-mixing, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 135,
+          "recipe": "Weightless, up-tempo dj-playback-and-mixing: amplified layered, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 92,
+          "recipe": "Weightless, up-tempo DJ playback and mixing · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "west_end",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 249,
+          "recipe": "West End, huge upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 59,
+          "recipe": "West End, huge upright-piano, treated-concert-hall-shoebox."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 249,
+          "recipe": "West End, huge upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 62,
+          "recipe": "West End, huge upright piano · Treated concert hall (shoebox),"
+        }
+      ]
+    },
+    {
+      "id": "wu_fam",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 190,
+          "recipe": "Wu Fam, smug voice: unprocessed-natural-acoustic forward conversational group-vocals live-ensemble live-take rhythmic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 64,
+          "recipe": "Wu Fam, smug voice, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 190,
+          "recipe": "Wu Fam, smug voice: unprocessed-natural-acoustic forward conversational group-vocals live-ensemble live-take rhythmic, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 67,
+          "recipe": "Wu Fam, smug voice · Treated live room (reflective but controlled),"
+        }
+      ]
+    },
+    {
+      "id": "yaoi",
+      "results": [
+        {
+          "format": "rich",
+          "parity": true,
+          "chars": 181,
+          "recipe": "Yaoi, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "prose",
+          "parity": true,
+          "chars": 73,
+          "recipe": "Yaoi, refined upright-piano, treated-live-room-reflective-but-controlled."
+        },
+        {
+          "format": "tags",
+          "parity": true,
+          "chars": 181,
+          "recipe": "Yaoi, refined upright-piano: general-purpose hammer-low-mid-emphasis common accessible block-chord versatile, treated-live-room-reflective-but-controlled: present lively controlled."
+        },
+        {
+          "format": "compact",
+          "parity": true,
+          "chars": 76,
+          "recipe": "Yaoi, refined upright piano · Treated live room (reflective but controlled),"
+        }
+      ]
+    }
+  ]
+}

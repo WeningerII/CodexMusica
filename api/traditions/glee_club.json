@@ -1,0 +1,64 @@
+{
+  "id": "glee_club",
+  "name": "Glee club",
+  "family": "classical",
+  "lineage": "Glee clubs develop collegiate choral singing through rehearsals, concerts and arranged repertoire. Their musical activity connects student participation with varied concert traditions.",
+  "recipe": "classic glee club, art Music, western modern branch. mixed satb canonical 4 part western choir ensemble. shoebox concert hall.",
+  "recipe_chars": 126,
+  "score": 3.497,
+  "config": {
+    "traditions": [
+      "glee_club"
+    ],
+    "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+          "choir_regional_canonical_configuration": "choir_regional_none",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 2.73,
+          "choir_polyphonic_configuration": 0.1365,
+          "choir_regional_canonical_configuration": 0,
+          "choir_ensemble_repertoire": 0.6300000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "choir_ensemble": [
+        "choir_size",
+        "choir_polyphonic_configuration",
+        "choir_regional_canonical_configuration",
+        "choir_ensemble_repertoire"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "choir_size": "mixed_4_part_satb",
+      "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
+      "choir_regional_canonical_configuration": "choir_regional_none",
+      "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+    },
+    "pin_parts": true
+  }
+}

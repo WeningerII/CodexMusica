@@ -1,0 +1,184 @@
+{
+  "id": "sarod",
+  "name": "Sarod",
+  "family": "classical",
+  "lineage": "Alam Khan, Vijay Iyer and Nitin Mitta — Sanctuary (2025), complete EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s sarod, improv On Frame. traditional coconut shell shell sarod, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s rhodes electric, indian rosewood rosewood brass tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 371,
+  "score": 33.722,
+  "config": {
+    "traditions": [
+      "sarod"
+    ],
+    "instruments": [
+      {
+        "id": "sarod",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sarod_fingerboard": "chrome_plated",
+          "sarod_belly": "goat_skin_belly",
+          "sarod_pluck": "coconut_shell_pick",
+          "sarod_taraf": "taraf_eleven",
+          "sarod_body_wood": "sarod_teak_body",
+          "sarod_strings": "sarod_steel_bronze_modern",
+          "sarod_gharana": "sarod_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.3445,
+          "sarod_fingerboard": 0.1365,
+          "sarod_belly": 0.39,
+          "sarod_pluck": 1.705,
+          "sarod_taraf": 1.3,
+          "sarod_body_wood": 0.39,
+          "sarod_strings": 0.1365,
+          "sarod_gharana": 0.78
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": 3.2,
+          "piano_rim": 3.6260000000000003,
+          "piano_soundboard": 3.2,
+          "piano_pinblock": 4.6995000000000005,
+          "piano_plate": 3.2,
+          "piano_pitch_standard": 0.7149999999999999
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "rhodes_model": 0.75,
+          "rhodes_use": 0,
+          "rhodes_tine_material": 0.8999999999999999,
+          "rhodes_hammer_tip": 1.2,
+          "rhodes_pickup_position": 0.9314999999999999
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 1.313,
+          "tabla_bayan": 1.8415000000000001,
+          "tabla_syahi": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "sarod": [
+        "plucked_traditional_technique",
+        "sarod_fingerboard",
+        "sarod_belly",
+        "sarod_pluck",
+        "sarod_taraf",
+        "sarod_body_wood",
+        "sarod_strings",
+        "sarod_gharana"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use",
+        "rhodes_tine_material",
+        "rhodes_hammer_tip",
+        "rhodes_pickup_position"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "sarod_fingerboard": "chrome_plated",
+      "sarod_belly": "goat_skin_belly",
+      "sarod_pluck": "coconut_shell_pick",
+      "sarod_taraf": "taraf_eleven",
+      "sarod_body_wood": "sarod_teak_body",
+      "sarod_strings": "sarod_steel_bronze_modern",
+      "sarod_gharana": "sarod_maihar_gharana",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "rhodes_tine_material": "rhodes_torrington_tine",
+      "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+      "rhodes_pickup_position": "rhodes_pickup_centered",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

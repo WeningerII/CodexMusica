@@ -1,0 +1,230 @@
+{
+  "id": "kritika",
+  "name": "Kritika",
+  "family": "vernacular",
+  "lineage": "Kritika is the song and dance music of Crete, shaped by local poetic traditions and instrumental styles centered on bowed lyra and accompanying lutes.",
+  "recipe": "classic kritika, ballad Poetry, Mediterranean ballad branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. cretan lyra, cretan rhythmic laouto, mandolin, askomandoura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 20.848,
+  "config": {
+    "traditions": [
+      "kritika"
+    ],
+    "instruments": [
+      {
+        "id": "cretan_lyra",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": 2.6,
+          "lyra_strings": 0.9449999999999998,
+          "lyra_use": 1.218,
+          "lyra_body_wood": 0.39,
+          "lyra_string_material": 0.9660000000000002
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.546,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 0.7770000000000001,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "laouto",
+        "slots": {
+          "laouto_form": "laouto_kritiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_steel"
+        },
+        "scores": {
+          "laouto_form": 4.26,
+          "laouto_role": 5.395,
+          "laouto_strings": -0.035
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandolin_shape": "a_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_no_pickup"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "mandolin_shape": 0.1365,
+          "mandolin_top": -0.05,
+          "mandolin_back": -0.035,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0.168,
+          "mandolin_fingerboard": 0.5145,
+          "mandolin_pickup": 0.273
+        }
+      },
+      {
+        "id": "askomandoura",
+        "slots": {
+          "askomandoura_chanter": "askomandoura_parallel_cane",
+          "askomandoura_bag": "askomandoura_goatskin"
+        },
+        "scores": {
+          "askomandoura_chanter": 0.1365,
+          "askomandoura_bag": 0.40950000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "cretan_lyra": [
+        "bowed_technique",
+        "lyra_strings",
+        "lyra_use",
+        "lyra_body_wood",
+        "lyra_string_material"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "laouto": [
+        "laouto_form",
+        "laouto_role",
+        "laouto_strings"
+      ],
+      "mandolin": [
+        "acoustic_technique",
+        "mandolin_shape",
+        "mandolin_top",
+        "mandolin_back",
+        "mandolin_bracing",
+        "mandolin_strings",
+        "mandolin_fingerboard",
+        "mandolin_pickup"
+      ],
+      "askomandoura": [
+        "askomandoura_chanter",
+        "askomandoura_bag"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "lyra_strings": "lyra_3",
+      "lyra_use": "lyra_dance",
+      "lyra_body_wood": "lyra_mulberry",
+      "lyra_string_material": "lyra_steel_modern",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "laouto_form": "laouto_kritiko",
+      "laouto_role": "laouto_synodeia",
+      "laouto_strings": "laouto_strings_steel",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "mandolin_shape": "a_style",
+      "mandolin_top": "adirondack_m",
+      "mandolin_back": "european_maple_loar",
+      "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+      "mandolin_strings": "phosphor_m",
+      "mandolin_fingerboard": "mandolin_ebony_fb",
+      "mandolin_pickup": "mandolin_no_pickup",
+      "askomandoura_chanter": "askomandoura_parallel_cane",
+      "askomandoura_bag": "askomandoura_goatskin"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

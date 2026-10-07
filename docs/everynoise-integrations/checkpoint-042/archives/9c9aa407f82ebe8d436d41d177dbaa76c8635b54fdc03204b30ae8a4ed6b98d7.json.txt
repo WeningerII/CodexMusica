@@ -1,0 +1,8 @@
+{
+  "status": "PASS_EXPLICIT_SOURCE_MAPPING_NOT_ALL_SEMANTIC_DEFAULTS",
+  "rows": 143,
+  "fully_explained_slot_and_environment_changes": 123,
+  "unexplained_automatic_slot_changes_rows": 20,
+  "unexplained_environment_changes": [],
+  "intent_scope": "123 directly repaired rows change only source-proposed roles/parts/environment/protection metadata and preserve contexts. Source peer reviews remain required; inherited holds are not claimed fixed. Other20 rows need causal containment or source-supported data repair."
+}

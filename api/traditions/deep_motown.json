@@ -1,0 +1,50 @@
+{
+  "id": "deep_motown",
+  "name": "Deep Motown",
+  "family": "pop",
+  "lineage": "Deep Motown explores less familiar recordings across the Motown family of labels. Soul songs, vocal groups, early rhythm-and-blues and instrumental sides circulate through catalogue reissues, collectors and contemporary selectors alongside better-known hits.",
+  "recipe": "classic deep motown, functional Song, soul R&B branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 101,
+  "score": 0.21,
+  "config": {
+    "traditions": [
+      "deep_motown"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.21
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

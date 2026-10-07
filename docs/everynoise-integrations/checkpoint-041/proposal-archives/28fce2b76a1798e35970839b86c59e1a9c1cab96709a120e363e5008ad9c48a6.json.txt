@@ -1,0 +1,230 @@
+{
+  "entries": [
+    {
+      "source_label": "lagu bugis",
+      "source_url": "https://everynoise.com/engenremap-lagubugis.html",
+      "suggested_id": "lagu_bugis",
+      "allocation_ordinal": 3648,
+      "allocation_group_id": "146",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "id": "lagu_bugis",
+      "tradition": {
+        "id": "lagu_bugis",
+        "name": "Lagu Bugis",
+        "family": "vernacular",
+        "lineage": "Bugis-language song carries poetic expression, advice and community memory in South Sulawesi. Traditional melodies continue in domestic singing, contemporary popular arrangements and choral presentations of regional repertoire.",
+        "instruments": [
+          "human_voice_ensemble_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Melody and Bugis-language phrasing carry the song, with personal feeling and shared cultural values held in the lyric. This profile represents the vocal-ensemble branch: connected group singing lets the text and melodic line remain prominent without making a particular choir size or harmonization universal.",
+        "exemplars": [
+          "PSM Universitas Hasanuddin"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -5.1477,
+        119.4327,
+        "Makassar",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "South Sulawesi cultural and choral-practice hub; approximate city point, not exclusive ethnic territory or source-session coordinates.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://identitasunhas.com/psm-unhas-kembali-harumkan-nama-unhas-di-kancah-internasional",
+          "support_notes": "Fresh14213search1 university firsthand choir management documents Ininnawa in Folklore and Indigenous Music a Cappella; supports general vocal practice, not exact count/percussion-absence claim."
+        },
+        {
+          "url": "https://unhas.tv/psm-unhas-pukau-helsingborg-standing-applause-menggema-di-world-choir-games-2026-swedia",
+          "support_notes": "Fresh14213search3 institutional practice continues with Ininnawa Sabbarae and named regional repertoire;20delegates not inferred20singers."
+        },
+        {
+          "url": "https://ojs.smkmerahputih.com/index.php/jimu/article/download/650/386/1604",
+          "support_notes": "Fresh full9page14218view1 original academic study explicitly Bugis song/language/cultural values and domestic singing practice. Does not supply choir scoring."
+        }
+      ],
+      "neighbor_distinction": "Lagu Bugis is a language-and-community song repertoire, not the whole Indonesian folk umbrella or the location-defined Sulawesi indie field. Traditional, popular and arranged choral branches overlap those broader fields. Academic analysis positively identifies Bugis-language inherited song, and university first-person practice documents its choral presentation. No claim every Bugis song is old, choral, unaccompanied or equivalent to Makassarese song. Full Indonesian Indigenous Traditional includes many local vocal and instrumental cultures; Bugis-language repertoire is a positive community-specific subset, not inferred from that entry’s Kenyah exemplar. Indonesian Rice-Planting Songs is a cross-regional work-function field, not coextensive with Bugis song, which includes domestic and concert uses.",
+      "model_policy": "Genre-level representative vocal-ensemble branch grounded in university-documented Folklore A Cappella practice. Connected syllabic singing and unprocessed acoustic voices are authored choices. Actual singer count, vocal anatomy, temperament, tracking and exact harmony remain unspecified. This is not a reconstruction of a particular competition recording and does not assert optional percussion was absent from that event; no positively documented instrument from a selected recording is removed. Broader accompanied Bugis song remains outside this selected vocal branch. BalladPoetry reflects text-bearing regional song and its documented advice/values tradition; no mandatory narrative plot. Treated concert-hall acoustics are an authored choral listening setting consistent with institutional concert practice, not the measured original venue.",
+      "classification_evidence": "Lagu Bugis is a language-and-community song repertoire, not the whole Indonesian folk umbrella or the location-defined Sulawesi indie field. Traditional, popular and arranged choral branches overlap those broader fields. Academic analysis positively identifies Bugis-language inherited song, and university first-person practice documents its choral presentation. No claim every Bugis song is old, choral, unaccompanied or equivalent to Makassarese song. Full Indonesian Indigenous Traditional includes many local vocal and instrumental cultures; Bugis-language repertoire is a positive community-specific subset, not inferred from that entry’s Kenyah exemplar. Indonesian Rice-Planting Songs is a cross-regional work-function field, not coextensive with Bugis song, which includes domestic and concert uses.",
+      "vocal_count_audit": {
+        "singer_count": "unknown/not required for general ensemble profile",
+        "basis": "Existing unknown-count ensemble owner; no SATB-to-person inference."
+      },
+      "instrument_role_audit": {
+        "human_voice_ensemble_unspecified": "Positive group-singing practice; no assumed original live-session closure."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Genre-level representative vocal-ensemble branch grounded in university-documented Folklore A Cappella practice. Connected syllabic singing and unprocessed acoustic voices are authored choices. Actual singer count, vocal anatomy, temperament, tracking and exact harmony remain unspecified. This is not a reconstruction of a particular competition recording and does not assert optional percussion was absent from that event; no positively documented instrument from a selected recording is removed. Broader accompanied Bugis song remains outside this selected vocal branch. BalladPoetry reflects text-bearing regional song and its documented advice/values tradition; no mandatory narrative plot. Treated concert-hall acoustics are an authored choral listening setting consistent with institutional concert practice, not the measured original venue."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "primary_retrieval_refs": [
+        "turn14213search1",
+        "turn14213search3",
+        "turn14218view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lagu_bugis",
+          "name": "Lagu Bugis",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons14211view0 confirms CC BY2.5/Fergusson and Binksternet crop. Exact historical023 bytes and visual receipts inherited; no fresh download.",
+          "fresh_review_ref": "turn14211view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14211view0"
+        ],
+        "fresh_rights_review": "Fresh Commons14211view0 confirms CC BY2.5/Fergusson and Binksternet crop. Exact historical023 bytes and visual receipts inherited; no fresh download."
+      },
+      "authored_render_scope": "Genre-level representative vocal-ensemble branch grounded in university-documented Folklore A Cappella practice. Connected syllabic singing and unprocessed acoustic voices are authored choices. Actual singer count, vocal anatomy, temperament, tracking and exact harmony remain unspecified. This is not a reconstruction of a particular competition recording and does not assert optional percussion was absent from that event; no positively documented instrument from a selected recording is removed. Broader accompanied Bugis song remains outside this selected vocal branch. BalladPoetry reflects text-bearing regional song and its documented advice/values tradition; no mandatory narrative plot. Treated concert-hall acoustics are an authored choral listening setting consistent with institutional concert practice, not the measured original venue.",
+      "source_review_refs": [
+        "turn14213search1",
+        "turn14213search3",
+        "turn14218view1"
+      ],
+      "source_scope_limitation": "Genre-level representative vocal-ensemble branch grounded in university-documented Folklore A Cappella practice. Connected syllabic singing and unprocessed acoustic voices are authored choices. Actual singer count, vocal anatomy, temperament, tracking and exact harmony remain unspecified. This is not a reconstruction of a particular competition recording and does not assert optional percussion was absent from that event; no positively documented instrument from a selected recording is removed. Broader accompanied Bugis song remains outside this selected vocal branch. BalladPoetry reflects text-bearing regional song and its documented advice/values tradition; no mandatory narrative plot. Treated concert-hall acoustics are an authored choral listening setting consistent with institutional concert practice, not the measured original venue.",
+      "bounded_runtime_alternative": {
+        "preserved_draft": "/tmp/batch040/resume117-26-bugis-practice.json",
+        "reason": "Controlled concert-hall listening acoustics chosen for positive choral concert practice; no source roles/voice techniques altered. Prior live-room version rendered inappropriate spoken-flowing label and remains held."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_INDEPENDENT_REVIEW"
+}

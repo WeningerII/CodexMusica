@@ -1,0 +1,86 @@
+{
+  "id": "mandolin",
+  "name": "Mandolin",
+  "family": "classical",
+  "lineage": "Mandolin repertoire centers on a small plucked lute whose paired strings support clear melody, ringing chords and rapid repeated-note articulation.",
+  "recipe": "classic mandolin, art Music. mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 137,
+  "score": 0.126,
+  "config": {
+    "traditions": [
+      "mandolin"
+    ],
+    "instruments": [
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "phosphor_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_no_pickup"
+        },
+        "scores": {
+          "acoustic_technique": 0.2,
+          "mandolin_shape": -0.05,
+          "mandolin_top": -0.05,
+          "mandolin_back": -0.05,
+          "mandolin_bracing": -0.05,
+          "mandolin_strings": 0.0315,
+          "mandolin_fingerboard": 0.0315,
+          "mandolin_pickup": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "mandolin": [
+        "acoustic_technique",
+        "mandolin_shape",
+        "mandolin_top",
+        "mandolin_back",
+        "mandolin_bracing",
+        "mandolin_strings",
+        "mandolin_fingerboard",
+        "mandolin_pickup"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_flatpicked",
+      "mandolin_shape": "f_style",
+      "mandolin_top": "adirondack_m",
+      "mandolin_back": "european_maple_loar",
+      "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+      "mandolin_strings": "phosphor_m",
+      "mandolin_fingerboard": "mandolin_ebony_fb",
+      "mandolin_pickup": "mandolin_no_pickup"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

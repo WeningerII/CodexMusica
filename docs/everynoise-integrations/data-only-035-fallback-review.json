@@ -1,0 +1,24 @@
+{
+  "frozen_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "parts": 2066,
+  "protectedParts": 2064,
+  "unpinned": [
+    {
+      "tradition": "bangladeshi_hip_hop",
+      "instrument": "rhodes_electric",
+      "part": "keyboard_technique",
+      "flat_value": "electronic_keyboard_melodic_chordal",
+      "imported_default": "keyboard_block_chord_pop",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "latin_arena_pop",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    }
+  ],
+  "errors": []
+}

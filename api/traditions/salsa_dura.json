@@ -3,9 +3,9 @@
   "name": "Salsa dura (hard 70s NY salsa)",
   "family": "global",
   "lineage": "Aggressive virtuoso style of New York salsa developed in 1970s through Fania All-Stars and broader Fania Records roster. Intense rhythmic-and-instrumental projection, virtuoso solo improvisations, extended compositional structures, politically-conscious socially-realist lyric content addressing immigration, poverty, Latin-American social-justice. Fania Records (1964, Johnny Pacheco, Jerry Masucci) constitutes the institutional anchor.",
-  "recipe": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 825,
-  "score": 125.205,
+  "recipe": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, rap, pure, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 820,
+  "score": 122.835,
   "config": {
     "traditions": [
       "salsa_dura",
@@ -20,7 +20,7 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 1.455,
+          "voice_register": 1.5,
           "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.68025,
+          "voice_vibrato": 1.7349999999999999,
           "voice_articulation": 7.93,
           "voice_microtone": 7.280000000000001,
           "voice_tradition": 3.77,
@@ -69,7 +69,7 @@
           "keyboard_technique": 0.325,
           "grand_piano_size": 0.22499999999999998,
           "grand_piano_brand": 1.3,
-          "piano_hammer": 1.685,
+          "piano_hammer": 1.8800000000000001,
           "piano_rim": 1.3649999999999998,
           "piano_soundboard": -0.05,
           "piano_pinblock": -0.05,
@@ -106,9 +106,9 @@
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "harmon_in",
+          "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_bell_metal": "trumpet_red_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
@@ -118,7 +118,7 @@
           "brass_mute": 0.045,
           "trumpet_technique": 0.585,
           "trumpet_bell_metal": 0.845,
-          "trumpet_maker_school": 1.53025
+          "trumpet_maker_school": 1.345
         }
       },
       {
@@ -127,7 +127,7 @@
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_3g",
-          "trombone_mute": "cup_mute_trb",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -136,10 +136,10 @@
           "wind_articulation": 0.585,
           "trombone_type": 0.12999999999999998,
           "trombone_mouthpiece": 0.12999999999999998,
-          "trombone_mute": 0,
-          "trombone_technique": 1.885,
+          "trombone_mute": 0.045,
+          "trombone_technique": 1.78,
           "trombone_bell_metal": 0.845,
-          "trombone_maker_school": 1.53025
+          "trombone_maker_school": 1.345
         }
       },
       {
@@ -151,7 +151,7 @@
         },
         "scores": {
           "percussion_technique": 9.275,
-          "timbales_shell": 5.0495,
+          "timbales_shell": 4.279999999999999,
           "timbales_context": 0.345
         }
       },
@@ -166,8 +166,8 @@
         "scores": {
           "percussion_technique": 9.275,
           "conga_set": 0.045,
-          "conga_skin": 1.899,
-          "conga_shell_wood": 1.899
+          "conga_skin": 1.5,
+          "conga_shell_wood": 1.5
         }
       },
       {
@@ -180,9 +180,9 @@
         },
         "scores": {
           "percussion_technique": 9.275,
-          "bongos_skin": 5.86275,
+          "bongos_skin": 5.25,
           "bongos_context": 0.43499999999999994,
-          "bongos_shell_wood": 1.899
+          "bongos_shell_wood": 1.5
         }
       },
       {
@@ -190,12 +190,12 @@
         "slots": {
           "cencerro_bell_type": "cencerro_mambo_bell",
           "cencerro_context": "cencerro_montuno",
-          "cencerro_build": "cencerro_welded_steel"
+          "cencerro_build": "cencerro_cattle_bell"
         },
         "scores": {
           "cencerro_bell_type": 0.195,
           "cencerro_context": 0.195,
-          "cencerro_build": 0.045
+          "cencerro_build": 0.38999999999999996
         }
       }
     ],

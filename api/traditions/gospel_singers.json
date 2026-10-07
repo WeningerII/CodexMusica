@@ -3,9 +3,9 @@
   "name": "Gospel singers",
   "family": "blues_gospel",
   "lineage": "Gospel singers is represented by The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-  "recipe": "classic early-2000s gospel singers, ritual Devotional, black gospel branch. humbucker electric guitar, upright bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 225,
-  "score": 8.16,
+  "recipe": "classic early-2000s gospel singers, ritual Devotional, black gospel branch. blues slide open string slide resonance humbucker electric guitar, upright bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 265,
+  "score": 7.719,
   "config": {
     "traditions": [
       "gospel_singers"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1815,
+          "voice_ensemble_config": 0.204,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.44249999999999995,
-          "voice_multitrack_stack": 0.28650000000000003,
+          "voice_processing_chain": 0.42,
+          "voice_multitrack_stack": 0.30900000000000005,
           "voice_tessitura": 0
         }
       },
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_60s_selmer",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.1049999999999998,
+          "amp_make": 0.9549999999999998,
           "body_wood": 0.39,
           "neck_wood": 0.0315,
           "fretboard": 0.11249999999999999,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
           "string_material": 0.0315,
-          "bridge": 1.3,
+          "bridge": 1.0315,
           "scale_length": 0.39,
-          "string_gauge": 1.3,
+          "string_gauge": 1.0315,
           "finish": 0,
-          "string_tuning": 0.8145
+          "string_tuning": 1.017
         }
       },
       {
@@ -100,12 +100,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.8049999999999999,
+          "drumhead": 0.825,
           "drum_kit_kick_pedal": 0
         }
       }

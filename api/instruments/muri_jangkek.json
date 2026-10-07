@@ -1,0 +1,119 @@
+{
+  "id": "muri_jangkek",
+  "name": "Muri Jangkek",
+  "short": "Muri Jangkek",
+  "family": "wind",
+  "class": "muri_jangkek",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+  "sources": [
+    "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+    "https://bcf-india.org/museum/"
+  ],
+  "parts": [
+    {
+      "id": "muri_jangkek_reed",
+      "name": "reed",
+      "variants": [
+        {
+          "id": "muri_jangkek_reed_idioglot",
+          "name": "Idioglot bamboo reed",
+          "default": true,
+          "descriptors": [
+            "idioglot-reed",
+            "bamboo-reed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "muri_jangkek_tube",
+      "name": "tube",
+      "variants": [
+        {
+          "id": "muri_jangkek_tube_bamboo",
+          "name": "Bamboo sounding tube",
+          "default": true,
+          "descriptors": [
+            "bamboo"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "muri_jangkek_bell",
+      "name": "bell",
+      "variants": [
+        {
+          "id": "muri_jangkek_bell_animal_horn",
+          "name": "Animal-horn bell; species unspecified",
+          "default": true,
+          "descriptors": [
+            "horn-bell"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "muri_jangkek_reed",
+      "name": "reed",
+      "variants": [
+        {
+          "id": "muri_jangkek_reed_idioglot",
+          "name": "Idioglot bamboo reed",
+          "default": true,
+          "descriptors": [
+            "idioglot-reed",
+            "bamboo-reed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "muri_jangkek_tube",
+      "name": "tube",
+      "variants": [
+        {
+          "id": "muri_jangkek_tube_bamboo",
+          "name": "Bamboo sounding tube",
+          "default": true,
+          "descriptors": [
+            "bamboo"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "muri_jangkek_bell",
+      "name": "bell",
+      "variants": [
+        {
+          "id": "muri_jangkek_bell_animal_horn",
+          "name": "Animal-horn bell; species unspecified",
+          "default": true,
+          "descriptors": [
+            "horn-bell"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

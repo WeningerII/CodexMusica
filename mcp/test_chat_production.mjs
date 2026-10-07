@@ -284,14 +284,14 @@ test('maximum recovery exports complete through actual HTTP and durable receipts
       assert.equal(body.stopped, 'RECOVERY_EXPORTED');
       assert.equal(requests, before + 1, 'no provider sees the recovered output');
       assert.ok(
-        Buffer.byteLength(raw) < 4 * 1024 * 1024,
+        Buffer.byteLength(raw) < 9 * 1024 * 1024,
         'HTTP response fits the existing durable response cap'
       );
       const receipt = store.get(id);
       assert.equal(receipt.state, 'completed');
       assert.equal(receipt.response.body.reply, expected);
       assert.ok(
-        Buffer.byteLength(JSON.stringify(receipt)) < 8 * 1024 * 1024,
+        Buffer.byteLength(JSON.stringify(receipt)) < 18 * 1024 * 1024,
         'complete receipt fits the existing record cap'
       );
       t.diagnostic(
@@ -798,7 +798,7 @@ test('largest carried ASCII, escaped and multibyte receipts complete durably wit
     store.begin(id, { request_id: id, message: 'small' });
     let err;
     try {
-      store.complete(id, 200, { reply: 'x'.repeat(4 * 1024 * 1024) });
+      store.complete(id, 200, { reply: 'x'.repeat(9 * 1024 * 1024) }); // RESPONSE_BYTES, ~~4~~ 9 MiB since 2026-10-04
     } catch (e) {
       err = e;
     }

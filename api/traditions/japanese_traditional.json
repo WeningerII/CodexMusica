@@ -1,0 +1,66 @@
+{
+  "id": "japanese_traditional",
+  "name": "Japanese traditional",
+  "family": "classical",
+  "lineage": "Japanese traditional music gathers distinct historical lineages, including court music, theater, vocal repertoire and instrumental schools. Transmission through teachers and communities preserves contrasting instruments, techniques and aesthetic approaches.",
+  "recipe": "classic japanese traditional, art Music, east Asian branch. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi. live tracking.",
+  "recipe_chars": 185,
+  "score": 10.748,
+  "config": {
+    "traditions": [
+      "japanese_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "one_eight",
+          "shaku_technique": "meri_kari",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": 2.6075000000000004,
+          "shaku_length": -0.035,
+          "shaku_technique": 2.7725,
+          "shakuhachi_body_material": 2.6,
+          "shakuhachi_lineage": 2.8034999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "shakuhachi": [
+        "wind_articulation",
+        "shaku_length",
+        "shaku_technique",
+        "shakuhachi_body_material",
+        "shakuhachi_lineage"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "shaku_length": "one_eight",
+      "shaku_technique": "meri_kari",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_kinko"
+    },
+    "pin_parts": true
+  }
+}

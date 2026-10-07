@@ -1,0 +1,114 @@
+{
+  "id": "pinoy_traditional",
+  "name": "Pinoy traditional",
+  "family": "vernacular",
+  "lineage": "Hanunóo man — Ambáhan, complete 1:09 track FW04466_124 on the 1953 Folkways release Hanunóo Music from the Philippines. The issuer credits one unnamed lead vocalist. Original field notes identify Side II Band13 as a lover’s chant, give the complete short courtship verse, and describe its three-note recitation, lengthened line endings and terminating lowered voice. Postma’s firsthand Hanunóo study explicitly distinguishes unaccompanied ambahan from guitar-accompanied urukay; this is not an arbitrary removal of album instruments. All other album tracks, including separately identified flute/fiddle and instrumental ensembles, lie outside this complete-track scope. Release year does not assert an exact recording date. The creator Pinoy traditional field expressly includes Hanunóo man alongside rondalla/dance ensembles, Kulintang and Magindanaon epic chant, establishing a multi-regional traditional Philippine umbrella. The selected unaccompanied Hanunóo poetic practice is a positive branch outside the actual existing kulintang gong-ensemble identity, Filipino harana guitar-serenade formation and kundiman minor-to-major triple-meter art-song structure. Their repertoires can overlap this national field; no claim of mutually exclusive geography or ethnicity. Existing Pinoy indie/pop/rock categories describe modern popular networks, not the full traditional field. A courtship theme alone does not make the selected indigenous recitation identical to harana or kundiman. Broad balladPoetry follows the source’s complete intimate poetic courtship recitation. No worship, chord sequence, drone or equal-temperament inference. Existing voice retains the sole singer; single-lead solo-unaccompanied and free-rhythm recitative are supported by the source, with neutral unspecified physiology, ornament inventory, exact pitch system and tradition controls. The field notes’ three-tone observation is preserved as evidence, not mistranslated into a catalog pentatonic or Western tuning preset. Exact intervals and original equipment are not reconstructed. Moderate effort, neutral tract and a controlled live-room rendition are authored defaults, not measured source anatomy or recording location. No additional instrumental cards are required for this independently documented unaccompanied track.",
+  "recipe": "classic early-1950s pinoy traditional, ballad Poetry. recitative rhythmically free pitched speech, solo unaccompanied, single lead single track no stacking. live tracking.",
+  "recipe_chars": 171,
+  "score": 22.905,
+  "config": {
+    "traditions": [
+      "pinoy_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.750000000000001,
+          "voice_ensemble_config": 7.455499999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 11.7,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_recitative_free_rhythm",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "packet_sha256": "39e42f89e656e17bef0ef6d52ab4e3879d7f69db2c98beb7886e125bdd422f3f",
+  "baseline_instruments": 1477,
+  "after_instruments": 1483,
+  "preserved_existing": true,
+  "changed_existing": [],
+  "unknown_descriptor_tokens": [],
+  "new_merged_parts": [
+    {
+      "id": "electronic_organ_unspecified",
+      "parts": ["electronic_organ_identity", "keyboard_technique"]
+    },
+    {
+      "id": "dung_chen_contemporary",
+      "parts": ["dung_chen_contemporary_identity"]
+    },
+    {
+      "id": "uyghur_dutar",
+      "parts": ["uyghur_dutar_identity"]
+    },
+    {
+      "id": "janggu_concert_accompaniment",
+      "parts": [
+        "janggu_use",
+        "janggu_construction",
+        "janggu_shell_wood",
+        "janggu_head",
+        "janggu_concert_lineage"
+      ]
+    },
+    {
+      "id": "electric_cello_live_looping",
+      "parts": [
+        "bowed_technique",
+        "electric_cello_identity",
+        "electric_cello_playing",
+        "electric_cello_looping"
+      ]
+    },
+    {
+      "id": "uilleann_pipes_three_quarter",
+      "parts": [
+        "uilleann_three_quarter_articulation",
+        "uilleann_three_quarter_configuration",
+        "uilleann_pipes_pitch",
+        "uilleann_chanter_wood",
+        "uilleann_reed",
+        "uilleann_bag",
+        "uilleann_three_quarter_makers"
+      ]
+    }
+  ]
+}

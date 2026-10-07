@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "baseline": "25032b44098122db2d453bf66583a684aa38c6eb",
+  "files_checked": 261,
+  "checked_paths": [
+    "scripts",
+    "mcp",
+    ".github",
+    "references/_descriptor_df.json",
+    "references/_soundword_vocab.json",
+    "references/_signature_rulings.json",
+    "references/03_rooms.js",
+    "references/04_chains.js",
+    "references/_instrument_family_parts.js"
+  ],
+  "unexpected_changes": [],
+  "source_roots": "Original scripts/MCP/workflows, frozenDF/vocab/rulings/sharedreferences. Generated appsignature additions independently reviewed.",
+  "no_mutations": true,
+  "original_frozen_sha256": "a86ececfb3060fb93628fdf301aace42ae0a87b8f393e99edefeeed0e990ac09",
+  "final_integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843"
+}

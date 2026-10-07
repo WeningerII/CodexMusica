@@ -1,0 +1,247 @@
+{
+  "entries": [
+    {
+      "id": "polish_drill",
+      "source_label": "polish drill",
+      "suggested_id": "polish_drill",
+      "allocation_ordinal": 446,
+      "allocation_group_id": "018",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "polish_drill",
+        "name": "Polish Drill",
+        "family": "hip_hop",
+        "lineage": "Polish drill — Polish-language rap adapting British-influenced drill production and delivery.",
+        "instruments": [
+          "voice",
+          "drum_machine_808",
+          "analog_synth"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical",
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "square_pulse",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.drill",
+        "description": "Polish drill brings Polish-language rap into the British-influenced drill sound, with forceful rhythmic verses over sparse melodies, electronic bass and sharply programmed drums. Artists such as Miszel connect local rap communities with international drill platforms. The field shares drill’s production vocabulary while developing its own language, performers and audience.",
+        "exemplars": [
+          "Miszel"
+        ],
+        "axes": {
+          "percussion": 2,
+          "soundTech": 2,
+          "intensity": 1
+        }
+      },
+      "geo": [
+        52.2297,
+        21.0122,
+        "Warsaw",
+        "Europe"
+      ],
+      "geo_rationale": "Producer own Warsaw location anchors one documented production-network node; not wholefield exclusive origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.mixtapemadness.com/blog/videos/mm-international-polish-drill-artist-miszel-sets-pace-with-god-save-the-queen",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13433view0 exclusive issuing platform explicitlyPolishDrill, UK influence, Polish/English rapping and Premixm production. Genre/practitioner evidence, not exact waveform/hardware reconstruction."
+        },
+        {
+          "url": "https://network.landr.com/users/forgeth",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13433view1 producer own profile identifies Miszel asPolishDrill collaborator, beatmaking practice and FLStudio/Cubase. Supports software-production network, not exclusive gear claim for specific song."
+        },
+        {
+          "url": "https://www.spreaker.com/episode/miszel-czy-przewiduje-przyszlosc-w-swoich-utworach-rap20--65527038",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh13433view2 ESKA own interview description discusses artist introducingUKDrilltoPoland; no unheard spoken answer quoted."
+        },
+        {
+          "url": "https://polskaplyta-polskamuzyka.pl/2021/04/21/miszel-w-strone-swiatla-recenzja/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Independent contemporary review13431search3 corroborates drill808production. Secondary corroboration explicitly identified."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "polish_drill",
+          "name": "Polish Drill",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13422view0 verifies CC BY2.5 credit; exact inherited historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn13422view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12131view2; no current binary/visual claim."
+      },
+      "model_policy": "Representative genre-level rapper and programmed-drum/electronic-bass production. Existing808 and analog-synth cards are ordinary authored drill realization; no source-specific oscillator, hardware, exact BPM, vocal anatomy or original track reconstruction claimed. The known production and rap roles are retained. No requirement that every artist uses exactly these devices.",
+      "neighbor_distinction": "Full existing PolishHipHop is broad national field, not limited to its selected live trio. PolishDrill is a narrower positive British-influenced production/rap branch within it. Existing Drill covers Chicago origins and diaspora; national localization overlaps that parent but is explicitlynamed by issuer and producer. Queued PolishOldSchoolHipHop sample/bboy field, PolishUndergroundRap independent network, and PolishViralRap distribution field all may overlap artists but do not define this drill-specific lineage. No new physical technology or sonic exclusivity asserted.",
+      "classification_evidence": "Exclusive issuer explicitlyuses #PolishDrill and UK influence; collaborating producer own profile and radiointerview independently place practitioner in Polishdrill field.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative genre-level rapper and programmed-drum/electronic-bass production. Existing808 and analog-synth cards are ordinary authored drill realization; no source-specific oscillator, hardware, exact BPM, vocal anatomy or original track reconstruction claimed. The known production and rap roles are retained. No requirement that every artist uses exactly these devices."
+        },
+        {
+          "instrument": "drum_machine_808",
+          "parts": {
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_trap",
+            "tr808_production_origin": "tr808_roland_osaka_canonical"
+          },
+          "policy": "Representative genre-level rapper and programmed-drum/electronic-bass production. Existing808 and analog-synth cards are ordinary authored drill realization; no source-specific oscillator, hardware, exact BPM, vocal anatomy or original track reconstruction claimed. The known production and rap roles are retained. No requirement that every artist uses exactly these devices."
+        },
+        {
+          "instrument": "analog_synth",
+          "parts": {
+            "electronic_technique": "electronic_bass_sub",
+            "oscillator": "square_pulse",
+            "filter_topology": "transistor_ladder",
+            "envelope": "pluck_env",
+            "modulation": "lfo_pitch"
+          },
+          "policy": "Representative genre-level rapper and programmed-drum/electronic-bass production. Existing808 and analog-synth cards are ordinary authored drill realization; no source-specific oscillator, hardware, exact BPM, vocal anatomy or original track reconstruction claimed. The known production and rap roles are retained. No requirement that every artist uses exactly these devices."
+        }
+      ],
+      "instrument_role_audit": {
+        "voice": "Representative rap lead",
+        "drum_machine_808": "Authored programmed percussion",
+        "analog_synth": "Authored electronic bass supporting drill production"
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "count_basis": "No fixed scene-wide singer count; single lead is an authored preset choice, not source personnel statement."
+      },
+      "source_scope_limitation": "Representative genre-level rapper and programmed-drum/electronic-bass production. Existing808 and analog-synth cards are ordinary authored drill realization; no source-specific oscillator, hardware, exact BPM, vocal anatomy or original track reconstruction claimed. The known production and rap roles are retained. No requirement that every artist uses exactly these devices.",
+      "source_url": "https://everynoise.com/engenremap-polishdrill.html"
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -5,7 +5,7 @@
   "lineage": "The Dutch metal field includes Within Temptation’s melodic, guitar-and-keyboard-based symphonic branch. Hydra-era interviews describe a more guitar-oriented record and a varied set of guest voices, while Ruud Jolie explains home guitar recording and amplifier profiling. This authored five-role reduction keeps lead voice, guitar, bass, drums and a piano/orchestral keyboard layer. Guest rap, duet partners and expanded orchestral forces are documented alternatives rather than mandatory ingredients of every Dutch metal recording.",
   "recipe": "classic modern dutch metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. power chord humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 463,
-  "score": 53.564,
+  "score": 48.622,
   "config": {
     "traditions": [
       "dutch_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.13775,
-          "amp_make": 1.56,
-          "body_wood": 0.5775,
+          "electric_technique": 17.1235,
+          "amp_make": 1.2,
+          "body_wood": 0.62025,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.21075,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.62025,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.6187499999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.56,
-          "body_wood": 0.5775,
+          "amp_make": 1.2,
+          "body_wood": 0.62025,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.7237499999999999,
-          "fretted_or_not": 0.5557499999999999,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.21075,
+          "fretted_or_not": 0,
+          "bass_technique": 3.82825,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.62025,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.5557499999999999,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.34225,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
         }
       },
@@ -120,19 +120,19 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.1395,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 3.685250000000001,
+          "voice_microtone": 3.500000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.520749999999999,
-          "voice_ensemble_config": 1.5945,
+          "voice_speech_song": 0.7649999999999999,
+          "voice_ensemble_config": 1.6342500000000002,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
+          "voice_pitch_organization": 0.5572499999999999,
           "voice_processing_chain": -0.07,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 1.5955
         }
       },
       {

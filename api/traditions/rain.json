@@ -1,0 +1,58 @@
+{
+  "id": "rain",
+  "name": "Rain",
+  "family": "electronic",
+  "lineage": "Jude Frankum — Rain Recording (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic late-2010s rain, experimental Elec. environmental field recording rain environmental recording. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 202,
+  "score": 5.199,
+  "config": {
+    "traditions": [
+      "rain"
+    ],
+    "instruments": [
+      {
+        "id": "rain_environmental_recording",
+        "slots": {
+          "rain_environmental_source": "rain_field_recording_source"
+        },
+        "scores": {
+          "rain_environmental_source": 5.199499999999999
+        }
+      }
+    ],
+    "pinned": {
+      "rain_environmental_recording": [
+        "rain_environmental_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "rain_environmental_source": "rain_field_recording_source"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

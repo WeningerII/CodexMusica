@@ -1,0 +1,58 @@
+{
+  "id": "qanun",
+  "name": "Qanun",
+  "family": "global",
+  "lineage": "Qanun music centers on the plucked zither across Arab, Turkish and other regional performance traditions. Improvisation, ensemble accompaniment and newly composed repertoire connect inherited modal practices with contemporary exploration.",
+  "recipe": "classic qanun, art Music. kanun. live tracking.",
+  "recipe_chars": 47,
+  "score": 0.163,
+  "config": {
+    "traditions": [
+      "qanun"
+    ],
+    "instruments": [
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_arab",
+          "kanun_articulation": "kanun_synthetic_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.313,
+          "kanun_school": -0.15000000000000002,
+          "kanun_articulation": 0
+        }
+      }
+    ],
+    "pinned": {
+      "kanun": [
+        "plucked_traditional_technique",
+        "kanun_school",
+        "kanun_articulation"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "kanun_school": "kanun_arab",
+      "kanun_articulation": "kanun_synthetic_pick"
+    },
+    "pin_parts": true
+  }
+}

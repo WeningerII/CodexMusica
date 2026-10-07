@@ -2,10 +2,10 @@
   "id": "hungarian_edm",
   "name": "Hungarian edm",
   "family": "electronic",
-  "lineage": "Hungarian edm is represented by Cloud 9+ — A38-documented 2018 live-band core. One documented branch receives an authored present-day studio realization.",
-  "recipe": "classic late-2010s hungarian edm, electronic Dance. interlocked note trading, neutral third half flat, notated speech melody. humbucker electric guitar, electric bass, drum kit, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 300,
-  "score": 23.715,
+  "lineage": "Hungarian EDM includes electronic producers and live acts that connect dance production with rock-band performance.",
+  "recipe": "classic hungarian edm, electronic Dance. solo with instrumental accompaniment. humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 298,
+  "score": 20.96,
   "config": {
     "traditions": [
       "hungarian_edm"
@@ -19,15 +19,15 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
@@ -37,71 +37,71 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.3649999999999998,
-          "voice_microtone": 1.1699999999999995,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 1.3649999999999998,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.18150000000000002,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.363
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_american_fender_champ",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.1049999999999998,
-          "body_wood": 0.063,
-          "neck_wood": 0,
-          "fretboard": 0,
+          "amp_make": 1.005,
+          "body_wood": 0.39,
+          "neck_wood": 0.168,
+          "fretboard": 0.063,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.063,
           "string_material": 0,
-          "bridge": 1.3,
-          "scale_length": 0,
-          "string_gauge": 1.3,
-          "finish": 0.1365,
-          "string_tuning": 0.39
+          "bridge": 0.168,
+          "scale_length": 0.231,
+          "string_gauge": 0.063,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.7149999999999999,
-          "body_wood": 0,
+          "amp_make": 2.015,
+          "body_wood": 0.231,
           "pickup_config": 0,
-          "string_type": 0.855,
-          "scale_length_b": 0,
-          "fretted_or_not": 0.063,
+          "string_type": 2.605,
+          "scale_length_b": 0.126,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -109,13 +109,13 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "machine_drum_program",
+          "drum_technique": "sticks_rock",
           "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.305000000000001,
-          "drumhead": 0.39,
+          "drum_technique": 2.5,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,13 +125,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0,
-          "sample_swing": 6.25,
-          "sample_processing": 0.1365
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0.126,
+          "sample_swing": 8.75,
+          "sample_processing": 0
         }
       }
     ],
@@ -139,9 +139,17 @@
       "voice": [
         "voice_register",
         "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
         "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
         "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
         "voice_ensemble_config",
+        "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
         "voice_multitrack_stack"
@@ -153,8 +161,14 @@
       "electric_bass": [
         "bass_technique"
       ],
+      "drum_kit": [
+        "drum_technique"
+      ],
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -180,14 +194,26 @@
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_processing_chain": "voice_processing_unprocessed",
       "electric_technique": "electric_power_chord",
       "string_tuning": "standard_tuning",
       "bass_technique": "fingerstyle_locked",
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "drum_technique": "sticks_rock",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

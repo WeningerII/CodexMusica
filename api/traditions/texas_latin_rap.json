@@ -2,10 +2,10 @@
   "id": "texas_latin_rap",
   "name": "Texas latin rap",
   "family": "hip_hop",
-  "lineage": "Texas Latin rap includes Baby Bash’s Houston work with Happy Perez and the Dope House network. Defaults are a present-day authored realization, not a historical session reconstruction.",
-  "recipe": "classic modern texas latin rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 43.078,
+  "lineage": "Texas hip-hop shaped by Latino artists and local recording networks, including Houston collaborations associated with Baby Bash and Happy Perez.",
+  "recipe": "classic modern texas latin rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. pitched chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 52.482,
   "config": {
     "traditions": [
       "texas_latin_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.35,
+          "voice_quality": 12.415,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.464999999999998,
+          "voice_speech_song": 12.268999999999998,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.522
         }
       },
       {
@@ -57,14 +57,14 @@
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "sampler_archetypes": 3.9,
-          "sampler_bit_depth": 0.21,
-          "sampler_workflow": 2.55,
-          "sampler_classic_context": 7.215000000000001
+          "electronic_technique": 4.1499999999999995,
+          "sampler_archetypes": 7.279999999999999,
+          "sampler_bit_depth": 0.318,
+          "sampler_workflow": 4.499999999999999,
+          "sampler_classic_context": 9.229999999999999
         }
       }
     ],

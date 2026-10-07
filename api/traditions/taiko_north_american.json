@@ -5,7 +5,7 @@
   "lineage": "Diasporic drum-ensemble tradition founded in California — San Francisco Taiko Dojo under Tanaka Seiichi in 1968, Kinnara Taiko at Senshin Buddhist Temple in Los Angeles in 1969, San Jose Taiko in 1973 — adapting Japanese kumi-daiko to Japanese-American identity work with wine-barrel-built nagado drums, choreographed full-body stances, shime-daiko keeping the ji base pulse under odaiko solos, unison kiai shouts and pieces built as sectional grooves at 100-160 BPM rather than festival-cycle accompaniment.",
   "recipe": "classic late-1960s taiko, groove Percussion, east Asian branch, east Asian carnival processional, buddhist ritual devotional japanese matsuri festival drumming himalayan vajrayana liturgy. thick, declaimed, breath pulsed, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, odaiko, shime daiko, untempered pitch drift bright ritual synthetic resin shinobue, kane japanese. gymnasium. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 566,
-  "score": 173.071,
+  "score": 173.037,
   "config": {
     "traditions": [
       "taiko_north_american",
@@ -23,10 +23,10 @@
           "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
-          "taiko_size": 0.7799999999999999,
-          "taiko_skin": 7.539999999999998,
+          "taiko_size": 0.9749999999999999,
+          "taiko_skin": 7.494999999999998,
           "taiko_shell_wood": 7.734999999999999,
-          "taiko_lineage": 8.314,
+          "taiko_lineage": 7.284999999999999,
           "taiko_technique": 4.875
         }
       },
@@ -40,7 +40,7 @@
         "scores": {
           "odaiko_mounting": 2.73,
           "odaiko_bachi": 0.195,
-          "odaiko_shell": 0.195
+          "odaiko_shell": 0.39
         }
       },
       {
@@ -50,7 +50,7 @@
           "shime_daiko_hardware": "shime_daiko_bolt"
         },
         "scores": {
-          "shime_daiko_tension": 0.408,
+          "shime_daiko_tension": 0.345,
           "shime_daiko_hardware": 0.845
         }
       },
@@ -63,10 +63,10 @@
           "shinobue_bore": "shinobue_bore_resin"
         },
         "scores": {
-          "shinobue_family": 23.16,
-          "shinobue_choshi": 23.1645,
-          "shinobue_context": 24.192499999999995,
-          "shinobue_bore": 2.1065
+          "shinobue_family": 23.355,
+          "shinobue_choshi": 23.07,
+          "shinobue_context": 24.259999999999994,
+          "shinobue_bore": 1.97
         }
       },
       {
@@ -97,25 +97,25 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 0.6175000000000002,
-          "voice_quality": 5.0165,
+          "voice_quality": 4.985,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.3,
           "voice_articulation": 6.5649999999999995,
           "voice_microtone": 6.37,
-          "voice_tradition": 22.041499999999996,
+          "voice_tradition": 22.024999999999995,
           "voice_mechanism_compound": 3.835,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 6.5649999999999995,
           "voice_ensemble_config": 7.995,
-          "voice_ornament_system": 5.425000000000001,
+          "voice_ornament_system": 6.155000000000001,
           "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 1.56,
           "voice_multitrack_stack": 1.6899999999999997

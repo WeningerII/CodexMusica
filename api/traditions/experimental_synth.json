@@ -2,10 +2,10 @@
   "id": "experimental_synth",
   "name": "Experimental synth",
   "family": "electronic",
-  "lineage": "Experimental synth is represented here by Suzanne Ciani — Galeria Bonino Buchla concert (1974). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-1970s experimental synth, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 12.521,
+  "lineage": "Experimental synth music treats synthesis as a medium for exploring timbre, movement and musical form. Modular instruments have been important in live electronic improvisation and composition.",
+  "recipe": "classic experimental synth, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 12.597,
   "config": {
     "traditions": [
       "experimental_synth"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 10.5255,
-          "mod_voltage_source": 0.38849999999999996,
+          "electronic_technique": 10.2205,
+          "mod_voltage_source": 1.3,
           "mod_patch_density": 0,
-          "mod_lineage": 1.607
+          "mod_lineage": 1.076
         }
       }
     ],

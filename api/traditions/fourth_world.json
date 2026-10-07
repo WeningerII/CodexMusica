@@ -1,0 +1,105 @@
+{
+  "id": "fourth_world",
+  "name": "Fourth world",
+  "family": "electronic",
+  "lineage": "Fourth World developed around Jon Hassell’s meeting of trumpet practice, electronic sound and musical influences crossing inherited stylistic boundaries. Its atmospheric textures link instrumental phrasing with studio and synthesis processes.",
+  "recipe": "classic fourth world, experimental Elec, ambient branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, sustained pad modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 8.727,
+  "config": {
+    "traditions": [
+      "fourth_world"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "brass_size": 0.273,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 1.0605000000000002,
+          "trumpet_maker_school": 1.2285000000000001
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_serge_tcherepnin"
+        },
+        "scores": {
+          "electronic_technique": 4.1995000000000005,
+          "mod_voltage_source": 0.3,
+          "mod_patch_density": 1.95,
+          "mod_lineage": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "electronic_technique": "electronic_pad_drone",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_serge_tcherepnin"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

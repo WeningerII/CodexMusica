@@ -2,10 +2,10 @@
   "id": "slovak_folk",
   "name": "Slovak folk",
   "family": "vernacular",
-  "lineage": "Slovak folk: Folkart Slovakia — Idem, idem, real-fujara MP3 demonstration in A. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "lineage": "Slovak folk music encompasses regional singing, dance and pastoral instrumental traditions. Central Slovakia’s shepherd culture is closely associated with the fujara, while other local traditions use different ensembles and vocal styles.",
   "recipe": "classic slovak folk, drone Modal, wind pipe branch. agile brighter pastoral ornamented fujara. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 193,
-  "score": 12.97,
+  "score": 19.706,
   "config": {
     "traditions": [
       "slovak_folk"
@@ -16,12 +16,12 @@
         "slots": {
           "fujara_form": "fujara_a_short",
           "fujara_repertoire": "fujara_pastierska",
-          "fujara_wood": "fujara_maple_locust_etched"
+          "fujara_wood": "fujara_elder_traditional"
         },
         "scores": {
-          "fujara_form": 6.313999999999999,
-          "fujara_repertoire": 5.681500000000001,
-          "fujara_wood": 0.975
+          "fujara_form": 6.709999999999999,
+          "fujara_repertoire": 13.0315,
+          "fujara_wood": -0.035
         }
       }
     ],
@@ -41,13 +41,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "fujara_form": "fujara_a_short",

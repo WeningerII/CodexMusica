@@ -2,10 +2,10 @@
   "id": "spanish_blues",
   "name": "Spanish blues",
   "family": "blues_gospel",
-  "lineage": "Spanish blues includes local bands and transatlantic recording networks performing blues repertoire. Madrid-born Javier Vargas and the Vargas Blues Band anchor a documented electric branch through Back in Memphis, with guitar, bass, drums, keyboard and lead vocals.",
-  "recipe": "classic modern spanish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, drum kit, a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 485,
-  "score": 16.454,
+  "lineage": "Spanish blues connects local bands with international blues recording and performance networks. Javier Vargas and the Vargas Blues Band exemplify an electric approach combining singing and lead guitar with an amplified rhythm section and keyboard accompaniment.",
+  "recipe": "classic modern spanish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, drum kit, grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
+  "score": 19.38,
   "config": {
     "traditions": [
       "spanish_blues"
@@ -38,12 +38,12 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 8.319999999999999,
+          "voice_microtone": 7.93,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7244999999999999,
-          "voice_ensemble_config": 1.69,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 3.9,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
@@ -68,7 +68,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 1.41,
           "amp_make": 0,
           "body_wood": 0.16799999999999998,
           "neck_wood": 0.1995,
@@ -102,7 +102,7 @@
           "string_type": 0,
           "scale_length_b": 0.0945,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.035,
+          "bass_technique": 0.325,
           "electric_bass_string_configuration": 0
         }
       },
@@ -135,13 +135,13 @@
         "scores": {
           "keyboard_technique": -0.07,
           "grand_piano_size": 0.1995,
-          "grand_piano_brand": 0,
+          "grand_piano_brand": 1,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.07,
           "piano_plate": -0.07,
-          "piano_pitch_standard": 1.625
+          "piano_pitch_standard": -0.035
         }
       }
     ],

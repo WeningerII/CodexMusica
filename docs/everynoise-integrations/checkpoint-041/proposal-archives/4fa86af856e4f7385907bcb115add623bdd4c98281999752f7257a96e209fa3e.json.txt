@@ -1,0 +1,677 @@
+{
+  "entries": [
+    {
+      "source_label": "oromo pop",
+      "source_url": "https://everynoise.com/engenremap-oromopop.html",
+      "suggested_id": "oromo_pop",
+      "allocation_ordinal": 1819,
+      "allocation_group_id": "073",
+      "id": "oromo_pop",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "oromo_pop",
+        "name": "Oromo Pop",
+        "family": "pop",
+        "lineage": "Oromo pop — contemporary Oromo-language popular song combining local vocal expression with electric-band production.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Oromo pop brings Oromo-language singing and regional song traditions into contemporary popular-band settings. Electric guitar, bass, keyboards and drum kit support lead and group vocals, with repertoire ranging from love songs to wider social expression. In Jimma, ensembles such as Shenen Gibe Band connect local cultural institutions with this modern electric sound.",
+        "exemplars": [
+          "Shenen Gibe Band — documented Jimma Oromo electric popular-band practice, Sheba Sound2015"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        7.67,
+        36.83,
+        "Jimma",
+        "Africa"
+      ],
+      "geo_rationale": "Issuer explicitly locates this practice/session in Jimma; place anchor, not precise theatre address.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://shebasound.com/2015/01/jimma-oromo/",
+          "support_notes": "Fresh direct13254view0 full issuer account and cultural-office firsthand interview; lines9–31 electric practice/full roster, contrasted afternoon32–52; contemporary development64/love-song practice67.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Oromo Pop selects the modern electric popular-song practice expressly contrasted by the recording issuer and Jimma cultural-office director with traditional cultural-instrument performance. Existing oromo_music_ethiopian is a broader Oromo heritage umbrella that explicitly includes contemporary protest songs and Hachalu Hundessa; its scope is not falsely limited to ancient or rural music. The new field overlaps that umbrella but emphasizes positively documented electric popular-band production and youthful love-song circulation, not a new genre merely because the band differs. Ethiopian_pop is the wider national popular-song field, whose Gigi/Amharic exemplar does not exclude Oromo performers. The Oromo ethnolinguistic community and practitioner distinction supply a narrower popular field, with overlap acknowledged.",
+      "classification_evidence": "Oromo Pop selects the modern electric popular-song practice expressly contrasted by the recording issuer and Jimma cultural-office director with traditional cultural-instrument performance. Existing oromo_music_ethiopian is a broader Oromo heritage umbrella that explicitly includes contemporary protest songs and Hachalu Hundessa; its scope is not falsely limited to ancient or rural music. The new field overlaps that umbrella but emphasizes positively documented electric popular-band production and youthful love-song circulation, not a new genre merely because the band differs. Ethiopian_pop is the wider national popular-song field, whose Gigi/Amharic exemplar does not exclude Oromo performers. The Oromo ethnolinguistic community and practitioner distinction supply a narrower popular field, with overlap acknowledged.",
+      "model_policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted.",
+      "source_scope_limitation": "Documented contemporary Jimma Oromo electric popular-band practice of Shenen Gibe Band, described firsthand by recording issuer Sheba Sound in January2015. The group regularly practices in the town cinema with electric keyboard, bass guitar, lead guitar and western drum kit; the issuer positively identifies its whole morning electric session, distinct from the separate afternoon traditional Hagerigna session. Six named vocalists plus Weynishet Shimelis dance/vocals are retained across the practice, without assuming every singer performs every song simultaneously. No dance footstep percussion is invented. This models the complete documented band practice, not a claim that a selected individual track contains the entire roster. Afternoon krar/kebero, separate Manasseh dub and general cultural-office masinqo discussion are not morning-band credits.",
+      "source_retrieval_caveat": "Full primary issuer page directly retrieved. No audition or exact creator-map membership claimed; direct ethnolinguistic community and contemporary popular-practice evidence used.",
+      "vocal_count_audit": {
+        "named_practice_singers": 7,
+        "simultaneous_count": null,
+        "tracking": null,
+        "basis": "Six listed vocalists plus one dance/vocals, complete practice union; authored combined group rendition."
+      },
+      "instrument_role_audit": {
+        "source_people": {
+          "Abduletif Jemal": "vocals",
+          "Wendimagegn Tadesse": "vocals",
+          "Mohammed Delil": "vocals",
+          "Endalkachew Gero": "vocals",
+          "Hussein Ababor": "vocals",
+          "Merga Teferra": "vocals",
+          "Weynishet Shimelis": "dance and vocals",
+          "Wendwessen Desta": "drums",
+          "Abiy Mitiku": "lead guitar",
+          "Bedru Ahmed": "bass guitar",
+          "Binyam Mulatu": "keyboards"
+        },
+        "positive_families": 5,
+        "omitted_positive_roles": [],
+        "scope": "Documented contemporary Jimma Oromo electric popular-band practice of Shenen Gibe Band, described firsthand by recording issuer Sheba Sound in January2015. The group regularly practices in the town cinema with electric keyboard, bass guitar, lead guitar and western drum kit; the issuer positively identifies its whole morning electric session, distinct from the separate afternoon traditional Hagerigna session. Six named vocalists plus Weynishet Shimelis dance/vocals are retained across the practice, without assuming every singer performs every song simultaneously. No dance footstep percussion is invented. This models the complete documented band practice, not a claim that a selected individual track contains the entire roster. Afternoon krar/kebero, separate Manasseh dub and general cultural-office masinqo discussion are not morning-band credits.",
+        "authored_defaults": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Compatible shared construction keys; neutral keyboard technique protected with no competing keyboard owner."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "oromo_pop",
+          "name": "Oromo Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Oromo musicians, source gear, voice instrument or Jimma venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13089view1 CC BY2.5/credit, inherited exact023 bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn13089view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13089view1"
+        ],
+        "fresh_rights_review": "Fresh rights/context only; no new download or visual claim."
+      },
+      "primary_receipt": "/tmp/batch040/oromo-practice-primary461.json",
+      "render_context_audit": {
+        "initial_probe": "Original live_room probe retained separately; spoken-flowing voice insufficiently faithful to explicit sung practice.",
+        "final": "Single coherent hall rendition grounded in actual theatre-stage practice. Huge/immense/stereophonic reflect authored expansive room; cutting guitar and trudging kit are generic presence/pulse affects, not new ethnic technique. Full continuous/syllabic sung group retained. No source tempo, hall measurements or actual dynamics claim.",
+        "runtime": "/tmp/batch040/transfer461-from116-oromo-hall-runtime.json"
+      },
+      "genre_profile_repair_evidence": {
+        "original_source": "/tmp/batch040/transfer461-from116-oromo-hall.json",
+        "original_entry": {
+          "source_label": "oromo pop",
+          "source_url": "https://everynoise.com/engenremap-oromopop.html",
+          "suggested_id": "oromo_pop",
+          "allocation_ordinal": 1819,
+          "allocation_group_id": "073",
+          "id": "oromo_pop",
+          "status": "READY_FOR_INDEPENDENT_REVIEW",
+          "tradition": {
+            "id": "oromo_pop",
+            "name": "Oromo Pop",
+            "family": "pop",
+            "lineage": "Documented contemporary Jimma Oromo electric popular-band practice of Shenen Gibe Band, described firsthand by recording issuer Sheba Sound in January2015. The group regularly practices in the town cinema with electric keyboard, bass guitar, lead guitar and western drum kit; the issuer positively identifies its whole morning electric session, distinct from the separate afternoon traditional Hagerigna session. Six named vocalists plus Weynishet Shimelis dance/vocals are retained across the practice, without assuming every singer performs every song simultaneously. No dance footstep percussion is invented. This models the complete documented band practice, not a claim that a selected individual track contains the entire roster. Afternoon krar/kebero, separate Manasseh dub and general cultural-office masinqo discussion are not morning-band credits. An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted.",
+            "instruments": [
+              "voice",
+              "electric_guitar_single_coil",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "legato_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_syllabic_singing",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder",
+              "neck_wood": "maple",
+              "fretboard": "rosewood_fb",
+              "pickup_magnet": "alnico_2",
+              "string_material": "pure_nickel",
+              "string_gauge": "g_10",
+              "bridge": "two_point_trem",
+              "scale_length": "scale_fender",
+              "finish": "nitro",
+              "string_tuning": "standard_tuning",
+              "single_coil_pickup_construction": "single_coil_construction_unspecified",
+              "pickup_config": "dual_single",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Documented contemporary Jimma Oromo electric popular-band practice of Shenen Gibe Band, described firsthand by recording issuer Sheba Sound in January2015. The group regularly practices in the town cinema with electric keyboard, bass guitar, lead guitar and western drum kit; the issuer positively identifies its whole morning electric session, distinct from the separate afternoon traditional Hagerigna session. Six named vocalists plus Weynishet Shimelis dance/vocals are retained across the practice, without assuming every singer performs every song simultaneously. No dance footstep percussion is invented. This models the complete documented band practice, not a claim that a selected individual track contains the entire roster. Afternoon krar/kebero, separate Manasseh dub and general cultural-office masinqo discussion are not morning-band credits. An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted.",
+            "exemplars": [
+              "Shenen Gibe Band — documented Jimma Oromo electric popular-band practice, Sheba Sound2015"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            7.67,
+            36.83,
+            "Jimma",
+            "Africa"
+          ],
+          "geo_rationale": "Issuer explicitly locates this practice/session in Jimma; place anchor, not precise theatre address.",
+          "signature_tokens": [],
+          "sources": [
+            {
+              "url": "https://shebasound.com/2015/01/jimma-oromo/",
+              "support_notes": "Fresh direct13254view0 full issuer account and cultural-office firsthand interview; lines9–31 electric practice/full roster, contrasted afternoon32–52; contemporary development64/love-song practice67.",
+              "checked_date": "2026-10-03"
+            }
+          ],
+          "neighbor_distinction": "Oromo Pop selects the modern electric popular-song practice expressly contrasted by the recording issuer and Jimma cultural-office director with traditional cultural-instrument performance. Existing oromo_music_ethiopian is a broader Oromo heritage umbrella that explicitly includes contemporary protest songs and Hachalu Hundessa; its scope is not falsely limited to ancient or rural music. The new field overlaps that umbrella but emphasizes positively documented electric popular-band production and youthful love-song circulation, not a new genre merely because the band differs. Ethiopian_pop is the wider national popular-song field, whose Gigi/Amharic exemplar does not exclude Oromo performers. The Oromo ethnolinguistic community and practitioner distinction supply a narrower popular field, with overlap acknowledged.",
+          "classification_evidence": "Oromo Pop selects the modern electric popular-song practice expressly contrasted by the recording issuer and Jimma cultural-office director with traditional cultural-instrument performance. Existing oromo_music_ethiopian is a broader Oromo heritage umbrella that explicitly includes contemporary protest songs and Hachalu Hundessa; its scope is not falsely limited to ancient or rural music. The new field overlaps that umbrella but emphasizes positively documented electric popular-band production and youthful love-song circulation, not a new genre merely because the band differs. Ethiopian_pop is the wider national popular-song field, whose Gigi/Amharic exemplar does not exclude Oromo performers. The Oromo ethnolinguistic community and practitioner distinction supply a narrower popular field, with overlap acknowledged.",
+          "model_policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted.",
+          "source_scope_limitation": "Documented contemporary Jimma Oromo electric popular-band practice of Shenen Gibe Band, described firsthand by recording issuer Sheba Sound in January2015. The group regularly practices in the town cinema with electric keyboard, bass guitar, lead guitar and western drum kit; the issuer positively identifies its whole morning electric session, distinct from the separate afternoon traditional Hagerigna session. Six named vocalists plus Weynishet Shimelis dance/vocals are retained across the practice, without assuming every singer performs every song simultaneously. No dance footstep percussion is invented. This models the complete documented band practice, not a claim that a selected individual track contains the entire roster. Afternoon krar/kebero, separate Manasseh dub and general cultural-office masinqo discussion are not morning-band credits.",
+          "source_retrieval_caveat": "Full primary issuer page directly retrieved. No audition or exact creator-map membership claimed; direct ethnolinguistic community and contemporary popular-practice evidence used.",
+          "vocal_count_audit": {
+            "named_practice_singers": 7,
+            "simultaneous_count": null,
+            "tracking": null,
+            "basis": "Six listed vocalists plus one dance/vocals, complete practice union; authored combined group rendition."
+          },
+          "instrument_role_audit": {
+            "source_people": {
+              "Abduletif Jemal": "vocals",
+              "Wendimagegn Tadesse": "vocals",
+              "Mohammed Delil": "vocals",
+              "Endalkachew Gero": "vocals",
+              "Hussein Ababor": "vocals",
+              "Merga Teferra": "vocals",
+              "Weynishet Shimelis": "dance and vocals",
+              "Wendwessen Desta": "drums",
+              "Abiy Mitiku": "lead guitar",
+              "Bedru Ahmed": "bass guitar",
+              "Binyam Mulatu": "keyboards"
+            },
+            "positive_families": 5,
+            "omitted_positive_roles": [],
+            "scope": "Documented contemporary Jimma Oromo electric popular-band practice of Shenen Gibe Band, described firsthand by recording issuer Sheba Sound in January2015. The group regularly practices in the town cinema with electric keyboard, bass guitar, lead guitar and western drum kit; the issuer positively identifies its whole morning electric session, distinct from the separate afternoon traditional Hagerigna session. Six named vocalists plus Weynishet Shimelis dance/vocals are retained across the practice, without assuming every singer performs every song simultaneously. No dance footstep percussion is invented. This models the complete documented band practice, not a claim that a selected individual track contains the entire roster. Afternoon krar/kebero, separate Manasseh dub and general cultural-office masinqo discussion are not morning-band credits.",
+            "authored_defaults": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "legato_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_syllabic_singing",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+            },
+            {
+              "instrument": "electric_guitar_single_coil",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder",
+                "neck_wood": "maple",
+                "fretboard": "rosewood_fb",
+                "pickup_magnet": "alnico_2",
+                "string_material": "pure_nickel",
+                "string_gauge": "g_10",
+                "bridge": "two_point_trem",
+                "scale_length": "scale_fender",
+                "finish": "nitro",
+                "string_tuning": "standard_tuning",
+                "single_coil_pickup_construction": "single_coil_construction_unspecified"
+              },
+              "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder",
+                "pickup_config": "dual_single",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "parts": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "policy": "An authored contemporary Oromo popular-band rendition keeps all five positive role families. Seven credited singers across the practice are represented with a combined live group and live ensemble stack, not a claim of simultaneous original harmonies or absence of overdubs. Connected syllabic singing is an authored choice consistent with positively sung love songs, with neutral unknown physiology and lineage. Source lead guitar is authored clean-strummed alder/maple single-coil electric, bass dual-single electric with roundwound strings, and western kit maple/coated-head stick backbeat; exact source models, woods, skins and notes are not claimed. Bare keyboard retains unspecified electronic architecture. An authored functional-harmonic verse-chorus-bridge popular-song arrangement is deliberate, not a transcription of original Oromo harmony or form. A treated concert-hall listening rendition is authored for the positively documented theatre-stage practice. Broad natural room response supports a shared band and vocal-group space; shoebox geometry, decay and stereo capture are editorial choices, not measured Jimma venue facts. No global tuning or capture apparatus asserted."
+            }
+          ],
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "voice",
+              "electric_guitar_single_coil",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified"
+            ]
+          },
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "note": "Compatible shared construction keys; neutral keyboard technique protected with no competing keyboard owner."
+          },
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "oromo_pop",
+              "name": "Oromo Pop",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic recording microphone context; not Oromo musicians, source gear, voice instrument or Jimma venue.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh Commons13089view1 CC BY2.5/credit, inherited exact023 bytes and visual receipt unchanged.",
+              "fresh_review_ref": "turn13089view1"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_retrieval_refs": [
+              "turn13089view1"
+            ],
+            "fresh_rights_review": "Fresh rights/context only; no new download or visual claim."
+          },
+          "primary_receipt": "/tmp/batch040/oromo-practice-primary461.json",
+          "render_context_audit": {
+            "initial_probe": "Original live_room probe retained separately; spoken-flowing voice insufficiently faithful to explicit sung practice.",
+            "final": "Single coherent hall rendition grounded in actual theatre-stage practice. Huge/immense/stereophonic reflect authored expansive room; cutting guitar and trudging kit are generic presence/pulse affects, not new ethnic technique. Full continuous/syllabic sung group retained. No source tempo, hall measurements or actual dynamics claim.",
+            "runtime": "/tmp/batch040/transfer461-from116-oromo-hall-runtime.json"
+          }
+        },
+        "reason": "Concise general genre profile with full source and default rationale retained separately. Five-role electric-band seed is representative documented Oromo pop practice."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -2,10 +2,10 @@
   "id": "blackened_deathcore",
   "name": "Blackened deathcore",
   "family": "rock_punk",
-  "lineage": "Blackened/symphonic deathcore represented by Lorna Shore’s documented orchestral arrangements, distorted riff writing and extreme-metal rhythm section. The model is an authored extended-range studio branch rather than a replica of one current live rig.",
-  "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal christian symphonic metal autonomous black metal. solo with instrumental accompaniment, unprocessed natural acoustic. drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 603,
-  "score": 77.251,
+  "lineage": "Blackened deathcore connects deathcore’s low-register rhythmic impact with black-metal atmosphere and, in some bands, elaborate symphonic writing. Lorna Shore exemplify a composition-driven strand where orchestral layers are developed alongside the distorted band material.",
+  "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal christian symphonic metal autonomous black metal. solo with instrumental accompaniment, unprocessed natural acoustic. drop a seven string electric, ampeg svt amp rock bass amp mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 597,
+  "score": 76.194,
   "config": {
     "traditions": [
       "blackened_deathcore",
@@ -20,15 +20,15 @@
           "seven_string_technique": "seven_string_djent_palm_mute"
         },
         "scores": {
-          "seven_string_tuning": 6.175,
-          "seven_string_technique": 0.3
+          "seven_string_tuning": 4.615,
+          "seven_string_technique": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
@@ -38,12 +38,12 @@
         },
         "scores": {
           "amp_make": 6.4350000000000005,
-          "body_wood": 0.645,
+          "body_wood": 1.69,
           "pickup_config": 0,
-          "string_type": 1.3,
-          "scale_length_b": 0.345,
-          "fretted_or_not": 0.3,
-          "bass_technique": 11.868749999999999,
+          "string_type": 0.5850000000000001,
+          "scale_length_b": 1.345,
+          "fretted_or_not": 0,
+          "bass_technique": 11.681249999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -64,11 +64,11 @@
         },
         "scores": {
           "drum_technique": 11.045,
-          "drumhead": 0.39,
+          "drumhead": 1.69,
           "drum_kit_kick_pedal": 0.78,
-          "shell_wood": 1.3,
+          "shell_wood": 0.5850000000000001,
           "shell_thickness": 0,
-          "bearing_edges": 1.3,
+          "bearing_edges": 0.5850000000000001,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 10.899999999999999,
@@ -108,7 +108,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.8199999999999998,
+          "voice_ensemble_config": 3.5100000000000002,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.585,
@@ -126,10 +126,10 @@
         },
         "scores": {
           "electronic_technique": 0.325,
-          "sampler_archetypes": 4.125,
-          "sampler_bit_depth": 1.085,
+          "sampler_archetypes": 1.625,
+          "sampler_bit_depth": 2.085,
           "sampler_workflow": 1.79,
-          "sampler_classic_context": 0.25
+          "sampler_classic_context": -0.05
         }
       }
     ],

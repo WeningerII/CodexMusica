@@ -1,0 +1,120 @@
+{
+  "id": "musica_caririense",
+  "name": "Música caririense",
+  "family": "global",
+  "lineage": "Música caririense connects the musical communities of Ceará’s Cariri region, including songwriting, percussion, rock and experimental work. Local artists and independent labels bring these approaches into shared circulation.",
+  "recipe": "classic música caririense, improv On Frame. humbucker electric guitar, pandeirola meia lua. live tracking. digital delay.",
+  "recipe_chars": 121,
+  "score": 1.157,
+  "config": {
+    "traditions": [
+      "musica_caririense"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 0,
+          "body_wood": 0,
+          "neck_wood": 0,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 0.9099999999999999,
+          "finish": 0,
+          "string_tuning": 0.1365
+        }
+      },
+      {
+        "id": "pandeirola_meia_lua",
+        "slots": {
+          "pandeirola_meia_lua_form": "pandeirola_meia_lua_plastic_jingles",
+          "pandeirola_meia_lua_gesture": "pandeirola_meia_lua_foot_pulse"
+        },
+        "scores": {
+          "pandeirola_meia_lua_form": 0,
+          "pandeirola_meia_lua_gesture": 0.23099999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "pandeirola_meia_lua": [
+        "pandeirola_meia_lua_form",
+        "pandeirola_meia_lua_gesture"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electric_technique": "electric_feedback_drone",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "pandeirola_meia_lua_form": "pandeirola_meia_lua_plastic_jingles",
+      "pandeirola_meia_lua_gesture": "pandeirola_meia_lua_foot_pulse"
+    },
+    "pin_parts": true,
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

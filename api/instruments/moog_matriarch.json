@@ -1,0 +1,53 @@
+{
+  "id": "moog_matriarch",
+  "name": "Moog Matriarch",
+  "short": "Moog Matriarch",
+  "family": "electronic",
+  "class": "moog_matriarch",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "moog_matriarch_identity",
+      "name": "Documented model identity",
+      "variants": [
+        {
+          "id": "moog_matriarch_documented_model",
+          "name": "Moog Matriarch; undocumented patch controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Analog semi-modular synthesizer with four analog oscillators and mono/two/four-note paraphonic modes; selected performance mode, patches and sequencing use unspecified.",
+  "sources": [
+    "https://gamechops.com/metroid-prime-frigate-darkwave-glasys-cover/",
+    "https://api.moogmusic.com/sites/default/files/2023-03/Matriarch_Manual_012023.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "moog_matriarch_identity",
+      "name": "Documented model identity",
+      "variants": [
+        {
+          "id": "moog_matriarch_documented_model",
+          "name": "Moog Matriarch; undocumented patch controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

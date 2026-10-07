@@ -1,0 +1,71 @@
+{
+  "status": "BOTH_LOCAL_FAILURES_REPRODUCED_ON_EXACT_BASELINE",
+  "reviewer": "research_119",
+  "frozen_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "baseline_commit": "f94053d65f1bc67e545cb7dacf04c659609d03dc",
+  "equivalent_merged_commit": "ad35e6b770f08dc8c14fbdcb65b5ca8d9a5f7591",
+  "baseline_tree": "34f8331ae92b457371169ace91da7d79ec72e27b",
+  "environment": {
+    "browser": "Chromium151.0.7922.173 Debian13",
+    "executable": "/usr/bin/chromium",
+    "PLAYWRIGHT_BROWSERS_PATH": "/tmp/codex-playwright",
+    "baseline_directory": "/tmp/batch029/baseline-src",
+    "baseline_api_available": true
+  },
+  "unchanged_input_proof": [
+    {
+      "path": "scripts/check_ui_foundation.js",
+      "baseline_matches_commit": true,
+      "baseline_matches_current": true,
+      "sha256": "e8c627b58555732b640fe38234faae4cfc0c3e14b31644bb583cd4ccaaa97491"
+    },
+    {
+      "path": "scripts/ui_reachability_check.js",
+      "baseline_matches_commit": true,
+      "baseline_matches_current": true,
+      "sha256": "7d7e1cc49aadc59cbacd2c777cc9cd8237cab60e8004b12d97c487596b0f947d"
+    },
+    {
+      "path": "scripts/build_html.js",
+      "baseline_matches_commit": true,
+      "baseline_matches_current": true,
+      "sha256": "78f8e892716b882a6a293147fc20d827e1f110ecf4e105e748015d93ff9fd5f6"
+    },
+    {
+      "path": "src/workbench.js",
+      "baseline_matches_commit": true,
+      "baseline_matches_current": true,
+      "sha256": "5ec9d9ab89f800e1d9cecaa3f8151f4913ade99fb0109e3d59afc65d0beee315"
+    },
+    {
+      "path": "assets/icon-192.png",
+      "baseline_matches_commit": true,
+      "baseline_matches_current": true,
+      "sha256": "cfb35de45d0ad080697560defc0d3ae293a58ed3e776a58969846a0362263ec2"
+    },
+    {
+      "path": "assets/icon-1024.png",
+      "baseline_matches_commit": true,
+      "baseline_matches_current": true,
+      "sha256": "0a482a013172ac8d1a0ef23dd19975d38979c2e3169fdbba4c30027f22e381c9"
+    }
+  ],
+  "foundation": {
+    "baseline_log": "/tmp/batch029/ui-foundation-baseline119.log",
+    "current_log": "/tmp/batch029/check_ui_foundation.log",
+    "baseline_exit": 1,
+    "logs_byte_identical": true,
+    "failure": "Single check O: enlarged Delta blues image retained prior1024px larger image instead of thumb after mocked larger fetch failure.",
+    "classification": "Reproduced unchanged predecessor behavior in same browser environment; not introduced by029. Image caching/mock-route interaction remains an inference, not proven root cause."
+  },
+  "reachability": {
+    "baseline_log": "/tmp/batch029/ui-reachability-baseline119.log",
+    "current_log": "/tmp/batch029/ui_reachability_check.log",
+    "baseline_exit": 2,
+    "same_error": true,
+    "baseline_and_current_entry_count": 220,
+    "classification": "Both predecessor and current stop at managed-browser file:// navigation denial before exercising reachability assertions. This is an environment access block, not evidence the reachability assertions pass."
+  },
+  "decision": "Keep shared UI, browser policy and tests unchanged. Disclose local failures; exact-head remote CI with unchanged gates must pass before merge.",
+  "no_repo_mutations": true
+}

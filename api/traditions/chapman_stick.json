@@ -1,0 +1,62 @@
+{
+  "id": "chapman_stick",
+  "name": "Chapman Stick",
+  "family": "vernacular",
+  "lineage": "Chapman Stick music centers on the fretted tapping instrument developed by Emmett Chapman. Players such as Michael Kollwitz use its independent bass and melody ranges in original pieces and arrangements across several styles.",
+  "recipe": "classic chapman stick, improv On Frame. independent hand tap chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 174,
+  "score": 1.647,
+  "config": {
+    "traditions": [
+      "chapman_stick"
+    ],
+    "instruments": [
+      {
+        "id": "chapman_stick",
+        "slots": {
+          "chapman_stick_strings": "chapman_stick_ten_string",
+          "chapman_stick_technique": "chapman_stick_two_hand_tap"
+        },
+        "scores": {
+          "chapman_stick_strings": 0.2415,
+          "chapman_stick_technique": 1.405
+        }
+      }
+    ],
+    "pinned": {
+      "chapman_stick": [
+        "chapman_stick_strings",
+        "chapman_stick_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "chapman_stick_strings": "chapman_stick_ten_string",
+      "chapman_stick_technique": "chapman_stick_two_hand_tap"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -187,7 +187,7 @@ the command line above used to name it.
 ~~Wrap these six functions as MCP tools (mcp-builder pattern) and point the
 model at them: draft -> check_scheme + check_meter -> revise flagged lines
 only -> re-check.~~ STRUCK 2026-09-26: the wrap shipped on 2026-08-18 as the
-connector's lyric tools (`mcp/lyric_tools.js`; `CLAUDE.md`, "The loop, and
+connector's lyric tools (`mcp/lyric_tools.js`; `HANDBOOK.md`, "The loop, and
 the MCP wrap plan").
 
 ### Declared tempo and seconds

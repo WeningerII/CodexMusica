@@ -280,10 +280,13 @@ class ProductionRevisionTests(unittest.TestCase):
                          functions=['verse', 'chorus', 'outro'],
                          wants=['uses=verse,chorus', 'sections>=3', 'returns>=1'])
         share = audible_share(plan)
-        self.assertEqual(share['end_bound'], 2)
+        # ~~2~~ -> 3 end-bound groups since 2026-10-04 (measured): the planner
+        # ties rhymes only at line ends (owner's ruling), so the scheme group
+        # 1,3,4 is end-bound now instead of placed at headrime/T5.
+        self.assertEqual(share['end_bound'], 3)
         self.assertEqual(share['bare'], 0)
         self.assertFalse(share['inaudible'])
-        self.assertEqual(share['unclassified'], ['class:CONSONANCE'] * 2)
+        self.assertEqual(share['unclassified'], ['class:CONSONANCE'] * 3)
         # Per-group declarations still override the global declaration;
         # absence of both remains a real bare default.
         plan = {'groups': '1,2;3,4', 'relation': 'schema:consonance',

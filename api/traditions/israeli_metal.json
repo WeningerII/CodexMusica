@@ -5,7 +5,7 @@
   "lineage": "Israeli metal as a scene umbrella, represented by Orphaned Land’s metal and Middle Eastern melodic synthesis. Exact defaults are an authored contemporary realization.",
   "recipe": "classic modern israeli metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mulberry eastern alternative bouzouki, carpathian spruce hard rock maple acer saccharum liebenzeller metal infused violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 570,
-  "score": 79.416,
+  "score": 79.798,
   "config": {
     "traditions": [
       "israeli_metal"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
+          "voice_articulation": 0.1365,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -76,13 +76,13 @@
           "neck_wood": 0.5775,
           "fretboard": 0.315,
           "pickup_magnet": 0.21,
-          "pickup_winding": 0.3045,
-          "string_material": 0.1365,
+          "pickup_winding": 0.37799999999999995,
+          "string_material": 0.21,
           "bridge": 0.5775,
           "scale_length": 7.799999999999999,
           "string_gauge": 0.7875,
           "finish": 0.105,
-          "string_tuning": 0.39
+          "string_tuning": 0.3
         }
       },
       {
@@ -102,9 +102,9 @@
           "body_wood": 1.155,
           "pickup_config": 0.21,
           "string_type": 4.875,
-          "scale_length_b": 0.5775,
-          "fretted_or_not": 0.231,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.609,
+          "fretted_or_not": 0.2625,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 0.7245,
           "drum_kit_kick_pedal": 0
         }

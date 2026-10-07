@@ -5,7 +5,7 @@
   "lineage": "Early-childhood music-and-movement pedagogy derived from West German Musikalische Früherziehung of the 1960s, brought to the United States in 1974 and formalized as a licensed curriculum from Greensboro, North Carolina in 1993, using short diatonic call-and-response songs at walking tempo (roughly 90-120 BPM), steady duple meter for locomotor play, adult-led unison singing in a comfortable child register, and unpitched hand percussion, resonator bells and glockenspiel handed to the children themselves.",
   "recipe": "classic mid-1960s kindermusik, nursery Rhyme, americas branch, European nursery rhyme muziek voor kinderen barnmusik. extended whistle, breath veiled tone, straight note core, interlocked note trading. glockenspiel, snappy to palm hand clap, xylophone, ukulele, handbells diatonic martellato damped handbells, nickel bronze modern blend strummed open chord ringing overtones dreadnought acoustic guitar, naive celeste block chord toy piano. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 586,
-  "score": 149.089,
+  "score": 148.34,
   "config": {
     "traditions": [
       "kindermusik",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.9239999999999995,
+          "voice_register": 5.8,
           "voice_quality": 6.37,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 18.52499999999999,
           "voice_tradition": 7.280000000000001,
           "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 3.7365000000000004,
+          "voice_estill_quality": 3.6900000000000004,
           "voice_speech_song": 20.669999999999995,
           "voice_ensemble_config": 19.044999999999995,
           "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 4.809,
+          "voice_pitch_organization": 4.51,
           "voice_processing_chain": 5.1675,
           "voice_multitrack_stack": 5.7524999999999995
         }
@@ -62,7 +62,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "glockenspiel_size": 1.4299999999999997,
-          "glockenspiel_mallet": 0.045
+          "glockenspiel_mallet": 0.09
         }
       },
       {
@@ -72,7 +72,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 2.7814999999999994,
+          "clap_technique": 2.6899999999999995,
           "clap_capture": 0.39
         }
       },
@@ -97,7 +97,7 @@
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": 1.8850000000000002,
+          "ukulele_size": 1.84,
           "ukulele_style": 0,
           "ukulele_wood": 0.9399999999999998
         }
@@ -109,8 +109,8 @@
           "handbells_technique": "handbells_martellato_damped"
         },
         "scores": {
-          "handbells_set": 2.9250000000000003,
-          "handbells_technique": 1.24
+          "handbells_set": 2.795,
+          "handbells_technique": 1.39
         }
       },
       {
@@ -123,7 +123,7 @@
           "string_acoustic": "nickel_bronze"
         },
         "scores": {
-          "acoustic_technique": 4.119,
+          "acoustic_technique": 3.9499999999999997,
           "string_tuning": 0.6499999999999999,
           "top_wood": 0.045,
           "back_sides": 0.45499999999999996,
@@ -140,7 +140,7 @@
         "scores": {
           "keyboard_technique": 3.95,
           "toy_piano_type": 0,
-          "toy_piano_aesthetic": 1.534
+          "toy_piano_aesthetic": 1.4949999999999999
         }
       }
     ],

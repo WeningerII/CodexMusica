@@ -2,10 +2,10 @@
   "id": "danish_metal",
   "name": "Danish metal",
   "family": "rock_punk",
-  "lineage": "Denmark’s metal field includes stylistically varied bands. The selected Volbeat branch combines riff-led metal with rock-and-roll and psychobilly inflections. Michael Poulsen’s account of Servant of the Mind documents rhythm guitars, separately contributed lead solos, bass and drums, with a long-used SG/JCM800 combination. This authored four-role recording model emphasizes the electric rhythm section and melodic lead voice; one guitar card represents the rhythm/lead guitar family rather than claiming the album has one guitarist.",
-  "recipe": "classic modern danish metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 557,
-  "score": 82.695,
+  "lineage": "Danish metal encompasses varied heavy styles and rock crossovers. Copenhagen’s Volbeat exemplify a riff-led approach that draws on metal, rock-and-roll and punk-inflected rhythms.",
+  "recipe": "classic modern danish metal, distorted Rock, metal branch. one note per syllable, aurally tuned. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 500,
+  "score": 71.162,
   "config": {
     "traditions": [
       "danish_metal"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany_h",
+          "body_wood": "alder",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "ceramic_h",
@@ -29,41 +29,41 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.12,
-          "amp_make": 5.07,
-          "body_wood": 0.5775,
+          "electric_technique": 14.878,
+          "amp_make": 7.605,
+          "body_wood": 0.222,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.222,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.5775,
+          "bridge": 0.6315000000000001,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.7649999999999998
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_h",
-          "pickup_config": "split_coil",
-          "string_type": "roundwound_s",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.265,
-          "body_wood": 0.5775,
+          "amp_make": 4.875,
+          "body_wood": 0.222,
           "pickup_config": 0,
-          "string_type": 0.105,
-          "scale_length_b": 0.8699999999999999,
-          "fretted_or_not": 0.7019999999999998,
-          "bass_technique": 6.949999999999999,
+          "string_type": 0,
+          "scale_length_b": 0.222,
+          "fretted_or_not": 0,
+          "bass_technique": 11.658000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,16 +83,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
-          "drumhead": 0.5775,
-          "drum_kit_kick_pedal": 1.69,
+          "drum_technique": 8.75,
+          "drumhead": 0.6315000000000001,
+          "drum_kit_kick_pedal": 0.39,
           "shell_wood": 0.42,
-          "shell_thickness": 0.7019999999999998,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 7.036499999999999,
-          "cymbal_lathing": 7.972499999999999,
+          "cymbal_hammering": 8.840499999999999,
+          "cymbal_lathing": 8.786499999999998,
           "cymbal_finish": 0
         }
       },
@@ -105,16 +105,17 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "voice_vibrato_local_unspecified",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_syllabic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_aural_relative",
           "voice_processing_chain": "voice_processing_slapback_tape_echo_80_140ms",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
@@ -123,23 +124,23 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 6.984,
+          "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.3799999999999994,
-          "voice_ensemble_config": 3.3799999999999994,
+          "voice_speech_song": 0.9509999999999998,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": -0.10500000000000001,
-          "voice_multitrack_stack": 5.045999999999999
+          "voice_pitch_organization": 0.5684999999999999,
+          "voice_processing_chain": 0.19500000000000003,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -158,7 +159,8 @@
         "string_type",
         "scale_length_b",
         "fretted_or_not",
-        "bass_technique"
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique",
@@ -189,7 +191,8 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ]
     },
     "room": "treated_studio",
@@ -203,7 +206,6 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": [
@@ -211,27 +213,27 @@
     ]
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
       "voice_articulation": "legato_voice",
       "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "tempered_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_none",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_aural_relative",
       "voice_processing_chain": "voice_processing_slapback_tape_echo_80_140ms",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "electric_technique": "electric_palm_muted_chug",
-      "body_wood": "mahogany_h",
+      "body_wood": "alder",
       "neck_wood": "maple_neck_h",
       "fretboard": "ebony_fb_h",
       "pickup_magnet": "ceramic_h",
@@ -242,12 +244,11 @@
       "string_gauge": "g_10_hum",
       "finish": "poly_hum",
       "string_tuning": "standard_tuning",
-      "pickup_config": "split_coil",
-      "string_type": "roundwound_s",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_british_marshall_jcm800",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",
@@ -258,7 +259,8 @@
       "cymbal_alloy": "b20",
       "cymbal_hammering": "machine_symmetric_hammering",
       "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish"
+      "cymbal_finish": "traditional_finish",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",
@@ -269,6 +271,8 @@
     "chain_console": "console_in_the_box",
     "chain_fx": [
       "plate_reverb"
-    ]
+    ],
+    "chain_amp_guitar": "amp_british_marshall_jcm800",
+    "chain_amp_bass": "amp_unspecified"
   }
 }

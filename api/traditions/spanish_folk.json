@@ -2,10 +2,10 @@
   "id": "spanish_folk",
   "name": "Spanish folk",
   "family": "vernacular",
-  "lineage": "Spanish folk encompasses many regional vocal and instrumental traditions. The officially documented Cantabrian rabel-and-song practice supplies one concrete branch without treating it as the instrumentation of every Spanish region.",
-  "recipe": "classic modern spanish folk, ballad Poetry. thick, pure, notated speech melody, solo with instrumental accompaniment. rabel castellano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 273,
-  "score": 18.717,
+  "lineage": "Spanish folk encompasses regional song, dance and instrumental traditions maintained through local communities and transmission between generations. Cantabrian rabel singing is one intimate strand, in which bowed strings accompany narrative and vernacular song.",
+  "recipe": "classic modern spanish folk, ballad Poetry. thick, pure, narrative, m1 with m0 pulse borrowing. melodic bowed song accompaniment rabel castellano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 284,
+  "score": 24.721,
   "config": {
     "traditions": [
       "spanish_folk"
@@ -23,12 +23,12 @@
           "voice_microtone": "voice_microtone_local_unspecified",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_falsetto",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_aural_relative",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_bitcrusher",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -36,18 +36,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2475,
-          "voice_articulation": 0.13000000000000003,
+          "voice_vibrato": 1.638625,
+          "voice_articulation": 1.0399999999999998,
           "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.327,
-          "voice_estill_quality": 0.054,
-          "voice_speech_song": 5.654999999999999,
+          "voice_mechanism_compound": 0.52725,
+          "voice_estill_quality": 0.19500000000000003,
+          "voice_speech_song": 8.385,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.12374999999999999,
+          "voice_ornament_system": 0.26,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0365,
-          "voice_multitrack_stack": 1.3
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -59,10 +59,10 @@
           "rabel_use": "rabel_cantada"
         },
         "scores": {
-          "bowed_technique": 1.69,
+          "bowed_technique": 4.68,
           "rabel_form": 0,
           "rabel_soundboard": 0,
-          "rabel_use": 0.12824999999999998
+          "rabel_use": 0.39
         }
       }
     ],

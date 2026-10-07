@@ -1,0 +1,19 @@
+Built codex.html (5,026,922 bytes)
+  data block:
+    01_family_parts.js              29,550   0.9%
+    02_instruments.js            2,492,879  76.9%
+    03_rooms_chains_tunings.js     328,691  10.1%
+    04_tree.js                     129,463   4.0%
+    07_preface_lexicon.js          193,746   6.0%
+    08_asset_manifest.js            37,137   1.1%
+    09_nav_glyphs.js                29,992   0.9%
+    (data total)                 3,241,458
+check: PASS — data block parses cleanly
+    mode:              lazy shell (traditions/extras and nav glyph art via api/)
+    INSTRUMENTS:       1658
+    ROOMS:             256
+    TUNINGS:           122
+    CHAIN_SECTIONS:    8
+    PREFACE_LEXICON:   740
+    page-only strip:   3 tables, 9 tables' unread fields
+check: PASS — largest <script> 862 KiB [runtime: src/app.js] of 23 blocks (ceiling 1024 KiB)

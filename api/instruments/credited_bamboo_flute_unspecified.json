@@ -1,0 +1,109 @@
+{
+  "id": "credited_bamboo_flute_unspecified",
+  "name": "Credited bamboo flute",
+  "short": "Credited bamboo flute",
+  "family": "wind",
+  "class": "credited_bamboo_flute_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+  "sources": [
+    "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+    "https://bcf-india.org/museum/"
+  ],
+  "parts": [
+    {
+      "id": "credited_bamboo_flute_unspecified_material",
+      "name": "material",
+      "variants": [
+        {
+          "id": "credited_bamboo_flute_unspecified_material_bamboo",
+          "name": "Bamboo body; species and dimensions unspecified",
+          "default": true,
+          "descriptors": [
+            "bamboo"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bamboo_flute_unspecified_construction",
+      "name": "construction",
+      "variants": [
+        {
+          "id": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "name": "Flute; end/side blowing and holes unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bamboo_flute_unspecified_playing",
+      "name": "playing",
+      "variants": [
+        {
+          "id": "credited_bamboo_flute_unspecified_playing_unspecified",
+          "name": "Source articulation and ornament unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_bamboo_flute_unspecified_material",
+      "name": "material",
+      "variants": [
+        {
+          "id": "credited_bamboo_flute_unspecified_material_bamboo",
+          "name": "Bamboo body; species and dimensions unspecified",
+          "default": true,
+          "descriptors": [
+            "bamboo"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bamboo_flute_unspecified_construction",
+      "name": "construction",
+      "variants": [
+        {
+          "id": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "name": "Flute; end/side blowing and holes unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_bamboo_flute_unspecified_playing",
+      "name": "playing",
+      "variants": [
+        {
+          "id": "credited_bamboo_flute_unspecified_playing_unspecified",
+          "name": "Source articulation and ornament unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

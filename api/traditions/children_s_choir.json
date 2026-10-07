@@ -2,10 +2,10 @@
   "id": "children_s_choir",
   "name": "Children's choir",
   "family": "classical",
-  "lineage": "Children's choir is represented by New London Children’s Choir / Alexander Wells — Skempton Pigs Could Fly. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic children's choir, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 251,
-  "score": 48.372,
+  "lineage": "Children’s choirs bring young singers together in educational, community and concert settings. Repertoire ranges from simple shared melodies to multipart works written for developing ensembles.",
+  "recipe": "classic children's choir, art Music. group vocals. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 16.404,
   "config": {
     "traditions": [
       "children_s_choir"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.3,
+          "voice_ensemble_config": 0.7364999999999999,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.27299999999999996,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -55,24 +55,24 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "grand_piano_size": 0.49500000000000005,
-          "grand_piano_brand": 0.9555,
-          "piano_hammer": 8.2675,
-          "piano_rim": 6.5545,
-          "piano_soundboard": 6.25,
-          "piano_pinblock": 6.6579999999999995,
-          "piano_plate": 8.515,
-          "piano_pitch_standard": 6.8229999999999995
+          "grand_piano_size": 0.03899999999999999,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.5205,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": -0.035
         }
       }
     ],
@@ -96,7 +96,15 @@
         "voice_multitrack_stack"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ]
     },
     "room": "treated_studio",
@@ -134,7 +142,15 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "keyboard_technique": "keyboard_classical_legato"
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

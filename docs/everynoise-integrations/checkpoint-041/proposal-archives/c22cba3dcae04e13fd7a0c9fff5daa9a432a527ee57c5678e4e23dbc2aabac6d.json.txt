@@ -1,0 +1,302 @@
+{
+  "entries": [
+    {
+      "source_label": "experimental big band",
+      "source_url": "https://everynoise.com/engenremap-experimentalbigband.html",
+      "suggested_id": "experimental_big_band",
+      "allocation_ordinal": 3265,
+      "allocation_group_id": "131",
+      "status": "frozen_pending_independent_review",
+      "id": "experimental_big_band",
+      "tradition": {
+        "id": "experimental_big_band",
+        "name": "Experimental Big Band",
+        "family": "jazz",
+        "lineage": "Peter Brötzmann Octet — Machine Gun, complete original three-track1968 album program (Machine Gun; Responsible / For Jan Van De Ven; Music for Han Bennink), preserved as tracks1–3 of the official FMP2025 remaster. Whole original issued program, not an arbitrary track subset: issuer explicitly distinguishes original1–3 from later alternate takes4–5 and the earlier Frankfurt live bonus6. Full eight-person roster: Brötzmann tenor/baritone sax; Willem Breuker tenor sax/bass clarinet; Evan Parker tenor sax; Fred Van Hove piano; Peter Kowald and Buschi Niebergall double basses; Han Bennink and Sven-Åke Johansson drums. No credited singers in the complete instrumental ensemble. Frankfurt bonus adds Gerd Dudek and is excluded as a separate performance. Source May1968 Lila Eule, Bremen. Five instrument-family cards retain eight people: sax-section card represents three reed players, bass and drum cards each represent two performers; doubling bass clarinet retained. No claim all registers sound simultaneously throughout. Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern.",
+        "instruments": [
+          "saxophone_section_tenor_baritone",
+          "bass_clarinet",
+          "upright_piano",
+          "double_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "tenor_baritone_section_articulation": "tenor_baritone_section_articulation_short",
+          "bass_clarinet_range": "bass_clarinet_to_low_c",
+          "bass_clarinet_style": "bass_clarinet_jazz",
+          "keyboard_technique": "keyboard_jazz_comping",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass",
+          "drum_technique": "brushes_and_sticks",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "improvOnFrame.americanJazz.avant",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Peter Brötzmann Octet — Machine Gun, complete original three-track1968 album program (Machine Gun; Responsible / For Jan Van De Ven; Music for Han Bennink), preserved as tracks1–3 of the official FMP2025 remaster. Whole original issued program, not an arbitrary track subset: issuer explicitly distinguishes original1–3 from later alternate takes4–5 and the earlier Frankfurt live bonus6. Full eight-person roster: Brötzmann tenor/baritone sax; Willem Breuker tenor sax/bass clarinet; Evan Parker tenor sax; Fred Van Hove piano; Peter Kowald and Buschi Niebergall double basses; Han Bennink and Sven-Åke Johansson drums. No credited singers in the complete instrumental ensemble. Frankfurt bonus adds Gerd Dudek and is excluded as a separate performance. Source May1968 Lila Eule, Bremen. Five instrument-family cards retain eight people: sax-section card represents three reed players, bass and drum cards each represent two performers; doubling bass clarinet retained. No claim all registers sound simultaneously throughout. Exact creator Experimental Big Band playlist positively begins with this Octet Machine Gun and also includes its Music for Han Bennink61, alongside Sun Ra, Globe Unity, London Jazz Composers Orchestra, Fire! Orchestra and other composed/improvised large ensembles. The named discovery field includes expanded ensembles such as this octet and is not falsely defined as a minimum16-person swing band. Full old big_band is explicitly the swing-era sectional/dance-orchestra tradition; full free_jazz and avant_garde_jazz include ensembles and Sun Ra already, not only small combos. This narrower large-ensemble composition/improvisation field overlaps those umbrellas substantially while the full creator corpus also includes arranged creative orchestras; it is not synonymous with all free jazz or merely another Brötzmann record. Existing experimental_jazz is a broad experimentation field, not restricted to its Fly or Die example. No exclusive instrumentation or all-members universal free-time claim. Issuer full roster and jazz/improvised-music labeling support the selected branch; no uncredited traditional big-band brass added. Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern.",
+        "exemplars": [
+          "Peter Brötzmann Octet — Machine Gun, whole original1968 three-track album program"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        53.0793,
+        8.8017,
+        "Bremen",
+        "Europe"
+      ],
+      "geo_rationale": "Issuer explicitly locates original three-track May1968 recording at Lila Eule in Bremen; city-level approximate point, not exact venue coordinates or exclusive genre origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://destination-out.bandcamp.com/album/machine-gun",
+          "support_notes": "12294view0 full exclusive official FMP digital release: complete eight-person roles, original1–3 program explicit, separate later bonus tracks, actual Bremen source geography. Contemporary reviewer quotations attributed as such; roster/edition facts are issuer metadata.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2Xkgh1OTAgZuqnsnWb8QAe",
+          "support_notes": "12285view0 full100 exact creator field, selected Machine Gun1 and same original-program Music for Han Bennink61. Discovery via Melodigging link only, no AI genre prose used.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://darcyjamesargue.bandcamp.com/album/infernal-machines",
+          "support_notes": "Peer sourceaudit independently reproduced12344search5: artist describes18piecebigband blending jazz/experimental rock/minimalism, exactcreator SecretSociety2; category-level breadth beyond free-jazz umbrella, no instrument/personnel import into selected Octet.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Exact creator Experimental Big Band playlist positively begins with this Octet Machine Gun and also includes its Music for Han Bennink61, alongside Sun Ra, Globe Unity, London Jazz Composers Orchestra, Fire! Orchestra and other composed/improvised large ensembles. The named discovery field includes expanded ensembles such as this octet and is not falsely defined as a minimum16-person swing band. Full old big_band is explicitly the swing-era sectional/dance-orchestra tradition; full free_jazz and avant_garde_jazz include ensembles and Sun Ra already, not only small combos. This narrower large-ensemble composition/improvisation field overlaps those umbrellas substantially while the full creator corpus also includes arranged creative orchestras; it is not synonymous with all free jazz or merely another Brötzmann record. Existing experimental_jazz is a broad experimentation field, not restricted to its Fly or Die example. No exclusive instrumentation or all-members universal free-time claim. Issuer full roster and jazz/improvised-music labeling support the selected branch; no uncredited traditional big-band brass added.",
+      "model_policy": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern.",
+      "dependency_audit": "No new instrument owners; preserve all1638 existing definitions.",
+      "classification_evidence": "Exact creator Experimental Big Band playlist positively begins with this Octet Machine Gun and also includes its Music for Han Bennink61, alongside Sun Ra, Globe Unity, London Jazz Composers Orchestra, Fire! Orchestra and other composed/improvised large ensembles. The named discovery field includes expanded ensembles such as this octet and is not falsely defined as a minimum16-person swing band. Full old big_band is explicitly the swing-era sectional/dance-orchestra tradition; full free_jazz and avant_garde_jazz include ensembles and Sun Ra already, not only small combos. This narrower large-ensemble composition/improvisation field overlaps those umbrellas substantially while the full creator corpus also includes arranged creative orchestras; it is not synonymous with all free jazz or merely another Brötzmann record. Existing experimental_jazz is a broad experimentation field, not restricted to its Fly or Die example. No exclusive instrumentation or all-members universal free-time claim. Issuer full roster and jazz/improvised-music labeling support the selected branch; no uncredited traditional big-band brass added. Separate creator member Secret Society2 is positively described by its own artist issuer as18piecebigband combining jazz/experimental rock/minimalism (peer12344search5); corroborates broad large-ensemble experimental field beyond free-jazz-only practice, no palette transferred.",
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "performer_count": 8,
+        "basis": "Complete original instrumental eight-person issuer roster; no voice role. Extra Frankfurt bonus reed player belongs to excluded separate recording, not omitted from selected original edition."
+      },
+      "instrument_role_audit": {
+        "scope": "Peter Brötzmann Octet — Machine Gun, complete original three-track1968 album program (Machine Gun; Responsible / For Jan Van De Ven; Music for Han Bennink), preserved as tracks1–3 of the official FMP2025 remaster. Whole original issued program, not an arbitrary track subset: issuer explicitly distinguishes original1–3 from later alternate takes4–5 and the earlier Frankfurt live bonus6. Full eight-person roster: Brötzmann tenor/baritone sax; Willem Breuker tenor sax/bass clarinet; Evan Parker tenor sax; Fred Van Hove piano; Peter Kowald and Buschi Niebergall double basses; Han Bennink and Sven-Åke Johansson drums. No credited singers in the complete instrumental ensemble. Frankfurt bonus adds Gerd Dudek and is excluded as a separate performance. Source May1968 Lila Eule, Bremen. Five instrument-family cards retain eight people: sax-section card represents three reed players, bass and drum cards each represent two performers; doubling bass clarinet retained. No claim all registers sound simultaneously throughout.",
+        "roles": [
+          {
+            "instrument": "saxophone_section_tenor_baritone",
+            "source_role": "Three saxophone players including tenor/baritone doubling",
+            "authored_realization": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+          },
+          {
+            "instrument": "bass_clarinet",
+            "source_role": "Breuker bass-clarinet doubling",
+            "authored_realization": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+          },
+          {
+            "instrument": "upright_piano",
+            "source_role": "Van Hove piano",
+            "authored_realization": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+          },
+          {
+            "instrument": "double_bass",
+            "source_role": "Kowald and Niebergall two double basses",
+            "authored_realization": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+          },
+          {
+            "instrument": "drum_kit",
+            "source_role": "Bennink and Johansson two drum sets",
+            "authored_realization": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+          }
+        ],
+        "omissions": "None in whole original three-track album; whole bonus performances excluded transparently."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "saxophone_section_tenor_baritone",
+          "parts": {
+            "tenor_baritone_section_articulation": "tenor_baritone_section_articulation_short"
+          },
+          "policy": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+        },
+        {
+          "instrument": "bass_clarinet",
+          "parts": {
+            "bass_clarinet_range": "bass_clarinet_to_low_c",
+            "bass_clarinet_style": "bass_clarinet_jazz"
+          },
+          "policy": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_jazz_comping",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+        },
+        {
+          "instrument": "double_bass",
+          "parts": {
+            "bowed_technique": "bowed_pizzicato",
+            "bass_size": "bass_three_quarter",
+            "bass_strings": "bass_steel",
+            "bass_top_wood": "norway_spruce_alpine_bass",
+            "bass_back_wood": "bosnian_flamed_maple_bass",
+            "bass_varnish": "oil_amber_varnish_bass",
+            "bass_setup_period": "modern_setup_bass",
+            "bass_play": "bass_pizz",
+            "bass_rosin": "pop_kolstein_rosin",
+            "bass_bow_stick": "pernambuco_stick_bass"
+          },
+          "policy": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "brushes_and_sticks",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Broad improvOnFrame.americanJazz.avant follows the issuer documented improvised-jazz program and collective ensemble scope. Present-day authored realization preserves every source family and both sax registers. Tenor/baritone section short-note articulation is a shared editorial gesture, not a transcription or a claim all source lines are coordinated. Low-C jazz bass clarinet is authored source-compatible construction/range, not measured original. Standard studio upright with jazz comping realizes unspecified piano through responsive chordal support without imposing a fixed progression or claiming original piano subtype. Two3/4 modern steel-string spruce/maple double basses, pizzicato gesture and normal supplied bow/rosin options are editorial physical choices; the latter do not imply every note bowed. Two maple medium-shell coated-head kits with20wire snares/single felt pedals and B20 hand-hammered traditionally finished fully lathed cymbals, brushes/sticks, are authored coherent sets, not an inventory of Bennink/Johansson actual kits. No measured gear/material claims. Controlled live room is editorial, not reconstruction of Lila Eule; no invented signal chain or tuning system. Emitted up-tempo is an authored brisk high-energy treatment, not measured uniform source tempo; jazz-trained/ride-driven kit terms describe editorial jazz gestures, not performer biographies or a claim constant ride pattern."
+        }
+      ],
+      "verification_status": "Author candidate awaiting original four-format and independent review.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All27 owning controls explicitly protected; no shared-slot fallback or ignored override.",
+      "primary_retrieval_refs": [
+        "turn12294view0",
+        "turn12285view0"
+      ],
+      "source_scope_limitation": "Peter Brötzmann Octet — Machine Gun, complete original three-track1968 album program (Machine Gun; Responsible / For Jan Van De Ven; Music for Han Bennink), preserved as tracks1–3 of the official FMP2025 remaster. Whole original issued program, not an arbitrary track subset: issuer explicitly distinguishes original1–3 from later alternate takes4–5 and the earlier Frankfurt live bonus6. Full eight-person roster: Brötzmann tenor/baritone sax; Willem Breuker tenor sax/bass clarinet; Evan Parker tenor sax; Fred Van Hove piano; Peter Kowald and Buschi Niebergall double basses; Han Bennink and Sven-Åke Johansson drums. No credited singers in the complete instrumental ensemble. Frankfurt bonus adds Gerd Dudek and is excluded as a separate performance. Source May1968 Lila Eule, Bremen. Five instrument-family cards retain eight people: sax-section card represents three reed players, bass and drum cards each represent two performers; doubling bass clarinet retained. No claim all registers sound simultaneously throughout.",
+      "source_retrieval_caveat": "Full official FMP digital issuer and exact creator100 read. Original FMP catalog URL502; the official digital issuer provides complete credits and explicit original-album versus bonus-track distinction. No fresh audio audition or original studio equipment inference.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "experimental_big_band",
+          "name": "Experimental Big Band",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not any depicted jazz instrument, performer, original venue or source capture equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

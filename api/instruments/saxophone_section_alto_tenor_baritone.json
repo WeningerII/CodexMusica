@@ -1,0 +1,96 @@
+{
+  "id": "saxophone_section_alto_tenor_baritone",
+  "name": "Saxophone section (alto, tenor and baritone)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Alto-tenor-baritone saxophone section",
+  "parts": [
+    {
+      "id": "alto_tenor_baritone_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "alto_tenor_baritone_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "alto_tenor_baritone_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Exact three-role alto/tenor/baritone saxophone palette. No uncredited soprano or second tenor added. Coordinated section articulation and coarse ensemble axes are authored; actual makes, reeds and mouthpieces unspecified.",
+  "sources": [
+    "https://kutx.org/sessions-interviews/studio1a/orquesta-akokan-5-10-22/"
+  ],
+  "_ownParts": [
+    {
+      "id": "alto_tenor_baritone_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "alto_tenor_baritone_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "alto_tenor_baritone_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

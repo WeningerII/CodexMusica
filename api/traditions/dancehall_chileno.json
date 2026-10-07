@@ -2,10 +2,10 @@
   "id": "dancehall_chileno",
   "name": "Dancehall chileno",
   "family": "electronic",
-  "lineage": "Dancehall chileno is represented by Ripio — No digas cosas que no son, original three-track set. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-  "recipe": "classic dancehall chileno, bass System, reggae diaspora branch. digital subtractive, sound design field sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 232,
-  "score": 20.635,
+  "lineage": "Chilean dancehall connects local electronic production with dancehall, dembow and reggaeton-derived rhythms. Producers reshape these influences through synthesizers, samples and club-oriented arrangements.",
+  "recipe": "classic dancehall chileno, bass System, reggae diaspora branch. digital subtractive, sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 12.627,
   "config": {
     "traditions": [
       "dancehall_chileno"
@@ -21,24 +21,24 @@
         "scores": {
           "electronic_technique": 1.755,
           "va_archetypes": 0,
-          "digital_subtractive_context": 5.459999999999999
+          "digital_subtractive_context": 3.3799999999999994
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 0.26,
-          "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 1.17,
-          "sampler_classic_context": 7.02
+          "sampler_archetypes": 0.6299999999999999,
+          "sampler_bit_depth": 0.0945,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 3.6399999999999997
         }
       },
       {
@@ -47,13 +47,13 @@
           "kick_voice": "bridged_t_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
-          "shuffle_quantize": "shuffle_low"
+          "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 1.3,
-          "snare_voice": 0.39,
+          "kick_voice": 0.1365,
+          "snare_voice": 0.0315,
           "hat_voice": 0,
-          "shuffle_quantize": 0.39
+          "shuffle_quantize": 2.5
         }
       }
     ],

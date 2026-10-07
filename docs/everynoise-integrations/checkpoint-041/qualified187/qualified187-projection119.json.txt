@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "freeze_sha256": "c8171af4363aef7273f8a8190846c37d4cf4625b28172048dcb5866efb6e2803",
+  "new_rows": 187,
+  "old_rows_preserved": 6538,
+  "old_merged_owners_preserved": 1638,
+  "new_dependencies": 15,
+  "unused_new_dependencies": [],
+  "removed": [
+    "experimental_big_band",
+    "cumbia_cristiana",
+    "oeteldonk",
+    "musique_urbaine_brazzaville",
+    "vintage_italian_soundtrack",
+    "jain_bhajan",
+    "reading"
+  ],
+  "errors": [],
+  "pinoy_praise_geo": [
+    14.408,
+    121.039,
+    "Muntinlupa",
+    "Southeast Asia"
+  ],
+  "geo_receipt": "/tmp/batch041/qualified/geo-amendment.json",
+  "note": "No API files read while root rebuild runs."
+}

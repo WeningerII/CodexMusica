@@ -1,0 +1,24 @@
+{
+  "status": "PASS_METADATA_ONLY",
+  "original_sha256": "1ba0ea4636acd7a5d9731539ed2082e705af5f712ec0d35869009561426d52ae",
+  "candidate": "/workspace/genre-continuation/research/next-additions-projection461/v3/candidate-atlas-corrected.json",
+  "sha256": "d3c11479b766375b65bff147a6d1eaf5b62c2972c42b618589f0256eea3d7357",
+  "changes": [
+    {
+      "id": "vintage_swedish_pop",
+      "path": "geo[3]",
+      "before": "Northern Europe",
+      "after": "Europe",
+      "basis": "Original atlas canonical REGIONS; Stockholm in Europe and Mumbai in South Asia; source coordinates/place unchanged."
+    },
+    {
+      "id": "marathi_balgeet",
+      "path": "geo[3]",
+      "before": "Asia",
+      "after": "South Asia",
+      "basis": "Original atlas canonical REGIONS; Stockholm in Europe and Mumbai in South Asia; source coordinates/place unchanged."
+    }
+  ],
+  "musical_fields_and_dependencies": "EXACTLY_UNCHANGED",
+  "combined_qualification": "PENDING"
+}

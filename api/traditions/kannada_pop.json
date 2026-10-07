@@ -2,10 +2,10 @@
   "id": "kannada_pop",
   "name": "Kannada pop",
   "family": "pop",
-  "lineage": "Kannada pop is represented here by MD Pallavi & Andi Otto — Songs for Broken Ships electronic core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic kannada pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine, analog poly synth, silver wound lamb gut core hard rock maple cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 284,
-  "score": 10.476,
+  "lineage": "Kannada pop brings Kannada-language poetry and song into contemporary popular arrangements. Acoustic instruments, electronic production and cross-cultural collaborations provide different settings for the vocal line.",
+  "recipe": "classic kannada pop, functional Song, pop rock branch. unprocessed natural acoustic. sampler drum machine, analog poly synth, hard rock maple synthetic varnish cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 267,
+  "score": 12.313,
   "config": {
     "traditions": [
       "kannada_pop"
@@ -21,9 +21,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.49650000000000005,
-          "sample_swing": 2.5,
-          "sample_processing": 0.0315
+          "sample_bitdepth": 0.42000000000000004,
+          "sample_swing": 3.25,
+          "sample_processing": 0.1365
         }
       },
       {
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.231,
+          "poly_voices": 1.231,
           "poly_maker_lineage": -0.035
         }
       },
@@ -45,23 +45,23 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "silver_wound_lamb_gut_cello",
+          "cello_strings": "cello_gut",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
-          "cello_varnish": "cremonese_post_1740_varnish_cello",
+          "cello_varnish": "modern_synthetic_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
           "cello_bow_stick": "brazilwood_stick_cello"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "cello_strings": 1.2349999999999999,
+          "bowed_technique": -0.05,
+          "cello_strings": 0.21,
           "cello_top_wood": -0.035,
           "cello_back_wood": 1.885,
-          "cello_varnish": -0.035,
+          "cello_varnish": 1.2349999999999999,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.39,
+          "cello_bow_grip": 0.3315,
           "cello_rosin": 0.2315,
           "cello_bow_stick": -0.05
         }
@@ -98,11 +98,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.234
+          "voice_processing_chain": 1.0315,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

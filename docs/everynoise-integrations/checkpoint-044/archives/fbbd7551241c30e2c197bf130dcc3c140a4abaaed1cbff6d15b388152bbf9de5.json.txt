@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4040-articulation-clarified.json",
+  "sha256": "6a21c0c5f8fe016187ef25df40161cceae5c129e71d00a4d758917f458912a45",
+  "reviewer": "research116",
+  "timestamp_utc": "2026-10-04T08:56:56.280552+00:00",
+  "sources": {
+    "urls": [
+      "https://www.manaus.am.gov.br/noticia/cultura/dia-da-musica-tera-palco-no-cafe-teatro/",
+      "https://capricho.abril.com.br/entretenimento/conheca-a-cantora-karen-francis-confirmada-no-primavera-sound-2022/",
+      "https://open.spotify.com/embed/playlist/4RwE62FqRp8gLKq8UrJy2b"
+    ],
+    "refs": [
+      "turn15501view0",
+      "turn15503view1",
+      "turn15501view2",
+      "turn15503view2"
+    ],
+    "finding": "Fresh municipal firsthand producer report establishes Manaus independent festival exchange; full original creator100 includes Karen7/72 plus older contemporary names. First-person Karen interview explicitly describes ordinary voice-and-guitar composing and singing practice. Model is that representative branch, not her studio master or separate effected session."
+  },
+  "category": "Full musica_popular_amazonense record inspected; it already includes modern alternative bands, so no invented heritage-only restriction. Positive named discovery tag plus community/practitioner practice supports overlapping coverage under current policy; no exclusive sonic or age boundary asserted.",
+  "checks": {
+    "immutable_five_fields": true,
+    "protected_controls": 22,
+    "old_owners_preserved": 1653,
+    "four_formats_max": 439,
+    "compiled_pin_errors": [],
+    "full13axes": true,
+    "unsigned_signature": [],
+    "atlas": [
+      -3.119,
+      -60.0217,
+      "Manaus",
+      "Latin America & Caribbean"
+    ],
+    "metadata_only_final": "Authored articulation prose now accurately says single-note figures outlining harmony; tradition/extras/photo unchanged."
+  },
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4040-peer116-runtime.json",
+  "literal_review": "All four outputs read: brisk voice and bright articulated picked guitar within controlled live-room acoustic branch. Authored brisk performance is explicit; source does not impose universal melancholic tempo or observed gear. No kora or foreign technique surfaced. Physical mahogany/bronze choices deliberately representative, not attributed to Karen.",
+  "rights": "Fresh Commons15477view1 confirms Iain Fergusson/Binksternet crop, CC BY2.5; inherited historical exact02333015byte/250x720/SHA7a97 preview retained with no fresh binary/visual claim."
+}

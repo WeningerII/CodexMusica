@@ -2,10 +2,10 @@
   "id": "baltic_folk",
   "name": "Baltic folk",
   "family": "vernacular",
-  "lineage": "A regional umbrella for distinct Estonian, Latvian and Lithuanian folk practices and their contemporary continuations. The chosen branch follows Latvian kokle playing represented by Laima Jansone, rather than claiming one pan-Baltic instrumentation.",
-  "recipe": "classic modern baltic folk, functional Song. maple lime canonical latvian kokle. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 218,
-  "score": 3.989,
+  "lineage": "Baltic folk encompasses distinct Estonian, Latvian and Lithuanian song and instrumental traditions and their contemporary continuations. Latvian kokle players such as Laima Jansone connect inherited plucked-string practice with solo improvisation and new collaborations.",
+  "recipe": "classic modern baltic folk, improv On Frame. finger plucked melodic maple lime canonical latvian kokle. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 241,
+  "score": 4.268,
   "config": {
     "traditions": [
       "baltic_folk"
@@ -16,13 +16,13 @@
         "slots": {
           "kokle_form": "kokle_kurzeme_diatonic",
           "kokle_playing": "kokle_plucked_melodic",
-          "kokle_string_material": "kokle_gut_traditional",
+          "kokle_string_material": "kokle_metal_modern",
           "kokle_body_wood": "kokle_maple_lime"
         },
         "scores": {
-          "kokle_form": 0.3,
-          "kokle_playing": 0.33899999999999997,
-          "kokle_string_material": 0.325,
+          "kokle_form": 0.0315,
+          "kokle_playing": 2,
+          "kokle_string_material": 0.16149999999999998,
           "kokle_body_wood": 2
         }
       }
@@ -44,13 +44,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "parlor",
     "parts": {
       "kokle_form": "kokle_kurzeme_diatonic",

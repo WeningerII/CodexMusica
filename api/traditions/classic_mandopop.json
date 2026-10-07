@@ -1,0 +1,56 @@
+{
+  "id": "classic_mandopop",
+  "name": "Classic Mandopop",
+  "family": "pop",
+  "lineage": "Classic Mandopop preserves influential Mandarin-language popular songs through recordings, renewed performances and arrangements. Lyrical melodies remain recognizable across changes in singers and accompaniment.",
+  "recipe": "classic classic mandopop, functional Song. solo and ensemble string orchestra obbligato violin. shoebox concert hall.",
+  "recipe_chars": 117,
+  "score": 3.96,
+  "config": {
+    "traditions": [
+      "classic_mandopop"
+    ],
+    "instruments": [
+      {
+        "id": "string_orchestra_obbligato_violin",
+        "slots": {
+          "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+          "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
+        },
+        "scores": {
+          "string_orchestra_obbligato_layout": 3.769999999999999,
+          "string_orchestra_obbligato_technique": 0.1905
+        }
+      }
+    ],
+    "pinned": {
+      "string_orchestra_obbligato_violin": [
+        "string_orchestra_obbligato_layout",
+        "string_orchestra_obbligato_technique"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+      "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
+    },
+    "pin_parts": true
+  }
+}

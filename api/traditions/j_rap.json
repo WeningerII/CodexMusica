@@ -5,7 +5,7 @@
   "lineage": "Japanese rap includes diverse eras and production styles. The selected King Giddra/Zeebra branch centers Japanese-language rhyming, coordinated MC responses and DJ/sample-based accompaniment.",
   "recipe": "classic modern j-rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 268,
-  "score": 42.239,
+  "score": 42.419,
   "config": {
     "traditions": [
       "j_rap"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 11.309999999999999,
-          "voice_ensemble_config": 0.0315,
+          "voice_ensemble_config": 0.2115,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,

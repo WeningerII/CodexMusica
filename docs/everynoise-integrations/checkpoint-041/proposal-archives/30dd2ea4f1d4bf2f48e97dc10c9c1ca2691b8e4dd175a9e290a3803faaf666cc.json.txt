@@ -1,0 +1,309 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pahadi_pop",
+          "name": "Pahadi Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Rathi, the credited ensemble or actual equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11761view0 confirms Iain Fergusson/Binksternet and CC BY2.5; exact historical023 bytes/visual inherited unchanged.",
+          "fresh_review_ref": "turn11761view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11761view0 CC BY2.5 author/crop confirmed; historical bytes and visual receipt only.",
+        "fresh_rights_retrieval_refs": "Fresh rights/context review turn11761view0; historical byte/visual receipts unchanged."
+      },
+      "source_label": "pahadi pop",
+      "source_url": "https://everynoise.com/engenremap-pahadipop.html",
+      "suggested_id": "pahadi_pop",
+      "allocation_ordinal": 1822,
+      "allocation_group_id": "073",
+      "id": "pahadi_pop",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "pahadi_pop",
+        "name": "Pahadi Pop",
+        "family": "pop",
+        "lineage": "Rmusic Series — complete Unplugged Pahadi Episode1 (2021), featuring Jyoti Rathi, Dixit Rathi and Thakur Dass Rathi. Official issuer credits all three singers and four co-artists with explicit musical roles: Rishu flute, Rohit Sehgal piano, Hitesh Rana congo and Sahil Jolly guitar. Swar Mystry receives the music credit; no extra unidentified generator is inferred from that credit. All seven credited people and five sounding families are retained. This is the whole published Episode1, not Episode2 or an excerpt; the matching artist-distributed single is14minutes. Vocal dubbing is explicitly credited at Kalehli/Bhuntar in Kullu. Co-artist credits document the presented ensemble; exact live-versus-overdub workflow and additional takes remain unknown, and no audio audition or measured waveform closure is claimed. Authored new rendition retains three named singing people as a group, without claiming all source passages simultaneous or a particular harmony. Connected legato and natural unprocessed delivery are authored, while register, physiology, local ornament and pitch organization remain unspecified. Source-unspecified guitar becomes an all-mahogany bronze-string dreadnought with standard tuning and flatpicked notes; source-unspecified piano becomes a standard studio upright with block-chord articulation. These are new arrangement constructions, not claims of actual source equipment. Credited flute uses the existing construction-unspecified flute owner. The literal congo credit is realized as a middle-role hand-played conga with fiberglass shell and synthetic head; exact source drum dimensions, skin and configuration are unknown, and no Cuban genre identity is inferred. Spacious recital-hall acoustics are authored, not the documented dubbing studio. FunctionalSong describes an authored verse-chorus-bridge realization over functional progressions, not transcribed source form. No global temperament or capture chain claimed.",
+        "instruments": [
+          "voice",
+          "credited_flute_unspecified",
+          "upright_piano",
+          "congas",
+          "acoustic_guitar_dread"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "credited_flute_identity": "credited_flute_source_unspecified",
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_fiberglass"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rmusic Series — complete Unplugged Pahadi Episode1 (2021), featuring Jyoti Rathi, Dixit Rathi and Thakur Dass Rathi. Official issuer credits all three singers and four co-artists with explicit musical roles: Rishu flute, Rohit Sehgal piano, Hitesh Rana congo and Sahil Jolly guitar. Swar Mystry receives the music credit; no extra unidentified generator is inferred from that credit. All seven credited people and five sounding families are retained. This is the whole published Episode1, not Episode2 or an excerpt; the matching artist-distributed single is14minutes. Vocal dubbing is explicitly credited at Kalehli/Bhuntar in Kullu. Co-artist credits document the presented ensemble; exact live-versus-overdub workflow and additional takes remain unknown, and no audio audition or measured waveform closure is claimed. Pahadi Pop is used across Himalayan regional popular-song communities, rather than being limited here to a single Himachali artist. The exact creator Pahadi Pop programme includes Thakur Dass Rathi at item28; the selected performance is its Himachali branch. Independently, Uttarakhand/Garhwali artist Suraj Tratak identifies that community in his own artist biography and publishes an artist playlist explicitly named Suraj Tratak Pahadi POP songs, establishing positive use beyond Himachal. Existing himachali_pop already represents the broad Himachali contemporary popular/discovery field, not only Moksh rock or metal; it overlaps substantially and also includes the selected artist. The proposed distinction is the broader cross-regional usage of Pahadi Pop, not different instrumentation, date or an exclusion of Rathi from Himachali Pop. Existing Garhwali/Kumaoni regional popular categories can likewise overlap. Creator roster concentration is acknowledged: current Pahadi playlist leans strongly Himachali and alone does not prove a disjoint sound or exclusive geographic boundary. No equivalence or universal single language is asserted. Authored new rendition retains three named singing people as a group, without claiming all source passages simultaneous or a particular harmony. Connected legato and natural unprocessed delivery are authored, while register, physiology, local ornament and pitch organization remain unspecified. Source-unspecified guitar becomes an all-mahogany bronze-string dreadnought with standard tuning and flatpicked notes; source-unspecified piano becomes a standard studio upright with block-chord articulation. These are new arrangement constructions, not claims of actual source equipment. Credited flute uses the existing construction-unspecified flute owner. The literal congo credit is realized as a middle-role hand-played conga with fiberglass shell and synthetic head; exact source drum dimensions, skin and configuration are unknown, and no Cuban genre identity is inferred. Spacious recital-hall acoustics are authored, not the documented dubbing studio. FunctionalSong describes an authored verse-chorus-bridge realization over functional progressions, not transcribed source form. No global temperament or capture chain claimed.",
+        "exemplars": [
+          "Rmusic Series — Unplugged Pahadi Episode1, complete2021 performance"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        31.887,
+        77.154,
+        "Bhuntar",
+        "South Asia"
+      ],
+      "geo_rationale": "Official issuer explicitly credits vocal dubbing in Kalehli/Bhuntar, Kullu; editorial regional anchor, not a claim all production happened at one measured site.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=kR4OgI8Jd48",
+          "title": "Rmusic Series complete Episode1 official credits",
+          "support_notes": "Fresh217463youtube13 complete original indexed issuer description; exact unmodified response retained resume116-pahadi-successful-primary-raw.json."
+        },
+        {
+          "url": "https://music.apple.com/us/album/unplugged-pahadi-king-of-natti-rathi-feat-jyoti-dixit-ep/1574849131",
+          "title": "Artist-distributed matching single",
+          "support_notes": "Fresh217463search10 one song14minutes June29 2021; exact track not replaced by2023Episode2."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1EXLE0tUjX1kNxRdIS2V9I",
+          "title": "Exact Pahadi Pop creator programme",
+          "support_notes": "Fresh11752view0 item28 Thakur Dass Rathi; overlap with Himachali roster retained."
+        },
+        {
+          "url": "https://open.spotify.com/artist/5kNgEtdRsM14GzTo2BtmcM",
+          "title": "Suraj Tratak own regional identity and Pahadi POP playlist",
+          "support_notes": "Fresh11815search0 full indexed artist biography establishes Uttarakhand/Garhwali identity and own explicitly named Pahadi POP songs playlist; direct rendered page text empty, no playlist tracklist claim."
+        }
+      ],
+      "neighbor_distinction": "Pahadi Pop is used across Himalayan regional popular-song communities, rather than being limited here to a single Himachali artist. The exact creator Pahadi Pop programme includes Thakur Dass Rathi at item28; the selected performance is its Himachali branch. Independently, Uttarakhand/Garhwali artist Suraj Tratak identifies that community in his own artist biography and publishes an artist playlist explicitly named Suraj Tratak Pahadi POP songs, establishing positive use beyond Himachal. Existing himachali_pop already represents the broad Himachali contemporary popular/discovery field, not only Moksh rock or metal; it overlaps substantially and also includes the selected artist. The proposed distinction is the broader cross-regional usage of Pahadi Pop, not different instrumentation, date or an exclusion of Rathi from Himachali Pop. Existing Garhwali/Kumaoni regional popular categories can likewise overlap. Creator roster concentration is acknowledged: current Pahadi playlist leans strongly Himachali and alone does not prove a disjoint sound or exclusive geographic boundary. No equivalence or universal single language is asserted.",
+      "model_policy": "Authored new rendition retains three named singing people as a group, without claiming all source passages simultaneous or a particular harmony. Connected legato and natural unprocessed delivery are authored, while register, physiology, local ornament and pitch organization remain unspecified. Source-unspecified guitar becomes an all-mahogany bronze-string dreadnought with standard tuning and flatpicked notes; source-unspecified piano becomes a standard studio upright with block-chord articulation. These are new arrangement constructions, not claims of actual source equipment. Credited flute uses the existing construction-unspecified flute owner. The literal congo credit is realized as a middle-role hand-played conga with fiberglass shell and synthetic head; exact source drum dimensions, skin and configuration are unknown, and no Cuban genre identity is inferred. Spacious recital-hall acoustics are authored, not the documented dubbing studio. FunctionalSong describes an authored verse-chorus-bridge realization over functional progressions, not transcribed source form. No global temperament or capture chain claimed.",
+      "classification_evidence": "Pahadi Pop is used across Himalayan regional popular-song communities, rather than being limited here to a single Himachali artist. The exact creator Pahadi Pop programme includes Thakur Dass Rathi at item28; the selected performance is its Himachali branch. Independently, Uttarakhand/Garhwali artist Suraj Tratak identifies that community in his own artist biography and publishes an artist playlist explicitly named Suraj Tratak Pahadi POP songs, establishing positive use beyond Himachal. Existing himachali_pop already represents the broad Himachali contemporary popular/discovery field, not only Moksh rock or metal; it overlaps substantially and also includes the selected artist. The proposed distinction is the broader cross-regional usage of Pahadi Pop, not different instrumentation, date or an exclusion of Rathi from Himachali Pop. Existing Garhwali/Kumaoni regional popular categories can likewise overlap. Creator roster concentration is acknowledged: current Pahadi playlist leans strongly Himachali and alone does not prove a disjoint sound or exclusive geographic boundary. No equivalence or universal single language is asserted.",
+      "vocal_count_audit": {
+        "credited_selected_singers": [
+          "Jyoti Rathi",
+          "Dixit Rathi",
+          "Thakur Dass Rathi"
+        ],
+        "selected_count": 3,
+        "decision": "Three explicitly credited people; authored group realization, exact source overdub count and simultaneous phrasing unknown."
+      },
+      "instrument_role_audit": {
+        "scope": "Rmusic Series — complete Unplugged Pahadi Episode1 (2021), featuring Jyoti Rathi, Dixit Rathi and Thakur Dass Rathi. Official issuer credits all three singers and four co-artists with explicit musical roles: Rishu flute, Rohit Sehgal piano, Hitesh Rana congo and Sahil Jolly guitar. Swar Mystry receives the music credit; no extra unidentified generator is inferred from that credit. All seven credited people and five sounding families are retained. This is the whole published Episode1, not Episode2 or an excerpt; the matching artist-distributed single is14minutes. Vocal dubbing is explicitly credited at Kalehli/Bhuntar in Kullu. Co-artist credits document the presented ensemble; exact live-versus-overdub workflow and additional takes remain unknown, and no audio audition or measured waveform closure is claimed.",
+        "roles": {
+          "voice": "Three named singers",
+          "credited_flute_unspecified": "Rishu, flute",
+          "upright_piano": "Rohit Sehgal, piano; upright authored",
+          "congas": "Hitesh Rana, literal congo; conga physical realization authored",
+          "acoustic_guitar_dread": "Sahil Jolly, guitar; acoustic construction authored for unplugged rendition"
+        },
+        "authored_defaults": "Authored new rendition retains three named singing people as a group, without claiming all source passages simultaneous or a particular harmony. Connected legato and natural unprocessed delivery are authored, while register, physiology, local ornament and pitch organization remain unspecified. Source-unspecified guitar becomes an all-mahogany bronze-string dreadnought with standard tuning and flatpicked notes; source-unspecified piano becomes a standard studio upright with block-chord articulation. These are new arrangement constructions, not claims of actual source equipment. Credited flute uses the existing construction-unspecified flute owner. The literal congo credit is realized as a middle-role hand-played conga with fiberglass shell and synthetic head; exact source drum dimensions, skin and configuration are unknown, and no Cuban genre identity is inferred. Spacious recital-hall acoustics are authored, not the documented dubbing studio. FunctionalSong describes an authored verse-chorus-bridge realization over functional progressions, not transcribed source form. No global temperament or capture chain claimed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "credited_flute_unspecified",
+          "upright_piano",
+          "congas",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All applicable controls deliberately protected; no shared-key conflict or fallback."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable controls deliberately protected as explicitly authored realization; no source gear inference."
+        },
+        {
+          "instrument": "credited_flute_unspecified",
+          "parts": {
+            "credited_flute_identity": "credited_flute_source_unspecified"
+          },
+          "policy": "All applicable controls deliberately protected as explicitly authored realization; no source gear inference."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "All applicable controls deliberately protected as explicitly authored realization; no source gear inference."
+        },
+        {
+          "instrument": "congas",
+          "parts": {
+            "percussion_technique": "percussion_hands_layered",
+            "conga_set": "conga_proper",
+            "conga_skin": "conga_synthetic_head",
+            "conga_shell_wood": "conga_fiberglass"
+          },
+          "policy": "All applicable controls deliberately protected as explicitly authored realization; no source gear inference."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "All applicable controls deliberately protected as explicitly authored realization; no source gear inference."
+        }
+      ],
+      "verification_status": "30 applicable owning controls protected; all1638 old owners unchanged; four original browser/connector formats pass, max693chars, no foreign cultural preface. Independent category/source review pending.",
+      "source_scope_limitation": "Rmusic Series — complete Unplugged Pahadi Episode1 (2021), featuring Jyoti Rathi, Dixit Rathi and Thakur Dass Rathi. Official issuer credits all three singers and four co-artists with explicit musical roles: Rishu flute, Rohit Sehgal piano, Hitesh Rana congo and Sahil Jolly guitar. Swar Mystry receives the music credit; no extra unidentified generator is inferred from that credit. All seven credited people and five sounding families are retained. This is the whole published Episode1, not Episode2 or an excerpt; the matching artist-distributed single is14minutes. Vocal dubbing is explicitly credited at Kalehli/Bhuntar in Kullu. Co-artist credits document the presented ensemble; exact live-versus-overdub workflow and additional takes remain unknown, and no audio audition or measured waveform closure is claimed.",
+      "source_review_refs": [
+        "turn217463youtube13",
+        "turn217463search10",
+        "turn11752view0",
+        "turn11815search0",
+        "turn11761view0"
+      ],
+      "source_retrieval_caveat": "Official video full indexed description reproduced and retained raw. No audio audition; direct Spotify artist text empty but full indexed own profile reproduced. Broader category usage relies on positive independent regional artist naming, not a claim that current creator playlist exhausts every region."
+    }
+  ],
+  "instrument_dependencies": []
+}

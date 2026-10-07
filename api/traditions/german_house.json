@@ -2,10 +2,10 @@
   "id": "german_house",
   "name": "German house",
   "family": "electronic",
-  "lineage": "A broad German house-production discovery network including Fritz Kalkbrenner, Claptone, Tensnake, andhim and Henrik Schwarz. The selected model follows Kalkbrenner’s documented meeting of club drum programming, recorded lead voice and soul-influenced live bass/keyboard work.",
-  "recipe": "classic modern german house, electronic Dance, house branch. plate reverb medium decay vocal classic, single lead single track no stacking. sampler drum machine, rhodes electric, electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 397,
-  "score": 4.999,
+  "lineage": "German house spans interconnected clubs, labels and producers working across deep, soulful and more minimal dance music. Sampling and electronic rhythm coexist with sung songs and live keyboard or rhythm-section contributions.",
+  "recipe": "classic modern german house, electronic Dance, house branch. solo with instrumental accompaniment. sampler drum machine, centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 415,
+  "score": 2.194,
   "config": {
     "traditions": [
       "german_house"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.99675,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.6499999999999999,
-          "voice_multitrack_stack": 1.1365
+          "voice_processing_chain": 0.26,
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -76,12 +76,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 2.45,
+          "keyboard_technique": -0.1,
           "rhodes_model": -0.035,
-          "rhodes_use": 0.78,
-          "rhodes_tine_material": -1.19,
-          "rhodes_hammer_tip": -1.19,
-          "rhodes_pickup_position": 0.39
+          "rhodes_use": 0.39,
+          "rhodes_tine_material": -1.4,
+          "rhodes_hammer_tip": -1.4,
+          "rhodes_pickup_position": 1.2285000000000004
         }
       },
       {
@@ -103,7 +103,7 @@
           "string_type": -0.1,
           "scale_length_b": 0.1365,
           "fretted_or_not": 0.0735,
-          "bass_technique": 0.2,
+          "bass_technique": -0.1,
           "electric_bass_string_configuration": 0
         }
       }

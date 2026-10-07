@@ -1,0 +1,54 @@
+{
+  "id": "glass",
+  "name": "Glass",
+  "family": "classical",
+  "lineage": "Glass music centers instruments whose vibrating glass produces sustained or struck tones. The glass harmonica forms an important branch, with repertoire ranging from historical compositions to newer concert work.",
+  "recipe": "classic glass, art Music, western common practice branch. glass harmonica. shoebox concert hall.",
+  "recipe_chars": 96,
+  "score": 0.499,
+  "config": {
+    "traditions": [
+      "glass"
+    ],
+    "instruments": [
+      {
+        "id": "glass_harmonica",
+        "slots": {
+          "glass_harmonica_type": "glass_harmonica_spun_bowls",
+          "glass_harmonica_technique": "glass_harmonica_wetted_finger"
+        },
+        "scores": {
+          "glass_harmonica_type": 0.3315,
+          "glass_harmonica_technique": 0.16799999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "glass_harmonica": [
+        "glass_harmonica_type",
+        "glass_harmonica_technique"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "glass_harmonica_type": "glass_harmonica_spun_bowls",
+      "glass_harmonica_technique": "glass_harmonica_wetted_finger"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "concertina",
+  "name": "Concertina",
+  "family": "vernacular",
+  "lineage": "Concertina repertoire joins traditional tunes and newly composed instrumental music around the compact bellows-driven free-reed instrument. Rob Harbron’s English-concertina work develops this practice through solo settings and original tunes.",
+  "recipe": "classic concertina, improv On Frame. concertina. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 147,
+  "score": -0.105,
+  "config": {
+    "traditions": [
+      "concertina"
+    ],
+    "instruments": [
+      {
+        "id": "concertina",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "concertina_type": "english_concertina",
+          "concertina_reed_grade": "concertina_traditional"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "concertina_type": 0,
+          "concertina_reed_grade": 0
+        }
+      }
+    ],
+    "pinned": {
+      "concertina": [
+        "free_reed_technique",
+        "concertina_type",
+        "concertina_reed_grade"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "concertina_type": "english_concertina",
+      "concertina_reed_grade": "concertina_traditional"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

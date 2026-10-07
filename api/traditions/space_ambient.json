@@ -5,7 +5,7 @@
   "lineage": "Beatless spatial electronic ambient, represented here by Steve Roach’s long-form steady-state Immersion work. Sustained polyphonic tones, slow timbral change and deep artificial space make duration and immersion more prominent than melody or sequence. This entry models the non-pulsed branch; space-oriented music also includes more rhythmic or dramatic forms that are not its default.",
   "recipe": "classic modern space ambient, experimental Elec, ambient branch, modal electric drone modal, retro aesthetic experimental electric dreampunk. sustained pad analog sustained pad wavetable synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter true-stereo reverb hall reverb.",
   "recipe_chars": 428,
-  "score": 35.56,
+  "score": 35.755,
   "config": {
     "traditions": [
       "space_ambient",
@@ -23,9 +23,9 @@
         },
         "scores": {
           "electronic_technique": 14.525,
-          "oscillator": 0.7649999999999999,
+          "oscillator": 0.72,
           "filter_topology": 0.78,
-          "envelope": 0.045,
+          "envelope": 0.24,
           "modulation": 0.135
         }
       },
@@ -41,7 +41,7 @@
           "electronic_technique": 14.525,
           "wt_position": 3.6399999999999997,
           "wt_family": 0.195,
-          "wt_polyphony": 0
+          "wt_polyphony": 0.045
         }
       }
     ],

@@ -1,0 +1,70 @@
+{
+  "id": "kundalini",
+  "name": "Kundalini",
+  "family": "vernacular",
+  "lineage": "Matthew Schoening — Narrow Path (2014 solo electric-cello project). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic mid-2010s kundalini, ritual Devotional. live layered electric cello live looping. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 188,
+  "score": 3.376,
+  "config": {
+    "traditions": [
+      "kundalini"
+    ],
+    "instruments": [
+      {
+        "id": "electric_cello_live_looping",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "electric_cello_identity": "electric_cello_amplified_unspecified",
+          "electric_cello_playing": "electric_cello_mixed_bow_pluck_percussive",
+          "electric_cello_looping": "electric_cello_live_layered_no_prerecorded"
+        },
+        "scores": {
+          "bowed_technique": 0.8814999999999998,
+          "electric_cello_identity": 0.6,
+          "electric_cello_playing": 0.663,
+          "electric_cello_looping": 1.2315
+        }
+      }
+    ],
+    "pinned": {
+      "electric_cello_live_looping": [
+        "bowed_technique",
+        "electric_cello_identity",
+        "electric_cello_playing",
+        "electric_cello_looping"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_cello_identity": "electric_cello_amplified_unspecified",
+      "electric_cello_playing": "electric_cello_mixed_bow_pluck_percussive",
+      "electric_cello_looping": "electric_cello_live_layered_no_prerecorded",
+      "bowed_technique": "bowed_legato_classical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

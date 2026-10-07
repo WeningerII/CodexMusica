@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "integration_sha256": "b8080977df43c25645ed368c75bdd7fa9633477b56c40d6c99472e3a503a0b58",
+  "baseline": "4fc011d5851bc425386cf2b2fcee937f22c65e6d",
+  "checks": [
+    "independent-append-review119.json",
+    "app-preservation119.json",
+    "new-browser-preservation119.json",
+    "pipeline-preservation119.json"
+  ],
+  "old_traditions": 6438,
+  "old_instruments": 1628,
+  "old_imported_browser_cards": 27253,
+  "new_traditions": 100,
+  "new_instruments": 10,
+  "new_cards": 237,
+  "new_owning_parts": 1790,
+  "new_applicable_materialized_pins": 1790,
+  "new_unprotected_slots": 0,
+  "pipeline_files_unchanged": 261,
+  "api_review": "Pending explicit parent completion signal; no partial API payloads inspected.",
+  "no_repo_mutations": true
+}

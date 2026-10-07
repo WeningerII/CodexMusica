@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "authorized_exact_fixture_ids": ["stoner_metal", "blend_doom_drone_metal"],
+  "scope": "Only these two derived-output snapshots eligible for root targeted original regression --update --fixture. No blanket reroll, source edit or engine change. Full serial regression still required after targeted updates.",
+  "method": "Original regression computeFixture algorithm baseline/current seedFromTradition + search maxIters100 + translate. Existing source/extras/roster/staples/environment identical; scored search seeds respond to neighbors. Removing only progressive_sludge from process memory restores both baseline rendered outputs and all slots; all13 new instruments remain. Original pipeline and all old actual browser cards separately proven identical.",
+  "rows": [
+    {
+      "id": "stoner_metal",
+      "source_extras_unchanged": true,
+      "search_seed_unchanged": false,
+      "search_seed_note": "Original search seed is scored derived state, distinct from unchanged browser import. Neighbor scores change for both fixtures, and stoner_metal initial guitar gauge changes g_11_hum to g_12_hum. Removing the new neighbor restores that derived seed too.",
+      "source_pin_parts": [false],
+      "roster_staples_environment_unchanged": true,
+      "selected_slot_changes": [
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "single_clear",
+          "after": "vintage_ambassador_drumhead",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "baroque_ornamental_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_pelog_7",
+          "protected": false
+        }
+      ],
+      "old_output": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "new_output": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "descriptor_change": "Drumhead descriptors change in rendered snapshot; additional valid unprotected voice/wood choices below can be compressed out. No claim those derived choices are source-authored historical facts.",
+      "new_cause": "progressive_sludge under distortedRock.metal.sludge enters original cross-reference neighbor pool of doom/stoner metal and sibling pool of atmospheric_sludge. Removing only this new row+extras from temporary memory restores baseline output and all selected slots."
+    },
+    {
+      "id": "blend_doom_drone_metal",
+      "source_extras_unchanged": true,
+      "search_seed_unchanged": false,
+      "search_seed_note": "Original search seed is scored derived state, distinct from unchanged browser import. Neighbor scores change for both fixtures, and stoner_metal initial guitar gauge changes g_11_hum to g_12_hum. Removing the new neighbor restores that derived seed too.",
+      "source_pin_parts": [false, false],
+      "roster_staples_environment_unchanged": true,
+      "selected_slot_changes": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "neck_wood",
+          "before": "mahogany_neck_h",
+          "after": "maple_neck_h",
+          "protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "vintage_ambassador_drumhead",
+          "after": "ec_pre_muffled_drumhead",
+          "protected": false
+        }
+      ],
+      "old_output": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal drone metal. thick, larynx lowered, breath pulsed, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+      "new_output": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal drone metal. thick, larynx lowered, breath pulsed, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+      "descriptor_change": "Drumhead descriptors change in rendered snapshot; additional valid unprotected voice/wood choices below can be compressed out. No claim those derived choices are source-authored historical facts.",
+      "new_cause": "progressive_sludge under distortedRock.metal.sludge enters original cross-reference neighbor pool of doom/stoner metal and sibling pool of atmospheric_sludge. Removing only this new row+extras from temporary memory restores baseline output and all selected slots."
+    }
+  ],
+  "counterfactual": {
+    "removed_from_process_memory_only": ["progressive_sludge"],
+    "rows": [
+      {
+        "id": "stoner_metal",
+        "baseline_recipe_restored": true,
+        "baseline_seed_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT."
+      },
+      {
+        "id": "blend_doom_drone_metal",
+        "baseline_recipe_restored": true,
+        "baseline_seed_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal drone metal. thick, larynx lowered, breath pulsed, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi."
+      }
+    ]
+  },
+  "errors": [],
+  "no_repository_mutation": true
+}

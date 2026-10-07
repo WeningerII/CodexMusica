@@ -2,10 +2,10 @@
   "id": "sertanejo_gospel",
   "name": "Sertanejo gospel",
   "family": "blues_gospel",
-  "lineage": "Sertanejo gospel: Cláudio & Márlon — documented vocal-and-guitar duo format. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-  "recipe": "classic sertanejo gospel, ritual Devotional, christian gospel branch. pre war tone martin lifespan sealed dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 233,
-  "score": 2.544,
+  "lineage": "Sertanejo gospel brings Brazilian country-song traditions into Christian praise and devotional music. Singing duos such as Cláudio & Márlon connect the melodic language of traditional sertanejo with contemporary gospel repertory.",
+  "recipe": "classic sertanejo gospel, ritual Devotional, christian gospel branch. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 197,
+  "score": 1.306,
   "config": {
     "traditions": [
       "sertanejo_gospel"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.18,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.18,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -57,16 +57,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
+          "top_wood": "sitka",
           "back_sides": "koa_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.1,
           "string_tuning": 0,
-          "top_wood": 0,
+          "top_wood": 0.054,
           "back_sides": 0.294,
-          "string_acoustic": 1.69
+          "string_acoustic": 0.7575000000000001
         }
       }
     ],

@@ -1,0 +1,52 @@
+{
+  "id": "tenor_horn_eb",
+  "name": "E-flat tenor horn (alto horn)",
+  "short": "e-flat tenor horn (alto horn)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tenor_horn_eb_identity",
+      "name": "Instrument identity and nominal key",
+      "variants": [
+        {
+          "id": "tenor_horn_eb_scored",
+          "name": "E-flat tenor horn (alto horn) — scored ensemble part",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenor_horn_eb_identity",
+      "name": "Instrument identity and nominal key",
+      "variants": [
+        {
+          "id": "tenor_horn_eb_scored",
+          "name": "E-flat tenor horn (alto horn) — scored ensemble part",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

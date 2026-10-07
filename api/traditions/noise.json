@@ -1,0 +1,61 @@
+{
+  "id": "noise",
+  "name": "Noise",
+  "family": "electronic",
+  "lineage": "Experimental sound practice that places texture, distortion and sonic density at the center of musical form.",
+  "recipe": "classic noise, experimental Elec. credited harsh noise. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital silicon fuzz.",
+  "recipe_chars": 167,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "noise"
+    ],
+    "instruments": [
+      {
+        "id": "credited_harsh_noise",
+        "slots": {
+          "credited_harsh_noise_identity": "credited_harsh_noise_mechanism_unspecified"
+        },
+        "scores": {
+          "credited_harsh_noise_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_harsh_noise": [
+        "credited_harsh_noise_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "fuzz_silicon"
+    ]
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "credited_harsh_noise_identity": "credited_harsh_noise_mechanism_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "fuzz_silicon"
+    ]
+  }
+}

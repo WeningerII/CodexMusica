@@ -2,10 +2,10 @@
   "id": "bubble_trance",
   "name": "Bubble trance",
   "family": "electronic",
-  "lineage": "A classifier-defined cluster of melodic European rave and trance-adjacent records. The selected Da Hool branch is grounded in his account of making Meet Her at the Loveparade: a detuned synth hook, simple offbeat bass and sampled electronic percussion. The label is retained as discovery scope rather than given an invented single origin story.",
-  "recipe": "classic mid-1980s bubble trance, electronic Dance, trance branch. analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
+  "lineage": "Bubble trance is a discovery label for buoyant melodic European rave and trance-adjacent repertoire. Repeating electronic hooks, simple low-note patterns and sampled drum sounds connect the field with dance records of the 1990s.",
+  "recipe": "classic mid-1990s bubble trance, electronic Dance, trance branch. analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
   "recipe_chars": 272,
-  "score": 15.591,
+  "score": 20.762,
   "config": {
     "traditions": [
       "bubble_trance"
@@ -22,8 +22,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "oscillator": 8.9915,
-          "filter_topology": 0.39,
+          "oscillator": 11.4915,
+          "filter_topology": 1.1365,
           "envelope": 0,
           "modulation": 0.0315
         }
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 1.005,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.363,
+          "sampler_bit_depth": 1.063,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 3.25
         }

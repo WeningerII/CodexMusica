@@ -2,47 +2,44 @@
   "id": "finnish_electro",
   "name": "Finnish electro",
   "family": "electronic",
-  "lineage": "Finnish electro is represented here by Aavikko — WFMU instrumental performance (2002). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic early-2000s finnish electro, experimental Elec, retro aesthetic branch. analog poly synth, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 209,
-  "score": 1.286,
+  "lineage": "Finnish electro includes playful keyboard-led instrumental groups alongside electronic production and club traditions.",
+  "recipe": "classic finnish electro, experimental Elec, retro aesthetic branch. electronic keyboard unspecified, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 0.255,
   "config": {
     "traditions": [
       "finnish_electro"
     ],
     "instruments": [
       {
-        "id": "analog_poly_synth",
+        "id": "electronic_keyboard_unspecified",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.5355,
-          "poly_voices": 0.546,
-          "poly_maker_lineage": -0.035
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0.0315
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.39,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       }
     ],
     "pinned": {
-      "analog_poly_synth": [
-        "electronic_technique"
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
       ],
       "drum_kit": [
         "drum_technique",
@@ -68,9 +65,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_lead_line",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt"
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

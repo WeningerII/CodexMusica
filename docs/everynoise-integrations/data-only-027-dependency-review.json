@@ -1,0 +1,361 @@
+{
+  "previous_frozen_sha256": "5ce91dfa6fc3d362e79f296bae439d710d147d82c25a42c2b4ffbc731cac76eb",
+  "final_frozen_sha256": "c08c6dda97662ac1d5f881f8a9c067bbfc0612875b414e64c05635aa027c5e8d",
+  "dependencies": [
+    {
+      "id": "credited_auxiliary_percussion",
+      "before": {
+        "id": "credited_auxiliary_percussion",
+        "name": "Credited auxiliary percussion (source unspecified)",
+        "short": "Unspecified credited percussion",
+        "family": "percussion",
+        "class": "percussion",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "credited_auxiliary_percussion_identity",
+            "name": "Source identification",
+            "variants": [
+              {
+                "id": "credited_auxiliary_percussion_source_unspecified",
+                "name": "Percussion credited without instrument identification",
+                "default": true,
+                "descriptors": ["source-unspecified percussion"],
+                "match_tokens": ["percussion"]
+              }
+            ]
+          }
+        ],
+        "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+        "sources": [
+          "https://mencho.bandcamp.com/album/interiores",
+          "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+        ]
+      },
+      "after": {
+        "id": "credited_auxiliary_percussion",
+        "name": "Credited auxiliary percussion (source unspecified)",
+        "short": "Unspecified credited percussion",
+        "family": "percussion",
+        "class": "percussion",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "credited_auxiliary_percussion_identity",
+            "name": "Source identification",
+            "variants": [
+              {
+                "id": "credited_auxiliary_percussion_source_unspecified",
+                "name": "Percussion credited without instrument identification",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": ["percussion"]
+              }
+            ]
+          }
+        ],
+        "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+        "sources": [
+          "https://mencho.bandcamp.com/album/interiores",
+          "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+        ]
+      },
+      "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+      "independent_reviewer": "research_119"
+    },
+    {
+      "id": "doromb_hungarian",
+      "before": {
+        "id": "doromb_hungarian",
+        "name": "Doromb (Hungarian steel jaw harp)",
+        "family": "plucked_traditional",
+        "class": "jaw_harp",
+        "short": "doromb",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": -2,
+          "harmonicity": 1,
+          "register": 0,
+          "range": -1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": -2
+        },
+        "parts": [
+          {
+            "id": "doromb_construction",
+            "name": "Frame and spring construction",
+            "variants": [
+              {
+                "id": "doromb_high_carbon_steel",
+                "name": "Heat-treated high-carbon steel frame and free spring",
+                "default": true,
+                "descriptors": ["high-carbon-steel", "ringing", "buzzing-timbre"],
+                "match_tokens": ["plucked", "lamellophone", "overtone"]
+              }
+            ]
+          },
+          {
+            "id": "doromb_excitation",
+            "name": "Excitation",
+            "variants": [
+              {
+                "id": "doromb_inward_finger_pluck",
+                "name": "Finger plucks spring inward; frame against teeth",
+                "default": true,
+                "descriptors": ["finger-plucked", "teeth-coupled", "resonant"],
+                "match_tokens": ["plucked", "lamellophone", "overtone"]
+              }
+            ]
+          },
+          {
+            "id": "doromb_resonator",
+            "name": "Resonator",
+            "variants": [
+              {
+                "id": "doromb_oral_formant_breath",
+                "name": "Tongue-shaped oral resonance and breath modulation",
+                "default": true,
+                "descriptors": ["oral-resonance", "overtone-shaped", "breath-modulated"],
+                "match_tokens": ["plucked", "lamellophone", "overtone"]
+              }
+            ]
+          }
+        ]
+      },
+      "after": {
+        "id": "doromb_hungarian",
+        "name": "Doromb (Hungarian steel jaw harp)",
+        "family": "plucked_traditional",
+        "class": "jaw_harp",
+        "short": "doromb",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": -2,
+          "harmonicity": 1,
+          "register": 0,
+          "range": -1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": -2
+        },
+        "parts": [
+          {
+            "id": "doromb_construction",
+            "name": "Complete instrument construction",
+            "variants": [
+              {
+                "id": "doromb_high_carbon_steel",
+                "name": "Heat-treated high-carbon steel frame and free spring",
+                "default": true,
+                "descriptors": ["steel", "ringing", "buzzing-timbre"],
+                "match_tokens": ["plucked"]
+              }
+            ]
+          },
+          {
+            "id": "doromb_excitation",
+            "name": "Excitation",
+            "variants": [
+              {
+                "id": "doromb_inward_finger_pluck",
+                "name": "Finger plucks spring inward; frame against teeth",
+                "default": true,
+                "descriptors": ["finger-plucked", "resonant"],
+                "match_tokens": ["plucked"]
+              }
+            ]
+          },
+          {
+            "id": "doromb_resonator",
+            "name": "Resonator",
+            "variants": [
+              {
+                "id": "doromb_oral_formant_breath",
+                "name": "Tongue-shaped oral resonance and breath modulation",
+                "default": true,
+                "descriptors": ["overtone-shaped", "breath-modulated"],
+                "match_tokens": ["plucked"]
+              }
+            ]
+          }
+        ]
+      },
+      "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+      "independent_reviewer": "research_119"
+    },
+    {
+      "id": "nes_famicom_chip_system",
+      "before": {
+        "id": "nes_famicom_chip_system",
+        "name": "NES / Famicom chip synthesis system",
+        "short": "NES/Famicom chip synthesis",
+        "family": "electronic",
+        "class": "electronic",
+        "axes": {
+          "pitchFix": 1,
+          "sustain": 1,
+          "polyphony": 2,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 2,
+          "articulation": 1,
+          "transduction": 2,
+          "dynamics": 1
+        },
+        "parts": [
+          {
+            "id": "nes_chip_architecture",
+            "name": "Sound-channel architecture",
+            "variants": [
+              {
+                "id": "nes_chip_apu_five",
+                "name": "Five basic NES sound channels",
+                "descriptors": ["five-channel", "digital-chip-synthesis"],
+                "match_tokens": ["electronic"]
+              },
+              {
+                "id": "nes_chip_vrc6_eight",
+                "name": "Five basic channels plus three VRC6 channels",
+                "default": true,
+                "descriptors": ["eight-channel", "VRC6-expanded", "digital-chip-synthesis"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          },
+          {
+            "id": "nes_chip_programming",
+            "name": "Programming method",
+            "variants": [
+              {
+                "id": "nes_chip_tracker_notes",
+                "name": "Tracker-programmed notes and channel effects",
+                "default": true,
+                "descriptors": ["tracker-sequenced", "note-programmed-effects"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          },
+          {
+            "id": "nes_chip_output",
+            "name": "Output topology",
+            "variants": [
+              {
+                "id": "nes_chip_mono",
+                "name": "Mono chip output",
+                "default": true,
+                "descriptors": ["mono", "direct-electronic"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          }
+        ],
+        "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+        "sources": [
+          "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+          "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+        ]
+      },
+      "after": {
+        "id": "nes_famicom_chip_system",
+        "name": "NES / Famicom chip synthesis system",
+        "short": "NES/Famicom chip synthesis",
+        "family": "electronic",
+        "class": "electronic",
+        "axes": {
+          "pitchFix": 1,
+          "sustain": 1,
+          "polyphony": 2,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 2,
+          "articulation": 1,
+          "transduction": 2,
+          "dynamics": 1
+        },
+        "parts": [
+          {
+            "id": "nes_chip_architecture",
+            "name": "Sound-channel architecture",
+            "variants": [
+              {
+                "id": "nes_chip_apu_five",
+                "name": "Five basic NES sound channels",
+                "descriptors": ["five-channel NES APU", "digital"],
+                "match_tokens": ["electronic"]
+              },
+              {
+                "id": "nes_chip_vrc6_eight",
+                "name": "Five basic channels plus three VRC6 channels",
+                "default": true,
+                "descriptors": ["eight-channel NES APU plus VRC6", "digital"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          },
+          {
+            "id": "nes_chip_programming",
+            "name": "Programming method",
+            "variants": [
+              {
+                "id": "nes_chip_tracker_notes",
+                "name": "Tracker-programmed notes and channel effects",
+                "default": true,
+                "descriptors": ["sequenced"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          },
+          {
+            "id": "nes_chip_output",
+            "name": "Output topology",
+            "variants": [
+              {
+                "id": "nes_chip_mono",
+                "name": "Mono chip output",
+                "default": true,
+                "descriptors": ["mono"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          }
+        ],
+        "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+        "sources": [
+          "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+          "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+        ]
+      },
+      "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+      "independent_reviewer": "research_119"
+    }
+  ],
+  "signature": {
+    "id": "jaw_harp",
+    "before": ["plucked", "lamellophone", "overtone"],
+    "after": ["plucked"],
+    "reason": "Only existing classified sonic token retained; no shared vocabulary or cultural ruling change."
+  }
+}

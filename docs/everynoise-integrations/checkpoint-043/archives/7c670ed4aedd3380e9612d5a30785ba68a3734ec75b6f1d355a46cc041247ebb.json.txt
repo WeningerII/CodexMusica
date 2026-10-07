@@ -1,0 +1,247 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "middle_east_hip_hop",
+        "name": "Middle East Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Middle Eastern hip-hop links local rap scenes with diasporic artists and producer networks. Regional collaborations cross national and language boundaries, connecting Arabic-language rap with multilingual expression and different forms of cultural belonging.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic verses move over produced beats, with flows and accents shaped by different languages and local musical references. Sample-based production, melodic passages and expanded live collaborations coexist within this broad regional field.",
+        "exemplars": [
+          "NARCY",
+          "DAM",
+          "Shabjdeed",
+          "The Synaptik"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "middle_east_hip_hop",
+          "name": "Middle East Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15093view3 confirms author/crop/CCBY2.5.",
+          "fresh_review_ref": "turn15093view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15093view3"
+        ],
+        "fresh_rights_review": "Fresh rights only; inherited023 exact binary and visual receipt retained."
+      },
+      "source_label": "middle east hip hop",
+      "source_url": "https://everynoise.com/engenremap-middleeasthiphop.html",
+      "suggested_id": "middle_east_hip_hop",
+      "allocation_ordinal": 401,
+      "allocation_group_id": "017",
+      "id": "middle_east_hip_hop",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "geo": [
+        25.2048,
+        55.2708,
+        "Dubai",
+        "Middle East"
+      ],
+      "geo_rationale": "Documented UAE community anchor for the selected multilingual diasporic practice; not the birthplace of the entire field or an exact recording location.",
+      "sources": [
+        {
+          "url": "https://scenenoise.com/Features/the-multiple-dimensions-of-narcys-spacetime",
+          "title": "NARCY first-person regional community and bilingual practice interview",
+          "support_notes": "Fresh15224view0 explicitly mainly English recording, separate Arabic album, both languages, UAE and Montréal community."
+        },
+        {
+          "url": "https://thehundreds.com/blogs/content/the-narcicyst",
+          "title": "NARCY first-person production and Euphrates interview",
+          "support_notes": "Fresh15224view1 with original15206view0/15209view2: producer/MC trio and kick/snare beat construction; expanded separate concert not reconstructed."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-middleeasthiphop.html",
+          "title": "Exact creator Middle East Hip Hop artist map",
+          "support_notes": "Fresh full indexed15225search0 includes NARCY, DAM and cross-national named field; direct failed."
+        },
+        {
+          "url": "https://www.files.ethz.ch/isn/118823/State_of_Arts_V.pdf",
+          "title": "Middle East Institute regional arts essays, Persian rap field research",
+          "support_notes": "Fresh15224view2 institutional regional context only; no false Persian creator-member claim."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15224view0",
+        "turn15224view1",
+        "turn15224view2",
+        "turn15225search0"
+      ],
+      "neighbor_distinction": "The actual full arabic_hip_hop record explicitly frames an Arabic-language umbrella, not merely its early DAM exemplar; substantial overlap with this regional field is acknowledged. Middle East Hip Hop is a geographic and diasporic network rather than a language-exclusive label. The exact creator corpus positively includes NARCY, and his firsthand SceneNoise interview explicitly identifies mainly English recording, an Arabic album, bilingual practice and UAE/Montréal community links. This supports the multilingual regional axis without claiming Arabic hip-hop communities never include English or that all Middle Eastern countries are equally represented in the creator map. Existing Iraqi and Palestinian hip hop cover narrower community identities, Persian hip hop a Persian-language network, and proposed Gulf hip hop a narrower geographic network. The MEI regional arts collection independently includes Persian rap but does not establish Persian-artist membership in this specific creator list. The distinction is strongly overlapping scope, not a unique sound or different selected rapper; reviewer should retain a boundary hold if the multilingual regional axis is judged coextensive with the intended existing Arabic field.",
+      "model_policy": "Representative MC-and-produced-beat branch. Narcy’s first-person interview describes Euphrates as an Iraqi producer/MC trio and discusses constructing rhythmic backing from kicks and snares; the separate orchestral Narcinerama concert is not the modeled practice. One accompanied rhythmic lead, source-unspecified physiology and pitch organization, natural capture and treated studio are authored representative settings. Complete produced backing remains represented without inventing sample or synthesis architecture. This is not a reduction of the entire World War Free Now or SpaceTime album, whose guests and instrumental collaborations remain outside this general-practice model.",
+      "source_scope_limitation": "Genre-level multilingual MC-and-beat branch; not a complete album/concert reconstruction or universal instrumentation claim.",
+      "authored_render_scope": "Representative MC-and-produced-beat branch. Narcy’s first-person interview describes Euphrates as an Iraqi producer/MC trio and discusses constructing rhythmic backing from kicks and snares; the separate orchestral Narcinerama concert is not the modeled practice. One accompanied rhythmic lead, source-unspecified physiology and pitch organization, natural capture and treated studio are authored representative settings. Complete produced backing remains represented without inventing sample or synthesis architecture. This is not a reduction of the entire World War Free Now or SpaceTime album, whose guests and instrumental collaborations remain outside this general-practice model.",
+      "source_retrieval_caveat": "Both first-person interviews and MEI PDF freshly retrieved. Exact creator map freshly indexed in full after direct failure. No master audition asserted.",
+      "instrument_role_audit": {
+        "voice": "Positive MC/rap practice; single accompanied passage authored without fixed category headcount.",
+        "credited_beat_unspecified": "Positive producer-built rhythmic backing; no unsupported live orchestral or sample mechanism inference."
+      },
+      "vocal_count_audit": {
+        "authored_lead_cards": 1,
+        "actual_master_headcount": "not asserted; representative genre practice"
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative MC-and-produced-beat branch. Narcy’s first-person interview describes Euphrates as an Iraqi producer/MC trio and discusses constructing rhythmic backing from kicks and snares; the separate orchestral Narcinerama concert is not the modeled practice. One accompanied rhythmic lead, source-unspecified physiology and pitch organization, natural capture and treated studio are authored representative settings. Complete produced backing remains represented without inventing sample or synthesis architecture. This is not a reduction of the entire World War Free Now or SpaceTime album, whose guests and instrumental collaborations remain outside this general-practice model."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative MC-and-produced-beat branch. Narcy’s first-person interview describes Euphrates as an Iraqi producer/MC trio and discusses constructing rhythmic backing from kicks and snares; the separate orchestral Narcinerama concert is not the modeled practice. One accompanied rhythmic lead, source-unspecified physiology and pitch organization, natural capture and treated studio are authored representative settings. Complete produced backing remains represented without inventing sample or synthesis architecture. This is not a reduction of the entire World War Free Now or SpaceTime album, whose guests and instrumental collaborations remain outside this general-practice model."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

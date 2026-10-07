@@ -5,7 +5,7 @@
   "lineage": "Belarusian electronic is represented by luty sakavik — Bol Jon Moj. This documented branch is realized as an authored present-day arrangement.",
   "recipe": "classic belarusian electronic, functional Song, synthpop branch. analog poly synth, sampler drum machine, ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 19.677,
+  "score": 19.794,
   "config": {
     "traditions": [
       "belarusian_electronic"
@@ -59,7 +59,7 @@
           "pickup_config": 0.1995,
           "string_type": 4.875,
           "scale_length_b": 0.1365,
-          "fretted_or_not": 0.105,
+          "fretted_or_not": 0.159,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -96,11 +96,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.168,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.168
+          "voice_multitrack_stack": 0.1995
         }
       }
     ],

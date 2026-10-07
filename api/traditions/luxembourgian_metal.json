@@ -2,10 +2,10 @@
   "id": "luxembourgian_metal",
   "name": "Luxembourgian metal",
   "family": "rock_punk",
-  "lineage": "Luxembourgian metal is represented here by Scarred. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic luxembourgian metal, distorted Rock, prog branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 439,
-  "score": 49.743,
+  "lineage": "Luxembourgian metal includes death-metal foundations and expanded melodic or atmospheric approaches such as Scarred.",
+  "recipe": "classic luxembourgian metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 362,
+  "score": 47.179,
   "config": {
     "traditions": [
       "luxembourgian_metal"
@@ -18,52 +18,52 @@
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_fender_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.325999999999999,
-          "amp_make": 5.135,
-          "body_wood": 5.329999999999999,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.33599999999999997,
-          "pickup_magnet": 0.0315,
-          "pickup_winding": 0.252,
-          "string_material": 0.33599999999999997,
-          "bridge": 1.3,
-          "scale_length": 5.329999999999999,
-          "string_gauge": 1.3,
+          "electric_technique": 11.62,
+          "amp_make": 5.655000000000001,
+          "body_wood": 5.85,
+          "neck_wood": 0.105,
+          "fretboard": 0.168,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.105,
+          "bridge": 0.2415,
+          "scale_length": 0,
+          "string_gauge": 0.0735,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.063
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "dual_single",
+          "body_wood": "basswood_h",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.252,
-          "pickup_config": 0.0315,
+          "body_wood": 5.85,
+          "pickup_config": 0.21,
           "string_type": 4.875,
-          "scale_length_b": 0.252,
-          "fretted_or_not": 0.1365,
-          "bass_technique": 3.7315,
+          "scale_length_b": 0.609,
+          "fretted_or_not": 0.1995,
+          "bass_technique": 3.7630000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 3.855,
-          "drumhead": 0.39,
+          "drum_technique": 3.75,
+          "drumhead": 0.651,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -112,20 +112,31 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0.1575,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.5249999999999999
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.273
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -190,7 +201,17 @@
       "string_tuning": "standard_tuning",
       "bass_technique": "pick_aggressive",
       "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_double"
+      "drum_kit_kick_pedal": "dk_kick_double",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_10_hum"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

@@ -2,10 +2,10 @@
   "id": "japanese_orchestra",
   "name": "Japanese orchestra",
   "family": "classical",
-  "lineage": "Japanese orchestra is represented by Tokyo Philharmonic Orchestra / Tadaaki Otaka — Elgar: Serenade for Strings (September 2024). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2020s japanese orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral, Italian alpine spruce val di fiemme European maple general oil varnish amber tinted viola classical, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish cello, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 553,
-  "score": 99.724,
+  "lineage": "Japanese orchestras connect concert and theatrical institutions with a broad local and international repertoire. Historical works and new compositions sustain varied approaches to ensemble performance.",
+  "recipe": "classic japanese orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 576,
+  "score": 89.107,
   "config": {
     "traditions": [
       "japanese_orchestra"
@@ -15,27 +15,27 @@
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
+          "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "italian_alpine_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "pirastro_gold_rosin_orch"
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "orch_strings": 0.46199999999999997,
+          "bowed_technique": 2.734,
+          "orch_strings": 0.95,
           "orch_top_wood": 2.6300000000000003,
-          "orch_back_wood": 3.4915,
-          "orch_varnish": 3.25,
-          "orch_setup_period": 3.8035,
-          "orch_bow": 0.29400000000000004,
-          "orch_bow_stick": 4.16,
-          "orch_articulation": 0.2835,
-          "orch_rosin": 3.664
+          "orch_back_wood": 2.6915,
+          "orch_varnish": 2.7875,
+          "orch_setup_period": 3.1955,
+          "orch_bow": 0.528,
+          "orch_bow_stick": 3.1200000000000006,
+          "orch_articulation": 0.3915,
+          "orch_rosin": 2.8715
         }
       },
       {
@@ -43,49 +43,49 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "viola_size": "viola_15_inch",
-          "viola_strings": "viola_tungsten_wound_c",
+          "viola_strings": "viola_gut_plain",
           "viola_top_wood": "viola_italian_alpine_spruce",
           "viola_back_wood": "viola_european_maple_general",
-          "viola_varnish": "viola_oil_amber",
+          "viola_varnish": "viola_cremonese_pre_1750",
           "viola_setup_period": "viola_modern_setup",
           "viola_bow_stick": "viola_pernambuco",
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "viola_size": 0.7065000000000001,
-          "viola_strings": 0.5805,
+          "bowed_technique": 2.734,
+          "viola_size": 0.8325,
+          "viola_strings": 0.95,
           "viola_top_wood": 2.6300000000000003,
-          "viola_back_wood": 3.4915,
-          "viola_varnish": 3.25,
-          "viola_setup_period": 3.8035,
-          "viola_bow_stick": 4.16,
-          "viola_rosin": 3.94
+          "viola_back_wood": 2.6915,
+          "viola_varnish": 2.7875,
+          "viola_setup_period": 3.1955,
+          "viola_bow_stick": 3.1200000000000006,
+          "viola_rosin": 3.386
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "plain_sheep_gut_cello",
           "cello_top_wood": "italian_alpine_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
-          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "cello_strings": 0.39,
+          "bowed_technique": 2.734,
+          "cello_strings": 0.95,
           "cello_top_wood": 2.6300000000000003,
-          "cello_back_wood": 3.4915,
-          "cello_varnish": 3.25,
-          "cello_setup_period": 3.8035,
+          "cello_back_wood": 2.6915,
+          "cello_varnish": 2.7875,
+          "cello_setup_period": 3.1955,
           "cello_bow_grip": 1.3,
-          "cello_rosin": 3.526,
-          "cello_bow_stick": 4.16
+          "cello_rosin": 3.134,
+          "cello_bow_stick": 3.1200000000000006
         }
       },
       {
@@ -96,23 +96,23 @@
           "bass_strings": "bass_steel",
           "bass_top_wood": "italian_alpine_spruce_bass",
           "bass_back_wood": "european_maple_bass_back",
-          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_varnish": "cremonese_pre_1750_varnish_bass",
           "bass_setup_period": "modern_setup_bass",
           "bass_play": "bass_arco",
           "bass_rosin": "pop_kolstein_rosin",
           "bass_bow_stick": "pernambuco_stick_bass"
         },
         "scores": {
-          "bowed_technique": 2.5,
+          "bowed_technique": 2.734,
           "bass_size": 0.1575,
-          "bass_strings": 0.39,
+          "bass_strings": 0.3885,
           "bass_top_wood": 2.6300000000000003,
-          "bass_back_wood": 3.4915,
-          "bass_varnish": 3.25,
-          "bass_setup_period": 3.8035,
-          "bass_play": 1.3,
-          "bass_rosin": 3.3895,
-          "bass_bow_stick": 4.16
+          "bass_back_wood": 2.6915,
+          "bass_varnish": 2.7875,
+          "bass_setup_period": 3.1955,
+          "bass_play": 1.69,
+          "bass_rosin": 2.9435000000000002,
+          "bass_bow_stick": 3.1200000000000006
         }
       }
     ],

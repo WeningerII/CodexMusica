@@ -5,7 +5,7 @@
   "lineage": "Thai folk rock is represented here by My Life as Ali Thomas — My Red Golden Sun core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic thai folk rock, functional Song, folk rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. marshall plexi amp British rock amp humbucker electric koa coated nanoweb strummed open chord ringing overtones dreadnought acoustic guitar, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 419,
-  "score": 42.126,
+  "score": 42.221,
   "config": {
     "traditions": [
       "thai_folk_rock"
@@ -31,11 +31,11 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 8.06,
-          "body_wood": 0.4725,
+          "body_wood": 0.504,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
-          "pickup_magnet": 0.2415,
-          "pickup_winding": 0.2415,
+          "pickup_magnet": 0.273,
+          "pickup_winding": 0.273,
           "string_material": 0.126,
           "bridge": 1.69,
           "scale_length": 0.46199999999999997,

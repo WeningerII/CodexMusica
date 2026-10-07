@@ -1,0 +1,71 @@
+{
+  "status": "Six local checks PASS; two local failures independently reproduced on exact predecessor",
+  "predecessor": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+  "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "current": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 14.8,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.7,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 84.3,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 31.9,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 93.5,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 20.6,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.1,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "foundation": {
+    "byte_identical_log": true,
+    "sha256": "fe7a3d7c7e282eacb79621090323b396da1d5ba6f7c0ae482980e6c625769f51",
+    "failure": "UI FOUNDATION: FAIL — 1 problem(s):\n  ✗ O. with no larger copy loading, the enlarged genre photo did not keep its thumb ({\"open\":true,\"role\":\"dialog\",\"modal\":\"true\",\"label\":\"Photo of Delta blues\",\"src\":\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg/1280px-Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg\",\"width\":1024,\"height\":1024,\"natural\":[1024,1024],\"inView\":true,\"credit\":\"Photo: Nubiatech · CC BY-SA 3.0Click anywhere to close\",\"href\":\"https://commons.wikimedia.org/wiki/File:Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg\",\"focusInside\":true,\"locked\":true})"
+  },
+  "reachability": {
+    "current_exit_code": 2,
+    "baseline_exit_code": 2,
+    "cause": "Managed Chromium file:// navigation refused ERR_BLOCKED_BY_ADMINISTRATOR on embedded reachability document; same unchanged test on exact baseline reproduces",
+    "only_process_path_diff": false
+  },
+  "test_scripts_identical": {
+    "check_ui_foundation": true,
+    "ui_reachability_check": true
+  },
+  "merge_requirement": "All unchanged remote exact-head CI gates must pass."
+}

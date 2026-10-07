@@ -1,0 +1,1205 @@
+{
+  "owner": "sourceaudit",
+  "baseline": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "entries": [
+    {
+      "id": "kannada_indie",
+      "before": {
+        "tradition": {
+          "id": "kannada_indie",
+          "name": "Kannada Indie",
+          "family": "rock",
+          "lineage": "Mysore Xpress — complete five-person band practice documented in Raghunandan S Rao’s April2022 interview: Raghunandan guitars and backing vocals, Pramod Nayak bass guitar, Zubin Paul vocals, Samrudh flute, Harshith Rao drums. Two singers and all five families retained. The source discusses their Karnataka live performances and independent originals around Made in Mysore. This models the entire named contemporary performing unit, not a claim that a studio EP or a later release has no guests. Neither current lineup nor exact single-session simultaneity is asserted. Authored rock rendition uses alder/maple single-coil electric guitar, clean-strummed standard-E nickel strings and a dual-single-coil alder electric bass with locked fingerstyle roundwounds. Source guitar/bass architecture is unspecified; these are coherent editorial choices, not measured hardware. The existing neutral flute owner preserves positively named flute without guessing bansuri, venu, metal construction or regional technique. Maple-shell coated-head kit with machine-hammered B20 traditionally finished cymbals is authored, not source inventory. Two named singers use unspecified physiology and interval relation, modeled as an authored live duet with no overdub stack; this does not assert the studio record was captured in one take. Controlled live room is authored, global tuning and capture apparatus omitted. Regional distortedRock branch reflects the source’s explicit indie-rock practice without asserting all Kannada Indie is rock.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "credited_flute_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_5",
+            "string_material": "nickel_plated",
+            "string_gauge": "g_10",
+            "bridge": "hardtail",
+            "scale_length": "scale_fender",
+            "finish": "poly",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified",
+            "credited_flute_identity": "credited_flute_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.regional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Mysore Xpress — complete five-person band practice documented in Raghunandan S Rao’s April2022 interview: Raghunandan guitars and backing vocals, Pramod Nayak bass guitar, Zubin Paul vocals, Samrudh flute, Harshith Rao drums. Two singers and all five families retained. The source discusses their Karnataka live performances and independent originals around Made in Mysore. This models the entire named contemporary performing unit, not a claim that a studio EP or a later release has no guests. Neither current lineup nor exact single-session simultaneity is asserted. Kannada Indie is the Kannada-language independent music community within broader Indian independent practice. The firsthand2022 band interview explicitly names this field and describes locally rooted independent composition and live circulation; official Spotify Kannada Indie programming separately includes Mysore Xpress Maaye, confirming the artist bridge without claiming it is the selected2022 performance. The exact Sounds of Spotify category list independently confirms a wider original-song/rap/electronic field but the selected band was not found among its first100 items; that narrower discovery-page membership is not invented. Existing indian_indie is the broader multilingual national independent field, not limited to its Tajdar exemplar. Kannada pop is the broader regional popular-song field, not restricted to its folktronica example; overlap remains substantial. Sandalwood is specifically Kannada film music, while this practice publishes independent originals outside cinema. Kannada bhava geethe is a literary-poetry setting tradition, and Indian rock is a cross-language rock field: neither exhausts the independent Kannada songwriter/producer network. Current and accepted038 queue compared; no coextensive row established. Authored rock rendition uses alder/maple single-coil electric guitar, clean-strummed standard-E nickel strings and a dual-single-coil alder electric bass with locked fingerstyle roundwounds. Source guitar/bass architecture is unspecified; these are coherent editorial choices, not measured hardware. The existing neutral flute owner preserves positively named flute without guessing bansuri, venu, metal construction or regional technique. Maple-shell coated-head kit with machine-hammered B20 traditionally finished cymbals is authored, not source inventory. Two named singers use unspecified physiology and interval relation, modeled as an authored live duet with no overdub stack; this does not assert the studio record was captured in one take. Controlled live room is authored, global tuning and capture apparatus omitted. Regional distortedRock branch reflects the source’s explicit indie-rock practice without asserting all Kannada Indie is rock.",
+          "exemplars": [
+            "Mysore Xpress — full five-person performing unit documented April2022"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "kannada_indie",
+          "name": "Kannada Indie",
+          "family": "rock",
+          "lineage": "Kannada indie connects independent Kannada-language artists and Karnataka performance networks. Local originals draw on rock, popular songwriting and varied regional musical references.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "credited_flute_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "pickup_config": "dual_single",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_5",
+            "string_material": "nickel_plated",
+            "string_gauge": "g_10",
+            "bridge": "hardtail",
+            "scale_length": "scale_fender",
+            "finish": "poly",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified",
+            "credited_flute_identity": "credited_flute_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.regional",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing voices, electric guitar, bass and drums create a band foundation, with flute adding melodic contrast. Ensemble changes and memorable phrases shape an indie-rock branch of the wider field.",
+          "exemplars": [
+            "Mysore Xpress — full five-person performing unit documented April2022"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Retain the positive meaningful band, communal a cappella or hymn-accompaniment branch with all controls, without fixing exact source personnel as a universal genre rule. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Retain the positive meaningful band, communal a cappella or hymn-accompaniment branch with all controls, without fixing exact source personnel as a universal genre rule. ",
+        "owning_control_review": {
+          "applicable": 50,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Kannada Indie, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, poised single-coil-solid-body-electric-guitar: alder nickel-plated-steel alnico maple rosewood conventional-tuning oily-pore-damping standard-pitch low-coloration-balanced polyurethane focused-narrow-output scooped fast-decay-focused-low sealed present taut biting full-bodied glassy sustaining snappy strummed low-mid-rich-spectrum, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused, bodacious credited-flute: flute-like, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Kannada Indie, up-tempo voice, poised single-coil-solid-body-electric-guitar, focused electric-bass, trudging drum-kit, bodacious credited-flute, treated-live-room-reflective-but-controlled.",
+          "tags": "Kannada Indie, up-tempo voice: unprocessed-natural-acoustic duet live-ensemble live-take, poised single-coil-solid-body-electric-guitar: alder nickel-plated-steel alnico maple rosewood conventional-tuning oily-pore-damping standard-pitch low-coloration-balanced polyurethane focused-narrow-output scooped fast-decay-focused-low sealed present taut biting full-bodied glassy sustaining snappy strummed low-mid-rich-spectrum, focused electric-bass: alder nickel focused-low-end-decay low-coloration-balanced fingerstyle locked scooped roundwound pocket growly full-bodied percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks undamped-resonance low-fundamental-tuning overtone-rich crisp balanced treble-extended focused, bodacious credited-flute: flute-like, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Kannada Indie, up-tempo voice · Treated live room (reflective but controlled),\npoised single-coil solid-body electric guitar · Treated live room (reflective but controlled),\nfocused electric bass · Treated live room (reflective but controlled),\ntrudging drum kit · Treated live room (reflective but controlled),\nbodacious credited flute · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "kompa_chretien",
+      "before": {
+        "tradition": {
+          "id": "kompa_chretien",
+          "name": "Kompa Chrétien",
+          "family": "vernacular",
+          "lineage": "DJ H509 — whole MIX GOSPEL KONPA FIN ANNEE 2022, issued on his own Gospel Muzik SoundCloud account on1December2022. The named DJ mix and Christian message are explicit. Complete programme retained; exact runtime and constituent tracklist unavailable, so no titles, sung languages, number of embedded singers or live announcements are inferred. This is an actual issued DJ mix, not substitution of a playback device for undisclosed studio-album production. Source recordings and any recorded vocals remain within playback/mixing. The separately announced2025 live concert with musicians is not this2022 mix and adds no inferred live performers. Whole issued DJ programme realized with existing source-unspecified playback/mixing owner; no turntable medium, scratching, synthesizer, instrument session roster or carrier count invented. Treated studio is authored controlled listening, not original capture site. Optional tuning and signal chain omitted. Existing ritualDevotional.christianGospel parent reflects positively professed purpose, with neutral editorial axes; no source-wide acoustic gospel ensemble presumed.",
+          "instruments": [
+            "dj_playback_mixing_unspecified"
+          ],
+          "room": "treated_studio",
+          "pin_parts": true,
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "DJ H509 — whole MIX GOSPEL KONPA FIN ANNEE 2022, issued on his own Gospel Muzik SoundCloud account on1December2022. The named DJ mix and Christian message are explicit. Complete programme retained; exact runtime and constituent tracklist unavailable, so no titles, sung languages, number of embedded singers or live announcements are inferred. This is an actual issued DJ mix, not substitution of a playback device for undisclosed studio-album production. Source recordings and any recorded vocals remain within playback/mixing. The separately announced2025 live concert with musicians is not this2022 mix and adds no inferred live performers. Kompa Chrétien is the explicitly faith-centered branch of the broader Haitian kompa/compas field. The exact creator list positively includes DJ H509 at11,60and92. His own professional site specifically offers Konpa Gospel for Christian celebrations, and his firsthand interview explains his Haitian kompa upbringing and transition to gospel mission. The separate first-person Daniel Chéry interview positively documents kompa chrétien as an established devotional/festival practice. Thus this is a named repertory/function/community subset, not classification inferred only from artist religion or a playlist. Full existing kompa,kompa_direkt,compas_direk remain broad dance-music fields that can include sacred songs; their romantic examples do not exclude this branch. Existing haitian_gospel encompasses all Haitian Christian worship and diaspora practices and is not restricted to its piano exemplar: this narrower explicitly kompa-centered gospel practice overlaps that umbrella. Existing gouyad and zouk organize different rhythmic/dance repertories rather than the Christian-kompa mission. No absolute disjoint performer or sonic boundary is claimed. Whole issued DJ programme realized with existing source-unspecified playback/mixing owner; no turntable medium, scratching, synthesizer, instrument session roster or carrier count invented. Treated studio is authored controlled listening, not original capture site. Optional tuning and signal chain omitted. Existing ritualDevotional.christianGospel parent reflects positively professed purpose, with neutral editorial axes; no source-wide acoustic gospel ensemble presumed.",
+          "exemplars": [
+            "DJ H509 — whole MIX GOSPEL KONPA FIN ANNEE 2022"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "kompa_chretien",
+          "name": "Kompa Chrétien",
+          "family": "vernacular",
+          "lineage": "Kompa chrétien connects Haitian Christian songs and worship audiences with kompa-influenced popular music. Artists and listeners bring devotional texts into recorded and live dance-band settings.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "electronic_keyboard_unspecified"
+          ],
+          "room": "treated_studio",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Sung refrains meet guitar, bass, keyboards and drums. Repeated accompaniment and interlocking rhythmic figures support a flowing groove beneath the devotional voice.",
+          "exemplars": [
+            "DJ H509 — whole MIX GOSPEL KONPA FIN ANNEE 2022"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore a representative sung kompa band arrangement rather than DJ-only performance identity. Physical guitar/bass/drum choices are authored contemporary band defaults, not measurements of any mixed recording; energetic/high-gain bass is a deliberate amplified branch.  Literal clapping-and-syllabicizing describes an authored punctuated collective refrain, under the reviewed generic rhythmic-vocal interpretation; no extra physical handclap instrument or observed source gesture is claimed.",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore a representative sung kompa band arrangement rather than DJ-only performance identity. Physical guitar/bass/drum choices are authored contemporary band defaults, not measurements of any mixed recording; energetic/high-gain bass is a deliberate amplified branch.  Literal clapping-and-syllabicizing describes an authored punctuated collective refrain, under the reviewed generic rhythmic-vocal interpretation; no extra physical handclap instrument or observed source gesture is claimed.",
+        "owning_control_review": {
+          "applicable": 51,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Kompa Chrétien, clapping-and-syllabicizing voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, cutting single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch treble-rolled-off breathing present taut fast-attack-transient glassy thin snappy strummed, raging electric-bass: alder nickel focused-low-end-decay mid-rich midrange picked fundamental roundwound growly fast-attack-transient high-gain-saturation thumpy balanced percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks low-fundamental-tuning overtone-rich crisp balanced treble-extended, frosty electronic-keyboard: amplified chordal, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening.",
+          "prose": "Kompa Chrétien, clapping-and-syllabicizing voice, cutting single-coil-solid-body-electric-guitar, raging electric-bass, trudging drum-kit, frosty electronic-keyboard, treated-recording-studio-dead-booth.",
+          "tags": "Kompa Chrétien, clapping-and-syllabicizing voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, cutting single-coil-solid-body-electric-guitar: alder alnico nickel maple rosewood low-friction-pivot low-output-magnet bloomy conventional-tuning nitrocellulose oily-pore-damping standard-pitch treble-rolled-off breathing present taut fast-attack-transient glassy thin snappy strummed, raging electric-bass: alder nickel focused-low-end-decay mid-rich midrange picked fundamental roundwound growly fast-attack-transient high-gain-saturation thumpy balanced percussive, trudging drum-kit: bell-bronze maple both-sides-lathed bright-uniform full-lathed machine-hammered organized-rows standard-finish symmetric-pattern attacky washy all-purpose backbeat bright-clear musical sticks low-fundamental-tuning overtone-rich crisp balanced treble-extended, frosty electronic-keyboard: amplified chordal, treated-recording-studio-dead-booth: airless sucked small-volume-close-listening.",
+          "compact": "Kompa Chrétien, clapping-and-syllabicizing voice · Treated recording studio (dead booth),\ncutting single-coil solid-body electric guitar · Treated recording studio (dead booth),\nraging electric bass · Treated recording studio (dead booth),\ntrudging drum kit · Treated recording studio (dead booth),\nfrosty Electronic keyboard · Treated recording studio (dead booth),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "korean_musicals",
+      "before": {
+        "tradition": {
+          "id": "korean_musicals",
+          "name": "Korean Musicals",
+          "family": "pop",
+          "lineage": "Will Aronson / Hue Park — Why Love (James’s Piano Solo), complete separately issued two-page instrumental piano edition MN0309208, administered by Hal Leonard through Musicnotes. The publisher explicitly specifies one piano and instrumental solo. Zero singers in this edition; lyricist metadata credits the underlying theatrical work, not a sung part. This is the whole named independent edition, not a selection of convenient bars or an assertion that the complete musical or cast recording is solo piano. Full paid score not accessed. The English-titled publication belongs to the work’s international circulation; no Korean-language performance or original Seoul orchestration is claimed. Authored standard studio upright and connected legato realize the publisher’s subtype-unspecified piano without claiming original equipment or measured touch. Broad artMusic models this complete fixed composed instrumental dramatic miniature in an authored concert-listening rendition, rather than inferring verse/chorus form from a recurring theme. It does not classify all Korean musicals as classical, nor use notation alone as the rationale. Controlled live-room recording is authored; no global tuning, apparatus or actual cast performer is inferred.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Will Aronson / Hue Park — Why Love (James’s Piano Solo), complete separately issued two-page instrumental piano edition MN0309208, administered by Hal Leonard through Musicnotes. The publisher explicitly specifies one piano and instrumental solo. Zero singers in this edition; lyricist metadata credits the underlying theatrical work, not a sung part. This is the whole named independent edition, not a selection of convenient bars or an assertion that the complete musical or cast recording is solo piano. Full paid score not accessed. The English-titled publication belongs to the work’s international circulation; no Korean-language performance or original Seoul orchestration is claimed. Korean Musicals names a theatre-production and repertoire community spanning Korean original musicals and localized international shows. The exact creator list includes Korean Jekyll and Hyde, Frankenstein and Rebecca casts, plus Will Aronson with Jung Moon Sung and Jeon Mi Do on When You’re in Love at item50. Composer’s own history identifies Maybe Happy Ending as written in Korean and English, first staged at Seoul’s DaeMyung Culture Factory in December2016 and recognized by the Korean Musical Awards. Thus the selected separate piano piece belongs to a positively documented Korean musical work; the creator bridge concerns composer and work, not the exact later score. Existing broadway explicitly centers the New York commercial theatre tradition and can overlap this work’s Broadway adaptation; its scope is not limited to an old exemplar. Existing show_tunes is the wider stage-and-screen repertoire, and this national production/translation network is a narrower overlapping institutional field. Comedie musicale, Dutch Musical and Magyar Musicalek retain their respective theatre communities. Korean instrumental is a wider nonvocal performance field, not a stage-production category; Korean OST and Korean Soundtrack remain unresolved nearby screen-repertoire labels, not presumed vocal/instrumental opposites. Current catalog and accepted038 queue inspected, with no Korean Musicals equivalent asserted. Authored standard studio upright and connected legato realize the publisher’s subtype-unspecified piano without claiming original equipment or measured touch. Broad artMusic models this complete fixed composed instrumental dramatic miniature in an authored concert-listening rendition, rather than inferring verse/chorus form from a recurring theme. It does not classify all Korean musicals as classical, nor use notation alone as the rationale. Controlled live-room recording is authored; no global tuning, apparatus or actual cast performer is inferred.",
+          "exemplars": [
+            "Will Aronson / Hue Park — Why Love (James’s Piano Solo), complete MN0309208 edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "korean_musicals",
+          "name": "Korean Musicals",
+          "family": "pop",
+          "lineage": "Korean musicals connect theatrical storytelling, composed songs and staged performance in Korea. Original productions and international exchanges contribute to a varied musical-theatre repertoire.",
+          "instruments": [
+            "voice",
+            "upright_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing voices carry character and dramatic action through melody and text. Piano can support an intimate theatrical song, while full productions use larger ensembles and varied orchestrations.",
+          "exemplars": [
+            "Will Aronson / Hue Park — Why Love (James’s Piano Solo), complete MN0309208 edition"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Broad artMusic follows composed dramatic song, not notation alone or an assertion every musical is through-composed. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Broad artMusic follows composed dramatic song, not notation alone or an assertion every musical is through-composed. ",
+        "owning_control_review": {
+          "applicable": 20,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Korean Musicals, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Korean Musicals, huge voice, immense upright-piano, treated-concert-hall-shoebox.",
+          "tags": "Korean Musicals, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Korean Musicals, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "lagu_aceh",
+      "before": {
+        "tradition": {
+          "id": "lagu_aceh",
+          "name": "Lagu Aceh",
+          "family": "vernacular",
+          "lineage": "Ayunia Saputro — complete4:35 Ananda Sukarlan Rapsodia Nusantara no.6, presented on the performer’s own video page. The performer explicitly identifies this as a piano-solo composition based on the Aceh song Bungong Jeumpa. One pianist, one piano and zero vocal parts are retained. This selects the complete independently named concert transformation of the regional melody, not a claim that the original song or every Acehnese performance is instrumental. Other works and ensembles on the same video page are excluded because each is separately titled. Source audio was not personally auditioned. Authored standard studio upright and connected legato realize the source’s subtype-unspecified piano; these are not observed equipment or measured touch. Broad artMusic follows the complete fixed composed rhapsody and an authored concert-listening rendition, not a claim that all Lagu Aceh is classical. No original folk-song tuning, sung language, global tuning, signal chain or recording venue is inferred. Live-room capture is an authored listening presentation.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Ayunia Saputro — complete4:35 Ananda Sukarlan Rapsodia Nusantara no.6, presented on the performer’s own video page. The performer explicitly identifies this as a piano-solo composition based on the Aceh song Bungong Jeumpa. One pianist, one piano and zero vocal parts are retained. This selects the complete independently named concert transformation of the regional melody, not a claim that the original song or every Acehnese performance is instrumental. Other works and ensembles on the same video page are excluded because each is separately titled. Source audio was not personally auditioned. Lagu Aceh is the regional song-repertoire field, positively named by the Aceh government when identifying Bungong Jeumpa at its contingent’s official parade. The creator list independently contains Bungong Jeumpa Megah Di Aceh by Xenomutia Dragon and Cut Maya at item44, alongside multiple regional singers. That is a title/repertoire corroboration only: it does not establish identical composition or melody for the differently titled recording, and neither Ayunia nor this piano realization is claimed as an exact creator-list member. The direct performer identification plus governmental regional-song usage establish the selected underlying tune. Existing acehnese_saman is specifically the Gayo seated rhythmic-dance/Islamic verse tradition with coordinated body percussion, not all regional songs. Indonesian folk and Indonesian pop are broader contemporary national fields whose full descriptions are not limited to their exemplars; overlap is possible, but the positively named Aceh repertoire community is narrower. Neither a new instrument palette nor pianist birthplace supplies the category boundary. Full catalog and accepted038 queue checked; no regional-song equivalent asserted. Authored standard studio upright and connected legato realize the source’s subtype-unspecified piano; these are not observed equipment or measured touch. Broad artMusic follows the complete fixed composed rhapsody and an authored concert-listening rendition, not a claim that all Lagu Aceh is classical. No original folk-song tuning, sung language, global tuning, signal chain or recording venue is inferred. Live-room capture is an authored listening presentation.",
+          "exemplars": [
+            "Ayunia Saputro — Ananda Sukarlan Rapsodia Nusantara no.6, complete4:35 piano-solo video"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "lagu_aceh",
+          "name": "Lagu Aceh",
+          "family": "vernacular",
+          "lineage": "Lagu Aceh connects songs and melodies associated with Aceh to regional performance, education and newer arrangements. Familiar repertoire such as Bungong Jeumpa circulates through singing and instrumental interpretations.",
+          "instruments": [
+            "voice",
+            "upright_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A singing voice can present the regional melody over chordal accompaniment. Piano offers one arranged setting, alongside other local instruments, ensembles and unaccompanied versions.",
+          "exemplars": [
+            "Ayunia Saputro — Ananda Sukarlan Rapsodia Nusantara no.6, complete4:35 piano-solo video"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Functional-harmonic verse–chorus–bridge organization is an explicitly authored song setting, not original regional form analysis. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Functional-harmonic verse–chorus–bridge organization is an explicitly authored song setting, not original regional form analysis. ",
+        "owning_control_review": {
+          "applicable": 20,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Lagu Aceh, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Lagu Aceh, huge voice, immense upright-piano, treated-concert-hall-shoebox.",
+          "tags": "Lagu Aceh, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Lagu Aceh, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "lagu_betawi",
+      "before": {
+        "tradition": {
+          "id": "lagu_betawi",
+          "name": "Lagu Betawi",
+          "family": "vernacular",
+          "lineage": "Jamaica Café — complete named Jali-jali performance at WWF Indonesia’s Do Better for Earth event, Plaza Semanggi, Jakarta,31January2010. The organizing institution reports a six-member a cappella group and explicitly no musical instruments. All six people and their collective voice family are retained. Exact individual vocal duties, register distribution and harmony are unspecified; six people is not six inferred written voice parts. The chosen whole named regional song is independently identified within a mixed closing programme that also included ABBA; neither the whole concert nor the group’s entire repertoire is claimed as Betawi. No source audio audition, duration or exact song arrangement is asserted. One existing voice family represents six live people. All physiology, register, pitch system, ornament mechanism and individual parts remain source-unspecified; moderate effort and neutral tract are editorial neutral settings. Live group and unprocessed combined delivery model the positively documented a cappella event, without asserting the original microphone chain. Broad functionalSong selects an authored recurring verse/refrain and functional tonal-harmony rendition compatible with this contemporary vocal-group song presentation; it is not measured analysis of the unavailable arrangement or a universal Betawi form. Controlled live room is an authored listening setting, not the source outdoor platform. No instruments, beatboxing, clapping, global tuning or apparatus are invented.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Jamaica Café — complete named Jali-jali performance at WWF Indonesia’s Do Better for Earth event, Plaza Semanggi, Jakarta,31January2010. The organizing institution reports a six-member a cappella group and explicitly no musical instruments. All six people and their collective voice family are retained. Exact individual vocal duties, register distribution and harmony are unspecified; six people is not six inferred written voice parts. The chosen whole named regional song is independently identified within a mixed closing programme that also included ABBA; neither the whole concert nor the group’s entire repertoire is claimed as Betawi. No source audio audition, duration or exact song arrangement is asserted. Lagu Betawi names the culturally specific Betawi song repertoire and its contemporary circulation. WWF directly identifies Jali-jali as a Betawi song; Jakarta Barat’s cultural office independently teaches that song in its Betawi music preservation programme. The creator field includes Jali-Jali by Andi R./Nimi Yarsih/Andini at59 and Rita Zahara/Sumiati at73, plus Gambang Kromong, Benyamin Sueb and contemporary performers. This is a repertoire-title bridge, not a claim Jamaica Café appears in the exact creator list or that those recordings share one arrangement. Existing indonesian_keroncong describes its historical string-orchestra/vocal tradition, not all Betawi music; its overlap with some regional songs does not erase this regional cultural repertoire. Indonesian folk and pop retain their full broader national scopes, not merely their selected artists. National a cappella/pop overlap is candid; a new palette is not the category boundary. Current catalog and accepted038 queue checked without an equivalent Betawi song entry. One existing voice family represents six live people. All physiology, register, pitch system, ornament mechanism and individual parts remain source-unspecified; moderate effort and neutral tract are editorial neutral settings. Live group and unprocessed combined delivery model the positively documented a cappella event, without asserting the original microphone chain. Broad functionalSong selects an authored recurring verse/refrain and functional tonal-harmony rendition compatible with this contemporary vocal-group song presentation; it is not measured analysis of the unavailable arrangement or a universal Betawi form. Controlled live room is an authored listening setting, not the source outdoor platform. No instruments, beatboxing, clapping, global tuning or apparatus are invented.",
+          "exemplars": [
+            "Jamaica Café — Jali-jali at WWF Indonesia Do Better for Earth,31January2010"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "lagu_betawi",
+          "name": "Lagu Betawi",
+          "family": "vernacular",
+          "lineage": "Lagu Betawi connects songs associated with Jakarta’s Betawi cultural heritage to community and contemporary performance. Familiar melodies circulate through varied vocal and instrumental arrangements.",
+          "instruments": [
+            "voice"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Group voices can share a melody and harmonic responses without instrumental accompaniment. Repeated phrases and clear text give a communal vocal setting its shape.",
+          "exemplars": [
+            "Jamaica Café — Jali-jali at WWF Indonesia Do Better for Earth,31January2010"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Retain the positive meaningful band, communal a cappella or hymn-accompaniment branch with all controls, without fixing exact source personnel as a universal genre rule. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Retain the positive meaningful band, communal a cappella or hymn-accompaniment branch with all controls, without fixing exact source personnel as a universal genre rule. ",
+        "owning_control_review": {
+          "applicable": 17,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Lagu Betawi, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Lagu Betawi, up-tempo voice, treated-live-room-reflective-but-controlled.",
+          "tags": "Lagu Betawi, up-tempo voice: unprocessed-natural-acoustic group-vocals live-ensemble live-take, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Lagu Betawi, up-tempo voice · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "lagu_manado",
+      "before": {
+        "tradition": {
+          "id": "lagu_manado",
+          "name": "Lagu Manado",
+          "family": "vernacular",
+          "lineage": "Complete Ananda Sukarlan Rapsodia Nusantara no.8, selected as the independently named concluding work of Agus Sandjaya’s 12 April2019 solo pianoforte programme at St Stephen’s Friday Music, Sydney. The presenter lists only Sandjaya/pianoforte for this date. Other named works and other dates’ euphonium or organ players are outside this complete-work scope. Retain one pianist, one piano and zero vocal parts. Composer’s own2013 notes identify the finished eighth rhapsody as variations on O Inani Keke from North Sulawesi; his early2011 provisional numbering concerned a different work and is not transferred. This is a concert transformation of the regional song, not a claim that all Manado songs are instrumental. Source pianoforte subtype is unspecified. Standard studio upright and connected classical legato are explicitly authored realizations, not measured original equipment or touch. Broad artMusic applies only to this fixed composed concert work, not all regional song. Original folk tuning, sung language, global temperament, microphone chain and actual recording venue are not inferred. Controlled live-room listening presentation is authored.",
+          "instruments": [
+            "upright_piano"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          }
+        },
+        "extras": {
+          "parent": "artMusic",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Complete Ananda Sukarlan Rapsodia Nusantara no.8, selected as the independently named concluding work of Agus Sandjaya’s 12 April2019 solo pianoforte programme at St Stephen’s Friday Music, Sydney. The presenter lists only Sandjaya/pianoforte for this date. Other named works and other dates’ euphonium or organ players are outside this complete-work scope. Retain one pianist, one piano and zero vocal parts. Composer’s own2013 notes identify the finished eighth rhapsody as variations on O Inani Keke from North Sulawesi; his early2011 provisional numbering concerned a different work and is not transferred. This is a concert transformation of the regional song, not a claim that all Manado songs are instrumental. Lagu Manado is a regional song-repertoire field. Firsthand concert witness Yudi Latif expressly identifies O Ina Ni Keke as a traditional song from Manado; composer identifies North Sulawesi material. Existing Indonesian folk and Indonesian pop are broad national fields, not limited to their selected acoustic-duo/retro-band examples. Queued Indonesian Indigenous Traditional remains a broad national heritage category, and Lagu Aceh a different positively identified regional repertoire. None is asserted mutually exclusive; the positive regional repertoire axis supplies distinction rather than piano instrumentation, composer nationality or different artist alone. No exact EveryNoise artist membership or exclusive city origin is asserted. Actual existing lagu_timur is a broader cross-regional Eastern Indonesian contemporary-song field and explicitly acknowledges narrower Manado/Maluku overlap. The proposed Manado regional repertoire is not presented as missing from that umbrella; its positive named repertoire axis is narrower, not an assertion that all Lagu Timur is one artist or one island. Source pianoforte subtype is unspecified. Standard studio upright and connected classical legato are explicitly authored realizations, not measured original equipment or touch. Broad artMusic applies only to this fixed composed concert work, not all regional song. Original folk tuning, sung language, global temperament, microphone chain and actual recording venue are not inferred. Controlled live-room listening presentation is authored.",
+          "exemplars": [
+            "Agus Sandjaya — complete Ananda Sukarlan Rapsodia Nusantara no.8, programme12April2019"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "lagu_manado",
+          "name": "Lagu Manado",
+          "family": "vernacular",
+          "lineage": "Lagu Manado connects songs associated with Manado and North Sulawesi to regional and diasporic audiences. Familiar melodies circulate through singing, local performance and new arrangements.",
+          "instruments": [
+            "voice",
+            "upright_piano"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A singing voice brings the melody and text forward over chordal support. Piano provides an intimate arranged setting, while other versions use different ensembles and textures.",
+          "exemplars": [
+            "Agus Sandjaya — complete Ananda Sukarlan Rapsodia Nusantara no.8, programme12April2019"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Functional-harmonic verse–chorus–bridge organization is an explicitly authored song setting, not original regional form analysis. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Functional-harmonic verse–chorus–bridge organization is an explicitly authored song setting, not original regional form analysis. ",
+        "owning_control_review": {
+          "applicable": 20,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Lagu Manado, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Lagu Manado, huge voice, immense upright-piano, treated-concert-hall-shoebox.",
+          "tags": "Lagu Manado, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Lagu Manado, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "louvor_icm",
+      "before": {
+        "tradition": {
+          "id": "louvor_icm",
+          "name": "Louvor ICM",
+          "family": "blues_gospel",
+          "lineage": "Complete new-hymn submission recording practice explicitly prescribed by the Igreja Cristã Maranata Department of Praise: audio of voice with keyboard and/or acoustic guitar, making melody and lyrics clear. This realization retains the union of the three positively named roles, choosing the expressly permitted both-instruments branch. It models the institutional demonstration protocol, not a named mastered hymn, entire worship service, or the separate local/regional congregational trials. The number of singers, instrumentalists and overdubs is unspecified and remains unknown; no solo singer or measured vocal range is asserted. Authored clear acoustic hymn demonstration: ringing strummed steel-string dreadnought with Engelmann spruce top, rosewood back/sides,80/20 strings and standard tuning realizes the source-bare violão; these construction and technique choices are not reported source equipment. The keyboard remains architecture-unspecified with melodic/chordal playing. Human singing has source-unspecified ensemble size, tracking, register, physiology, ornament tradition and pitch system; small-note-group neumatic word-setting is an authored musical gesture, not a transcription. Controlled live-room acoustics are authored, with no claim about a specific source microphone, capture chain, BPM or original venue. Christian sacred-song taxonomy follows explicit hymn function, not score notation alone.",
+          "instruments": [
+            "human_voice_ensemble_unspecified",
+            "acoustic_guitar_dread",
+            "electronic_keyboard_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Complete new-hymn submission recording practice explicitly prescribed by the Igreja Cristã Maranata Department of Praise: audio of voice with keyboard and/or acoustic guitar, making melody and lyrics clear. This realization retains the union of the three positively named roles, choosing the expressly permitted both-instruments branch. It models the institutional demonstration protocol, not a named mastered hymn, entire worship service, or the separate local/regional congregational trials. The number of singers, instrumentalists and overdubs is unspecified and remains unknown; no solo singer or measured vocal range is asserted. Louvor ICM is the denomination-specific repertoire and hymn-admission practice of Igreja Cristã Maranata, with its own department analyzing new hymns, compiling/revising hymnbooks and organizing recordings. This positive institutional boundary differs from Hinos CCB, whose separate denomination is Congregação Cristã no Brasil. Existing Brazilian Gospel is the broad commercial Pentecostal/neo-Pentecostal recording sector; contemporary_worship and praise_and_worship describe overlapping international congregational repertoires and can include this field, but do not identify its denominational corpus and admission network. Coral gospel is a choral practice across institutions, not synonymous with ICM; no exclusive musical sound or exclusion from these broader fields is asserted. The Portuguese words louvor/louange are broader worship terms, while ICM names the actual institution. Authored clear acoustic hymn demonstration: ringing strummed steel-string dreadnought with Engelmann spruce top, rosewood back/sides,80/20 strings and standard tuning realizes the source-bare violão; these construction and technique choices are not reported source equipment. The keyboard remains architecture-unspecified with melodic/chordal playing. Human singing has source-unspecified ensemble size, tracking, register, physiology, ornament tradition and pitch system; small-note-group neumatic word-setting is an authored musical gesture, not a transcription. Controlled live-room acoustics are authored, with no claim about a specific source microphone, capture chain, BPM or original venue. Christian sacred-song taxonomy follows explicit hymn function, not score notation alone.",
+          "exemplars": [
+            "Igreja Cristã Maranata Department of Praise — complete prescribed new-hymn submission audio practice"
+          ],
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "louvor_icm",
+          "name": "Louvor ICM",
+          "family": "blues_gospel",
+          "lineage": "Louvor ICM connects hymns and devotional singing within the Igreja Cristã Maranata. Congregational practice and the sharing of new songs emphasize the relationship between melody, words and worship.",
+          "instruments": [
+            "human_voice_ensemble_unspecified",
+            "acoustic_guitar_dread",
+            "electronic_keyboard_unspecified"
+          ],
+          "room": "live_room",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_neumatic_singing",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          }
+        },
+        "extras": {
+          "parent": "ritualDevotional.christianGospel",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing can be supported by acoustic guitar and keyboard. Clear melodic phrases and chordal accompaniment make the text audible and encourage collective participation.",
+          "exemplars": [
+            "Igreja Cristã Maranata Department of Praise — complete prescribed new-hymn submission audio practice"
+          ],
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Retain the positive meaningful band, communal a cappella or hymn-accompaniment branch with all controls, without fixing exact source personnel as a universal genre rule. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Retain the positive meaningful band, communal a cappella or hymn-accompaniment branch with all controls, without fixing exact source personnel as a universal genre rule. ",
+        "owning_control_review": {
+          "applicable": 24,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Louvor ICM, up-tempo human-voice-count-unspecified: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, witty electronic-keyboard: amplified chordal melodic, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "prose": "Louvor ICM, up-tempo human-voice-count-unspecified, cheery dreadnought-acoustic-guitar, witty electronic-keyboard, treated-live-room-reflective-but-controlled.",
+          "tags": "Louvor ICM, up-tempo human-voice-count-unspecified: gently-florid neumatic-singing-small-groups-per-syllable small-note-groups-per-syllable text-still-legible unprocessed-natural-acoustic, cheery dreadnought-acoustic-guitar: low-density-tonewood indian-rosewood spruce bronze dimensional fresh 80-20-cu-zn open-chord-ringing-overtones overtone-rich snappy strummed treble-extended vintage deep, witty electronic-keyboard: amplified chordal melodic, treated-live-room-reflective-but-controlled: present lively controlled.",
+          "compact": "Louvor ICM, up-tempo human-voice-count-unspecified · Treated live room (reflective but controlled),\ncheery dreadnought acoustic guitar · Treated live room (reflective but controlled),\nwitty Electronic keyboard · Treated live room (reflective but controlled),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    },
+    {
+      "id": "piratenmuziek",
+      "before": {
+        "tradition": {
+          "id": "piratenmuziek",
+          "name": "Piratenmuziek",
+          "family": "pop",
+          "lineage": "DJ Onslow — complete creator-issued Onslow’s Puike Platenpaleis episode110,1:59:25. The issuer explicitly names piratenmuziek, Dutch-language music and Brabantse slappe klets (Brabant chat), and the Friday14:00–16:00 Radio Favoriet programme. Retain both the entire record-playing programme and spoken hosting. One named DJ/host; any uncredited guests and total embedded singers remain unknown. Programme date is unspecified: relative upload age is not converted into an invented event date. No complete track list is published, and no audition is claimed. This is an actual issued radio programme, not an opaque studio master reclassified as a DJ performance. Existing source-unspecified DJ owner retains complete record playback/mixing without invented media format, decks, synthesis or studio stems. Original voice owner keeps all17 controls, neutral physiology and pure spoken delivery for the explicitly named host. Single-lead/no-overdub is the authored one-host realization, not evidence that no guest or embedded voices occur. All unknown embedded layers remain in playback. Broad functionalSong represents an authored verse/refrain and functional-harmony realization of this popular-song programme, not a transcription claiming every selection shares that form; incidental hosting stays present. Spacious hall-like listening environment is an authored new spatial presentation, not the station’s measured room or a concert claim. No global tuning or capture apparatus asserted.",
+          "instruments": [
+            "dj_playback_mixing_unspecified",
+            "voice"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "DJ Onslow — complete creator-issued Onslow’s Puike Platenpaleis episode110,1:59:25. The issuer explicitly names piratenmuziek, Dutch-language music and Brabantse slappe klets (Brabant chat), and the Friday14:00–16:00 Radio Favoriet programme. Retain both the entire record-playing programme and spoken hosting. One named DJ/host; any uncredited guests and total embedded singers remain unknown. Programme date is unspecified: relative upload age is not converted into an invented event date. No complete track list is published, and no audition is claimed. This is an actual issued radio programme, not an opaque studio master reclassified as a DJ performance. Piratenmuziek is the positively documented Dutch pirate-radio-derived repertoire and listener/artist circulation culture, now also maintained through internet radio and village parties. KIEN’s practitioner-supported heritage record explicitly includes Dutch-language songs,1960s–1980s bands, German schlager and polka, with direct listener requests and presenters. The exact creator corpus likewise includes instrumental Hugelland Duo alongside Ad en Karin, De Four Tak and other song groups. It is not simply all Dutch pop, all nostalgic music or all illegal broadcasting. Full old nederpop/dutch_pop covers national pop-rock, levenslied sentimental song, dutch_folk street/revival repertories, schlager_german a broader German song industry; these overlap but do not define this specific cross-style radio community. Existing classic_dutch_pop is a retrospective pop field, kermis a fairground event category and lustrum student-anniversary repertoire, not synonyms for the pirate-radio network. No selected-host membership in the creator playlist is claimed; his own programme explicitly names the target practice. Existing source-unspecified DJ owner retains complete record playback/mixing without invented media format, decks, synthesis or studio stems. Original voice owner keeps all17 controls, neutral physiology and pure spoken delivery for the explicitly named host. Single-lead/no-overdub is the authored one-host realization, not evidence that no guest or embedded voices occur. All unknown embedded layers remain in playback. Broad functionalSong represents an authored verse/refrain and functional-harmony realization of this popular-song programme, not a transcription claiming every selection shares that form; incidental hosting stays present. Spacious hall-like listening environment is an authored new spatial presentation, not the station’s measured room or a concert claim. No global tuning or capture apparatus asserted.",
+          "exemplars": [
+            "DJ Onslow — complete Puike Platenpaleis110 radio programme"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "piratenmuziek",
+          "name": "Piratenmuziek",
+          "family": "pop",
+          "lineage": "Piratenmuziek connects Dutch-language popular songs with pirate-radio traditions and their listeners. Broadcasters and local communities circulate familiar repertoire across styles and generations.",
+          "instruments": [
+            "voice",
+            "upright_piano",
+            "drum_machine_analog"
+          ],
+          "room": "concert_hall_shoebox",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard",
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "kick_voice": "sine_burst_kick",
+            "snare_voice": "two_oscillator_snare",
+            "hat_voice": "square_summed_hat",
+            "shuffle_quantize": "straight_quantize"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Memorable sung melodies and clear refrains meet chordal accompaniment and rhythmic backing. The music’s social circulation includes requests and spoken hosting, while the songs themselves support varied vocal arrangements.",
+          "exemplars": [
+            "DJ Onslow — complete Puike Platenpaleis110 radio programme"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "repair",
+      "reason": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Functional-harmonic verse–chorus–bridge organization is an explicitly authored song setting, not original regional form analysis. Electronic percussion supplies a contemporary popular-song branch; incidental radio interview speech is no longer the only represented vocal practice. ",
+      "sources": [
+        {
+          "path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-039-evidence.json",
+          "support": "Original firsthand institutional, creator, publisher and regional song evidence retained."
+        }
+      ],
+      "default_review": {
+        "policy": "Replace edition/programme personnel and audit dossier with positive genre history and style. All original evidence remains in before. Representative branches are not universal instrument inventories or reconstructions of exact masters. Restore positively documented singing and chordal accompaniment instead of making a separate piano adaptation or radio-host programme the genre’s sole default. An intimate song rendition is chosen, not a claim to the original published instrumental edition. Functional-harmonic verse–chorus–bridge organization is an explicitly authored song setting, not original regional form analysis. Electronic percussion supplies a contemporary popular-song branch; incidental radio interview speech is no longer the only represented vocal practice. ",
+        "owning_control_review": {
+          "applicable": 24,
+          "all_protected": true,
+          "unused": [],
+          "new_unprotected": []
+        },
+        "literal_outputs": {
+          "rich": "Piratenmuziek, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, stereophonic analog-drum-machine: clappy rigid subby unusual analog-drift-character mechanical classic distinctive metallic modern, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "prose": "Piratenmuziek, huge voice, immense upright-piano, stereophonic analog-drum-machine, treated-concert-hall-shoebox.",
+          "tags": "Piratenmuziek, huge voice: continuous-phonation plain-direct-line single-lead-single-track-no-stacking solo-with-instrumental-accompaniment syllabic-singing-one-note-per-syllable text-forward unprocessed-natural-acoustic flowing connected, immense upright-piano: general-purpose pedal-resonant hammer-low-mid-emphasis common accessible legato versatile, stereophonic analog-drum-machine: clappy rigid subby unusual analog-drift-character mechanical classic distinctive metallic modern, treated-concert-hall-shoebox: wide-soundstage panoramic-image stereo-pair-tracking expansive-reverb hall-like overtone-rich balanced full.",
+          "compact": "Piratenmuziek, huge voice · Treated concert hall (shoebox),\nimmense upright piano · Treated concert hall (shoebox),\nstereophonic analog drum machine · Treated concert hall (shoebox),"
+        },
+        "runtime_review": "All four literal outputs individually inspected; original browser/connector parity and size limits pass. Physical and performance choices are representative genre options, not measured source gear."
+      }
+    }
+  ]
+}

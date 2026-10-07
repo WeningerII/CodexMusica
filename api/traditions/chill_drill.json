@@ -1,0 +1,83 @@
+{
+  "id": "chill_drill",
+  "name": "Chill Drill",
+  "family": "hip_hop",
+  "lineage": "Chill drill softens drill’s rhythmic and bass vocabulary through smoother melodic production. Producers balance its syncopated beat language with restrained textures and more relaxed listening moods.",
+  "recipe": "classic chill drill, mc Rhythm, drill branch. upright piano, pitched sub bass 808 style legato glide sampler drum machine. live tracking.",
+  "recipe_chars": 137,
+  "score": 2.25,
+  "config": {
+    "traditions": [
+      "chill_drill"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0.39,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "sample_808_legato_slides"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.39,
+          "sample_swing": -0.05,
+          "sample_processing": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "sample_808_legato_slides",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

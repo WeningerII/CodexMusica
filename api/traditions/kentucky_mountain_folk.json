@@ -2,10 +2,10 @@
   "id": "kentucky_mountain_folk",
   "name": "Kentucky mountain folk",
   "family": "vernacular",
-  "lineage": "Eastern Kentucky mountain repertoires include family ballads, social songs, banjo/fiddle practices and local dulcimer accompaniment. Jean Ritchie’s Viper family repertoire supplies the selected sung-ballad branch.",
-  "recipe": "classic modern kentucky mountain folk, ballad Poetry. thick, neutral third half flat, single source phonation, nasal twang velar port open. mountain dulcimer. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 296,
-  "score": 12.355,
+  "lineage": "Kentucky mountain folk includes family ballads, social songs, fiddle and banjo music, and local dulcimer traditions. The Ritchie family’s eastern Kentucky repertoire helped bring inherited mountain songs to wider audiences through performance and recording.",
+  "recipe": "classic modern kentucky mountain folk, ballad Poetry. thick, neutral third half flat, opera quality low larynx anchored, notated speech melody. mountain dulcimer. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 300,
+  "score": 19.919,
   "config": {
     "traditions": [
       "kentucky_mountain_folk"
@@ -22,32 +22,32 @@
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.0000000000000004,
+          "voice_register": 4.5,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.36,
+          "voice_vibrato": 0.414,
           "voice_articulation": 0.13000000000000003,
-          "voice_microtone": 1.6899999999999997,
+          "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.6,
-          "voice_estill_quality": 0.585,
-          "voice_speech_song": 2.275,
-          "voice_ensemble_config": 2.21,
-          "voice_ornament_system": 0.26,
-          "voice_pitch_organization": 0.2,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 1.438,
+          "voice_speech_song": 5.265,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0.354,
+          "voice_pitch_organization": 0.06500000000000002,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.5199999999999999
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -60,8 +60,8 @@
           "dulcimer_string_material": "dulcimer_steel_modern"
         },
         "scores": {
-          "acoustic_technique": -0.1,
-          "dulcimer_strings": 0,
+          "acoustic_technique": -0.07,
+          "dulcimer_strings": 0.108,
           "dulcimer_tuning": 0,
           "dulcimer_body_wood": 0.36,
           "dulcimer_string_material": 0
@@ -72,7 +72,8 @@
       "voice": [
         "voice_quality",
         "voice_articulation",
-        "voice_tradition"
+        "voice_tradition",
+        "voice_ensemble_config"
       ],
       "mountain_dulcimer": [
         "acoustic_technique",
@@ -105,7 +106,8 @@
       "acoustic_technique": "acoustic_drone_modal",
       "dulcimer_strings": "dulcimer_3",
       "dulcimer_tuning": "ionian_tuning",
-      "voice_tradition": "voice_tradition_source_unspecified"
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

@@ -1,0 +1,57 @@
+{
+  "id": "korg_nts1_digital",
+  "name": "KORG Nu:Tekt NTS-1 digital kit",
+  "short": "NTS-1 digital",
+  "family": "electronic",
+  "class": "korg_nts1_digital",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "korg_nts1_digital_identity",
+      "name": "Documented sound source",
+      "variants": [
+        {
+          "id": "korg_nts1_digital_documented",
+          "name": "KORG Nu:Tekt NTS-1 digital kit documented source identity",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Digital synthesizer positively credited by artist for riser created by volume/filter/resonance modulation; processing capabilities not an extra live performer. Neutral routing coordinates are authored, not source measurements. No source oscillator settings or unverified preset claims.",
+  "sources": [
+    "https://www.korg.live/tr/features/artists/2021/0806/",
+    "https://www.korg.com/us/products/dj/nts_1/"
+  ],
+  "_ownParts": [
+    {
+      "id": "korg_nts1_digital_identity",
+      "name": "Documented sound source",
+      "variants": [
+        {
+          "id": "korg_nts1_digital_documented",
+          "name": "KORG Nu:Tekt NTS-1 digital kit documented source identity",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

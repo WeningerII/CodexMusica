@@ -1,0 +1,153 @@
+{
+  "note": "Current expanded candidate; historical1734 evidence is explicitly prefixed. Independent workspace input hashes identify original immutable receipts. Formatting may change only whitespace; original hashes remain preserved. Current generated state and dispositions are intentionally updated, not represented as unchanged receipt copies.",
+  "files": [
+    {
+      "file": "historical-1734-repair-state.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/repair-state.json",
+      "workspace_input_sha256": "592a95ec6aac0e6f6e3191855a90c1f9899242ecb3fedde7eb108bd17872a86d",
+      "published_sha256": "592a95ec6aac0e6f6e3191855a90c1f9899242ecb3fedde7eb108bd17872a86d",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "historical-1734-deferred-proposals.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/deferred-proposals.json",
+      "workspace_input_sha256": "42218ba5ca7e1423ec0e56686fbb526c5a0c45be0562f5f1eea505fc16937df5",
+      "published_sha256": "42218ba5ca7e1423ec0e56686fbb526c5a0c45be0562f5f1eea505fc16937df5",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "historical-1734-subset-selection.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/subset-selection.json",
+      "workspace_input_sha256": "53bc253a390fac55d4ca2706b0b08a9af2b27c7d12343751ee0f50aec0ab18b5",
+      "published_sha256": "53bc253a390fac55d4ca2706b0b08a9af2b27c7d12343751ee0f50aec0ab18b5",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "historical-1734-subset-validation.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/subset-validation.json",
+      "workspace_input_sha256": "41e0e1858f3a4155d80cf49be33eecadd1182b600cc5847c5b95ff82e10f2db4",
+      "published_sha256": "41e0e1858f3a4155d80cf49be33eecadd1182b600cc5847c5b95ff82e10f2db4",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "historical-1734-subset-exact-comparison.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/subset-exact-comparison.json",
+      "workspace_input_sha256": "bcf65f0846c24e50222155d5c9514ed129e4f443555379a5c29ff837e236778c",
+      "published_sha256": "bcf65f0846c24e50222155d5c9514ed129e4f443555379a5c29ff837e236778c",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "historical-1734-subset-independent-audit.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/subset-independent-audit.json",
+      "workspace_input_sha256": "354e91ffecd03ff7e3afc5c81f85d3d850233103062b34cc1d2e29c14a92fd78",
+      "published_sha256": "354e91ffecd03ff7e3afc5c81f85d3d850233103062b34cc1d2e29c14a92fd78",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "historical-1734-evidence-formatting.json",
+      "workspace_input_path": "/workspace/CodexMusica-qualify480-expanded/docs/everynoise-integrations/checkpoint-040/evidence-formatting.json",
+      "workspace_input_sha256": "35c3cb9e5ae05da2272aa4a88a393a49d0b6ada054ae98cff46381a94ea0cc10",
+      "published_sha256": "35c3cb9e5ae05da2272aa4a88a393a49d0b6ada054ae98cff46381a94ea0cc10",
+      "json_values_identical": true,
+      "historical_origin": "Pre-update published1734 checkpoint; input hash captured before replacing current filenames."
+    },
+    {
+      "file": "deferred-proposals.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/qualification-expanded/deferred-proposals.json",
+      "workspace_input_sha256": "c0524f02662eed6d370a207314c4f0f08a6bd434ad1dea4e58a1a5bad1467a09",
+      "published_sha256": "bc7b0880f57d6fdede6752420a01386db264d52750afd41eede34c1520888e77",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-exact-comparison.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-config-review.json",
+      "workspace_input_sha256": "193ff2de8cdfd78405bed7ce210ec08026135efc07d0b9aa13a0a7f70a1a4da1",
+      "published_sha256": "eaec3d712719123ae28b3779e3e390bb4dd69c76d34212371ce5adcb5d276380",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-independent-audit.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-final-qualification119.json",
+      "workspace_input_sha256": "481bacb73f98da61596b6e44de37bcdbc1316f3e4191bc11af2cda035c858f57",
+      "published_sha256": "8db3ced071894ea44e8405c72c690a8f814e450fe3eebd943a871d87bd1b571f",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-config-coverage.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-graph-coverage-review.json",
+      "workspace_input_sha256": "6777966b3d56948fb53ee1dce8fd16c26e75945e43ea8a6711d0c65d385e5c1a",
+      "published_sha256": "6777966b3d56948fb53ee1dce8fd16c26e75945e43ea8a6711d0c65d385e5c1a",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-preservation.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-preservation.json",
+      "workspace_input_sha256": "0e9a5fe72ffed95df11734257a6c56c3dcad61bde11be72318eb3d0381580e6d",
+      "published_sha256": "20e0c2999ffe9e1779b15d9c689aaed478d420aba4ef4f5a9cce44926de5d873",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-source-binding.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-expanded-source-binding.json",
+      "workspace_input_sha256": "9d7e33951fddfbe2b6e70714c6c8a66baf09696a20a0d8e53098e23db7602d4a",
+      "published_sha256": "f8ac419e4ba862aa46d4f71e6338ed7110c8106d024938ccc98bc35530945a30",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-conservative-comparison.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-vs-conservative.json",
+      "workspace_input_sha256": "2e925c66b4fd274d91a0cdc06d72ab7d45c14e370b6a56283f0c65ec38d8deb8",
+      "published_sha256": "e663840db35ddc4ab6755512ecc7f03b3a6a7854d168cc1bec25a9c427ec136a",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-retained-structural.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-retained-structural.json",
+      "workspace_input_sha256": "b6876022c8f6e90726318d9299ff204389df9625cc5fdcfbb5f1c0adec5787b2",
+      "published_sha256": "ce606e5f22752e744516d0cc1b0f863066bad102a4f74881fa826851e9ae10f6",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-deferred-independent-archive.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-deferred201-proposals.json",
+      "workspace_input_sha256": "c4b8952d723a7cd3e72b416c36f8e9cf4254e8a1eb3f015fbde37a943dcf2fab",
+      "published_sha256": "4a19fcbf73c806c2c5c06c0f4492dee97749a188cd6acc78db44a540030e6b08",
+      "json_values_identical": true
+    },
+    {
+      "file": "historical-2210-hidden-configuration-hold.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/additional-config-review.json",
+      "workspace_input_sha256": "ab98a198a8b9f18994dd3084f6c709ac6999eae6773303b6de670ec7232cc7e5",
+      "published_sha256": "ec6c502c773155508f30677e94365f68b9d1c432616e02495336f6ce7f288431",
+      "json_values_identical": true
+    },
+    {
+      "file": "subset-regression.txt",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/research119/subset/candidate2-full-regression.log",
+      "workspace_input_sha256": "b4f0ff7f1aaac7e2e013cd3e6d6fcedd00fd82b1fd817ad9e599e3dd8ea03ead",
+      "published_sha256": "b4f0ff7f1aaac7e2e013cd3e6d6fcedd00fd82b1fd817ad9e599e3dd8ea03ead",
+      "json_values_identical": null
+    },
+    {
+      "file": "subset-api-build.txt",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/qualification-expanded/api-build.log",
+      "workspace_input_sha256": "fd7ee45401d4144f72505293857c42516e3152f99fe22ec80d46147babcdbf3c",
+      "published_sha256": "fd7ee45401d4144f72505293857c42516e3152f99fe22ec80d46147babcdbf3c",
+      "json_values_identical": null
+    },
+    {
+      "file": "subset-generated-api-audit.json",
+      "workspace_input_path": "/workspace/genre-continuation/checkpoint480-frozen/qualification116/expanded-subset-independent116.json",
+      "workspace_input_sha256": "c7af96fe0955dd22c7d3280cd413df65beabdde2f1a6939e3e82764f07611cca",
+      "published_sha256": "c7af96fe0955dd22c7d3280cd413df65beabdde2f1a6939e3e82764f07611cca",
+      "json_values_identical": true
+    }
+  ],
+  "historical_manifest": "historical-1734-evidence-formatting.json"
+}

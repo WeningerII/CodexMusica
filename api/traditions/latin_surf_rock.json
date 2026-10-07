@@ -2,10 +2,10 @@
   "id": "latin_surf_rock",
   "name": "Latin surf rock",
   "family": "rock",
-  "lineage": "Latin surf rock is represented here by Los Tiki Phantoms. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Instrumental surf-rock scenes in Spanish-speaking music communities, centred on melodic electric guitars, bass and drums.",
   "recipe": "classic latin surf rock, distorted Rock, surf rock branch. Fender blackface amp American 60s amp spring reverb bright tremolo humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 340,
-  "score": 75.416,
+  "score": 69.567,
   "config": {
     "traditions": [
       "latin_surf_rock"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.181,
-          "amp_make": 12.433124999999997,
+          "electric_technique": 9.980999999999998,
+          "amp_make": 10.901624999999997,
           "body_wood": 0.1365,
-          "neck_wood": 0.105,
+          "neck_wood": 0.1365,
           "fretboard": 0.2415,
           "pickup_magnet": 0.3045,
-          "pickup_winding": 0.24862499999999998,
-          "string_material": 0.005625,
-          "bridge": 1.69,
-          "scale_length": 0.21,
-          "string_gauge": 1.69,
+          "pickup_winding": 0.22049999999999997,
+          "string_material": 0.01875,
+          "bridge": 0.378,
+          "scale_length": 0.2415,
+          "string_gauge": 0.1365,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.0315
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.905,
-          "body_wood": 0.37799999999999995,
+          "amp_make": 9.815,
+          "body_wood": 0.4095,
           "pickup_config": 0.27299999999999996,
-          "string_type": 20.274375,
+          "string_type": 19.74975,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.605,
-          "drumhead": 0.39,
+          "drum_technique": 15.855,
+          "drumhead": 0.78175,
           "drum_kit_kick_pedal": 0
         }
       }

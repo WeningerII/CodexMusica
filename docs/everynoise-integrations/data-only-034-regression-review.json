@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "9c6d6ca4cfc98b91739b03c82b90d01033e6a073a29c94a4e86ce7c2a1545f30",
+  "authorized_exact_fixture_ids": ["tech_house_classic", "plunderphonics"],
+  "source_extras_roster_environment_protected_settings_unchanged": true,
+  "material_unprotected_slot_changes": 2,
+  "rows": [
+    {
+      "id": "tech_house_classic",
+      "old_output": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance algorave norwegian techno. digital subtractive, TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_output": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance algorave dark techno. digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_staples": ["tech_house_classic", "algorave", "norwegian_techno"],
+      "current_staples": ["tech_house_classic", "algorave", "dark_techno"],
+      "baseline_score": 115.97999999999999,
+      "current_score": 112.54,
+      "new_neighbor_ids": ["hungarian_techno", "indian_techno"],
+      "new_candidate_ids": ["dark_techno"],
+      "slot_changes": [
+        {
+          "instrument": "digital_subtractive",
+          "part": "electronic_technique",
+          "before": "electronic_pad_drone",
+          "after": "electronic_bass_sub",
+          "source_pin_parts": false,
+          "source_variant": "electronic_bass_sub",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_machine_909",
+          "part": "tr909_production_origin",
+          "before": "tr909_tr_8s_modern",
+          "after": "tr909_roland_osaka_canonical",
+          "source_pin_parts": false,
+          "source_variant": "tr909_roland_osaka_canonical",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "plunderphonics",
+      "old_output": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm alternative hip hop gangsta rap. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "new_output": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm gangsta rap houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "baseline_staples": ["plunderphonics", "alternative_hip_hop", "gangsta_rap"],
+      "current_staples": ["plunderphonics", "gangsta_rap", "houston_chopped_screwed"],
+      "baseline_score": 99.51750000000001,
+      "current_score": 97.37749999999997,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["alabama_rap"],
+      "slot_changes": [],
+      "environment_changes": {}
+    }
+  ],
+  "causal_method": "Original regression fixture definitions and 100-iteration original solver replay, independently on exact baseline and current catalog. Baseline matches committed snapshot and current matches failed regression log. Removing only new100 traditions/extras from process memory restores both exact recipes, complete configs and scores while retaining all22 new instruments.",
+  "cause": "New dark_techno enters tech-house staple candidates while Hungarian and Indian techno enter neighbor scoring. Alabama rap enters plunderphonics candidate scoring. Removal of all new100 is sufficient; this does not assert each individual named row alone explains the full search path.",
+  "interpretation": "Tech-house materially changes two existing valid unprotected selected variants; plunderphonics changes rendered neighbor-derived wording without slot movement. These are expected original solver adjacency effects, not new source facts or improvements to old historical reconstructions. Old authored actual browser cards are preserved by separate integration audit.",
+  "errors": [],
+  "scope": "Only listed two fixtures eligible for parent original targeted snapshot update; full serial regression and exact-head CI remain required. Reviewer changed no repository/source/API/snapshot."
+}

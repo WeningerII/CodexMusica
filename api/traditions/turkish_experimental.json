@@ -1,0 +1,64 @@
+{
+  "id": "turkish_experimental",
+  "name": "Turkish Experimental",
+  "family": "vernacular",
+  "lineage": "Turkish experimental music connects sound exploration, composition and improvisation across acoustic and electronic practices. Cevdet Erek’s percussion work is one example within this broad field.",
+  "recipe": "classic turkish experimental, improv On Frame, jam free branch. davul experimental solo. live tracking.",
+  "recipe_chars": 103,
+  "score": 0.273,
+  "config": {
+    "traditions": [
+      "turkish_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "davul_experimental_solo",
+        "slots": {
+          "davul_experimental_solo_form": "davul_experimental_solo_double_headed",
+          "davul_experimental_solo_implements": "davul_experimental_solo_soft_mallet_small_tools",
+          "davul_experimental_solo_technique": "davul_experimental_solo_strike_scrape_pressure",
+          "davul_experimental_solo_tension": "davul_experimental_solo_lower_than_customary"
+        },
+        "scores": {
+          "davul_experimental_solo_form": 0.105,
+          "davul_experimental_solo_implements": 0,
+          "davul_experimental_solo_technique": 0,
+          "davul_experimental_solo_tension": 0.168
+        }
+      }
+    ],
+    "pinned": {
+      "davul_experimental_solo": [
+        "davul_experimental_solo_form",
+        "davul_experimental_solo_implements",
+        "davul_experimental_solo_technique",
+        "davul_experimental_solo_tension"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "unpitched_percussion",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "unpitched_percussion",
+    "room": "live_room",
+    "parts": {
+      "davul_experimental_solo_form": "davul_experimental_solo_double_headed",
+      "davul_experimental_solo_implements": "davul_experimental_solo_soft_mallet_small_tools",
+      "davul_experimental_solo_technique": "davul_experimental_solo_strike_scrape_pressure",
+      "davul_experimental_solo_tension": "davul_experimental_solo_lower_than_customary"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "ethnomusicology",
+  "name": "Ethnomusicology",
+  "family": "classical",
+  "lineage": "Ethnomusicology connects the study of music in cultural context with documentary recordings, archives and sustained research relationships. Curated listening collections bring distinct local traditions to wider audiences while retaining their separate histories and practices.",
+  "recipe": "classic ethnomusicology, art Music, east Asian branch. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi. live tracking.",
+  "recipe_chars": 180,
+  "score": 9.513,
+  "config": {
+    "traditions": [
+      "ethnomusicology"
+    ],
+    "instruments": [
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "one_eight",
+          "shaku_technique": "meri_kari",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": 2.6075000000000004,
+          "shaku_length": -0.035,
+          "shaku_technique": 0.47250000000000003,
+          "shakuhachi_body_material": 3.6644999999999994,
+          "shakuhachi_lineage": 2.8034999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "shakuhachi": [
+        "wind_articulation",
+        "shaku_length",
+        "shaku_technique",
+        "shakuhachi_body_material",
+        "shakuhachi_lineage"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "shaku_length": "one_eight",
+      "shaku_technique": "meri_kari",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_kinko"
+    },
+    "pin_parts": true
+  }
+}

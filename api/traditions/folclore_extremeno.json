@@ -1,0 +1,83 @@
+{
+  "id": "folclore_extremeno",
+  "name": "Folclore extremeño",
+  "family": "vernacular",
+  "lineage": "Folclore extremeño encompasses traditional repertoires and performance practices associated with Extremadura. The tamborilero tradition is a distinctive instrumental strand within that broader regional heritage.",
+  "recipe": "classic folclore extremeño, improv On Frame. gaita extremena, one handed gut tabor. live tracking.",
+  "recipe_chars": 98,
+  "score": 5.979,
+  "config": {
+    "traditions": [
+      "folclore_extremeno"
+    ],
+    "instruments": [
+      {
+        "id": "gaita_extremena",
+        "slots": {
+          "gaita_extremena_form": "gaita_extremena_three_hole",
+          "gaita_extremena_context": "gaita_extremena_self_accompanied",
+          "gaita_extremena_body": "gaita_extremena_wood_unspecified"
+        },
+        "scores": {
+          "gaita_extremena_form": 0,
+          "gaita_extremena_context": 0.39,
+          "gaita_extremena_body": 0
+        }
+      },
+      {
+        "id": "tabor",
+        "slots": {
+          "tabor_form": "tabor_tamboril_iberian",
+          "tabor_context": "tabor_pipe_and_tabor",
+          "tabor_snare": "tabor_snare_batter",
+          "tabor_heads": "tabor_calfskin_slack"
+        },
+        "scores": {
+          "tabor_form": 0.2815,
+          "tabor_context": 2.876,
+          "tabor_snare": 2.4815,
+          "tabor_heads": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "gaita_extremena": [
+        "gaita_extremena_form",
+        "gaita_extremena_context",
+        "gaita_extremena_body"
+      ],
+      "tabor": [
+        "tabor_form",
+        "tabor_context",
+        "tabor_snare",
+        "tabor_heads"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "gaita_extremena_form": "gaita_extremena_three_hole",
+      "gaita_extremena_context": "gaita_extremena_self_accompanied",
+      "gaita_extremena_body": "gaita_extremena_wood_unspecified",
+      "tabor_form": "tabor_tamboril_iberian",
+      "tabor_context": "tabor_pipe_and_tabor",
+      "tabor_snare": "tabor_snare_batter",
+      "tabor_heads": "tabor_calfskin_slack"
+    },
+    "pin_parts": true
+  }
+}

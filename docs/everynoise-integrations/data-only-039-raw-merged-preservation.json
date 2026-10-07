@@ -1,0 +1,45 @@
+{
+  "predecessor": "4fc011d5851bc425386cf2b2fcee937f22c65e6d",
+  "head": "4fc011d5851bc425386cf2b2fcee937f22c65e6d",
+  "frozen_sha256": "b8080977df43c25645ed368c75bdd7fa9633477b56c40d6c99472e3a503a0b58",
+  "counts": {
+    "raw_traditions_old_unchanged": 6438,
+    "raw_instruments_old_unchanged": 1628,
+    "old_extras_unchanged": 6438,
+    "merged_instruments_old_unchanged": 1628,
+    "data/geo.json_old_keys": 6438,
+    "references/_tradition_signatures.json_old_keys": 4416,
+    "old_images_unchanged": 8016,
+    "new_images": 110
+  },
+  "additions": 100,
+  "instrument_additions": [
+    "native_american_flute_source_unspecified",
+    "hand_drum_source_unspecified",
+    "live_loop_recording_playback",
+    "credited_leather_percussion_unspecified",
+    "credited_sapek_kayan",
+    "credited_programming_unspecified",
+    "gaita_extremena",
+    "andean_scordatura_guitar",
+    "gene_iii_drum_machine",
+    "credited_beat_unspecified"
+  ],
+  "runtime_independent": {
+    "cards": 237,
+    "effective_parts": 1790,
+    "flat_pins": 1752,
+    "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+  },
+  "app_scope": {
+    "added_signature_rows": 100,
+    "removed_rows": 0,
+    "logic_changes": false
+  },
+  "errors": [],
+  "warnings": [],
+  "reviewer_notes": {
+    "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+    "limitation": "API/regression/exact-head CI separate required gates."
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "African-American-and-American-English hand-game clapping-rhyme tradition continuous from African-diasporic and African-American children's play-song origins through 20th-century continuous performance across American childhood-and-playground-practice; the canonical \"Miss Mary Mack\" and broader hand-game repertoire is documented as one of the most-durable American children's-play-traditions",
   "recipe": "classic early-1940s american hand-game clapping rhymes, nursery Rhyme, americas branch, sub saharan African nursery rhyme, Brazilian groove percussion, sub saharan African protest song yoruba ọmọ-iya nursery and play-song south african freedom song. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 413,
-  "score": 154.595,
+  "score": 155.075,
   "config": {
     "traditions": [
       "american_handgame_clapping",
@@ -41,13 +41,13 @@
           "voice_vibrato": 0.5549999999999999,
           "voice_articulation": 15.209999999999997,
           "voice_microtone": 15.404999999999992,
-          "voice_tradition": 44.025,
+          "voice_tradition": 44.205,
           "voice_mechanism_compound": 0.95,
           "voice_estill_quality": 0.8549999999999998,
           "voice_speech_song": 22.229999999999997,
           "voice_ensemble_config": 15.339999999999996,
-          "voice_ornament_system": 15.869999999999997,
-          "voice_pitch_organization": 9.329999999999997,
+          "voice_ornament_system": 16.319999999999997,
+          "voice_pitch_organization": 9.179999999999996,
           "voice_processing_chain": 2.9750000000000005,
           "voice_multitrack_stack": 6.095000000000001
         }

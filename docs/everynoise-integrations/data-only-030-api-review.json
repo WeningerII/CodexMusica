@@ -1,0 +1,2734 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "baseline_head": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+  "current_counts": {
+    "traditions": 5638,
+    "instruments": 1506
+  },
+  "old_api": {
+    "traditions": 5538,
+    "identical": 5484,
+    "derived_changed": 54,
+    "recipe_changed": 10,
+    "slot_changes": 44,
+    "old_instruments_identical": 1489,
+    "missing": 0,
+    "source_identity_roster_environment_protected_pin_changes": 0
+  },
+  "new_api": {
+    "traditions": 100,
+    "instrument_dependencies": 17,
+    "effective_parts": 4191,
+    "protected_applicable_pins": 4187,
+    "all_protected_pins_preserved": true,
+    "roster_source_identity_environment_valid": true,
+    "unpinned_actual_choices": [
+      {
+        "id": "musica_ecuatoguineana",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "compiled_actual": "electronic_keyboard_melodic_chordal",
+        "runtime_protected": false
+      },
+      {
+        "id": "musica_mato_grossense",
+        "instrument": "midi_programmed_sound_unspecified",
+        "part": "electronic_technique",
+        "imported_default": "midi_programmed_event_sequence",
+        "compiled_actual": "midi_programmed_event_sequence",
+        "runtime_protected": false
+      },
+      {
+        "id": "ohio_indie",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "compiled_actual": "electronic_keyboard_melodic_chordal",
+        "runtime_protected": false
+      },
+      {
+        "id": "palestinian_alternative",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "compiled_actual": "electronic_keyboard_melodic_chordal",
+        "runtime_protected": false
+      }
+    ]
+  },
+  "causal_method": "Original baseline/current solver independently replays ALL54 changed complete API recipe, config and rounded score exactly. One serial process at a time. A third temporary process removes only new100 traditions/extras from memory, retains unchanged original engine and17addedinstrument definitions, and restores every baseline full recipe/config/score. No source/API/snapshot edits.",
+  "causal_interpretation": "Original cross-reference/parent/axis-neighbor scoring and one-staple-per-parent candidate ranking respond to added source rows.44 valid existing unprotected variant choices materially move; this is not presented as improved historical reconstruction or as an authored-source/default change. Score-only rows have identical selected slots,roster,environment,recipe and differ only in numeric scoring metadata. Existing actual browser cards proven separately unchanged.",
+  "causal_rows": [
+    {
+      "id": "african_percussion",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["african_percussion"],
+      "traditions_after": ["african_percussion"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic african percussion, groove Percussion. djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic african percussion, groove Percussion. djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "african_percussion",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "afro_cuban_percussion",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "ambient",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["ambient", "tuareg_guitar", "african_blues"],
+      "traditions_after": ["ambient", "musique_mauritanienne", "tuareg_guitar"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "analog_synth",
+          "part": "filter_topology",
+          "before": "resonant_acid",
+          "after": "transistor_ladder",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal tuareg guitar african blues. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+      "recipe_after": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal musique mauritanienne tuareg guitar. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "witch_house_2010s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [
+        {
+          "prefix": "ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "ambient_guitar",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["ambient_guitar"],
+      "traditions_after": ["ambient_guitar"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1990s ambient guitar, experimental Elec, ambient branch, modal electric drone modal. maple pau ferro ceramic conventional tuning standard pitch single coil electric guitar, ampeg svt amp rock bass amp electric bass, sustained pad analog synth. bedroom. dynamic moving-coil, console-strip pre, solid-state clean, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette digital delay hall reverb.",
+      "recipe_after": "classic mid-1990s ambient guitar, experimental Elec, ambient branch, modal electric drone modal. maple pau ferro ceramic conventional tuning standard pitch single coil electric guitar, ampeg svt amp rock bass amp electric bass, sustained pad analog synth. bedroom. dynamic moving-coil, console-strip pre, solid-state clean, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette digital delay hall reverb.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "ambient_guitar",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "dungeon_synth",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [
+        {
+          "prefix": "ambient_guitar",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "ambient_post_rock",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["ambient_post_rock"],
+      "traditions_after": ["ambient_post_rock", "musique_mauritanienne"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_12_hum",
+          "after": "g_10_hum",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "stoptail",
+          "after": "string_thru",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic mid-2000s ambient post-rock, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal. marshall plexi amp British rock amp alnico humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, plain gut sheep gut unsplit engelmann spruce hard rock maple cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, class-A discrete pre, British class-A combo, parallel compression, parametric EQ. 24-bit digital digital delay hall reverb octave-up reverb.",
+      "recipe_after": "classic mid-2000s ambient post-rock, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal musique mauritanienne. marshall plexi amp British rock amp alnico humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, plain gut sheep gut unsplit engelmann spruce hard rock maple cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, class-A discrete pre, British class-A combo, parallel compression, parametric EQ. 24-bit digital digital delay hall reverb octave-up reverb.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [],
+      "staple_candidate_changes": [
+        {
+          "prefix": "ambient_post_rock",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "azerbaijani_mugham",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["azerbaijani_mugham", "arab_tarab", "telugu_kirtana"],
+      "traditions_after": ["azerbaijani_mugham", "arab_tarab", "telugu_kirtana"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "daf",
+          "part": "daf_rings",
+          "before": "daf_with_rings",
+          "after": "daf_no_rings",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Caucasian early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. eleven string reformed tar azerbaijani, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval, garmon. shusha garabagh mugham conservatory. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_after": "classic Caucasian early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. eleven string reformed tar azerbaijani, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval, garmon. shusha garabagh mugham conservatory. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "azerbaijani_mugham",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "tarab_egyptian",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "bahai",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bahai"],
+      "traditions_after": ["bahai"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s bahá’í music, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s bahá’í music, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "bahai",
+          "added": [
+            {
+              "id": "musica_indigena_brasileira",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_indigena_latinoamericana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_instrumental_cristiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "cape_verdean_funana_maritime",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "cantautora_mexicana",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "belly_dance",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["belly_dance"],
+      "traditions_after": ["belly_dance"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1970s belly dance, groove Percussion. group vocals, live take. oud, qanun, fusion lead electric violin, European maple bosnian source flamed figure violin orchestral, oboe, electric bass, bongos, congas, darbuka, zills sagat, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-1970s belly dance, groove Percussion. group vocals, live take. oud, qanun, fusion lead electric violin, European maple bosnian source flamed figure violin orchestral, oboe, electric bass, bongos, congas, darbuka, zills sagat, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "belly_dance",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "classic_punjabi_pop",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "boduberu",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["boduberu"],
+      "traditions_after": ["boduberu"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern boduberu, groove Percussion. maldivian, single leader group response, live take. three drummers boduberu drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern boduberu, groove Percussion. maldivian, single leader group response, live take. three drummers boduberu drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "boduberu",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "dene_handgame",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "bosavi_ilib_kuwo",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bosavi_ilib_kuwo"],
+      "traditions_after": ["bosavi_ilib_kuwo"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern ilib kuwo, groove Percussion. kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern ilib kuwo, groove Percussion. kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "bosavi_ilib_kuwo",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "mwinoghe",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "burkinabe_traditional",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["burkinabe_traditional"],
+      "traditions_after": ["burkinabe_traditional"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic burkinabe traditional, improv On Frame. buzzy natural material resonance calabash gourd balafon. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic burkinabe traditional, improv On Frame. buzzy natural material resonance calabash gourd balafon. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "burkinabe_traditional",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "canadian_ccm",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["canadian_ccm"],
+      "traditions_after": ["canadian_ccm"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic canadian ccm, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic canadian ccm, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "canadian_ccm",
+          "added": [
+            {
+              "id": "musica_indigena_brasileira",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_indigena_latinoamericana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_instrumental_cristiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "anime_cv",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_latino",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "carnatic_instrumental",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["carnatic_instrumental", "indian_classical", "carnatic_kacheri"],
+      "traditions_after": ["carnatic_instrumental", "indian_classical", "carnatic_kacheri"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "saxophone",
+          "part": "sax_technique",
+          "before": "sax_continuous_legato",
+          "after": "sax_cool_lyrical",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "indian_classical",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "arpa_grande",
+              "weight": 0.0625,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "carnatic_instrumental",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kirtan",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "carnatic_vocal",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["carnatic_vocal", "carnatic_kacheri", "hindustani_vocal"],
+      "traditions_after": ["carnatic_vocal", "carnatic_kacheri", "hindustani_vocal"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri hindustani vocal. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, silvery treble-extended suited to female vocal tanpura, ghatam, extended concert stage thavil, jackwood frame canonical carnatic kanjira, concert forged steel morsing, sruti anchor tonic drone bright brass reed resonant teak shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri hindustani vocal. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, silvery treble-extended suited to female vocal tanpura, ghatam, extended concert stage thavil, jackwood frame canonical carnatic kanjira, concert forged steel morsing, sruti anchor tonic drone bright brass reed resonant teak shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "carnatic_vocal",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kirtan",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "chapman_stick",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["chapman_stick"],
+      "traditions_after": ["chapman_stick"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic chapman stick, improv On Frame. chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic chapman stick, improv On Frame. chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "chapman_stick",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "chinese_traditional_ensemble",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["chinese_traditional_ensemble", "sinhala_vannama", "telugu_kirtana"],
+      "traditions_after": ["chinese_traditional_ensemble", "sinhala_vannama", "telugu_kirtana"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_after": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "chinese_traditional_ensemble",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "guqin",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "danish_folk",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["danish_folk"],
+      "traditions_after": ["danish_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "danish_folk",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "traditional_bluegrass",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "dark_jazz",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["dark_jazz", "melancholia_ambient", "desert_blues"],
+      "traditions_after": ["dark_jazz", "melancholia_ambient", "musique_mauritanienne"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "rhodes_electric",
+          "part": "keyboard_technique",
+          "before": "keyboard_block_chord_pop",
+          "after": "keyboard_jazz_comping",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_size",
+          "before": "bass_seven_eighth",
+          "after": "bass_three_quarter",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_top_wood",
+          "before": "plywood_bass_top",
+          "after": "carpathian_spruce_bass",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_maker_lineage",
+          "before": "poly_oberheim_tom",
+          "after": "poly_sequential_smith",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North American 1994-1996 dark jazz, improv On Frame, avant branch, ambient experimental electric, modal electric drone modal melancholia tuareg desert blues. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, vibraphone, silver wound lamb gut core European maple sycamore maple Baroque setup double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, sustained pad analog poly synth. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic North American 1994-1996 dark jazz, improv On Frame, avant branch, ambient experimental electric, modal electric drone modal melancholia musique mauritanienne. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, vibraphone, silver wound lamb gut core carpathian spruce European maple sycamore maple double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, sustained pad analog poly synth. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [],
+      "staple_candidate_changes": [
+        {
+          "prefix": "dark_jazz+melancholia_ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "desert_blues",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        },
+        {
+          "prefix": "dark_jazz",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "desert_blues",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "deep_ambient",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["deep_ambient"],
+      "traditions_after": ["deep_ambient"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern deep ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, alder rosewood alnico single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+      "recipe_after": "classic modern deep ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, alder rosewood alnico single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "deep_ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "drone_dark_ambient",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [
+        {
+          "prefix": "deep_ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "dhrupad",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["dhrupad", "hindustani_vocal", "kutiyattam_recitation"],
+      "traditions_after": ["dhrupad", "hindustani_vocal", "kutiyattam_recitation"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian early-1950s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional hindustani vocal kutiyattam sanskrit recitation. vocal fry, breath veiled tone, slow rate, interlocked note trading. suited to female vocal wooden body miraj style tanpura, dagar dhrupad lineage pakhawaj, steel brass teak alternative dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1950s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional hindustani vocal kutiyattam sanskrit recitation. vocal fry, breath veiled tone, slow rate, interlocked note trading. suited to female vocal wooden body miraj style tanpura, dagar dhrupad lineage pakhawaj, steel brass teak alternative dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "dhrupad",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kirtan",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "kutiyattam_recitation",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1.7,
+              "srcs": ["crossref", "sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "baroque_period",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "drone",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["drone", "drone_dark_ambient"],
+      "traditions_after": ["drone", "drone_dark_ambient", "musique_mauritanienne"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient. copper wound carpathian spruce European maple bosnian source flamed figure violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
+      "recipe_after": "classic modern drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient musique mauritanienne. copper wound carpathian spruce European maple bosnian source flamed figure violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
+      "classification": "derived_staple_and_recipe",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "drone",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "darksynth",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [
+        {
+          "prefix": "drone+drone_dark_ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "african_blues",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        },
+        {
+          "prefix": "drone",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "african_blues",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "drone_rock",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["drone_rock", "no_wave", "trash_rock"],
+      "traditions_after": ["drone_rock", "no_wave", "trash_rock"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
+      "recipe_after": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "drone_rock",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "uk_noise_rock",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "ethio_pop_modern",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["ethio_pop_modern", "acid_jazz_uk_90s", "dutch_prog"],
+      "traditions_after": ["ethio_pop_modern", "musique_comorienne", "acid_jazz_uk_90s"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_andean_huayno",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "finish",
+          "before": "nitro",
+          "after": "oil_satin",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz dutch prog. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion musique comorienne acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [],
+      "staple_candidate_changes": [
+        {
+          "prefix": "ethio_pop_modern",
+          "added": [
+            {
+              "id": "musique_comorienne",
+              "parent": "improvOnFrame.americanJazz.fusion"
+            }
+          ],
+          "removed": [
+            {
+              "id": "acid_jazz_uk_90s",
+              "parent": "improvOnFrame.americanJazz.fusion"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "hill_country_blues",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["hill_country_blues", "delta_blues", "tuareg_guitar"],
+      "traditions_after": ["hill_country_blues", "delta_blues", "tuareg_guitar"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1960s hill country blues, functional Song, blues acoustic branch, blues narrative delta narrative, modal electric drone modal, American south field work tuareg guitar. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric open g tuning slide steel resonator guitar, blues inflected fife, double bass rapid double strokes bass five drum arc tenor drum, pre muffled edge muffled brushes-and-sticks drum kit. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_after": "classic mid-1960s hill country blues, functional Song, blues acoustic branch, blues narrative delta narrative, modal electric drone modal, American south field work tuareg guitar. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric open g tuning slide steel resonator guitar, blues inflected fife, double bass rapid double strokes bass five drum arc tenor drum, pre muffled edge muffled brushes-and-sticks drum kit. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "hill_country_blues",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "piano_blues",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "hindustani",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["hindustani", "kutiyattam_recitation", "hindustani_vocal"],
+      "traditions_after": ["hindustani", "kutiyattam_recitation", "hindustani_vocal"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "sitar",
+          "part": "sitar_main_strings",
+          "before": "sitar_bronze_steel_modern",
+          "after": "sitar_phosphor_bronze",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, steel coconut shell shell tun indian cedar sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, steel coconut shell shell tun indian cedar sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "kutiyattam_recitation",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1.7,
+              "srcs": ["crossref", "sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "baroque_period",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "hindustani",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "flamenco",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "hindustani_sarod",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["hindustani_sarod", "kutiyattam_recitation", "hindustani_vocal"],
+      "traditions_after": ["hindustani_sarod", "kutiyattam_recitation", "hindustani_vocal"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "sitar",
+          "part": "sitar_frets",
+          "before": "fixed_metal",
+          "after": "tied_gut_parda",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "sitar",
+          "part": "sitar_main_strings",
+          "before": "sitar_bronze_steel_modern",
+          "after": "sitar_phosphor_bronze",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. steel coconut shell shell tun indian cedar sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, maihar gharana instrumental concert lineage classical trained lineage sitar. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. steel coconut shell shell tun indian cedar sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, maihar gharana instrumental concert lineage classical trained lineage sitar. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "hindustani_sarod",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "flamenco",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "kutiyattam_recitation",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1.7,
+              "srcs": ["crossref", "sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "baroque_period",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "indian_classical",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["indian_classical"],
+      "traditions_after": ["indian_classical"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "indian_classical",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "arpa_grande",
+              "weight": 0.0625,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "indian_fusion",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["indian_fusion"],
+      "traditions_after": ["indian_fusion"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s indian fusion, improv On Frame. group vocals. conventional tuning standard pitch humbucker electric guitar, fm synth, indian rosewood rosewood brass tabla, violin carnatic, jackwood frame canonical carnatic kanjira, mridangam, ghatam. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s indian fusion, improv On Frame. group vocals. conventional tuning standard pitch humbucker electric guitar, fm synth, indian rosewood rosewood brass tabla, violin carnatic, jackwood frame canonical carnatic kanjira, mridangam, ghatam. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "indian_fusion",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "alpenpanorama",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "indian_instrumental",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["indian_instrumental", "indian_classical", "carnatic_kacheri"],
+      "traditions_after": ["indian_instrumental", "indian_classical", "carnatic_kacheri"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "sitar",
+          "part": "sitar_main_strings",
+          "before": "sitar_bronze_steel_modern",
+          "after": "sitar_phosphor_bronze",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "sarangi",
+          "part": "sarangi_bow",
+          "before": "horse_hair_tensioned",
+          "after": "horse_hair_loose",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "santoor",
+          "part": "santoor_mallets",
+          "before": "felt_tipped",
+          "after": "walnut_mallets",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri. calabash maihar gharana instrumental concert lineage classical trained lineage drone like sitar, sustained legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative santoor canonical lineage drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri. calabash maihar gharana instrumental concert lineage classical trained lineage drone like sitar, sustained legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative santoor canonical lineage drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "indian_classical",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "arpa_grande",
+              "weight": 0.0625,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "indian_instrumental",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "hindustani_sarod",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "israeli_folk",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["israeli_folk"],
+      "traditions_after": ["israeli_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "israeli_folk",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "baltic_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "jam_band",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["jam_band", "dutch_rock", "dutch_stoner_rock"],
+      "traditions_after": ["jam_band", "nwocr", "dutch_rock"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "speech_voice",
+          "after": "aspirated_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_connemara_unaccompanied",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_false_fold_distorted",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "amp_make",
+          "before": "amp_british_marshall_jcm800",
+          "after": "amp_british_late_60s_marshall_plexi",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_11_hum",
+          "after": "g_10_hum",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "before": "scale_baritone_h",
+          "after": "scale_gibson_h",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "before": "amp_british_marshall_jcm800",
+          "after": "amp_british_late_60s_marshall_plexi",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_11",
+          "after": "g_10",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "before": "hardtail",
+          "after": "two_point_trem",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "part": "leslie_cabinet_model",
+          "before": "leslie_122_canonical",
+          "after": "leslie_147_alt",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock dutch rock dutch stoner rock. thick, conversational, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_after": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock nwocr dutch rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [],
+      "staple_candidate_changes": [
+        {
+          "prefix": "jam_band",
+          "added": [
+            {
+              "id": "nwocr",
+              "parent": "distortedRock.classic"
+            }
+          ],
+          "removed": [
+            {
+              "id": "dutch_rock",
+              "parent": "distortedRock.classic"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "jit",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["jit", "tuareg_guitar", "african_blues"],
+      "traditions_after": ["jit", "tuareg_guitar", "african_blues"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "mahogany",
+          "after": "pine",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_11",
+          "after": "g_10",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Southern African 1977-1979 jit, functional Song, African pop branch, modal electric drone modal tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, mbira nyunga nyunga. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "recipe_after": "classic Southern African 1977-1979 jit, functional Song, African pop branch, modal electric drone modal tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, mbira nyunga nyunga. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "jit",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "mbaqanga",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "kadongo_kamu",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["kadongo_kamu", "malian_traditional", "soninke_music"],
+      "traditions_after": ["kadongo_kamu", "malian_traditional", "musica_guineense"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "straight_tone",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_sub_saharan_polyphonic",
+          "after": "voice_ornament_none",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "acoustic_technique",
+          "before": "acoustic_strummed_ringing",
+          "after": "acoustic_fingerpicked",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_12",
+          "after": "g_10",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry malian traditional musique soninke. extended whistle, declaimed, slow rate, interlocked note trading. coated nanoweb strummed open chord ringing overtones dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "recipe_after": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry malian traditional musica guineense. extended whistle, declaimed, pure, interlocked note trading. coated nanoweb fingerpicked dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [],
+      "staple_candidate_changes": [
+        {
+          "prefix": "kadongo_kamu+malian_traditional",
+          "added": [
+            {
+              "id": "musica_guineense",
+              "parent": "balladPoetry.westAfricanGriot"
+            }
+          ],
+          "removed": [
+            {
+              "id": "soninke_music",
+              "parent": "balladPoetry.westAfricanGriot"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "kenyan_alternative",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["kenyan_alternative"],
+      "traditions_after": ["kenyan_alternative"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic kenyan alternative, groove Percussion. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, trumpet, saxophone, trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic kenyan alternative, groove Percussion. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, trumpet, saxophone, trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "kenyan_alternative",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "bornesange",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "kutiyattam_recitation",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["kutiyattam_recitation", "thai_classical", "tibetan_ache_lhamo"],
+      "traditions_after": ["kutiyattam_recitation", "thai_classical", "tibetan_ache_lhamo"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "kutiyattam_recitation",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1.7,
+              "srcs": ["crossref", "sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "baroque_period",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "latin_afrobeat",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["latin_afrobeat"],
+      "traditions_after": ["latin_afrobeat"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic latin afrobeat, groove Percussion. ensemble trumpet, bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, saxophone section tenor baritone, conventional tuning standard pitch humbucker electric guitar, analog poly synth, electric bass, low fundamental tuning maple drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic latin afrobeat, groove Percussion. ensemble trumpet, bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, saxophone section tenor baritone, conventional tuning standard pitch humbucker electric guitar, analog poly synth, electric bass, low fundamental tuning maple drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "latin_afrobeat",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "cascadia_psych",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "macedonian_folk",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["macedonian_folk"],
+      "traditions_after": ["macedonian_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern macedonian folk, improv On Frame. ornamented dance accompaniment gajda. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern macedonian folk, improv On Frame. ornamented dance accompaniment gajda. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "macedonian_folk",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "nyckelharpa_tradition",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "malian_blues",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["malian_blues", "desert_blues", "soninke_music"],
+      "traditions_after": ["malian_blues", "desert_blues", "soninke_music"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic West African 1974-1976 malian blues, functional Song, blues acoustic branch, modal electric drone modal, west African griot ballad poetry tuareg desert blues musique soninke. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar maple steel silk drone like dreadnought acoustic mahogany rosewood alnico nickel plated steel nickel single coil electric guitar, foundational low fundamental tuning deep calabash inverted calabash, calabash gourd canonical bambara call-and-response ngoni, hunters large calabash wassoulou call-and-response kamele ngoni, snappy to palm hand clap. bamako griot jeli compound. passive ribbon, tube pre. direct-to-disc lacquer.",
+      "recipe_after": "classic West African 1974-1976 malian blues, functional Song, blues acoustic branch, modal electric drone modal, west African griot ballad poetry tuareg desert blues musique soninke. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar maple steel silk drone like dreadnought acoustic mahogany rosewood alnico nickel plated steel nickel single coil electric guitar, foundational low fundamental tuning deep calabash inverted calabash, calabash gourd canonical bambara call-and-response ngoni, hunters large calabash wassoulou call-and-response kamele ngoni, snappy to palm hand clap. bamako griot jeli compound. passive ribbon, tube pre. direct-to-disc lacquer.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "malian_blues",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "sudanese_aghani_al_banat",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "marcha_funebre",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["marcha_funebre"],
+      "traditions_after": ["marcha_funebre"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s marcha funebre, ritual Devotional. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s marcha funebre, ritual Devotional. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "marcha_funebre",
+          "added": [
+            {
+              "id": "musica_indigena_brasileira",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_indigena_latinoamericana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_instrumental_cristiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "anime_piano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_score",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "massage",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["massage"],
+      "traditions_after": ["massage"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2010s massage, improv On Frame. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2010s massage, improv On Frame. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "massage",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "messianic_praise",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["messianic_praise"],
+      "traditions_after": ["messianic_praise"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s messianic praise, ritual Devotional. dreadnought acoustic conventional tuning standard pitch humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s messianic praise, ritual Devotional. dreadnought acoustic conventional tuning standard pitch humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "messianic_praise",
+          "added": [
+            {
+              "id": "musica_indigena_brasileira",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_indigena_latinoamericana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "musica_instrumental_cristiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "boy_soprano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "boston_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "modern_old_time",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["modern_old_time"],
+      "traditions_after": ["modern_old_time"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s modern old-time, drone Modal, appalachian branch. modern standard synthetic fiddle, synthetic European maple bosnian source flamed figure oil varnish cello, acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s modern old-time, drone Modal, appalachian branch. modern standard synthetic fiddle, synthetic European maple bosnian source flamed figure oil varnish cello, acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "modern_old_time",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "accordion_band",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "mollywood",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["mollywood", "rajasthani_manganiyar", "cambodian_chapei_dang_veng"],
+      "traditions_after": ["mollywood", "rajasthani_manganiyar", "cambodian_chapei_dang_veng"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_back_wood",
+          "before": "european_maple_general_violin",
+          "after": "bosnian_flamed_maple_violin",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "cello",
+          "part": "cello_back_wood",
+          "before": "european_maple_cello_back",
+          "after": "bosnian_flamed_maple_cello",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple sycamore maple oil varnish violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, gourd jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian drone like veena, oversize maple tension resonator European spruce norway spruce European tradition grand piano, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio.",
+      "recipe_after": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple bosnian source flamed figure violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, gourd jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian drone like veena, oversize maple tension resonator European spruce norway spruce European tradition grand piano, silver wound lamb gut core carpathian spruce European maple bosnian source cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "mollywood",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "cambodian_chapei_dang_veng",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "rajasthani_manganiyar",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "hindustani_sarod",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "museve",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["museve", "tuareg_guitar", "african_blues"],
+      "traditions_after": ["museve", "tuareg_guitar", "african_blues"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_8",
+          "after": "g_10",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Southern African 1987-1989 museve, functional Song, African pop branch, modal electric drone modal, sub saharan African protest song tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, two tone contrasting hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "recipe_after": "classic Southern African 1987-1989 museve, functional Song, African pop branch, modal electric drone modal, sub saharan African protest song tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, two tone contrasting hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "museve",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "sahel_praise",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "rajasthani_manganiyar",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["rajasthani_manganiyar", "thumri", "carnatic_vocal"],
+      "traditions_after": ["rajasthani_manganiyar", "thumri", "carnatic_vocal"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_after": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "carnatic_vocal",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kirtan",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "rajasthani_manganiyar",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "hindustani_sarod",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "romanian_folk",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["romanian_folk"],
+      "traditions_after": ["romanian_folk"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "arco",
+          "after": "sul_tasto",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic romanian folk, improv On Frame. drone like fiddle, pre war tone martin lifespan sealed dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic romanian folk, improv On Frame. drone like fiddle, pre war tone martin lifespan sealed dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "romanian_folk",
+          "added": [
+            {
+              "id": "musica_andina_colombiana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kosovan_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "shoegaze",
+      "changed_keys": ["recipe", "recipe_chars", "config", "score"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["shoegaze", "desert_blues", "tuareg_guitar"],
+      "traditions_after": ["shoegaze", "desert_blues", "musique_mauritanienne"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_5_part_cluster",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "before": "scale_short",
+          "after": "scale_gibson",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues tuareg guitar. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
+      "recipe_after": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues musique mauritanienne. thick, breath veiled tone, straight note core, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "shoegaze",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "grunge",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [
+        {
+          "prefix": "shoegaze+desert_blues",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "space_ambient",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["space_ambient", "dreampunk"],
+      "traditions_after": ["space_ambient", "dreampunk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern space ambient, experimental Elec, ambient branch, modal electric drone modal, retro aesthetic experimental electric dreampunk. sustained pad analog sustained pad wavetable synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter true-stereo reverb hall reverb.",
+      "recipe_after": "classic modern space ambient, experimental Elec, ambient branch, modal electric drone modal, retro aesthetic experimental electric dreampunk. sustained pad analog sustained pad wavetable synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter true-stereo reverb hall reverb.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "space_ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "vaporhop",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [
+        {
+          "prefix": "space_ambient",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        },
+        {
+          "prefix": "space_ambient+dreampunk",
+          "added": [
+            {
+              "id": "musique_mauritanienne",
+              "parent": "droneModal.modalElectric"
+            }
+          ],
+          "removed": [
+            {
+              "id": "tuareg_guitar",
+              "parent": "droneModal.modalElectric"
+            }
+          ]
+        }
+      ],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "tamil_filmi",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["tamil_filmi", "thumri", "carnatic_vocal"],
+      "traditions_after": ["tamil_filmi", "thumri", "carnatic_vocal"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_rosin",
+          "before": "liebenzeller_metal_rosin_orch",
+          "after": "pirastro_gold_rosin_orch",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_voices",
+          "before": "poly_8_voice",
+          "after": "poly_5_voice",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit.",
+      "recipe_after": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "carnatic_vocal",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kirtan",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        },
+        {
+          "context": "tamil_filmi",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "hindustani_sarod",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "tamil_pop",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["tamil_pop", "afghan_traditional", "carnatic_kacheri"],
+      "traditions_after": ["tamil_pop", "afghan_traditional", "carnatic_kacheri"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music afghan traditional carnatic kacheri. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, plucked short envelope analog poly synth, rock canon ernie ball slinky electric bass, TR-808, indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
+      "recipe_after": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music afghan traditional carnatic kacheri. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, plucked short envelope analog poly synth, rock canon ernie ball slinky electric bass, TR-808, indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
+      "classification": "material_unprotected_variant_choices",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "tamil_pop",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "hindi_filmi",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "tappa",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["tappa", "carnatic_kacheri", "afghan_traditional"],
+      "traditions_after": ["tappa", "carnatic_kacheri", "afghan_traditional"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian early-1950s tappa, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri afghan traditional. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female straight harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1950s tappa, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri afghan traditional. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, vocal female straight harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "tappa",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "tarana",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "terchova_music",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["terchova_music"],
+      "traditions_after": ["terchova_music"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern music of terchová, groove Percussion. group vocals, live take. double stops fiddle, small body bowed two strings terchova two string bass. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern music of terchová, groove Percussion. group vocals, live take. double stops fiddle, small body bowed two strings terchova two string bass. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "terchova_music",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kiribati_ruoia",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "tollywood",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["tollywood", "sinhala_vannama", "telugu_kirtana"],
+      "traditions_after": ["tollywood", "sinhala_vannama", "telugu_kirtana"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian mid-1950s tollywood film song, functional Song, south Asian pop branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. thick, breath veiled tone, slow rate, interlocked note trading. synthetic core modern lalgudi lineage carnatic legato violin carnatic, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian ornamented veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, singing lead digital subtractive, pre muffled edge muffled brushes-and-sticks drum kit, goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser.",
+      "recipe_after": "classic South Asian mid-1950s tollywood film song, functional Song, south Asian pop branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. thick, breath veiled tone, slow rate, interlocked note trading. synthetic core modern lalgudi lineage carnatic legato violin carnatic, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian ornamented veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, singing lead digital subtractive, pre muffled edge muffled brushes-and-sticks drum kit, goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "tollywood",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "kirtan",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "vanuatu_water_drumming",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["vanuatu_water_drumming"],
+      "traditions_after": ["vanuatu_water_drumming"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern vanuatu women’s water music, groove Percussion. cupped hands water struck interlocking water percussion water percussion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern vanuatu women’s water music, groove Percussion. cupped hands water struck interlocking water percussion water percussion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "vanuatu_water_drumming",
+          "added": [
+            {
+              "id": "musica_tradicional_dominicana",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "tchiloli_music",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    },
+    {
+      "id": "vedic_chant",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["vedic_chant", "sinhala_vannama", "carnatic_kacheri"],
+      "traditions_after": ["vedic_chant", "sinhala_vannama", "carnatic_kacheri"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama carnatic kacheri. vocal fry, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama carnatic kacheri. vocal fry, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "classification": "score_metadata_only",
+      "old_source_and_extras_identical": true,
+      "baseline_and_current_complete_API_recipe_config_score_exactly_reproduced": true,
+      "neighbor_pool_changes": [
+        {
+          "context": "vedic_chant",
+          "added": [
+            {
+              "id": "nadaswaram",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "removed": [
+            {
+              "id": "bhajan",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "reweighted": []
+        }
+      ],
+      "staple_candidate_changes": [],
+      "counterfactual_removing_new100_restores_exact_baseline_recipe_config_and_score": true
+    }
+  ],
+  "supporting_reports": [
+    "api-validation-details119.json",
+    "compiled-unpinned-review119.json",
+    "api-counterfactual119.json",
+    "independent-integration-review119.json",
+    "regression-independent-review119.json"
+  ],
+  "snapshot_scope": "Only five previously reviewed regression fixtures; no blanket update authorized.",
+  "errors": [],
+  "remaining_gates": "Parent final serial regression, final diff scope and exact-head CI.",
+  "new_instrument_API_review": {
+    "count": 17,
+    "exact_original_curated_projection": true,
+    "errors": []
+  }
+}

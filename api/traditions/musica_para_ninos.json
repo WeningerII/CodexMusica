@@ -5,7 +5,7 @@
   "lineage": "Spanish-language commercial children's song repertoire established by Francisco Gabilondo Soler ('Cri-Cri') on Mexico City radio XEW from 1934 and extended through Argentine and Spanish television acts, using small orchestral or piano-and-rhythm accompaniment, waltz, polka, danzón and habanera dance meters at moderate tempo, narrow-range singable melodies in major keys, and character-voice narration alternating with sung refrains for group participation.",
   "recipe": "classic Southwestern American mid-1930s música para niños, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, Mexican functional song muziek voor kinderen barnmusik. extended whistle, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, beech laminated maple laminated European tradition European spruce norway spruce grand piano, steel weltmeister east German mid tier vintage volk accordion, aluminum wound carpathian spruce hard rock maple acer saccharum brazilwood violin orchestral, ebonite hard rubber klezmer tradition clarinet, guiro, treble-extended sustaining steel upright bass. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 959,
-  "score": 200.373,
+  "score": 199.989,
   "config": {
     "traditions": [
       "musica_para_ninos",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.75375,
+          "voice_register": 6.79875,
           "voice_quality": 3.640000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,13 +43,13 @@
           "voice_microtone": 19.434999999999995,
           "voice_tradition": 4.290000000000001,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 3.1850000000000005,
+          "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 19.955,
-          "voice_ornament_system": 1.525,
+          "voice_ornament_system": 1.3449999999999998,
           "voice_pitch_organization": 3.120000000000001,
           "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 3.802500000000001
+          "voice_multitrack_stack": 3.723750000000001
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 5.479375,
-          "choir_polyphonic_configuration": 1.95,
-          "choir_regional_canonical_configuration": 3.185,
-          "choir_ensemble_repertoire": 1.7999999999999998
+          "choir_size": 5.224375,
+          "choir_polyphonic_configuration": 1.995,
+          "choir_regional_canonical_configuration": 3.1343750000000004,
+          "choir_ensemble_repertoire": 1.845
         }
       },
       {
@@ -82,13 +82,13 @@
         },
         "scores": {
           "keyboard_technique": 3.1999999999999997,
-          "grand_piano_size": 1,
-          "grand_piano_brand": 1.1999999999999995,
+          "grand_piano_size": 1.045,
+          "grand_piano_brand": 1.1099999999999997,
           "piano_hammer": 5.1025,
           "piano_rim": 6.3375,
           "piano_soundboard": 5.85,
           "piano_pinblock": 0.375,
-          "piano_plate": 0.42,
+          "piano_plate": 0.375,
           "piano_pitch_standard": 9.6525
         }
       },
@@ -104,10 +104,10 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 1.45,
+          "free_reed_technique": 1.4949999999999999,
           "accordion_reed_material": 1,
           "musette_offset": 1,
-          "reed_config": 1.86375,
+          "reed_config": 1.90875,
           "bellows": 0.195,
           "voicing_chamber": 1.105,
           "accordion_maker_school": 1.2149999999999999
@@ -129,7 +129,7 @@
         },
         "scores": {
           "bowed_technique": 2.45,
-          "orch_strings": 1.11375,
+          "orch_strings": 1.15875,
           "orch_top_wood": 4.615,
           "orch_back_wood": 5.7524999999999995,
           "orch_varnish": 0.57,

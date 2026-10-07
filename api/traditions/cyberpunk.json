@@ -1,0 +1,121 @@
+{
+  "id": "cyberpunk",
+  "name": "Cyberpunk",
+  "family": "vernacular",
+  "lineage": "Cyberpunk music draws on technological and dystopian imagery across electronic composition, game-inspired work and darker synthesizer music. Artists such as Gustavo Jobim use electronic instruments to evoke imagined urban environments and narratives.",
+  "recipe": "classic cyberpunk, experimental Elec. digital subtractive, analog mono synth, glitched textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 10.785,
+  "config": {
+    "traditions": [
+      "cyberpunk"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.2315,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 5.459999999999999
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 0.2315,
+          "mono_oscillator": 0.105,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "emu_emax",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 3.7315,
+          "sampler_archetypes": 0.105,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 0.5055
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert",
+      "sampler_archetypes": "emu_emax",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

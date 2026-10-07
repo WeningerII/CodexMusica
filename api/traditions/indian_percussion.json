@@ -1,0 +1,97 @@
+{
+  "id": "indian_percussion",
+  "name": "Indian percussion",
+  "family": "classical",
+  "lineage": "Indian percussion repertoire includes solo and ensemble traditions centered on rhythmic development. Tabla recitals can pair the featured percussionist with melodic accompaniment.",
+  "recipe": "classic indian percussion, improv On Frame, indian classical improv branch. pitched indian rosewood rosewood tabla, sarangi. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 229,
+  "score": 10.78,
+  "config": {
+    "traditions": [
+      "indian_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 7.735,
+          "tabla_bayan": 0.105,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_35_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": -0.11850000000000002,
+          "sarangi_belly": 2.2575,
+          "sarangi_taraf": 0.7,
+          "sarangi_bow": 0.1365,
+          "sarangi_main_strings": -0.035,
+          "sarangi_body_wood": 0
+        }
+      }
+    ],
+    "pinned": {
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "sarangi": [
+        "bowed_technique",
+        "sarangi_belly",
+        "sarangi_taraf",
+        "sarangi_bow",
+        "sarangi_main_strings",
+        "sarangi_body_wood"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_loose",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

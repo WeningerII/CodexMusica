@@ -2,10 +2,10 @@
   "id": "irish_modern_jazz",
   "name": "Irish modern jazz",
   "family": "jazz",
-  "lineage": "Irish modern jazz: White Rocket — White Rocket, 2008. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic late-2000s irish modern jazz, improv On Frame, avant branch. yamaha xeno modern Japanese jazz balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, fiberskyn synthetic calf brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 348,
-  "score": 77.213,
+  "lineage": "Irish modern jazz brings contemporary composition and improvisation into local ensembles and international musical exchange. Small groups explore different balances of melodic, harmonic and rhythmic roles.",
+  "recipe": "classic irish modern jazz, improv On Frame, American jazz branch. yamaha xeno modern Japanese jazz balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, fiberskyn synthetic calf brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 345,
+  "score": 77.2,
   "config": {
     "traditions": [
       "irish_modern_jazz"
@@ -23,13 +23,13 @@
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "brass_size": 0.3045,
-          "trumpet_mouthpiece": 15.6,
-          "brass_mute": 0.39,
-          "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 0.4095,
-          "trumpet_maker_school": 2.0735
+          "wind_articulation": -0.05,
+          "brass_size": 0.29799999999999993,
+          "trumpet_mouthpiece": 14.625,
+          "brass_mute": 0.0735,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 0.105,
+          "trumpet_maker_school": 2.3335
         }
       },
       {
@@ -37,7 +37,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -46,15 +46,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.3045,
-          "piano_hammer": 5.359500000000001,
-          "piano_rim": 5.391,
-          "piano_soundboard": 4.9815000000000005,
-          "piano_pinblock": 5.25,
-          "piano_plate": 5.25,
-          "piano_pitch_standard": 7.4235
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.0735,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 5.4435,
+          "piano_rim": 5.712,
+          "piano_soundboard": 5.1617500000000005,
+          "piano_pinblock": 4.95,
+          "piano_plate": 4.95,
+          "piano_pitch_standard": 6.479
         }
       },
       {
@@ -65,8 +65,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 7.279999999999999,
-          "drumhead": 17,
+          "drum_technique": 10.789999999999996,
+          "drumhead": 16.25,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -79,7 +79,15 @@
         "trumpet_technique"
       ],
       "grand_piano": [
-        "keyboard_technique"
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
       ],
       "drum_kit": [
         "drum_technique"
@@ -109,7 +117,15 @@
       "brass_mute": "no_mute_brass",
       "trumpet_technique": "trumpet_bebop_lines",
       "keyboard_technique": "keyboard_jazz_comping",
-      "drum_technique": "brushes_and_sticks"
+      "drum_technique": "brushes_and_sticks",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
     },
     "pin_parts": true,
     "chain_mic": "condenser_ldc",

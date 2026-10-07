@@ -5,7 +5,7 @@
   "lineage": "Norwegian folk rock is represented here by Hellbillies — contemporary band branch. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic norwegian folk rock, functional Song, folk rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 80.627,
+  "score": 80.816,
   "config": {
     "traditions": [
       "norwegian_folk_rock"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 8.45,
-          "body_wood": 0.57,
+          "body_wood": 0.6014999999999999,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
-          "pickup_magnet": 0.33899999999999997,
-          "pickup_winding": 0.33899999999999997,
+          "pickup_magnet": 0.37049999999999994,
+          "pickup_winding": 0.37049999999999994,
           "string_material": 0.126,
           "bridge": 1.69,
-          "scale_length": 0.46499999999999986,
+          "scale_length": 0.49649999999999983,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0.39
@@ -59,10 +59,10 @@
         "scores": {
           "amp_make": 8.905,
           "body_wood": 0.46199999999999997,
-          "pickup_config": 0.33899999999999997,
+          "pickup_config": 0.37049999999999994,
           "string_type": 21.45,
-          "scale_length_b": 0.46499999999999986,
-          "fretted_or_not": 0.08549999999999999,
+          "scale_length_b": 0.49649999999999983,
+          "fretted_or_not": 0.11699999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.4515,
+          "voice_processing_chain": 0.2835,
           "voice_multitrack_stack": 0.063
         }
       },
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 8.58,
-          "poly_voices": 1.4365,
+          "poly_voices": 1.573,
           "poly_maker_lineage": -0.035
         }
       }

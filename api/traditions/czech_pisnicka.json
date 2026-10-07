@@ -3,73 +3,96 @@
   "name": "Czech písnička",
   "family": "global",
   "lineage": "Czech songwriter folk-poetic song tradition codified through Karel Kryl (the émigré protest voice of the 1968 Prague Spring), Jaromír Nohavica (the working-class storyteller), Vladimír Mišík (the rock-adjacent variant), Hutka, the Plastic People of the Universe (samizdat psychedelic-rock variant), and the broader Czech literary-poetic song tradition under and after Communist rule",
-  "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry kundiman. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 422,
-  "score": 109.019,
+  "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry chanson classique. thick, slow rate, interlocked note trading, equal tempered. low mid rich spectrum full phosphor bronze bronze acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 455,
+  "score": 44.44,
   "config": {
     "traditions": [
       "czech_pisnicka",
-      "kundiman",
-      "fado"
+      "chanson_classique",
+      "chanson"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "speech_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 11.120000000000001,
-          "voice_quality": 15.014999999999992,
+          "voice_register": 11.494999999999994,
+          "voice_quality": 0.45499999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7874999999999996,
-          "voice_articulation": 8.58,
-          "voice_microtone": 10.334999999999997,
-          "voice_tradition": 15.892499999999997,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 3.2175000000000002,
-          "voice_speech_song": 14.267499999999997,
-          "voice_ensemble_config": 10.27,
-          "voice_ornament_system": 1.64,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 2.08,
-          "voice_multitrack_stack": 1.04
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 13.194999999999999,
+          "voice_microtone": 7.6000000000000005,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 2.275,
+          "voice_ensemble_config": 3.38,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.585,
+          "voice_multitrack_stack": 3.5425
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "string_tuning": "drop_d",
-          "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
+          "top_wood": "sitka_om",
+          "back_sides": "mahogany_bs_om",
           "string_acoustic": "phosphor_om",
-          "acoustic_om_technique": "om_fingerpicked"
+          "acoustic_om_technique": "om_strummed_open"
         },
         "scores": {
-          "string_tuning": 0.8300000000000001,
-          "top_wood": 0.65,
-          "back_sides": 0.65,
-          "string_acoustic": 0.65,
-          "acoustic_om_technique": 11.399500000000002
+          "string_tuning": 0.16249999999999998,
+          "top_wood": 0,
+          "back_sides": 0.195,
+          "string_acoustic": 1.4949999999999999,
+          "acoustic_om_technique": 0.585
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "acoustic_guitar_om": [
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ]
+    },
     "room": "prague_supraphon_studio",
     "archetype": "arch_comecon_state_label",
     "inline_chain": {
@@ -93,14 +116,14 @@
       "voice_register": "chest_voice",
       "voice_quality": "speech_voice",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
       "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "top_wood": "sitka_om",
@@ -108,6 +131,7 @@
       "string_acoustic": "phosphor_om",
       "acoustic_om_technique": "om_strummed_open"
     },
+    "pin_parts": true,
     "chain_mic": "dynamic_mic",
     "chain_pre": "pre_tube_german_v72",
     "chain_comp": "comp_vari_mu",

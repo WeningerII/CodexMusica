@@ -1,0 +1,148 @@
+{
+  "reviewer": "research_119",
+  "status": "EXACT_FIVE_ENTRY_AMENDMENTS_READY_FOR_COORDINATOR",
+  "input_snapshot_sha256": "bd351b8900bbf8ce5f71490054f3ac4beca3b1770285c356b398c84d3c733bb7",
+  "policy": "Assert each exact before-value before applying. Changes only listed new-entry fields; preserve all other source, defaults, photos, geo, signatures and dependencies. Record output hash and changed paths. No repo mutation by reviewer.",
+  "changes": [
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["extras", "parent"],
+      "before": "distortedRock.alternative",
+      "after": "distortedRock.punk",
+      "reason": "Primaryexplicit emo/post-hardcore fits exactnode.",
+      "source_packet": "/tmp/batch027/group144-supplement6.json",
+      "source_packet_original_sha256": "38aa19edc8bed974498c3d6414a986dd3ca9bba6f80d090c9fc23313d5f4730c"
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["tradition", "family"],
+      "before": "rock",
+      "after": "rock_punk",
+      "reason": "Consistentpunkbucket fordocumented emo/post-hardcore.",
+      "source_packet": "/tmp/batch027/group144-supplement6.json",
+      "source_packet_original_sha256": "38aa19edc8bed974498c3d6414a986dd3ca9bba6f80d090c9fc23313d5f4730c"
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["neighbor_distinction"],
+      "before": "Complete four-member performance format in artist ticketing biography, not an assertion about every studio layer on the EP. Two credited guitar-singers share one authored humbucker timbre card; both human singers counted. No producer instrumentation inferred. Ticketing primary biography is freshly search-indexed; direct page body was inaccessible, explicitly retained as indexed evidence.",
+      "after": "Complete four-member performance format in artist ticketing biography, not an assertion about every studio layer on the EP. Two credited guitar-singers share one authored humbucker timbre card; both human singers counted. No producer instrumentation inferred. Ticketing primary biography is freshly search-indexed; direct page body was inaccessible, explicitly retained as indexed evidence. The documented emo/post-hardcore branch uses the existing punk parent, which explicitly includes those lineages.",
+      "reason": "Explain exactparent.",
+      "source_packet": "/tmp/batch027/group144-supplement6.json",
+      "source_packet_original_sha256": "38aa19edc8bed974498c3d6414a986dd3ca9bba6f80d090c9fc23313d5f4730c"
+    },
+    {
+      "id": "kundalini",
+      "path": ["tradition", "family"],
+      "before": "devotional",
+      "after": "vernacular",
+      "reason": "Reuseexistingfamily; devotionalfunction alreadyrepresentedbyritualDevotionalparent.",
+      "source_packet": "/tmp/batch028/group146-supplement3.json",
+      "source_packet_original_sha256": "bdab964066b3ac683f9d8aaa3b601c5ac9304449413feb8e2f439319c8572fee"
+    },
+    {
+      "id": "kora",
+      "path": ["extras", "parent"],
+      "before": "improvOnFrame",
+      "after": "artMusic",
+      "reason": "Labelclassicalcrossover andconcertduet/structuredoral-written adaptation; nosourceexplicitimprovisation.",
+      "source_packet": "/tmp/batch027/group145.json",
+      "source_packet_original_sha256": null
+    },
+    {
+      "id": "kora",
+      "path": ["neighbor_distinction"],
+      "before": "Broad contemporary kora-centered recording field, including international instrumental collaborations; not an alias for existing kora_jaliya, which specifies hereditary Mandinka jali patron-repertoire, traditional modal cycles and praise practice. The chosen complete Welsh-Manding duet preserves both instruments, unlike reducing a larger band to kora. Liner notes describe adaptation between written European repertoire and oral Manding materials. Existing 21-string kora and 47-string double-pedal concert harp are disclosed authored realizations, not measured exact source string counts or hardware; no claim of Diabate family affiliation. Seckou percussion skills in biography do not establish percussion on this explicitly harp-kora instrumental album. Cardigan is the documented co-producing Theatr Mwldan anchor, not the unspecified Welsh recording address. The microphone photograph is LOW generic recording context only, not an image of kora or harp or source-session equipment.",
+      "after": "Broad contemporary kora-centered recording field, including international instrumental collaborations; not an alias for existing kora_jaliya, which specifies hereditary Mandinka jali patron-repertoire, traditional modal cycles and praise practice. The chosen complete Welsh-Manding duet preserves both instruments, unlike reducing a larger band to kora. Liner notes describe adaptation between written European repertoire and oral Manding materials. Existing 21-string kora and 47-string double-pedal concert harp are disclosed authored realizations, not measured exact source string counts or hardware; no claim of Diabate family affiliation. Seckou percussion skills in biography do not establish percussion on this explicitly harp-kora instrumental album. Cardigan is the documented co-producing Theatr Mwldan anchor, not the unspecified Welsh recording address. The microphone photograph is LOW generic recording context only, not an image of kora or harp or source-session equipment. The broad artMusic placement represents this documented concert and classical-crossover duet. It does not assert spontaneous improvisation, and it does not classify all kora practice as Western classical music.",
+      "reason": "Boundbroadparenttoselectedsourcebranch.",
+      "source_packet": "/tmp/batch027/group145.json",
+      "source_packet_original_sha256": null
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "path": ["neighbor_distinction"],
+      "before": "Japanese children’s repertoire is modeled through this explicitly published adult-choir arrangement. Children’s repertoire does not imply child performers. Four SATB sections are not a four-person count; human headcount remains unknown. This arrangement does not imply all Japanese children’s songs are unaccompanied or use Western SATB. Broad functionalSong parent reflects repertoire function without falsely imposing action-game warabe-uta priors on this composed dōyō. Tokyo is the documented 2009 performance anchor, not the Canadian choir’s home or a recording-session claim.",
+      "after": "Japanese children’s repertoire is modeled through this explicitly published adult-choir arrangement. Children’s repertoire does not imply child performers. Four SATB sections are not a four-person count; human headcount remains unknown. This arrangement does not imply all Japanese children’s songs are unaccompanied or use Western SATB. The artMusic parent applies specifically to the published adult SATB concert choral fantasy with polyphonic interludes; it does not equate the whole Japanese children’s-music category with concert art music. Tokyo is the documented 2009 performance anchor, not the Canadian choir’s home or a recording-session claim.",
+      "reason": "Authorcorrectedstaleparentprose; actualartMusic/classicalconcertbranch retained.",
+      "source_packet": "/tmp/batch027/group145-supplement7.json",
+      "source_packet_original_sha256": "5c750d5d6534f2efa83777d6dd6986e92bff9068598fd3b9e252f9566b4a41c2"
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "path": ["vocal_count_audit", "decision"],
+      "before": "Japanese children’s repertoire is modeled through this explicitly published adult-choir arrangement. Children’s repertoire does not imply child performers. Four SATB sections are not a four-person count; human headcount remains unknown. This arrangement does not imply all Japanese children’s songs are unaccompanied or use Western SATB. Broad functionalSong parent reflects repertoire function without falsely imposing action-game warabe-uta priors on this composed dōyō. Tokyo is the documented 2009 performance anchor, not the Canadian choir’s home or a recording-session claim.",
+      "after": "Japanese children’s repertoire is modeled through this explicitly published adult-choir arrangement. Children’s repertoire does not imply child performers. Four SATB sections are not a four-person count; human headcount remains unknown. This arrangement does not imply all Japanese children’s songs are unaccompanied or use Western SATB. The artMusic parent applies specifically to the published adult SATB concert choral fantasy with polyphonic interludes; it does not equate the whole Japanese children’s-music category with concert art music. Tokyo is the documented 2009 performance anchor, not the Canadian choir’s home or a recording-session claim.",
+      "reason": "Authorcorrectedstaleparentprose; actualartMusic/classicalconcertbranch retained.",
+      "source_packet": "/tmp/batch027/group145-supplement7.json",
+      "source_packet_original_sha256": "5c750d5d6534f2efa83777d6dd6986e92bff9068598fd3b9e252f9566b4a41c2"
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "path": ["instrument_role_audit", "rationale"],
+      "before": "Publisher identifies Yamada’s Akatonbo as a Japanese children’s song and specifies Washburn’s complete SATB a cappella arrangement CP1750. The four scored sections are realized by one collective voice card; no instrumental accompaniment is prescribed. Publisher documents its 2009 Tokyo performance. Japanese children’s repertoire is modeled through this explicitly published adult-choir arrangement. Children’s repertoire does not imply child performers. Four SATB sections are not a four-person count; human headcount remains unknown. This arrangement does not imply all Japanese children’s songs are unaccompanied or use Western SATB. Broad functionalSong parent reflects repertoire function without falsely imposing action-game warabe-uta priors on this composed dōyō. Tokyo is the documented 2009 performance anchor, not the Canadian choir’s home or a recording-session claim.",
+      "after": "Publisher identifies Yamada’s Akatonbo as a Japanese children’s song and specifies Washburn’s complete SATB a cappella arrangement CP1750. The four scored sections are realized by one collective voice card; no instrumental accompaniment is prescribed. Publisher documents its 2009 Tokyo performance. Japanese children’s repertoire is modeled through this explicitly published adult-choir arrangement. Children’s repertoire does not imply child performers. Four SATB sections are not a four-person count; human headcount remains unknown. This arrangement does not imply all Japanese children’s songs are unaccompanied or use Western SATB. The artMusic parent applies specifically to the published adult SATB concert choral fantasy with polyphonic interludes; it does not equate the whole Japanese children’s-music category with concert art music. Tokyo is the documented 2009 performance anchor, not the Canadian choir’s home or a recording-session claim.",
+      "reason": "Authorcorrectedstaleparentprose; actualartMusic/classicalconcertbranch retained.",
+      "source_packet": "/tmp/batch027/group145-supplement7.json",
+      "source_packet_original_sha256": "5c750d5d6534f2efa83777d6dd6986e92bff9068598fd3b9e252f9566b4a41c2"
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["extras", "parent"],
+      "before": "artMusic.westernModern",
+      "after": "artMusic",
+      "reason": "Freshofficial2022concertprogram namesexactcomposition andclassicalchamber-film adaptation, with Musicnotes independentlydefining selectedpianoedition.",
+      "source_packet": "/tmp/batch027/group142-supplement.json",
+      "source_packet_original_sha256": "0fccfd5b15afc183dede193e209cba8a7c71fa7a4fc115d485424d811de1db36"
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["neighbor_distinction"],
+      "before": "Italian film-score repertoire discovery category distinct from production library and general background piano; exact piano reduction is one documented arrangement of named soundtrack.",
+      "after": "Italian film-score repertoire discovery category distinct from production library and general background piano; exact piano reduction is one documented arrangement of named soundtrack. The University of Milan-hosted 2022 Filodrammatici concert program includes this exact composition in Ensemble Duomo’s Morricone suite and describes its classical chamber treatment of film music. This establishes the composition’s concert-repertoire context; the authored recipe realizes the separately published Musicnotes piano-only edition. It does not claim that edition was performed at the concert or import the concert quintet into the piano score. Broad artMusic avoids an unsupported modernist-style claim.",
+      "reason": "Precisecompositional-concertbridgewithoutrosterconflation.",
+      "source_packet": "/tmp/batch027/group142-supplement.json",
+      "source_packet_original_sha256": "0fccfd5b15afc183dede193e209cba8a7c71fa7a4fc115d485424d811de1db36"
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["sources"],
+      "before": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/fatti-di-gente-per-bene/accadde-a-venezia/MN0195839",
+          "title": "Ennio Morricone — Accadde a Venezia, Fatti di gente per bene, piano solo MN0195839",
+          "support_notes": "Licensed score source explicitly categorizes selected Morricone film theme Movie/TV, Italian, Soundtrack, with piano-only scoring. No invented original orchestral roles.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image rights",
+          "support_notes": "Fresh exact file rights and context checked2026-10-02; historic023 hash/bytes/dimensions/visual receipt inherited honestly, no fresh download claim.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "after": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/fatti-di-gente-per-bene/accadde-a-venezia/MN0195839",
+          "title": "Ennio Morricone — Accadde a Venezia, Fatti di gente per bene, piano solo MN0195839",
+          "support_notes": "Licensed score source explicitly categorizes selected Morricone film theme Movie/TV, Italian, Soundtrack, with piano-only scoring. No invented original orchestral roles.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image rights",
+          "support_notes": "Fresh exact file rights and context checked2026-10-02; historic023 hash/bytes/dimensions/visual receipt inherited honestly, no fresh download claim.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.unimi.it/sites/default/files/2022-01/ConcertidellaDomenica%20programma.pdf",
+          "title": "I Concerti della Domenica2022 — Ensemble Duomo,16January, page2",
+          "support_notes": "Officialuniversity-hostedprogram namesAccadde aVenezia inMorriconesuite andexplains classicalchamberadaptationof filmscores. Composition/repertoirecontextonly; exactsolo-piano scoring remainsMusicnotesMN0195839, not thisconcertquintet.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "reason": "Addindependentlyfreshlyverifiedprimaryconcertcontext.",
+      "source_packet": "/tmp/batch027/group142-supplement.json",
+      "source_packet_original_sha256": "0fccfd5b15afc183dede193e209cba8a7c71fa7a4fc115d485424d811de1db36"
+    }
+  ]
+}

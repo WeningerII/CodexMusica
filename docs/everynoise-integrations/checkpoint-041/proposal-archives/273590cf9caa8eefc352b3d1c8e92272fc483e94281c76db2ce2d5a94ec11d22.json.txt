@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ROOT_QUEUE_REPAIR_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-001-photo-label-corrected.json",
+  "packet_sha256": "9dd2efde8647e2af0c27ced697ea0c419e87e3d0b8f3b7ee31e444a88df8f4ad",
+  "ids": [
+    "maltese_hip_hop",
+    "gumbe"
+  ],
+  "checked_at": "2026-10-03T22:07:02.948341+00:00",
+  "checks": [
+    "Root read public genre prose, positive label/producer practice evidence and full preserved prior dossiers. Reviewed four actual formats for each entry: voice, scratch/guitar/drum production and six-family Gumb\u00e9 ensemble remain representative genre options.",
+    "Strict owning-control audit passed87 controls and original runtime all8outputs pass. Photo attribution and historical byte receipts preserved; public image labels now generic context."
+  ],
+  "validation_scope": "Queued repair only; final merged static/regression/CI pending."
+}

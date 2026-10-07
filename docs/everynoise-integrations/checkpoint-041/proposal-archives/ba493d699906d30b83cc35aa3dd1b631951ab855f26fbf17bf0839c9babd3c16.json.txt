@@ -1,0 +1,287 @@
+{
+  "entries": [
+    {
+      "source_label": "classic bhangra",
+      "source_url": "https://everynoise.com/engenremap-classicbhangra.html",
+      "suggested_id": "classic_bhangra",
+      "allocation_ordinal": 3045,
+      "allocation_group_id": "122",
+      "id": "classic_bhangra",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "classic_bhangra",
+        "name": "Classic bhangra",
+        "family": "vernacular",
+        "lineage": "Classic bhangra revisits the Punjabi bands and repertoire that shaped British Asian dance music during the late twentieth century. Groups such as Anjaana and Achanak link Punjabi folk singing and percussion with the development of UK bhangra, alongside the continuing influence of singers such as Kuldeep Manak.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "hand_pumped_harmonium",
+          "dhol",
+          "dholak"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_folk_song",
+          "free_reed_technique": "hand_pumped_harmonium_song_support",
+          "dhol_form": "dhol_punjabi",
+          "dhol_repertoire": "dhol_bhangra_chaal",
+          "dhol_shell": "dhol_sheesham",
+          "dholak_use": "dholak_folk_song",
+          "dholak_construction": "dholak_mango",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        }
+      },
+      "extras": {
+        "parent": "groovePercussion",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Strong dhol rhythms support Punjabi singing, with harmonium and hand drums sustaining the folk-band strand of the repertoire. Larger band arrangements and electronic production also belong to its history and later performance life.",
+        "exemplars": [
+          "Anjaana — separately offered four-piece pure Panjabi folk practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        53.795,
+        -1.759,
+        "Bradford",
+        "Europe"
+      ],
+      "geo_rationale": "Artist-stated practice center, not recording-site claim.",
+      "sources": [
+        {
+          "url": "https://anjaana.co.uk/",
+          "support_notes": "Four-piece offering and separate two-piece/larger configurations; historic Bradford/KuldeepManak collaboration and continuing classic repertoire."
+        },
+        {
+          "url": "https://www.womex.com/virtual/lee_thorp/achanak",
+          "support_notes": "Artist representative positively labels Achanak Classic Bhangra, supporting named field; its unspecified six-person instruments not imported."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7HprIEFoBD1U8U1RfYGagL",
+          "support_notes": "Exact field includes Achanak23/KuldeepManak26 and UK band cohorts; not evidence every track is historically dated."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Classic Bhangra is a retrospective UK Punjabi band/repertoire field positively named by artist representation at WOMEX and the creator corpus, which includes Achanak, Apna Sangeet, Kuldeep Manak, Safri Boys and other historical cohorts alongside later continuations. It overlaps the full existing bhangra_modern record, which explicitly includes the1980s/1990s diaspora transformation and electronic pop, rather than claiming that old record lacks those roots. The historical live-band/repertoire focus is narrower than the entire ongoing modern pop-fusion field. The selected Anjaana traditional lineup is one continuing practice within this field, not a claim that all classic bhangra excludes electronics or that a folk arrangement alone establishes the boundary.",
+      "classification_evidence": "Classic Bhangra is a retrospective UK Punjabi band/repertoire field positively named by artist representation at WOMEX and the creator corpus, which includes Achanak, Apna Sangeet, Kuldeep Manak, Safri Boys and other historical cohorts alongside later continuations. It overlaps the full existing bhangra_modern record, which explicitly includes the1980s/1990s diaspora transformation and electronic pop, rather than claiming that old record lacks those roots. The historical live-band/repertoire focus is narrower than the entire ongoing modern pop-fusion field. The selected Anjaana traditional lineup is one continuing practice within this field, not a claim that all classic bhangra excludes electronics or that a folk arrangement alone establishes the boundary.",
+      "model_policy": "Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted.",
+      "source_scope_limitation": "Anjaana’s expressly offered four-piece pure Panjabi folk lineup: vocals, harmonium, dhol and dholki. This is representative performing practice, not reconstruction of a named recording. The artist separately offers a two-piece sample-triggering UK Bhangra format and documents larger historic appearances; those are not collapsed into the selected four-piece offering. Anjaana identifies its late1970s Bradford beginnings, work with Kuldeep Manak and continuing classic1980s repertoire. Exact singer headcount and gear within this representative lineup are not required or guessed.",
+      "source_retrieval_caveat": "Artist official lineup directly read13294view0; WOMEX artist-representative description13294view1 and full creator playlist13301view0 retrieved. No audio or score audition, no exact creator membership of Anjaana asserted; positive historical Kuldeep Manak collaboration/repertoire provides linkage.",
+      "instrument_role_audit": {
+        "roles": {
+          "human_voice_ensemble_unspecified": "Documented vocals; exact live/overdub counts not presumed",
+          "hand_pumped_harmonium": "Documented harmonium",
+          "dhol": "Documented dhol",
+          "dholak": "Documented dholki, existing related North Indian hand-drum realization"
+        },
+        "policy": "Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted.",
+        "omitted_positive_roles": []
+      },
+      "vocal_count_audit": {
+        "documented_lineup_size": 4,
+        "vocal_headcount": "unspecified",
+        "tracking": "unspecified"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted."
+        },
+        {
+          "instrument": "hand_pumped_harmonium",
+          "parts": {
+            "harmonium_action": "harmonium_hand_pump",
+            "harmonium_voicing": "harmonium_male",
+            "harmonium_use": "harmonium_folk_song",
+            "free_reed_technique": "hand_pumped_harmonium_song_support"
+          },
+          "policy": "Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted."
+        },
+        {
+          "instrument": "dhol",
+          "parts": {
+            "dhol_form": "dhol_punjabi",
+            "dhol_repertoire": "dhol_bhangra_chaal",
+            "dhol_shell": "dhol_sheesham"
+          },
+          "policy": "Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted."
+        },
+        {
+          "instrument": "dholak",
+          "parts": {
+            "dholak_use": "dholak_folk_song",
+            "dholak_construction": "dholak_mango",
+            "dholak_head": "dholak_goat_skin_canonical",
+            "dholak_tensioning": "dholak_rope_tuning"
+          },
+          "policy": "Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "human_voice_ensemble_unspecified",
+          "hand_pumped_harmonium",
+          "dhol",
+          "dholak"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All twenty-eight applicable owning controls explicitly protected."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "classic_bhangra",
+          "name": "Classic bhangra",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13261view1 Commons license/credit checked; historical bytes retained.",
+          "fresh_review_ref": "turn13261view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Historical exact microphone asset, generic context only.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13261view1"
+        ],
+        "fresh_rights_review": "Fresh13261view1; inherited download and visual receipt unchanged."
+      },
+      "verification_status": "Twenty-eight owning controls protected; original mechanical and all four actual formats clean. Representative dance affects/source-positive construction preserved.",
+      "genre_profile_repair_evidence": {
+        "prior_public_prose": {
+          "lineage": "Anjaana’s expressly offered four-piece pure Panjabi folk lineup: vocals, harmonium, dhol and dholki. This is representative performing practice, not reconstruction of a named recording. The artist separately offers a two-piece sample-triggering UK Bhangra format and documents larger historic appearances; those are not collapsed into the selected four-piece offering. Anjaana identifies its late1970s Bradford beginnings, work with Kuldeep Manak and continuing classic1980s repertoire. Exact singer headcount and gear within this representative lineup are not required or guessed. Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted.",
+          "description": "Anjaana’s expressly offered four-piece pure Panjabi folk lineup: vocals, harmonium, dhol and dholki. This is representative performing practice, not reconstruction of a named recording. The artist separately offers a two-piece sample-triggering UK Bhangra format and documents larger historic appearances; those are not collapsed into the selected four-piece offering. Anjaana identifies its late1970s Bradford beginnings, work with Kuldeep Manak and continuing classic1980s repertoire. Exact singer headcount and gear within this representative lineup are not required or guessed. Classic Bhangra is a retrospective UK Punjabi band/repertoire field positively named by artist representation at WOMEX and the creator corpus, which includes Achanak, Apna Sangeet, Kuldeep Manak, Safri Boys and other historical cohorts alongside later continuations. It overlaps the full existing bhangra_modern record, which explicitly includes the1980s/1990s diaspora transformation and electronic pop, rather than claiming that old record lacks those roots. The historical live-band/repertoire focus is narrower than the entire ongoing modern pop-fusion field. The selected Anjaana traditional lineup is one continuing practice within this field, not a claim that all classic bhangra excludes electronics or that a folk arrangement alone establishes the boundary. Representative percussion-led dance-song rendition: Punjabi chaal dhol, dholak-family hand drum for source dholki, and melodic/chordal hand-pumped harmonium support voice. Dholki terminology is retained; the existing dholak-family owner is an authored related small North Indian two-headed hand-drum realization, not a measured original drum. Authored sheesham dhol, canonical wooden rope-tuned goat-skin dholak and deeper harmonium reeds are meaningful construction choices rather than performer gear claims. Folk-song usage is pinned instead of classical/devotional defaults. Vocal physiology, pitch system, headcount and tracking remain unspecified; moderate effort and unprocessed voice are authored. Controlled live room and brisk dance pacing are representative, not measured. Broad groovePercussion follows the documented dhol-led dance practice; no named recording, fixed harmony or verse-chorus score asserted."
+        },
+        "reason": "Move session/practice specification, unknowns and authored-default rationale into evidence; public fields now describe the genre positively. Musical defaults and source roles unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -2,36 +2,28 @@
   "id": "bboy",
   "name": "Bboy",
   "family": "electronic",
-  "lineage": "DJ Bacon — Universal B Boy Megamix sample-montage branch. Representative authored present-day recording arrangement. Sources establish the selected roles and bounded category relationship. Exact construction, hardware, playing settings, room, chain, temperament and numeric axes are authored choices, not original-session facts or universal genre traits.",
-  "recipe": "classic bboy, mc Rhythm. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 145,
-  "score": 0.664,
+  "lineage": "B-boy music supplies rhythmic breaks and energetic mixes for breaking and hip-hop dance practice.",
+  "recipe": "classic bboy, mc Rhythm. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 155,
+  "score": 0,
   "config": {
     "traditions": [
       "bboy"
     ],
     "instruments": [
       {
-        "id": "sampler_drum_machine",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "mid_swing",
-          "sample_processing": "pitched_kick"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.2,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 0.07425,
-          "sample_processing": 0
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
     "room": "treated_studio",
@@ -44,18 +36,14 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "mid_swing",
-      "sample_processing": "pitched_kick"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

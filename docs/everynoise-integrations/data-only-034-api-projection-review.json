@@ -1,0 +1,28 @@
+{
+  "changed_existing_slots": [
+    {
+      "id": "tech_house_classic",
+      "instrument": "digital_subtractive",
+      "part": "electronic_technique",
+      "before": "electronic_pad_drone",
+      "after": "electronic_bass_sub",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "electronic_bass_sub",
+      "protectedBySource": false
+    },
+    {
+      "id": "tech_house_classic",
+      "instrument": "drum_machine_909",
+      "part": "tr909_production_origin",
+      "before": "tr909_tr_8s_modern",
+      "after": "tr909_roland_osaka_canonical",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "tr909_roland_osaka_canonical",
+      "protectedBySource": false
+    }
+  ],
+  "new_instrument_projection_count": 22,
+  "errors": []
+}

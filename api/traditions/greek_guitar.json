@@ -1,0 +1,78 @@
+{
+  "id": "greek_guitar",
+  "name": "Greek guitar",
+  "family": "classical",
+  "lineage": "Greek guitar repertoire connects classical-guitar performers with modern Greek composers and teaching traditions. Concert pieces and arrangements bring different regional and compositional influences into solo performance.",
+  "recipe": "classic greek guitar, art Music, western modern branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 223,
+  "score": 12.302,
+  "config": {
+    "traditions": [
+      "greek_guitar"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 0,
+          "top_wood_classical": 0.39,
+          "bracing_classical": 0.7245,
+          "string_classical": 5.85,
+          "attack_technique_cl": 5.588
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "cedar_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "carbon_cl",
+      "attack_technique_cl": "apoyando_cl"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

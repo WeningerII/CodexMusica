@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/tmp/batch040/resume119-18-genre-profile119-photo-context119.json",
+  "sha256": "d058b9f50cc9d3379fc6815afcb709071c7113a98a940e223a77068490dd27c4",
+  "id": "russian_rave",
+  "sources_independently_reproduced": [
+    "https://prostars.org/catalog/artist/gspd/",
+    "https://i-m-i.ru/news/bulanova-recap",
+    "https://the-flow.ru/features/gspd-interview-2023",
+    "https://open.spotify.com/embed/playlist/7kEE6AcLLvewkDzi1KYKzg?theme=0"
+  ],
+  "source_refs": [
+    "turn13402view0",
+    "turn13402view1",
+    "turn13403view1",
+    "turn13405view0"
+  ],
+  "source_and_scope_review": "First-person Russian electronic-rave community and hard-dance/synthpop breadth reproduced; institutional firsthand recap confirms vocal and touring DJ practice. Compact vocal/DJ default is a credible genre-performance branch, without demanding fixed album personnel or inventing production generators. Broader Russian electronic and narrower techno/hard-bass full records inspected; community is not merely an alternate artist palette.",
+  "profile_review": "Concise history/style and legitimate historical exemplars are retained; exact source configuration and epistemic caveats remain evidence. Generic photo caption repaired by exact-only derivative.",
+  "default_review": "All18 applicable owning controls resolve and are protected; unknown vocal count/track architecture honestly retained.",
+  "runtime": "/tmp/batch040/resume119-18-peer-runtime117.json",
+  "literal_outputs_review": "All four independently regenerated outputs read. Brisk voice/DJ affect fits rave performance; no invented cultural instrument identity.",
+  "photo_review": {
+    "fresh_rights_url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "fresh_ref": "turn13403view2",
+    "license": "CC BY2.5; Iain Fergusson original and Binksternet crop",
+    "receipt": "Exact inherited 250x720 33015-byte SHA7a97c264... preview retained; no fresh download or visual reinspection claimed. Generic recording context only."
+  },
+  "limits": "Task-local original browser/connector four-format parity; not final static API or integrated regression approval."
+}

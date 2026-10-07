@@ -1,0 +1,58 @@
+{
+  "id": "indonesian_bamboo",
+  "name": "Indonesian bamboo",
+  "family": "vernacular",
+  "lineage": "Indonesian bamboo music brings together distinct regional traditions that use bamboo as a sounding material. Struck tubes, shaken instruments and other local forms retain their own histories and social settings; Upper Jelai senggayung belongs to a fruit-harvest ritual practice rather than a single national ensemble standard.",
+  "recipe": "classic indonesian bamboo, art Music. bamboo struck senggayung bamboo tubes. live tracking.",
+  "recipe_chars": 91,
+  "score": 4.9,
+  "config": {
+    "traditions": [
+      "indonesian_bamboo"
+    ],
+    "instruments": [
+      {
+        "id": "senggayung_bamboo_tubes",
+        "slots": {
+          "senggayung_tube_construction": "senggayung_tube_bamboo_node_tongue",
+          "senggayung_excitation": "senggayung_paired_striking_grip_muting",
+          "senggayung_ensemble_layout": "senggayung_upper_jelai_seven_pairs"
+        },
+        "scores": {
+          "senggayung_tube_construction": 3,
+          "senggayung_excitation": 1.6,
+          "senggayung_ensemble_layout": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "senggayung_bamboo_tubes": [
+        "senggayung_tube_construction",
+        "senggayung_excitation",
+        "senggayung_ensemble_layout"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "senggayung_tube_construction": "senggayung_tube_bamboo_node_tongue",
+      "senggayung_excitation": "senggayung_paired_striking_grip_muting",
+      "senggayung_ensemble_layout": "senggayung_upper_jelai_seven_pairs"
+    },
+    "pin_parts": true
+  }
+}

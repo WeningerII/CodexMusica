@@ -5,7 +5,7 @@
   "lineage": "Fiddle-centered bluegrass repertoire and lead playing, represented by Kenny Baker’s work with Bill Monroe and by his own instrumental albums. Kentucky roots and Tennessee professional networks connect this practice to the wider bluegrass ensemble.",
   "recipe": "classic modern bluegrass fiddle, improv On Frame, bluegrass branch. double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, flatpicked dreadnought acoustic guitar, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 359,
-  "score": 102.363,
+  "score": 102.32,
   "config": {
     "traditions": [
       "bluegrass_fiddle"
@@ -26,7 +26,7 @@
           "fiddle_strings": 0.546,
           "fiddle_bow": 0.5145000000000001,
           "fiddle_mute": 0.39,
-          "fiddle_articulation": 0.6,
+          "fiddle_articulation": 0.6074999999999999,
           "fiddle_string_configuration": 0
         }
       },
@@ -47,9 +47,9 @@
           "mandolin_shape": 12.0315,
           "mandolin_top": 12.4725,
           "mandolin_back": 12,
-          "mandolin_bracing": 12.089,
+          "mandolin_bracing": 12.0315,
           "mandolin_strings": 0.5145000000000001,
-          "mandolin_fingerboard": 0.063,
+          "mandolin_fingerboard": 0.0705,
           "mandolin_pickup": 5.069999999999999
         }
       },

@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "reviewer": "research_119",
+  "frozen_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+  "required_predecessor": "4e1b47981322e06b2ffee91cf1b64b79682c3d62",
+  "source_append_review": {
+    "predecessor": "4e1b47981322e06b2ffee91cf1b64b79682c3d62",
+    "head": "4e1b47981322e06b2ffee91cf1b64b79682c3d62",
+    "frozen_sha256": "fd521a733ec9730e3cb70b1410b67a0f849359e0cd41719232f6a755822112ec",
+    "counts": {
+      "raw_traditions_old_unchanged": 5338,
+      "raw_instruments_old_unchanged": 1477,
+      "old_extras_unchanged": 5338,
+      "merged_instruments_old_unchanged": 1477,
+      "data/geo.json_old_keys": 5338,
+      "references/_tradition_signatures.json_old_keys": 3316,
+      "old_images_unchanged": 6765,
+      "new_images": 106
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "electronic_organ_unspecified",
+      "dung_chen_contemporary",
+      "uyghur_dutar",
+      "janggu_concert_accompaniment",
+      "electric_cello_live_looping",
+      "uilleann_pipes_three_quarter"
+    ],
+    "runtime_independent": {
+      "cards": 377,
+      "effective_parts": 3763,
+      "flat_pins": 3652,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "actual_browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1477,
+      "traditions": 5338,
+      "cards": 23319
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "engine_and_shared_data": [
+    {
+      "file": "scripts/_merge.js",
+      "unchanged": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    },
+    {
+      "file": "scripts/_loader.js",
+      "unchanged": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    {
+      "file": "scripts/_seed_workspace.js",
+      "unchanged": true,
+      "sha256": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d"
+    },
+    {
+      "file": "scripts/_load_app.js",
+      "unchanged": true,
+      "sha256": "3bc048bd4ceafcbbfa5c420dd9bc6063eea39d6b3539137b079383b62e548ca3"
+    },
+    {
+      "file": "scripts/search.js",
+      "unchanged": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    {
+      "file": "scripts/_matcher.js",
+      "unchanged": true,
+      "sha256": "635a75aa8bb664d0d95fae5140bd137a6cbe1e330caaa6c51d98d2de15356c6e"
+    },
+    {
+      "file": "references/01_family_parts.js",
+      "unchanged": true,
+      "sha256": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791"
+    },
+    {
+      "file": "references/03_rooms_chains_tunings.js",
+      "unchanged": true,
+      "sha256": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7"
+    },
+    {
+      "file": "references/04_tree.js",
+      "unchanged": true,
+      "sha256": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90"
+    },
+    {
+      "file": "references/_soundword_vocab.json",
+      "unchanged": true,
+      "sha256": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48"
+    }
+  ],
+  "source_scope": {
+    "changed_source_files": [
+      "data/atlas-geo.json",
+      "data/geo.json",
+      "data/tree-map.json",
+      "references/02_instruments.js",
+      "references/05_traditions.js",
+      "references/06_extras.js",
+      "references/_image_manifest.json",
+      "references/_tradition_signatures.json",
+      "src/app.js"
+    ],
+    "unexpected": [],
+    "new_data_manifest_geo_signatures_exact": true,
+    "new_instrument_raw_records_exact": true
+  },
+  "signature_amendment": {
+    "before_frozen_sha256": "39e42f89e656e17bef0ef6d52ab4e3879d7f69db2c98beb7886e125bdd422f3f",
+    "after_frozen_sha256": "fd521a733ec9730e3cb70b1410b67a0f849359e0cd41719232f6a755822112ec",
+    "id": "korean_traditional",
+    "before": ["plucked", "breathy", "sustained"],
+    "after": ["plucked", "sustained"],
+    "reason": "New signature token breathy is unclassified by existing vocabulary; removed only new-entry signature attribution. Musical descriptors/roles/defaults and global vocabulary/rulings preserved.",
+    "independent_approval": "research_119"
+  },
+  "defaults_review": "All100 new source rosters, room/tuning/chain fields and every applicable imported card part verified through original seed function. Actual browser fullold5338 imports/23319cards and1477defaultcards unchanged. Two rompler electronic-technique slots are not protected by sampler flat pin; retained source fallback is not falsely asserted as compiled pin. Later API review must verify selected values.",
+  "errors": [],
+  "no_repo_mutations": true,
+  "remaining_gates": [
+    "Completed API full delta and new protected-pin audit",
+    "Causal review of regression differences",
+    "Exact-head CI"
+  ],
+  "prior_frozen_sha256": "fd521a733ec9730e3cb70b1410b67a0f849359e0cd41719232f6a755822112ec",
+  "geo_amendment": {
+    "id": "lagu_sabahan",
+    "before_sha256": "fd521a733ec9730e3cb70b1410b67a0f849359e0cd41719232f6a755822112ec",
+    "after_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+    "changed_fields": ["geo", "geo_rationale", "sources"],
+    "old_geo": [5.2831, 115.2308, "Labuan", "Southeast Asia"],
+    "new_geo": [5.337, 116.161, "Keningau", "Southeast Asia"],
+    "reason": "Labuan omitted by existing basemap; independently verified genuine repertoire anchor instead of falsifying performance site or changing shared basemap/gate.",
+    "primary_receipt": "turn2623view0",
+    "independent_reviewer": "research_119",
+    "api_input_unchanged": true
+  },
+  "rebind_review": "Full final source-packet diff rechecked by final-frozen-semantic-review119.json: only approved semantic/photo/signature amendments plus lagu_sabahan geo/rationale/research source. Tradition/extras/defaults/signatures/photos/dependencies unchanged by geo amendment; original full browser and merged preservation proof remains applicable.",
+  "generated_mirrors": {
+    "data/atlas-geo.json": {
+      "generated_display_artifact": true,
+      "unchanged_generation_fields": ["generator", "source", "note", "params"],
+      "separate_gate": "Root atlas/geo regeneration checks"
+    },
+    "data/tree-map.json": {
+      "old5338values_unchanged": true,
+      "new_entries": 100
+    }
+  }
+}

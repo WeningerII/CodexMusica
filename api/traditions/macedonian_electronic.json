@@ -2,10 +2,10 @@
   "id": "macedonian_electronic",
   "name": "Macedonian electronic",
   "family": "electronic",
-  "lineage": "Macedonian electronic is represented here by HRZL (Aleksandar Grozdanovski / Herzel) — Burst modular core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic macedonian electronic, experimental Elec, ambient branch. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 237,
-  "score": 6.709,
+  "lineage": "Macedonian electronic music connects independent local producers with wider experimental and dance-music networks. Ambient and exploratory synthesis form one strand.",
+  "recipe": "classic macedonian electronic, experimental Elec, ambient branch. modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 168,
+  "score": 8.518,
   "config": {
     "traditions": [
       "macedonian_electronic"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 5.372375,
-          "mod_voltage_source": 0,
-          "mod_patch_density": 0.03712499999999999,
-          "mod_lineage": 1.3
+          "electronic_technique": 6.7115,
+          "mod_voltage_source": 1.12375,
+          "mod_patch_density": 0,
+          "mod_lineage": 0.6825000000000001
         }
       }
     ],

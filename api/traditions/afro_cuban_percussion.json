@@ -2,10 +2,10 @@
   "id": "afro_cuban_percussion",
   "name": "Afro-Cuban percussion",
   "family": "vernacular",
-  "lineage": "Victor Rendón — The Art Of Playing Timbales (2022), conga/bongo examples. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s afro-cuban percussion, groove Percussion, Caribbean branch. mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas, mule hide canonical Cuban son premium oak staved canonical Cuban hands layered bongos. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 348,
-  "score": 11.739,
+  "lineage": "Afro-Cuban percussion connects distinct rhythmic traditions with dance bands, teaching and contemporary performance. Congas, bongos and timbales form an important ensemble practice, with musicians such as Victor Rendón teaching their complementary functions.",
+  "recipe": "classic afro-cuban percussion, groove Percussion, Caribbean branch. mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas, mule hide canonical Cuban son premium oak staved canonical Cuban hands layered bongos. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 18.039,
   "config": {
     "traditions": [
       "afro_cuban_percussion"
@@ -20,10 +20,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.2,
+          "percussion_technique": 4.95,
           "conga_set": 0,
-          "conga_skin": 1.363,
-          "conga_shell_wood": 1.3315000000000001
+          "conga_skin": 2.063,
+          "conga_shell_wood": 2.0315
         }
       },
       {
@@ -35,10 +35,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.2,
-          "bongos_skin": 1.313,
+          "percussion_technique": 4.95,
+          "bongos_skin": 2.013,
           "bongos_context": 0,
-          "bongos_shell_wood": 1.3315000000000001
+          "bongos_shell_wood": 2.0315
         }
       }
     ],

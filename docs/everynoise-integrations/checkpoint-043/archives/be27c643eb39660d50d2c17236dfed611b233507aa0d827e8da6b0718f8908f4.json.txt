@@ -1,0 +1,196 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "minimal_melodic_techno",
+          "name": "Minimal Melodic Techno",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic audio recording microphone context; not a depiction of source DJ gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh independent14925view1 confirms Fergusson original, Binksternet crop and CC BY2.5.",
+          "fresh_review_ref": "turn14925view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14925view1"
+        ],
+        "fresh_rights_review": "Fresh14925view1 rights; exact historical023 binary/visual receipt retained without new download claim."
+      },
+      "id": "minimal_melodic_techno",
+      "suggested_id": "minimal_melodic_techno",
+      "source_label": "minimal melodic techno",
+      "source_url": "https://everynoise.com/engenremap-minimalmelodictechno.html",
+      "allocation_ordinal": 98,
+      "allocation_group_id": "004",
+      "status": "READY_FOR_INDEPENDENT_BOUNDARY_REVIEW",
+      "tradition": {
+        "id": "minimal_melodic_techno",
+        "name": "Minimal Melodic Techno",
+        "family": "electronic",
+        "lineage": "Minimal melodic techno brings expressive melodic development into the economical patterns of European minimal electronics. The 2000s Traum and Border Community networks and the later Hungry Music collective connect restrained rhythmic frameworks with distinctive melodic voices.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance.techno",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Repeating rhythmic cells support evolving melodic figures, spacious textures and gradual transitions. Producers and selectors connect understated groove with cinematic, introspective or pop-shaped ideas without requiring one fixed arrangement.",
+        "exemplars": [
+          "Fairmont",
+          "NTO",
+          "Worakls",
+          "Joachim Pastor",
+          "Hungry Music"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.52,
+        13.405,
+        "Berlin",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial historical production anchor: Harald Björk first-person says he lived in Berlin during his2007 melodic-minimal Traum release. Not the label headquarters or exclusive origin of the international field.",
+      "signature_tokens": [],
+      "model_policy": "Representative published selection/mixing branch: 6AM commissioned an exclusive one-hour Hungry Music mix of the three founders’ own material, with thirteen listed selections. One neutral DJ mixing owner preserves all embedded piano, guitar, electronic and any vocal material without inventing generator hardware or live voices. The separate Hungry Band live practice positively includes piano, machines and guitar; this is documented as an alternative branch, not silently reduced to one performer or claimed as the source mix lineup. Controlled live-room playback presentation and brisk dance pacing are authored, not measured source tempo or source room. No tuning is imposed.",
+      "neighbor_distinction": "Full minimal_techno explicitly emphasizes extreme subtraction and near absence of melody; this named melodic-minimal practice retains looping economy while positively foregrounding melody. Full melodic_techno already encompasses emotional arpeggiated/padded electronic music and is not restricted to Afterlife or festivals. The proposed narrower field is the documented melodic-minimal production/circulation trajectory: Harald Björk firsthand identifies the2007 Traum/Border Community era, Traumer independently names minimal melodic techno and these influences, and Hungry Music founders describe their coherent but varied melodic aesthetic. Exact creator corpus links Fairmont, Max Cooper, Worakls, NTO, Joachim Pastor, Joris Delacroix and many wider practitioners. This is a proposed historical/artistic specialization within broad melodic techno, not a disjoint genre, not just a different artist, and not all French electronic music. Existing new_french_touch remains broader and overlaps Hungry Music; its Fakear example does not restrict it to sample-pad performance. Peer must determine whether positive field evidence suffices; no automatic equivalence or acceptance.",
+      "sources": [
+        {
+          "url": "https://electronicgroove.com/series/premieres/harald-bjork-lust-kranglan-broadcast/",
+          "title": "Harald Björk first-person melodic-minimal history",
+          "support_notes": "Fresh15065view0 lines53–60 explicitly2007Traum/BorderCommunity melodic-minimal era and continuing2021 reinterpretation."
+        },
+        {
+          "url": "https://xlr8r.com/features/20-questions-traumer/",
+          "title": "Traumer first-person production history",
+          "support_notes": "Fresh15021view1 line49 explicitly minimal melodic techno, BorderCommunity and StephanBodzin influences; distinct later minimal-house direction candid."
+        },
+        {
+          "url": "https://www.amnusique.fr/interview-8-joachim-pastor/",
+          "title": "Hungry Music founder interview",
+          "support_notes": "Fresh15047view0 lines57/88–90 shared aesthetic and differentiated cinematic/deep/pop melodic practices; not uniform hardware."
+        },
+        {
+          "url": "https://www.6amgroup.co/interview-global-vibe-radio-144-feat-hungry-music-worakls-nto-joachim-pastor/",
+          "title": "Issuer exclusive Hungry Music mix and founders interview",
+          "support_notes": "Fresh15031view0 explicitly whole commissioned one-hour mix, thirteen selections, collective history; not an opaque album treated as a sampler."
+        },
+        {
+          "url": "https://hungrymusic.fr/story/",
+          "title": "Label own history and live branch",
+          "support_notes": "Fresh15031view1 explicitly2015HungryBand piano/machines/guitar; retained separate alternative source practice."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0O5O7OKpXKZkWUBRVFAJ1g",
+          "title": "Exact creator full returned100-item corpus",
+          "support_notes": "Map15025view0 link2→15047view1; full15057view0 includes NTO5,JoachimPastor24,Worakls26,Fairmont50,MaxCooper7 and broader network. No claim complete unlimited playlist beyond returned100."
+        }
+      ],
+      "source_retrieval_caveat": "Primary texts and full returned100creatoritems directly read; creator map intermittently fails but actual link2 playlist recovered. Source mix is published/commissioned, not independently auditioned. No measured instrumental synthesis or live singer headcount claim.",
+      "prior_hold_preservation": "Original ordinal98 hold retained in immutable allocation. This is a new multi-primary trajectory argument and bounded source practice, requiring independent category-boundary judgment against full melodic-techno and new-French-touch scope.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Positive DJ practice; unknown playback architecture retained."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

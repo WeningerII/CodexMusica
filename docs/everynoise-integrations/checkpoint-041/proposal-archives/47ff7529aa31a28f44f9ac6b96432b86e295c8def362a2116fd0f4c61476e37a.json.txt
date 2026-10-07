@@ -1,0 +1,223 @@
+{
+  "entries": [
+    {
+      "source_label": "musique urbaine brazzaville",
+      "source_url": "https://everynoise.com/engenremap-musiqueurbainebrazzaville.html",
+      "suggested_id": "musique_urbaine_brazzaville",
+      "allocation_ordinal": 3954,
+      "allocation_group_id": "159",
+      "id": "musique_urbaine_brazzaville",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "musique_urbaine_brazzaville",
+        "name": "Musique urbaine Brazzaville",
+        "family": "global",
+        "lineage": "Contemporary urban music in the Republic of the Congo connects rap, slam and popular dance-song communities through Brazzaville, recording studios, festivals and online networks.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.africanPop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic speech, melodic hooks and produced beats circulate alongside local dance rhythms and rumba-derived approaches. Artists move between rap, slam, Afro-pop and other popular forms, making this a shared regional scene rather than a single instrumental formula. A rapper over a produced beat represents one active branch.",
+        "exemplars": [
+          "Jessy B",
+          "Paterne Maestro",
+          "Tidiane Mario",
+          "Mwasi Moyindo"
+        ],
+        "status": "documented",
+        "crossRefs": [
+          "mcRhythm.intlHipHop"
+        ]
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musique_urbaine_brazzaville",
+          "name": "Musique urbaine Brazzaville",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn13649view0 confirms Iain Fergusson/Binksternet and CC BY2.5; exact prior byte and visual receipt inherited.",
+          "fresh_review_ref": "turn13649view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn13649view0; historical exact image receipt retained.",
+        "fresh_rights_retrieval_refs": [
+          "turn13649view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level MC plus produced-beat branch supported by first-person practitioners in a documented cross-style urban community. Beatmaking is positively described, precise sound generators and hardware are not. The existing neutral beat owner preserves this production role without inventing a synthesizer or sampler. Accompanied solo rhythmic speech and a controlled room are authored realization choices, not a claim about every artist or an exact master. All17 vocal controls plus beat identity remain explicit. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Genre-level MC plus produced-beat branch supported by first-person practitioners in a documented cross-style urban community. Beatmaking is positively described, precise sound generators and hardware are not. The existing neutral beat owner preserves this production role without inventing a synthesizer or sampler. Accompanied solo rhythmic speech and a controlled room are authored realization choices, not a claim about every artist or an exact master. All17 vocal controls plus beat identity remain explicit. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance."
+        }
+      ],
+      "geo": [
+        -4.2634,
+        15.2429,
+        "Brazzaville",
+        "Central Africa"
+      ],
+      "geo_rationale": "Documented regional community anchor, not exclusive artist birthplace.",
+      "signature_tokens": [],
+      "model_policy": "Genre-level MC plus produced-beat branch supported by first-person practitioners in a documented cross-style urban community. Beatmaking is positively described, precise sound generators and hardware are not. The existing neutral beat owner preserves this production role without inventing a synthesizer or sampler. Accompanied solo rhythmic speech and a controlled room are authored realization choices, not a claim about every artist or an exact master. All17 vocal controls plus beat identity remain explicit. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance.",
+      "neighbor_distinction": "Full current Congolese rumba, soukous, ndombolo and Rap Congolais records read. The first three are musical traditions with distinct histories and rhythmic ensembles; this is a contemporary cross-style Congo-Brazzaville scene. Rap Congolais overlaps the rapper branch across home and diaspora scenes, but does not contain the whole slam, Afro-pop and dance-song community. Kinshasa urban music is an overlapping neighbouring capital/country community, not defined by a hard geographical exclusion. No exclusive timbre, blanket synonym or all-artists boundary claimed.",
+      "classification_evidence": "Fresh firsthand practitioner/industry testimony in Niamba Malafi publication identifies rap, slam, Afrobeat and ndombolo in one Congo-Brazzaville network; Jessy B and Mwasi Moyindo directly describe their community, with beatmaking and production explicitly named. Broad African popular-song parent represents the full cross-style field, MC cross-reference the default branch. Functional-harmonic popular-song organization with verse, recurring hook and contrasting bridge is an authored option for this representative rendition, not a transcription or universal claim about every rap or slam performance.",
+      "source_scope_limitation": "Requested creator map inaccessible in current browser; no fresh creator-membership or exact sound audition asserted. Independent practitioner evidence establishes the named regional field. Representative arrangement does not reconstruct a particular recording.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Representative rhythmic spoken lead; rap and slam positively established."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "role": "Produced-beat role; beatmaking explicitly documented; source mechanism unknown."
+        }
+      ],
+      "vocal_count_audit": "One lead is authored starting point; actual population/headcount/tracking not asserted.",
+      "sources": [
+        {
+          "url": "https://talents2kin.com/lemergence-du-congo-brazzaville-vit-a-travers-les-rythmes-de-la-musique-urbaine-tribune-de-niamba-malafi/",
+          "kind": "firsthand_practitioner_and_industry_interviews",
+          "retrieval_refs": [
+            "turn13645view0",
+            "turn13647view0"
+          ],
+          "finding": "Direct Jessy B/Mwasi Moyindo/label-manager testimony identifies Congo-Brazzaville cross-style urban scene and beatmaking/recording work."
+        },
+        {
+          "url": "https://everynoise.com/engenremap-musiqueurbainebrazzaville.html",
+          "kind": "requested_creator_map",
+          "finding": "Fresh open failed; no current membership claim."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

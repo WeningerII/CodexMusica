@@ -1,0 +1,252 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "swiss_trap",
+          "name": "Swiss Trap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons14319view2 confirms CC BY2.5 and credited crop; historical023 bytes retained.",
+          "fresh_review_ref": "turn14319view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14319view2"
+        ],
+        "fresh_rights_review": "Fresh Commons14319view2; no fresh bytes or visual observation asserted."
+      },
+      "signature_tokens": [],
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic vocal lines move over electronic low end, crisp programmed percussion and short synthesizer melodies. Repetition and open spaces frame the vocal cadence, with melodic hooks and denser production appearing across the wider scene.",
+        "exemplars": [
+          "Pronto",
+          "Monet192"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "tradition": {
+        "id": "swiss_trap",
+        "name": "Swiss Trap",
+        "family": "hip_hop",
+        "lineage": "Swiss trap develops bass-heavy programmed rap within Switzerland’s multilingual music networks. Artists such as Pronto combine locally inflected delivery with international trap influences, while collaborations and pop, dancehall and Afro-oriented branches cross national and language borders.",
+        "instruments": [
+          "voice",
+          "drum_machine_808",
+          "analog_poly_synth"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern",
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        }
+      },
+      "id": "swiss_trap",
+      "suggested_id": "swiss_trap",
+      "source_label": "swiss trap",
+      "source_url": "https://everynoise.com/engenremap-swisstrap.html",
+      "allocation_ordinal": 588,
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "geo": [
+        47.2088,
+        7.5323,
+        "Solothurn",
+        "Europe"
+      ],
+      "geo_rationale": "Pronto’s documented origin anchors one Swiss scene hub, not exclusive national geography.",
+      "model_policy": "Representative genre production, not a reconstruction of Pronto or Monet192 recordings. Federal cultural-awards and broadcaster sources establish the local trap scene; Roland’s trap-production pedagogy supports 808-family bass/percussion and synthetic melodic lines. Authored single rhythmic rap lead, long-decay contemporary digital 808 recreation, eight-voice Jupiter-family melodic synth lead and treated studio. These are representative choices, not artist hardware, physiological measurements or universal headcounts; multilingual and melodic branches remain included.",
+      "source_scope_limitation": "Representative genre production, not a reconstruction of Pronto or Monet192 recordings. Federal cultural-awards and broadcaster sources establish the local trap scene; Roland’s trap-production pedagogy supports 808-family bass/percussion and synthetic melodic lines. Authored single rhythmic rap lead, long-decay contemporary digital 808 recreation, eight-voice Jupiter-family melodic synth lead and treated studio. These are representative choices, not artist hardware, physiological measurements or universal headcounts; multilingual and melodic branches remain included.",
+      "authored_render_scope": "Representative genre production, not a reconstruction of Pronto or Monet192 recordings. Federal cultural-awards and broadcaster sources establish the local trap scene; Roland’s trap-production pedagogy supports 808-family bass/percussion and synthetic melodic lines. Authored single rhythmic rap lead, long-decay contemporary digital 808 recreation, eight-voice Jupiter-family melodic synth lead and treated studio. These are representative choices, not artist hardware, physiological measurements or universal headcounts; multilingual and melodic branches remain included.",
+      "neighbor_distinction": "The full existing schweizer_rap definition covers Switzerland’s multilingual rap field and includes modern styles, not merely its Lo & Leduc example. Swiss Trap is a positively documented narrower trap-production scene within that umbrella, identified explicitly by the federal cultural-awards institution. It overlaps global southern trap and neighboring German/French-language rap without imposing exclusive language or personnel boundaries.",
+      "classification_evidence": "The full existing schweizer_rap definition covers Switzerland’s multilingual rap field and includes modern styles, not merely its Lo & Leduc example. Swiss Trap is a positively documented narrower trap-production scene within that umbrella, identified explicitly by the federal cultural-awards institution. It overlaps global southern trap and neighboring German/French-language rap without imposing exclusive language or personnel boundaries.",
+      "sources": [
+        {
+          "url": "https://www.schweizerkulturpreise.ch/en/pronto-4",
+          "support_notes": "Fresh14333search2 federal cultural-awards profile explicitly names emerging Swiss trap scene, locally inflected rap and mostly self-produced LUNO V."
+        },
+        {
+          "url": "https://gurtenfestival.ch/en/show/2026-pronto/",
+          "support_notes": "Fresh14333search3 promoter confirms trap with Afrobeat/dancehall/reggae influences and Swiss collaboration network."
+        },
+        {
+          "url": "https://www.srf.ch/radio-srf-3/musik/srf-3-best-talent/srf-3-best-talent-dezember-monet192-ein-deutsch-rapper-am-durchstarten",
+          "support_notes": "Fresh14328search2 broadcaster firsthand artist feature confirms St Gallen rapper combining trap, R&B and pop."
+        },
+        {
+          "url": "https://articles.roland.com/trap-and-lo-fi-beats-with-zenbeats-and-roland-cloud/",
+          "support_notes": "Fresh14319view1 manufacturer pedagogy supports representative 808 percussion/bass and melodic synth production. Not proof Swiss artists use these models."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14333search2",
+        "turn14333search3",
+        "turn14328search2",
+        "turn14319view1"
+      ],
+      "source_retrieval_caveat": "Exact creator map timed out14330view2. Positive federal institutional naming directly establishes requested scene; third-party metadata is not used as musical evidence.",
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap lead",
+        "drum_machine_808": "Programmed bass and percussion",
+        "analog_poly_synth": "Synthetic melodic line"
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative genre production, not a reconstruction of Pronto or Monet192 recordings. Federal cultural-awards and broadcaster sources establish the local trap scene; Roland’s trap-production pedagogy supports 808-family bass/percussion and synthetic melodic lines. Authored single rhythmic rap lead, long-decay contemporary digital 808 recreation, eight-voice Jupiter-family melodic synth lead and treated studio. These are representative choices, not artist hardware, physiological measurements or universal headcounts; multilingual and melodic branches remain included."
+        },
+        {
+          "instrument": "drum_machine_808",
+          "parts": {
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_trap",
+            "tr808_production_origin": "tr808_tr_8s_modern"
+          },
+          "policy": "Representative genre production, not a reconstruction of Pronto or Monet192 recordings. Federal cultural-awards and broadcaster sources establish the local trap scene; Roland’s trap-production pedagogy supports 808-family bass/percussion and synthetic melodic lines. Authored single rhythmic rap lead, long-decay contemporary digital 808 recreation, eight-voice Jupiter-family melodic synth lead and treated studio. These are representative choices, not artist hardware, physiological measurements or universal headcounts; multilingual and melodic branches remain included."
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "parts": {
+            "electronic_technique": "electronic_lead_line",
+            "poly_archetypes": "jupiter_8",
+            "poly_voices": "poly_8_voice",
+            "poly_maker_lineage": "poly_roland_jupiter"
+          },
+          "policy": "Representative genre production, not a reconstruction of Pronto or Monet192 recordings. Federal cultural-awards and broadcaster sources establish the local trap scene; Roland’s trap-production pedagogy supports 808-family bass/percussion and synthetic melodic lines. Authored single rhythmic rap lead, long-decay contemporary digital 808 recreation, eight-voice Jupiter-family melodic synth lead and treated studio. These are representative choices, not artist hardware, physiological measurements or universal headcounts; multilingual and melodic branches remain included."
+        }
+      ],
+      "allocation_group_id": "024"
+    }
+  ],
+  "instrument_dependencies": []
+}

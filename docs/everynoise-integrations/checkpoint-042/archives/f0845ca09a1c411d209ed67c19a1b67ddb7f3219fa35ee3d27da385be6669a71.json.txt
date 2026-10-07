@@ -1,0 +1,230 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "gaddiyali_pop",
+        "name": "Gaddiyali Pop",
+        "family": "pop",
+        "lineage": "Gaddiyali pop brings Gaddi-language song into regional recording, music-video and concert networks. In Kangra and Chamba, performers connect inherited lyrics and cultural identity with contemporary popular presentation.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Sung melodies and recurring refrains meet dance-oriented backing. Folk and devotional material can enter contemporary productions, while live cultural and ritual performances retain other arrangements and functions.",
+        "exemplars": [
+          "Poonam Bhardwaj",
+          "Ishant Bhardwaj",
+          "Sunil Rana"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "gaddiyali_pop",
+          "name": "Gaddiyali Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14889view2 confirms CC BY2.5 and crop credit; exact historical023 receipt retained.",
+          "fresh_review_ref": "turn14889view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14889view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
+      },
+      "source_label": "gaddiyali pop",
+      "source_url": "https://everynoise.com/engenremap-gaddiyalipop.html",
+      "suggested_id": "gaddiyali_pop",
+      "allocation_ordinal": 1707,
+      "allocation_group_id": "069",
+      "id": "gaddiyali_pop",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "geo": [
+        32.219,
+        76.3234,
+        "Dharamsala",
+        "South Asia"
+      ],
+      "geo_rationale": "Regional urban practice anchor, not a universal birthplace or exact session location.",
+      "sources": [
+        {
+          "url": "https://journals.ed.ac.uk/himalaya/article/download/7822/11956",
+          "support_notes": "Anja Wagner original field research and singer interviews; pages92 and94 explicitly distinguish pop/disco song production from ritual instrumentation."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14942view0",
+        "turn14944view1",
+        "turn14945view0"
+      ],
+      "neighbor_distinction": "Gaddi linguistic and production community is positively established by fieldwork. The full existing himachali_pop is a wider regional umbrella, not only its rock exemplar. This narrower community overlaps Himachali popular music without claiming separate ethnicity for every performer or excluding multilingual crossover. The model represents the documented disco/pop-backed singing branch, not the separately described nuala ensemble.",
+      "model_policy": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed.",
+      "source_scope_limitation": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed.",
+      "authored_render_scope": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed.",
+      "source_retrieval_caveat": "Fresh primary text retrieved; no audio audition or exact master reconstruction claimed.",
+      "instrument_role_audit": {
+        "voice": "Sung melodic lead; authored direct syllabic treatment.",
+        "credited_beat_unspecified": "Produced rhythmic backing, including bass and other supplied elements; mechanism unspecified."
+      },
+      "vocal_count_audit": {
+        "representative_lead_cards": 1,
+        "actual_recording_headcount": "not asserted"
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Authored representative sung dance-pop branch: a syllabic melodic lead over produced backing of unspecified mechanism, with functional-harmonic verse–chorus–bridge organization as an arrangement choice, not a measured source form. Single-lead capture, untreated natural voice and controlled studio are authored; physiology, original headcount and actual studio equipment remain unspecified. Complete backing is retained through the existing credited-beat owner; the distinct ritual ensemble is not being reconstructed."
+        }
+      ],
+      "literal_output_review": "All four original browser outputs retain melodic syllabic singing and the complete backing role. Clapping-and-syllabicizing is interpreted as the authored punctuated syllabic delivery within the documented disco/pop branch, not evidence of extra handclap instruments or a ritual ensemble. The compiled API preserves all18 controls; its shorter recipe does not restate every vocal gesture. No claim of measured source phrasing or tempo."
+    }
+  ],
+  "instrument_dependencies": []
+}

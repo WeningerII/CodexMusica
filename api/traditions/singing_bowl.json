@@ -1,0 +1,77 @@
+{
+  "id": "singing_bowl",
+  "name": "Singing Bowl",
+  "family": "vernacular",
+  "lineage": "Paul Stranahan — Journey to Planet Gong (2020), complete seven-section continuous performance. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2020s singing bowl, improv On Frame. continuous drone himalayan singing bowl, gong tamtam. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 2.563,
+  "config": {
+    "traditions": [
+      "singing_bowl"
+    ],
+    "instruments": [
+      {
+        "id": "himalayan_singing_bowl",
+        "slots": {
+          "singing_bowl_form": "singing_bowl_hand_hammered",
+          "singing_bowl_technique": "singing_bowl_rim_rubbed"
+        },
+        "scores": {
+          "singing_bowl_form": 0,
+          "singing_bowl_technique": 1.363
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_tam_tam",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.6,
+          "gong_striker": 0.6
+        }
+      }
+    ],
+    "pinned": {
+      "himalayan_singing_bowl": [
+        "singing_bowl_form",
+        "singing_bowl_technique"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "singing_bowl_form": "singing_bowl_hand_hammered",
+      "singing_bowl_technique": "singing_bowl_rim_rubbed",
+      "gong_type": "gong_tam_tam",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

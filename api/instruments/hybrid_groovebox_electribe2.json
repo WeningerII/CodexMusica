@@ -1,0 +1,100 @@
+{
+  "id": "hybrid_groovebox_electribe2",
+  "name": "Hybrid digital groovebox (Electribe 2 synthesis and PCM)",
+  "family": "electronic",
+  "class": "electronic",
+  "short": "hybrid digital groovebox",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "hybrid_groovebox_engine",
+      "name": "Sound generation architecture",
+      "variants": [
+        {
+          "id": "hybrid_groovebox_electribe2_modeling_pcm",
+          "name": "Korg Electribe 2: analog modeling and PCM sound engine",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "synthesized",
+            "sampled",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "synth",
+            "sequenced"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hybrid_groovebox_workflow",
+      "name": "Authored performance workflow",
+      "variants": [
+        {
+          "id": "hybrid_groovebox_sequenced_layers",
+          "name": "Sequenced synthesized and PCM layers; specific program selection unspecified",
+          "default": true,
+          "descriptors": [
+            "sequenced"
+          ],
+          "match_tokens": [
+            "sequenced",
+            "synth"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hybrid_groovebox_engine",
+      "name": "Sound generation architecture",
+      "variants": [
+        {
+          "id": "hybrid_groovebox_electribe2_modeling_pcm",
+          "name": "Korg Electribe 2: analog modeling and PCM sound engine",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "synthesized",
+            "sampled",
+            "polyphonic"
+          ],
+          "match_tokens": [
+            "synth",
+            "sequenced"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hybrid_groovebox_workflow",
+      "name": "Authored performance workflow",
+      "variants": [
+        {
+          "id": "hybrid_groovebox_sequenced_layers",
+          "name": "Sequenced synthesized and PCM layers; specific program selection unspecified",
+          "default": true,
+          "descriptors": [
+            "sequenced"
+          ],
+          "match_tokens": [
+            "sequenced",
+            "synth"
+          ]
+        }
+      ]
+    }
+  ]
+}

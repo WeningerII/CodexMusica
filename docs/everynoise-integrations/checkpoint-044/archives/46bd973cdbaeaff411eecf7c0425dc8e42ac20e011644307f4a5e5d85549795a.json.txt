@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "repairs": 197,
+  "other_traditions": 6568,
+  "owners_unchanged": 1658,
+  "other_traditions_sha256": "e7d681fab0d79be28977cdd37123a50c920e3db476317b4d5b0d44ff7a9bb1fd",
+  "other_extras_sha256": "b2a80e452174e8feeef8423d9f04beff51e38745497e98c0a800fac555ab620b",
+  "owners_sha256": "b36d9776244712d2bb9b50392afb7e7afe9471cffc75b4365ad5f2a8efd4f5ed",
+  "named3_unchanged": [
+    "gospel_quartet_male",
+    "methodist_hymnody",
+    "groove_metal"
+  ]
+}

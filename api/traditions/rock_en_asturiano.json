@@ -2,10 +2,10 @@
   "id": "rock_en_asturiano",
   "name": "Rock en asturiano",
   "family": "rock",
-  "lineage": "Rock en asturiano is represented here by Misiva. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic rock en asturiano, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 357,
-  "score": 49.957,
+  "lineage": "Rock en asturiano brings Asturian-language expression into rock and punk-band songwriting.",
+  "recipe": "classic rock en asturiano, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 365,
+  "score": 55.426,
   "config": {
     "traditions": [
       "rock_en_asturiano"
@@ -24,24 +24,24 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.8199999999999998,
-          "amp_make": 12.284999999999998,
+          "electric_technique": 2.21,
+          "amp_make": 16.054999999999996,
           "body_wood": 1.029,
           "neck_wood": 0.273,
           "fretboard": 0.16899999999999998,
           "pickup_magnet": 0.3055,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 1.69,
+          "bridge": 0.29899999999999993,
           "scale_length": 0.7875,
-          "string_gauge": 1.69,
+          "string_gauge": 0.273,
           "finish": 0.1365,
-          "string_tuning": 0.39
+          "string_tuning": 0.03899999999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.546,
           "pickup_config": 0.17925000000000002,
-          "string_type": 16.259999999999998,
+          "string_type": 17.48975,
           "scale_length_b": 0.273,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_punk",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.539,
-          "drumhead": 0.39,
+          "drum_technique": 7.377999999999999,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.14775,
+          "voice_ensemble_config": 0.144,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

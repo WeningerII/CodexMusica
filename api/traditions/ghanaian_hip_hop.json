@@ -5,7 +5,7 @@
   "lineage": "Ghanaian hip-hop production; selected Sarkodie and Magnom electronic studio branch",
   "recipe": "classic modern ghanaian hip hop, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 354,
-  "score": 28.886,
+  "score": 29.008,
   "config": {
     "traditions": [
       "ghanaian_hip_hop"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 6.76,
-          "voice_ensemble_config": 0.9764999999999999,
+          "voice_ensemble_config": 1.1444999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3225,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -59,7 +59,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 3.3955,
+          "electronic_technique": 3.373,
           "sample_bitdepth": 0.19949999999999998,
           "sample_swing": 2.5,
           "sample_processing": 0.105

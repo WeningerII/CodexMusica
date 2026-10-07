@@ -1,0 +1,60 @@
+{
+  "status": "PASS_INCREMENTAL_SOURCE_QUALIFIED_DELTAS",
+  "reviewer": "review461",
+  "packet": "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/candidate.json",
+  "sha256": "940ef6e9fe7e22dec31425a05e2e6fa98c2df07d2739b7b5237243b3b2cdd391",
+  "baseline_initial_head": "251545a3451647afa77af76dd47a4640c760a288",
+  "baseline_committed_head": "8576f053c4c8f85274b39cc6a0e4fe2af31a0781",
+  "baseline_source_binding": "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/baseline-source-binding.json",
+  "baseline_transition": "Strict guard stopped when root committed regenerated API/docs. All loaded tradition/extras/instrument SHA independently rechecked identical before allowing8576. Hash guards remain in loader and repeated after all replays.",
+  "scope": "Adds only corrected Jain Bhajan and Marathi Balgeet to actual frozen302repairs+21 additions. Does not mutate existing frozen21 or production. Separate named3 followups and future additions are not included.",
+  "api_qualification": {
+    "all_existing_contexts": 6746,
+    "unchanged_reachable_graphs": 6715,
+    "changed_graphs_fully_replayed": 31,
+    "identical_full_configs": 28,
+    "changed_full_configs": 3,
+    "changed_unconstrained_slots": 6,
+    "changed_slot_verdict": "All six ordinary physical alternatives explicitly compatible with actual full genre scopes and original ownerdefinitions; none violates a protected pin or measured source specification. Exact changes same as independently documented standalone semantic review.",
+    "same_config_recipe_delta": "Desi Pop gains synthetic, correctly expressing unchanged synthetic-shell tumbi construction; not synthesized sound or new processing.",
+    "semantic_evidence": "/workspace/genre-continuation/research/next-additions-projection461/qualification-axis23/semantic-delta-review461.json",
+    "new21_existing_contexts": "All21 from frozen additions have identical reachable graphs, no changes."
+  },
+  "fixture_qualification": {
+    "all_definitions": 1174,
+    "unique_ids": 1149,
+    "unchanged_graphs": 1157,
+    "affected_replayed": 17,
+    "full_config_differences": 0,
+    "recipe_differences": 0
+  },
+  "new_target_review": {
+    "entries": 2,
+    "protected_controls": 45,
+    "browser_formats": 8,
+    "browser_connector_parity": true,
+    "compiled_original_full_staple_api_configs": 2,
+    "pins_survive": true,
+    "target_only_contexts": true,
+    "literal_read": "Jain melodic lead, tabla and sustained tanpura in authored hall retain neumatic singing/acoustic modal-drone realization. Huge/immense spatial adjectives and mind-numbing sustained drone remain earlier source-reviewed arrangement, not synthetic/foreign roles. Marathi syllabic live group and actual handclap retain nursery-rhyme participation in authored live room. All four literal formats and both compiled strings read; no extra instruments, tuning or source headcount inferred."
+  },
+  "counts_after": [
+    6748,
+    1653
+  ],
+  "no_repository_engine_schema_snapshot_registry_mutation": true,
+  "remaining": "Root acceptance, later combined candidate qualification and original pipeline/CI remain separate; no production build run by reviewer.",
+  "evidence_hashes": {
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/candidate.json": "940ef6e9fe7e22dec31425a05e2e6fa98c2df07d2739b7b5237243b3b2cdd391",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/baseline-source-binding.json": "b1db5e0c9d2c3350f620d11019710dea45481ef4434026eaf1bf2f84e6f6c888",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/api-baseline-graph.json": "5ad32ced5da429c6ccebf9d928081d75e9ebfe48b8d3fe18d2fd0d75db906157",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/api-candidate-graph.json": "fc490efcbc8655442db6930fced3a6debfdfefed2ab34f8d0e746a47c78ce928",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/api-baseline-replays.json": "1ace95e118c0456b23150f6eaf266a9222eaa15a35f94472bde1aa62f206d9fa",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/api-candidate-replays.json": "2087b3750db597d36796a88b3000d66c5f52f86de64def3bf5e611f037d92df6",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/fixture-candidate-graph.json": "bc8a5cd60f6b7fd119b2fd1731e2e3e43f37d93b74e16777fd14759050a53e89",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/fixture-baseline-replays.json": "5c987c3a857ce4c6167905be89cf8d6d945ffbc49be5ef0352db6207f4bb5cac",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/fixture-candidate-replays.json": "aa1e95e3037163be02d0e6f604fbdc5b40c79e67028dcc0a2bd8246f14e23d1d",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/replay-comparison.json": "c423017557393770e38b293f61f11b2a3541f2cf94b2c39936485c064d9edf60",
+    "/workspace/genre-continuation/research/next-additions-projection461/qualification-combined-axis2/new-two-runtime.json": "138cd8b64ee82cddc966279ad0b59d7a525097a2d3d341adf70317485fc4484f"
+  }
+}

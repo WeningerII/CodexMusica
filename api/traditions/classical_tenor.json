@@ -2,10 +2,10 @@
   "id": "classical_tenor",
   "name": "Classical tenor",
   "family": "classical",
-  "lineage": "Classical tenor is represented by Ian Bostridge and Lars Vogt — Schwanengesang. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical tenor, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 235,
-  "score": 64.599,
+  "lineage": "Classical tenor singing encompasses art song, opera and concert repertoire across languages and periods. Text, register and melodic phrasing support both intimate expression and theatrical projection.",
+  "recipe": "classic classical tenor, art Music, western common practice branch. solo with instrumental accompaniment. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 299,
+  "score": 61.363,
   "config": {
     "traditions": [
       "classical_tenor"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0.126,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -57,22 +57,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.537,
-          "grand_piano_brand": 0.705,
-          "piano_hammer": 10.654499999999999,
-          "piano_rim": 10.246,
-          "piano_soundboard": 8.25,
-          "piano_pinblock": 8.43,
-          "piano_plate": 8.823,
-          "piano_pitch_standard": 8.7165
+          "grand_piano_size": 0.645,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.457,
+          "piano_soundboard": 8.320500000000001,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 8.9665
         }
       }
     ],

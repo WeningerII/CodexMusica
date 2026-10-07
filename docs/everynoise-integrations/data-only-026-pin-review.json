@@ -1,0 +1,22 @@
+{
+  "packet": "/tmp/batch026/preflight.json",
+  "sha256": "7bd8c458dc1d8219d50311e0834ea65b2d661a694e9541b600f75b2ba14488cd",
+  "effectiveParts": 3433,
+  "errors": [],
+  "fallbacks": [
+    ["experimental_vocal", "analog_mono_synth", "electronic_technique", "electronic_lead_line"],
+    [
+      "finnish_experimental",
+      "sampler_classic",
+      "electronic_technique",
+      "electronic_sample_chopped"
+    ],
+    ["gotico_brasileiro", "sampler_classic", "electronic_technique", "electronic_sample_chopped"]
+  ],
+  "original_checked_sha256": "c22f74d5b74c7444e6c89e46c2cb5d2a2ab5ee3b08b15a88d7af325be4e05ce9",
+  "amendment_scope": "Final packet part resolution independently rerun after4parent amendments.",
+  "final_recheck": {
+    "effectiveParts": 3433,
+    "errors": []
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "entries": [
+    {
+      "source_label": "cantonese worship",
+      "source_url": "https://everynoise.com/engenremap-cantoneseworship.html",
+      "suggested_id": "cantonese_worship",
+      "allocation_ordinal": 2965,
+      "allocation_group_id": "119",
+      "status": "frozen_pending_independent_review",
+      "id": "cantonese_worship",
+      "tradition": {
+        "id": "cantonese_worship",
+        "name": "Cantonese Worship",
+        "family": "sacred",
+        "lineage": "Ephraim Cheng, arranged by Joshua Chua — A Joyful Shout!, complete separately published elementary piano solo in the New Heart Solo Series, also the required primary-division work of its2023 piano competition. Publisher positively specifies solo piano: one piano, zero singers, no accompanying instrument parts. This is a complete alternative instrumental rendition of the worship composition, not a detached piano accompaniment part from the Cantonese album or an invented reduction. The publisher Cantonese Worship Album2 and Cantonese worship-set14 identify the same English title and composer 鄭浩賢; its own bilingual biography identifies him as Ephraim Cheng. The solo uses Chinese title 歡呼來歌唱, while Cantonese lyrics use 歡呼獻歌韻. No claim that a solo instrumental edition sings Cantonese, or that album orchestration is piano alone. Paid full score and actual performance audio were not accessed; page count and duration remain unknown. Broad ritualDevotional.christianGospel follows positively documented Christian worship repertoire and an authored devotional rendition of the complete solo arrangement; the competition use is candidly an additional educational context, not a worship-service recording. Standard studio upright and connected classical legato are coherent authored choices for subtype-unspecified piano, not measured source make, size, touch, temperament or original equipment. All three original controls protected. Controlled live room is an editorial recording setting; no invented capture chain or global tuning.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Ephraim Cheng, arranged by Joshua Chua — A Joyful Shout!, complete separately published elementary piano solo in the New Heart Solo Series, also the required primary-division work of its2023 piano competition. Publisher positively specifies solo piano: one piano, zero singers, no accompanying instrument parts. This is a complete alternative instrumental rendition of the worship composition, not a detached piano accompaniment part from the Cantonese album or an invented reduction. The publisher Cantonese Worship Album2 and Cantonese worship-set14 identify the same English title and composer 鄭浩賢; its own bilingual biography identifies him as Ephraim Cheng. The solo uses Chinese title 歡呼來歌唱, while Cantonese lyrics use 歡呼獻歌韻. No claim that a solo instrumental edition sings Cantonese, or that album orchestration is piano alone. Paid full score and actual performance audio were not accessed; page count and duration remain unknown. Cantonese Worship is a language-and-church-repertoire subset within the full Chinese worship field. New Heart separately publishes numbered Cantonese and Mandarin worship series and explicitly serves Chinese churches internationally; the exact chosen composition is positively included in its Cantonese series, with a publisher-issued solo arrangement. Existing chinese_worship encompasses original Chinese Christian worship broadly, not merely its Stream of Praise piano example or Mandarin alone. This narrower Cantonese publication/community field overlaps it. Existing piano_worship is an instrumental-format category across Christian repertoires, not synonymous with the Cantonese language community. Cantonese traditional concerns regional heritage repertoires and Cantonese opera staged theatrical practice, rather than this documented Christian worship institution. No exclusive language origin, isolated nationality or new timbral essence is asserted; the instrumental realization preserves a repertoire relationship rather than pretending to encode sung language. Broad ritualDevotional.christianGospel follows positively documented Christian worship repertoire and an authored devotional rendition of the complete solo arrangement; the competition use is candidly an additional educational context, not a worship-service recording. Standard studio upright and connected classical legato are coherent authored choices for subtype-unspecified piano, not measured source make, size, touch, temperament or original equipment. All three original controls protected. Controlled live room is an editorial recording setting; no invented capture chain or global tuning.",
+        "exemplars": [
+          "Ephraim Cheng / Joshua Chua — A Joyful Shout!, complete New Heart piano-solo edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        29.7604,
+        -95.3698,
+        "Houston",
+        "North America"
+      ],
+      "geo_rationale": "New Heart firsthand institutional history locates its foundation and music school in Houston. Institutional repertoire-publishing anchor, not a measured piano recording site or exclusive Cantonese origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.newheartmusic.org/p/4007",
+          "support_notes": "11957view0 full publisher explicit piano solo, elementary, complete Solo Series arrangement.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.newheartmusic.org/piano-competition-2023",
+          "support_notes": "11951view0 identifies composer Ephraim Cheng and arranger Joshua Chua; actual link47 resolves selected solo publication.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.newheartmusic.org/-a-joyful-shout-cantonese",
+          "support_notes": "11943view1 exact publisher Cantonese Worship Album2 composition; its separate ensemble parts are NOT imported into solo edition.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://newheartmusic.blob.core.windows.net/newheartmusic/WorshipSets/WorshipSetC14.pdf",
+          "support_notes": "11951view1 full2page Cantonese worship-set14 identifies same composition title and composer 鄭浩賢; lyrics are not reproduced or converted into instrument personnel.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.newheartmusic.org/aboutnh",
+          "support_notes": "11950search0 full indexed firsthand bilingual institutional history equates composer names, locates Houston and documents separately numbered Cantonese/Mandarin church resources worldwide.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Cantonese Worship is a language-and-church-repertoire subset within the full Chinese worship field. New Heart separately publishes numbered Cantonese and Mandarin worship series and explicitly serves Chinese churches internationally; the exact chosen composition is positively included in its Cantonese series, with a publisher-issued solo arrangement. Existing chinese_worship encompasses original Chinese Christian worship broadly, not merely its Stream of Praise piano example or Mandarin alone. This narrower Cantonese publication/community field overlaps it. Existing piano_worship is an instrumental-format category across Christian repertoires, not synonymous with the Cantonese language community. Cantonese traditional concerns regional heritage repertoires and Cantonese opera staged theatrical practice, rather than this documented Christian worship institution. No exclusive language origin, isolated nationality or new timbral essence is asserted; the instrumental realization preserves a repertoire relationship rather than pretending to encode sung language.",
+      "model_policy": "Broad ritualDevotional.christianGospel follows positively documented Christian worship repertoire and an authored devotional rendition of the complete solo arrangement; the competition use is candidly an additional educational context, not a worship-service recording. Standard studio upright and connected classical legato are coherent authored choices for subtype-unspecified piano, not measured source make, size, touch, temperament or original equipment. All three original controls protected. Controlled live room is an editorial recording setting; no invented capture chain or global tuning.",
+      "dependency_audit": "No new instrument owners; preserve all1638 existing definitions.",
+      "classification_evidence": "Cantonese Worship is a language-and-church-repertoire subset within the full Chinese worship field. New Heart separately publishes numbered Cantonese and Mandarin worship series and explicitly serves Chinese churches internationally; the exact chosen composition is positively included in its Cantonese series, with a publisher-issued solo arrangement. Existing chinese_worship encompasses original Chinese Christian worship broadly, not merely its Stream of Praise piano example or Mandarin alone. This narrower Cantonese publication/community field overlaps it. Existing piano_worship is an instrumental-format category across Christian repertoires, not synonymous with the Cantonese language community. Cantonese traditional concerns regional heritage repertoires and Cantonese opera staged theatrical practice, rather than this documented Christian worship institution. No exclusive language origin, isolated nationality or new timbral essence is asserted; the instrumental realization preserves a repertoire relationship rather than pretending to encode sung language.",
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "basis": "Publisher expressly solo piano, whole separate instrumental arrangement. Original Cantonese song lyrics do not add a voice to this edition."
+      },
+      "instrument_role_audit": {
+        "scope": "Ephraim Cheng, arranged by Joshua Chua — A Joyful Shout!, complete separately published elementary piano solo in the New Heart Solo Series, also the required primary-division work of its2023 piano competition. Publisher positively specifies solo piano: one piano, zero singers, no accompanying instrument parts. This is a complete alternative instrumental rendition of the worship composition, not a detached piano accompaniment part from the Cantonese album or an invented reduction. The publisher Cantonese Worship Album2 and Cantonese worship-set14 identify the same English title and composer 鄭浩賢; its own bilingual biography identifies him as Ephraim Cheng. The solo uses Chinese title 歡呼來歌唱, while Cantonese lyrics use 歡呼獻歌韻. No claim that a solo instrumental edition sings Cantonese, or that album orchestration is piano alone. Paid full score and actual performance audio were not accessed; page count and duration remain unknown.",
+        "roles": [
+          {
+            "instrument": "upright_piano",
+            "source_role": "Piano solo",
+            "authored_realization": "Broad ritualDevotional.christianGospel follows positively documented Christian worship repertoire and an authored devotional rendition of the complete solo arrangement; the competition use is candidly an additional educational context, not a worship-service recording. Standard studio upright and connected classical legato are coherent authored choices for subtype-unspecified piano, not measured source make, size, touch, temperament or original equipment. All three original controls protected. Controlled live room is an editorial recording setting; no invented capture chain or global tuning."
+          }
+        ],
+        "omissions": "None in complete solo edition; original album/choral arrangements are separate."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad ritualDevotional.christianGospel follows positively documented Christian worship repertoire and an authored devotional rendition of the complete solo arrangement; the competition use is candidly an additional educational context, not a worship-service recording. Standard studio upright and connected classical legato are coherent authored choices for subtype-unspecified piano, not measured source make, size, touch, temperament or original equipment. All three original controls protected. Controlled live room is an editorial recording setting; no invented capture chain or global tuning."
+        }
+      ],
+      "verification_status": "Author packet awaiting mechanical and original four-format checks and independent peer.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All3 original upright owning controls explicitly pinned, no collision or fallback.",
+      "primary_retrieval_refs": [
+        "turn11957view0",
+        "turn11951view0",
+        "turn11943view1",
+        "turn11951view1",
+        "turn11950search0"
+      ],
+      "source_scope_limitation": "Ephraim Cheng, arranged by Joshua Chua — A Joyful Shout!, complete separately published elementary piano solo in the New Heart Solo Series, also the required primary-division work of its2023 piano competition. Publisher positively specifies solo piano: one piano, zero singers, no accompanying instrument parts. This is a complete alternative instrumental rendition of the worship composition, not a detached piano accompaniment part from the Cantonese album or an invented reduction. The publisher Cantonese Worship Album2 and Cantonese worship-set14 identify the same English title and composer 鄭浩賢; its own bilingual biography identifies him as Ephraim Cheng. The solo uses Chinese title 歡呼來歌唱, while Cantonese lyrics use 歡呼獻歌韻. No claim that a solo instrumental edition sings Cantonese, or that album orchestration is piano alone. Paid full score and actual performance audio were not accessed; page count and duration remain unknown.",
+      "source_retrieval_caveat": "Publisher full product and competition metadata, Cantonese repertoire page, worship-set PDF and bilingual institutional history read. Paid solo score not accessed; positive solo scoring closes palette, not invented transcription.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cantonese_worship",
+          "name": "Cantonese Worship",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not piano, composer, church or actual capture equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons11919view3 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes/visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn11919view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11919view3"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

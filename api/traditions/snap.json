@@ -5,7 +5,7 @@
   "lineage": "Atlanta club-rap style of 2004-2008 built by D4L, Dem Franchize Boyz, Fabo and producers Mr. Collipark and K-Rab, stripping crunk down to a finger-snap on the backbeat, a long 808 kick, sparse marimba or bell melody and wide silences, at 70-80 BPM half-time, with chanted, nursery-simple hooks and dance-instruction lyrics.",
   "recipe": "classic Southern American 2004-2008 snap, mc Rhythm, southern branch, us hip hop modern, house electronic dance latin house freestyle house. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sub bass digital subtractive, cuica tamborim imitation vocable mouth percussion vocal percussion melody paired dissociated airflow humming melody simultaneous percussion dissociated airflow vocal percussion voice. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 683,
-  "score": 239.15,
+  "score": 239.36,
   "config": {
     "traditions": [
       "snap",
@@ -43,7 +43,7 @@
           "voice_microtone": 18.654999999999994,
           "voice_tradition": 7.91,
           "voice_mechanism_compound": 3.1200000000000006,
-          "voice_estill_quality": 5.005000000000001,
+          "voice_estill_quality": 4.9750000000000005,
           "voice_speech_song": 18.849999999999994,
           "voice_ensemble_config": 18.71999999999999,
           "voice_ornament_system": 2.6650000000000014,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.58,
+          "tr808_voice": 4.625,
           "drum_machine_808_context": 3.4849999999999994,
           "tr808_production_origin": 1.56
         }
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 3.4450000000000003,
+          "electronic_technique": 3.4000000000000004,
           "sampler_archetypes": 5.07,
           "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 4.08,
+          "sampler_workflow": 4.23,
           "sampler_classic_context": 47.74249999999999
         }
       },
@@ -90,7 +90,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 5.76,
+          "electronic_technique": 5.760000000000001,
           "va_archetypes": 0.045,
           "digital_subtractive_context": 18.199999999999996
         }
@@ -105,8 +105,8 @@
         },
         "scores": {
           "vocal_percussion_airstream_mechanism": 0.09,
-          "vocal_percussion_beatbox_articulation": 3.0999999999999996,
-          "vocal_percussion_syllabic_drum_system": 2.05,
+          "vocal_percussion_beatbox_articulation": 3.1449999999999996,
+          "vocal_percussion_syllabic_drum_system": 2.0949999999999998,
           "vocal_percussion_context": 4.92
         }
       }

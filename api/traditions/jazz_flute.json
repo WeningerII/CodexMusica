@@ -2,10 +2,10 @@
   "id": "jazz_flute",
   "name": "Jazz flute",
   "family": "jazz",
-  "lineage": "Jazz flute is represented by Nicole Mitchell — Mandorla Awakening II flute-and-vocal core. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic jazz flute, improv On Frame, avant branch. solo with instrumental accompaniment, no specific ornament system. powell boston canonical American orchestral multiphonic flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 281,
-  "score": 9.5,
+  "lineage": "Jazz flute uses the flute’s articulation, register and breath colour in jazz melody and improvisation. Soloists work in acoustic groups, vocal collaborations and more experimental ensembles.",
+  "recipe": "classic jazz flute, improv On Frame, avant branch. no specific ornament system, unprocessed natural acoustic. powell boston canonical American orchestral multiphonic flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 273,
+  "score": 8.891,
   "config": {
     "traditions": [
       "jazz_flute"
@@ -21,7 +21,7 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 4.4,
+          "wind_articulation": 3.6500000000000004,
           "flute_size": 0.3045,
           "flute_material": 0.378,
           "flute_technique": 0.105,
@@ -60,10 +60,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2495,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.5775,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.063,
+          "voice_processing_chain": 1.063,
           "voice_multitrack_stack": 0.47250000000000003
         }
       }

@@ -1,0 +1,219 @@
+{
+  "entries": [
+    {
+      "source_label": "vintage hollywood",
+      "source_url": "https://everynoise.com/engenremap-vintagehollywood.html",
+      "suggested_id": "vintage_hollywood",
+      "allocation_ordinal": 4507,
+      "allocation_group_id": "181",
+      "status": "frozen_pending_independent_review",
+      "id": "vintage_hollywood",
+      "tradition": {
+        "id": "vintage_hollywood",
+        "name": "Vintage Hollywood",
+        "family": "pop",
+        "lineage": "Singin' in the Rain — complete Alfred Publishing licensed three-page piano-solo edition MN0122210, Nacio Herb Brown / Arthur Freed. Publisher explicitly specifies instrumental solo, piano, no lyrics, G major and cut time, moderately half-note69. One pianist and zero singers in this complete published alternative rendition, not a detached accompaniment or an invented reduction of the MGM soundtrack. The catalog identifies Gene Kelly as an additional performer of the composition. The anthology title Broadway–20 Piano Solos candidly reflects stage/screen crossover; selected scope is this separately issued complete work, not the anthology or the original film recording. Paid full score and actual audio were not accessed; no original orchestration, dance sounds, performers or session settings inferred. Broad functionalSong is a candid authored tonal melody-and-chord song realization of the complete publisher song edition, not classical classification merely because notated. Standard studio upright and connected classical-legato touch are source-compatible authored choices for unspecified piano subtype, not measured make, construction, touch or historic equipment. All three original controls protected. Controlled live room is an editorial present-day recording setting; no invented capture chain or global tuning. Piano-only voice axis reflects the selected edition, not the broader singing-actor field. Broad functionalSong additionally denotes an explicitly authored functional-harmonic verse–chorus–bridge organization for the present-day song realization; this is editorial structural modeling, not a claim that the purchased score was inspected or that every passage of the film rendition follows that form.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Singin' in the Rain — complete Alfred Publishing licensed three-page piano-solo edition MN0122210, Nacio Herb Brown / Arthur Freed. Publisher explicitly specifies instrumental solo, piano, no lyrics, G major and cut time, moderately half-note69. One pianist and zero singers in this complete published alternative rendition, not a detached accompaniment or an invented reduction of the MGM soundtrack. The catalog identifies Gene Kelly as an additional performer of the composition. The anthology title Broadway–20 Piano Solos candidly reflects stage/screen crossover; selected scope is this separately issued complete work, not the anthology or the original film recording. Paid full score and actual audio were not accessed; no original orchestration, dance sounds, performers or session settings inferred. Vintage Hollywood is the creator's concentrated historical screen-star and studio-musical song network: the full100 includes Gene Kelly Singin' in the Rain at5/57/93, Reynolds/O'Connor Good Morning1 and Astaire Cheek to Cheek8, alongside Dietrich recordings outside the chosen film. Its central film-industry practice is independently named by the presenting Festival de Cannes as the Hollywood-studio musical era and by the musical licensor MTI as Hollywood standards/movie-musical repertoire. This is an overlapping institutional/repertoire subset, not a hard age cutoff, exclusive soundtrack membership, nationality test or novel instrumental technique. Full existing show_tunes includes stage AND screen songs across eras; broadway specifically concerns New York stage houses. Full classic_soundtrack includes classic film music, not just its Moon River example; this narrower actor/screen-musical performance network overlaps it substantially but is not the entire scored-film field. Full adult_standards concerns postwar crooner/songbook performance culture, overlapping songs and some stars but not synonymous with the broader actor-and-dance screen-musical community. tin_pan_alley_song is the publishing/songwriting infrastructure, also overlapping repertoire rather than this performer/film-industry discovery field. No claim of disjoint artists or that the present piano arrangement itself reproduces cinema production. Broad functionalSong is a candid authored tonal melody-and-chord song realization of the complete publisher song edition, not classical classification merely because notated. Standard studio upright and connected classical-legato touch are source-compatible authored choices for unspecified piano subtype, not measured make, construction, touch or historic equipment. All three original controls protected. Controlled live room is an editorial present-day recording setting; no invented capture chain or global tuning. Piano-only voice axis reflects the selected edition, not the broader singing-actor field. Broad functionalSong additionally denotes an explicitly authored functional-harmonic verse–chorus–bridge organization for the present-day song realization; this is editorial structural modeling, not a claim that the purchased score was inspected or that every passage of the film rendition follows that form.",
+        "exemplars": [
+          "Brown / Freed — Singin' in the Rain, complete Alfred piano solo MN0122210"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        34.0522,
+        -118.2437,
+        "Los Angeles",
+        "North America"
+      ],
+      "geo_rationale": "Alfred firsthand company history explicitly locates its main-office move to Los Angeles in1975. Publisher/institutional repertoire anchor, not measured recording location or exclusive genre origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/singin-in-the-rain/singin-in-the-rain/MN0122210",
+          "support_notes": "12259view0 full licensed publisher metadata: complete three-page instrumental piano solo; no lyrics; exact composition/Gene Kelly bridge. Paid score not accessed.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0IeVWLiNFBT7uvVDXOVYuW",
+          "support_notes": "12259view1/12218view0 full creator100, exact composition and positive actor/screen-musical community; includes non-film-song crossover.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.festival-cannes.com/en/2022/singin-in-the-rain-70-years-and-not-a-wrinkle/",
+          "support_notes": "12261search1 presenting festival primary explicitly identifies chosen film with Hollywood-studio musical era.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.mtishows.com/singin-in-the-rain",
+          "support_notes": "12261search7 licensor primary positively identifies Hollywood-standards/movie-musical repertoire; no import of stage-edition palette.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.alfred.com/pages/about",
+          "support_notes": "12261search0 firsthand publisher history confirms Los Angeles institutional anchor.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Vintage Hollywood is the creator's concentrated historical screen-star and studio-musical song network: the full100 includes Gene Kelly Singin' in the Rain at5/57/93, Reynolds/O'Connor Good Morning1 and Astaire Cheek to Cheek8, alongside Dietrich recordings outside the chosen film. Its central film-industry practice is independently named by the presenting Festival de Cannes as the Hollywood-studio musical era and by the musical licensor MTI as Hollywood standards/movie-musical repertoire. This is an overlapping institutional/repertoire subset, not a hard age cutoff, exclusive soundtrack membership, nationality test or novel instrumental technique. Full existing show_tunes includes stage AND screen songs across eras; broadway specifically concerns New York stage houses. Full classic_soundtrack includes classic film music, not just its Moon River example; this narrower actor/screen-musical performance network overlaps it substantially but is not the entire scored-film field. Full adult_standards concerns postwar crooner/songbook performance culture, overlapping songs and some stars but not synonymous with the broader actor-and-dance screen-musical community. tin_pan_alley_song is the publishing/songwriting infrastructure, also overlapping repertoire rather than this performer/film-industry discovery field. No claim of disjoint artists or that the present piano arrangement itself reproduces cinema production.",
+      "model_policy": "Broad functionalSong is a candid authored tonal melody-and-chord song realization of the complete publisher song edition, not classical classification merely because notated. Standard studio upright and connected classical-legato touch are source-compatible authored choices for unspecified piano subtype, not measured make, construction, touch or historic equipment. All three original controls protected. Controlled live room is an editorial present-day recording setting; no invented capture chain or global tuning. Piano-only voice axis reflects the selected edition, not the broader singing-actor field. Broad functionalSong additionally denotes an explicitly authored functional-harmonic verse–chorus–bridge organization for the present-day song realization; this is editorial structural modeling, not a claim that the purchased score was inspected or that every passage of the film rendition follows that form.",
+      "dependency_audit": "No new instrument owners; preserve all1638 existing definitions.",
+      "classification_evidence": "Vintage Hollywood is the creator's concentrated historical screen-star and studio-musical song network: the full100 includes Gene Kelly Singin' in the Rain at5/57/93, Reynolds/O'Connor Good Morning1 and Astaire Cheek to Cheek8, alongside Dietrich recordings outside the chosen film. Its central film-industry practice is independently named by the presenting Festival de Cannes as the Hollywood-studio musical era and by the musical licensor MTI as Hollywood standards/movie-musical repertoire. This is an overlapping institutional/repertoire subset, not a hard age cutoff, exclusive soundtrack membership, nationality test or novel instrumental technique. Full existing show_tunes includes stage AND screen songs across eras; broadway specifically concerns New York stage houses. Full classic_soundtrack includes classic film music, not just its Moon River example; this narrower actor/screen-musical performance network overlaps it substantially but is not the entire scored-film field. Full adult_standards concerns postwar crooner/songbook performance culture, overlapping songs and some stars but not synonymous with the broader actor-and-dance screen-musical community. tin_pan_alley_song is the publishing/songwriting infrastructure, also overlapping repertoire rather than this performer/film-industry discovery field. No claim of disjoint artists or that the present piano arrangement itself reproduces cinema production.",
+      "vocal_count_audit": {
+        "selected_count": 0,
+        "basis": "Publisher positively specifies instrumental piano solo without lyrics, a complete separate arrangement; original film singers not part of selected edition."
+      },
+      "instrument_role_audit": {
+        "scope": "Singin' in the Rain — complete Alfred Publishing licensed three-page piano-solo edition MN0122210, Nacio Herb Brown / Arthur Freed. Publisher explicitly specifies instrumental solo, piano, no lyrics, G major and cut time, moderately half-note69. One pianist and zero singers in this complete published alternative rendition, not a detached accompaniment or an invented reduction of the MGM soundtrack. The catalog identifies Gene Kelly as an additional performer of the composition. The anthology title Broadway–20 Piano Solos candidly reflects stage/screen crossover; selected scope is this separately issued complete work, not the anthology or the original film recording. Paid full score and actual audio were not accessed; no original orchestration, dance sounds, performers or session settings inferred.",
+        "roles": [
+          {
+            "instrument": "upright_piano",
+            "source_role": "Solo piano",
+            "authored_realization": "Broad functionalSong is a candid authored tonal melody-and-chord song realization of the complete publisher song edition, not classical classification merely because notated. Standard studio upright and connected classical-legato touch are source-compatible authored choices for unspecified piano subtype, not measured make, construction, touch or historic equipment. All three original controls protected. Controlled live room is an editorial present-day recording setting; no invented capture chain or global tuning. Piano-only voice axis reflects the selected edition, not the broader singing-actor field. Broad functionalSong additionally denotes an explicitly authored functional-harmonic verse–chorus–bridge organization for the present-day song realization; this is editorial structural modeling, not a claim that the purchased score was inspected or that every passage of the film rendition follows that form."
+          }
+        ],
+        "omissions": "None in selected complete edition; no original-film roster reduction."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad functionalSong is a candid authored tonal melody-and-chord song realization of the complete publisher song edition, not classical classification merely because notated. Standard studio upright and connected classical-legato touch are source-compatible authored choices for unspecified piano subtype, not measured make, construction, touch or historic equipment. All three original controls protected. Controlled live room is an editorial present-day recording setting; no invented capture chain or global tuning. Piano-only voice axis reflects the selected edition, not the broader singing-actor field. Broad functionalSong additionally denotes an explicitly authored functional-harmonic verse–chorus–bridge organization for the present-day song realization; this is editorial structural modeling, not a claim that the purchased score was inspected or that every passage of the film rendition follows that form."
+        }
+      ],
+      "verification_status": "Author candidate awaiting independent peer; actual original four-format and full owning-control verification required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All3 original upright owning controls explicitly pinned, no collision or fallback.",
+      "primary_retrieval_refs": [
+        "turn12259view0",
+        "turn12259view1",
+        "turn12218view0",
+        "turn12261search1",
+        "turn12261search7",
+        "turn12261search0"
+      ],
+      "source_scope_limitation": "Singin' in the Rain — complete Alfred Publishing licensed three-page piano-solo edition MN0122210, Nacio Herb Brown / Arthur Freed. Publisher explicitly specifies instrumental solo, piano, no lyrics, G major and cut time, moderately half-note69. One pianist and zero singers in this complete published alternative rendition, not a detached accompaniment or an invented reduction of the MGM soundtrack. The catalog identifies Gene Kelly as an additional performer of the composition. The anthology title Broadway–20 Piano Solos candidly reflects stage/screen crossover; selected scope is this separately issued complete work, not the anthology or the original film recording. Paid full score and actual audio were not accessed; no original orchestration, dance sounds, performers or session settings inferred.",
+      "source_retrieval_caveat": "Full licensed publisher metadata and full creator100 independently read; institutional Hollywood-musical sources indexed directly. Paid full score/audio not accessed. No assertion all creator items are film soundtrack tracks.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "vintage_hollywood",
+          "name": "Vintage Hollywood",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not piano, film actor, historical studio or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12122view4 confirms CC BY2.5 Iain Fergusson/Binksternet crop. Exact historical023 preview bytes and visual receipt inherited; no fresh download claimed.",
+          "fresh_review_ref": "turn12122view4"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12122view4"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

@@ -1,0 +1,83 @@
+{
+  "id": "south_african_techno",
+  "name": "South African Techno",
+  "family": "electronic",
+  "lineage": "South African techno connects electronic producers, live acts and dance communities with international club forms. Projects such as Atelier illustrate its overlap with house, song and instrumental performance.",
+  "recipe": "classic south african techno, electronic Dance, techno branch. digital subtractive, drum machine analog.",
+  "recipe_chars": 104,
+  "score": 3.007,
+  "config": {
+    "traditions": [
+      "south_african_techno"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_pop"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "va_archetypes": 0,
+          "digital_subtractive_context": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0.2415,
+          "shuffle_quantize": 2.836
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "va_archetypes": "novation_supernova",
+      "digital_subtractive_context": "digital_subtractive_pop",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true
+  }
+}

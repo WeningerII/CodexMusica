@@ -1,0 +1,71 @@
+{
+  "status": "IDENTICAL_BASELINE_FAILURES_CONFIRMED",
+  "integration_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "baseline_sha": "9430927f893a7816a4845a0b0521148a9c00e06b",
+  "tree_equivalence": "Captured b3903099 has identical tree to merged9430927 verified predecessor report.",
+  "current": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 15.2,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.4,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 85.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 41.7,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 111.4,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 22.1,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.8,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "baseline": [
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 111.2
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 7.8
+    }
+  ],
+  "foundation": "Entire error logs byte-identical: existing DeltaBlues enlarged-image thumb retention1024x1024 versus1280externalURL.",
+  "reachability": "Both original runs hit browser ERR_BLOCKED_BY_ADMINISTRATOR navigating generated fileURL. Temporary path/bundle size vary.",
+  "scope": "Six other UI checks PASS; no shared engine/UI/test workaround. Exact-head remote CI required before merge."
+}

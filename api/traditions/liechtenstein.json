@@ -1,0 +1,74 @@
+{
+  "id": "liechtenstein",
+  "name": "Liechtenstein",
+  "family": "classical",
+  "lineage": "Liechtenstein’s musical life includes historical composition, contemporary popular groups and national ensembles. Institutions and repertoire traditions connect these contrasting practices, with Josef Gabriel Rheinberger an important figure in its composed-music heritage.",
+  "recipe": "classic liechtenstein, art Music, western common practice branch. equal temperament modern standard post 1850 pipe organ. shoebox concert hall.",
+  "recipe_chars": 143,
+  "score": 12.249,
+  "config": {
+    "traditions": [
+      "liechtenstein"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+          "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+          "pipe_organ_temperament": "pipe_organ_equal_temperament",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "pipe_organ_class": 0.3045,
+          "pipe_organ_context": 6.89,
+          "pipe_organ_voicing_school": 0.6825000000000001,
+          "pipe_organ_pipe_alloy": 0.39,
+          "pipe_organ_temperament": 1.0919999999999999,
+          "pipe_organ_action": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_romantic",
+      "pipe_organ_context": "pipe_organ_concert",
+      "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+      "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+      "pipe_organ_temperament": "pipe_organ_equal_temperament",
+      "pipe_organ_action": "pipe_organ_pneumatic"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "thom_nuer_four_string",
+  "name": "Thom (Nuer four-string instrument)",
+  "short": "Nuer four-string thom",
+  "family": "plucked_traditional",
+  "class": "plucked_string",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "thom_nuer_identity",
+      "name": "Complete instrument identity",
+      "variants": [
+        {
+          "id": "thom_nuer_four_string_wooden",
+          "name": "Four-string wooden thom; further construction unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-named Nuer thom used by Gordon Koang. ABC describes a wooden banjo-like instrument, WOMAD specifies four strings. No asserted species, membrane, neck geometry, string material, pitch system or exact plucking gesture. Neutral authored axes. Distinct from Khmer skor thom and Thai thum names.",
+  "sources": [
+    "https://www.abc.net.au/listen/programs/musicshow/gordon-koang-south-sudan-music-thom-music-in-exile/11224294",
+    "https://www.womadelaide.com.au/news/womadelaide-news/music-in-exile-x-womadelaide"
+  ],
+  "_ownParts": [
+    {
+      "id": "thom_nuer_identity",
+      "name": "Complete instrument identity",
+      "variants": [
+        {
+          "id": "thom_nuer_four_string_wooden",
+          "name": "Four-string wooden thom; further construction unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

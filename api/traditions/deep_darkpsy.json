@@ -1,0 +1,50 @@
+{
+  "id": "deep_darkpsy",
+  "name": "Deep Darkpsy",
+  "family": "electronic",
+  "lineage": "Deep darkpsy circulates through psychedelic-trance labels, night-time dance events and DJ communities. Producers and selectors connect intense rhythmic repetition with dark electronic textures, using extended mixes to shape a changing dance-floor journey.",
+  "recipe": "classic deep darkpsy, electronic Dance, trance branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 102,
+  "score": 0.2,
+  "config": {
+    "traditions": [
+      "deep_darkpsy"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.1995
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

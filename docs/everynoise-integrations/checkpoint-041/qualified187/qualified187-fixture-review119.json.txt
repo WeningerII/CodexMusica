@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "source_definitions_covered": 1174,
+  "unique_snapshot_ids": 1149,
+  "changed_graph_definitions": 14,
+  "unchanged_graph_definitions": 1160,
+  "exact_replayed": [
+    {
+      "id": "chicago_blues",
+      "index": 12,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "aor",
+      "index": 27,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "american_drumline",
+      "index": 54,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "algerian_rap",
+      "index": 99,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "persian_dastgah",
+      "index": 135,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "blend_gagaku_ambient",
+      "index": 196,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "blend_ambient_dub_techno",
+      "index": 246,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "protest_hip_hop",
+      "index": 266,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "ambient",
+      "index": 392,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "juke_chicago",
+      "index": 535,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "minneapolis_synth_funk_pop",
+      "index": 607,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "frevo",
+      "index": 739,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "ethiopian_eskista_wedding",
+      "index": 1087,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    },
+    {
+      "id": "american_political_hip_hop",
+      "index": 1096,
+      "musical_config_equal": true,
+      "recipe_equal": true
+    }
+  ],
+  "limit": "Original full serial regression on future integrated187 remains required."
+}

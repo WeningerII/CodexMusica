@@ -1,0 +1,64 @@
+{
+  "id": "heligonka",
+  "name": "Heligónka",
+  "family": "vernacular",
+  "lineage": "Heligónka music centers on a diatonic button accordion associated with Slovak and Czech folk performance. Solo players and accompanying musicians carry dance melodies and songs through a practice shaped by changing pitches with bellows direction and strong left-hand support.",
+  "recipe": "classic heligónka, functional Song. diatonic heligonka cf. live tracking.",
+  "recipe_chars": 73,
+  "score": 2.354,
+  "config": {
+    "traditions": [
+      "heligonka"
+    ],
+    "instruments": [
+      {
+        "id": "heligonka_cf",
+        "slots": {
+          "heligonka_cf_rows": "heligonka_cf_21_buttons",
+          "heligonka_cf_stojak": "heligonka_cf_stojak_present",
+          "heligonka_cf_bass": "heligonka_cf_bass_and_chords",
+          "free_reed_technique": "heligonka_cf_scored_push_pull"
+        },
+        "scores": {
+          "heligonka_cf_rows": 1,
+          "heligonka_cf_stojak": 0,
+          "heligonka_cf_bass": 0.354,
+          "free_reed_technique": 1
+        }
+      }
+    ],
+    "pinned": {
+      "heligonka_cf": [
+        "heligonka_cf_rows",
+        "heligonka_cf_stojak",
+        "heligonka_cf_bass",
+        "free_reed_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "heligonka_cf_rows": "heligonka_cf_21_buttons",
+      "heligonka_cf_stojak": "heligonka_cf_stojak_present",
+      "heligonka_cf_bass": "heligonka_cf_bass_and_chords",
+      "free_reed_technique": "heligonka_cf_scored_push_pull"
+    },
+    "pin_parts": true
+  }
+}

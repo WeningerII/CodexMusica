@@ -5,7 +5,7 @@
   "lineage": "Danish hip hop ranges across many scenes and eras. The selected MC Einar branch comes from Copenhagen’s late1980s Danish-language rap, bringing DJs, an MC, human beatboxing and guitar into the recorded ensemble.",
   "recipe": "classic modern danish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler, sampled chopped turntable, vocal percussion ensemble layer vocal percussion voice, clean strummed single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 462,
-  "score": 65.656,
+  "score": 65.98,
   "config": {
     "traditions": [
       "danish_hip_hop"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.215,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 12.269,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -105,7 +105,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -113,16 +113,16 @@
         "scores": {
           "electric_technique": 4,
           "amp_make": 0.19500000000000003,
-          "body_wood": 0.3,
+          "body_wood": 0.354,
           "neck_wood": 0.1365,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
           "string_gauge": 0.3735,
-          "bridge": 0.105,
-          "scale_length": 0,
+          "bridge": 0.159,
+          "scale_length": 0.108,
           "finish": 0,
-          "string_tuning": 0.4635,
+          "string_tuning": 0.5715,
           "single_coil_pickup_construction": 0
         }
       }

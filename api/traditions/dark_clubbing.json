@@ -1,0 +1,96 @@
+{
+  "id": "dark_clubbing",
+  "name": "Dark Clubbing",
+  "family": "electronic",
+  "lineage": "Dark Clubbing brings shadowy electronic dance styles together through club events, labels and DJ networks. House, techno, electro, midtempo and industrial influences coexist without a single fixed tempo or historical lineage defining the whole field.",
+  "recipe": "classic dark clubbing, electronic Dance. analog synth, sampler. treated studio.",
+  "recipe_chars": 79,
+  "score": 9.635,
+  "config": {
+    "traditions": [
+      "dark_clubbing"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": 0.313,
+          "oscillator": -0.035,
+          "filter_topology": 0.063,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.313,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 8.645
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true
+  }
+}

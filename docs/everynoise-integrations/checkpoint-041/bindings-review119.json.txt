@@ -1,0 +1,222 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "29b2355724a90f715e61f64d5f0045491bfc63dd36834499c03fa2282190edb2",
+  "entries": 100,
+  "excluded": 189,
+  "bindings_checked": 100,
+  "source_packet_differences": [
+    {
+      "id": "anime_rap",
+      "paths": [
+        "/tradition/parts/voice_ensemble_config"
+      ]
+    },
+    {
+      "id": "classical_drill",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "detroit_trap_brasileiro",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "ethiopian_hip_hop",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "hip_hop_mauritanien",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "hip_hop_timur",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "lao_hip_hop",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "magyar_trap",
+      "paths": [
+        "/extras/axes/voice",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "norwegian_trap",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density",
+        "/extras/parent"
+      ]
+    },
+    {
+      "id": "polish_drill",
+      "paths": [
+        "/extras/axes/voice",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "polish_old_school_hip_hop",
+      "paths": [
+        "/extras/crossRefs"
+      ]
+    },
+    {
+      "id": "rap_geek",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "png_pop",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "santali_pop",
+      "paths": [
+        "/extras/axes/intensity",
+        "/extras/axes/cyclicity",
+        "/extras/axes/ornament",
+        "/extras/axes/meter",
+        "/extras/axes/improv",
+        "/extras/axes/timbre",
+        "/extras/axes/transmission",
+        "/extras/axes/pitch",
+        "/extras/axes/density"
+      ]
+    },
+    {
+      "id": "cartoni_animati",
+      "paths": [
+        "/photo/manifest/id",
+        "/photo/manifest/name"
+      ]
+    },
+    {
+      "id": "middle_eastern_traditional",
+      "paths": [
+        "/extras/axes/meter",
+        "/extras/axes/timbre",
+        "/extras/axes/pitch",
+        "/extras/axes/cyclicity",
+        "/extras/axes/intensity",
+        "/extras/axes/transmission",
+        "/extras/axes/harm",
+        "/extras/axes/density"
+      ]
+    }
+  ],
+  "errors": [],
+  "scope": "Exact source and review bytes, ordinal/label identity, exclusion and photo metadata binding; source factual assessment and runtime are separate."
+}

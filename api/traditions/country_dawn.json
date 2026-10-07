@@ -3,9 +3,9 @@
   "name": "Country dawn",
   "family": "vernacular",
   "lineage": "Country dawn is an archival discovery category spanning country performers across recording generations. A published study records the tag in Dolly Parton’s Spotify genre metadata; the name is not evidence of a sunrise theme, a new historical movement or one fixed instrumentation.",
-  "recipe": "classic modern country dawn, functional Song, country branch. thick, wide pitch sway, nasal twang velar port open, notated speech melody. dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 304,
-  "score": 47.219,
+  "recipe": "classic modern country dawn, functional Song, country branch. thick, wide pitch sway, m1 with m0 pulse borrowing, nasal twang velar port open. dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 309,
+  "score": 48.405,
   "config": {
     "traditions": [
       "country_dawn"
@@ -36,18 +36,18 @@
           "voice_quality": -0.3,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.95,
+          "voice_vibrato": 12.09775,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 0.39,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.2535,
-          "voice_estill_quality": 12.184999999999999,
+          "voice_mechanism_compound": 0.7117499999999999,
+          "voice_estill_quality": 12.611749999999999,
           "voice_speech_song": 4.2250000000000005,
           "voice_ensemble_config": 1.2999999999999998,
           "voice_ornament_system": 0.2315,
           "voice_pitch_organization": 1,
           "voice_processing_chain": 1.4949999999999999,
-          "voice_multitrack_stack": 0.6855
+          "voice_multitrack_stack": 0.69675
         }
       },
       {
@@ -63,8 +63,8 @@
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.1425,
-          "back_sides": 0.22049999999999997,
-          "string_acoustic": 0.27449999999999997
+          "back_sides": 0.39375,
+          "string_acoustic": 0.243
         }
       }
     ],

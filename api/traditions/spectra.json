@@ -1,0 +1,82 @@
+{
+  "id": "spectra",
+  "name": "Spectra",
+  "family": "classical",
+  "lineage": "Spectra connects contemporary experimental composition, minimalism and ambient listening.",
+  "recipe": "classic spectra, art Music. pipe organ. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 144,
+  "score": 6.517,
+  "config": {
+    "traditions": [
+      "spectra"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_neo_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+          "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+          "pipe_organ_temperament": "pipe_organ_kirnberger_iii",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 2.554,
+          "pipe_organ_class": 0,
+          "pipe_organ_context": 3.9,
+          "pipe_organ_voicing_school": 0,
+          "pipe_organ_pipe_alloy": 0,
+          "pipe_organ_temperament": 0,
+          "pipe_organ_action": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "well_temperament",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "well_temperament",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_neo_baroque",
+      "pipe_organ_context": "pipe_organ_concert",
+      "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+      "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+      "pipe_organ_temperament": "pipe_organ_kirnberger_iii",
+      "pipe_organ_action": "pipe_organ_mechanical_tracker"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "euphoric_hardstyle",
+  "name": "Euphoric Hardstyle",
+  "family": "electronic",
+  "lineage": "Euphoric hardstyle is the melodic and emotionally expansive branch of hardstyle, sustained by producers, labels and festival communities. It overlaps rawer approaches while placing particular emphasis on memorable leads, harmonic lift and dramatic releases of tension.",
+  "recipe": "classic euphoric hardstyle, electronic Dance, hardstyle branch. digital subtractive, TR-909. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 191,
+  "score": 5.977,
+  "config": {
+    "traditions": [
+      "euphoric_hardstyle"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.0945,
+          "digital_subtractive_context": 5.459999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": -0.05,
+          "drum_machine_909_context": 0.5775,
+          "tr909_production_origin": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "va_archetypes": "access_virus",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_hardcore",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

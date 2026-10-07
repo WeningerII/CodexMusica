@@ -5,7 +5,7 @@
   "lineage": "Kingston, Jamaica, late 1970s onward: sound-system deejay music codified by Henry 'Junjo' Lawes, Volcano and Jammy's, turning fully digital with Wayne Smith's 'Under Mi Sleng Teng' in 1985 — 90-110 BPM riddim tracks with drum-machine kick/rim patterns, dominant sub-bass ostinato, one-drop or steppers derivatives, sparse synth stabs and chatted or half-sung patois vocals voiced by many artists over one shared riddim.",
   "recipe": "classic Caribbean 1977-1979 dancehall, bass System, Jamaican branch, dub descendants bass system, Afro-diasporic MC rhythm trip hop dubtronica. vocal fry, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sound design field sampler, sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, turntable. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ. DAT pro mixdown spring reverb digital delay.",
   "recipe_chars": 695,
-  "score": 224.17,
+  "score": 224.02,
   "config": {
     "traditions": [
       "dancehall",
@@ -38,7 +38,7 @@
           "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.785,
+          "voice_vibrato": 1.695,
           "voice_articulation": 14.819999999999997,
           "voice_microtone": 17.419999999999995,
           "voice_tradition": 3.7700000000000005,
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 13.78,
           "drum_machine_808_context": 11.83,
-          "tr808_production_origin": 1.56
+          "tr808_production_origin": 1.44
         }
       },
       {
@@ -78,7 +78,7 @@
           "electronic_technique": 2.385,
           "sampler_archetypes": 2.795,
           "sampler_bit_depth": 0.52,
-          "sampler_workflow": 4.9399999999999995,
+          "sampler_workflow": 4.805,
           "sampler_classic_context": 19.629999999999995
         }
       },
@@ -128,7 +128,7 @@
         },
         "scores": {
           "electronic_technique": 2.385,
-          "turntable_technique": 1.635
+          "turntable_technique": 1.83
         }
       }
     ],

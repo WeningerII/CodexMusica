@@ -1,0 +1,2149 @@
+{
+  "entries": [
+    {
+      "source_label": "musica nayarita",
+      "source_url": "https://everynoise.com/engenremap-musicanayarita.html",
+      "suggested_id": "musica_nayarita",
+      "allocation_ordinal": 3886,
+      "allocation_group_id": "156",
+      "id": "musica_nayarita",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "musica_nayarita",
+        "name": "Música Nayarita",
+        "family": "global",
+        "lineage": "Música nayarita connects Nayarit’s musical communities with migrant fairs and audiences abroad.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.mexican",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Brass bandas and electrified dance groups share this regional circuit. In the electronic dance-band branch, voices, guitar, bass, keyboards and drums build repeating melodic figures and lively rhythmic support; Hechizeros Band exemplifies this approach.",
+        "exemplars": [
+          "Hechizeros Band",
+          "Banda Móvil"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        21.5085,
+        -104.8957,
+        "Tepic",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Editorial regional reference at Tepic, positively documented as the booking-office location in the2011 profile. Not a claim that San Vicente origin,2009 interview, recording or2014 California performance occurred in Tepic.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Música Nayarita names a regional musical community spanning Nayarit and its migrant fair network, not a single instrumental style. The FENINE2014 eyewitness account directly places Hechizeros in that community. Creator repertoire includes Banda Móvil, Banda R15, Cohuich, Torbellinos and Invierno Musical, with brass bandas and electrified dance groups; selected Hechizeros membership in that exact playlist is not claimed. Existing tecnobanda already includes several shared creator artists and this selected electronic-tecnobanda branch overlaps it. The distinction is the positively documented regional and diaspora institution, broader than that specific style, not a new ensemble alone. Banda sinaloense specifies its Sinaloan brass/percussion practice; norteño its border accordion/bajo-sexto lineage; duranguense its Chicago Durangan dance formation; ranchera its song tradition. All may circulate within this regional field, so no strict sonic or geographic exclusion is claimed.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent functionalSong.mexican describes the representative genre branch, not an exhaustive definition of every source.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved. Current representative roles: voice, electric_guitar_humbucker, electric_bass, drum_kit, electronic_keyboard_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "source_retrieval_caveat": "Fresh direct2009 firsthand interview and2014 regional-fair eyewitness read;2011 booking profile freshly indexed but direct429. Exact creator playlist directly read; Hechizeros absent there, so membership not asserted. Later fair evidence is community corroboration only, not roster transfer.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_live_group",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_guitar_humbucker": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_bass": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "drum_kit": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electronic_keyboard_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "sources": [
+        {
+          "url": "https://www.informador.mx/Entretenimiento/Hechizeros-Band-quieren-romper-fronteras-20090316-0017.html",
+          "title": "Firsthand2009 band interview",
+          "support_notes": "turn910285view1 full six-person roster and self-described electronic/tecnobanda mixture; source scope limited to dated group."
+        },
+        {
+          "url": "https://hechizerosband.blogspot.com/",
+          "title": "Dated2011 artist booking profile",
+          "support_notes": "turn976027search1 corroborates exact roster, San Vicente origin and Tepic booking office. Direct429 disclosed."
+        },
+        {
+          "url": "https://www.elsoldenayarit.mx/cultura/28638-feria-de-nayarit-en-california-cierra-con-un-gran-baile-en-su-primer-dia",
+          "title": "Firsthand2014 FENINE Nayarit diaspora fair report",
+          "support_notes": "turn548185view0 named federation and Hechizeros performance in collective Nayarit identity; not source roster."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/04G3LVD83zLWhVGunErVDi",
+          "title": "Creator Música Nayarita repertoire",
+          "support_notes": "turn910285view2 full100. Broad brass/electrified regional artist network, overlap with old tecnobanda explicit. No selected artist membership claimed."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn910285view1",
+        "turn976027search1",
+        "turn548185view0",
+        "turn910285view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_nayarita",
+          "name": "Música Nayarita",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not source performers, Nayarit identity, or actual band equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn548185view2 confirms CC BY2.5 credit/crop. Exact historical023 receipts retained.",
+          "fresh_review_ref": "turn548185view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh Commons turn548185view2; historical bytes and visual observation retained without new download claim.",
+        "fresh_rights_retrieval_refs": [
+          "turn548185view2"
+        ]
+      },
+      "verification_status": "Original merged1638 owners unchanged;51 effective owning parts protected by49 flat pins; zero errors/fallbacks; four original browser/connector formats pass, max988characters. Authored brisk voice, hip-rocking guitar and confident/trudging/witty affect remain source-compatible; no unrelated culture or omitted role. Final integrated static/signature gates remain root responsibility.",
+      "source_review_refs": [
+        "turn910285view1",
+        "turn976027search1",
+        "turn548185view0",
+        "turn910285view2"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-12.json",
+        "original_sha256": "c4b9f7455a54da291cd011e10372e34ec167ac18b1c079a825186550050a1e59",
+        "before": {
+          "tradition": {
+            "id": "musica_nayarita",
+            "name": "Música Nayarita",
+            "family": "global",
+            "lineage": "Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred. Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented.",
+            "instruments": [
+              "voice",
+              "electric_guitar_humbucker",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_group",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_h",
+              "neck_wood": "maple_neck_h",
+              "fretboard": "rosewood_fb_h",
+              "pickup_magnet": "alnico_2_h",
+              "pickup_winding": "mid_wind",
+              "string_material": "pure_nickel_h",
+              "bridge": "vibrato_arm",
+              "scale_length": "scale_gibson_h",
+              "string_gauge": "g_10_hum",
+              "finish": "nitro_hum",
+              "string_tuning": "standard_tuning",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong.mexican",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Música Nayarita names a regional musical community spanning Nayarit and its migrant fair network, not a single instrumental style. The FENINE2014 eyewitness account directly places Hechizeros in that community. Creator repertoire includes Banda Móvil, Banda R15, Cohuich, Torbellinos and Invierno Musical, with brass bandas and electrified dance groups; selected Hechizeros membership in that exact playlist is not claimed. Existing tecnobanda already includes several shared creator artists and this selected electronic-tecnobanda branch overlaps it. The distinction is the positively documented regional and diaspora institution, broader than that specific style, not a new ensemble alone. Banda sinaloense specifies its Sinaloan brass/percussion practice; norteño its border accordion/bajo-sexto lineage; duranguense its Chicago Durangan dance formation; ranchera its song tradition. All may circulate within this regional field, so no strict sonic or geographic exclusion is claimed. Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred. Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented.",
+            "exemplars": [
+              "Hechizeros Band — complete documented2009/2011 six-person practice"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "voice_articulation_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_live_group"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_live_ensemble"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "electric_technique",
+              "electric_clean_strummed"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "neck_wood",
+              "maple_neck_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "fretboard",
+              "rosewood_fb_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_magnet",
+              "alnico_2_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "pickup_winding",
+              "mid_wind"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_material",
+              "pure_nickel_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "bridge",
+              "vibrato_arm"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "scale_length",
+              "scale_gibson_h"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_gauge",
+              "g_10_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "finish",
+              "nitro_hum"
+            ],
+            [
+              "electric_guitar_humbucker",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "electric_bass",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_bass",
+              "body_wood",
+              "alder_h"
+            ],
+            [
+              "electric_bass",
+              "pickup_config",
+              "soapbar"
+            ],
+            [
+              "electric_bass",
+              "string_type",
+              "roundwound_n"
+            ],
+            [
+              "electric_bass",
+              "scale_length_b",
+              "long_scale_b"
+            ],
+            [
+              "electric_bass",
+              "fretted_or_not",
+              "fretted"
+            ],
+            [
+              "electric_bass",
+              "bass_technique",
+              "fingerstyle_locked"
+            ],
+            [
+              "electric_bass",
+              "electric_bass_string_configuration",
+              "electric_bass_string_configuration_unspecified"
+            ],
+            [
+              "drum_kit",
+              "drum_technique",
+              "sticks_rock"
+            ],
+            [
+              "drum_kit",
+              "shell_wood",
+              "maple_shell"
+            ],
+            [
+              "drum_kit",
+              "shell_thickness",
+              "thin_shell"
+            ],
+            [
+              "drum_kit",
+              "bearing_edges",
+              "edge_45"
+            ],
+            [
+              "drum_kit",
+              "drumhead",
+              "single_coated"
+            ],
+            [
+              "drum_kit",
+              "snare_wires",
+              "wires_20"
+            ],
+            [
+              "drum_kit",
+              "drum_kit_kick_pedal",
+              "dk_kick_single_felt"
+            ],
+            [
+              "drum_kit",
+              "cymbal_alloy",
+              "b20"
+            ],
+            [
+              "drum_kit",
+              "cymbal_hammering",
+              "machine_symmetric_hammering"
+            ],
+            [
+              "drum_kit",
+              "cymbal_lathing",
+              "full_lathe_both_sides"
+            ],
+            [
+              "drum_kit",
+              "cymbal_finish",
+              "traditional_finish"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "electronic_keyboard_identity",
+              "electronic_keyboard_architecture_unspecified"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "keyboard_technique",
+              "electronic_keyboard_melodic_chordal"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-006-parity.json",
+          "semantic_review": "All four literal formats read for each entry. Nayarita lively group/dance-band gestures are compatible. Brazilian melancholy and NY roots retain connected voices and spacious acoustic presentation, not falsely upbeat affect. Psybass brisk mixed bass programme is an authored DJ branch, not all repertoire uniformly fast. Controls and source unknowns preserved."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred.",
+            "roles": {
+              "voice": "Three named singers, including bassist",
+              "electric_guitar_humbucker": "Antonio Jasso guitar; authored electric construction",
+              "electric_bass": "Rafael Sanabria bass; authored electric construction",
+              "drum_kit": "Amador Medina batería",
+              "electronic_keyboard_unspecified": "Ernesto Zamorano teclados; unspecified architecture"
+            },
+            "authored_defaults": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+          },
+          "vocal_count_audit": {
+            "selected_count": 3,
+            "named_singers": [
+              "Rafael Sanabria",
+              "Miguel Orozco",
+              "José Medina"
+            ],
+            "decision": "Three explicitly credited singers in full dated six-person group; bass doubling retained. No invented chorus or continuous simultaneity."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_live_group",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "neck_wood": "maple_neck_h",
+                "fretboard": "rosewood_fb_h",
+                "pickup_magnet": "alnico_2_h",
+                "pickup_winding": "mid_wind",
+                "string_material": "pure_nickel_h",
+                "bridge": "vibrato_arm",
+                "scale_length": "scale_gibson_h",
+                "string_gauge": "g_10_hum",
+                "finish": "nitro_hum",
+                "string_tuning": "standard_tuning"
+              },
+              "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_h",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "parts": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+            }
+          ],
+          "flat_pin_resolution": {
+            "unpinned_slots": [],
+            "rule": "Applicable owning controls checked against actual merged owners; shared guitar/bass material keys accepted by both. Neutral keyboard own technique remains explicitly pinned."
+          },
+          "model_policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented.",
+          "source_scope_limitation": "Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred.",
+          "classification_evidence": "Música Nayarita names a regional musical community spanning Nayarit and its migrant fair network, not a single instrumental style. The FENINE2014 eyewitness account directly places Hechizeros in that community. Creator repertoire includes Banda Móvil, Banda R15, Cohuich, Torbellinos and Invierno Musical, with brass bandas and electrified dance groups; selected Hechizeros membership in that exact playlist is not claimed. Existing tecnobanda already includes several shared creator artists and this selected electronic-tecnobanda branch overlaps it. The distinction is the positively documented regional and diaspora institution, broader than that specific style, not a new ensemble alone. Banda sinaloense specifies its Sinaloan brass/percussion practice; norteño its border accordion/bajo-sexto lineage; duranguense its Chicago Durangan dance formation; ranchera its song tradition. All may circulate within this regional field, so no strict sonic or geographic exclusion is claimed."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_triste_brasileira",
+          "name": "Música Triste Brasileira",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context; not Hiosaki, scene illustration or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11563view0 confirms CC BY2.5 Iain Fergusson photograph with existing Binksternet crop; historical exact bytes/visual receipts retained.",
+          "fresh_review_ref": "turn11563view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights/context review turn11563view0; historical byte/visual receipts unchanged.",
+        "fresh_rights_retrieval_refs": "Fresh rights/context review turn11563view0; historical byte/visual receipts unchanged."
+      },
+      "source_label": "musica triste brasileira",
+      "source_url": "https://everynoise.com/engenremap-musicatristebrasileira.html",
+      "suggested_id": "musica_triste_brasileira",
+      "allocation_ordinal": 3928,
+      "allocation_group_id": "158",
+      "id": "musica_triste_brasileira",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "musica_triste_brasileira",
+        "name": "Música Triste Brasileira",
+        "family": "pop",
+        "lineage": "Música triste brasileira links Brazilian internet-era sad-pop and rap audiences through vulnerable songwriting and collaborative digital circulation.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Melancholic lead vocals sit over acoustic guitar and keyboard support in the pop-oriented branch. Connected phrases and reflective lyrics foreground personal emotion; Hiosaki exemplifies this strand without defining all Brazilian melancholy as one style.",
+        "exemplars": [
+          "Hiosaki",
+          "Tuono"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -7.49,
+        -38.99,
+        "Brejo Santo",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Artist birthplace/community anchor positively documented in firsthand interview and own Spotify bio; not asserted source recording location.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=K6uo9btXWpA",
+          "title": "Hiosaki official Não Aguento Mais — full credits",
+          "supports": "Complete single source roles; original indexed issuer description preserved in resume116-hiosaki-indexed-primary-raw.json; direct video open failed."
+        },
+        {
+          "url": "https://open.spotify.com/intl-pt/track/2Ot8VEqXC8zkFdYuoUDzZD",
+          "title": "Royal distributed single",
+          "supports": "2021 issue,3:10 whole track; no copyrighted lyrics reproduced."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/47bikoA9qfXDT5VVhzsjy9?theme=0",
+          "title": "Creator Música Triste Brasileira playlist",
+          "supports": "Exact category/member at item8 and multiartist community roster."
+        },
+        {
+          "url": "https://diariodonordeste.verdesmares.com.br/verso/de-brejo-santo-para-o-rock-in-rio-2022-cearense-hiosaki-ganha-o-brasil-com-seu-pop-melancolico-1.3261166",
+          "title": "Firsthand Hiosaki interview",
+          "supports": "Self-described melancholic pop and internet youth community; Brejo Santo anchor."
+        }
+      ],
+      "neighbor_distinction": "The creator Música Triste Brasileira playlist includes Hiosaki at item8 alongside Tuono, Zant, VMZ and Sadstation. His firsthand interview describes a youth internet audience and his own melancholic-pop practice evolving from indie/lofi, with personal sadness and vulnerability. This records the Brazilian Portuguese-language sad-pop/rap audience and collaborative discovery field, not every historically melancholy MPB song. Existing sad_rap_emo_trap and emo_rap describe the wider US/internet trap-and-guitar rap lineage; overlap with those fields is explicit, while the selected pop song and Brazilian youth community are not universally trap. Existing sadcore is the American indie songwriting lineage; trap_triste describes Spanish-language Latin-trap grammar. Existing Brazilian popular and hip-hop fields overlap more broadly, rather than being excluded. A different Hiosaki song or acoustic instrumentation alone is not the category distinction. Existing brazilian_emo is a national indie/emo band field and its Baztian trio is only an exemplar; Brazilian sad-pop/rap overlaps emotional themes but the positively identified internet pop/rap audience and cross-style discovery roster are not defined by an emo-rock band lineage.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved. Current representative roles: voice, acoustic_guitar_dread, electronic_keyboard_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent functionalSong describes the representative genre branch, not an exhaustive definition of every source.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "acoustic_guitar_dread": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electronic_keyboard_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved."
+      },
+      "dependency_audit": {
+        "new_dependencies": [],
+        "original_engine_unchanged": true
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "verification_status": "Original four formats inspected: huge/immense/stereophonic are authored spatial hall presentation, no foreign cultural field or absent instrument asserted. 24 applicable owning controls protected; no dependencies.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "source_review_refs": [
+        "turn352606youtube12",
+        "turn545273search0",
+        "turn11563view1",
+        "turn11563view0"
+      ],
+      "source_retrieval_caveat": "Primary official video description obtained from indexed official-channel result; direct open unavailable. Raw successful tool response preserved separately; no mirror used as sole primary.",
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-1.json",
+        "original_sha256": "973fa1ceb620ffbabb4615b8506fa3de7477a4630704770894da255cb3c18b36",
+        "before": {
+          "tradition": {
+            "id": "musica_triste_brasileira",
+            "name": "Música Triste Brasileira",
+            "family": "pop",
+            "lineage": "Hiosaki — complete 2021 Royal Produções single Não Aguento Mais (3:10). Official artist video credits Hiosaki as featured singer and Carlinhos Cokó for acoustic guitar and keyboards, also arrangement; Santiago Ferraz is producer/mixer, not an additional inferred instrumentalist. All three positive sound families retained. Source gives no extra drum, bass or percussion performer/role. Exact overdub count, keyboard mechanism and acoustic string type are unspecified; this is the complete credited single, not an acoustic subset removed from a bigger identified arrangement. Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted.",
+            "instruments": [
+              "voice",
+              "acoustic_guitar_dread",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "legato_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "acoustic_technique": "acoustic_flatpicked",
+              "string_tuning": "standard_tuning",
+              "top_wood": "mahogany_top",
+              "back_sides": "mahogany_bs",
+              "string_acoustic": "eighty_twenty",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Hiosaki — complete 2021 Royal Produções single Não Aguento Mais (3:10). Official artist video credits Hiosaki as featured singer and Carlinhos Cokó for acoustic guitar and keyboards, also arrangement; Santiago Ferraz is producer/mixer, not an additional inferred instrumentalist. All three positive sound families retained. Source gives no extra drum, bass or percussion performer/role. Exact overdub count, keyboard mechanism and acoustic string type are unspecified; this is the complete credited single, not an acoustic subset removed from a bigger identified arrangement. The creator Música Triste Brasileira playlist includes Hiosaki at item8 alongside Tuono, Zant, VMZ and Sadstation. His firsthand interview describes a youth internet audience and his own melancholic-pop practice evolving from indie/lofi, with personal sadness and vulnerability. This records the Brazilian Portuguese-language sad-pop/rap audience and collaborative discovery field, not every historically melancholy MPB song. Existing sad_rap_emo_trap and emo_rap describe the wider US/internet trap-and-guitar rap lineage; overlap with those fields is explicit, while the selected pop song and Brazilian youth community are not universally trap. Existing sadcore is the American indie songwriting lineage; trap_triste describes Spanish-language Latin-trap grammar. Existing Brazilian popular and hip-hop fields overlap more broadly, rather than being excluded. A different Hiosaki song or acoustic instrumentation alone is not the category distinction. Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted. Existing brazilian_emo is a national indie/emo band field and its Baztian trio is only an exemplar; Brazilian sad-pop/rap overlaps emotional themes but the positively identified internet pop/rap audience and cross-style discovery roster are not defined by an emo-rock band lineage.",
+            "exemplars": [
+              "Hiosaki — Não Aguento Mais, complete Royal Produções 2021 single"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "legato_voice"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "acoustic_technique",
+              "acoustic_flatpicked"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "top_wood",
+              "mahogany_top"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "back_sides",
+              "mahogany_bs"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "string_acoustic",
+              "eighty_twenty"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "electronic_keyboard_identity",
+              "electronic_keyboard_architecture_unspecified"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "keyboard_technique",
+              "electronic_keyboard_melodic_chordal"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-006-parity.json",
+          "semantic_review": "All four literal formats read for each entry. Nayarita lively group/dance-band gestures are compatible. Brazilian melancholy and NY roots retain connected voices and spacious acoustic presentation, not falsely upbeat affect. Psybass brisk mixed bass programme is an authored DJ branch, not all repertoire uniformly fast. Controls and source unknowns preserved."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Hiosaki — complete 2021 Royal Produções single Não Aguento Mais (3:10). Official artist video credits Hiosaki as featured singer and Carlinhos Cokó for acoustic guitar and keyboards, also arrangement; Santiago Ferraz is producer/mixer, not an additional inferred instrumentalist. All three positive sound families retained. Source gives no extra drum, bass or percussion performer/role. Exact overdub count, keyboard mechanism and acoustic string type are unspecified; this is the complete credited single, not an acoustic subset removed from a bigger identified arrangement.",
+            "roles": {
+              "voice": "Hiosaki",
+              "acoustic_guitar_dread": "Carlinhos Cokó — violão; steel-string realization authored, source string material unknown",
+              "electronic_keyboard_unspecified": "Carlinhos Cokó — teclados, architecture unspecified"
+            },
+            "authored_defaults": "Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted."
+          },
+          "vocal_count_audit": {
+            "credited_named_singers": 1,
+            "credited_names": [
+              "Hiosaki"
+            ],
+            "source_overdub_count": "unknown",
+            "decision": "One accompanied natural lead is an authored realization of the credited singer; source recording stacking remains unknown."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "legato_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "All applicable controls explicitly authored; source exact mechanism, materials and performance settings not invented as facts."
+            },
+            {
+              "instrument": "acoustic_guitar_dread",
+              "parts": {
+                "acoustic_technique": "acoustic_flatpicked",
+                "string_tuning": "standard_tuning",
+                "top_wood": "mahogany_top",
+                "back_sides": "mahogany_bs",
+                "string_acoustic": "eighty_twenty"
+              },
+              "policy": "All applicable controls explicitly authored; source exact mechanism, materials and performance settings not invented as facts."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "parts": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "policy": "All applicable controls explicitly authored; source exact mechanism, materials and performance settings not invented as facts."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All three existing owning-part IDs distinct and applicable pins authored; actual merge preflight must verify."
+          },
+          "model_policy": "Authored new rendition uses one accompanied lead with natural unprocessed delivery and connected legato phrasing; no claim of original overdub count, source vocal physiology, measured pitch intervals or recording effects. An all-mahogany dreadnought with bronze strings, standard tuning and flatpicked notes is an explicitly authored acoustic-guitar realization; source says only violão, so no actual steel/nylon construction is asserted. Existing unspecified electronic-keyboard owner preserves positively credited keyboards without guessing synthesizer architecture or piano subtype; melodic/chordal support is authored. A spacious shoebox recital-hall presentation is authored, not the Royal studio location. FunctionalSong is a new authored verse-chorus-bridge arrangement over functional harmonic progressions; source song structure and chords have not been transcribed. No global temperament or capture apparatus asserted.",
+          "source_scope_limitation": "Full positive issuer credits inspected; not a waveform audit proving no undocumented overdub. Studio track not replaced with an opaque playback card.",
+          "classification_evidence": "The creator Música Triste Brasileira playlist includes Hiosaki at item8 alongside Tuono, Zant, VMZ and Sadstation. His firsthand interview describes a youth internet audience and his own melancholic-pop practice evolving from indie/lofi, with personal sadness and vulnerability. This records the Brazilian Portuguese-language sad-pop/rap audience and collaborative discovery field, not every historically melancholy MPB song. Existing sad_rap_emo_trap and emo_rap describe the wider US/internet trap-and-guitar rap lineage; overlap with those fields is explicit, while the selected pop song and Brazilian youth community are not universally trap. Existing sadcore is the American indie songwriting lineage; trap_triste describes Spanish-language Latin-trap grammar. Existing Brazilian popular and hip-hop fields overlap more broadly, rather than being excluded. A different Hiosaki song or acoustic instrumentation alone is not the category distinction. Existing brazilian_emo is a national indie/emo band field and its Baztian trio is only an exemplar; Brazilian sad-pop/rap overlaps emotional themes but the positively identified internet pop/rap audience and cross-style discovery roster are not defined by an emo-rock band lineage."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "ny_roots",
+          "name": "NY Roots",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not source performer, New York venue or actual source gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh330848view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5;023 historical bytes/visual exact.",
+          "fresh_review_ref": "turn330848view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh330848view0; no freshbytes/visual claim.",
+        "fresh_rights_retrieval_refs": [
+          "turn330848view0"
+        ]
+      },
+      "source_label": "ny roots",
+      "source_url": "https://everynoise.com/engenremap-nyroots.html",
+      "suggested_id": "ny_roots",
+      "allocation_ordinal": 4054,
+      "allocation_group_id": "163",
+      "id": "ny_roots",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "ny_roots",
+        "name": "NY Roots",
+        "family": "vernacular",
+        "lineage": "NY roots connects New York folk, roots-rock and songwriter communities through local venues, festivals and regional broadcasting.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        }
+      },
+      "extras": {
+        "parent": "balladPoetry.angloSingerSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Narrative singing and acoustic guitar anchor a solo branch, while the wider network includes varied roots ensembles. Sawyer Fredericks exemplifies the voice-and-guitar approach alongside broader community figures such as Donna the Buffalo and the Mammals.",
+        "exemplars": [
+          "Sawyer Fredericks",
+          "Donna the Buffalo"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.0831,
+        -73.7851,
+        "Saratoga Springs",
+        "North America"
+      ],
+      "geo_rationale": "Documented festival locality; authored recording room is distinct from the original outdoor setting.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.timesunion.com/preview/article/People-in-the-news-6311872.php",
+          "support_notes": "Fresh518140view0 firsthand complete opening-song description, venue/date and pick caption; no audio audition."
+        },
+        {
+          "url": "https://www.wextradio.org/local-518/2025-05-18/the-inaugural-wext-local-518-fest",
+          "support_notes": "Fresh518140view1 public-radio organizer regional roots/rock community and selected artist; later band appearance is community evidence only, not2015 instrumentation."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2B97nCsJ1YtOYIbioQp81E",
+          "support_notes": "Fresh518140view2 full100creator roster, Fredericks46; exact selectedsong not asserted playlistmember."
+        },
+        {
+          "url": "https://www.sawyerfredericks.com/about.html",
+          "support_notes": "Fresh452943search2 artist-owned New York roots/folk/blues biography and local formative venues; later album credits not transferred."
+        }
+      ],
+      "neighbor_distinction": "NY Roots identifies New York’s regional roots-performance community, positively tied to the exact creator corpus across Donna the Buffalo, Richie Stearns, the Horse Flies, Driftwood, the Mammals and Sawyer Fredericks46. The WEXT/WMHT organizer independently documents a regional roots-and-rock institution linking Fredericks to Capital Region performers; Caffe Lena and the artist independently describe his formative local markets/open mics and New York folk venues. Existing roots_americana is a broad roots-Americana field with a Charlie Parr exemplar, not a Minnesota-only field; regional NY practice overlaps it rather than being sonically exclusive. Existing roots_rock describes the older rock-market return to American forms, not every contemporary regional folk, roots-reggae and songwriter network. Existing new_england_americana is a neighboring regional field, whose David Wax Museum example does not define its entire repertoire; New York community is not New England. Existing albany_ny_indie represents overlapping independent-rock institutions in one New York city; the multi-city roots corpus is neither all Albany indie nor defined merely by a different acoustic song. Creator range and independently documented regional institutions establish the category, not this selected solo format.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved. Current representative roles: voice, acoustic_guitar_dread. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent balladPoetry.angloSingerSong describes the representative genre branch, not an exhaustive definition of every source.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "acoustic_guitar_dread": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "eighty_twenty"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "verification_status": "Original loader22protected controls, zeroerrors/fallbacks,1638existingownersunchanged. Four original browser/connector renders max458characters inspected; huge/immense spatial prefaces reflect explicitly authored concert-hall rendition, not performer physiology or source outdoor space. No unrelated cultural style rendered. Final integrated signatures/static/API remain root gates.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "source_review_refs": [
+        "turn518140view0",
+        "turn518140view1",
+        "turn518140view2",
+        "turn452943search2",
+        "turn330848view0"
+      ],
+      "source_retrieval_caveat": "Full eyewitness and organizer/creator primary directly retrieved; artist biography freshly indexed. Original audio not inspected. All source scenes are date-scoped.",
+      "primary_retrieval_refs": [
+        "turn518140view0",
+        "turn518140view1",
+        "turn518140view2",
+        "turn452943search2"
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-15.json",
+        "original_sha256": "6596fe256514784db198e25bf74a1dad81e2b07c5b3df821539da87263f2618c",
+        "before": {
+          "tradition": {
+            "id": "ny_roots",
+            "name": "NY Roots",
+            "family": "vernacular",
+            "lineage": "Sawyer Fredericks — complete solo Man of Constant Sorrow opening performance, Summer Jam, Saratoga Performing Arts Center, June6,2015. Eyewitness positively specifies singer/acoustic guitar and photo caption a pick. This selects that whole presented song, not an excerpt or an assumed album reduction; other festival acts are separate. One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer.",
+            "instruments": [
+              "voice",
+              "acoustic_guitar_dread"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "legato_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "acoustic_technique": "acoustic_flatpicked",
+              "string_tuning": "standard_tuning",
+              "top_wood": "mahogany_top",
+              "back_sides": "mahogany_bs",
+              "string_acoustic": "eighty_twenty"
+            }
+          },
+          "extras": {
+            "parent": "balladPoetry.angloSingerSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "NY Roots identifies New York’s regional roots-performance community, positively tied to the exact creator corpus across Donna the Buffalo, Richie Stearns, the Horse Flies, Driftwood, the Mammals and Sawyer Fredericks46. The WEXT/WMHT organizer independently documents a regional roots-and-rock institution linking Fredericks to Capital Region performers; Caffe Lena and the artist independently describe his formative local markets/open mics and New York folk venues. Existing roots_americana is a broad roots-Americana field with a Charlie Parr exemplar, not a Minnesota-only field; regional NY practice overlaps it rather than being sonically exclusive. Existing roots_rock describes the older rock-market return to American forms, not every contemporary regional folk, roots-reggae and songwriter network. Existing new_england_americana is a neighboring regional field, whose David Wax Museum example does not define its entire repertoire; New York community is not New England. Existing albany_ny_indie represents overlapping independent-rock institutions in one New York city; the multi-city roots corpus is neither all Albany indie nor defined merely by a different acoustic song. Creator range and independently documented regional institutions establish the category, not this selected solo format. One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer.",
+            "exemplars": [
+              "Sawyer Fredericks — complete solo Man of Constant Sorrow, Saratoga2015"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "legato_voice"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "acoustic_technique",
+              "acoustic_flatpicked"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "top_wood",
+              "mahogany_top"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "back_sides",
+              "mahogany_bs"
+            ],
+            [
+              "acoustic_guitar_dread",
+              "string_acoustic",
+              "eighty_twenty"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-006-parity.json",
+          "semantic_review": "All four literal formats read for each entry. Nayarita lively group/dance-band gestures are compatible. Brazilian melancholy and NY roots retain connected voices and spacious acoustic presentation, not falsely upbeat affect. Psybass brisk mixed bass programme is an authored DJ branch, not all repertoire uniformly fast. Controls and source unknowns preserved."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Complete selected song interpretation, source evidence above.",
+            "roles": {
+              "voice": "One self-accompanied singer",
+              "acoustic_guitar_dread": "One acoustic guitar; physical subtype authored"
+            },
+            "authored_defaults": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer."
+          },
+          "vocal_count_audit": {
+            "selected_singing_roles": 1,
+            "decision": "One solo lead; ambient festival cheering is not invented as an arranged backing choir."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "legato_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer."
+            },
+            {
+              "instrument": "acoustic_guitar_dread",
+              "parts": {
+                "acoustic_technique": "acoustic_flatpicked",
+                "string_tuning": "standard_tuning",
+                "top_wood": "mahogany_top",
+                "back_sides": "mahogany_bs",
+                "string_acoustic": "eighty_twenty"
+              },
+              "policy": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All22applicable owning parts protected; no shared conflicts or fallback."
+          },
+          "model_policy": "One singing role self-accompanied by one acoustic guitar is preserved. New coherent authored rendition uses an all-mahogany steel-string dreadnought,80/20bronze strings and flatpicked articulation; source confirms pick usage but exact guitar make/wood/strings are unknown. Source-unspecified vocal anatomy, register, microtonal organization and ornament remain neutral; connected legato phrasing and unprocessed single lead are authored. Spacious shoebox concert-hall acoustics are a new rendition environment, not a false assertion that the outdoor2015 venue was an indoor hall. Global temperament and apparatus omitted. Existing Anglosphere songwriter node scopes this narrative solo folk interpretation; no claim all regional roots music is solo or written by this singer.",
+          "source_scope_limitation": "Sawyer Fredericks — complete solo Man of Constant Sorrow opening performance, Summer Jam, Saratoga Performing Arts Center, June6,2015. Eyewitness positively specifies singer/acoustic guitar and photo caption a pick. This selects that whole presented song, not an excerpt or an assumed album reduction; other festival acts are separate.",
+          "classification_evidence": "NY Roots identifies New York’s regional roots-performance community, positively tied to the exact creator corpus across Donna the Buffalo, Richie Stearns, the Horse Flies, Driftwood, the Mammals and Sawyer Fredericks46. The WEXT/WMHT organizer independently documents a regional roots-and-rock institution linking Fredericks to Capital Region performers; Caffe Lena and the artist independently describe his formative local markets/open mics and New York folk venues. Existing roots_americana is a broad roots-Americana field with a Charlie Parr exemplar, not a Minnesota-only field; regional NY practice overlaps it rather than being sonically exclusive. Existing roots_rock describes the older rock-market return to American forms, not every contemporary regional folk, roots-reggae and songwriter network. Existing new_england_americana is a neighboring regional field, whose David Wax Museum example does not define its entire repertoire; New York community is not New England. Existing albany_ny_indie represents overlapping independent-rock institutions in one New York city; the multi-city roots corpus is neither all Albany indie nor defined merely by a different acoustic song. Creator range and independently documented regional institutions establish the category, not this selected solo format."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "psybass",
+      "source_url": "https://everynoise.com/engenremap-psybass.html",
+      "suggested_id": "psybass",
+      "allocation_ordinal": 4176,
+      "allocation_group_id": "168",
+      "status": "frozen_pending_independent_review",
+      "id": "psybass",
+      "tradition": {
+        "id": "psybass",
+        "name": "Psybass",
+        "family": "electronic",
+        "lineage": "Psybass joins psychedelic music communities with contemporary bass-music production and festival DJ practice.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "bassSystem",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Bass weight, transformed textures and broken-beat motion cross dubstep, trap and other bass styles. Mixed programmes can overlap psydub and glitch-hop without requiring a single reggae-derived rhythm; Shanti Planti exemplifies this exploratory community.",
+        "exemplars": [
+          "Aktüman",
+          "Shanti Planti"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.0,
+        105.0,
+        "China",
+        "East Asia"
+      ],
+      "geo_rationale": "Country-level anchor for expressly documented China festival performance; no exact venue coordinate or performer birthplace inferred.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "neighbor_distinction": "Psybass is positively named psychedelic-culture crossover with newer bass styles. Christopher Charles primary ethnography expressly contrasts psybass crossover with dubstep/trap against psydub reggae/dub features, while emphasizing flexible overlapping labels and multi-style programmes. Shanti Planti self-identifies an experimental midtempo bass collective and names psybass across its compilation practice. This is not an assertion that psydub lacks bass: actual old psydub includes Kalya Scintilla/world samples, but its stated dub-reggae processing/rhythmic branch is narrower than the cross-bass axis. Existing glitch_hop specifies hip-hop/IDM groove lineage, not the whole psychedelic festival field. Queued experimental_bass is broader sound-design crossover; downtempo_bass a slower-set axis, both overlapping but neither requires this positively documented psychedelic community. Exact EveryNoise map retrieval was transient and artist body not independently retained; no selected DJ membership or corpus purity claim. The chosen issuer explicitly names the requested field and first-person performance.",
+      "model_policy": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved. Current representative roles: dj_playback_mixing_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved."
+      },
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 0,
+        "authored_ensemble_setting": null,
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "pending_independent_review",
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/aktuman/shuangda-2026/",
+          "support_notes": "Fresh10963view0 full self-issued1:35:11 actual DJ performance, datedChinafestival and29-selection programme, requested field explicitly named; styles mixed and one ID unknown preserved.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://distantreader.org/stacks/journals/dancecult/dancecult-1167.pdf",
+          "support_notes": "Fresh10969view0/10970view1, ChristopherCharles2020 primary ethnography, p36 explains psybass newer-bass crossover versus psydub dub/reggae features; labels flexible and overlapping, not rigid exclusive taxonomy.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://shantiplanti.bandcamp.com/album/rhythm-code-5",
+          "support_notes": "Fresh10969view1/10972view2 issuer full collective statement and psybass-tagged international compilation context. Context only; its20tracks not substituted for selected DJ programme.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "psybass",
+          "name": "Psybass",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only; not DJ decks, live vocals, source performer, projection dome or source gear.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh10920view3/10921view1 confirms original Iain Fergusson/Binksternet crop and CC BY2.5; historical exact bytes/visual retained without new download claim.",
+          "fresh_review_ref": "turn10920view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn10920view3 and turn10921view1 rights and context only; no new byte download or visual inspection.",
+        "fresh_rights_retrieval_refs": [
+          "turn10920view3",
+          "turn10921view1"
+        ]
+      },
+      "format_repair": {
+        "original_packet": "/tmp/batch038/recovery168-170-secondpass-2-rights-repaired116.json",
+        "original_sha256": "defe333a6f2712a25eb4b8632fa824f641c616c47bb176b9ba9bca0181dfac49",
+        "before": {
+          "tradition": {
+            "id": "psybass",
+            "name": "Psybass",
+            "family": "electronic",
+            "lineage": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred. One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "bassSystem",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred. Psybass is positively named psychedelic-culture crossover with newer bass styles. Christopher Charles primary ethnography expressly contrasts psybass crossover with dubstep/trap against psydub reggae/dub features, while emphasizing flexible overlapping labels and multi-style programmes. Shanti Planti self-identifies an experimental midtempo bass collective and names psybass across its compilation practice. This is not an assertion that psydub lacks bass: actual old psydub includes Kalya Scintilla/world samples, but its stated dub-reggae processing/rhythmic branch is narrower than the cross-bass axis. Existing glitch_hop specifies hip-hop/IDM groove lineage, not the whole psychedelic festival field. Queued experimental_bass is broader sound-design crossover; downtempo_bass a slower-set axis, both overlapping but neither requires this positively documented psychedelic community. Exact EveryNoise map retrieval was transient and artist body not independently retained; no selected DJ membership or corpus purity claim. The chosen issuer explicitly names the requested field and first-person performance. One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry.",
+            "exemplars": [
+              "Aktüman — full Shuangda Festival2026 Psybass/Psydub/Breakbeats DJ set"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Concise genre-level sound, history and practice replace exact set/roster/model dossier. All actual musical defaults remain unchanged. DJ role is positively supported contemporary practice, not inferred production hardware. Narrative and popular-song acoustic branches remain representative alternatives, not universal genre staffing. All named physical controls and unknown source mechanisms preserved.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "dj_playback_mixing_unspecified",
+              "dj_playback_mixing_identity",
+              "dj_playback_mixing_source_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-006-parity.json",
+          "semantic_review": "All four literal formats read for each entry. Nayarita lively group/dance-band gestures are compatible. Brazilian melancholy and NY roots retain connected voices and spacious acoustic presentation, not falsely upbeat affect. Psybass brisk mixed bass programme is an authored DJ branch, not all repertoire uniformly fast. Controls and source unknowns preserved."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred.",
+            "positive_sound_source_classes": [
+              "recorded-program playback and DJ mixing"
+            ],
+            "authored_defaults": "One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry."
+          },
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0,
+            "decision": "No live vocal contribution stated; all embedded layers retained in whole programme, no false zero-headcount assertion."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+          },
+          "model_policy": "One existing neutral DJ playback/mixing owner preserves the whole sounded mixed programme. No invented physical controller, sound generator or sampler rendering of opaque production. Controlled live-room listening environment is editorial, not a measurement of the source projection dome. No global tuning or recording apparatus invented. Broad bassSystem represents the documented psychedelic bass crossover branch; it does not assert universal dubstep rhythm or pure reggae ancestry.",
+          "source_scope_limitation": "Aktüman — whole1:35:11 Shuangda Festival2026 DJ Set, self-issued on Mixcloud and described first-person as played at the Xiangshan, China festival29–31May2026 in a projection-sphere stage. Issuer expressly labels Psydub/Psybass/Breakbeats and retains drum-and-bass crossover; all29 listed programme selections retained including one Kaya Project ID marked unknown. This is a complete actual DJ performance, not a reconstructed produced track or claim every selection exclusively psybass. Decks/software/medium, embedded vocal counts and additional live singing are unspecified; no extra voice card or source production instruments inferred.",
+          "classification_evidence": null
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      },
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent bassSystem describes the representative genre branch, not an exhaustive definition of every source."
+    }
+  ]
+}

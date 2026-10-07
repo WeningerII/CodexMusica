@@ -1,0 +1,101 @@
+{
+  "id": "viola_da_terra",
+  "name": "Viola da terra (Azorean twelve-string model)",
+  "short": "Viola da terra",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "viola_da_terra_construction",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "viola_da_terra_micaelense_twelve_wire",
+          "name": "Authored Micaelense model: twelve wire strings in five courses (2+2+2+3+3)",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_da_terra_playing",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "viola_da_terra_plucked_chordal",
+          "name": "Plucked melodic and chordal accompaniment",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "chordal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Azorean viola da terra, distinct from Brazilian viola caipira and mainland Portuguese regional guitars. The museum documents a twelve-wire-string Micaelense model with three double and two triple courses. That construction is an authored representative option, not a measured description of Rafael Carvalho’s 2019 instrument. Wood species, tuning and exact performer technique remain unspecified; axes are authored sonic routing.",
+  "sources": [
+    "https://ccmuseus.azores.gov.pt/index.php/Detail/objects/68425",
+    "https://www.teatromicaelense.pt/agenda/2019-01-26/manuel-costa/"
+  ],
+  "_ownParts": [
+    {
+      "id": "viola_da_terra_construction",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "viola_da_terra_micaelense_twelve_wire",
+          "name": "Authored Micaelense model: twelve wire strings in five courses (2+2+2+3+3)",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_da_terra_playing",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "viola_da_terra_plucked_chordal",
+          "name": "Plucked melodic and chordal accompaniment",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "chordal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ]
+        }
+      ]
+    }
+  ]
+}

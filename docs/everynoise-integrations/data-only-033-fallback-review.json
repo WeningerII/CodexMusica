@@ -1,0 +1,72 @@
+{
+  "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+  "parts": 3727,
+  "protectedParts": 3719,
+  "unpinned": [
+    {
+      "tradition": "slovenske_chvaly",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "solipsynthm",
+      "instrument": "string_machine",
+      "part": "electronic_technique",
+      "flat_value": "electronic_arpeggiated",
+      "imported_default": "electronic_pad_drone",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "stl_indie",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "swedish_ebm",
+      "instrument": "sampler_classic",
+      "part": "electronic_technique",
+      "flat_value": "electronic_arpeggiated",
+      "imported_default": "electronic_sample_chopped",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "swiss_worship",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "toronto_indie",
+      "instrument": "electronic_organ_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_organ_melodic_sustained",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "trondersk_musikk",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "tucson_indie",
+      "instrument": "pedal_steel",
+      "part": "electric_technique",
+      "flat_value": "electric_clean_strummed",
+      "imported_default": "electric_steel_pedal_swells",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    }
+  ],
+  "errors": []
+}

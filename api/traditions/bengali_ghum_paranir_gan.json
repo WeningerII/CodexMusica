@@ -3,9 +3,9 @@
   "name": "Bengali ghum-paranir gan (cradle song)",
   "family": "global",
   "lineage": "Bengali cradle-song tradition continuous from medieval Bengal domestic-vocal practice through Rabindra-sangeet appropriation (Tagore composed multiple cradle-songs) into modern Bangla-language domestic singing across West Bengal and Bangladesh",
-  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song hindustani vocal ragini. thick, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 321,
-  "score": 164.683,
+  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song hindustani vocal ragini. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 165.232,
   "config": {
     "traditions": [
       "bengali_ghum_paranir_gan",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.3999999999999995,
+          "voice_register": 3.54,
           "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.555,
+          "voice_vibrato": 9.209999999999999,
           "voice_articulation": 14.04,
           "voice_microtone": 14.754999999999995,
-          "voice_tradition": 26.790000000000003,
+          "voice_tradition": 27.180000000000003,
           "voice_mechanism_compound": 6.5249999999999995,
-          "voice_estill_quality": 8.34,
+          "voice_estill_quality": 8.534999999999998,
           "voice_speech_song": 21.319999999999997,
           "voice_ensemble_config": 14.169999999999998,
-          "voice_ornament_system": 16.77,
+          "voice_ornament_system": 16.814999999999998,
           "voice_pitch_organization": 15.34,
-          "voice_processing_chain": 3.3150000000000004,
+          "voice_processing_chain": 3.4400000000000004,
           "voice_multitrack_stack": 4.1850000000000005
         }
       }

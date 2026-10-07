@@ -2,10 +2,10 @@
   "id": "deep_ambient",
   "name": "Deep ambient",
   "family": "electronic",
-  "lineage": "An overlapping ambient discovery category represented on the author map by Max Corbacho, Rudy Adrian, Dirk Serries and others. Documented examples range from electronic drones to looped electroacoustic layers. This default selects the credited synthesizer and guitar-loop sources on Steve Roach and Dirk Serries’ Low Volume Music; it is one branch of the wider listening category.",
-  "recipe": "classic modern deep ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, alder rosewood alnico single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 385,
-  "score": 31.627,
+  "lineage": "An immersive ambient practice built around extended drones, slow harmonic movement and barely perceptible changes in texture. Electronic synthesis and sustained electroacoustic layers connect it closely with space ambient and other long-form listening music.",
+  "recipe": "classic modern deep ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, snappy treble-extended maple single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 392,
+  "score": 24.796,
   "config": {
     "traditions": [
       "deep_ambient"
@@ -21,10 +21,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 11.640214285714285,
-          "oscillator": 0.045,
-          "filter_topology": 3.1230714285714285,
-          "envelope": 5.719999999999999,
+          "electronic_technique": 12.537928571428571,
+          "oscillator": 1.09,
+          "filter_topology": 0.3064285714285714,
+          "envelope": 5.85,
           "modulation": 0
         }
       },
@@ -46,18 +46,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.69,
+          "electric_technique": 1.672642857142857,
           "amp_make": 0,
-          "body_wood": 1.5282142857142857,
-          "neck_wood": 0.3229285714285714,
-          "fretboard": 1.4782142857142857,
-          "pickup_magnet": 1.5282142857142857,
+          "body_wood": 0.19542857142857142,
+          "neck_wood": 1.3,
+          "fretboard": -0.035,
+          "pickup_magnet": 0.1157142857142857,
           "string_material": 0,
-          "string_gauge": 0,
-          "bridge": 1.5944285714285713,
+          "string_gauge": 0.24,
+          "bridge": 0.1157142857142857,
           "scale_length": 0,
           "finish": 0.03599999999999999,
-          "string_tuning": 0.1954285714285714,
+          "string_tuning": 0.44571428571428573,
           "single_coil_pickup_construction": 0
         }
       }

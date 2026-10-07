@@ -1,0 +1,173 @@
+{
+  "id": "flamenco_fusion",
+  "name": "Flamenco Fusion",
+  "family": "global",
+  "lineage": "Flamenco fusion extends flamenco singing, guitar and dance through contemporary composition and cross-cultural collaboration. Acoustic companies and larger amplified ensembles coexist, connecting Andalusian musical vocabulary with new theatrical and popular-music settings.",
+  "recipe": "classic flamenco fusion, functional Song, iberian branch. many notes per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, credited auxiliary percussion, flamenco zapateado shoes. shoebox concert hall.",
+  "recipe_chars": 375,
+  "score": 14.632,
+  "config": {
+    "traditions": [
+      "flamenco_fusion"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.1575,
+          "voice_multitrack_stack": 0.613,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "flamenco_guitar",
+        "slots": {
+          "flamenco_body": "flamenco_blanca_cypress",
+          "flamenco_features": "flamenco_low_action_golpe_plate",
+          "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
+        },
+        "scores": {
+          "flamenco_body": 3.9,
+          "flamenco_features": 0.39,
+          "flamenco_technique": 4.80175
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "flamenco_zapateado_shoes",
+        "slots": {
+          "zapateado_upper": "zapateado_leather_upper",
+          "zapateado_striking_construction": "zapateado_clavos_firm_sole",
+          "zapateado_action": "zapateado_mixed_footwork",
+          "zapateado_surface": "zapateado_surface_unspecified"
+        },
+        "scores": {
+          "zapateado_upper": 0,
+          "zapateado_striking_construction": 0,
+          "zapateado_action": 0,
+          "zapateado_surface": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "flamenco_guitar": [
+        "flamenco_body",
+        "flamenco_features",
+        "flamenco_technique"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "flamenco_zapateado_shoes": [
+        "zapateado_upper",
+        "zapateado_striking_construction",
+        "zapateado_action",
+        "zapateado_surface"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "flamenco_body": "flamenco_blanca_cypress",
+      "flamenco_features": "flamenco_low_action_golpe_plate",
+      "flamenco_technique": "flamenco_rasgueado_picado_alzapua",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "zapateado_upper": "zapateado_leather_upper",
+      "zapateado_striking_construction": "zapateado_clavos_firm_sole",
+      "zapateado_action": "zapateado_mixed_footwork",
+      "zapateado_surface": "zapateado_surface_unspecified"
+    },
+    "pin_parts": true
+  }
+}

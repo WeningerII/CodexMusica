@@ -1,0 +1,98 @@
+{
+  "id": "prepared_piano_cage_sonatas",
+  "name": "Prepared piano (Cage Sonatas mixed preparation)",
+  "short": "Cage Sonatas mixed-preparation piano",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Keyboard execution",
+      "variants": [
+        {
+          "id": "prepared_piano_cage_keyboard",
+          "name": "Score-led keyboard execution; no inferred pop chord technique",
+          "default": true,
+          "descriptors": [
+            "percussive"
+          ],
+          "match_tokens": [
+            "percussive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cage_sonatas_preparation",
+      "name": "Documented complete preparation",
+      "variants": [
+        {
+          "id": "cage_sonatas_mixed_45_notes",
+          "name": "45 prepared notes: screws, bolts, rubber, plastic, nuts and eraser",
+          "default": true,
+          "descriptors": [
+            "inharmonic",
+            "mixed-timbre"
+          ],
+          "match_tokens": [
+            "inharmonic",
+            "mixed-timbre"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Score-practice owner for Cage Sonatas and Interludes. Publisher documents45 prepared notes including screws and bolts,15 rubber pieces,4 plastic pieces,6 nuts and1 eraser. This combined configuration is one preparation, not mutually exclusive metal versus rubber timbres or an unsupported full-compass preparation. The source does not specify the actual host make/model for Simonacci; no wood, octave span, measured tuning or concert-grand size is invented. Neutral axes and short descriptive sound words are authored. Own keyboard part avoids inherited block-chord-pop playing. Existing generic prepared_piano owner is unchanged.",
+  "sources": [
+    "https://www.wisemusicclassical.com/work/67740/Sonatas-and-Interludes--John-Cage/"
+  ],
+  "_ownParts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Keyboard execution",
+      "variants": [
+        {
+          "id": "prepared_piano_cage_keyboard",
+          "name": "Score-led keyboard execution; no inferred pop chord technique",
+          "default": true,
+          "descriptors": [
+            "percussive"
+          ],
+          "match_tokens": [
+            "percussive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cage_sonatas_preparation",
+      "name": "Documented complete preparation",
+      "variants": [
+        {
+          "id": "cage_sonatas_mixed_45_notes",
+          "name": "45 prepared notes: screws, bolts, rubber, plastic, nuts and eraser",
+          "default": true,
+          "descriptors": [
+            "inharmonic",
+            "mixed-timbre"
+          ],
+          "match_tokens": [
+            "inharmonic",
+            "mixed-timbre"
+          ]
+        }
+      ]
+    }
+  ]
+}

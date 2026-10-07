@@ -5,7 +5,7 @@
   "lineage": "São Paulo periphery funk subgenre codified around 2020-2022 by DJ Arana, DJ Ws da Igrejinha and DJ Guh Mix — 130-140 BPM tracks built from a hard-clipped, deliberately distorted kick, dry gunshot-like snare and rapid triplet hat rolls, sirens, pitched vocal chops and cut-up MC ad-libs, arranged as long unresolved loops with abrupt drops and no harmonic movement, mixed to overload on phone speakers.",
   "recipe": "classic Southern American 2020-2022 funk mandelão, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm ghanaian hip hop funk consciente. vocal fry, rap, straight note core, interlocked note trading. TR-808, melodic pitched sampler, sub bass monosynth acid bass, sub bass analog mono synth. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
   "recipe_chars": 425,
-  "score": 140.267,
+  "score": 139.762,
   "config": {
     "traditions": [
       "funk_mandelao",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.0389999999999997,
+          "voice_register": 2.065,
           "voice_quality": 10.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.7799999999999998,
           "voice_articulation": 13.584999999999994,
           "voice_microtone": 12.609999999999992,
-          "voice_tradition": 5.200000000000001,
+          "voice_tradition": 5.232499999999999,
           "voice_mechanism_compound": 5.265000000000001,
           "voice_estill_quality": 2.925000000000001,
           "voice_speech_song": 13.974999999999994,
           "voice_ensemble_config": 13.909999999999995,
           "voice_ornament_system": 4.420000000000002,
-          "voice_pitch_organization": 1.3449999999999998,
+          "voice_pitch_organization": 1.5399999999999998,
           "voice_processing_chain": 10.649999999999995,
-          "voice_multitrack_stack": 4.314
+          "voice_multitrack_stack": 4.34
         }
       },
       {
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.1274999999999995,
+          "tr808_voice": 3.985,
           "drum_machine_808_context": 2.4699999999999998,
           "tr808_production_origin": 0.09
         }
@@ -78,7 +78,7 @@
           "electronic_technique": 2.415,
           "sampler_archetypes": 1.8449999999999998,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 3.569,
+          "sampler_workflow": 3.4,
           "sampler_classic_context": 18.459999999999997
         }
       },
@@ -91,10 +91,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.9975,
+          "electronic_technique": 3.93,
           "wave_acid": 0,
-          "filter_acid": 0.5239999999999999,
-          "accent_acid": 0.9890000000000001
+          "filter_acid": 0.22499999999999998,
+          "accent_acid": 0.9500000000000001
         }
       },
       {
@@ -107,7 +107,7 @@
           "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 3.9975,
+          "electronic_technique": 3.93,
           "mono_oscillator": 0.045,
           "mono_filter": -0.13999999999999999,
           "mono_archetypes": 0.195,

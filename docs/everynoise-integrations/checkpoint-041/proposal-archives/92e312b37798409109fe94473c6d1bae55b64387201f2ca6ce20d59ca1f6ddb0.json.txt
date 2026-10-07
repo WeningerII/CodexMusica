@@ -1,0 +1,358 @@
+{
+  "entries": [
+    {
+      "source_label": "indie catracho",
+      "source_url": "https://everynoise.com/engenremap-indiecatracho.html",
+      "suggested_id": "indie_catracho",
+      "allocation_ordinal": 3472,
+      "allocation_group_id": "139",
+      "status": "frozen_for_independent_review",
+      "id": "indie_catracho",
+      "tradition": {
+        "id": "indie_catracho",
+        "name": "Indie Catracho",
+        "family": "rock",
+        "lineage": "Indie catracho brings together independent Honduran artists working across alternative rock, pop, folk and electronic music. Local collaborations, self-production and small performance circuits support an overlapping community within the country’s wider musical life.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.alternative",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Guitar-led songs combine clear vocal melodies with bass and drum grooves. Acoustic, electronic and experimental approaches also circulate through the scene, whose shared identity rests on local creative networks as well as sound.",
+        "exemplars": [
+          "Moose",
+          "Atomic Rose",
+          "Chia Casanova"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        14.6349,
+        -86.889,
+        "Honduras",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Country-level editorial anchor for positively documented Honduran artist/community; source does not identify Multiverse Studio city, no precise recording location invented.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://rockear.co/nuevo-single-del-duo-hondureno-moose-llega-con-una-nueva-propuesta-sonora/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11938view0 full artist statements, both guitar roles, full additional bass/drum credits; attribution Prensa Mattin Ramicone Latin Management.2025republication is not recording date."
+        },
+        {
+          "url": "https://rcbolivia.com/the-lure-el-nuevo-sencillo-del-duo-hondureno-moose/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11949view0 same artist quotations/full exact track credits and linked issuer track.2022publication independently confirms earlier edition."
+        },
+        {
+          "url": "https://open.spotify.com/embed/track/4mRzHuwMSRCl6LAhGnaLdP?si=61f598e798fc4698&utm_source=oembed",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11958view0 publisher-linked exact TheLure/Moose title and artist; artistembed11949view1 reports3:41. Not audio audition."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/45SpjOwyC6NQv0dCGnTQ6p",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11900view0 full100 creator corpus includes Moose26, ChiaCasanova1,JuanPabloOrdonez27 and AtomicRose10/69."
+        },
+        {
+          "url": "https://www.laprensa.hn/amiga/amiga-farandula-daniela-aguilar-grupo-atomic-rose-LC16636937",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11897search2 full independent artist firsthand interview on Honduran indie community,self-production and audience. Community context only, no personnel transferred."
+        }
+      ],
+      "neighbor_distinction": "Indie Catracho is the overlapping independent Honduran music community, not a sound inferred from nationality alone. Exact creator playlist45SpjOwyC6NQv0dCGnTQ6p includes Moose26 alongside Honduran independent pop, rock, folk and electronic collaborators. Artist/management release positively locates Moose in Honduras and its local collaborative/show circuit, naming Chia Casanova and Juan Pablo Ordonez, also in the creator corpus. Atomic Rose firsthand2023 interview independently explains the Honduran independent scene, self-production and local audience building; that other band supplies community context only, never this track personnel. Full existing rock_catracho is a broader national rock field whose DiablosNegros quartet is only a selected branch, not a hard-rock-only restriction. This indie community overlaps that field but also spans pop/folk/electronic practices rather than being a renamed quartet. Musica_hondurena is the broad national repertoire, likewise overlapping. No exclusion from national rock/pop or invented universally independent business status is claimed. Selected Moose track is positively described by its creators as alternative pop evolved from grunge/alternative rock; existing distortedRock.alternative explicitly includes this indie-rock lineage.",
+      "model_policy": "Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master.",
+      "classification_evidence": {
+        "mode": "exact_creator_and_practitioner_community",
+        "note": "Indie Catracho is the overlapping independent Honduran music community, not a sound inferred from nationality alone. Exact creator playlist45SpjOwyC6NQv0dCGnTQ6p includes Moose26 alongside Honduran independent pop, rock, folk and electronic collaborators. Artist/management release positively locates Moose in Honduras and its local collaborative/show circuit, naming Chia Casanova and Juan Pablo Ordonez, also in the creator corpus. Atomic Rose firsthand2023 interview independently explains the Honduran independent scene, self-production and local audience building; that other band supplies community context only, never this track personnel. Full existing rock_catracho is a broader national rock field whose DiablosNegros quartet is only a selected branch, not a hard-rock-only restriction. This indie community overlaps that field but also spans pop/folk/electronic practices rather than being a renamed quartet. Musica_hondurena is the broad national repertoire, likewise overlapping. No exclusion from national rock/pop or invented universally independent business status is claimed. Selected Moose track is positively described by its creators as alternative pop evolved from grunge/alternative rock; existing distortedRock.alternative explicitly includes this indie-rock lineage."
+      },
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "named_singers": [
+          "Bry Venegas"
+        ],
+        "guitarists": 2,
+        "original_vocal_layer_count": "unknown",
+        "decision": "One named singer, editorial singlelead rendition; production personnel not converted to extra voices."
+      },
+      "instrument_role_audit": {
+        "scope": "Representative authored Honduran independent alternative-pop/rock ensemble informed by Moose’s positively documented voice-and-two-guitar practice and named bass/drum collaboration. The management-issued artist account documents Bry Venegas voice/guitar and Roberto Lopez guitar, with Ramses Solano bass and Jose Carlos Sanabria drums in the release-era production network. All four evidenced sound families are retained. This is a new representative arrangement of documented practice, not a reconstruction or exhaustive stem inventory of The Lure, not a claim these four played simultaneously live, and not a reduction of the separately linked Sante performance. Two guitars aggregate within one family card. No exact gear or uncredited vocal headcount is inferred.",
+        "roles": {
+          "voice": "Bry Venegas",
+          "electric_guitar_humbucker": "Bry Venegas and Roberto Lopez, two credited guitars with authored generic electric realization",
+          "electric_bass": "Ramses Solano",
+          "drum_kit": "Jose Carlos Sanabria"
+        },
+        "authored_defaults": "Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "All owning physical and voice controls protected; shared alder choice valid guitar/bass. Two guitarists aggregate within one family card; no unowned donor keyboard/percussion pins."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Genre-level scope derivative; all source-positive roles and all musical controls unchanged. Independent peer required.",
+      "source_scope_limitation": "Representative authored Honduran independent alternative-pop/rock ensemble informed by Moose’s positively documented voice-and-two-guitar practice and named bass/drum collaboration. The management-issued artist account documents Bry Venegas voice/guitar and Roberto Lopez guitar, with Ramses Solano bass and Jose Carlos Sanabria drums in the release-era production network. All four evidenced sound families are retained. This is a new representative arrangement of documented practice, not a reconstruction or exhaustive stem inventory of The Lure, not a claim these four played simultaneously live, and not a reduction of the separately linked Sante performance. Two guitars aggregate within one family card. No exact gear or uncredited vocal headcount is inferred.",
+      "primary_retrieval_refs": [
+        "turn11938view0",
+        "turn11949view0",
+        "turn11958view0",
+        "turn11949view1",
+        "turn11900view0",
+        "turn11897search2",
+        "turn13265view0"
+      ],
+      "source_retrieval_caveat": "Firsthand artist quotations and management-attributed technical credits reproduced in full. No audio audition or complete score inspection; exact source studio hardware and recording date unknown.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_catracho",
+          "name": "Indie Catracho",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11913view0 Commons author/crop/CCBY2.5 confirmed. Historical023 exact preview bytes and visual observation reused; no current download or personal re-view.",
+          "fresh_review_ref": "turn11913view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11913view0"
+        ]
+      },
+      "source_scope_amendment": {
+        "original_packet": "/tmp/batch040/resume024-6.json",
+        "original_sha256": "df38311b85980b101be926dda067ee172e240b0208548ed58f7e03a541f0d40f",
+        "reason": "User clarified documented genre/ensemble practice suffices; exhaustive named-master takes were an unnecessary requirement. No source role is removed."
+      },
+      "prior_public_profile_evidence": {
+        "lineage": "Representative authored Honduran independent alternative-pop/rock ensemble informed by Moose’s positively documented voice-and-two-guitar practice and named bass/drum collaboration. The management-issued artist account documents Bry Venegas voice/guitar and Roberto Lopez guitar, with Ramses Solano bass and Jose Carlos Sanabria drums in the release-era production network. All four evidenced sound families are retained. This is a new representative arrangement of documented practice, not a reconstruction or exhaustive stem inventory of The Lure, not a claim these four played simultaneously live, and not a reduction of the separately linked Sante performance. Two guitars aggregate within one family card. No exact gear or uncredited vocal headcount is inferred. Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master.",
+        "description": "Representative authored Honduran independent alternative-pop/rock ensemble informed by Moose’s positively documented voice-and-two-guitar practice and named bass/drum collaboration. The management-issued artist account documents Bry Venegas voice/guitar and Roberto Lopez guitar, with Ramses Solano bass and Jose Carlos Sanabria drums in the release-era production network. All four evidenced sound families are retained. This is a new representative arrangement of documented practice, not a reconstruction or exhaustive stem inventory of The Lure, not a claim these four played simultaneously live, and not a reduction of the separately linked Sante performance. Two guitars aggregate within one family card. No exact gear or uncredited vocal headcount is inferred. Indie Catracho is the overlapping independent Honduran music community, not a sound inferred from nationality alone. Exact creator playlist45SpjOwyC6NQv0dCGnTQ6p includes Moose26 alongside Honduran independent pop, rock, folk and electronic collaborators. Artist/management release positively locates Moose in Honduras and its local collaborative/show circuit, naming Chia Casanova and Juan Pablo Ordonez, also in the creator corpus. Atomic Rose firsthand2023 interview independently explains the Honduran independent scene, self-production and local audience building; that other band supplies community context only, never this track personnel. Full existing rock_catracho is a broader national rock field whose DiablosNegros quartet is only a selected branch, not a hard-rock-only restriction. This indie community overlaps that field but also spans pop/folk/electronic practices rather than being a renamed quartet. Musica_hondurena is the broad national repertoire, likewise overlapping. No exclusion from national rock/pop or invented universally independent business status is claimed. Selected Moose track is positively described by its creators as alternative pop evolved from grunge/alternative rock; existing distortedRock.alternative explicitly includes this indie-rock lineage. Exact guitar subtype and make are unspecified; a coherent modern electric humbucker pair is an authored realization of the positively credited guitars and artist-described alternative-rock/pop lineage, not measured source equipment. Two source guitarists share the guitar family palette, without erasing their separate roles. Authored clean strumming, short-scale alder/maple/rosewood guitar, moderate AlnicoII pickups and nickel strings; long-scale fretted alder electric bass with soapbar pickup and locked fingerstyle; modern maple kit,thin shells,45degree edges,coated heads,20wire snare,singlefelt pedal,B20 machine-hammered fullylathed traditional-finish cymbals are editorial construction and playing choices. One named singer is represented by solo-accompanied geometry and an authored single-lead take, not a claim any source master has no overdubs. Vocal physiology,training,range and pitch system stay unspecified; syllabic singing and unprocessed vocal capture are authored. Controlled live-room acoustics are a new recording presentation, not a claim about Multiverse Studio. No global tuning or source gear claim; no copied keyboard/percussion layer from donor data. Rendered brisk vocal pacing and the guitar/bass/drum affect words are authored presentation choices, not measured source tempo or quoted source analysis. The press-release band biography supplies both guitar roles; its track-specific technical paragraph separately credits voice, bass and drums. The complete palette is an explicitly combined rendition of that same release-era band and named session credits, not an assertion of independently itemized guitar takes in the master.",
+        "exemplars": [
+          "Moose — documented Honduran indie ensemble and collaborative production practice, representative authored realization"
+        ],
+        "packet": "/tmp/batch040/resume024-6-genre-practice024.json",
+        "sha256": "ca23981f6bf37edc2f82199ebb5b5e6b76a6e842b78908cf82a7b81bbeb64dab"
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

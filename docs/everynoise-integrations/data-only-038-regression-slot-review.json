@@ -1,0 +1,85 @@
+{
+  "rows": [
+    {
+      "id": "goa_trance",
+      "slot_changes": [
+        {
+          "instrument": "digital_subtractive",
+          "part": "electronic_technique",
+          "before": "electronic_bass_sub",
+          "after": "electronic_lead_line",
+          "source_pin_parts": false,
+          "source_variant": "electronic_bass_sub",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_archetypes",
+          "before": "emu_emax",
+          "after": "akai_s1000",
+          "source_pin_parts": false,
+          "source_variant": "akai_s1000",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    },
+    {
+      "id": "antifolk_nyc",
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_jingju_role",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_vedic_three_tone",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "mahogany",
+          "after": "alder",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_12",
+          "after": "g_10",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "before": "scale_short",
+          "after": "scale_gibson",
+          "source_pin_parts": false,
+          "source_variant": "scale_fender",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

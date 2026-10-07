@@ -5,7 +5,7 @@
   "lineage": "Porto-area rap includes the Dealema and Mundo Segundo studio lineage across Porto and Vila Nova de Gaia.",
   "recipe": "classic modern rap portuense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 326,
-  "score": 36.771,
+  "score": 36.88,
   "config": {
     "traditions": [
       "rap_portuense"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.165,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 12.219,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.2,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": 2.1500000000000004,
           "sampler_classic_context": 6.305
         }

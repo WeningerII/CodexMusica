@@ -1,0 +1,66 @@
+{
+  "id": "ghanaian_alternative",
+  "name": "Ghanaian Alternative",
+  "family": "global",
+  "lineage": "Ghanaian alternative music grows through independent musicians, producers and creative communities, especially in Accra. DIY collaboration, festivals and platforms such as ACCRA [dot] ALT and Oroko Radio connect local experimentation with international audiences.",
+  "recipe": "classic ghanaian alternative, electronic Dance. sampler. live tracking.",
+  "recipe_chars": 71,
+  "score": 5.601,
+  "config": {
+    "traditions": [
+      "ghanaian_alternative"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 5.395
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "pin_parts": true
+  }
+}

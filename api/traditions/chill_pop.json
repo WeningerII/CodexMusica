@@ -2,10 +2,10 @@
   "id": "chill_pop",
   "name": "Chill pop",
   "family": "pop",
-  "lineage": "Chill pop is represented here by Audra Watt — Start Late. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic chill pop, functional Song, pop rock branch. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 385,
-  "score": 65.271,
+  "lineage": "Chill pop favors relaxed melodic songwriting and a gentle sense of space across acoustic, band-based and electronically produced approaches.",
+  "recipe": "classic chill pop, functional Song, pop rock branch. unprocessed natural acoustic. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 387,
+  "score": 55.182,
   "config": {
     "traditions": [
       "chill_pop"
@@ -22,26 +22,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.65025,
+          "electric_technique": 11.40025,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.378,
+          "body_wood": 0.42075,
           "neck_wood": 0.1365,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.18525,
+          "pickup_winding": 0.1425,
           "string_material": 0.0315,
-          "bridge": 1.69,
+          "bridge": 0.1365,
           "scale_length": 0.504,
-          "string_gauge": 1.69,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.38549999999999995
+          "string_tuning": 0
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.9650000000000003,
+          "amp_make": 2.275,
           "body_wood": 0.168,
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 13.6915,
+          "drumhead": 11.4415,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.48374999999999996,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.363
+          "voice_processing_chain": 1.3315000000000001,
+          "voice_multitrack_stack": 0.10575
         }
       },
       {
@@ -126,14 +126,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "monel"
         },
         "scores": {
-          "acoustic_technique": 13.9225,
+          "acoustic_technique": 11.6725,
           "string_tuning": 0,
-          "top_wood": 0.2415,
+          "top_wood": 0.28425,
           "back_sides": 0.105,
-          "string_acoustic": 0.33599999999999997
+          "string_acoustic": 0.39
         }
       },
       {
@@ -141,13 +141,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": 0.26,
           "poly_archetypes": 1.95,
-          "poly_voices": 0.231,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -0.035
         }
       }

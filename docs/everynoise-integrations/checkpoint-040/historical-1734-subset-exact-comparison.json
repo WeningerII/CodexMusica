@@ -1,0 +1,630 @@
+{
+  "scope": "Exact full configurations, numeric scores and emitted outputs for original104 changed fixtures; baseline equality is containment, not legacy musical approval.",
+  "full_replay_sha256": "a00d244dc79a8961f453373b05c26a57355c1c93e3e26b16fe89e3f6e6b71f13",
+  "entries": [
+    {
+      "id": "fado",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "tropicalia",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "hardcore_punk",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "hair_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "new_orleans",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "russian_folk_balalaika_choir",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "british_brass_band",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "doom",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "j_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "jam_band",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "fusion",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "jangle_pop",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "ethio_pop_modern",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "progressive_trance",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "choro",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "salsa_nuyorican",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "gospel_quartet_male",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "stoner_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "gabber",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "tin_pan_alley_song",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "modal_jazz",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "blend_carnatic_minimalist",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "blend_classical_jazz_third_stream",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "blend_doom_drone_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "blend_afro_cuban_bebop",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "carnival_brazilian_samba",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "baroque_pop_60s",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "british_invasion_rb",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "reggae_fusion_modern",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "ska_revival_2tone",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "art_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "new_wave",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "hard_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "grunge",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "death_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "pop_punk",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "post_rock_extended",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "gangsta_rap",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "symphonic",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "string_quartet",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "carnatic_vocal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "minimalist",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "industrial",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "hard_bop",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "latin_jazz",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "soul_jazz",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "singer_songwriter",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "early_rock_and_roll_50s",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "sludge_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "maya_marimba",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "tarantella_napoletana",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "brostep",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "ebm_european_body",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "interior_confessional_60s",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "shidaiqu",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "freak_folk_2000s",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "isicathamiya",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "samba_jazz",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "hokum_blues_vaudeville",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "mormon_tabernacle_choir",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "easy_listening_orchestral",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "noise_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "german_wiegenlied",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "yacht_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "antifolk_nyc",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "nwobhm",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "post_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "deep_house_soulful",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "japanese_matsuri_taiko",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "frevo",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "math_rock_post_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "traditional_doom",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "brutal_death_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "cool_jazz_vocal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "electroacoustic_composition",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "kompa_direkt",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "bouyon",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "somali_qaraami",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "coupe_decale_ivorian",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "zouglou_ivorian",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "kapuka_kenyan",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "khaliji_gulf",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "cumbia_rebajada",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "filin_cubano",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "festejo_afroperuano",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "currulao_pacifico",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "forro_pe_de_serra",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "lambada_carimbo",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "lutheran_chorale",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "methodist_hymnody",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "slacker_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "speed_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "groove_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "gothic_metal",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "stoner_rock",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "desert_rock_palm",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "dark_electro_aggrotech",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "russian_kolybelnaya",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "french_berceuse",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "bengali_ghum_paranir_gan",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "ethiopian_eskista_wedding",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "bengali_chhotoder_chora",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    },
+    {
+      "id": "brazilian_samba_school_enredo",
+      "output_equal": true,
+      "config_equal": true,
+      "score_equal": true
+    }
+  ]
+}

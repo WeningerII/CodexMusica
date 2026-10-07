@@ -1,0 +1,90 @@
+{
+  "id": "viola_arame_madeira",
+  "name": "Viola de arame (Madeiran ten-string viola)",
+  "short": "Viola de arame",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "viola_arame_madeira_identity",
+      "name": "Regional instrument identity",
+      "variants": [
+        {
+          "id": "viola_arame_madeira_documented_form",
+          "name": "Madeiran wire-strung viola, ten strings in five doubled courses",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_arame_madeira_gesture",
+      "name": "Authored accompaniment approach",
+      "variants": [
+        {
+          "id": "viola_arame_madeira_strummed",
+          "name": "Authored strummed accompaniment",
+          "default": true,
+          "descriptors": [
+            "strummed"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "viola_arame_madeira_identity",
+      "name": "Regional instrument identity",
+      "variants": [
+        {
+          "id": "viola_arame_madeira_documented_form",
+          "name": "Madeiran wire-strung viola, ten strings in five doubled courses",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_arame_madeira_gesture",
+      "name": "Authored accompaniment approach",
+      "variants": [
+        {
+          "id": "viola_arame_madeira_strummed",
+          "name": "Authored strummed accompaniment",
+          "default": true,
+          "descriptors": [
+            "strummed"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ]
+}

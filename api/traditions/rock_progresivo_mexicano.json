@@ -2,10 +2,10 @@
   "id": "rock_progresivo_mexicano",
   "name": "Rock progresivo mexicano",
   "family": "rock",
-  "lineage": "Rock progresivo mexicano is represented here by Sistema Sonar — Pléyades LIVE. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Mexican progressive rock develops rock-band playing through instrumental detail and evolving arrangements.",
   "recipe": "classic rock progresivo mexicano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 48.387,
+  "score": 50.656,
   "config": {
     "traditions": [
       "rock_progresivo_mexicano"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.10500000000000001,
-          "amp_make": 6.11,
+          "amp_make": 7.0200000000000005,
           "body_wood": 0.693,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
           "pickup_magnet": 0.252,
           "pickup_winding": 0.46599999999999997,
-          "string_material": 0.378,
-          "bridge": 1.523875,
-          "scale_length": 1.1025,
-          "string_gauge": 1.4608750000000001,
+          "string_material": 0.39,
+          "bridge": 0.223875,
+          "scale_length": 0.39,
+          "string_gauge": 0.160875,
           "finish": 0.1365,
-          "string_tuning": 0.337125
+          "string_tuning": 0.03712499999999999
         }
       },
       {
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
+          "amp_make": 7.475,
           "body_wood": 0.21,
           "pickup_config": 0.2835,
-          "string_type": 15.6,
+          "string_type": 17.875,
           "scale_length_b": 0.378,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
@@ -71,11 +71,11 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
+          "drum_technique": 13.75,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }

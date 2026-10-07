@@ -1,0 +1,132 @@
+{
+  "id": "doromb_hungarian",
+  "name": "Doromb (Hungarian steel jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "short": "doromb",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "parts": [
+    {
+      "id": "doromb_construction",
+      "name": "Complete instrument construction",
+      "variants": [
+        {
+          "id": "doromb_high_carbon_steel",
+          "name": "Heat-treated high-carbon steel frame and free spring",
+          "default": true,
+          "descriptors": [
+            "steel",
+            "ringing",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doromb_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "doromb_inward_finger_pluck",
+          "name": "Finger plucks spring inward; frame against teeth",
+          "default": true,
+          "descriptors": [
+            "finger-plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doromb_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "doromb_oral_formant_breath",
+          "name": "Tongue-shaped oral resonance and breath modulation",
+          "default": true,
+          "descriptors": [
+            "overtone-shaped",
+            "breath-modulated"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "doromb_construction",
+      "name": "Complete instrument construction",
+      "variants": [
+        {
+          "id": "doromb_high_carbon_steel",
+          "name": "Heat-treated high-carbon steel frame and free spring",
+          "default": true,
+          "descriptors": [
+            "steel",
+            "ringing",
+            "buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doromb_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "doromb_inward_finger_pluck",
+          "name": "Finger plucks spring inward; frame against teeth",
+          "default": true,
+          "descriptors": [
+            "finger-plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "doromb_resonator",
+      "name": "Resonator",
+      "variants": [
+        {
+          "id": "doromb_oral_formant_breath",
+          "name": "Tongue-shaped oral resonance and breath modulation",
+          "default": true,
+          "descriptors": [
+            "overtone-shaped",
+            "breath-modulated"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

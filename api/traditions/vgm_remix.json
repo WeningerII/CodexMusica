@@ -1,0 +1,66 @@
+{
+  "id": "vgm_remix",
+  "name": "VGM remix",
+  "family": "electronic",
+  "lineage": "Reworking and rearrangement of video-game music and sound, ranging from electronic dance remixes to experimental sample manipulation. Game themes and effects become material for new musical structures.",
+  "recipe": "classic vgm remix, experimental Elec. glitched textural sampler. live tracking.",
+  "recipe_chars": 79,
+  "score": 14.202,
+  "config": {
+    "traditions": [
+      "vgm_remix"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 6.2,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.162,
+          "sampler_workflow": 6.2,
+          "sampler_classic_context": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_glitch_textural",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true
+  }
+}

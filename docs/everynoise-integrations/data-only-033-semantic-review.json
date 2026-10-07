@@ -1,0 +1,131 @@
+{
+  "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+  "status": "PASS_AFTER_BOUNDED_TAXONOMY_AMENDMENT",
+  "exclusion_count": 189,
+  "excluded_collisions": [],
+  "scope": "All100 narrative/category/default and family statements inspected; independent primary peer evidence retained per packet. No claim reviewer newly browsed every primary100 source. Exact79source hashes and full frozen entry projection pass; all immutable allocation ids/ordinals match. Complete1535oldmergedinstrument preservation;9newdependencies valid families, no raw_ownParts, no new unknown DF descriptors.",
+  "required_corrections": [
+    {
+      "id": "sunnlensk_tonlist",
+      "field": "extras.parent",
+      "before": "balladPoetry",
+      "after": "functionalSong",
+      "reason": "Selected8-person11-family track is not minimal accompaniment/intimate scale. Preserve full roles, use explicitly authored conventional chordal verse/refrain realization grounded in documented singer-songwriter song.",
+      "fresh_primary_ref": "turn4712view1"
+    },
+    {
+      "id": "sinogaze",
+      "field": "tradition.family",
+      "before": "rock_punk",
+      "after": "rock",
+      "reason": "Selected shoegaze/fuzz-pop/psychedelic guitar practice is under alternative node explicitly outside metal/punk."
+    }
+  ],
+  "conservative_recommendation": [
+    {
+      "id": "theremin",
+      "field": "extras.parent",
+      "before": "artMusic.westernModern",
+      "after": "artMusic",
+      "reason": "Exact Sonina catalog supports concert chamber work, not specific post-tonal or expanded-tonality method. Retain broad supported parent.",
+      "fresh_primary_ref": "turn4712view0"
+    }
+  ],
+  "default_audit": {
+    "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+    "parts": 3727,
+    "protectedParts": 3719,
+    "unpinned": [
+      {
+        "tradition": "slovenske_chvaly",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "solipsynthm",
+        "instrument": "string_machine",
+        "part": "electronic_technique",
+        "flat_value": "electronic_arpeggiated",
+        "imported_default": "electronic_pad_drone",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "stl_indie",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "swedish_ebm",
+        "instrument": "sampler_classic",
+        "part": "electronic_technique",
+        "flat_value": "electronic_arpeggiated",
+        "imported_default": "electronic_sample_chopped",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "swiss_worship",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "toronto_indie",
+        "instrument": "electronic_organ_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_organ_melodic_sustained",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "trondersk_musikk",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "tucson_indie",
+        "instrument": "pedal_steel",
+        "part": "electric_technique",
+        "flat_value": "electric_clean_strummed",
+        "imported_default": "electric_steel_pedal_swells",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      }
+    ],
+    "errors": []
+  },
+  "raw_source_preservation": {
+    "raw_traditions_old_unchanged": 5838,
+    "raw_instruments_old_unchanged": 1535,
+    "old_extras_unchanged": 5838,
+    "merged_instruments_old_unchanged": 1535,
+    "data/geo.json_old_keys": 5838,
+    "references/_tradition_signatures.json_old_keys": 3816,
+    "old_images_unchanged": 7323,
+    "new_images": 109
+  },
+  "browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1535,
+      "traditions": 5838,
+      "cards": 25337
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "no_repository_mutation": true,
+  "original_review_frozen_sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+  "all_three_recommendations_applied": true,
+  "rationale_sync": "Sunnlensk neighbor_distinction synchronized in evidence-only final revision."
+}

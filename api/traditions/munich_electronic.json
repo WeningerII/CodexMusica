@@ -2,10 +2,10 @@
   "id": "munich_electronic",
   "name": "Munich electronic",
   "family": "electronic",
-  "lineage": "Munich electronic is represented here by Panic Girl (Martha Bahr) — documented modular-synthesis core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic munich electronic, experimental Elec, ambient branch. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 233,
-  "score": 11.207,
+  "lineage": "Munich electronic music includes experimental producers and performers alongside the city’s wider dance-music culture. Modular synthesis offers one route into ambient and exploratory composition.",
+  "recipe": "classic munich electronic, experimental Elec, ambient branch. modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 13.693,
   "config": {
     "traditions": [
       "munich_electronic"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 5.63375,
-          "mod_voltage_source": 1.93375,
-          "mod_patch_density": 1.95,
-          "mod_lineage": 1.69
+          "electronic_technique": 7.6485,
+          "mod_voltage_source": 1.4485000000000001,
+          "mod_patch_density": 3.6399999999999997,
+          "mod_lineage": 0.9555000000000002
         }
       }
     ],

@@ -1,0 +1,93 @@
+{
+  "id": "tambor_pitius",
+  "name": "Tambor pitiús (pine double-headed drum)",
+  "short": "tambor pitiús",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tambor_pitius_form",
+      "name": "Regional shell",
+      "variants": [
+        {
+          "id": "tambor_pitius_hollow_pine",
+          "name": "Hollow pine shell and two skin heads",
+          "default": true,
+          "descriptors": [
+            "pine",
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tambor_pitius_heads",
+      "name": "Regional tension-and-buzz assembly",
+      "variants": [
+        {
+          "id": "tambor_pitius_goat_rope_buzz",
+          "name": "Goat-skin option, rope tension and fibre buzzing cord",
+          "default": true,
+          "descriptors": [
+            "goatskin",
+            "rope-tensioned",
+            "buzzing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Official inventory positively specifies hollow pine and two goat/rabbit skins; federation further identifies tensioning cord, buzzing fibre brunyidor, arm suspension and one stick. Goat option authored within source possibilities; no calfskin, metal snare or borrowed regional pattern. Numeric axes are neutral editorial scaffold, not measured acoustic characterization.",
+  "sources": [
+    "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2012-9054",
+    "https://ballpages.cat/patrimoni/sonades-i-gaites/"
+  ],
+  "_ownParts": [
+    {
+      "id": "tambor_pitius_form",
+      "name": "Regional shell",
+      "variants": [
+        {
+          "id": "tambor_pitius_hollow_pine",
+          "name": "Hollow pine shell and two skin heads",
+          "default": true,
+          "descriptors": [
+            "pine",
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "tambor_pitius_heads",
+      "name": "Regional tension-and-buzz assembly",
+      "variants": [
+        {
+          "id": "tambor_pitius_goat_rope_buzz",
+          "name": "Goat-skin option, rope tension and fibre buzzing cord",
+          "default": true,
+          "descriptors": [
+            "goatskin",
+            "rope-tensioned",
+            "buzzing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

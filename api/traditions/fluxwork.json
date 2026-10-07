@@ -1,0 +1,70 @@
+{
+  "id": "fluxwork",
+  "name": "Fluxwork",
+  "family": "electronic",
+  "lineage": "Fluxwork gathers exploratory electronic artists whose music develops through evolving patterns and textures. Modular synthesis offers one approach within this overlapping experimental field.",
+  "recipe": "classic fluxwork, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 243,
+  "score": 11.038,
+  "config": {
+    "traditions": [
+      "fluxwork"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_buchla_west_coast"
+        },
+        "scores": {
+          "electronic_technique": 8.556999999999999,
+          "mod_voltage_source": 1.3,
+          "mod_patch_density": 0,
+          "mod_lineage": 1.181
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_sequencer",
+      "mod_patch_density": "mod_west_coast",
+      "mod_lineage": "mod_buchla_west_coast"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

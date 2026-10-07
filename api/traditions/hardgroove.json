@@ -1,0 +1,87 @@
+{
+  "id": "hardgroove",
+  "name": "Hardgroove",
+  "family": "electronic",
+  "lineage": "Hardgroove developed within techno through funk-driven rhythm, percussion and layered loop production, with Ben Sims central to its named scene and label. Its connections to DJ culture emphasize movement and interaction between rhythmic layers rather than a single fixed tempo or sample source.",
+  "recipe": "classic hardgroove, electronic Dance, techno branch. layered sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. treated studio.",
+  "recipe_chars": 171,
+  "score": 9.581,
+  "config": {
+    "traditions": [
+      "hardgroove"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.2229999999999999,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 1.0679999999999998,
+          "sampler_classic_context": 5.85
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_techno",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": -0.035,
+          "drum_machine_909_context": 0.325,
+          "tr909_production_origin": 1.2349999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "drum_machine_909": [
+        "tr909_voice",
+        "drum_machine_909_context",
+        "tr909_production_origin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_techno",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
+    },
+    "pin_parts": true
+  }
+}

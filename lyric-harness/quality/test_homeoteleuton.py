@@ -171,11 +171,15 @@ def test_pair_verdicts():
 
 
 def test_pursuit_is_mandatory():
-    print("\n4. the pursuit is mandatory — the class ban cannot be waited "
-          "out")
-    check("HOMEOTELEUTON is in MANDATORY_PURSUE beside MODAL_RHYME — "
-          "additive-only, no declaration can remove it",
-          MANDATORY_PURSUE >= {"MODAL_RHYME", "HOMEOTELEUTON"},
+    print("\n4. ~~the pursuit is mandatory — the class ban cannot be waited "
+          "out~~ ENDED 2026-10-04 (owner's ruling): the ban is reported, "
+          "not pursued")
+    # ~~HOMEOTELEUTON is in MANDATORY_PURSUE beside MODAL_RHYME —
+    # additive-only, no declaration can remove it~~ — REPINNED 2026-10-04:
+    # the owner emptied the pursue set; sections 1-3 still pin the ban itself.
+    check("HOMEOTELEUTON holds no line open: MANDATORY_PURSUE is empty",
+          "HOMEOTELEUTON" not in MANDATORY_PURSUE
+          and MANDATORY_PURSUE == frozenset(),
           sorted(MANDATORY_PURSUE))
 
 

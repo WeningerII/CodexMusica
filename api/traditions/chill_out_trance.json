@@ -1,0 +1,87 @@
+{
+  "id": "chill_out_trance",
+  "name": "Chill-Out Trance",
+  "family": "electronic",
+  "lineage": "Chill-out trance connects trance repertoire with relaxed listening, including reinterpretations of vocal-trance songs. Remixers and labels such as Seven24’s network, RNM and Suanda link melodic dance music with atmospheric listening arrangements.",
+  "recipe": "classic chill-out trance, electronic Dance, trance branch. analog poly synth, drum machine analog. shoebox concert hall.",
+  "recipe_chars": 120,
+  "score": 1.625,
+  "config": {
+    "traditions": [
+      "chill_out_trance"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "poly_archetypes": 0.8365,
+          "poly_voices": 0.1365,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.231,
+          "snare_voice": 0,
+          "hat_voice": 0.231,
+          "shuffle_quantize": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "sound_team",
+  "name": "Sound team",
+  "family": "classical",
+  "lineage": "Sound Team connects game-audio departments, staff composers and their associated soundtrack repertoire. Company ensembles and individual composers circulate music through games, albums, concerts and arranged editions.",
+  "recipe": "classic sound team, art Music. upright piano. shoebox concert hall.",
+  "recipe_chars": 67,
+  "score": 2.531,
+  "config": {
+    "traditions": [
+      "sound_team"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true
+  }
+}

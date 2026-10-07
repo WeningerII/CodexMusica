@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "baseline": "0c3e9a6767273aaab31f77f8492b977c72fb40a1",
+  "files_checked": 261,
+  "checked_paths": [
+    "scripts",
+    "mcp",
+    ".github",
+    "references/_descriptor_df.json",
+    "references/_soundword_vocab.json",
+    "references/_signature_rulings.json",
+    "references/03_rooms.js",
+    "references/04_chains.js",
+    "references/_instrument_family_parts.js"
+  ],
+  "unexpected_changes": [],
+  "source_roots": "All original scripts,MCP/workflows plus existing frozen DF/vocab/rulings and named shared reference sources. src/app.js is generated catalog mirror separately audited.",
+  "no_mutations": true,
+  "frozen_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f"
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_INDEPENDENT_GENRE_PROFILE_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-001.json",
+  "packet_sha256": "7703c5d190473292b54037f062bd59c3952b939519ad9c47615688dc8ff49ca9",
+  "reviewer": "research117",
+  "scope": "Public genre prose, representative defaults and eight original runtime strings; prior primary/photo evidence retained, no new download or source retrieval asserted.",
+  "entries": [
+    {
+      "id": "underground_power_pop",
+      "decision": "PASS",
+      "reason": "Independent label/fanzine/festival community lineage and bright guitar-hook/harmony description represent the genre rather than a named single. Guitar/bass/drums/group voice plus optional chordal keyboard is a credible power-pop ensemble. Existing source count remains evidence only. Actual four outputs retain this palette without artist names or unrelated cultural mechanisms."
+    },
+    {
+      "id": "grupero_romantico",
+      "decision": "PASS",
+      "reason": "Genre-centered romantic-song/dance-circuit description replaces concert dossier. Voice, clean electric guitar, bass, keyboard/synth, electronic kit and auxiliary percussion form a usable electronic grupero arrangement, not an implausible instrumentation forced by one excerpt. Seven cards do not require seven players. Keyboard plus synth is acceptable as a layered authored keyboard arrangement; historical sources do not establish two simultaneous physical devices and no such requirement should be presented. Brisk default represents the rhythmic end explicitly included in the profile, not a universal ballad tempo.",
+      "limitation": "Neutral credited instrument owner display names remain catalog architecture, not newly introduced historical claims; future optional consolidation of keyboard/synth would be a simplification, not required factual repair."
+    }
+  ],
+  "runtime": {
+    "formats": 8,
+    "parity": true,
+    "max_chars": 994,
+    "literal_semantics": "Read all eight. Up-tempo/hip-rocking/confident/trudging/witty/bodacious/cheery/eager are authored affect compatible with band treatments; no missing instruments or foreign tradition claim.",
+    "not_claimed": "Integrated static API, regression, CI or publication approval"
+  }
+}

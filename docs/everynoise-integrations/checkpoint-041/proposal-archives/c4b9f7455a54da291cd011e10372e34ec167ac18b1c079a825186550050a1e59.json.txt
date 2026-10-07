@@ -1,0 +1,357 @@
+{
+  "entries": [
+    {
+      "source_label": "musica nayarita",
+      "source_url": "https://everynoise.com/engenremap-musicanayarita.html",
+      "suggested_id": "musica_nayarita",
+      "allocation_ordinal": 3886,
+      "allocation_group_id": "156",
+      "id": "musica_nayarita",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "musica_nayarita",
+        "name": "Música Nayarita",
+        "family": "global",
+        "lineage": "Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred. Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.mexican",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Música Nayarita names a regional musical community spanning Nayarit and its migrant fair network, not a single instrumental style. The FENINE2014 eyewitness account directly places Hechizeros in that community. Creator repertoire includes Banda Móvil, Banda R15, Cohuich, Torbellinos and Invierno Musical, with brass bandas and electrified dance groups; selected Hechizeros membership in that exact playlist is not claimed. Existing tecnobanda already includes several shared creator artists and this selected electronic-tecnobanda branch overlaps it. The distinction is the positively documented regional and diaspora institution, broader than that specific style, not a new ensemble alone. Banda sinaloense specifies its Sinaloan brass/percussion practice; norteño its border accordion/bajo-sexto lineage; duranguense its Chicago Durangan dance formation; ranchera its song tradition. All may circulate within this regional field, so no strict sonic or geographic exclusion is claimed. Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred. Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented.",
+        "exemplars": [
+          "Hechizeros Band — complete documented2009/2011 six-person practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        21.5085,
+        -104.8957,
+        "Tepic",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Editorial regional reference at Tepic, positively documented as the booking-office location in the2011 profile. Not a claim that San Vicente origin,2009 interview, recording or2014 California performance occurred in Tepic.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Música Nayarita names a regional musical community spanning Nayarit and its migrant fair network, not a single instrumental style. The FENINE2014 eyewitness account directly places Hechizeros in that community. Creator repertoire includes Banda Móvil, Banda R15, Cohuich, Torbellinos and Invierno Musical, with brass bandas and electrified dance groups; selected Hechizeros membership in that exact playlist is not claimed. Existing tecnobanda already includes several shared creator artists and this selected electronic-tecnobanda branch overlaps it. The distinction is the positively documented regional and diaspora institution, broader than that specific style, not a new ensemble alone. Banda sinaloense specifies its Sinaloan brass/percussion practice; norteño its border accordion/bajo-sexto lineage; duranguense its Chicago Durangan dance formation; ranchera its song tradition. All may circulate within this regional field, so no strict sonic or geographic exclusion is claimed.",
+      "classification_evidence": "Música Nayarita names a regional musical community spanning Nayarit and its migrant fair network, not a single instrumental style. The FENINE2014 eyewitness account directly places Hechizeros in that community. Creator repertoire includes Banda Móvil, Banda R15, Cohuich, Torbellinos and Invierno Musical, with brass bandas and electrified dance groups; selected Hechizeros membership in that exact playlist is not claimed. Existing tecnobanda already includes several shared creator artists and this selected electronic-tecnobanda branch overlaps it. The distinction is the positively documented regional and diaspora institution, broader than that specific style, not a new ensemble alone. Banda sinaloense specifies its Sinaloan brass/percussion practice; norteño its border accordion/bajo-sexto lineage; duranguense its Chicago Durangan dance formation; ranchera its song tradition. All may circulate within this regional field, so no strict sonic or geographic exclusion is claimed.",
+      "model_policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented.",
+      "source_scope_limitation": "Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred.",
+      "source_retrieval_caveat": "Fresh direct2009 firsthand interview and2014 regional-fair eyewitness read;2011 booking profile freshly indexed but direct429. Exact creator playlist directly read; Hechizeros absent there, so membership not asserted. Later fair evidence is community corroboration only, not roster transfer.",
+      "vocal_count_audit": {
+        "selected_count": 3,
+        "named_singers": [
+          "Rafael Sanabria",
+          "Miguel Orozco",
+          "José Medina"
+        ],
+        "decision": "Three explicitly credited singers in full dated six-person group; bass doubling retained. No invented chorus or continuous simultaneity."
+      },
+      "instrument_role_audit": {
+        "scope": "Hechizeros Band: full six-person practice documented in the March2009 firsthand interview, corroborated by the September2011 booking profile. Rafael Sanabria bass/voice, Miguel Orozco voice, Ernesto Zamorano keyboards, Amador Medina drums, Antonio Jasso guitar and José Medina voice. All five instrument families and three singers retained. This dated ensemble is not a reconstructed El Sonidito recording, a whole album session or the2014 fair lineup. No guest, track duration, exact patches, vocal tracking or measured temperament inferred.",
+        "roles": {
+          "voice": "Three named singers, including bassist",
+          "electric_guitar_humbucker": "Antonio Jasso guitar; authored electric construction",
+          "electric_bass": "Rafael Sanabria bass; authored electric construction",
+          "drum_kit": "Amador Medina batería",
+          "electronic_keyboard_unspecified": "Ernesto Zamorano teclados; unspecified architecture"
+        },
+        "authored_defaults": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Authored full dated-group rendition preserves the three singers, guitar, bass, keyboard and drum roles. Source says teclados without engine: use existing neutral electronic keyboard identity, no specific synthesis, sampling or organ mechanism. Authored held chordal layers and melodic responses apply to that keyboard layer, not the entire dance ensemble. Guitar construction is newly authored electric humbucker/alder/maple/rosewood with AlnicoII medium winding, pure nickel10-gauge strings, short scale, vibrato bridge and clean strum. Bass is authored alder/soapbar, fretted34-inch scale, nickel roundwounds and locked fingerstyle. Drum kit is authored thin maple shells,45-degree edges, coated heads,20wires, single felt pedal and B20 fully lathed machine-hammered traditional-finish cymbals with rock sticks. No source equipment specification is asserted. Source-unspecified vocal physiology, register, ornament and pitch remain neutral; live group tracking is a new ensemble realization, not documented studio overdubs. Controlled live-room acoustics, unprocessed voice and brisk dance-band pacing are authored, not measured source BPM. Existing Mexican song node is scoped to this popular-song branch with explicitly authored verse–chorus–bridge over functional progressions; no transcription or universal formal claim about all Nayarit music. No global tuning is invented."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "rule": "Applicable owning controls checked against actual merged owners; shared guitar/bass material keys accepted by both. Neutral keyboard own technique remains explicitly pinned."
+      },
+      "sources": [
+        {
+          "url": "https://www.informador.mx/Entretenimiento/Hechizeros-Band-quieren-romper-fronteras-20090316-0017.html",
+          "title": "Firsthand2009 band interview",
+          "support_notes": "turn910285view1 full six-person roster and self-described electronic/tecnobanda mixture; source scope limited to dated group."
+        },
+        {
+          "url": "https://hechizerosband.blogspot.com/",
+          "title": "Dated2011 artist booking profile",
+          "support_notes": "turn976027search1 corroborates exact roster, San Vicente origin and Tepic booking office. Direct429 disclosed."
+        },
+        {
+          "url": "https://www.elsoldenayarit.mx/cultura/28638-feria-de-nayarit-en-california-cierra-con-un-gran-baile-en-su-primer-dia",
+          "title": "Firsthand2014 FENINE Nayarit diaspora fair report",
+          "support_notes": "turn548185view0 named federation and Hechizeros performance in collective Nayarit identity; not source roster."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/04G3LVD83zLWhVGunErVDi",
+          "title": "Creator Música Nayarita repertoire",
+          "support_notes": "turn910285view2 full100. Broad brass/electrified regional artist network, overlap with old tecnobanda explicit. No selected artist membership claimed."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn910285view1",
+        "turn976027search1",
+        "turn548185view0",
+        "turn910285view2"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_nayarita",
+          "name": "Música Nayarita",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not source performers, Nayarit identity, or actual band equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn548185view2 confirms CC BY2.5 credit/crop. Exact historical023 receipts retained.",
+          "fresh_review_ref": "turn548185view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh Commons turn548185view2; historical bytes and visual observation retained without new download claim.",
+        "fresh_rights_retrieval_refs": [
+          "turn548185view2"
+        ]
+      },
+      "verification_status": "Original merged1638 owners unchanged;51 effective owning parts protected by49 flat pins; zero errors/fallbacks; four original browser/connector formats pass, max988characters. Authored brisk voice, hip-rocking guitar and confident/trudging/witty affect remain source-compatible; no unrelated culture or omitted role. Final integrated static/signature gates remain root responsibility.",
+      "source_review_refs": [
+        "turn910285view1",
+        "turn976027search1",
+        "turn548185view0",
+        "turn910285view2"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

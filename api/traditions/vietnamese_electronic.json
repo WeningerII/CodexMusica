@@ -1,0 +1,63 @@
+{
+  "id": "vietnamese_electronic",
+  "name": "Vietnamese electronic",
+  "family": "electronic",
+  "lineage": "Vietnamese electronic music connects club production with experimental sound art and electroacoustic composition. Artists such as Sound Awakener explore recorded environments and processed acoustic sources alongside other forms of electronic practice.",
+  "recipe": "classic vietnamese electronic, experimental Elec. environmental sound collage, credited music box unspecified. live tracking.",
+  "recipe_chars": 125,
+  "score": 0.39,
+  "config": {
+    "traditions": [
+      "vietnamese_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "environmental_sound_collage",
+        "slots": {
+          "environmental_collage_source": "environmental_field_recording_collage"
+        },
+        "scores": {
+          "environmental_collage_source": 0.39
+        }
+      },
+      {
+        "id": "credited_music_box_unspecified",
+        "slots": {
+          "credited_music_box_identity": "music_box_processed_unspecified"
+        },
+        "scores": {
+          "credited_music_box_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "environmental_sound_collage": [
+        "environmental_collage_source"
+      ],
+      "credited_music_box_unspecified": [
+        "credited_music_box_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "environmental_collage_source": "environmental_field_recording_collage",
+      "credited_music_box_identity": "music_box_processed_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Rap metalcore’s discovery roster includes Cardiff alternative hip-hop band JuggaNote. Their 2010 EP supplies a documented band-and-sampler branch.",
   "recipe": "classic early-2010s rap metalcore, distorted Rock, metal branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, chopped sampler, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 406,
-  "score": 61.709,
+  "score": 62.496,
   "config": {
     "traditions": [
       "rap_metalcore"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 6.5,
+          "voice_quality": 6.668,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,11 +42,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 6.681,
-          "voice_ensemble_config": 1.029,
+          "voice_speech_song": 6.8175,
+          "voice_ensemble_config": 1.344,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1575,
+          "voice_processing_chain": 0.0945,
           "voice_multitrack_stack": 0.273
         }
       },
@@ -74,8 +74,8 @@
           "neck_wood": 0.5775,
           "fretboard": 0.315,
           "pickup_magnet": 0.21,
-          "pickup_winding": 0.3045,
-          "string_material": 0.1365,
+          "pickup_winding": 0.37799999999999995,
+          "string_material": 0.21,
           "bridge": 0.5775,
           "scale_length": 2.34,
           "string_gauge": 0.7875,
@@ -100,9 +100,9 @@
           "body_wood": 1.155,
           "pickup_config": 0.21,
           "string_type": 4.875,
-          "scale_length_b": 0.5775,
-          "fretted_or_not": 0.231,
-          "bass_technique": 3.7,
+          "scale_length_b": 0.609,
+          "fretted_or_not": 0.2625,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -118,7 +118,7 @@
         "scores": {
           "electronic_technique": 1.4815,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.6405000000000001,
+          "sampler_bit_depth": 0.504,
           "sampler_workflow": 1.4,
           "sampler_classic_context": 4.8100000000000005
         }
@@ -131,7 +131,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 3.7815,
           "drumhead": 0.7245,
           "drum_kit_kick_pedal": 0
         }

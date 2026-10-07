@@ -1,0 +1,609 @@
+{
+  "id": "musique_comorienne",
+  "name": "Musique Comorienne",
+  "family": "jazz",
+  "lineage": "Music of Comoros, connecting island song traditions with the wider Indian Ocean musical world.",
+  "recipe": "classic musique comorienne, improv On Frame, fusion branch. oud, violin orchestral, cello, accordion, darbuka, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, electric bass, bronze bell bronze brushes-and-sticks drum kit, qanun, walnut bent frame canonical Persian daf, bongos, comorian gambusi, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, singing indian rosewood rosewood acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 63.822,
+  "config": {
+    "traditions": [
+      "musique_comorienne"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.15000000000000002,
+          "oud_school": 0.1365,
+          "oud_strings": 0.378,
+          "oud_pick": 0.1365,
+          "oud_body_wood": 0.6825000000000001,
+          "oud_soundboard_wood": 0.546,
+          "oud_string_material": 0.6825000000000001
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "orch_strings": 0,
+          "orch_top_wood": -0.07,
+          "orch_back_wood": -0.07,
+          "orch_varnish": -0.1,
+          "orch_setup_period": -0.07,
+          "orch_bow": 0,
+          "orch_bow_stick": -0.10500000000000001,
+          "orch_articulation": 0.168,
+          "orch_rosin": -0.07
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "cello_strings": 0.315,
+          "cello_top_wood": -0.07,
+          "cello_back_wood": -0.07,
+          "cello_varnish": -0.1,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.378,
+          "cello_rosin": -0.1,
+          "cello_bow_stick": -0.10500000000000001
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "accordion_reed_material": 0.5145,
+          "musette_offset": 0,
+          "reed_config": 0,
+          "bellows": 0,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0.6825000000000001
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 0.546,
+          "darbuka_skin": 0.861,
+          "darbuka_regional_style": 0.6825000000000001
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "rhodes_model": 7.136499999999999,
+          "rhodes_use": 0.1365,
+          "rhodes_tine_material": 1.2285000000000001,
+          "rhodes_hammer_tip": 1.7745000000000002,
+          "rhodes_pickup_position": 1.092
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.273,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0.147,
+          "bass_technique": -0.10500000000000001,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 10.01,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0,
+          "shell_thickness": 0,
+          "bearing_edges": 0.8294999999999999,
+          "snare_wires": 0,
+          "cymbal_alloy": 11.649999999999999,
+          "cymbal_hammering": -0.15000000000000002,
+          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_walnut_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.15000000000000002,
+          "qanun_strings": 0.378,
+          "qanun_levers": 0.315,
+          "qanun_pick": 0.8925,
+          "qanun_body_wood": 0.546,
+          "qanun_bridge_skin": 0.546,
+          "qanun_string_material": 0.315
+        }
+      },
+      {
+        "id": "daf",
+        "slots": {
+          "daf_rings": "daf_with_rings",
+          "daf_context": "daf_sufi",
+          "daf_shell_wood": "daf_walnut_canonical",
+          "daf_head_material": "daf_goat_skin_canonical",
+          "daf_jingle_metal": "daf_brass_rings"
+        },
+        "scores": {
+          "daf_rings": 0,
+          "daf_context": 0,
+          "daf_shell_wood": 1.95,
+          "daf_head_material": 0.546,
+          "daf_jingle_metal": 0.546
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_descarga",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "bongos_skin": -0.035,
+          "bongos_context": 0.21000000000000002,
+          "bongos_shell_wood": 0.546
+        }
+      },
+      {
+        "id": "comorian_gambusi",
+        "slots": {
+          "comorian_gambusi_form": "comorian_gambusi_nawal_four_string"
+        },
+        "scores": {
+          "comorian_gambusi_form": 0.3
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": -0.035,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": 6.999999999999999,
+          "sax_maker_school": 9.034999999999998
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 1.2349999999999999,
+          "string_acoustic": 0.1365,
+          "acoustic_om_technique": -0.25
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "darbuka": [
+        "percussion_technique",
+        "darbuka_material",
+        "darbuka_skin",
+        "darbuka_regional_style"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use",
+        "rhodes_tine_material",
+        "rhodes_hammer_tip",
+        "rhodes_pickup_position"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "qanun": [
+        "plucked_traditional_technique",
+        "qanun_strings",
+        "qanun_levers",
+        "qanun_pick",
+        "qanun_body_wood",
+        "qanun_bridge_skin",
+        "qanun_string_material"
+      ],
+      "daf": [
+        "daf_rings",
+        "daf_context",
+        "daf_shell_wood",
+        "daf_head_material",
+        "daf_jingle_metal"
+      ],
+      "bongos": [
+        "percussion_technique",
+        "bongos_skin",
+        "bongos_context",
+        "bongos_shell_wood"
+      ],
+      "comorian_gambusi": [
+        "comorian_gambusi_form"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_eagle_feather",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "oud_pyramid_nylon",
+      "bowed_technique": "bowed_legato_classical",
+      "orch_strings": "synthetic_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_hohner_gola",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "rhodes_tine_material": "rhodes_torrington_tine",
+      "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+      "rhodes_pickup_position": "rhodes_pickup_centered",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "brushes_and_sticks",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "qanun_strings": "qanun_arab_72",
+      "qanun_levers": "mandal_brass",
+      "qanun_pick": "qanun_finger_picks",
+      "qanun_body_wood": "qanun_walnut_body",
+      "qanun_bridge_skin": "qanun_goat_skin_bridge",
+      "qanun_string_material": "qanun_nylon_modern",
+      "daf_rings": "daf_with_rings",
+      "daf_context": "daf_sufi",
+      "daf_shell_wood": "daf_walnut_canonical",
+      "daf_head_material": "daf_goat_skin_canonical",
+      "daf_jingle_metal": "daf_brass_rings",
+      "bongos_skin": "bongos_mule_hide",
+      "bongos_context": "bongos_descarga",
+      "bongos_shell_wood": "bongos_oak_staved",
+      "comorian_gambusi_form": "comorian_gambusi_nawal_four_string",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

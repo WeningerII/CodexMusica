@@ -1,0 +1,91 @@
+{
+  "id": "chill_baile",
+  "name": "Chill Baile",
+  "family": "electronic",
+  "lineage": "Chill baile connects Brazilian funk references with relaxed electronic production and overlapping R&B and club communities. Producers reshape rhythmic and melodic material into a more spacious branch of baile-related listening.",
+  "recipe": "classic chill baile, electronic Dance, Latin electric branch. sampler, drum machine analog. treated studio.",
+  "recipe_chars": 107,
+  "score": 8.035,
+  "config": {
+    "traditions": [
+      "chill_baile"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 0.325,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.26,
+          "sampler_classic_context": 4.615
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.0945,
+          "snare_voice": 0.168,
+          "hat_voice": 0.126,
+          "shuffle_quantize": 2.5315
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true
+  }
+}

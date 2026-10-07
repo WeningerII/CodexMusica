@@ -2,10 +2,10 @@
   "id": "zambian_hip_hop",
   "name": "Zambian hip hop",
   "family": "hip_hop",
-  "lineage": "Zambian hip hop is represented by Sampa the Great’s Zambia-based return-era work with local producer Mag44, one transnational branch of the scene. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
+  "lineage": "Zambian hip-hop connects local MCs and producers with diasporic collaborations, including Sampa the Great’s work with Mag44 in Lusaka.",
   "recipe": "classic modern zambian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 280,
-  "score": 28.089,
+  "score": 27.034,
   "config": {
     "traditions": [
       "zambian_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 10.725,
+          "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 2.41125,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.03899999999999999
         }
       },
       {
@@ -59,9 +59,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.688999999999999,
+          "electronic_technique": 5.239,
           "sample_bitdepth": 0,
-          "sample_swing": 9.879999999999999,
+          "sample_swing": 9.1,
           "sample_processing": 0.105
         }
       }

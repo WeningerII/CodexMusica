@@ -1,0 +1,89 @@
+{
+  "id": "german_dnb",
+  "name": "German DnB",
+  "family": "electronic",
+  "lineage": "Germany’s drum-and-bass scene includes established producers and club communities connected with the international genre. Current Value exemplifies its technically detailed and sound-design-focused strand.",
+  "recipe": "classic german dnb, electronic Dance. drum machine analog, analog mono synth.",
+  "recipe_chars": 77,
+  "score": 4.134,
+  "config": {
+    "traditions": [
+      "german_dnb"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": 2.5
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 1.4949999999999999,
+          "mono_oscillator": 0,
+          "mono_filter": 0.063,
+          "mono_archetypes": 0.126,
+          "mono_maker_lineage": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true
+  }
+}

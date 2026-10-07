@@ -1,0 +1,79 @@
+{
+  "id": "cantonese_traditional",
+  "name": "Cantonese Traditional",
+  "family": "classical",
+  "lineage": "Cantonese traditional music developed in the Pearl River Delta and through Guangdong and Hong Kong performance networks. Instrumental ensembles, inherited tunes and newer compositions continue a regional tradition shaped by theatre, social performance and recording.",
+  "recipe": "classic cantonese traditional, art Music. Cantonese silk and bamboo python skin gaohu, traditional bamboo yangqin. live tracking.",
+  "recipe_chars": 129,
+  "score": 26.074,
+  "config": {
+    "traditions": [
+      "cantonese_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "gaohu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gaohu_type": "gaohu_cantonese",
+          "gaohu_setting": "gaohu_yinyue",
+          "gaohu_membrane": "gaohu_python"
+        },
+        "scores": {
+          "bowed_technique": 2.563,
+          "gaohu_type": 7.5,
+          "gaohu_setting": 9.62,
+          "gaohu_membrane": 2.0865
+        }
+      },
+      {
+        "id": "yangqin",
+        "slots": {
+          "yangqin_courses": "yangqin_traditional_smaller",
+          "yangqin_technique": "yangqin_bamboo_mallets"
+        },
+        "scores": {
+          "yangqin_courses": 2.168,
+          "yangqin_technique": 2.1365
+        }
+      }
+    ],
+    "pinned": {
+      "gaohu": [
+        "bowed_technique",
+        "gaohu_type",
+        "gaohu_setting",
+        "gaohu_membrane"
+      ],
+      "yangqin": [
+        "yangqin_courses",
+        "yangqin_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "gaohu_type": "gaohu_cantonese",
+      "gaohu_setting": "gaohu_yinyue",
+      "gaohu_membrane": "gaohu_python",
+      "yangqin_courses": "yangqin_traditional_smaller",
+      "yangqin_technique": "yangqin_bamboo_mallets"
+    },
+    "pin_parts": true
+  }
+}

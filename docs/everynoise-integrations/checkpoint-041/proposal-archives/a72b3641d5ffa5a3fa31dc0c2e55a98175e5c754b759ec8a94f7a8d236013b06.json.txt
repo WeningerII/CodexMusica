@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/tmp/batch040/resume119-21.json",
+  "sha256": "9ee6688f355e7fb41b7f2dcc37ef79acb2dfcbf4b575fe6c62dc83ce9a06170b",
+  "id": "zomi_pop",
+  "sources": [
+    {
+      "url": "https://zomidc.org/news2008.htm",
+      "ref": "turn13424view0 / turn13427view1",
+      "finding": "Community issuer explicitly lists guitar/lead guitar/bass/drums/keyboard alongside solo and group songs. This is positive genre-community band practice, not absent-credit inference."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/374657803_Ethnicity_Culture_and_Religion",
+      "ref": "turn13424search0",
+      "finding": "Original scholarly chapter distinguishes Zomi identity/accent within modern popular song and diaspora participation. Thang Pii sings Burmese here: candidate does not falsely assert all community songs exclusively Zomi-language."
+    }
+  ],
+  "category": "Specific Zomi community field distinct from broad Burmese-language pop full record; source language/ethnicity respected without instrument stereotypes. Representative live-band setup does not require fixed2008roster/headcount or named issued recording.",
+  "defaults": "All51 actual merged owning controls independently checked present/valid; coherent clean single-coil guitar/fingerstyle electric bass/rock kit/melodic chordal neutral keyboard. Unknown voice count and recording mechanics preserved. Authored song-form/harmony rationale adequate functionalSong.",
+  "runtime": "/tmp/batch040/resume119-21-peer-runtime117.json",
+  "literal_outputs": "Four independently generated formats read;999max rich/tags, parity alltrue. Up-tempo/happy/focused/trudging/witty are acceptable representative pop performance affects, no unrelated named ritual/instrument mechanism.",
+  "photos": "Generic microphone recording context, exact inherited250x720/33015byte SM58 receipt; fresh CC BY2.5 rights/credit reproduced turn13403view2 earlier thisreview. No fresh bytes claim.",
+  "limits": "Task-local original runtime; final integrated static/regression not run."
+}

@@ -2,10 +2,10 @@
   "id": "greek_swing",
   "name": "Greek swing",
   "family": "jazz",
-  "lineage": "Greek swing: Gadjo Dilo — Manouche de Grec, 2013. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic early-2010s greek swing, improv On Frame, American jazz branch. equal tempered, speech quality modal neutral larynx, meaningless syllables carrying melody. jazz warm flatwound thomastik dreadnought acoustic guitar, violin orchestral, petosa seattle American premium accordion, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 400,
-  "score": 31.96,
+  "lineage": "Greek swing joins Greek song repertoire with swing and manouche-jazz performance. Acoustic ensembles recast familiar melodies through jazz-inflected accompaniment and instrumental exchange.",
+  "recipe": "classic greek swing, improv On Frame, American jazz branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, notated speech melody. jazz warm flatwound thomastik dreadnought acoustic guitar, melodic bowed song accompaniment violin orchestral, petosa seattle American premium accordion, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 425,
+  "score": 61.078,
   "config": {
     "traditions": [
       "greek_swing"
@@ -15,17 +15,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_flatpicked",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
           "acoustic_technique": -0.1,
-          "string_tuning": 0.26,
-          "top_wood": 0.588,
+          "string_tuning": 0,
+          "top_wood": 0.693,
           "back_sides": 0.9099999999999999,
-          "string_acoustic": 3.6399999999999997
+          "string_acoustic": 6.24
         }
       },
       {
@@ -43,15 +43,15 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.39,
+          "bowed_technique": 3.125,
           "orch_strings": 0.23099999999999998,
-          "orch_top_wood": -0.035,
-          "orch_back_wood": 0.325,
+          "orch_top_wood": 0.325,
+          "orch_back_wood": -0.035,
           "orch_varnish": -0.035,
           "orch_setup_period": 0.26,
           "orch_bow": 0.336,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.21000000000000002,
+          "orch_articulation": 0.39,
           "orch_rosin": -0.035
         }
       },
@@ -62,7 +62,7 @@
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "demi_swing",
           "reed_config": "lm_only",
-          "bellows": "all_leather",
+          "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_petosa_seattle"
         },
@@ -70,8 +70,8 @@
           "free_reed_technique": -0.035,
           "accordion_reed_material": 0.34650000000000003,
           "musette_offset": 0.847,
-          "reed_config": 3.6399999999999997,
-          "bellows": 0.105,
+          "reed_config": 6.24,
+          "bellows": 0.21,
           "voicing_chamber": 0.19949999999999998,
           "accordion_maker_school": 1.95
         }
@@ -84,7 +84,7 @@
         },
         "scores": {
           "upright_strings": 0.23099999999999998,
-          "upright_play": 6.999999999999999
+          "upright_play": 12
         }
       },
       {
@@ -99,10 +99,10 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
-          "voice_speech_song": "voice_non_lexical_vocable",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
@@ -114,16 +114,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 7.169999999999999,
+          "voice_microtone": 12.138499999999997,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 0.5459999999999999,
-          "voice_speech_song": 1.3,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.18150000000000002,
-          "voice_pitch_organization": 0.0945,
-          "voice_processing_chain": 0.3045,
-          "voice_multitrack_stack": 0.39
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 5.265,
+          "voice_ensemble_config": 4.29,
+          "voice_ornament_system": 0.2415,
+          "voice_pitch_organization": 0.063,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 0.33599999999999997
         }
       }
     ],

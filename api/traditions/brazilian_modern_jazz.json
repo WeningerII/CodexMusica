@@ -5,7 +5,7 @@
   "lineage": "Contemporary Brazilian jazz; selected Recife piano-trio branch",
   "recipe": "classic modern brazilian modern jazz, improv On Frame, Latin jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 64.289,
+  "score": 64.499,
   "config": {
     "traditions": [
       "brazilian_modern_jazz"
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0945,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 0.0315,
           "piano_hammer": 2.45,
-          "piano_rim": 2.4815,
+          "piano_rim": 2.555,
           "piano_soundboard": 2.8445,
-          "piano_pinblock": 2.576,
-          "piano_plate": 2.5445,
-          "piano_pitch_standard": 3.1254999999999997
+          "piano_pinblock": 2.5445,
+          "piano_plate": 2.5130000000000003,
+          "piano_pitch_standard": 3.2725
         }
       },
       {
@@ -64,15 +64,15 @@
         },
         "scores": {
           "drum_technique": 8.45,
-          "drumhead": 0.1575,
+          "drumhead": 0.126,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.126,
+          "shell_wood": 0.0945,
           "shell_thickness": 0,
-          "bearing_edges": 0.126,
+          "bearing_edges": 0.0945,
           "snare_wires": 0,
-          "cymbal_alloy": 11.131499999999997,
+          "cymbal_alloy": 11.341499999999998,
           "cymbal_hammering": 11.5,
-          "cymbal_lathing": 2.4945,
+          "cymbal_lathing": 2.463,
           "cymbal_finish": 0.0315
         }
       }

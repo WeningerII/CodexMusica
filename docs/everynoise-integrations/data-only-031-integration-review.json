@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "baseline": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+  "source": {
+    "predecessor": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+    "head": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+    "frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+    "counts": {
+      "raw_traditions_old_unchanged": 5638,
+      "raw_instruments_old_unchanged": 1506,
+      "old_extras_unchanged": 5638,
+      "merged_instruments_old_unchanged": 1506,
+      "data/geo.json_old_keys": 5638,
+      "references/_tradition_signatures.json_old_keys": 3616,
+      "old_images_unchanged": 7094,
+      "new_images": 113
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "burari_papuan_flute",
+      "rain_environmental_recording",
+      "spoken_word_voice",
+      "saxophone_doubling_alto_soprano",
+      "snare_drum",
+      "credited_harsh_noise",
+      "ney_persian_interdental",
+      "donso_ngoni_eight_string",
+      "keregne_mande",
+      "prepared_piano_cage_sonatas",
+      "concert_triangle",
+      "hybrid_groovebox_electribe2",
+      "software_pink_noise_generator"
+    ],
+    "runtime_independent": {
+      "cards": 387,
+      "effective_parts": 3817,
+      "flat_pins": 3686,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "actual_browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1506,
+      "traditions": 5638,
+      "cards": 24528
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "original_pipeline": {
+    "baseline": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+    "files_checked": 264,
+    "changed_files": [],
+    "frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5"
+  },
+  "new_parts": {
+    "frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+    "parts": 3817,
+    "protectedParts": 3812,
+    "unpinned": [
+      {
+        "tradition": "neo_mellow",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "nepali_indie",
+        "instrument": "electric_guitar_humbucker",
+        "part": "electric_technique",
+        "flat_value": "electric_bass_pocket",
+        "imported_default": "electric_clean_strummed",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "pei_indie",
+        "instrument": "grand_piano",
+        "part": "keyboard_technique",
+        "flat_value": "electronic_keyboard_melodic_chordal",
+        "imported_default": "keyboard_block_chord_pop",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "persian_alternative",
+        "instrument": "grand_piano",
+        "part": "keyboard_technique",
+        "flat_value": "electronic_keyboard_melodic_chordal",
+        "imported_default": "keyboard_block_chord_pop",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "santa_fe_indie",
+        "instrument": "electronic_organ_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_organ_melodic_sustained",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      }
+    ],
+    "errors": []
+  },
+  "signature_amendment_independently_verified": [
+    ["neru", "signature_tokens", ["textural"], []],
+    ["neurostep", "signature_tokens", ["textural"], []],
+    ["new_french_touch", "signature_tokens", ["textural"], []],
+    ["new_tribe", "signature_tokens", ["improvised", "melodic"], ["melodic"]]
+  ],
+  "fallback_policy": "All five listed nonapplicable shared-key slots retain stated choices on original import only. They are unprotected under compilation; no assertion that the optimizer retains those imported choices. Final compiled API choices require separate completed-build review.",
+  "review_boundary": "Mechanical integrated preservation and complete defaults/runtime review; source/category/photo peer-review records remain individual packet evidence. No blanket new independent primary-source claim.",
+  "remaining_required": [
+    "Completed API delta and protected/unprotected choices audit",
+    "Regression causal review of differences",
+    "Exact-head CI"
+  ],
+  "no_repository_mutation": true,
+  "new_frozen_projections": {
+    "new_traditions": 100,
+    "new_dependencies": 13,
+    "errors": []
+  },
+  "compiled_api": "Completed independent PASS; api-independent-review119.json, all protected pins preserved; exact five unprotected outcomes explicitly reviewed.",
+  "previous_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+  "geo_only_rebinding": {
+    "status": "PASS",
+    "old_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+    "new_frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+    "exact_delta": [
+      ["/entries/56/geo/0", 12.8797, 15.5],
+      ["/entries/56/geo/1", 121.774, 121.0],
+      [
+        "/entries/56/geo_rationale",
+        "Representative point for documented scene or repertoire; not a claimed recording address.",
+        "Approximate country-level land point on Luzon for the documented Filipino Papuri repertoire. Editorial map anchor only; not an asserted performer hometown, ministry office or recording location."
+      ]
+    ],
+    "api_inputs_unchanged": true,
+    "policy": "Country land anchor remains editorial; no performer hometown or session-location assertion. No API recomputation required: source inputs identical."
+  }
+}

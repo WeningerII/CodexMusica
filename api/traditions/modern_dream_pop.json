@@ -1,0 +1,58 @@
+{
+  "id": "modern_dream_pop",
+  "name": "Modern Dream Pop",
+  "family": "pop",
+  "lineage": "Modern dream pop extends atmospheric independent pop through intimate singing, repeating melodic figures and richly layered guitar, keyboard and electronic textures. Its contemporary bands and solo artists revisit earlier dream-pop and shoegaze approaches while circulating through independent labels, concerts and streaming communities.",
+  "recipe": "classic modern dream pop, functional Song. upright piano. live tracking.",
+  "recipe_chars": 72,
+  "score": -0.05,
+  "config": {
+    "traditions": [
+      "modern_dream_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

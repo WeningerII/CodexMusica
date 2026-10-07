@@ -1629,6 +1629,14 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/gate_census.py --check
 
+      # The short index every session loads (CLAUDE.md) and the map sections
+      # it points to are generated from the code; this fails when they no
+      # longer match it. Fix: python3 map/build.py (and retrace if it says so).
+      - name: The lyric map matches the code
+        if: always()
+        working-directory: lyric-harness
+        run: python3 map/build.py --check
+
       # THE data/ HALF OF DOCTRINE 34's QUESTION, closed 2026-08-21.
       # audit_corpus.py check C re-derives the recorded md5 of every file
       # under corpus/. Nothing did the same for data/ — so when 66eb44e

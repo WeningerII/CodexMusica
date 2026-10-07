@@ -2,10 +2,10 @@
   "id": "deep_acoustic_pop",
   "name": "Deep acoustic pop",
   "family": "pop",
-  "lineage": "Deep acoustic pop is represented here by Luluc — acoustic duo core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic deep acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. deep indian rosewood rosewood dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 250,
-  "score": 6.548,
+  "lineage": "Deep acoustic pop emphasizes intimate, less-mainstream acoustic songwriting and close attention to melody, lyric and vocal blend.",
+  "recipe": "classic deep acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. indian rosewood rosewood nickel bronze modern blend dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 272,
+  "score": 6.809,
   "config": {
     "traditions": [
       "deep_acoustic_pop"
@@ -18,14 +18,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "rosewood_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "nickel_bronze"
         },
         "scores": {
-          "acoustic_technique": -0.25,
+          "acoustic_technique": 0.05000000000000002,
           "string_tuning": 0,
-          "top_wood": 0.2415,
+          "top_wood": 0.3465,
           "back_sides": 2.055,
-          "string_acoustic": 0.33599999999999997
+          "string_acoustic": 1.168
         }
       },
       {
@@ -63,7 +63,7 @@
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.0085,
+          "voice_processing_chain": 3.0315,
           "voice_multitrack_stack": 0.063
         }
       }

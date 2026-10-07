@@ -5,7 +5,7 @@
   "lineage": "Northern Norwegian dialect and regional scene represented by Tungtvann’s Jørg-1/Poppa Lars sample-led branch. The narrower northern category is nested within a wider, musically varied Norwegian hip-hop field.",
   "recipe": "classic modern nordnorsk rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 364,
-  "score": 49.185,
+  "score": 49.401,
   "config": {
     "traditions": [
       "nordnorsk_rap"
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 4.3,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.213,
           "sampler_workflow": 3.95,
           "sampler_classic_context": 7.735
         }
@@ -77,7 +77,7 @@
         },
         "scores": {
           "electronic_technique": 4.3,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 6.5,
           "sample_processing": -0.05
         }

@@ -2,10 +2,10 @@
   "id": "reggae_maghreb",
   "name": "Reggae maghreb",
   "family": "global",
-  "lineage": "Reggae maghreb is represented by Gnawa Diffusion — promoter-documented Franco-Algerian ensemble. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
-  "recipe": "classic reggae maghreb, bass System, reggae diaspora branch. duet, live take. guembri, modal chaabi mandole, humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, rim clicks drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 328,
-  "score": 29.77,
+  "lineage": "Reggae Maghreb connects reggae and dub with North African musical references, including gnawa, chaâbi and raï. Local and diaspora musicians develop these relationships through song, instrumental exchange and production.",
+  "recipe": "classic reggae maghreb, bass System, reggae diaspora branch. duet, live take. guembri, lyrical folk song Berber mandole, humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, rim clicks drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 340,
+  "score": 25.509,
   "config": {
     "traditions": [
       "reggae_maghreb"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4395,
+          "voice_ensemble_config": 0.6255,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.4395,
+          "voice_multitrack_stack": 0.6255,
           "voice_tessitura": 0
         }
       },
@@ -61,20 +61,20 @@
         },
         "scores": {
           "guembri_size": 0.0315,
-          "guembri_sersera": 1.3,
+          "guembri_sersera": 0.273,
           "guembri_strings": 0
         }
       },
       {
         "id": "mandole",
         "slots": {
-          "mandole_form": "mandole_chaabi",
-          "mandole_role": "mandole_strummed",
+          "mandole_form": "mandole_kabyle",
+          "mandole_role": "mandole_melodic",
           "mandole_strings": "mandole_steel"
         },
         "scores": {
-          "mandole_form": 3.95,
-          "mandole_role": -0.035,
+          "mandole_form": 1.1049999999999998,
+          "mandole_role": 0.325,
           "mandole_strings": -0.05
         }
       },
@@ -82,10 +82,10 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_modern_modeling",
-          "body_wood": "basswood_h",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
@@ -93,43 +93,43 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 1.56,
-          "body_wood": 0.39,
-          "neck_wood": 0,
-          "fretboard": 0,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "amp_make": 0,
+          "body_wood": 0.354,
+          "neck_wood": 0.054,
+          "fretboard": 0.054,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 1.3,
-          "scale_length": 0.39,
-          "string_gauge": 1.3,
+          "bridge": 0.15899999999999997,
+          "scale_length": 0.1935,
+          "string_gauge": 0.105,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.9135
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.885,
-          "body_wood": 0,
-          "pickup_config": 0.39,
-          "string_type": 1.8199999999999998,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0,
+          "amp_make": 2.6650000000000005,
+          "body_wood": 0.108,
+          "pickup_config": 0.0315,
+          "string_type": 2.6000000000000005,
+          "scale_length_b": 0.1935,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -138,12 +138,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "rim_clicks_dub",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.25,
-          "drumhead": 0.75,
+          "drum_technique": 13.804,
+          "drumhead": 0.1275,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -156,9 +156,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.0315,
+          "electronic_technique": 0.26,
+          "poly_archetypes": 0.38849999999999996,
+          "poly_voices": 0.2115,
           "poly_maker_lineage": -0.035
         }
       }

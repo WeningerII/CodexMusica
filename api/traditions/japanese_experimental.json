@@ -1,0 +1,66 @@
+{
+  "id": "japanese_experimental",
+  "name": "Japanese experimental",
+  "family": "global",
+  "lineage": "Japanese experimental music connects diverse exploratory practices across composition, improvisation and sound-making. Its field extends beyond amplified noise to quieter acoustic work and collective musical exchange.",
+  "recipe": "classic japanese experimental, improv On Frame, jam free branch. dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 108,
+  "score": 0.068,
+  "config": {
+    "traditions": [
+      "japanese_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0.168
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "pin_parts": true
+  }
+}

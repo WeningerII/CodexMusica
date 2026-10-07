@@ -1,0 +1,35 @@
+{
+  "reviewer": "research_117",
+  "packet": "/tmp/batch027/preflight.json",
+  "before_sha256": "27c3e2765559763308eb65d611d6363a697dd6596a3b43a109745ab1e3e224f0",
+  "final_sha256": "5ce91dfa6fc3d362e79f296bae439d710d147d82c25a42c2b4ffbc731cac76eb",
+  "entry_count": 100,
+  "amendments": [
+    {
+      "id": "harmonikka",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "artMusic"
+    },
+    {
+      "id": "hull_indie",
+      "field": "extras.parent",
+      "before": "functionalSong.popRock.folkRock",
+      "after": "balladPoetry.angloSingerSong.indieFolk"
+    }
+  ],
+  "only_these_two_semantic_fields_changed": true,
+  "allocation_and_189_exclusion_errors": [],
+  "excluded_count": 189,
+  "taxonomy_rationale": {
+    "harmonikka": "Primary composer score collection explicitly concert-solo waltz. Broad artMusic concert/notated definition appropriate; do not invent modernist or improvisational ancestry. Vernacular family retained.",
+    "hull_indie": "2025 self-tagged indie folk and complete band-arranged acoustic songwriter scope fits existing contemporary indieFolk. Historical1960s–1970s folkRock parent removed.",
+    "indie_game_soundtrack": "Retain experimentalElec broad listening-oriented production-driven electronic node. Composed chip soundtrack does not by itself require codified-art-music ancestry or dance-floor intent."
+  },
+  "other98_decision": "Retain reviewed existing parents/families. No unsupported geographic sublineages or gratuitous family normalization. Acoustic reinterpretations preserve positively classified artist categories where explicitly scoped.",
+  "source_rechecks": [
+    "https://veikkoahvenainen.com/kirjat-ja-nuotit/",
+    "https://katiespencerofficial.bandcamp.com/album/what-love-is"
+  ],
+  "limits": "This final semantic review uses previously independently accepted source scope records; it does not replace runtime regression or exact-head CI. Own group140 authored records retain separate independent reviewers."
+}

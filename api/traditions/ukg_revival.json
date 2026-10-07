@@ -2,10 +2,10 @@
   "id": "ukg_revival",
   "name": "UKG revival",
   "family": "electronic",
-  "lineage": "Early-2010s UK garage revival and reinterpretation; selected Disclosure sample-chop club branch",
-  "recipe": "classic 2010-2013 ukg revival, bass System, uk soundsystem branch. sampler, sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 322,
-  "score": 9.931,
+  "lineage": "The UK garage revival reinterpreted earlier garage and 2-step styles through new electronic production. Disclosure’s early club records exemplify the exchange between swung garage rhythms, house-derived repetition and cut vocal recordings.",
+  "recipe": "classic modern ukg revival, bass System, uk soundsystem branch. sampler, sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 319,
+  "score": 12.059,
   "config": {
     "traditions": [
       "ukg_revival"
@@ -21,11 +21,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
+          "electronic_technique": 0.26,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.0315,
+          "sampler_bit_depth": 0.3315,
           "sampler_workflow": 0.19500000000000003,
-          "sampler_classic_context": 4.9399999999999995
+          "sampler_classic_context": 8.254999999999999
         }
       },
       {
@@ -37,9 +37,9 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.6499999999999999,
+          "electronic_technique": 0.26,
           "sample_bitdepth": 0.0315,
-          "sample_swing": 0.2815,
+          "sample_swing": 1.2815,
           "sample_processing": 0
         }
       },
@@ -51,9 +51,9 @@
           "digital_subtractive_context": "digital_subtractive_pop"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "va_archetypes": 0.39,
-          "digital_subtractive_context": 1.6365
+          "electronic_technique": 0.2,
+          "va_archetypes": 0.105,
+          "digital_subtractive_context": -0.035
         }
       }
     ],

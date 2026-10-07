@@ -1,0 +1,50 @@
+{
+  "id": "downtempo_fusion",
+  "name": "Downtempo Fusion",
+  "family": "electronic",
+  "lineage": "Downtempo fusion gathers artists combining relaxed electronic rhythms with song, jazz, soul and atmospheric production. Its discovery repertoire ranges from vocal-led groups to instrumental producers, with DJ programmes connecting these materials across listening and dance settings.",
+  "recipe": "classic downtempo fusion, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
+  "recipe_chars": 97,
+  "score": 0.332,
+  "config": {
+    "traditions": [
+      "downtempo_fusion"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.3315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,1793 @@
+{
+  "checkpoint": 45,
+  "status": "PASS_LOCAL_VALIDATION_AND_INDEPENDENT_ACTUAL_ARTIFACT_AUDITS",
+  "files": [
+    {
+      "source": "/tmp/batch040/resume119-viet-lofi-rights-synchronized119.json",
+      "archive": "archives/09ed3d8c21bf046113bd07c1b55e630d9fbc219e356b70c9039a25a3f5f6ef84.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "09ed3d8c21bf046113bd07c1b55e630d9fbc219e356b70c9039a25a3f5f6ef84",
+      "original_bytes": 24267,
+      "compressed_bytes": 4315
+    },
+    {
+      "source": "/tmp/batch040/viet-lofi-independent-review116.json",
+      "archive": "archives/e6a1318bf63df6286bd6bc2b7660c9d25b656ccbc9021e6d309a271b2a766719.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e6a1318bf63df6286bd6bc2b7660c9d25b656ccbc9021e6d309a271b2a766719",
+      "original_bytes": 3030,
+      "compressed_bytes": 1430
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-api.log",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "compressed_bytes": 20
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-signatures.log",
+      "archive": "archives/f431d730d994e20e9c454ee43f88aeef13a979b3706dc9a4708d3e45606aa3c1.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f431d730d994e20e9c454ee43f88aeef13a979b3706dc9a4708d3e45606aa3c1",
+      "original_bytes": 73,
+      "compressed_bytes": 93
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-state.json",
+      "archive": "archives/51567cdce86da17ea797776da8ec725ffd5a826d9e7eb25ff8853b4f8a7b8542.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "51567cdce86da17ea797776da8ec725ffd5a826d9e7eb25ff8853b4f8a7b8542",
+      "original_bytes": 1640,
+      "compressed_bytes": 881
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/descriptor-frequency-actual.log",
+      "archive": "archives/08e79394022b592b7510c9c26aefc78ad8985038e225e35b5ebce89d284f9eb6.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "08e79394022b592b7510c9c26aefc78ad8985038e225e35b5ebce89d284f9eb6",
+      "original_bytes": 402,
+      "compressed_bytes": 297
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/descriptor-frequency.log",
+      "archive": "archives/205ecbf69e707df89e2107c68cfdf1ac6cb5d6a6b942e2045d7052cf352c0b0f.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "205ecbf69e707df89e2107c68cfdf1ac6cb5d6a6b942e2045d7052cf352c0b0f",
+      "original_bytes": 777,
+      "compressed_bytes": 371
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/frozen25-integration.json",
+      "archive": "archives/54f82f28ac16887f034f50fbf28ee667f686b068a014fda413687659df7a1914.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "54f82f28ac16887f034f50fbf28ee667f686b068a014fda413687659df7a1914",
+      "original_bytes": 994608,
+      "compressed_bytes": 156935
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/integrated-projection-review461.json",
+      "archive": "archives/ef3c742fea8b8b96158b6d663c8a14614d488403306de7c8dfd23c1cca2fd2b8.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ef3c742fea8b8b96158b6d663c8a14614d488403306de7c8dfd23c1cca2fd2b8",
+      "original_bytes": 947,
+      "compressed_bytes": 547
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/microhouse-snapshot-review.json",
+      "archive": "archives/4e2dcfb1bc0aff4263f13c2196a969f4ce86c64d8939d931149698dbc61c88ad.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4e2dcfb1bc0aff4263f13c2196a969f4ce86c64d8939d931149698dbc61c88ad",
+      "original_bytes": 1328,
+      "compressed_bytes": 644
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/microhouse-targeted-regression.log",
+      "archive": "archives/853a720b089598d3b0e3cf22b2064df6a2c01a36b260156b33bf787c0e793c07.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "853a720b089598d3b0e3cf22b2064df6a2c01a36b260156b33bf787c0e793c07",
+      "original_bytes": 44,
+      "compressed_bytes": 64
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/microhouse-targeted-update.log",
+      "archive": "archives/c2ea4fb1c40dd4a0ed0cff0bafd093537e072d763daacb9918d3463bfaad4da3.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c2ea4fb1c40dd4a0ed0cff0bafd093537e072d763daacb9918d3463bfaad4da3",
+      "original_bytes": 97,
+      "compressed_bytes": 111
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/regression-snapshot-before.json",
+      "archive": "archives/26ecaaf92f63ce20c39f609df51e9edf17b37789f92011a7b3c9ece336fab423.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "26ecaaf92f63ce20c39f609df51e9edf17b37789f92011a7b3c9ece336fab423",
+      "original_bytes": 775204,
+      "compressed_bytes": 146049
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/regression.log",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "compressed_bytes": 20
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/repair-integration-report.json",
+      "archive": "archives/52f23cd0f743719ce2af58efe82588d992d32e324ecda84bea631cfafa78c94e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "52f23cd0f743719ce2af58efe82588d992d32e324ecda84bea631cfafa78c94e",
+      "original_bytes": 321,
+      "compressed_bytes": 246
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/repair-projection.json",
+      "archive": "archives/410d5aee0fffb2f4c909f5cf59a6d72b9b956317a0e5e7f26424c1c743193fd3.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "410d5aee0fffb2f4c909f5cf59a6d72b9b956317a0e5e7f26424c1c743193fd3",
+      "original_bytes": 12787,
+      "compressed_bytes": 2944
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/signature-tokens.log",
+      "archive": "archives/c0015125ce26026306873739a2b20ef10414724976304650a477ec4a7e7ef17f.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c0015125ce26026306873739a2b20ef10414724976304650a477ec4a7e7ef17f",
+      "original_bytes": 352,
+      "compressed_bytes": 277
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/validate-integrated.log",
+      "archive": "archives/9c8c4d8826c2e7646f1a938da24ad5d6b1a61a50bc499de350d4e48f81b254e1.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "9c8c4d8826c2e7646f1a938da24ad5d6b1a61a50bc499de350d4e48f81b254e1",
+      "original_bytes": 85,
+      "compressed_bytes": 105
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/late-two-source-proposals/raggacore-independent-review024.json",
+      "archive": "archives/e02a2abc49589da3456d97a72f07332e7e80423a00db15800f247d910e2da580.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e02a2abc49589da3456d97a72f07332e7e80423a00db15800f247d910e2da580",
+      "original_bytes": 3933,
+      "compressed_bytes": 2046
+    },
+    {
+      "source": "/workspace/genre-continuation/repairs197-on043-119/late-two-source-proposals/raggacore-proposal.json",
+      "archive": "archives/b130ee059f6f850ac6980c8824d5f37fb43dc49fd18f00a6e2dbfcd55284a0ea.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "b130ee059f6f850ac6980c8824d5f37fb43dc49fd18f00a6e2dbfcd55284a0ea",
+      "original_bytes": 13321,
+      "compressed_bytes": 3262
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/frozen31/candidate.json",
+      "archive": "archives/4a9534fef6208190bd3fb0601b299c76f11aafcc2b52d5b3100172b3a92308b0.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4a9534fef6208190bd3fb0601b299c76f11aafcc2b52d5b3100172b3a92308b0",
+      "original_bytes": 991839,
+      "compressed_bytes": 155404
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/frozen31/summary.json",
+      "archive": "archives/9f689aa66221527cdd56eaf98bd07a34d4545ae9eec5dc06ac51d8c5688f33a5.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "9f689aa66221527cdd56eaf98bd07a34d4545ae9eec5dc06ac51d8c5688f33a5",
+      "original_bytes": 1717,
+      "compressed_bytes": 648
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/frozen31-metadata/atlas-review.json",
+      "archive": "archives/5b5b85577818c0edae9588d12243164eae804ad4874577f173b8b46aceb4e5b1.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "5b5b85577818c0edae9588d12243164eae804ad4874577f173b8b46aceb4e5b1",
+      "original_bytes": 53,
+      "compressed_bytes": 64
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/frozen31-metadata/candidate.json",
+      "archive": "archives/400aaab8cf09a51c422175c0a4b426036cead75f8908814bdf954ed019fc0dca.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "400aaab8cf09a51c422175c0a4b426036cead75f8908814bdf954ed019fc0dca",
+      "original_bytes": 993479,
+      "compressed_bytes": 155964
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/frozen31-metadata/review.json",
+      "archive": "archives/4ecb52c9b60855f977e1039ea8a5d72f6fad0c50ba311398a7b056fd36e34dec.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4ecb52c9b60855f977e1039ea8a5d72f6fad0c50ba311398a7b056fd36e34dec",
+      "original_bytes": 1581,
+      "compressed_bytes": 635
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-affected-ids.json",
+      "archive": "archives/51f4bb08c2328be4fd12ba715cf90fab27a04fd3b6648b312c67fad4a48c8f00.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "51f4bb08c2328be4fd12ba715cf90fab27a04fd3b6648b312c67fad4a48c8f00",
+      "original_bytes": 1578,
+      "compressed_bytes": 719
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-baseline-graph.json",
+      "archive": "archives/591837425eb1e782cc7112e448afebfd33dd9c3e09420594f0fe0766a4e6511b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "591837425eb1e782cc7112e448afebfd33dd9c3e09420594f0fe0766a4e6511b",
+      "original_bytes": 7226951,
+      "compressed_bytes": 1008568
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-baseline-replays.json",
+      "archive": "archives/3b9ebe6a1cb0c9280ea3c8d4baf37335bfcdde6ce52663d1f53ff928246ef013.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "3b9ebe6a1cb0c9280ea3c8d4baf37335bfcdde6ce52663d1f53ff928246ef013",
+      "original_bytes": 573552,
+      "compressed_bytes": 74369
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-candidate-graph.json",
+      "archive": "archives/998da5eb38661aaa8d7647257e0c9e9fc947d9b11915700cd5c18db07bf0fc17.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "998da5eb38661aaa8d7647257e0c9e9fc947d9b11915700cd5c18db07bf0fc17",
+      "original_bytes": 7226770,
+      "compressed_bytes": 1008624
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-candidate-replays.json",
+      "archive": "archives/27acee72eb1868392c12bfa791edf038db7b82189ea775f8b54f2fce4670c79e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "27acee72eb1868392c12bfa791edf038db7b82189ea775f8b54f2fce4670c79e",
+      "original_bytes": 435859,
+      "compressed_bytes": 47551
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-causal-ids.json",
+      "archive": "archives/c65e985c29a63ebaf1cb3cad2826edc5dfcd2bdd275f22ec8b8143a16c5e30e6.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c65e985c29a63ebaf1cb3cad2826edc5dfcd2bdd275f22ec8b8143a16c5e30e6",
+      "original_bytes": 119157,
+      "compressed_bytes": 37940
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/api-replay-differences.json",
+      "archive": "archives/38a8f5e785049b1193b5054c3a07b734a6c969fd8817beeb5af78551cc89a885.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "38a8f5e785049b1193b5054c3a07b734a6c969fd8817beeb5af78551cc89a885",
+      "original_bytes": 9760,
+      "compressed_bytes": 2019
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/candidate.json",
+      "archive": "archives/e464d88db85e0e2d74cde56b67d95364f36a0f16d26f99e5f69ef18754ba63dc.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e464d88db85e0e2d74cde56b67d95364f36a0f16d26f99e5f69ef18754ba63dc",
+      "original_bytes": 994059,
+      "compressed_bytes": 156708
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/fixture-affected-indexes.json",
+      "archive": "archives/2214011ee5eaf1e214b18743b3bcaa003872d41c2d2002757dbf840e81bca752.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2214011ee5eaf1e214b18743b3bcaa003872d41c2d2002757dbf840e81bca752",
+      "original_bytes": 145,
+      "compressed_bytes": 100
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/fixture-baseline-graph.json",
+      "archive": "archives/53878014475581e8aaaf7097d1a981a1f507514d5b88ad19caca73a8adbc3763.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "53878014475581e8aaaf7097d1a981a1f507514d5b88ad19caca73a8adbc3763",
+      "original_bytes": 1908533,
+      "compressed_bytes": 292007
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/fixture-baseline-replays.json",
+      "archive": "archives/c5dd841bad25c0e62bab6e98362c92af5a25cd1553b8bbdd0d0356f20ccf8599.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c5dd841bad25c0e62bab6e98362c92af5a25cd1553b8bbdd0d0356f20ccf8599",
+      "original_bytes": 345422,
+      "compressed_bytes": 38718
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/fixture-candidate-graph.json",
+      "archive": "archives/ecc6c0cf86dbd03071fd267c04be87b1b96b2b42fa5d2cabae66148cfb6469b7.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ecc6c0cf86dbd03071fd267c04be87b1b96b2b42fa5d2cabae66148cfb6469b7",
+      "original_bytes": 1908713,
+      "compressed_bytes": 292055
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/fixture-candidate-replays.json",
+      "archive": "archives/27025b1d5db9cb09c9625fd413d706794d7b5222a77d6dae37a2e6d2229b4dc1.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "27025b1d5db9cb09c9625fd413d706794d7b5222a77d6dae37a2e6d2229b4dc1",
+      "original_bytes": 344680,
+      "compressed_bytes": 38623
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/fixture-replay-differences.json",
+      "archive": "archives/dda27f49289ad346b9aae454654f3304ffb1ae82994101268b0e0f78fb5a7d87.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "dda27f49289ad346b9aae454654f3304ffb1ae82994101268b0e0f78fb5a7d87",
+      "original_bytes": 1214,
+      "compressed_bytes": 434
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/graph-affected.json",
+      "archive": "archives/f9cb71b93cbedf723d47868f95a182af77fa35ae23f4b7084a585b3b76a7d3d8.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f9cb71b93cbedf723d47868f95a182af77fa35ae23f4b7084a585b3b76a7d3d8",
+      "original_bytes": 18632,
+      "compressed_bytes": 1502
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/new-target-runtime.json",
+      "archive": "archives/6429df8fdf2fc3271b2c771a8bbd60ed94d4ef3024d4d50b3163a4e9df6a0509.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6429df8fdf2fc3271b2c771a8bbd60ed94d4ef3024d4d50b3163a4e9df6a0509",
+      "original_bytes": 175632,
+      "compressed_bytes": 13840
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/raggacore-browser-review-data.json",
+      "archive": "archives/c01bfb20b253266c8c1ee40d0aad7c101c74066142805f2c88d3ee3e241585ea.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c01bfb20b253266c8c1ee40d0aad7c101c74066142805f2c88d3ee3e241585ea",
+      "original_bytes": 13097,
+      "compressed_bytes": 2260
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/root-independent-safe25-review.json",
+      "archive": "archives/612647d6ee204b5ab94d566e50017225f5cc97053c627e56737e6491afc6b6b5.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "612647d6ee204b5ab94d566e50017225f5cc97053c627e56737e6491afc6b6b5",
+      "original_bytes": 1581,
+      "compressed_bytes": 958
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25/safe25-global-qualification461.json",
+      "archive": "archives/2a466addf2137234aa4f39445ae652e7c0b9d7b2e9f78694e1bc5178d72fd05e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2a466addf2137234aa4f39445ae652e7c0b9d7b2e9f78694e1bc5178d72fd05e",
+      "original_bytes": 4319,
+      "compressed_bytes": 1900
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-affected-ids.json",
+      "archive": "archives/0db864f97ced4e1e5a963bc5e3aae562458e3b3e5264e063b2920dd462bd4a68.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "0db864f97ced4e1e5a963bc5e3aae562458e3b3e5264e063b2920dd462bd4a68",
+      "original_bytes": 3768,
+      "compressed_bytes": 1627
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-baseline-graph.json",
+      "archive": "archives/591837425eb1e782cc7112e448afebfd33dd9c3e09420594f0fe0766a4e6511b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "591837425eb1e782cc7112e448afebfd33dd9c3e09420594f0fe0766a4e6511b",
+      "original_bytes": 7226951,
+      "compressed_bytes": 1008568
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-baseline-replays.json",
+      "archive": "archives/6383669a12874b45ab19c1693e2cc3f9af8ecdf59bf1fba8896d7b28b817a84f.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6383669a12874b45ab19c1693e2cc3f9af8ecdf59bf1fba8896d7b28b817a84f",
+      "original_bytes": 1368790,
+      "compressed_bytes": 179689
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-candidate-graph.json",
+      "archive": "archives/432b739cf18eea3b094b0d6db4683f32ac35544ce8df2d17518ce207030084b9.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "432b739cf18eea3b094b0d6db4683f32ac35544ce8df2d17518ce207030084b9",
+      "original_bytes": 7230684,
+      "compressed_bytes": 1009131
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-candidate-replays.json",
+      "archive": "archives/e6b3efee81225144c146ab972311f2a2b2020f9fa4fad6c807a8a8ff15463ca6.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e6b3efee81225144c146ab972311f2a2b2020f9fa4fad6c807a8a8ff15463ca6",
+      "original_bytes": 1046153,
+      "compressed_bytes": 116772
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-causal-ids.json",
+      "archive": "archives/c65e985c29a63ebaf1cb3cad2826edc5dfcd2bdd275f22ec8b8143a16c5e30e6.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c65e985c29a63ebaf1cb3cad2826edc5dfcd2bdd275f22ec8b8143a16c5e30e6",
+      "original_bytes": 119157,
+      "compressed_bytes": 37940
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/api-replay-differences.json",
+      "archive": "archives/6838dacc8692ba394f8d5639e602cf1093118a1f62d20dc25402403c3c6d782e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6838dacc8692ba394f8d5639e602cf1093118a1f62d20dc25402403c3c6d782e",
+      "original_bytes": 55318,
+      "compressed_bytes": 7849
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/atlas-review.json",
+      "archive": "archives/123e36a4b29a26f65039d5dc42fabd588c4b8282579aec80f0483354ab4d8827.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "123e36a4b29a26f65039d5dc42fabd588c4b8282579aec80f0483354ab4d8827",
+      "original_bytes": 5243,
+      "compressed_bytes": 1116
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/baseline-source-binding.json",
+      "archive": "archives/fc6d592ebf1ee4eb7b4a973277c041344fc6dd62aa350d3aabf150d84b3324c3.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "fc6d592ebf1ee4eb7b4a973277c041344fc6dd62aa350d3aabf150d84b3324c3",
+      "original_bytes": 856,
+      "compressed_bytes": 503
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/candidate.json",
+      "archive": "archives/4a9534fef6208190bd3fb0601b299c76f11aafcc2b52d5b3100172b3a92308b0.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4a9534fef6208190bd3fb0601b299c76f11aafcc2b52d5b3100172b3a92308b0",
+      "original_bytes": 991839,
+      "compressed_bytes": 155404
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/causal-1.json",
+      "archive": "archives/fa1b72a336f6a6161c88f73f1310bde57399827cab0fcb6365da13cb29ca5787.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "fa1b72a336f6a6161c88f73f1310bde57399827cab0fcb6365da13cb29ca5787",
+      "original_bytes": 8532,
+      "compressed_bytes": 1815
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/causal-2.json",
+      "archive": "archives/2cef50bd890aadac535e39c0ff855719a189bd82c8c733570e95e46695fc416c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2cef50bd890aadac535e39c0ff855719a189bd82c8c733570e95e46695fc416c",
+      "original_bytes": 18384,
+      "compressed_bytes": 3395
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/causal-3.json",
+      "archive": "archives/7cd2da17565868647322068449b2e4148052e0b8e5634d156c6ee0d5157e1f0d.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "7cd2da17565868647322068449b2e4148052e0b8e5634d156c6ee0d5157e1f0d",
+      "original_bytes": 25029,
+      "compressed_bytes": 4667
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/causal-4.json",
+      "archive": "archives/b6e9d3c72d9d725760fecdfdc75a7a483491e5b28c4ea8ca13cccdc6b954506a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "b6e9d3c72d9d725760fecdfdc75a7a483491e5b28c4ea8ca13cccdc6b954506a",
+      "original_bytes": 25039,
+      "compressed_bytes": 4659
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/causal-5.json",
+      "archive": "archives/56328fec0412ee5891b2c284ccd9b5965379c9d7f9e288f2f5e8c28d238788db.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "56328fec0412ee5891b2c284ccd9b5965379c9d7f9e288f2f5e8c28d238788db",
+      "original_bytes": 11571,
+      "compressed_bytes": 2734
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/changed-old-full-records.json",
+      "archive": "archives/d8b47c3f2dd6173f187b667a8ac84a5dc89740a46a7a6b98f8f4b5c15ee13f4d.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d8b47c3f2dd6173f187b667a8ac84a5dc89740a46a7a6b98f8f4b5c15ee13f4d",
+      "original_bytes": 81793,
+      "compressed_bytes": 19488
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/changed-variant-definitions.json",
+      "archive": "archives/8c683f667a68332be5133e38d1efbe9b5d207e9f7e3750c0b31767867758f999.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "8c683f667a68332be5133e38d1efbe9b5d207e9f7e3750c0b31767867758f999",
+      "original_bytes": 48806,
+      "compressed_bytes": 8824
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/fixture-affected-indexes.json",
+      "archive": "archives/db805bf872b468242878b05ffe5209e76a8897df1e84ccb22e319cf1457443ae.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "db805bf872b468242878b05ffe5209e76a8897df1e84ccb22e319cf1457443ae",
+      "original_bytes": 384,
+      "compressed_bytes": 190
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/fixture-baseline-graph.json",
+      "archive": "archives/53878014475581e8aaaf7097d1a981a1f507514d5b88ad19caca73a8adbc3763.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "53878014475581e8aaaf7097d1a981a1f507514d5b88ad19caca73a8adbc3763",
+      "original_bytes": 1908533,
+      "compressed_bytes": 292007
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/fixture-baseline-replays.json",
+      "archive": "archives/fedbedaefdfc4d2451a4ae8f9122d40b763a8a5a03b84bd6297a0e9d5ce0e7d4.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "fedbedaefdfc4d2451a4ae8f9122d40b763a8a5a03b84bd6297a0e9d5ce0e7d4",
+      "original_bytes": 871613,
+      "compressed_bytes": 90234
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/fixture-candidate-graph.json",
+      "archive": "archives/f71c25a31722e16fc15530eb27e9caeb3d2cb4aa642ff113de32a613fbda4ba8.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f71c25a31722e16fc15530eb27e9caeb3d2cb4aa642ff113de32a613fbda4ba8",
+      "original_bytes": 1910354,
+      "compressed_bytes": 292242
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/fixture-candidate-replays.json",
+      "archive": "archives/8c5371bfa0ab26fd9d62d9e49153fc4bf78e0046bda1f1f6d4398fbd5c5eeee4.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "8c5371bfa0ab26fd9d62d9e49153fc4bf78e0046bda1f1f6d4398fbd5c5eeee4",
+      "original_bytes": 872473,
+      "compressed_bytes": 90309
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/fixture-replay-differences.json",
+      "archive": "archives/7073901280e2ff5db1d66293301daa47f2b96f63a9025c5ac6a25cf019857ca4.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "7073901280e2ff5db1d66293301daa47f2b96f63a9025c5ac6a25cf019857ca4",
+      "original_bytes": 6231,
+      "compressed_bytes": 1364
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/full31-semantic-followup461.json",
+      "archive": "archives/7027c2afd5c920d7964766086a2896154de4b45467438ff96f3646ec139de97c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "7027c2afd5c920d7964766086a2896154de4b45467438ff96f3646ec139de97c",
+      "original_bytes": 618,
+      "compressed_bytes": 393
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/full31-semantic-review461.json",
+      "archive": "archives/18764335a67c80d3926ce23aa50cbf050959effa2383d871fdf1fe8dd2db8bb4.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "18764335a67c80d3926ce23aa50cbf050959effa2383d871fdf1fe8dd2db8bb4",
+      "original_bytes": 30173,
+      "compressed_bytes": 6322
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/graph-affected.json",
+      "archive": "archives/8a581fd940abbf6c77bbb5a2b3f2fb774227791aae313e5b386dfe5c82e68bb0.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "8a581fd940abbf6c77bbb5a2b3f2fb774227791aae313e5b386dfe5c82e68bb0",
+      "original_bytes": 38574,
+      "compressed_bytes": 3268
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/new-target-literal-review461.json",
+      "archive": "archives/09ee90893a42beed514baa994301667f4b414f631918d28ee24fbe7e1dd80f92.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "09ee90893a42beed514baa994301667f4b414f631918d28ee24fbe7e1dd80f92",
+      "original_bytes": 43024,
+      "compressed_bytes": 10607
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/new-target-runtime.json",
+      "archive": "archives/413edfde5dfd51b46cbab208dfcea06818c9c36771cfe4549279ddf4ec41cbf9.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "413edfde5dfd51b46cbab208dfcea06818c9c36771cfe4549279ddf4ec41cbf9",
+      "original_bytes": 193996,
+      "compressed_bytes": 14559
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/raggacore-browser-review-data.json",
+      "archive": "archives/d1ff6ca16a68bf83941ff13e7cfa6aab751f433cf561edf956dd804075b9e737.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d1ff6ca16a68bf83941ff13e7cfa6aab751f433cf561edf956dd804075b9e737",
+      "original_bytes": 13097,
+      "compressed_bytes": 2261
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/raggacore-scoped-final-review461.json",
+      "archive": "archives/8623c7fa92db2d22d3c5a0304a5f6321d7d1eba52e281f40af9436dede10fc59.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "8623c7fa92db2d22d3c5a0304a5f6321d7d1eba52e281f40af9436dede10fc59",
+      "original_bytes": 2993,
+      "compressed_bytes": 1240
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification31/root-independent30-review.json",
+      "archive": "archives/cf743da0efd02e9f3728c59c34900ef8ed58186b4380025178a4d324884aa50a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "cf743da0efd02e9f3728c59c34900ef8ed58186b4380025178a4d324884aa50a",
+      "original_bytes": 6606,
+      "compressed_bytes": 2065
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/safe25/candidate.json",
+      "archive": "archives/e464d88db85e0e2d74cde56b67d95364f36a0f16d26f99e5f69ef18754ba63dc.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e464d88db85e0e2d74cde56b67d95364f36a0f16d26f99e5f69ef18754ba63dc",
+      "original_bytes": 994059,
+      "compressed_bytes": 156708
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice001-chill-breakcore-metadata-final024.json",
+      "archive": "archives/f3ab7d50c4ceea41f7a4ab336ce7b5bd6a03546bf33a733f73d52e4d3fd3741b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f3ab7d50c4ceea41f7a4ab336ce7b5bd6a03546bf33a733f73d52e4d3fd3741b",
+      "original_bytes": 24241,
+      "compressed_bytes": 5541
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice006-deep-funk-house-independent-review117.json",
+      "archive": "archives/90f9d09a0076fbc0a925eecf7f9e2d78bb67cf68688f1f3094c4b78e798eae8e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "90f9d09a0076fbc0a925eecf7f9e2d78bb67cf68688f1f3094c4b78e798eae8e",
+      "original_bytes": 3520,
+      "compressed_bytes": 1699
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice006-deep-funk-house-qualified024.json",
+      "archive": "archives/3760506e34fae2601668ebb4a26a526c052ce5294cedb649c14ba46ab1706467.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "3760506e34fae2601668ebb4a26a526c052ce5294cedb649c14ba46ab1706467",
+      "original_bytes": 13672,
+      "compressed_bytes": 3883
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice007-deep-tropical-house-independent-review117.json",
+      "archive": "archives/15f353eb62edfacceeb3c25b013d62c9fab17fbfeb32edc888e499dd5ece2101.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "15f353eb62edfacceeb3c25b013d62c9fab17fbfeb32edc888e499dd5ece2101",
+      "original_bytes": 3640,
+      "compressed_bytes": 1741
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice007-deep-tropical-house-region-corrected024.json",
+      "archive": "archives/f6b9f143dc0c49a4afbf3d5eb7958e3fa4a16ced0d515e674fc37353270bd3ec.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f6b9f143dc0c49a4afbf3d5eb7958e3fa4a16ced0d515e674fc37353270bd3ec",
+      "original_bytes": 12877,
+      "compressed_bytes": 4079
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice008-modern-jangle-pop-independent-review116.json",
+      "archive": "archives/228e3f869bfc552bfdd6412a137bed352728cbc01cc57c15ecff539b8a280347.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "228e3f869bfc552bfdd6412a137bed352728cbc01cc57c15ecff539b8a280347",
+      "original_bytes": 2636,
+      "compressed_bytes": 1416
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice008-modern-jangle-pop-rights-date024.json",
+      "archive": "archives/c670775f174483b4c5132f625a956d7b695e422855312be4a2f87d075a21949f.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c670775f174483b4c5132f625a956d7b695e422855312be4a2f87d075a21949f",
+      "original_bytes": 19380,
+      "compressed_bytes": 5376
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice011-deep-psytrance-independent-review117.json",
+      "archive": "archives/f3fa1f426f2ee66d4fc68879d4929530b88293fb11afa5100dc163d48b3bf6ae.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f3fa1f426f2ee66d4fc68879d4929530b88293fb11afa5100dc163d48b3bf6ae",
+      "original_bytes": 2854,
+      "compressed_bytes": 1429
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice011-deep-psytrance-qualified024.json",
+      "archive": "archives/1f84d1b5e803c5dd7a7a20ca42a7998b85c70b78fee02a76ebf8081e4c2a1efd.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "1f84d1b5e803c5dd7a7a20ca42a7998b85c70b78fee02a76ebf8081e4c2a1efd",
+      "original_bytes": 16327,
+      "compressed_bytes": 4016
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice012-old-school-hard-trance-qualified024.json",
+      "archive": "archives/92b6498a6d7e0538fb495fc00fb45cbd241f1ff969a114fe7e6c052959fb56ed.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "92b6498a6d7e0538fb495fc00fb45cbd241f1ff969a114fe7e6c052959fb56ed",
+      "original_bytes": 13711,
+      "compressed_bytes": 3840
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice019-chill-lounge-current043.json",
+      "archive": "archives/07ea9e3203dc0c582d5b240f8545145f73dd27a190666163c39c726c5d5fcc73.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "07ea9e3203dc0c582d5b240f8545145f73dd27a190666163c39c726c5d5fcc73",
+      "original_bytes": 11727,
+      "compressed_bytes": 3707
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice019-chill-lounge-independent-review-sourceaudit.json",
+      "archive": "archives/a426ebdfffd310a0b700dae7a84bfcd6b62b95df98de9281ac13716689b8af84.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "a426ebdfffd310a0b700dae7a84bfcd6b62b95df98de9281ac13716689b8af84",
+      "original_bytes": 2793,
+      "compressed_bytes": 1455
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice020-pop-reggaeton-independent-review024.json",
+      "archive": "archives/1457716e9fa9e2c1153e674dbac41373903f75d9e966a6d88ec6cee12972c752.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "1457716e9fa9e2c1153e674dbac41373903f75d9e966a6d88ec6cee12972c752",
+      "original_bytes": 4329,
+      "compressed_bytes": 1980
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice020-pop-reggaeton-reviewed-draft.json",
+      "archive": "archives/2f95e0df3ad29bf28de6e7512256248f373aa016bd892490d2017c2064506a36.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2f95e0df3ad29bf28de6e7512256248f373aa016bd892490d2017c2064506a36",
+      "original_bytes": 12884,
+      "compressed_bytes": 4212
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice021-british-industrial-independent-review-sourceaudit.json",
+      "archive": "archives/81c00406d2fc05db8d056bfec3ecaec5d7435138dae6af85574692964913f9a2.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "81c00406d2fc05db8d056bfec3ecaec5d7435138dae6af85574692964913f9a2",
+      "original_bytes": 2634,
+      "compressed_bytes": 1402
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice021-british-industrial-reviewed-draft.json",
+      "archive": "archives/376ef44acc608d14d5f7873e66d8093f9e375c9a3dd8482c898a06cd18865524.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "376ef44acc608d14d5f7873e66d8093f9e375c9a3dd8482c898a06cd18865524",
+      "original_bytes": 11333,
+      "compressed_bytes": 3818
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice023-calming-instrumental-geo-final.json",
+      "archive": "archives/36c261a2ab1acb04fe3ac527ae64a7a85d484bdc18968638cfc089f4258709d2.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "36c261a2ab1acb04fe3ac527ae64a7a85d484bdc18968638cfc089f4258709d2",
+      "original_bytes": 12845,
+      "compressed_bytes": 3659
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice023-calming-instrumental-independent-review-sourceaudit.json",
+      "archive": "archives/5f8eb5676e33fceb75b606176c5751a23a452269a0aca5972eb0dc51dc433a1d.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "5f8eb5676e33fceb75b606176c5751a23a452269a0aca5972eb0dc51dc433a1d",
+      "original_bytes": 2197,
+      "compressed_bytes": 1217
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research116/practice024-deep-darkpsy-qualified.json",
+      "archive": "archives/4eb7a2ae97a03f9367139938336864b5c200364686c1b4d138faa4699b1e98e9.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4eb7a2ae97a03f9367139938336864b5c200364686c1b4d138faa4699b1e98e9",
+      "original_bytes": 13795,
+      "compressed_bytes": 3909
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/peer-reviews/chill-breakcore-independent-review117.json",
+      "archive": "archives/7e5d721c13c4387b174c005348ba4451b708a8464c33c0969bc189044cc1b7af.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "7e5d721c13c4387b174c005348ba4451b708a8464c33c0969bc189044cc1b7af",
+      "original_bytes": 2468,
+      "compressed_bytes": 1274
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3352-final.json",
+      "archive": "archives/ee841a26319f25a47d58746fd564b86a9f518cbb77d79af4017867d54d5f0d94.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ee841a26319f25a47d58746fd564b86a9f518cbb77d79af4017867d54d5f0d94",
+      "original_bytes": 14288,
+      "compressed_bytes": 3614
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3352-independent-review-sourceaudit.json",
+      "archive": "archives/c4c291d1a4cb7a7ae11b6a051c39e4a1c8dc6aff7406e60ba0e3e066dd0fc501.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c4c291d1a4cb7a7ae11b6a051c39e4a1c8dc6aff7406e60ba0e3e066dd0fc501",
+      "original_bytes": 2133,
+      "compressed_bytes": 1143
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3373-independent-review-sourceaudit.json",
+      "archive": "archives/67b1888e0922bba7cc4cd9a82590dcd28370a4f9d99e71cb9ccf95614104ac5f.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "67b1888e0922bba7cc4cd9a82590dcd28370a4f9d99e71cb9ccf95614104ac5f",
+      "original_bytes": 2126,
+      "compressed_bytes": 1139
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3373.json",
+      "archive": "archives/6e51c6451fb76c82096785eeb2491f318cd70e42466628be0c779ade52a3b737.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6e51c6451fb76c82096785eeb2491f318cd70e42466628be0c779ade52a3b737",
+      "original_bytes": 11228,
+      "compressed_bytes": 3274
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3378-final.json",
+      "archive": "archives/4d6d2582d3a882fe31cf0fef3f51b9fdb503cef17e7ac3e514bbba17c6eb634b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4d6d2582d3a882fe31cf0fef3f51b9fdb503cef17e7ac3e514bbba17c6eb634b",
+      "original_bytes": 26187,
+      "compressed_bytes": 5223
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3378-independent-review024.json",
+      "archive": "archives/515aab0d7b9b14358c25fffb34f059c1ac8cf791c28e10f8e7b5f8eb0eb28b8d.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "515aab0d7b9b14358c25fffb34f059c1ac8cf791c28e10f8e7b5f8eb0eb28b8d",
+      "original_bytes": 3555,
+      "compressed_bytes": 1810
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3550-geo-corrected.json",
+      "archive": "archives/33c1401d1ceb7dd9a1e63803bdca32c9cbc732ed19773c15fe47d14e33757f5e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "33c1401d1ceb7dd9a1e63803bdca32c9cbc732ed19773c15fe47d14e33757f5e",
+      "original_bytes": 12374,
+      "compressed_bytes": 3666
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3550-independent-review-sourceaudit.json",
+      "archive": "archives/45a8f1f8571037d2186c709c6698e13e0de589138d802ad3251ace4e7be7e1ea.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "45a8f1f8571037d2186c709c6698e13e0de589138d802ad3251ace4e7be7e1ea",
+      "original_bytes": 2174,
+      "compressed_bytes": 1203
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3552.json",
+      "archive": "archives/0fedd8e28034848c2c81f669d323111d09254313b114d62cf7359ee95a970a2c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "0fedd8e28034848c2c81f669d323111d09254313b114d62cf7359ee95a970a2c",
+      "original_bytes": 11614,
+      "compressed_bytes": 3441
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3568-final.json",
+      "archive": "archives/43ffb2927d0b82bfa99a52221c8259cd8b44ef39f1c0fd3e4c51f8219dd1693a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "43ffb2927d0b82bfa99a52221c8259cd8b44ef39f1c0fd3e4c51f8219dd1693a",
+      "original_bytes": 21173,
+      "compressed_bytes": 4839
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3568-independent-review119.json",
+      "archive": "archives/72f6d2aac44667bed469add9174a22b482b2a8413c300d25233d4b02b9cc7116.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "72f6d2aac44667bed469add9174a22b482b2a8413c300d25233d4b02b9cc7116",
+      "original_bytes": 1910,
+      "compressed_bytes": 1091
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3609-independent-review116.json",
+      "archive": "archives/68710a69cb964427cdf48227ff0c2c7807b55f61da8c919b533e49054bc1e792.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "68710a69cb964427cdf48227ff0c2c7807b55f61da8c919b533e49054bc1e792",
+      "original_bytes": 2404,
+      "compressed_bytes": 1339
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3609.json",
+      "archive": "archives/f22175051188d5245e01340f0024bc47854f872597408465baf7a0401a4497ef.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f22175051188d5245e01340f0024bc47854f872597408465baf7a0401a4497ef",
+      "original_bytes": 11202,
+      "compressed_bytes": 3252
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3796-final.json",
+      "archive": "archives/0564a59f478e7b8cf6d4c958d9dab74dd8fe5add4f762068b0fc00bf97d47697.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "0564a59f478e7b8cf6d4c958d9dab74dd8fe5add4f762068b0fc00bf97d47697",
+      "original_bytes": 12762,
+      "compressed_bytes": 3814
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-3796-independent-review-sourceaudit.json",
+      "archive": "archives/2659d38360194f802859d8862b7db0eb43fc3e3bc6274d97083af4002bc1f22a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2659d38360194f802859d8862b7db0eb43fc3e3bc6274d97083af4002bc1f22a",
+      "original_bytes": 2331,
+      "compressed_bytes": 1268
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4222-final.json",
+      "archive": "archives/c5f376ffa2f652c4df202f27b7606d79b27a3a69cf9e1c40f9b2c0283f84c82a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c5f376ffa2f652c4df202f27b7606d79b27a3a69cf9e1c40f9b2c0283f84c82a",
+      "original_bytes": 10909,
+      "compressed_bytes": 3366
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/research117-field52/coverage-4222-independent-review-sourceaudit.json",
+      "archive": "archives/852472b67e244f6216802815f8c48c951bc4e1497d15af036b6003d747125c58.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "852472b67e244f6216802815f8c48c951bc4e1497d15af036b6003d747125c58",
+      "original_bytes": 2491,
+      "compressed_bytes": 1316
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/root-reviews/deep-darkpsy-independent-root.json",
+      "archive": "archives/c3878805ae4ff1a7450fc6865baeefc5eed513e18c9ebb86d1e53c04f100a5b9.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c3878805ae4ff1a7450fc6865baeefc5eed513e18c9ebb86d1e53c04f100a5b9",
+      "original_bytes": 2041,
+      "compressed_bytes": 1118
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/root-reviews/jdivision-independent-root.json",
+      "archive": "archives/85bad96a20ecf66f2a715da5c0f5db604d456510f617bfeb036a758c90aebce6.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "85bad96a20ecf66f2a715da5c0f5db604d456510f617bfeb036a758c90aebce6",
+      "original_bytes": 2625,
+      "compressed_bytes": 1429
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/root-reviews/old-school-hard-trance-independent-root.json",
+      "archive": "archives/c70c8c3c49defae26fe6dc4dea6bc8924c72c272805528ad6ad7edb4a0a32b8c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c70c8c3c49defae26fe6dc4dea6bc8924c72c272805528ad6ad7edb4a0a32b8c",
+      "original_bytes": 2010,
+      "compressed_bytes": 1119
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice012-voetbal-published-song-alternative-independent-review117.json",
+      "archive": "archives/10f58d8ff94c9101bc574da7a5ee1cc1e1c83df61244836f06bf55d7a9b4d26e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "10f58d8ff94c9101bc574da7a5ee1cc1e1c83df61244836f06bf55d7a9b4d26e",
+      "original_bytes": 4355,
+      "compressed_bytes": 1830
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice012-voetbal-published-song-alternative-qualified.json",
+      "archive": "archives/e9322d4cfc97afc6d39ec458a0b4deba40511a22c5cdb664d16f953892161426.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e9322d4cfc97afc6d39ec458a0b4deba40511a22c5cdb664d16f953892161426",
+      "original_bytes": 13964,
+      "compressed_bytes": 4352
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice019-mezmur-independent-review117.json",
+      "archive": "archives/106f4c2c8996ea033be5f2ac5101b9e059318fb7872a9627aa0b2620ea3e85d8.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "106f4c2c8996ea033be5f2ac5101b9e059318fb7872a9627aa0b2620ea3e85d8",
+      "original_bytes": 3104,
+      "compressed_bytes": 1572
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice019-mezmur-validation-geo-corrected.json",
+      "archive": "archives/f27eae46c4c3ff62caa388f46c6ad7f3082bcf068584e35743c95d9376dd3203.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f27eae46c4c3ff62caa388f46c6ad7f3082bcf068584e35743c95d9376dd3203",
+      "original_bytes": 13835,
+      "compressed_bytes": 3926
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice022-stomp-and-whittle-independent-review117.json",
+      "archive": "archives/70ceefb4ee59d7a60495e35b7db7ae02c2fed6da64890e5d9b3f29ded5bba395.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "70ceefb4ee59d7a60495e35b7db7ae02c2fed6da64890e5d9b3f29ded5bba395",
+      "original_bytes": 4166,
+      "compressed_bytes": 1768
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice022-stomp-and-whittle-qualified.json",
+      "archive": "archives/99c802e39227543ab33752ef6992463e383910a8e76823dfa1b5f0d3c90e61f8.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "99c802e39227543ab33752ef6992463e383910a8e76823dfa1b5f0d3c90e61f8",
+      "original_bytes": 11415,
+      "compressed_bytes": 3687
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice023-vintage-chanson-independent-review116.json",
+      "archive": "archives/006dd4c9dc529302c8f29b013732a99d74803c67f1cd17dcb29accef4c62745e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "006dd4c9dc529302c8f29b013732a99d74803c67f1cd17dcb29accef4c62745e",
+      "original_bytes": 4477,
+      "compressed_bytes": 1554
+    },
+    {
+      "source": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice023-vintage-chanson-qualified.json",
+      "archive": "archives/679f97da73d1a49ddaaf9dd721ddd2d7d19cd606aa4ab41731164e49fc103a36.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "679f97da73d1a49ddaaf9dd721ddd2d7d19cd606aa4ab41731164e49fc103a36",
+      "original_bytes": 13649,
+      "compressed_bytes": 4334
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-breaks3-043/detroit_trap_en_espanol-independent-final-review024.json",
+      "archive": "archives/3c5f8ddc473914dc0b6efc68f0616f5ff67d31ecaa1742b606d2321ce99873f3.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "3c5f8ddc473914dc0b6efc68f0616f5ff67d31ecaa1742b606d2321ce99873f3",
+      "original_bytes": 5307,
+      "compressed_bytes": 2190
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-breaks3-043/detroit_trap_en_espanol-reviewed-profile-final.json",
+      "archive": "archives/d48a2af49af15c58e69fc9c866aa90b354080c4432f916b5463fea0761479b18.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d48a2af49af15c58e69fc9c866aa90b354080c4432f916b5463fea0761479b18",
+      "original_bytes": 35331,
+      "compressed_bytes": 6839
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-breaks3-043/ghanaian_alternative-independent-final-review024.json",
+      "archive": "archives/6754d8629b23b41ce4340fabb34f26b92d1b03df3aabd966f801f184d87ada7c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6754d8629b23b41ce4340fabb34f26b92d1b03df3aabd966f801f184d87ada7c",
+      "original_bytes": 4430,
+      "compressed_bytes": 1987
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-breaks3-043/ghanaian_alternative-reviewed-profile-final.json",
+      "archive": "archives/eee2d7725885963475e5fc5db79cd0e1fea84daa193c5403c77d01d00f3d1b76.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "eee2d7725885963475e5fc5db79cd0e1fea84daa193c5403c77d01d00f3d1b76",
+      "original_bytes": 39082,
+      "compressed_bytes": 6288
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-breaks3-043/russian_hyperpop-independent-final-review024.json",
+      "archive": "archives/4062cb68baa7309aba0a72df341073705616af705a0d0194ed92934b9f6cc3e7.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4062cb68baa7309aba0a72df341073705616af705a0d0194ed92934b9f6cc3e7",
+      "original_bytes": 5292,
+      "compressed_bytes": 2232
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-breaks3-043/russian_hyperpop-reviewed-profile-final.json",
+      "archive": "archives/951222ad1a0953f67fc4aa5a48b0cc7fe6bddf2d8c3f0489673ef5dc89193794.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "951222ad1a0953f67fc4aa5a48b0cc7fe6bddf2d8c3f0489673ef5dc89193794",
+      "original_bytes": 29395,
+      "compressed_bytes": 6120
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-held3-043/carnaval-limburg-full-review117-v3.json",
+      "archive": "archives/7d960de74cb67fe0af0b716abc7aa4c43ed01ed207a9884cb69d8aa4481aa79a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "7d960de74cb67fe0af0b716abc7aa4c43ed01ed207a9884cb69d8aa4481aa79a",
+      "original_bytes": 2929,
+      "compressed_bytes": 1510
+    },
+    {
+      "source": "/workspace/genre-continuation/research/root-held3-043/carnaval_limburg-source-profile-reviewed-v3.json",
+      "archive": "archives/bf5ece95d09b1dc71c49025eeb78a88631142e916962960212c59ed702956aab.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "bf5ece95d09b1dc71c49025eeb78a88631142e916962960212c59ed702956aab",
+      "original_bytes": 42043,
+      "compressed_bytes": 7350
+    },
+    {
+      "source": "/workspace/genre-continuation/research/source-geo-corrections045/deep_tech_house-geo-final.json",
+      "archive": "archives/25b147b8bc31f4d5ed6cd829cdc7e149a091b7f232ef3508077d7c0c09237ded.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "25b147b8bc31f4d5ed6cd829cdc7e149a091b7f232ef3508077d7c0c09237ded",
+      "original_bytes": 12641,
+      "compressed_bytes": 4031
+    },
+    {
+      "source": "/workspace/genre-continuation/research/source-geo-corrections045/deep_tech_house-geo-independent-review.json",
+      "archive": "archives/0797fd365672b5a2153bd00744ec709465bb44ef86c0ef9f06772eac0a6a25e7.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "0797fd365672b5a2153bd00744ec709465bb44ef86c0ef9f06772eac0a6a25e7",
+      "original_bytes": 1156,
+      "compressed_bytes": 589
+    },
+    {
+      "source": "/workspace/genre-continuation/research/source-geo-corrections045/pygmy_music-geo-final.json",
+      "archive": "archives/9ac7acc9706b69c90d6f8eb6a4f01eb0a89a5ffd410271843ef24989f62e8acb.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "9ac7acc9706b69c90d6f8eb6a4f01eb0a89a5ffd410271843ef24989f62e8acb",
+      "original_bytes": 22998,
+      "compressed_bytes": 5410
+    },
+    {
+      "source": "/workspace/genre-continuation/research/source-geo-corrections045/pygmy_music-geo-independent-review.json",
+      "archive": "archives/6251b26b7dafdb02d4ad71d482302aa4d4824c743cf8aff5c3fa155302957cd1.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6251b26b7dafdb02d4ad71d482302aa4d4824c743cf8aff5c3fa155302957cd1",
+      "original_bytes": 1052,
+      "compressed_bytes": 601
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/_gen_voice_parts.log",
+      "archive": "archives/bbe4fbc0a9545902ba18321c58addf2a08a753a445e731079584244f29b24786.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "bbe4fbc0a9545902ba18321c58addf2a08a753a445e731079584244f29b24786",
+      "original_bytes": 73,
+      "compressed_bytes": 92
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual-artifact-review-root-before-room-fix.json",
+      "archive": "archives/2572b8a24855a5b8f5ef9714800a14381fa1334f549020754fb1a1ea87c21cf5.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2572b8a24855a5b8f5ef9714800a14381fa1334f549020754fb1a1ea87c21cf5",
+      "original_bytes": 1294,
+      "compressed_bytes": 768
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual-artifact-review-root.json",
+      "archive": "archives/2572b8a24855a5b8f5ef9714800a14381fa1334f549020754fb1a1ea87c21cf5.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2572b8a24855a5b8f5ef9714800a14381fa1334f549020754fb1a1ea87c21cf5",
+      "original_bytes": 1294,
+      "compressed_bytes": 768
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual-audit-before-room.log",
+      "archive": "archives/63ccf9d5ae3a3a04bbfd887f96826cdc28ab1a118c59251fe583f70a455a7b41.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "63ccf9d5ae3a3a04bbfd887f96826cdc28ab1a118c59251fe583f70a455a7b41",
+      "original_bytes": 699,
+      "compressed_bytes": 422
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual045-audit-before-room-correction.json",
+      "archive": "archives/86cca4955daa7cfeca5a308c349d0cd2714bdf4ce178d2b437be9764e2c87437.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "86cca4955daa7cfeca5a308c349d0cd2714bdf4ce178d2b437be9764e2c87437",
+      "original_bytes": 849,
+      "compressed_bytes": 504
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual045-payload-hashes-before-room-correction.json",
+      "archive": "archives/4ea7116c047e26caa3c5c5aeda15e02ff9b50e2de74572c2e45ae82dd612d8dd.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4ea7116c047e26caa3c5c5aeda15e02ff9b50e2de74572c2e45ae82dd612d8dd",
+      "original_bytes": 602803,
+      "compressed_bytes": 312112
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/app_recipe_regression.log",
+      "archive": "archives/8925d43d93dca5bbc123d8f14e7f0e9708c165fa44e3b235674091016636fe7a.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "8925d43d93dca5bbc123d8f14e7f0e9708c165fa44e3b235674091016636fe7a",
+      "original_bytes": 281,
+      "compressed_bytes": 248
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-api-before-room-correction.log",
+      "archive": "archives/f69b7ecfafe2b651238931cdce4b4a536b78a544ae24a7601a878cc33b213b3a.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f69b7ecfafe2b651238931cdce4b4a536b78a544ae24a7601a878cc33b213b3a",
+      "original_bytes": 1704,
+      "compressed_bytes": 423
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-state.json",
+      "archive": "archives/49a1d3eb2b400e41b30eac72f809c21d79381d457d50e2f5eec74d117fc90b4d.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "49a1d3eb2b400e41b30eac72f809c21d79381d457d50e2f5eec74d117fc90b4d",
+      "original_bytes": 4272,
+      "compressed_bytes": 1447
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_app_parity.log",
+      "archive": "archives/892181535c5d68e92003f38f6f523790e116fcedea5ca7bfa8d0c0381a5df78e.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "892181535c5d68e92003f38f6f523790e116fcedea5ca7bfa8d0c0381a5df78e",
+      "original_bytes": 312,
+      "compressed_bytes": 197
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_connector_contract.log",
+      "archive": "archives/24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02",
+      "original_bytes": 6573,
+      "compressed_bytes": 1622
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_connector_parity.log",
+      "archive": "archives/e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a",
+      "original_bytes": 1894,
+      "compressed_bytes": 998
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_duplicates.log",
+      "archive": "archives/af78f319b51c966473f4a78be3fa5e99ef02b381f67f9d5022d7b07bd7d35a34.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "af78f319b51c966473f4a78be3fa5e99ef02b381f67f9d5022d7b07bd7d35a34",
+      "original_bytes": 69850,
+      "compressed_bytes": 13414
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_edit_differential.log",
+      "archive": "archives/40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571",
+      "original_bytes": 634,
+      "compressed_bytes": 389
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_edit_parity.log",
+      "archive": "archives/25a349a516805a6ff8a26bef3be12b1bad960a67d0bc2eb95a9ce4787fec9984.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "25a349a516805a6ff8a26bef3be12b1bad960a67d0bc2eb95a9ce4787fec9984",
+      "original_bytes": 994,
+      "compressed_bytes": 556
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_everynoise_pilot.log",
+      "archive": "archives/d61598c1b7e0cd887da8abbd5a20ad662bc504cd64d67a9d0e9b3236870c564b.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d61598c1b7e0cd887da8abbd5a20ad662bc504cd64d67a9d0e9b3236870c564b",
+      "original_bytes": 101,
+      "compressed_bytes": 118
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_geographic_expansion.log",
+      "archive": "archives/28f76c79d19073810c03ae47c9fec1e1bdf1f06d2c16cdf692dacad6502b3b20.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "28f76c79d19073810c03ae47c9fec1e1bdf1f06d2c16cdf692dacad6502b3b20",
+      "original_bytes": 122,
+      "compressed_bytes": 136
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_geographic_round2.log",
+      "archive": "archives/89781ad3195225c5514258957bed8187d824754f0ebcb61137653ea4c1654f0e.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "89781ad3195225c5514258957bed8187d824754f0ebcb61137653ea4c1654f0e",
+      "original_bytes": 90,
+      "compressed_bytes": 109
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_lazy_app-before-api.log",
+      "archive": "archives/d9c1056849974c9c56134e788292b04063d18dc29d2fcb3d7cd0951c6985fda3.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d9c1056849974c9c56134e788292b04063d18dc29d2fcb3d7cd0951c6985fda3",
+      "original_bytes": 1451,
+      "compressed_bytes": 606
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_lazy_app.log",
+      "archive": "archives/d9c1056849974c9c56134e788292b04063d18dc29d2fcb3d7cd0951c6985fda3.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d9c1056849974c9c56134e788292b04063d18dc29d2fcb3d7cd0951c6985fda3",
+      "original_bytes": 1451,
+      "compressed_bytes": 606
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_minified_equivalence.log",
+      "archive": "archives/9274ab2c43edb32f8c806fa8fabccb0609e3d6bb11acb4d1f75dcb980794f004.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "9274ab2c43edb32f8c806fa8fabccb0609e3d6bb11acb4d1f75dcb980794f004",
+      "original_bytes": 765,
+      "compressed_bytes": 406
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_name_isolation.log",
+      "archive": "archives/685ee0d906817f2d827a51ffd4d8796e7013a4a60fb745f51b4639d186577543.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "685ee0d906817f2d827a51ffd4d8796e7013a4a60fb745f51b4639d186577543",
+      "original_bytes": 205,
+      "compressed_bytes": 168
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_publish_guard.log",
+      "archive": "archives/3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91",
+      "original_bytes": 315,
+      "compressed_bytes": 222
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_slot_picks.log",
+      "archive": "archives/6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+      "original_bytes": 30,
+      "compressed_bytes": 50
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_workspace_ops.log",
+      "archive": "archives/408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36",
+      "original_bytes": 3501,
+      "compressed_bytes": 1432
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/equivalence.log",
+      "archive": "archives/19485b28b8816d165d1ad40ba6ece7f6c128d299a8027a414d517f3193c8604c.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "19485b28b8816d165d1ad40ba6ece7f6c128d299a8027a414d517f3193c8604c",
+      "original_bytes": 338,
+      "compressed_bytes": 277
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/eval_capabilities.log",
+      "archive": "archives/cd234329bdca7001c680f0fa90522d4e4335442ee5032f4a856e67c26c52b407.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "cd234329bdca7001c680f0fa90522d4e4335442ee5032f4a856e67c26c52b407",
+      "original_bytes": 2406,
+      "compressed_bytes": 983
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/format-check-initial.log",
+      "archive": "archives/2808a69fb38742bdd771548a113265131c4529bcd203ad21e8567f01a1d4c5d9.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2808a69fb38742bdd771548a113265131c4529bcd203ad21e8567f01a1d4c5d9",
+      "original_bytes": 440,
+      "compressed_bytes": 300
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/format-evidence-room.log",
+      "archive": "archives/4794082252c6aa838f907e5e818a8c300d275042d1601ba29559904876c08d78.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4794082252c6aa838f907e5e818a8c300d275042d1601ba29559904876c08d78",
+      "original_bytes": 63,
+      "compressed_bytes": 81
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/format-evidence.log",
+      "archive": "archives/f0236830582b5640a0655b7b14138572fe1d330da42fbad9e911f0714de12f4c.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f0236830582b5640a0655b7b14138572fe1d330da42fbad9e911f0714de12f4c",
+      "original_bytes": 63,
+      "compressed_bytes": 81
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/frozen25-room-corrected-integration.json",
+      "archive": "archives/de2f87d89c2ed11210b7feb8539ca2f2c0461a83adea86ff78749f268048692c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "de2f87d89c2ed11210b7feb8539ca2f2c0461a83adea86ff78749f268048692c",
+      "original_bytes": 995288,
+      "compressed_bytes": 157126
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/integrated-browser-final.log",
+      "archive": "archives/4e67f89cabe8b44b78738201e3f745e83d392863a7d8e0a83f42a542fe050fb8.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "4e67f89cabe8b44b78738201e3f745e83d392863a7d8e0a83f42a542fe050fb8",
+      "original_bytes": 41,
+      "compressed_bytes": 61
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/integrated-browser-review.json",
+      "archive": "archives/b9886dbc10481dff3dca24c7c24b4e318820df9dc1079a99b25d66a5dca54102.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "b9886dbc10481dff3dca24c7c24b4e318820df9dc1079a99b25d66a5dca54102",
+      "original_bytes": 5390,
+      "compressed_bytes": 893
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/integrated-projection-review461.json",
+      "archive": "archives/88c5f998406fb7c823a92f56ed079b3b6d68e3d21eb0eeb4df987b3a5ef668ca.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "88c5f998406fb7c823a92f56ed079b3b6d68e3d21eb0eeb4df987b3a5ef668ca",
+      "original_bytes": 947,
+      "compressed_bytes": 546
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/integrated-room-verification.log",
+      "archive": "archives/5d2091c3f918f0496cf6a359d0895f9bc30e8d881e6f9ecee3ae25126126df05.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "5d2091c3f918f0496cf6a359d0895f9bc30e8d881e6f9ecee3ae25126126df05",
+      "original_bytes": 927,
+      "compressed_bytes": 544
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/lazy-prerequisite-note.json",
+      "archive": "archives/02934783aee4b2410d2dd18cda41cf240696308b644c0ad118af56699d8f3358.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "02934783aee4b2410d2dd18cda41cf240696308b644c0ad118af56699d8f3358",
+      "original_bytes": 423,
+      "compressed_bytes": 309
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/lint.log",
+      "archive": "archives/fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+      "original_bytes": 251,
+      "compressed_bytes": 182
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/new-owner-api-verification.json",
+      "archive": "archives/f7c86daba134169b2eb09374b045aef04e14c019f77d7ef17552426037356301.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "f7c86daba134169b2eb09374b045aef04e14c019f77d7ef17552426037356301",
+      "original_bytes": 778,
+      "compressed_bytes": 307
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/regression.log",
+      "archive": "archives/ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+      "original_bytes": 50,
+      "compressed_bytes": 67
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/regression_prefaces.log",
+      "archive": "archives/bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+      "original_bytes": 31,
+      "compressed_bytes": 51
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/source-scope-review461-before-room.json",
+      "archive": "archives/eadcdfa0489237718bdf7e57d1a27247ecfefcee9a5ddb1be29924e2665e710b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "eadcdfa0489237718bdf7e57d1a27247ecfefcee9a5ddb1be29924e2665e710b",
+      "original_bytes": 875,
+      "compressed_bytes": 486
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/source-scope-review461.json",
+      "archive": "archives/e14ac8abf267256575a259d5c2555de826657d4bcb6577dcaef45ee54495e2bd.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e14ac8abf267256575a259d5c2555de826657d4bcb6577dcaef45ee54495e2bd",
+      "original_bytes": 1019,
+      "compressed_bytes": 551
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/source-static-checks.json",
+      "archive": "archives/6d55cae3bed3f2703b41425fa530bf102b08010de368c87cbda1f2825868f68b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "6d55cae3bed3f2703b41425fa530bf102b08010de368c87cbda1f2825868f68b",
+      "original_bytes": 446,
+      "compressed_bytes": 166
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/supporting-check-results.json",
+      "archive": "archives/ab04062e6e01bcba5c13e09eb9ea5d238277a134a3fbdca99516fdff4541c194.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ab04062e6e01bcba5c13e09eb9ea5d238277a134a3fbdca99516fdff4541c194",
+      "original_bytes": 1271,
+      "compressed_bytes": 301
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/supporting-progress.log",
+      "archive": "archives/b38349ee55faeb6a84799ad7db7b52a4e83e20d0826ff68fc21930b00724f9bb.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "b38349ee55faeb6a84799ad7db7b52a4e83e20d0826ff68fc21930b00724f9bb",
+      "original_bytes": 329,
+      "compressed_bytes": 181
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/validate-room-corrected.log",
+      "archive": "archives/1506b1de96d8d03efb2f7af1cf0010823c76df7f7e84c54f80a1712a180dc497.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "1506b1de96d8d03efb2f7af1cf0010823c76df7f7e84c54f80a1712a180dc497",
+      "original_bytes": 137,
+      "compressed_bytes": 142
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/api-candidate-graph.json",
+      "archive": "archives/998da5eb38661aaa8d7647257e0c9e9fc947d9b11915700cd5c18db07bf0fc17.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "998da5eb38661aaa8d7647257e0c9e9fc947d9b11915700cd5c18db07bf0fc17",
+      "original_bytes": 7226770,
+      "compressed_bytes": 1008624
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/api-causal-ids.json",
+      "archive": "archives/c65e985c29a63ebaf1cb3cad2826edc5dfcd2bdd275f22ec8b8143a16c5e30e6.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c65e985c29a63ebaf1cb3cad2826edc5dfcd2bdd275f22ec8b8143a16c5e30e6",
+      "original_bytes": 119157,
+      "compressed_bytes": 37940
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/candidate.json",
+      "archive": "archives/d30408d5341de42980dd02f21a7b9c30ad2b05fb478529e97eec909bcb9e374e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d30408d5341de42980dd02f21a7b9c30ad2b05fb478529e97eec909bcb9e374e",
+      "original_bytes": 994739,
+      "compressed_bytes": 156963
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/explicit-reference-review.json",
+      "archive": "archives/2ee58820b8b5860e22f3eca5ce326c6cf186737973a61f774a2f92dbfc286ac3.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2ee58820b8b5860e22f3eca5ce326c6cf186737973a61f774a2f92dbfc286ac3",
+      "original_bytes": 218,
+      "compressed_bytes": 182
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/fixture-candidate-graph.json",
+      "archive": "archives/ecc6c0cf86dbd03071fd267c04be87b1b96b2b42fa5d2cabae66148cfb6469b7.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ecc6c0cf86dbd03071fd267c04be87b1b96b2b42fa5d2cabae66148cfb6469b7",
+      "original_bytes": 1908713,
+      "compressed_bytes": 292055
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/new-target-graph.json",
+      "archive": "archives/ac61f74c29e817153865e28281dfa57b90804d297c595ef5e2528e7421afc182.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ac61f74c29e817153865e28281dfa57b90804d297c595ef5e2528e7421afc182",
+      "original_bytes": 15403,
+      "compressed_bytes": 3258
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/new-target-ids.json",
+      "archive": "archives/2b7b6c6bab4313d40552c7fe3604ea03d992c30a1b4c623eaa5e39ec52a81b9c.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2b7b6c6bab4313d40552c7fe3604ea03d992c30a1b4c623eaa5e39ec52a81b9c",
+      "original_bytes": 443,
+      "compressed_bytes": 266
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/new-target-runtime.json",
+      "archive": "archives/525ebccb8ae87e6d21d1075cb0e957b77c99ec4a1b8a23c9842b9d32b0d9e5ae.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "525ebccb8ae87e6d21d1075cb0e957b77c99ec4a1b8a23c9842b9d32b0d9e5ae",
+      "original_bytes": 175869,
+      "compressed_bytes": 13898
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/old-affected-ids.json",
+      "archive": "archives/a808e626a9ec05fb925869450711ff7bc018bfaa1b25e69e6d42be2f244a638f.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "a808e626a9ec05fb925869450711ff7bc018bfaa1b25e69e6d42be2f244a638f",
+      "original_bytes": 21,
+      "compressed_bytes": 41
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/old-candidate-replays.json",
+      "archive": "archives/9aadd509b9969f856d001d827c3ed5044f3252dd55d8692dee3f8e45930f15b2.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "9aadd509b9969f856d001d827c3ed5044f3252dd55d8692dee3f8e45930f15b2",
+      "original_bytes": 7558,
+      "compressed_bytes": 2006
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/room-global-independent-root.json",
+      "archive": "archives/bdf11d95e978e3e0dafedb0d09c946f288d6074326fb9c265f532ff8399d9e0a.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "bdf11d95e978e3e0dafedb0d09c946f288d6074326fb9c265f532ff8399d9e0a",
+      "original_bytes": 333,
+      "compressed_bytes": 255
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/room-global-qualification461.json",
+      "archive": "archives/c7deac687b8df26da7b924297e69a42ff1c24094319bab6808a59304132e0829.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c7deac687b8df26da7b924297e69a42ff1c24094319bab6808a59304132e0829",
+      "original_bytes": 2389,
+      "compressed_bytes": 1215
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/viet-lofi-room-corrected-source.json",
+      "archive": "archives/2c23f7d990108352f00a390f7617b44b3b8752478bed965b7da00f13a2d4c216.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "2c23f7d990108352f00a390f7617b44b3b8752478bed965b7da00f13a2d4c216",
+      "original_bytes": 24270,
+      "compressed_bytes": 4317
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/viet-lofi-room-correction-review461.json",
+      "archive": "archives/216a0c9734fb3c43c4965f51a5eec10488f1d9453b600f48cdab735745fb96c9.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "216a0c9734fb3c43c4965f51a5eec10488f1d9453b600f48cdab735745fb96c9",
+      "original_bytes": 2023,
+      "compressed_bytes": 1044
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/viet-lofi-room-independent-root.json",
+      "archive": "archives/72af25f4b553c295f53c79322099654d5edaf1e7a5008e63d32350f2c08365ff.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "72af25f4b553c295f53c79322099654d5edaf1e7a5008e63d32350f2c08365ff",
+      "original_bytes": 1138,
+      "compressed_bytes": 726
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/qualification25-room-corrected/viet-primary-room-review-raw.json",
+      "archive": "archives/3e31e7331ecd955344e4eec66445528ee510c1980b99d8c93ef5f22e0f2562b7.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "3e31e7331ecd955344e4eec66445528ee510c1980b99d8c93ef5f22e0f2562b7",
+      "original_bytes": 23380,
+      "compressed_bytes": 7938
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next045-projection461/safe25-room-corrected/candidate.json",
+      "archive": "archives/d30408d5341de42980dd02f21a7b9c30ad2b05fb478529e97eec909bcb9e374e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d30408d5341de42980dd02f21a7b9c30ad2b05fb478529e97eec909bcb9e374e",
+      "original_bytes": 994739,
+      "compressed_bytes": 156963
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual-artifact-review-root.json",
+      "archive": "archives/d4ef7fbaa18344c1cb8ce1a308ba9c6cb8f0e155b0b2bb1466bafe29fe12f6c1.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d4ef7fbaa18344c1cb8ce1a308ba9c6cb8f0e155b0b2bb1466bafe29fe12f6c1",
+      "original_bytes": 1108,
+      "compressed_bytes": 636
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual-audit.log",
+      "archive": "archives/63ccf9d5ae3a3a04bbfd887f96826cdc28ab1a118c59251fe583f70a455a7b41.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "63ccf9d5ae3a3a04bbfd887f96826cdc28ab1a118c59251fe583f70a455a7b41",
+      "original_bytes": 699,
+      "compressed_bytes": 422
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual045-audit.json",
+      "archive": "archives/d1a0456233997ff1e1ea2718745ed934ddd10aad8cc9e91883683c187d2f9fbd.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d1a0456233997ff1e1ea2718745ed934ddd10aad8cc9e91883683c187d2f9fbd",
+      "original_bytes": 706,
+      "compressed_bytes": 420
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/actual045-payload-hashes.json",
+      "archive": "archives/34eb5fc4d07e70875a6d0a05be5341bcf33644384853c77a4821f73ee50c9a5e.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "34eb5fc4d07e70875a6d0a05be5341bcf33644384853c77a4821f73ee50c9a5e",
+      "original_bytes": 602803,
+      "compressed_bytes": 312112
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/atlas-geo.log",
+      "archive": "archives/c9b8f4992bf3e8a0cf9e6560a2104d1821193d9dda44c07a3c1f99f0cfc1ed79.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c9b8f4992bf3e8a0cf9e6560a2104d1821193d9dda44c07a3c1f99f0cfc1ed79",
+      "original_bytes": 145,
+      "compressed_bytes": 143
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/atlas-tree.log",
+      "archive": "archives/bc32d2ebe33d565a28ed21ac40053e450f0e799bc6a41f205f98c5a902ecd621.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "bc32d2ebe33d565a28ed21ac40053e450f0e799bc6a41f205f98c5a902ecd621",
+      "original_bytes": 135,
+      "compressed_bytes": 122
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-api.log",
+      "archive": "archives/0c0838d65b31d02251067fe0031cfd1f57edfb82d722ed9e141dda8a9cd1f0f2.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "0c0838d65b31d02251067fe0031cfd1f57edfb82d722ed9e141dda8a9cd1f0f2",
+      "original_bytes": 1593,
+      "compressed_bytes": 321
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-discovery.log",
+      "archive": "archives/d4121ffe68f53648861d78cfc980533f0bad2e9e2c1ef89a6e7ac4b6afcbd6d5.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "d4121ffe68f53648861d78cfc980533f0bad2e9e2c1ef89a6e7ac4b6afcbd6d5",
+      "original_bytes": 123,
+      "compressed_bytes": 125
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-html.log",
+      "archive": "archives/e0eb896d53d92dcf0f15aafc608e4b30ae0724497a9c1c2dcfc6ad70809ba7db.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e0eb896d53d92dcf0f15aafc608e4b30ae0724497a9c1c2dcfc6ad70809ba7db",
+      "original_bytes": 851,
+      "compressed_bytes": 511
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/build-state.json",
+      "archive": "archives/7f33a89cd1f57fd3043396b8fe7eeb8686505b1d67a71eac96795bc668e70ed1.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "7f33a89cd1f57fd3043396b8fe7eeb8686505b1d67a71eac96795bc668e70ed1",
+      "original_bytes": 5030,
+      "compressed_bytes": 1709
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check-api.log",
+      "archive": "archives/a9550584031e88c938dda935c2746295dba619f2679740722ff3bc9f9cdf7a84.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "a9550584031e88c938dda935c2746295dba619f2679740722ff3bc9f9cdf7a84",
+      "original_bytes": 362,
+      "compressed_bytes": 245
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check-atlas.log",
+      "archive": "archives/51841eb2a9aa7669644d95604299fc1e08d60a6e06cbe14c61a58a15dedba43a.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "51841eb2a9aa7669644d95604299fc1e08d60a6e06cbe14c61a58a15dedba43a",
+      "original_bytes": 2721,
+      "compressed_bytes": 1367
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/check_lazy_app-final.log",
+      "archive": "archives/e086dc7ecffbc2ff09564c327627ef0bccc6940401e13c0a5e2baa20863af24f.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e086dc7ecffbc2ff09564c327627ef0bccc6940401e13c0a5e2baa20863af24f",
+      "original_bytes": 919,
+      "compressed_bytes": 498
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/docs-check.log",
+      "archive": "archives/38a08b34f6af32da7acb990b8730e90430e434a5e3ad3165cb6fa4575db44d9a.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "38a08b34f6af32da7acb990b8730e90430e434a5e3ad3165cb6fa4575db44d9a",
+      "original_bytes": 450,
+      "compressed_bytes": 341
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/docs-final.log",
+      "archive": "archives/c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118",
+      "original_bytes": 450,
+      "compressed_bytes": 340
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/docs-fix.log",
+      "archive": "archives/3aac9888aca295350914e2f0767cf0b86e954c866a15b98325caad531ba89819.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "3aac9888aca295350914e2f0767cf0b86e954c866a15b98325caad531ba89819",
+      "original_bytes": 5676,
+      "compressed_bytes": 1476
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/final-scope-review461.json",
+      "archive": "archives/aef4392506638200c86990337213d81c1796b83b5ed36d381785244a9ca9418b.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "aef4392506638200c86990337213d81c1796b83b5ed36d381785244a9ca9418b",
+      "original_bytes": 2481,
+      "compressed_bytes": 962
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/format-final.log",
+      "archive": "archives/9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+      "original_bytes": 335,
+      "compressed_bytes": 230
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/lint-final.log",
+      "archive": "archives/fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+      "original_bytes": 251,
+      "compressed_bytes": 182
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/mobile-layout.log",
+      "archive": "archives/791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d",
+      "original_bytes": 225,
+      "compressed_bytes": 202
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/new-owner-audit.log",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "compressed_bytes": 20
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/post-api-progress.log",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "compressed_bytes": 20
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/supporting-check-results-before-final-lazy.json",
+      "archive": "archives/ab04062e6e01bcba5c13e09eb9ea5d238277a134a3fbdca99516fdff4541c194.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "ab04062e6e01bcba5c13e09eb9ea5d238277a134a3fbdca99516fdff4541c194",
+      "original_bytes": 1271,
+      "compressed_bytes": 301
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint045/supporting-check-results.json",
+      "archive": "archives/bb25497469c801325f3115d2236a473257dd0ef05056c5c67c03bcac06efa3f1.json.gz",
+      "encoding": "gzip; original bytes recover exactly",
+      "sha256": "bb25497469c801325f3115d2236a473257dd0ef05056c5c67c03bcac06efa3f1",
+      "original_bytes": 1474,
+      "compressed_bytes": 387
+    }
+  ],
+  "records": 223,
+  "unique_archives": 206,
+  "archive_hash_validation": "PASS"
+}

@@ -1,0 +1,187 @@
+{
+  "id": "musikkorps",
+  "name": "Musikkorps",
+  "family": "classical",
+  "lineage": "German military-music ensembles performing ceremonial, concert and chamber repertoire.",
+  "recipe": "classic musikkorps, art Music. student friendly legato trumpet, french horn, tenor standard standard backbore trombone, rotary valves canonical German orchestral miraphone canonical German orchestral tuba, cajon peruano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 24.779,
+  "config": {
+    "traditions": [
+      "musikkorps"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "brass_size": 0,
+          "trumpet_mouthpiece": 2.45,
+          "brass_mute": 0.3315,
+          "trumpet_technique": 2.8675,
+          "trumpet_bell_metal": 0.3,
+          "trumpet_maker_school": 0.34650000000000003
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "french_horn_bore": 0.0315,
+          "french_horn_metal": 0.3
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "trombone_type": -0.035,
+          "trombone_mouthpiece": 2.45,
+          "trombone_mute": 0.3315,
+          "trombone_technique": 0.3675,
+          "trombone_bell_metal": 0.3,
+          "trombone_maker_school": 0.34650000000000003
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "tuba_pitch": 0.0315,
+          "tuba_context": 0.39,
+          "tuba_bell_metal": 0.3315,
+          "tuba_valve_system": 1.0315,
+          "tuba_maker_school": 1.0315
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+          "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+        },
+        "scores": {
+          "cajon_peruano_construction": 0.105,
+          "cajon_peruano_role": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "french_horn": [
+        "wind_articulation",
+        "french_horn_bore",
+        "french_horn_metal"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ],
+      "cajon_peruano": [
+        "cajon_peruano_construction",
+        "cajon_peruano_role"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_classical_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "french_horn_bore": "french_horn_full",
+      "french_horn_metal": "horn_yellow_brass",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "tuba_pitch": "tuba_bbb",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_rotary_german",
+      "tuba_maker_school": "tuba_miraphone_german",
+      "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+      "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

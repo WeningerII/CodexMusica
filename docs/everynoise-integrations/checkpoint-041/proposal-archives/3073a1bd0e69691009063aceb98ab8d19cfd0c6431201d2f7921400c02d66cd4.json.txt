@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-cartoni-animati-band-realization.json",
+  "packet_sha256": "0a19ef36b0c7d3adba8e1fa280d96effcc57a3fa42dac332091718188e0e8485",
+  "ids": [
+    "cartoni_animati"
+  ],
+  "checked_at": "2026-10-04T00:33:37.958998+00:00",
+  "checks": [
+    "Root read all profiles, model policies and all12 actual format strings. Performer/organizer evidence supports restored vocal/band roles rather than narrow DJ or solo-piano editions.",
+    "166 actual owning controls, original four-format parity/ceiling and historical exact-photo checks pass. All meaningful source-supported roles retained as authored representative bands, not master reconstructions.",
+    "Final combined integration and validation pending."
+  ]
+}

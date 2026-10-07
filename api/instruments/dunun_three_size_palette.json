@@ -1,0 +1,50 @@
+{
+  "id": "dunun_three_size_palette",
+  "name": "Dundun, sangban and kenkeni palette (one player)",
+  "short": "three-size dunun palette",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "dunun_three_size_palette_identity",
+      "name": "Source-credited palette",
+      "variants": [
+        {
+          "id": "dunun_three_size_palette_source_unspecified",
+          "name": "One credited player palette of dundun, sangban and kenkeni; construction and bells unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dunun_three_size_palette_identity",
+      "name": "Source-credited palette",
+      "variants": [
+        {
+          "id": "dunun_three_size_palette_source_unspecified",
+          "name": "One credited player palette of dundun, sangban and kenkeni; construction and bells unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

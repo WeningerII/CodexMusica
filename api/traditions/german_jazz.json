@@ -2,10 +2,10 @@
   "id": "german_jazz",
   "name": "German jazz",
   "family": "jazz",
-  "lineage": "German jazz scenes; selected Berlin composition-led acoustic quartet",
+  "lineage": "German jazz developed through local scenes and international exchanges, encompassing swing and post-bop, free improvisation and contemporary composition. Acoustic small groups remain an important setting for exploring harmony, melody and collective interaction.",
   "recipe": "classic modern german jazz, improv On Frame, American jazz branch. grand piano, saxophone, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 318,
-  "score": 43.328,
+  "score": 47.957,
   "config": {
     "traditions": [
       "german_jazz"
@@ -30,7 +30,7 @@
           "grand_piano_brand": 0.105,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
@@ -48,13 +48,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": -0.05,
-          "sax_size": 0.19500000000000003,
+          "wind_articulation": 0.325,
+          "sax_size": -0.10500000000000001,
           "sax_reed": 0.105,
-          "sax_body_alloy": 0.26,
+          "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
-          "sax_technique": -0.05,
-          "sax_maker_school": 0.29774999999999996
+          "sax_technique": 0.325,
+          "sax_maker_school": 0.48849999999999993
         }
       },
       {
@@ -64,7 +64,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.1485,
+          "upright_strings": 0.063,
           "upright_play": 11.25
         }
       },
@@ -84,14 +84,14 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.67,
+          "drum_technique": 12.479999999999997,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.0735,
-          "shell_thickness": 0,
+          "shell_thickness": 0.042749999999999996,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.0735,
-          "cymbal_alloy": 11.173499999999997,
+          "snare_wires": 0.11249999999999999,
+          "cymbal_alloy": 11.315999999999997,
           "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

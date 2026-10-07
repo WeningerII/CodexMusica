@@ -3,14 +3,14 @@
   "name": "Ambient fusion",
   "family": "jazz",
   "lineage": "Ambient-oriented electric improvisation and studio montage, represented by Jon Hassell and Maarifa Street’s Last Night the Moon Came Dropping Its Clothes in the Street (2009). Trumpet, bass, violin and live sampling dissolve the boundary between ensemble performance and electronic soundscape. Hassell’s Fourth World practice is a formative branch of this wider jazz/electronic intersection, not a synonym for every ambient-fusion recording.",
-  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric psychedelic jazz fusion italian jazz fusion. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 652,
-  "score": 55.867,
+  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric dutch prog italian library music. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 641,
+  "score": 51.58,
   "config": {
     "traditions": [
       "ambient_fusion",
-      "psychedelic_jazz_fusion",
-      "italian_jazz_fusion"
+      "dutch_prog",
+      "italian_library_music"
     ],
     "instruments": [
       {
@@ -26,10 +26,10 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "brass_size": 0.7350000000000001,
-          "trumpet_mouthpiece": 22.5875,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 18.85,
           "brass_mute": 0,
-          "trumpet_technique": 0.3,
+          "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.8250000000000001,
           "trumpet_maker_school": 2.8600000000000003
         }
@@ -50,7 +50,7 @@
           "amp_make": 4.485000000000001,
           "body_wood": 0.39,
           "pickup_config": 0.44999999999999996,
-          "string_type": 17.325,
+          "string_type": 14.45,
           "scale_length_b": 0.44999999999999996,
           "fretted_or_not": 0,
           "bass_technique": -0.1,
@@ -75,12 +75,12 @@
           "bowed_technique": -0.035,
           "orch_strings": 0,
           "orch_top_wood": -0.07,
-          "orch_back_wood": 0.06499999999999999,
-          "orch_varnish": 0.12999999999999998,
+          "orch_back_wood": 0.9099999999999999,
+          "orch_varnish": 0.325,
           "orch_setup_period": 2.145,
           "orch_bow": 0,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.39,
+          "orch_articulation": 0.585,
           "orch_rosin": -0.035
         }
       },

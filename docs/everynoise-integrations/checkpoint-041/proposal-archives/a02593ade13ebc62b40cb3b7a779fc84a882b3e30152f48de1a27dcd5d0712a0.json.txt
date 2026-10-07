@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ROOT_QUEUE_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-indie-catala-description-clarified024.json",
+  "packet_sha256": "4e6aa512970e9bd55fafb01cb6275148908788225948c40f234efeb9816d4d81",
+  "ids": [
+    "indie_catala"
+  ],
+  "checked_at": "2026-10-04T00:27:22.848419+00:00",
+  "checks": [
+    "Root verified derivative changes only description from reed electric-piano to keyboard layers; actual Wurlitzer default explicitly authored, not source hardware claim.",
+    "Root read public profiles/models and all four previous byte-identical musical outputs; original58-owning-control and photo audits pass.",
+    "Final integration/combined validation pending."
+  ]
+}

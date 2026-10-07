@@ -3,9 +3,9 @@
   "name": "HexD",
   "family": "electronic",
   "lineage": "Coalescing on SoundCloud around 2020-2022 out of Memphis phonk, hyperpop and Brazilian funk edits, HexD is defined by extreme bitcrushing and sample-rate reduction applied to the entire mix — clipped 808s, pitched-up chipmunk vocals, cowbell phonk patterns at 130-160 BPM — plus deliberate MP3 artifacting and mono, distorted phone-speaker mastering.",
-  "recipe": "classic 2020-2022 hexd, mc Rhythm, experimental branch, lofi experimental electric, us hip hop southern aggressive phonk grunk. roland tr 8s modern aira digital recreation TR-808, field textural sampler, octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, low sub bass digital subtractive, glitched textural granular synth. boombox portable speaker. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
-  "recipe_chars": 510,
-  "score": 68.618,
+  "recipe": "classic 2020-2022 hexd, mc Rhythm, experimental branch, lofi experimental electric, us hip hop southern aggressive phonk grunk. TR-808, field textural sampler, octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, low sub bass digital subtractive, glitched textural granular synth. boombox portable speaker. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
+  "recipe_chars": 466,
+  "score": 68.115,
   "config": {
     "traditions": [
       "hexd",
@@ -23,7 +23,7 @@
         "scores": {
           "tr808_voice": 4.35,
           "drum_machine_808_context": 0.65,
-          "tr808_production_origin": 1.1549999999999998
+          "tr808_production_origin": 0.705
         }
       },
       {
@@ -37,10 +37,10 @@
         },
         "scores": {
           "electronic_technique": 5.450000000000001,
-          "sampler_archetypes": 6.630000000000001,
-          "sampler_bit_depth": 1.8399999999999999,
+          "sampler_archetypes": 6.4350000000000005,
+          "sampler_bit_depth": 2.04,
           "sampler_workflow": 6.035000000000001,
-          "sampler_classic_context": 14.819999999999999
+          "sampler_classic_context": 15.274999999999999
         }
       },
       {
@@ -51,9 +51,9 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 2.415,
-          "multitrack_stack_era_aesthetic": 0.975,
-          "multitrack_stack_processing": 1.9175
+          "multitrack_stack_density": 2.1399999999999997,
+          "multitrack_stack_era_aesthetic": 0.7,
+          "multitrack_stack_processing": 1.56
         }
       },
       {
@@ -64,9 +64,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.445,
+          "electronic_technique": 4.945,
           "va_archetypes": 0.24,
-          "digital_subtractive_context": 9.749999999999998
+          "digital_subtractive_context": 10.009999999999998
         }
       },
       {
@@ -78,7 +78,7 @@
         },
         "scores": {
           "electronic_technique": 5.450000000000001,
-          "granular_use": 0.135,
+          "granular_use": 0.195,
           "granular_synth_source": 2.8600000000000003
         }
       }

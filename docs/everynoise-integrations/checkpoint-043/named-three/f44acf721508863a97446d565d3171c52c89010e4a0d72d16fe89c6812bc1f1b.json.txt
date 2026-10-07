@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "individually_reviewed_updates": [
+    "gospel_quartet_male",
+    "groove_metal",
+    "methodist_hymnody"
+  ],
+  "all_other_snapshots_preserved": 1146,
+  "source": "source-projection-and-fixture-intent.json",
+  "blanket_update": false
+}

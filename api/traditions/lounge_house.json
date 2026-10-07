@@ -1,0 +1,87 @@
+{
+  "id": "lounge_house",
+  "name": "Lounge House",
+  "family": "electronic",
+  "lineage": "Lounge house connects house music with relaxed listening and social spaces such as beach clubs, hotel lounges and sunset gatherings. DJs, producers and live collaborators draw on melodic club music, chill-out textures and familiar songs.",
+  "recipe": "classic lounge house, electronic Dance, house branch. dj playback mixing unspecified, saxophone. live tracking.",
+  "recipe_chars": 111,
+  "score": -0.355,
+  "config": {
+    "traditions": [
+      "lounge_house"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": -0.035,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.1,
+          "sax_mouthpiece": 0,
+          "sax_technique": -0.05,
+          "sax_maker_school": -0.07
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi"
+    },
+    "pin_parts": true
+  }
+}

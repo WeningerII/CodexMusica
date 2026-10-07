@@ -1,0 +1,268 @@
+{
+  "entries": [
+    {
+      "source_label": "detroit trap brasileiro",
+      "source_url": "https://everynoise.com/engenremap-detroittrapbrasileiro.html",
+      "suggested_id": "detroit_trap_brasileiro",
+      "allocation_ordinal": 265,
+      "allocation_group_id": "011",
+      "id": "detroit_trap_brasileiro",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "detroit_trap_brasileiro",
+        "name": "Detroit Trap Brasileiro",
+        "family": "hip_hop",
+        "lineage": "Detroit trap brasileiro — Brazil’s early-2020s adaptation of Detroit rap, marked by punchline-led Portuguese verses, loose placement against the beat and prominent rhythmic bass.",
+        "instruments": [
+          "voice",
+          "drum_machine_808",
+          "grand_piano"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical",
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Detroit trap brasileiro adapts Detroit rap’s playful punchlines and elastic delivery to Brazilian Portuguese. Piano figures, prominent bass and buoyant percussion frame loosely placed verses, often with irreverent humor. The scene expanded in the early 2020s through independent rappers and producers, with sampling and local references giving the imported style new inflections.",
+        "exemplars": [
+          "PutodiParis",
+          "Akao.47",
+          "Brocasito"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -22.9,
+        -43.2,
+        "Rio de Janeiro",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Representative PutodiParis/Carga Nova scene hub; not exclusive national origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://monkeybuzz.com.br/materias/barra-por-barra-bem-vindo-a-detroit/",
+          "title": "João Victor Medeiros: original Detroit-in-Brazil scene analysis",
+          "support_notes": "Fresh13531view0 original2022 specialist musical criticism identifies Brazilian adaptation, characteristic drum/bass/piano roles and loose rap timing. This is independent genre analysis, not a producer interview or exact session credits."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3qx5GEFYid9MdlDPMJZy8y",
+          "title": "Exact creator Detroit Trap Brasileiro playlist",
+          "support_notes": "Fresh13531view1 requested category corpus includes Akao.47/Brocasito and the national network."
+        },
+        {
+          "url": "https://soundcloud.com/prodjoyromantic/free-putodiparis-x-bebelsito-x-detroit-sample-type-beat-visao",
+          "title": "Producer Joy Romantic: Brazilian Detroit sample-beat practice",
+          "support_notes": "Fresh13531view2 producer-issued Detroit sample type beat names Putodiparis/Bebelsito; supports actual local production activity, not a claim of exact unspecified sampled instruments."
+        }
+      ],
+      "neighbor_distinction": "Existing Trap Brasileiro describes the broad Atlanta-derived national trap field. This requested field is its specifically Detroit-influenced branch, positively identified in original Brazilian scene criticism through timing, punchline emphasis and production habits. Existing Detroit Hip Hop already includes later Detroit rappers, so no claim that its scope ends with Dilla; the Brazilian Portuguese producer/rapper network and documented adaptation are the distinction. Detroit Techno/House are separate dance-music lineages. Overlap with broader trap is explicit, not evidence of an exact alias.",
+      "model_policy": "Genre-level representative piano-driven rap arrangement, not a reconstruction of an individual master. Original specialist scene analysis describes drums, prominent bass and guiding piano as characteristic production roles; an authored 808-style percussion/bass engine and repeating concert-grand piano motif retain these roles. The original physical piano, software, sample source and synthesizer architecture are not asserted. Sample-based alternatives exist, but this keyboard-played rendition is not a claim to reproduce their embedded audio. One rhythmic spoken lead, moderate effort, short repeated piano cells and controlled studio capture are authored choices. The current controls do not specify the source’s measured off-grid timing; no exact flow-delay claim. A coherent standard concert-grand timbre gives the piano motif a clear low-register foundation alongside the drum/bass engine; this is an authored production timbre, not a claim that a physical concert grand appeared on the source recordings.",
+      "source_scope_limitation": "Representative genre practice; no claim every track uses piano, every bass is808, or exact measured vocal timing. Source models/headcounts unknown.",
+      "vocal_count_audit": {
+        "selected_count": 1,
+        "count_basis": "Authored representative lead rapper."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Rap lead"
+        },
+        {
+          "instrument": "drum_machine_808",
+          "role": "Authored programmed percussion and prominent low-bass realization"
+        },
+        {
+          "instrument": "grand_piano",
+          "role": "Authored piano motif realization"
+        }
+      ],
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Genre-level representative piano-driven rap arrangement, not a reconstruction of an individual master. Original specialist scene analysis describes drums, prominent bass and guiding piano as characteristic production roles; an authored 808-style percussion/bass engine and repeating concert-grand piano motif retain these roles. The original physical piano, software, sample source and synthesizer architecture are not asserted. Sample-based alternatives exist, but this keyboard-played rendition is not a claim to reproduce their embedded audio. One rhythmic spoken lead, moderate effort, short repeated piano cells and controlled studio capture are authored choices. The current controls do not specify the source’s measured off-grid timing; no exact flow-delay claim. A coherent standard concert-grand timbre gives the piano motif a clear low-register foundation alongside the drum/bass engine; this is an authored production timbre, not a claim that a physical concert grand appeared on the source recordings."
+        },
+        {
+          "instrument": "drum_machine_808",
+          "parts": {
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_trap",
+            "tr808_production_origin": "tr808_roland_osaka_canonical"
+          },
+          "policy": "Genre-level representative piano-driven rap arrangement, not a reconstruction of an individual master. Original specialist scene analysis describes drums, prominent bass and guiding piano as characteristic production roles; an authored 808-style percussion/bass engine and repeating concert-grand piano motif retain these roles. The original physical piano, software, sample source and synthesizer architecture are not asserted. Sample-based alternatives exist, but this keyboard-played rendition is not a claim to reproduce their embedded audio. One rhythmic spoken lead, moderate effort, short repeated piano cells and controlled studio capture are authored choices. The current controls do not specify the source’s measured off-grid timing; no exact flow-delay claim. A coherent standard concert-grand timbre gives the piano motif a clear low-register foundation alongside the drum/bass engine; this is an authored production timbre, not a claim that a physical concert grand appeared on the source recordings."
+        },
+        {
+          "instrument": "grand_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_minimalist_repeated",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          },
+          "policy": "Genre-level representative piano-driven rap arrangement, not a reconstruction of an individual master. Original specialist scene analysis describes drums, prominent bass and guiding piano as characteristic production roles; an authored 808-style percussion/bass engine and repeating concert-grand piano motif retain these roles. The original physical piano, software, sample source and synthesizer architecture are not asserted. Sample-based alternatives exist, but this keyboard-played rendition is not a claim to reproduce their embedded audio. One rhythmic spoken lead, moderate effort, short repeated piano cells and controlled studio capture are authored choices. The current controls do not specify the source’s measured off-grid timing; no exact flow-delay claim. A coherent standard concert-grand timbre gives the piano motif a clear low-register foundation alongside the drum/bass engine; this is an authored production timbre, not a claim that a physical concert grand appeared on the source recordings."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "drum_machine_808",
+          "grand_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All applicable owning controls protected; no analog-synth/sampler electronic-technique collision."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "detroit_trap_brasileiro",
+          "name": "Detroit Trap Brasileiro",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13451view0 confirms original credit and CC BY2.5; exact historical bytes retained.",
+          "fresh_review_ref": "turn13451view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13451view0"
+        ],
+        "fresh_rights_review": "Fresh13451view0; historical exact URL/bytes/visual receipt inherited unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

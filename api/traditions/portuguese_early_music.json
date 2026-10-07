@@ -1,0 +1,82 @@
+{
+  "id": "portuguese_early_music",
+  "name": "Portuguese Early Music",
+  "family": "classical",
+  "lineage": "Rui Fernando Soares — Pedro de Araújo: Organ Music (Brilliant Classics97076,2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s portuguese early music, art Music, western early branch. schnitger hamburg canonical north German Baroque late 17th century tin lead 75 25 canonical principal rank bright projecting equal temperament modern standard post 1850 mechanical tracker canonical Baroque direct touch legato pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 411,
+  "score": 18.783,
+  "config": {
+    "traditions": [
+      "portuguese_early_music"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+          "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+          "pipe_organ_temperament": "pipe_organ_equal_temperament",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 4.300000000000001,
+          "pipe_organ_class": 0.78,
+          "pipe_organ_context": 7.669999999999999,
+          "pipe_organ_voicing_school": 1.95,
+          "pipe_organ_pipe_alloy": 1.092,
+          "pipe_organ_temperament": 1.431,
+          "pipe_organ_action": 1.56
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_baroque",
+      "pipe_organ_context": "pipe_organ_concert",
+      "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+      "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+      "pipe_organ_temperament": "pipe_organ_equal_temperament",
+      "pipe_organ_action": "pipe_organ_mechanical_tracker"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

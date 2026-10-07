@@ -1,0 +1,62 @@
+{
+  "id": "harp",
+  "name": "Harp",
+  "family": "classical",
+  "lineage": "Harp repertoire spans solo concert performance and varied ensemble traditions. The modern pedal harp supports a wide range of composed and arranged instrumental music.",
+  "recipe": "classic harp, art Music. concert harp. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 143,
+  "score": 3.9,
+  "config": {
+    "traditions": [
+      "harp"
+    ],
+    "instruments": [
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 2.6,
+          "harp_pedals": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "concert_harp": [
+        "harp_strings",
+        "harp_pedals"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "harp_strings": "harp_47_string",
+      "harp_pedals": "harp_double_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

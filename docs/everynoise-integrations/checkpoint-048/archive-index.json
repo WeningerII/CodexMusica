@@ -1,0 +1,817 @@
+{
+  "checkpoint": 48,
+  "status": "HASH_BOUND_VALIDATION_EVIDENCE",
+  "policy": "Explicit whitelist of authored catalog proposals, original-engine configs/graphs/outputs, concise source findings and review receipts. Full third-party page dumps stay local. Originals and historical versions retained.",
+  "files": [
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/actual-artifact-review-root.json",
+      "sha256": "c3c67bee651128fdfc2d27cbcb7b0180bb193d48a8a206a4a2faf1d740af6e06",
+      "archive": "archives/c3c67bee651128fdfc2d27cbcb7b0180bb193d48a8a206a4a2faf1d740af6e06.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 848,
+      "compressed_bytes": 461
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/actual-audit.log",
+      "sha256": "0d9bc73dde399dde161082446b8fb78e402d393b685b9421ce1f9fea4ed008f5",
+      "archive": "archives/0d9bc73dde399dde161082446b8fb78e402d393b685b9421ce1f9fea4ed008f5.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 761,
+      "compressed_bytes": 437
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/actual048-audit.json",
+      "sha256": "b8ee5352dd624dfd8a6369fb426a29e98da5493b04af4060bccaa1f347c42424",
+      "archive": "archives/b8ee5352dd624dfd8a6369fb426a29e98da5493b04af4060bccaa1f347c42424.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 768,
+      "compressed_bytes": 435
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/actual048-payload-hashes.json",
+      "sha256": "f9b01130ff055cd6dc14ae92d2e231e4814ce386d3e4ac18763ae1cea6064c02",
+      "archive": "archives/f9b01130ff055cd6dc14ae92d2e231e4814ce386d3e4ac18763ae1cea6064c02.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 611472,
+      "compressed_bytes": 316587
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/api-build.log",
+      "sha256": "2ea176cddc2f964bc359ab8f333ba8dfb1c5e5cac0e5ac113226b3175b2e904b",
+      "archive": "archives/2ea176cddc2f964bc359ab8f333ba8dfb1c5e5cac0e5ac113226b3175b2e904b.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1620,
+      "compressed_bytes": 329
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/app_recipe_regression.log",
+      "sha256": "441c987fc75293e4f75ec07244fcceafae164e78a9add0f0f657a9ae83fa601b",
+      "archive": "archives/441c987fc75293e4f75ec07244fcceafae164e78a9add0f0f657a9ae83fa601b.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 281,
+      "compressed_bytes": 248
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/atlas-geo.log",
+      "sha256": "9303235a7fa2ce4f534aa969e09df3d3b4f721aa78d2a7e6526635fc494449a0",
+      "archive": "archives/9303235a7fa2ce4f534aa969e09df3d3b4f721aa78d2a7e6526635fc494449a0.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 145,
+      "compressed_bytes": 143
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/atlas-tree.log",
+      "sha256": "cd6c43bc7046a9c3f7020a41f855af576658bb3ae9a6e36029a0352f547cbb14",
+      "archive": "archives/cd6c43bc7046a9c3f7020a41f855af576658bb3ae9a6e36029a0352f547cbb14.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 135,
+      "compressed_bytes": 122
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/build-discovery.log",
+      "sha256": "8077f9b6d6cf8b59e96298228b6ee842eb99c4a80a2784da59ec8f79cc30cf0a",
+      "archive": "archives/8077f9b6d6cf8b59e96298228b6ee842eb99c4a80a2784da59ec8f79cc30cf0a.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 129,
+      "compressed_bytes": 130
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/build-html.log",
+      "sha256": "8e8a19ddadb0a8f4949b5f9c98cedcaded76780a4b23b3b3aa8cb4fc5ceb433d",
+      "archive": "archives/8e8a19ddadb0a8f4949b5f9c98cedcaded76780a4b23b3b3aa8cb4fc5ceb433d.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 851,
+      "compressed_bytes": 509
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/build-signatures.log",
+      "sha256": "45e7e9f10229f8626fb7adb782998ac99d919ad272ee791bef5be46c7ececfc0",
+      "archive": "archives/45e7e9f10229f8626fb7adb782998ac99d919ad272ee791bef5be46c7ececfc0.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 73,
+      "compressed_bytes": 93
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/build-state.json",
+      "sha256": "62e0fee72a0c91f32a5093ed4aadd4ae027f3938cd77b1d3442402bc85621c4b",
+      "archive": "archives/62e0fee72a0c91f32a5093ed4aadd4ae027f3938cd77b1d3442402bc85621c4b.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 2074,
+      "compressed_bytes": 1111
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check-api.log",
+      "sha256": "2e805a29bc408439d94243301be6d8c259359e97d08e61d89245d1da30eefd95",
+      "archive": "archives/2e805a29bc408439d94243301be6d8c259359e97d08e61d89245d1da30eefd95.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 362,
+      "compressed_bytes": 246
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check-atlas.log",
+      "sha256": "3254577eb4c77f377bc025b711a99425e726966a3eed1656cb2f64d27b84873d",
+      "archive": "archives/3254577eb4c77f377bc025b711a99425e726966a3eed1656cb2f64d27b84873d.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 2722,
+      "compressed_bytes": 1369
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_slot_picks.log",
+      "sha256": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+      "archive": "archives/6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 30,
+      "compressed_bytes": 50
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/descriptor-check.log",
+      "sha256": "60f6b998e0a1b3ada8e11f7d97001441d01fc176df1de6c6c69c21ac0a6f3ddf",
+      "archive": "archives/60f6b998e0a1b3ada8e11f7d97001441d01fc176df1de6c6c69c21ac0a6f3ddf.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 402,
+      "compressed_bytes": 298
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/docs-check.log",
+      "sha256": "c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118",
+      "archive": "archives/c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 450,
+      "compressed_bytes": 340
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/docs-fix.log",
+      "sha256": "0c2bda8f88f5aaada15d4e245da930d665adb244741a71cff706d134ddd2d607",
+      "archive": "archives/0c2bda8f88f5aaada15d4e245da930d665adb244741a71cff706d134ddd2d607.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 5209,
+      "compressed_bytes": 1366
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/duplicates.log",
+      "sha256": "948419ef7aa8842e6bb1e0a9a84f248e090d3769413f1266f0148d5937fa1f73",
+      "archive": "archives/948419ef7aa8842e6bb1e0a9a84f248e090d3769413f1266f0148d5937fa1f73.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 70174,
+      "compressed_bytes": 13477
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/equivalence.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 0,
+      "compressed_bytes": 20
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/everynoise.log",
+      "sha256": "d61598c1b7e0cd887da8abbd5a20ad662bc504cd64d67a9d0e9b3236870c564b",
+      "archive": "archives/d61598c1b7e0cd887da8abbd5a20ad662bc504cd64d67a9d0e9b3236870c564b.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 101,
+      "compressed_bytes": 118
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/integrated-projection-review461.json",
+      "sha256": "a0b4fb904f1a3d73b3b3f4c794570b2f338596042438bb7a6e41b66e4b42b2ab",
+      "archive": "archives/a0b4fb904f1a3d73b3b3f4c794570b2f338596042438bb7a6e41b66e4b42b2ab.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 906,
+      "compressed_bytes": 538
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/lint.log",
+      "sha256": "fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57",
+      "archive": "archives/fa1c72d67ccb8bea686361d4e0bb41a99252a49e6525681e42866a4dd7f85b57.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 251,
+      "compressed_bytes": 182
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/public-archive-raw-scan.json",
+      "sha256": "f50023536ce45d7e1f6f8294995a6b2e0e6611b797cd0aad92129debe1a09baa",
+      "archive": "archives/f50023536ce45d7e1f6f8294995a6b2e0e6611b797cd0aad92129debe1a09baa.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 939,
+      "compressed_bytes": 448
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/public-source-provenance.json",
+      "sha256": "35e96929bdd08891af18f6a8da7923633659b020ffc11cedefac54c4f42dc806",
+      "archive": "archives/35e96929bdd08891af18f6a8da7923633659b020ffc11cedefac54c4f42dc806.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 91911,
+      "compressed_bytes": 24583
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/regression.log",
+      "sha256": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+      "archive": "archives/ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 50,
+      "compressed_bytes": 67
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/regression_prefaces.log",
+      "sha256": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+      "archive": "archives/bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 31,
+      "compressed_bytes": 51
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/repair-integration-report.json",
+      "sha256": "d49a6ecd4236bd34a6bb4b224e21eedae72b7b202265051b97fe25deb56ec644",
+      "archive": "archives/d49a6ecd4236bd34a6bb4b224e21eedae72b7b202265051b97fe25deb56ec644.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 197,
+      "compressed_bytes": 171
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/signatures-valid.log",
+      "sha256": "4a9403ab00fd8c40da077bc00f14573dca5d8dd8c2d941d8a0debb41b91e25c6",
+      "archive": "archives/4a9403ab00fd8c40da077bc00f14573dca5d8dd8c2d941d8a0debb41b91e25c6.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 759,
+      "compressed_bytes": 485
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/signatures.log",
+      "sha256": "5a580ceb8d91b57c4da2403849ce4b69b0ffa611b3f3a1c95899a59913f64d62",
+      "archive": "archives/5a580ceb8d91b57c4da2403849ce4b69b0ffa611b3f3a1c95899a59913f64d62.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 773,
+      "compressed_bytes": 371
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/source-format.log",
+      "sha256": "634a4911a564b7a8104aa364dcd8cb428ce72f1abe9497ff7c0edeceeebf488f",
+      "archive": "archives/634a4911a564b7a8104aa364dcd8cb428ce72f1abe9497ff7c0edeceeebf488f.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 271,
+      "compressed_bytes": 200
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-check-results.json",
+      "sha256": "a4ffc93cb48a478a6f689d4fe81e283f065a5615efe1afbab60a193d581ce2ab",
+      "archive": "archives/a4ffc93cb48a478a6f689d4fe81e283f065a5615efe1afbab60a193d581ce2ab.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 255,
+      "compressed_bytes": 137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-driver.log",
+      "sha256": "e6c80e8f59694cab0842fef4df44645ec6e375a56f087c9a3525ff461b16e159",
+      "archive": "archives/e6c80e8f59694cab0842fef4df44645ec6e375a56f087c9a3525ff461b16e159.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 65,
+      "compressed_bytes": 74
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/unchanged-snapshot-review.json",
+      "sha256": "9298eaf1f67bfa0f6465ba398fabd83114a8470e3e4505c2055f43a4b1555a58",
+      "archive": "archives/9298eaf1f67bfa0f6465ba398fabd83114a8470e3e4505c2055f43a4b1555a58.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 354,
+      "compressed_bytes": 218
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/validate.log",
+      "sha256": "7352ef17d2562bb859daca3ad6352f69167e094763e1b4f67fce8e2c64562829",
+      "archive": "archives/7352ef17d2562bb859daca3ad6352f69167e094763e1b4f67fce8e2c64562829.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 137,
+      "compressed_bytes": 143
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/atlas-final-review.json",
+      "sha256": "b5ce6de0993cbd35af1214fa9e3f8a1f22cf650bdfd147e65ba9bd591baf6f5f",
+      "archive": "archives/b5ce6de0993cbd35af1214fa9e3f8a1f22cf650bdfd147e65ba9bd591baf6f5f.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 55,
+      "compressed_bytes": 64
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/candidate-room-corrected.json",
+      "sha256": "a118cea2482bd874997b7275e4e2ddb6908a088779cd13326ddc46afed18bef3",
+      "archive": "archives/a118cea2482bd874997b7275e4e2ddb6908a088779cd13326ddc46afed18bef3.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 867225,
+      "compressed_bytes": 121787
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/candidate-room-geo-corrected.json",
+      "sha256": "a1ae8a8913ef2b401b220dff3d9fa201c3aeb601c14efc84f39c6cbc889eee7b",
+      "archive": "archives/a1ae8a8913ef2b401b220dff3d9fa201c3aeb601c14efc84f39c6cbc889eee7b.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 867265,
+      "compressed_bytes": 121809
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/causal-isolation/comparison.json",
+      "sha256": "6c5ee5fb68146f60d7470458573bb766692e27ac13bd64ce2c9cf38a29f66652",
+      "archive": "archives/6c5ee5fb68146f60d7470458573bb766692e27ac13bd64ce2c9cf38a29f66652.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 32666,
+      "compressed_bytes": 3404
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/fixture-five-independent-review-sourceaudit.json",
+      "sha256": "a8ab2e8282e871dafefd8e0a2c3754c0f7fea06e9fc93534e42cde3da04ca70a",
+      "archive": "archives/a8ab2e8282e871dafefd8e0a2c3754c0f7fea06e9fc93534e42cde3da04ca70a.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 15976,
+      "compressed_bytes": 4683
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/geo-correction-receipts.json",
+      "sha256": "3dd45e9d29e75039c9c04f0418ef2d05a2770a11100b90f09a93b13b272a1937",
+      "archive": "archives/3dd45e9d29e75039c9c04f0418ef2d05a2770a11100b90f09a93b13b272a1937.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 3975,
+      "compressed_bytes": 1145
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/input-bindings.json",
+      "sha256": "685774fa33ae8700f35f68566b4739fd357b4da44c09981fe8656f317405df4e",
+      "archive": "archives/685774fa33ae8700f35f68566b4739fd357b4da44c09981fe8656f317405df4e.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 405,
+      "compressed_bytes": 330
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/new-target-combined-proof461.json",
+      "sha256": "d52b92bbc7335fd7c5fea31e57b52acc5deb7a65fc64ae6c2a7c1d034ee5ff8e",
+      "archive": "archives/d52b92bbc7335fd7c5fea31e57b52acc5deb7a65fc64ae6c2a7c1d034ee5ff8e.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1999,
+      "compressed_bytes": 932
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/new-targets-0-25-independent-review-sourceaudit.json",
+      "sha256": "98dc7e91eea13ce8172dbeb59ff6fdb2af946530591dfe334d0bb70a67f1218c",
+      "archive": "archives/98dc7e91eea13ce8172dbeb59ff6fdb2af946530591dfe334d0bb70a67f1218c.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 26566,
+      "compressed_bytes": 6729
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/new-targets-13-26-51-review461.json",
+      "sha256": "d27f75debe6ae4da938bdfc5bc71dcd60c19d43de27e3b5439c19ec977219568",
+      "archive": "archives/d27f75debe6ae4da938bdfc5bc71dcd60c19d43de27e3b5439c19ec977219568.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 29799,
+      "compressed_bytes": 6845
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/old-differences-0-8-review-root.json",
+      "sha256": "e58ad910e0814e521cf83267c2821bf862659d2103b5fedc254c22a92da9b281",
+      "archive": "archives/e58ad910e0814e521cf83267c2821bf862659d2103b5fedc254c22a92da9b281.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 4464,
+      "compressed_bytes": 1998
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/old-differences-9-16-review461.json",
+      "sha256": "61eb90252eabe5d49821238262b67e78b54a7159b3924605ed19a0c73d7fd4a6",
+      "archive": "archives/61eb90252eabe5d49821238262b67e78b54a7159b3924605ed19a0c73d7fd4a6.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 18544,
+      "compressed_bytes": 4650
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/punjabi-room-independent-review-root.json",
+      "sha256": "ab603ad9f99da3d6cce49058cf77f82b9cb35b25ff63ccc7c449ed817057ce90",
+      "archive": "archives/ab603ad9f99da3d6cce49058cf77f82b9cb35b25ff63ccc7c449ed817057ce90.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1308,
+      "compressed_bytes": 761
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/punjabi-room-runtime.json",
+      "sha256": "8687be983ea552441991b5ebdfaec140c893f900bf4cafdb7d4e1084596c28fe",
+      "archive": "archives/8687be983ea552441991b5ebdfaec140c893f900bf4cafdb7d4e1084596c28fe.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 6727,
+      "compressed_bytes": 1304
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/punjabi-room-scoped-review461.json",
+      "sha256": "087b08b44f02f9e6678f2159cdd433c696c4599b6a4f592d04a86bf66b3beaaf",
+      "archive": "archives/087b08b44f02f9e6678f2159cdd433c696c4599b6a4f592d04a86bf66b3beaaf.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1602,
+      "compressed_bytes": 895
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/api-baseline-graph.json",
+      "sha256": "b33538c7571becd3fbefdcbfc96a0b0d7b293a9a1ea4a93d17fb30404ace4c6f",
+      "archive": "archives/b33538c7571becd3fbefdcbfc96a0b0d7b293a9a1ea4a93d17fb30404ace4c6f.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 7274810,
+      "compressed_bytes": 1016596
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/api-baseline-replays.json",
+      "sha256": "9e7305960c933684e151da4e172a692b617109002849a7944c44c96bfea79009",
+      "archive": "archives/9e7305960c933684e151da4e172a692b617109002849a7944c44c96bfea79009.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1060149,
+      "compressed_bytes": 139919
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/api-candidate-graph.json",
+      "sha256": "f0716800947ef0a086cea1908342403a36a6ea5a6a3fd37d96a89bfd328b6089",
+      "archive": "archives/f0716800947ef0a086cea1908342403a36a6ea5a6a3fd37d96a89bfd328b6089.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 7274212,
+      "compressed_bytes": 1016477
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/api-candidate-replays.json",
+      "sha256": "1ae64400aa39c7ded9f86ff6bd3ccfb035b9e3610d8fd95b059d13be33979146",
+      "archive": "archives/1ae64400aa39c7ded9f86ff6bd3ccfb035b9e3610d8fd95b059d13be33979146.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 858630,
+      "compressed_bytes": 93997
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/api-replay-differences.json",
+      "sha256": "cf2cd68382dea6f4d63fd83792eb2d401a217eaed23b1bee311208a8c546178b",
+      "archive": "archives/cf2cd68382dea6f4d63fd83792eb2d401a217eaed23b1bee311208a8c546178b.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 11716,
+      "compressed_bytes": 2296
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/baseline-source-binding.json",
+      "sha256": "e33a4d067686591504faf59499e70f120e169b650bd26381ea5d8fd0c2581258",
+      "archive": "archives/e33a4d067686591504faf59499e70f120e169b650bd26381ea5d8fd0c2581258.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1178,
+      "compressed_bytes": 662
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/candidate.json",
+      "sha256": "7df11efb680ccc12f1c58af2598c8788821f8bf294da4f5b4289f9c7e8e08b0d",
+      "archive": "archives/7df11efb680ccc12f1c58af2598c8788821f8bf294da4f5b4289f9c7e8e08b0d.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 872676,
+      "compressed_bytes": 124682
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/explicit-reference-review.json",
+      "sha256": "94c0043ab4103dafc38f3b0406ca61931450ed626f36f5d6c6240aa2ef4ee75f",
+      "archive": "archives/94c0043ab4103dafc38f3b0406ca61931450ed626f36f5d6c6240aa2ef4ee75f.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 218,
+      "compressed_bytes": 181
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/fixture-baseline-graph.json",
+      "sha256": "7de53058104abbee03a80d5c3d447c23b81a85a06efcf46400970eb48c7cfeee",
+      "archive": "archives/7de53058104abbee03a80d5c3d447c23b81a85a06efcf46400970eb48c7cfeee.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1908968,
+      "compressed_bytes": 292066
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/fixture-baseline-replays.json",
+      "sha256": "4a1bd268feb774ed9a404ece2b1499966aff34f2a2112d7de80de74c39164f23",
+      "archive": "archives/4a1bd268feb774ed9a404ece2b1499966aff34f2a2112d7de80de74c39164f23.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 229573,
+      "compressed_bytes": 23343
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/fixture-candidate-graph.json",
+      "sha256": "db2663aea0f769b27fdaca351d8c434093b4c589872195a87b8bbb0c50242449",
+      "archive": "archives/db2663aea0f769b27fdaca351d8c434093b4c589872195a87b8bbb0c50242449.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1908717,
+      "compressed_bytes": 292001
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/fixture-candidate-replays.json",
+      "sha256": "8f15e0c5965ba285f663d8d7eb3cafdae62bcf1a22cf4e042b965b80eb368de6",
+      "archive": "archives/8f15e0c5965ba285f663d8d7eb3cafdae62bcf1a22cf4e042b965b80eb368de6.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 229574,
+      "compressed_bytes": 23348
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/fixture-replay-differences.json",
+      "sha256": "4c33616e04d4d290c04e9b60d67a382f809db456239f94e6776d75453f62b988",
+      "archive": "archives/4c33616e04d4d290c04e9b60d67a382f809db456239f94e6776d75453f62b988.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 111,
+      "compressed_bytes": 89
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/graph-summary.json",
+      "sha256": "43f4523415b185b56ea8187c18f45c247b78d91367d7155be55de3649298f19a",
+      "archive": "archives/43f4523415b185b56ea8187c18f45c247b78d91367d7155be55de3649298f19a.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 122,
+      "compressed_bytes": 93
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/new-target-exact-prior-review.json",
+      "sha256": "6b4203dc7c2fa698ba26c11f01e4314ca84fae67b32b134bc8e2e753dac8067b",
+      "archive": "archives/6b4203dc7c2fa698ba26c11f01e4314ca84fae67b32b134bc8e2e753dac8067b.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 6202,
+      "compressed_bytes": 1008
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/new-target-runtime.json",
+      "sha256": "f605939ba11f6345b9a81f8d4dea3258c7dbd3bfbdc2aff8b9e010460ed9725c",
+      "archive": "archives/f605939ba11f6345b9a81f8d4dea3258c7dbd3bfbdc2aff8b9e010460ed9725c.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 292289,
+      "compressed_bytes": 19907
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/qualified-global-proof461.json",
+      "sha256": "3b96aeb842984bfaf47b8e0067ae3acb70fc17171b0a873d666aa2c698f7be34",
+      "archive": "archives/3b96aeb842984bfaf47b8e0067ae3acb70fc17171b0a873d666aa2c698f7be34.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 11650,
+      "compressed_bytes": 3685
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/qualification43/root-independent-safe43-review.json",
+      "sha256": "b462d01c31db06c1023b18c7cd5ac89b9b5a84ef842db83890686888b34d28f3",
+      "archive": "archives/b462d01c31db06c1023b18c7cd5ac89b9b5a84ef842db83890686888b34d28f3.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1195,
+      "compressed_bytes": 741
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-qualification461/westcoast-sampled-color-author-clarification.json",
+      "sha256": "59ae9c24248c7941db1a398ea3d3e0a7639c236e02f47b3dbcc5aa6408edc2fa",
+      "archive": "archives/59ae9c24248c7941db1a398ea3d3e0a7639c236e02f47b3dbcc5aa6408edc2fa.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 737,
+      "compressed_bytes": 462
+    },
+    {
+      "source": "/workspace/genre-continuation/research/next048-source-staging-root/frozen52-1/candidate.json",
+      "sha256": "e490fd893ce533b59b8443891b105613d02722ca600c9a4c465f79f4ee0f1445",
+      "archive": "archives/e490fd893ce533b59b8443891b105613d02722ca600c9a4c465f79f4ee0f1445.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 866795,
+      "compressed_bytes": 121830
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_app_parity.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "archives/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 0,
+      "compressed_bytes": 20
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_connector_parity.log",
+      "sha256": "e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a",
+      "archive": "archives/e0e0145b279611d4288d299aff84686882f1de2fb0630a7bfb1b241814aa390a.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1894,
+      "compressed_bytes": 998
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_lazy_app.log",
+      "sha256": "621b373f0beaf2de2708720385a2e4cb0c2194970424e0145aeae81407aba71c",
+      "archive": "archives/621b373f0beaf2de2708720385a2e4cb0c2194970424e0145aeae81407aba71c.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 919,
+      "compressed_bytes": 497
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_minified_equivalence.log",
+      "sha256": "fa08346a5fefb4ea355389764d5d2fc4df518b9b8421a3a1eff1b12311b1d65f",
+      "archive": "archives/fa08346a5fefb4ea355389764d5d2fc4df518b9b8421a3a1eff1b12311b1d65f.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 765,
+      "compressed_bytes": 406
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_workspace_ops.log",
+      "sha256": "408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36",
+      "archive": "archives/408f5482e8dd53801e06c0fe5de5c75f76d14e270af8ac0806ce60ae5277fe36.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 3501,
+      "compressed_bytes": 1432
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/equivalence.log",
+      "sha256": "b10fd28049112f839dc70c41afcb17c85b25c51b8ab9935d413e002ab2c3ff3a",
+      "archive": "archives/b10fd28049112f839dc70c41afcb17c85b25c51b8ab9935d413e002ab2c3ff3a.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 338,
+      "compressed_bytes": 277
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/evidence-format.log",
+      "sha256": "f73f7659388141f881e203ab75b0ed20337b838c20b983f28a8bfa33bf13b7e8",
+      "archive": "archives/f73f7659388141f881e203ab75b0ed20337b838c20b983f28a8bfa33bf13b7e8.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 80,
+      "compressed_bytes": 95
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/format-check.log",
+      "sha256": "9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd",
+      "archive": "archives/9e843516e22b5e01e7f72b3e81b2e995971446812c8dd792bc74d0d91f04a3dd.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 335,
+      "compressed_bytes": 230
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/integration-recheck.log",
+      "sha256": "33d2dd092630eb636894ef66da4f2ef743c4623996ba8d9f2f2b05972fbf7926",
+      "archive": "archives/33d2dd092630eb636894ef66da4f2ef743c4623996ba8d9f2f2b05972fbf7926.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 31,
+      "compressed_bytes": 49
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/scope-review461.json",
+      "sha256": "7c7aed5bd186ea798ed17f752ddd4045a65643bf79f6101b01a4800d07ef5a72",
+      "archive": "archives/7c7aed5bd186ea798ed17f752ddd4045a65643bf79f6101b01a4800d07ef5a72.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 2198,
+      "compressed_bytes": 826
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-check-results.json",
+      "sha256": "44400e4ddd9bca6ffb29b60af2e0d256d769e358b28fec113bedcd6bbf96d94f",
+      "archive": "archives/44400e4ddd9bca6ffb29b60af2e0d256d769e358b28fec113bedcd6bbf96d94f.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 675,
+      "compressed_bytes": 204
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-driver.log",
+      "sha256": "1021f44aad9fc6c0f1a3a2d2b58a51fc3204b66263d2db3bc1720c49fcbae037",
+      "archive": "archives/1021f44aad9fc6c0f1a3a2d2b58a51fc3204b66263d2db3bc1720c49fcbae037.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 172,
+      "compressed_bytes": 124
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/ancestry-review461.json",
+      "sha256": "1d84badba9b0a812a55073d54c5f7f071fed8689d2cba4b3718b391ce9885cb8",
+      "archive": "archives/1d84badba9b0a812a55073d54c5f7f071fed8689d2cba4b3718b391ce9885cb8.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 463,
+      "compressed_bytes": 310
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_app_parity.log",
+      "sha256": "80db2c72a09b3cbb65751eab2058dee2d0d9362844df8e6be5e8b8987749d515",
+      "archive": "archives/80db2c72a09b3cbb65751eab2058dee2d0d9362844df8e6be5e8b8987749d515.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 312,
+      "compressed_bytes": 202
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_edit_differential.log",
+      "sha256": "a9b72667c87cef4f152a7c8b4d312d8fde917bf6e849883114d69bd544be1975",
+      "archive": "archives/a9b72667c87cef4f152a7c8b4d312d8fde917bf6e849883114d69bd544be1975.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 65,
+      "compressed_bytes": 80
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_edit_parity.log",
+      "sha256": "6c23c08880b968a09a171a20e679cf5f02e0eb74c8ce108960069a43481be265",
+      "archive": "archives/6c23c08880b968a09a171a20e679cf5f02e0eb74c8ce108960069a43481be265.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 994,
+      "compressed_bytes": 555
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/evidence-format-final.log",
+      "sha256": "eb0e5d27d43d1cb2c15c26692f723d31fbc4a91078959efd7574dcff38547c6b",
+      "archive": "archives/eb0e5d27d43d1cb2c15c26692f723d31fbc4a91078959efd7574dcff38547c6b.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 80,
+      "compressed_bytes": 95
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-check-results.json",
+      "sha256": "0cf5d5d7b502ac015141721eb3963312fc413902ad346cb0ee633b1fda6d57c1",
+      "archive": "archives/0cf5d5d7b502ac015141721eb3963312fc413902ad346cb0ee633b1fda6d57c1.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 840,
+      "compressed_bytes": 221
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-driver.log",
+      "sha256": "b6c0ade0efe629ddb5733ada4b866eb832ffbfed85f29129cf6fa0a26cc15c5f",
+      "archive": "archives/b6c0ade0efe629ddb5733ada4b866eb832ffbfed85f29129cf6fa0a26cc15c5f.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 211,
+      "compressed_bytes": 132
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/ancestry-format.log",
+      "sha256": "3c34d34ea637a10e6eb33cc1af4ace229066a7ef7c0d07ff1c7ff6fd40016aa1",
+      "archive": "archives/3c34d34ea637a10e6eb33cc1af4ace229066a7ef7c0d07ff1c7ff6fd40016aa1.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 80,
+      "compressed_bytes": 95
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/build-state.json",
+      "sha256": "c8325dea9e79b3fadd39ebbdb231cbc41bd9fed2a0b3a91e029b8b2aec3ab0b6",
+      "archive": "archives/c8325dea9e79b3fadd39ebbdb231cbc41bd9fed2a0b3a91e029b8b2aec3ab0b6.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 2293,
+      "compressed_bytes": 1216
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_connector_contract.log",
+      "sha256": "24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02",
+      "archive": "archives/24417de41497b8dea6550f9b466361495afc6366617f06b6c5495c25d0896e02.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 6573,
+      "compressed_bytes": 1622
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_edit_differential.log",
+      "sha256": "40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571",
+      "archive": "archives/40956e433334e362c29a4ecda384849046a3e26e57d8f8cf49b03a20f80da571.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 634,
+      "compressed_bytes": 389
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_name_isolation.log",
+      "sha256": "6b901c992e5031860d901b6116b63bb220fb5906d14747a203ca4d9c8a499455",
+      "archive": "archives/6b901c992e5031860d901b6116b63bb220fb5906d14747a203ca4d9c8a499455.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 205,
+      "compressed_bytes": 168
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/check_publish_guard.log",
+      "sha256": "3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91",
+      "archive": "archives/3c3bee0254860336b47f24f4be6a519820a114ea6e42f298643885ac94250c91.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 315,
+      "compressed_bytes": 222
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/docs-final.log",
+      "sha256": "c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118",
+      "archive": "archives/c76566bd019cb999dffa9bafd18540a91d4b1cb0be2e173b0e60dc570e715118.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 450,
+      "compressed_bytes": 340
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/eval_capabilities.log",
+      "sha256": "653f6ea1990b0a10552d1555a205e1aeafefb1a994393953392aeadadd24b0e4",
+      "archive": "archives/653f6ea1990b0a10552d1555a205e1aeafefb1a994393953392aeadadd24b0e4.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 2406,
+      "compressed_bytes": 982
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/local-checks-summary.json",
+      "sha256": "f90d97ac0bd5eff27b4ed6335d869c02ef367eb2af1191ad573327489c8a0a4d",
+      "archive": "archives/f90d97ac0bd5eff27b4ed6335d869c02ef367eb2af1191ad573327489c8a0a4d.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 3097,
+      "compressed_bytes": 1137
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/mobile.log",
+      "sha256": "791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d",
+      "archive": "archives/791bd69430fade875a65bd3d40bc2879ee6b223c83c0a5e657ab27e95774183d.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 225,
+      "compressed_bytes": 202
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-check-results.json",
+      "sha256": "29359b84a032bb07d4c2d6f27bce162a2e44feaaaea61bc5fd692c9bc991703e",
+      "archive": "archives/29359b84a032bb07d4c2d6f27bce162a2e44feaaaea61bc5fd692c9bc991703e.json.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 1270,
+      "compressed_bytes": 293
+    },
+    {
+      "source": "/workspace/genre-continuation/checkpoint048/supporting-driver.log",
+      "sha256": "6fe78a1da33235cadb97d4a1d95b94d7cf5f77845102da72905e632ecb74873c",
+      "archive": "archives/6fe78a1da33235cadb97d4a1d95b94d7cf5f77845102da72905e632ecb74873c.log.gz",
+      "encoding": "gzip; exact original bytes",
+      "original_bytes": 329,
+      "compressed_bytes": 179
+    }
+  ],
+  "records": 101,
+  "archive_hash_validation": "PASS"
+}

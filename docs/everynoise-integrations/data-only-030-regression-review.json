@@ -1,0 +1,252 @@
+{
+  "status": "PASS_FIVE_TARGETED_FIXTURE_UPDATES_JUSTIFIED",
+  "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "baseline_head": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+  "initial_regression": "1144/1149",
+  "authorized_exact_fixture_ids": [
+    "shoegaze",
+    "jam_band",
+    "ethio_pop_modern",
+    "blend_ambient_dub_techno",
+    "ambient"
+  ],
+  "rows": [
+    {
+      "id": "shoegaze",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New musique_mauritanienne is a valid droneModal.modalElectric cross-reference neighbor; the original second staple representative changes from tuareg_guitar. Its neighbor context also changes the unprotected seed guitar wood choice. Final voice-stack and guitar-scale choices move through original search. The removed Plexi words in compressed prose do not indicate an amp slot change.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "declared_source_parts_preserved": true,
+      "source_pin_parts_flags": [null],
+      "roster_unchanged": true,
+      "environment_changes": {},
+      "staples_before": ["shoegaze", "desert_blues", "tuareg_guitar"],
+      "staples_after": ["shoegaze", "desert_blues", "musique_mauritanienne"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_5_part_cluster",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "before": "scale_short",
+          "after": "scale_gibson",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        }
+      ],
+      "counterfactual_baseline_recipe_and_slots_restored": true,
+      "recipe_before": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues tuareg guitar. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man.",
+      "recipe_after": "classic Northern European 1988-1991 shoegaze, distorted Rock, alternative branch, modal electric drone modal tuareg desert blues musique mauritanienne. thick, breath veiled tone, straight note core, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT electro-harmonix deluxe memory man."
+    },
+    {
+      "id": "jam_band",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New nwocr wins the original axes-distance representative for distortedRock.classic; its addition changes chosen staples from dutch_rock+dutch_stoner_rock to nwocr+dutch_rock and shifts eleven unprotected variant choices.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "declared_source_parts_preserved": true,
+      "source_pin_parts_flags": [null],
+      "roster_unchanged": true,
+      "environment_changes": {},
+      "staples_before": ["jam_band", "dutch_rock", "dutch_stoner_rock"],
+      "staples_after": ["jam_band", "nwocr", "dutch_rock"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "speech_voice",
+          "after": "aspirated_voice",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_false_fold_distorted",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_connemara_unaccompanied",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "amp_make",
+          "before": "amp_british_marshall_jcm800",
+          "after": "amp_british_late_60s_marshall_plexi",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "before": "scale_baritone_h",
+          "after": "scale_gibson_h",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_11_hum",
+          "after": "g_10_hum",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "before": "amp_british_marshall_jcm800",
+          "after": "amp_british_late_60s_marshall_plexi",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_11",
+          "after": "g_10",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "before": "hardtail",
+          "after": "two_point_trem",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "tonewheel_organ",
+          "part": "leslie_cabinet_model",
+          "before": "leslie_122_canonical",
+          "after": "leslie_147_alt",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        }
+      ],
+      "counterfactual_baseline_recipe_and_slots_restored": true,
+      "recipe_before": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock dutch rock dutch stoner rock. thick, conversational, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_after": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock nwocr dutch rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay."
+    },
+    {
+      "id": "ethio_pop_modern",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New musique_comorienne wins the original axes-distance representative for improvOnFrame.americanJazz.fusion, replacing the initial acid_jazz_uk_90s candidate; final staples become musique_comorienne+acid_jazz_uk_90s, with two unprotected slot changes.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "declared_source_parts_preserved": true,
+      "source_pin_parts_flags": [null],
+      "roster_unchanged": true,
+      "environment_changes": {},
+      "staples_before": ["ethio_pop_modern", "acid_jazz_uk_90s", "dutch_prog"],
+      "staples_after": ["ethio_pop_modern", "musique_comorienne", "acid_jazz_uk_90s"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_andean_huayno",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "finish",
+          "before": "nitro",
+          "after": "oil_satin",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        }
+      ],
+      "counterfactual_baseline_recipe_and_slots_restored": true,
+      "recipe_before": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz dutch prog. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion musique comorienne acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "blend_ambient_dub_techno",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New musique_mauritanienne replaces tuareg_guitar as the modalElectric cross-reference candidate under the original one-representative-per-parent rule. One unprotected oscillator choice changes.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "declared_source_parts_preserved": true,
+      "source_pin_parts_flags": [null, null],
+      "roster_unchanged": true,
+      "environment_changes": {},
+      "staples_before": ["ambient", "dub_techno", "tuareg_guitar"],
+      "staples_after": ["ambient", "dub_techno", "musique_mauritanienne"],
+      "slot_changes": [
+        {
+          "instrument": "analog_synth",
+          "part": "oscillator",
+          "before": "sine_osc",
+          "after": "saw_single",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        }
+      ],
+      "counterfactual_baseline_recipe_and_slots_restored": true,
+      "recipe_before": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal dub techno tuareg guitar. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet, drum machine analog. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+      "recipe_after": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal dub techno musique mauritanienne. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet, drum machine analog. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay."
+    },
+    {
+      "id": "ambient",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New musique_mauritanienne wins the modalElectric representative, with tuareg_guitar retained as later staple instead of african_blues; one unprotected filter choice changes.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "declared_source_parts_preserved": true,
+      "source_pin_parts_flags": [null],
+      "roster_unchanged": true,
+      "environment_changes": {},
+      "staples_before": ["ambient", "tuareg_guitar", "african_blues"],
+      "staples_after": ["ambient", "musique_mauritanienne", "tuareg_guitar"],
+      "slot_changes": [
+        {
+          "instrument": "analog_synth",
+          "part": "filter_topology",
+          "before": "resonant_acid",
+          "after": "transistor_ladder",
+          "runtime_protected": false,
+          "both_valid_owning_variants": true
+        }
+      ],
+      "counterfactual_baseline_recipe_and_slots_restored": true,
+      "recipe_before": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal tuareg guitar african blues. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+      "recipe_after": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal musique mauritanienne tuareg guitar. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay."
+    }
+  ],
+  "changed_slots_total": 17,
+  "counterfactual": "Original engine in temporary process, with only musique_mauritanienne,nwocr,musique_comorienne removed from in-memory catalog, restores every baseline recipe AND final slot map. No disk/catalog/snapshot mutation.",
+  "protected_pins": "No runtime-protected slots changed. Legacy source parts lack pin_parts:true and remain unchanged; material optimized choices must not be misrepresented as changed authored defaults. Actual original browser imported cards already proven unchanged.",
+  "original_pipeline": "All178 scripts/workflow files unchanged vs82bf. search.js traditionStapleMoves262ff picks axis-distance representative per parent; score.js getNeighbors330ff expands original crossrefs, siblings,global-axis pool; neighbor bias701ff uses source contexts without names.",
+  "decision": "Only these five targeted original snapshot updates justified. No blanket update, no code or source-default fix. Full serial regression still required afterward.",
+  "errors": []
+}

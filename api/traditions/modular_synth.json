@@ -2,10 +2,10 @@
   "id": "modular_synth",
   "name": "Modular synth",
   "family": "electronic",
-  "lineage": "Modular synth is represented here by Suzanne Ciani — Buchla Concerts 1975. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-1970s modular synth, experimental Elec. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 223,
-  "score": 12.152,
+  "lineage": "Modular synthesizer music grows from electronic instruments whose components are connected into flexible signal and control networks. Concert improvisation and studio composition both use this open-ended approach.",
+  "recipe": "classic modular synth, experimental Elec. evolving modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 9.158,
   "config": {
     "traditions": [
       "modular_synth"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 6.6655,
-          "mod_voltage_source": 3.0284999999999993,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 2.08
+          "electronic_technique": 6.372,
+          "mod_voltage_source": 2.396,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0
         }
       }
     ],

@@ -1,0 +1,60 @@
+{
+  "id": "writing",
+  "name": "Writing",
+  "family": "classical",
+  "lineage": "Music programmed for writing is a functional listening field that draws on classical, ambient and other instrumental repertoires. Publishers and listeners often favor sustained concentration and a consistent atmosphere.",
+  "recipe": "classic writing, art Music. legato upright piano. shoebox concert hall.",
+  "recipe_chars": 71,
+  "score": 5.332,
+  "config": {
+    "traditions": [
+      "writing"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 5,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

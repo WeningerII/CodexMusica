@@ -1,0 +1,2002 @@
+{
+  "entries": [
+    {
+      "source_label": "taiwan graduation song",
+      "source_url": "https://everynoise.com/engenremap-taiwangraduationsong.html",
+      "suggested_id": "taiwan_graduation_song",
+      "allocation_ordinal": 4384,
+      "allocation_group_id": "176",
+      "id": "taiwan_graduation_song",
+      "tradition": {
+        "id": "taiwan_graduation_song",
+        "name": "Taiwan Graduation Song",
+        "family": "pop",
+        "lineage": "Taiwan graduation songs form a student-created school-leaving repertoire, renewed through university projects and interschool collaborations.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong.eastAsianPop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Shared singing carries farewell, memory and anticipation in contemporary Mandarin popular-song forms. Piano accompaniment supports an accessible group-song rendition; annual student writing and performance distinguish this practice within Taiwan’s broader pop field.",
+        "exemplars": [
+          "Taiwan interschool graduation-song projects"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        25.033,
+        121.565,
+        "Taipei",
+        "East Asia"
+      ],
+      "geo_rationale": "Editorial institutional anchor: original issuer explicitly announces Taipei launch performance; nationwide repertoire not restricted to Taipei and arranger recording site unknown.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.mymusic5.com/zh-hant/h7860118/222570",
+          "title": "LouisLiao complete piano-solo edition",
+          "support_notes": "Fresh11703view0 explicitly12pages, piano, solo, two-staff, lyrics/chord symbols."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sDGghk50ns0",
+          "title": "Verified original2016 graduation-project issuer",
+          "support_notes": "Fresh277581youtube12 complete original description explains interschool creation/selection andTaipei launch; raw saved resume116-taiwan-original-issuer-raw.json. Original audio not selected; no original studio palette inference."
+        },
+        {
+          "url": "https://ptlog.cloud.ntu.edu.tw/ptlog/index.php?aid=2531&vol=162",
+          "title": "NTU songwriter firsthand graduation-song account",
+          "support_notes": "Fresh274472view0 primary author institutional practice corroboration; selected NTUrecording not substituted forpiano scope."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1bjImUCghMROYHtjnUTi66",
+          "title": "Exact creator Taiwan Graduation Song roster",
+          "support_notes": "Fresh11698view0 contemporary14-track field, no selected2016 membership claim."
+        }
+      ],
+      "neighbor_distinction": "Taiwan Graduation Song identifies a student-created school-leaving repertoire and annual interschool production practice. Original verified issuer explains32schools and student writing/composing/singing/video teams in the2016 project; NTU songwriter firsthand account independently describes university graduation-song selection. This positive institutional purpose distinguishes the field within overlapping TaiwanPop/Mandopop. Existing TaiwanPop is the broad Taipei record industry and does not exclude these songs; existing taiwan_campus_folk describes the1970s–80s nativist acoustic songwriting movement, whereas this annual graduation-song practice is not confined to that historical folk lineage. Exact current creator14-track roster includes NTU2020 and joint-high-school songs, but selected2016 collective is absent from that current snapshot; no exact creator-member claim is made. The narrower school/community function is supported independently of the chosen piano arrangement. Queued national student/graduation fields elsewhere do not replace this Taiwanese institutional practice.",
+      "model_policy": "Replace exact event, performer and control dossiers with genre sound/history. Restore positive communal singing to Taiwan student graduation repertoire alongside piano; representative group size unknown, not original studio personnel. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription. Current representative roles: voice, upright_piano. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "upright_piano"
+        ]
+      },
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent functionalSong.eastAsianPop describes the representative genre branch, not an exhaustive definition of every source.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_live_group",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "upright_piano": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Replace exact event, performer and control dossiers with genre sound/history. Restore positive communal singing to Taiwan student graduation repertoire alongside piano; representative group size unknown, not original studio personnel. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "verification_status": "Pending mechanical/four-format and independent review.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "taiwan_graduation_song",
+          "name": "Taiwan Graduation Song",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context only, not the piano, school performers or session equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11639view0 confirms IainFergusson/Binksternet CC BY2.5 crop; historical exact bytes/visual unchanged.",
+          "fresh_review_ref": "turn11639view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh11639view0; historical receipts unchanged, no fresh binary claim."
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "source_review_refs": [
+        "turn11703view0",
+        "turn277581youtube12",
+        "turn274472view0",
+        "turn11698view0",
+        "turn11639view0"
+      ],
+      "status": "READY_FOR_REVIEW",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "primary_retrieval_refs": [
+        "turn11703view0",
+        "turn277581youtube12",
+        "turn274472view0",
+        "turn11698view0",
+        "turn11639view0"
+      ],
+      "source_retrieval_caveat": "Arranger scoring metadata direct; original issuer full indexeddescription with raw retained, directYouTube failed. Fullpaidscore and audio not inspected.",
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-3.json",
+        "original_sha256": "022a32b649e90b87a76a10575322a68a488d0a9875adab8aea0a8b103f2d942a",
+        "before": {
+          "tradition": {
+            "id": "taiwan_graduation_song",
+            "name": "Taiwan Graduation Song",
+            "family": "pop",
+            "lineage": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation. Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording.",
+            "instruments": [
+              "upright_piano"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong.eastAsianPop",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": -1,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": -1,
+              "cyclicity": 0
+            },
+            "description": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation. Taiwan Graduation Song identifies a student-created school-leaving repertoire and annual interschool production practice. Original verified issuer explains32schools and student writing/composing/singing/video teams in the2016 project; NTU songwriter firsthand account independently describes university graduation-song selection. This positive institutional purpose distinguishes the field within overlapping TaiwanPop/Mandopop. Existing TaiwanPop is the broad Taipei record industry and does not exclude these songs; existing taiwan_campus_folk describes the1970s–80s nativist acoustic songwriting movement, whereas this annual graduation-song practice is not confined to that historical folk lineage. Exact current creator14-track roster includes NTU2020 and joint-high-school songs, but selected2016 collective is absent from that current snapshot; no exact creator-member claim is made. The narrower school/community function is supported independently of the chosen piano arrangement. Queued national student/graduation fields elsewhere do not replace this Taiwanese institutional practice. Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording.",
+            "exemplars": [
+              "LouisLiao — 啟程2016 graduation song, complete12-page piano-solo edition222570"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Replace exact event, performer and control dossiers with genre sound/history. Restore positive communal singing to Taiwan student graduation repertoire alongside piano; representative group size unknown, not original studio personnel. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "legato_voice"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_syllabic_singing"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_live_group"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_live_ensemble"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "upright_piano",
+              "keyboard_technique",
+              "keyboard_block_chord_pop"
+            ],
+            [
+              "upright_piano",
+              "upright_use",
+              "upright_studio"
+            ],
+            [
+              "upright_piano",
+              "upright_piano_size",
+              "upright_piano_standard"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-007-parity.json",
+          "semantic_review": "All four full outputs individually read. Taiwan communal connected singing and piano are restored genre practice; spacious hall descriptors describe authored acoustics, not vocal physiology or original venue. Danish competition repertoire retains voice/piano, Telugu indie lively band controls and bold bass intentionally authored, Telugu remix brisk DJ presentation retained. No unrelated culture or discarded positive role."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation.",
+            "roles": {
+              "upright_piano": "Sole positively scored piano; upright subtype authored"
+            },
+            "authored_defaults": "Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording."
+          },
+          "vocal_count_audit": {
+            "selected_edition_scored_voice_parts": 0,
+            "decision": "Instrumental piano solo edition; original2016 choir and embedded printed lyrics are not modeled as live singers."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "All three applicable parts protected; standard modern upright is an authored realization of source-unspecified piano construction."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "One existing owner, all three controls deliberately protected, no shared-key conflict or fallback."
+          },
+          "model_policy": "Standard modern upright piano and block-chord popular-song articulation in a spacious shoebox recital hall are authored new performance choices for the source-unspecified piano subtype, not measured arranger equipment or original chorus session. All three applicable controls protected. No global temperament, capture chain or source tempo asserted. EastAsianPop/pop follows the documented Mandarin popular-song repertoire; explicitly authored verse-chorus-bridge organization over functional progressions describes the new rendition, not measured source notation or the original recording.",
+          "source_scope_limitation": "LouisLiao — complete12-page piano-solo edition222570 of 啟程 (2016全國高中生大合唱), published by the arranger through mymusic5. Publisher explicitly lists one piano, solo scoring and two-staff notation; lyrics and chord symbols included do not add a separate vocal part to this piano-solo edition. Full paid notation and audio were not inspected. This is the complete published adaptation, not the2016 massed-vocal studio recording, a reduction invented by us, or every work in the national compilation.",
+          "classification_evidence": "Taiwan Graduation Song identifies a student-created school-leaving repertoire and annual interschool production practice. Original verified issuer explains32schools and student writing/composing/singing/video teams in the2016 project; NTU songwriter firsthand account independently describes university graduation-song selection. This positive institutional purpose distinguishes the field within overlapping TaiwanPop/Mandopop. Existing TaiwanPop is the broad Taipei record industry and does not exclude these songs; existing taiwan_campus_folk describes the1970s–80s nativist acoustic songwriting movement, whereas this annual graduation-song practice is not confined to that historical folk lineage. Exact current creator14-track roster includes NTU2020 and joint-high-school songs, but selected2016 collective is absent from that current snapshot; no exact creator-member claim is made. The narrower school/community function is supported independently of the chosen piano arrangement. Queued national student/graduation fields elsewhere do not replace this Taiwanese institutional practice."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "talentkonkurrence",
+          "name": "Talentkonkurrence",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context only; not Emma Pi, the piano, TV equipment or a documented session.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12096view2 confirms Iain Fergusson and crop by Binksternet, CC BY2.5. Exact023 historical byte/visual receipts inherited honestly.",
+          "fresh_review_ref": "turn12096view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh12096view2; no fresh binary or visual inspection claimed.",
+        "fresh_rights_retrieval_refs": [
+          "turn12096view2"
+        ]
+      },
+      "source_label": "talentkonkurrence",
+      "source_url": "https://everynoise.com/engenremap-talentkonkurrence.html",
+      "suggested_id": "talentkonkurrence",
+      "allocation_ordinal": 4391,
+      "allocation_group_id": "176",
+      "id": "talentkonkurrence",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "talentkonkurrence",
+        "name": "Talentkonkurrence",
+        "family": "pop",
+        "lineage": "Talentkonkurrence connects Danish popular repertoire with televised talent competitions, including youth MGP songwriting and performance.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 1,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Clear lead singing and memorable melodic hooks foreground the performer. Voice-and-piano arrangements make competition songs accessible for participatory singing and teaching; Emma Pi exemplifies the Danish youth-pop branch.",
+        "exemplars": [
+          "Emma Pi"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        56.2639,
+        9.5018,
+        "Denmark",
+        "Europe"
+      ],
+      "geo_rationale": "Country-only editorial anchor for the Danish MGP institutional repertoire; no publisher office, recording location or performance venue inferred.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.stepnote.dk/produkter/72-klavernoder/125911-emma-pi-spil-og-syng-du-ser-den-anden-vej/",
+          "title": "Artist-collaborating publisher complete voice-and-piano version",
+          "support_notes": "Fresh12109search0 complete indexed metadata: MGP2014 winner, arranged accompaniment while singing, alternative guitar and teaching options separately listed; publisher Stepnote, arranger Rasmus Hansen. Full paid score uninspected."
+        },
+        {
+          "url": "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A6k6r5MC3SdPxmpEGv91qVF",
+          "title": "Exact creator Talentkonkurrence roster",
+          "support_notes": "Fresh12109view0 item61 selected Emma Pi song and broad Danish MGP roster, not a guessed artist bridge."
+        }
+      ],
+      "neighbor_distinction": "Talentkonkurrence identifies the Danish televised talent-competition recording pathway, positively represented by Danish MGP winner Emma Pi and the exact creator playlist containing this song at61 among a large Danish MGP field. Publisher collaboration explicitly identifies her2014 winning song and Danish child audience. Existing talentkonkurranse is expressly the Norwegian competition community; national television institutions overlap Nordic popular music but are not one Norwegian-only field. Existing idol is a broader competition discovery category, not restricted to its Casey Abrams exemplar; this Danish institutional field overlaps it without claiming sonic disjointness. Existing Danish Pop already covers a broad national recording scene, not only Aqua dance-pop. This narrower competition pathway is not the whole national pop or children-song repertoire. Eurovision Pop is the pan-European televised contest field; Danish youth MGP has its own repertoire and national participation context, even where competition audiences overlap. A different piano arrangement is not the category distinction.",
+      "model_policy": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription. Current representative roles: voice, upright_piano. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent functionalSong describes the representative genre branch, not an exhaustive definition of every source.",
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_solo_accompanied",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "upright_piano": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "legato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "verification_status": "20 applicable controls protected, zero errors/fallbacks, all1638 existing owners unchanged. Original browser/connector four-format parity passed, longest416; all full strings inspected, spatial huge/immense consistent with authored recital hall. No unrelated cultural or extra instrumental role rendered. Independent review pending.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "source_review_refs": [
+        "turn12109search0",
+        "turn12109view0",
+        "turn12096view2"
+      ],
+      "source_retrieval_caveat": "Publisher full scoring description independently indexed; direct product access intermittently fails. Paid book not accessed. Creator roster directly retrieved. Stored original successful publisher response resume116-emma-publisher-primary-raw.json.",
+      "format_repair": {
+        "original_packet": "/tmp/batch040/resume116-7.json",
+        "original_sha256": "dfeccd84b3b45421818ef9dca0f6218d0cfa62fd519b21b3a297ccd0c13b478b",
+        "before": {
+          "tradition": {
+            "id": "talentkonkurrence",
+            "name": "Talentkonkurrence",
+            "family": "pop",
+            "lineage": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together. One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted.",
+            "instruments": [
+              "voice",
+              "upright_piano"
+            ],
+            "room": "concert_hall_shoebox",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "legato_voice",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_single_lead",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "keyboard_technique": "keyboard_block_chord_pop",
+              "upright_use": "upright_studio",
+              "upright_piano_size": "upright_piano_standard"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 1,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together. Talentkonkurrence identifies the Danish televised talent-competition recording pathway, positively represented by Danish MGP winner Emma Pi and the exact creator playlist containing this song at61 among a large Danish MGP field. Publisher collaboration explicitly identifies her2014 winning song and Danish child audience. Existing talentkonkurranse is expressly the Norwegian competition community; national television institutions overlap Nordic popular music but are not one Norwegian-only field. Existing idol is a broader competition discovery category, not restricted to its Casey Abrams exemplar; this Danish institutional field overlaps it without claiming sonic disjointness. Existing Danish Pop already covers a broad national recording scene, not only Aqua dance-pop. This narrower competition pathway is not the whole national pop or children-song repertoire. Eurovision Pop is the pan-European televised contest field; Danish youth MGP has its own repertoire and national participation context, even where competition audiences overlap. A different piano arrangement is not the category distinction. One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted.",
+            "exemplars": [
+              "Emma Pi — Du ser den anden vej, complete Stepnote voice-and-piano version"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "legato_voice"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_solo_accompanied"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_single_lead"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "upright_piano",
+              "keyboard_technique",
+              "keyboard_block_chord_pop"
+            ],
+            [
+              "upright_piano",
+              "upright_use",
+              "upright_studio"
+            ],
+            [
+              "upright_piano",
+              "upright_piano_size",
+              "upright_piano_standard"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-007-parity.json",
+          "semantic_review": "All four full outputs individually read. Taiwan communal connected singing and piano are restored genre practice; spacious hall descriptors describe authored acoustics, not vocal physiology or original venue. Danish competition repertoire retains voice/piano, Telugu indie lively band controls and bold bass intentionally authored, Telugu remix brisk DJ presentation retained. No unrelated culture or discarded positive role."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together.",
+            "roles": {
+              "voice": "One scored singing line, accompanied",
+              "upright_piano": "Complete expressly published piano accompaniment; upright subtype authored"
+            },
+            "authored_defaults": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted."
+          },
+          "vocal_count_audit": {
+            "scored_singing_roles": 1,
+            "actual_performer_count": "unknown; publisher explicitly permits self-accompanied singing",
+            "decision": "One authored accompanied lead, not original TV headcount or assumed extra singers."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "legato_voice",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_single_lead",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted."
+            },
+            {
+              "instrument": "upright_piano",
+              "parts": {
+                "keyboard_technique": "keyboard_block_chord_pop",
+                "upright_use": "upright_studio",
+                "upright_piano_size": "upright_piano_standard"
+              },
+              "policy": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All20 applicable owning controls protected, no shared-key conflict or fallback."
+          },
+          "model_policy": "One accompanied singing role and one piano preserve the complete selected published version. A single singer may also play, as the publisher describes; an additional pianist is an allowed authored realization, not another source singer. Source vocal anatomy, pitch intervals, training and original tracking remain unknown. Neutral physiology, connected legato phrasing and natural unprocessed single-lead delivery are authored. Source-unspecified piano subtype is realized as a standard studio upright with block-chord popular-song articulation. A spacious shoebox recital-hall rendition is authored, not a claimed original venue. Broad functionalSong/pop explicitly specifies a new verse-chorus-bridge organization over functional harmonic progressions; neither the paid score nor original recording was transcribed to assert this form. Global temperament and capture apparatus omitted.",
+          "source_scope_limitation": "Emma Pi — complete published voice-and-piano arrangement of Du ser den anden vej in Stepnote Publishing book SPNA1111608, prepared with the artist. Publisher expressly offers an arranged piano accompaniment to play while singing the song. The39-page fan book also includes alternative guitar tabs, chord guides and transposition teaching; those are not simultaneous instrument credits in the selected complete voice-and-piano version. Paid notation has not been inspected. This selects an actual published adaptation, not the original televised2014 recording, an invented reduction, or every teaching option played together.",
+          "classification_evidence": "Talentkonkurrence identifies the Danish televised talent-competition recording pathway, positively represented by Danish MGP winner Emma Pi and the exact creator playlist containing this song at61 among a large Danish MGP field. Publisher collaboration explicitly identifies her2014 winning song and Danish child audience. Existing talentkonkurranse is expressly the Norwegian competition community; national television institutions overlap Nordic popular music but are not one Norwegian-only field. Existing idol is a broader competition discovery category, not restricted to its Casey Abrams exemplar; this Danish institutional field overlaps it without claiming sonic disjointness. Existing Danish Pop already covers a broad national recording scene, not only Aqua dance-pop. This narrower competition pathway is not the whole national pop or children-song repertoire. Eurovision Pop is the pan-European televised contest field; Danish youth MGP has its own repertoire and national participation context, even where competition audiences overlap. A different piano arrangement is not the category distinction."
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      }
+    },
+    {
+      "source_label": "telugu indie",
+      "source_url": "https://everynoise.com/engenremap-teluguindie.html",
+      "suggested_id": "telugu_indie",
+      "allocation_ordinal": 4413,
+      "allocation_group_id": "177",
+      "status": "frozen_pending_independent_review",
+      "id": "telugu_indie",
+      "tradition": {
+        "id": "telugu_indie",
+        "name": "Telugu indie",
+        "family": "vernacular",
+        "lineage": "Telugu indie connects independent Telugu artists through self-authored releases, online circulation, collaboration and local live venues.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "electric_bass",
+          "drum_kit",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Song-led bands combine shared vocals with guitar, bass, drums and keyboards, while the wider community also embraces rap and other styles. ChowRaasta exemplifies a folk- and reggae-inflected amplified branch alongside independent songwriters and MCs.",
+        "exemplars": [
+          "ChowRaasta",
+          "Roll Rida"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        17.385,
+        78.4867,
+        "Hyderabad",
+        "South Asia"
+      ],
+      "geo_rationale": "Firsthand source documents Hyderabad pub/college practice; editorial community anchor, not a claimed recording location.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Telugu indie denotes the cross-style independent Telugu music-making and circulation community. The Pioneer interviews the musicians themselves about self-authored releases, YouTube, mutual promotion and collaborations: ChowRaasta folk/reggae band, Roll Rida rap and Hemachandra independent songwriting all participate. This is a positive community field rather than a synonym for one band or its selected song. Existing telugu_folk already includes contemporary Chowraasta folk/reggae fusion; that overlap is explicit and is not excluded by date, modern instrumentation or independent release. Existing telugu_hip_hop likewise includes independent Roll Rida; the broader independently documented community crosses both folk and rap practices and includes other songwriters. Existing tollywood denotes Telugu cinema playback repertoire; musicians cross between film and independent work, so no personnel exclusion is claimed. The new field is distinguished by the documented independent production/collaboration network, not a different timbre or exemplar alone. No exact EveryNoise membership claimed because its map is inaccessible.",
+      "model_policy": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription. Current representative roles: voice, electric_guitar_single_coil, electric_bass, drum_kit, electronic_keyboard_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "voice": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_guitar_single_coil": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electric_bass": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "drum_kit": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes.",
+          "electronic_keyboard_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription."
+      },
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 1,
+        "authored_ensemble_setting": "voice_ensemble_live_duet",
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Pending independent peer. All51 owning controls protected with zero fallback/errors, original1638 owners unchanged. Four original browser/connector formats inspected with parity, maximum992characters; no unrelated named culture, explicit authored gain/room/playing controls. Source signatures/final integrated static build not exercised.",
+      "sources": [
+        {
+          "url": "https://www.newindianexpress.com/cities/hyderabad/2020/Jan/22/hyderabad-based-band-chowraasta-carves-out-a-niche-in-music-lovers-minds-2092636.html",
+          "support_notes": "Fresh11386view0 firsthand complete current six-person live roles, locality, original/covers and folk/reggae practice.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.dailypioneer.com/uploads/2020/epaper/june/vijayawada-english-edition-2020-06-20.pdf",
+          "support_notes": "Fresh11388search0 full indexed firsthand multi-artist independent-community interview; direct11386view1 PDF text encoding degraded. Primary accounts explicitly connect band, rap and independent songwriting through release/promotion/collaboration practice. June guest collaboration does not add a member to the dated January lineup.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "telugu_indie",
+          "name": "Telugu indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not ChowRaasta or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11331view0 confirms Iain Fergusson/Binksternet crop, CC BY2.5; historical byte/visual receipts unchanged.",
+          "fresh_review_ref": "turn11331view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn11331view0; exact historical byte and visual receipts retained, no new download.",
+        "fresh_rights_retrieval_refs": [
+          "turn11331view0"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_b",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "format_repair": {
+        "original_packet": "/tmp/batch038/recovery177-179-secondpass-3-form-clarified116.json",
+        "original_sha256": "28741b7554a0063838b253b85ff097f7a037e1f6b57d07d970b7de1cd2396abd",
+        "before": {
+          "tradition": {
+            "id": "telugu_indie",
+            "name": "Telugu indie",
+            "family": "vernacular",
+            "lineage": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown. Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted.",
+            "instruments": [
+              "voice",
+              "electric_guitar_single_coil",
+              "electric_bass",
+              "drum_kit",
+              "electronic_keyboard_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "voice_register": "voice_register_source_unspecified",
+              "voice_quality": "voice_quality_source_unspecified",
+              "voice_vocal_tract": "tract_neutral",
+              "voice_effort": "effort_moderate",
+              "voice_vibrato": "voice_vibrato_local_unspecified",
+              "voice_articulation": "voice_articulation_source_unspecified",
+              "voice_microtone": "voice_microtone_local_unspecified",
+              "voice_tradition": "voice_tradition_source_unspecified",
+              "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+              "voice_estill_quality": "voice_estill_quality_source_unspecified",
+              "voice_speech_song": "voice_speech_song_local_unspecified",
+              "voice_ensemble_config": "voice_ensemble_live_duet",
+              "voice_ornament_system": "voice_ornament_system_source_unspecified",
+              "voice_pitch_organization": "voice_pitch_source_unspecified",
+              "voice_processing_chain": "voice_processing_unprocessed",
+              "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+              "voice_tessitura": "voice_tessitura_source_unspecified",
+              "electric_technique": "electric_clean_strummed",
+              "amp_make": "amp_unspecified",
+              "body_wood": "alder_b",
+              "neck_wood": "maple",
+              "fretboard": "rosewood_fb",
+              "pickup_magnet": "alnico_2",
+              "string_material": "pure_nickel",
+              "string_gauge": "g_10",
+              "bridge": "two_point_trem",
+              "scale_length": "scale_fender",
+              "finish": "nitro",
+              "string_tuning": "standard_tuning",
+              "single_coil_pickup_construction": "single_coil_construction_unspecified",
+              "pickup_config": "soapbar",
+              "string_type": "roundwound_n",
+              "scale_length_b": "long_scale_b",
+              "fretted_or_not": "fretted",
+              "bass_technique": "fingerstyle_locked",
+              "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+              "drum_technique": "sticks_rock",
+              "shell_wood": "maple_shell",
+              "shell_thickness": "thin_shell",
+              "bearing_edges": "edge_45",
+              "drumhead": "single_coated",
+              "snare_wires": "wires_20",
+              "drum_kit_kick_pedal": "dk_kick_single_felt",
+              "cymbal_alloy": "b20",
+              "cymbal_hammering": "machine_symmetric_hammering",
+              "cymbal_lathing": "full_lathe_both_sides",
+              "cymbal_finish": "traditional_finish",
+              "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+              "keyboard_technique": "electronic_keyboard_melodic_chordal"
+            }
+          },
+          "extras": {
+            "parent": "functionalSong",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown. Telugu indie denotes the cross-style independent Telugu music-making and circulation community. The Pioneer interviews the musicians themselves about self-authored releases, YouTube, mutual promotion and collaborations: ChowRaasta folk/reggae band, Roll Rida rap and Hemachandra independent songwriting all participate. This is a positive community field rather than a synonym for one band or its selected song. Existing telugu_folk already includes contemporary Chowraasta folk/reggae fusion; that overlap is explicit and is not excluded by date, modern instrumentation or independent release. Existing telugu_hip_hop likewise includes independent Roll Rida; the broader independently documented community crosses both folk and rap practices and includes other songwriters. Existing tollywood denotes Telugu cinema playback repertoire; musicians cross between film and independent work, so no personnel exclusion is claimed. The new field is distinguished by the documented independent production/collaboration network, not a different timbre or exemplar alone. No exact EveryNoise membership claimed because its map is inaccessible. Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted.",
+            "exemplars": [
+              "ChowRaasta — full January2020 six-member live practice"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          }
+        },
+        "reason": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Functional-harmonic verse–chorus–bridge remains an authored song organization, not source transcription.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "voice",
+              "voice_register",
+              "voice_register_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_quality",
+              "voice_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_vocal_tract",
+              "tract_neutral"
+            ],
+            [
+              "voice",
+              "voice_effort",
+              "effort_moderate"
+            ],
+            [
+              "voice",
+              "voice_vibrato",
+              "voice_vibrato_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_articulation",
+              "voice_articulation_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_microtone",
+              "voice_microtone_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_tradition",
+              "voice_tradition_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_mechanism_compound",
+              "voice_mechanism_compound_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_estill_quality",
+              "voice_estill_quality_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_speech_song",
+              "voice_speech_song_local_unspecified"
+            ],
+            [
+              "voice",
+              "voice_ensemble_config",
+              "voice_ensemble_live_duet"
+            ],
+            [
+              "voice",
+              "voice_ornament_system",
+              "voice_ornament_system_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_pitch_organization",
+              "voice_pitch_source_unspecified"
+            ],
+            [
+              "voice",
+              "voice_processing_chain",
+              "voice_processing_unprocessed"
+            ],
+            [
+              "voice",
+              "voice_multitrack_stack",
+              "voice_multitrack_live_ensemble"
+            ],
+            [
+              "voice",
+              "voice_tessitura",
+              "voice_tessitura_source_unspecified"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "electric_technique",
+              "electric_clean_strummed"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "body_wood",
+              "alder_b"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "neck_wood",
+              "maple"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "fretboard",
+              "rosewood_fb"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "pickup_magnet",
+              "alnico_2"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "string_material",
+              "pure_nickel"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "string_gauge",
+              "g_10"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "bridge",
+              "two_point_trem"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "scale_length",
+              "scale_fender"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "finish",
+              "nitro"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "string_tuning",
+              "standard_tuning"
+            ],
+            [
+              "electric_guitar_single_coil",
+              "single_coil_pickup_construction",
+              "single_coil_construction_unspecified"
+            ],
+            [
+              "electric_bass",
+              "amp_make",
+              "amp_unspecified"
+            ],
+            [
+              "electric_bass",
+              "body_wood",
+              "alder_b"
+            ],
+            [
+              "electric_bass",
+              "pickup_config",
+              "soapbar"
+            ],
+            [
+              "electric_bass",
+              "string_type",
+              "roundwound_n"
+            ],
+            [
+              "electric_bass",
+              "scale_length_b",
+              "long_scale_b"
+            ],
+            [
+              "electric_bass",
+              "fretted_or_not",
+              "fretted"
+            ],
+            [
+              "electric_bass",
+              "bass_technique",
+              "fingerstyle_locked"
+            ],
+            [
+              "electric_bass",
+              "electric_bass_string_configuration",
+              "electric_bass_string_configuration_unspecified"
+            ],
+            [
+              "drum_kit",
+              "drum_technique",
+              "sticks_rock"
+            ],
+            [
+              "drum_kit",
+              "shell_wood",
+              "maple_shell"
+            ],
+            [
+              "drum_kit",
+              "shell_thickness",
+              "thin_shell"
+            ],
+            [
+              "drum_kit",
+              "bearing_edges",
+              "edge_45"
+            ],
+            [
+              "drum_kit",
+              "drumhead",
+              "single_coated"
+            ],
+            [
+              "drum_kit",
+              "snare_wires",
+              "wires_20"
+            ],
+            [
+              "drum_kit",
+              "drum_kit_kick_pedal",
+              "dk_kick_single_felt"
+            ],
+            [
+              "drum_kit",
+              "cymbal_alloy",
+              "b20"
+            ],
+            [
+              "drum_kit",
+              "cymbal_hammering",
+              "machine_symmetric_hammering"
+            ],
+            [
+              "drum_kit",
+              "cymbal_lathing",
+              "full_lathe_both_sides"
+            ],
+            [
+              "drum_kit",
+              "cymbal_finish",
+              "traditional_finish"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "electronic_keyboard_identity",
+              "electronic_keyboard_architecture_unspecified"
+            ],
+            [
+              "electronic_keyboard_unspecified",
+              "keyboard_technique",
+              "electronic_keyboard_melodic_chordal"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-007-parity.json",
+          "semantic_review": "All four full outputs individually read. Taiwan communal connected singing and piano are restored genre practice; spacious hall descriptors describe authored acoustics, not vocal physiology or original venue. Danish competition repertoire retains voice/piano, Telugu indie lively band controls and bold bass intentionally authored, Telugu remix brisk DJ presentation retained. No unrelated culture or discarded positive role."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown.",
+            "positive_roles": {
+              "Ram": [
+                "vocals"
+              ],
+              "Bala": [
+                "vocals"
+              ],
+              "Yashwant": [
+                "keyboard"
+              ],
+              "Akshay": [
+                "drums"
+              ],
+              "Anant": [
+                "bass guitar"
+              ],
+              "Srinivas": [
+                "guitar"
+              ]
+            },
+            "authored_defaults": "Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted."
+          },
+          "vocal_count_audit": {
+            "selected_count": 2,
+            "named_singers": [
+              "Ram",
+              "Bala"
+            ],
+            "source_tracking_count": "unknown",
+            "decision": "Two named live singers; authored duo rendition, no inferred harmony intervals or studio overdubs."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "voice",
+              "parts": {
+                "voice_register": "voice_register_source_unspecified",
+                "voice_quality": "voice_quality_source_unspecified",
+                "voice_vocal_tract": "tract_neutral",
+                "voice_effort": "effort_moderate",
+                "voice_vibrato": "voice_vibrato_local_unspecified",
+                "voice_articulation": "voice_articulation_source_unspecified",
+                "voice_microtone": "voice_microtone_local_unspecified",
+                "voice_tradition": "voice_tradition_source_unspecified",
+                "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+                "voice_estill_quality": "voice_estill_quality_source_unspecified",
+                "voice_speech_song": "voice_speech_song_local_unspecified",
+                "voice_ensemble_config": "voice_ensemble_live_duet",
+                "voice_ornament_system": "voice_ornament_system_source_unspecified",
+                "voice_pitch_organization": "voice_pitch_source_unspecified",
+                "voice_processing_chain": "voice_processing_unprocessed",
+                "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+                "voice_tessitura": "voice_tessitura_source_unspecified"
+              },
+              "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+            },
+            {
+              "instrument": "electric_guitar_single_coil",
+              "parts": {
+                "electric_technique": "electric_clean_strummed",
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_b",
+                "neck_wood": "maple",
+                "fretboard": "rosewood_fb",
+                "pickup_magnet": "alnico_2",
+                "string_material": "pure_nickel",
+                "string_gauge": "g_10",
+                "bridge": "two_point_trem",
+                "scale_length": "scale_fender",
+                "finish": "nitro",
+                "string_tuning": "standard_tuning",
+                "single_coil_pickup_construction": "single_coil_construction_unspecified"
+              },
+              "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+            },
+            {
+              "instrument": "electric_bass",
+              "parts": {
+                "amp_make": "amp_unspecified",
+                "body_wood": "alder_b",
+                "pickup_config": "soapbar",
+                "string_type": "roundwound_n",
+                "scale_length_b": "long_scale_b",
+                "fretted_or_not": "fretted",
+                "bass_technique": "fingerstyle_locked",
+                "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+              },
+              "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+            },
+            {
+              "instrument": "drum_kit",
+              "parts": {
+                "drum_technique": "sticks_rock",
+                "shell_wood": "maple_shell",
+                "shell_thickness": "thin_shell",
+                "bearing_edges": "edge_45",
+                "drumhead": "single_coated",
+                "snare_wires": "wires_20",
+                "drum_kit_kick_pedal": "dk_kick_single_felt",
+                "cymbal_alloy": "b20",
+                "cymbal_hammering": "machine_symmetric_hammering",
+                "cymbal_lathing": "full_lathe_both_sides",
+                "cymbal_finish": "traditional_finish"
+              },
+              "policy": "Every effective applicable owning part pinned; exact authored materials/playing choices not asserted source gear."
+            },
+            {
+              "instrument": "electronic_keyboard_unspecified",
+              "parts": {
+                "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+                "keyboard_technique": "electronic_keyboard_melodic_chordal"
+              },
+              "policy": "Source bare keyboard; construction architecture unspecified, playing support authored."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "All applicable authored controls protected. Shared guitar/bass material keys independently checked against both owners; neutral keyboard retains both applicable controls.",
+            "fallbacks": []
+          },
+          "model_policy": "Authored present-day concert realization uses clean-strummed single-coil electric guitar, fretted active-soapbar bass with fingerstyle pulse, thin-maple stick-played kit and traditional-finish machine-hammered B20 cymbals. Source bare guitar is realized as an electric model suitable to the positively documented amplified pub band, not claimed observed source construction. Physical woods/strings/hardware and gestures are authored controls. Bare keyboard retains existing source-unspecified electronic-keyboard architecture with authored melodic/chordal support, not a guessed analog synth. Two accompanied live singers use unspecified physiology, pitch practice and inter-voice relationship; no studio overdubs claimed. Controlled live-room listening acoustics are authored, not a measured venue. FunctionalSong parent specifies a new authored verse-chorus-bridge rendition over functional harmonic progressions of the documented song practice. The bridge, sectional form and chordal progression are deliberate new arrangement choices, not claims that the original songs or every performed cover used this exact form, and not a measured source transcription or universal independent-music structure. No global tuning or recording apparatus inferred. The rendered raging-bass affect is an explicitly authored aggressive/high-gain live-band presentation; neither measured amplification nor a source-specific circuit is asserted.",
+          "source_scope_limitation": "ChowRaasta — complete six-person live practice documented in the firsthand Hyderabad interview of22January2020, encompassing pub/college performances of originals and older Telugu songs. Ram and Bala sing, Yashwant plays keyboard, Akshay drums, Anant bass guitar and Srinivas guitar. All six people and five sound families retained. This is the explicitly dated full performing-band practice, not a reconstruction of a studio single or a later five-member lineup. No uncredited electronics, percussion, backing singers or production layers inferred. Exact inter-voice intervals, instrument models and individual event setlists unknown.",
+          "classification_evidence": null
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      },
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent functionalSong describes the representative genre branch, not an exhaustive definition of every source."
+    },
+    {
+      "source_label": "telugu remix",
+      "source_url": "https://everynoise.com/engenremap-teluguremix.html",
+      "suggested_id": "telugu_remix",
+      "allocation_ordinal": 4414,
+      "allocation_group_id": "177",
+      "status": "frozen_pending_independent_review",
+      "id": "telugu_remix",
+      "tradition": {
+        "id": "telugu_remix",
+        "name": "Telugu remix",
+        "family": "electronic",
+        "lineage": "Telugu remix connects DJs, producers and audiences through remixed Telugu film songs, popular hits and folk repertoire.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Recognizable vocal and melodic material is recast for dance-floor mixing and mashups. DJ programmes can move between Telugu selections and neighboring repertoires, emphasizing transitions, rhythmic continuity and crowd response.",
+        "exemplars": [
+          "Sahil Gulati"
+        ],
+        "crossRefs": [],
+        "status": "documented"
+      },
+      "geo": [
+        17.385,
+        78.4867,
+        "Hyderabad",
+        "South Asia"
+      ],
+      "geo_rationale": "Primary onsite interview expressly identifies Hyderabad performance; exact venue street coordinates unknown, city anchor editorial.",
+      "signature_tokens": [],
+      "source_scope_limitation": "Historical exact performance/edition scope retained separately in format_repair; current defaults describe a representative documented genre branch.",
+      "neighbor_distinction": "Telugu remix is the Telugu-song remix and mashup production/DJ circulation field, with substantial repertoire overlap with Tollywood film song and folk. Performer first-person discussion explicitly names Telugu remixes as a repertoire category at the Hyderabad event; TeluguDJs own promotion platform independently organizes Telugu DJ remix/folk remix/club-mix releases by multiple producers. Existing tollywood is the broader Telugu cinema playback-song field and already includes electronic production, so the distinction is remix circulation and club presentation, not the mere presence of synths or a different tune. Existing telugu_folk includes contemporary folk/reggae fusion and may supply source repertoire; telugu_hip_hop is MC practice. Existing indian_edm is the broad Indian electronic dance field, not restricted to Hybrid Protokol; this language/repertoire-facing remix network is an overlapping subset. Hindi Bollywood remixes and Tamil remixes have adjacent language/repertoire communities and may coexist in the selected mixed DJ set. No claim every set selection is Telugu, every record a remix, or that source artist appears in inaccessible EveryNoise roster.",
+      "model_policy": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Actual DJ practice retains mixed embedded repertoire without source-hardware invention. Current representative roles: dj_playback_mixing_unspecified. Actual current owning-control audit governs this genre rendition; historical exact-edition claims do not.",
+      "instrument_role_audit": {
+        "scope": "Current representative genre practice; source-specific performance roster archived in format_repair.historical_source_audits.",
+        "roles": {
+          "dj_playback_mixing_unspecified": "Source-supported role family retained in representative genre rendition; see sources and format_repair.reason for restoration changes."
+        },
+        "authored_defaults": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Actual DJ practice retains mixed embedded repertoire without source-hardware invention."
+      },
+      "vocal_count_audit": {
+        "source_human_count": "unknown at genre level; historical event counts preserved separately",
+        "authored_voice_cards": 0,
+        "authored_ensemble_setting": null,
+        "decision": "Representative lead or group setting does not prescribe a universal performer count. No source-specific roster count asserted as a genre rule."
+      },
+      "flat_pin_resolution": {
+        "rule": "Current resolved_parts_audit independently lists every actual applicable owning selection; shared flat values verified against all affected owners. Historical source-scope assertions archived."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Actual applicable authored controls for current representative genre rendition; physical construction is not claimed as exact historical source equipment."
+        }
+      ],
+      "dependency_audit": {
+        "new_dependencies": []
+      },
+      "verification_status": "Source candidate pending independent peer. Original current1638-owner merge preserves every old instrument; sole owning control protected, no errors/fallback. All four original browser/connector outputs inspected, parity true, maximum137characters; up-tempo DJ practice coherent with positive dance-event set. Source signatures/final integrated static build are not tested by this preflight.",
+      "sources": [
+        {
+          "url": "https://www.newindianexpress.com/cities/hyderabad/2026/Oct/01/sahil-gulati-music-is-my-soul",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11351view0 full onsite first-person performer interview, actual Telugu remix DJ set, two example selections, whole remainder not enumerated. No external event date inferred."
+        },
+        {
+          "url": "https://www.telugudjs.com/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11341search9 issuer promotion platform for multiple Telugu DJs, explicit remix/mashup/folk-remix/club-mix practice. Individual uploaded productions are not substituted for the selected actual DJ set."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "telugu_remix",
+          "name": "Telugu remix",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not Sahil Gulati, original DJ gear or Telugu instrument.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn11331view0 confirms Iain Fergusson/Binksternet crop, CC BY2.5; historical byte/visual receipts unchanged.",
+          "fresh_review_ref": "turn11331view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn11331view0; exact historical byte and visual receipts retained, no new download.",
+        "fresh_rights_retrieval_refs": [
+          "turn11331view0"
+        ]
+      },
+      "format_repair": {
+        "original_packet": "/tmp/batch038/recovery177-179-secondpass-2-pacing-clarified116.json",
+        "original_sha256": "3d82f779d796e82872314e46fedaaa25c855e3d6a2dbb385c8e027e27100b987",
+        "before": {
+          "tradition": {
+            "id": "telugu_remix",
+            "name": "Telugu remix",
+            "family": "electronic",
+            "lineage": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set. Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted.",
+            "instruments": [
+              "dj_playback_mixing_unspecified"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+            }
+          },
+          "extras": {
+            "parent": "electronicDance",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": 0,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set. Telugu remix is the Telugu-song remix and mashup production/DJ circulation field, with substantial repertoire overlap with Tollywood film song and folk. Performer first-person discussion explicitly names Telugu remixes as a repertoire category at the Hyderabad event; TeluguDJs own promotion platform independently organizes Telugu DJ remix/folk remix/club-mix releases by multiple producers. Existing tollywood is the broader Telugu cinema playback-song field and already includes electronic production, so the distinction is remix circulation and club presentation, not the mere presence of synths or a different tune. Existing telugu_folk includes contemporary folk/reggae fusion and may supply source repertoire; telugu_hip_hop is MC practice. Existing indian_edm is the broad Indian electronic dance field, not restricted to Hybrid Protokol; this language/repertoire-facing remix network is an overlapping subset. Hindi Bollywood remixes and Tamil remixes have adjacent language/repertoire communities and may coexist in the selected mixed DJ set. No claim every set selection is Telugu, every record a remix, or that source artist appears in inaccessible EveryNoise roster. Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted.",
+            "exemplars": [
+              "Sahil Gulati — complete reported Royal Stag Boom Box Hyderabad DJ set, interview1October2026"
+            ],
+            "crossRefs": [],
+            "status": "documented"
+          }
+        },
+        "reason": "Replace exact event, performer and control dossiers with genre sound/history. All source-supported representative musical defaults remain unchanged. Actual DJ practice retains mixed embedded repertoire without source-hardware invention.",
+        "default_review": {
+          "status": "PASS_AUTHOR_REVIEW",
+          "owning_controls": [
+            [
+              "dj_playback_mixing_unspecified",
+              "dj_playback_mixing_identity",
+              "dj_playback_mixing_source_unspecified"
+            ]
+          ],
+          "errors": [],
+          "runtime": "queued-profiles-007-parity.json",
+          "semantic_review": "All four full outputs individually read. Taiwan communal connected singing and piano are restored genre practice; spacious hall descriptors describe authored acoustics, not vocal physiology or original venue. Danish competition repertoire retains voice/piano, Telugu indie lively band controls and bold bass intentionally authored, Telugu remix brisk DJ presentation retained. No unrelated culture or discarded positive role."
+        },
+        "historical_source_audits": {
+          "instrument_role_audit": {
+            "scope": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set.",
+            "positive_sound_source_classes": [
+              "recorded-program playback and DJ mixing"
+            ],
+            "authored_defaults": "Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted."
+          },
+          "vocal_count_audit": {
+            "selected_count": null,
+            "embedded_voice_count": "unknown",
+            "separately_performed_live_voice_count": "unknown",
+            "added_live_voice_cards": 0
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "dj_playback_mixing_unspecified",
+              "parts": {
+                "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+              },
+              "policy": "Complete mixed programme preserved; no invented component sound mechanism."
+            }
+          ],
+          "flat_pin_resolution": {
+            "rule": "One neutral DJ owner and one protected identity part; no shared-key conflicts."
+          },
+          "model_policy": "Existing medium-neutral DJ playback/mixing identity retains the complete actual mixed programme with embedded instruments/voices intact. It does not replace an opaque studio master with a sampler or invent original production sources. ElectronicDance parent follows the first-person crowd dance/remix practice; exact tempo, harmony and meter unknown. Controlled live-room listening presentation and neutral axes authored, not original venue acoustics. No global temperament, capture apparatus, hardware or added live voice card. The rendered up-tempo wording denotes an explicitly authored brisk DJ listening presentation of this positively documented dance-event practice; source tempo and original BPM remain unknown, and no measured speed of the actual set is asserted.",
+          "source_scope_limitation": "Sahil Gulati — complete DJ set at Royal Stag Boom Box Hyderabad, documented by the performer in an on-site interview published1October2026. The reporter identifies the console-based DJ performance; Gulati explicitly names Telugu remixes and mashups including Oo Antava and Chikiri Chikiri and explains the rest of the set followed the audience. Preserve the entire reported DJ programme, not just these two examples. Exact performance date, duration, exhaustive tracklist, source media, deck count, mixing workflow and embedded/live vocal counts are unknown. This is a realization of the documented actual performance practice, not an auditioned surviving recording or reconstruction of the individual studio songs. Other celebrity performances at the festival are separate acts, not silently removed members of this DJ set.",
+          "classification_evidence": null
+        },
+        "audit_amendment": "Historical source-specific audits retained in format_repair.historical_source_audits. Top-level audits now describe current representative genre defaults, not exact source personnel."
+      },
+      "classification_evidence": "Retained primary sources and neighbor_distinction establish category; current parent electronicDance describes the representative genre branch, not an exhaustive definition of every source."
+    }
+  ]
+}

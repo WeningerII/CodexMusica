@@ -1,0 +1,268 @@
+{
+  "entries": [
+    {
+      "source_label": "indie nica",
+      "source_url": "https://everynoise.com/engenremap-indienica.html",
+      "suggested_id": "indie_nica",
+      "allocation_ordinal": 3485,
+      "allocation_group_id": "140",
+      "status": "candidate_for_independent_review",
+      "id": "indie_nica",
+      "tradition": {
+        "id": "indie_nica",
+        "name": "Indie Nica",
+        "family": "vernacular",
+        "lineage": "Ceshia Ubau \u2014 Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed. Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "spokenWord",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Ceshia Ubau \u2014 Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed. Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent. Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+        "exemplars": [
+          "Ceshia Ubau \u2014 Me es urgente, complete five-poem2020 EP"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        12.1364,
+        -86.2514,
+        "Managua",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Artist-owned profile positively identifies Managua/Nicaragua. Community origin anchor; actual selected recording is credited CostaRica and masteringGuatemala, neither silently relocated toManagua.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://ceshiaubau.bandcamp.com/album/me-es-urgente",
+          "support_notes": "Fresh full13103view0 all5poems and complete sole text/voice/piano credits, CostaRica2020 home recording and separate Guatemala mix. Artist explicitly spoken-word poetry.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4gM9aDyGSr2FVAKAmehvRV",
+          "support_notes": "Fresh13103view2 full exactcreator field; CeshiaUbau19 with Marzo2020, a different work; ElBosque2. No claim selectedEP appears in playlist.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://ondalocalni.com/noticias/1815-luz-disco-ceshia-ubau-latin-grammy/",
+          "support_notes": "Fresh13103view1/13104view0 firsthand artist account explicitly independent self-managed/no label practice. LaterLuz arrangements not imported.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://podcasts.apple.com/co/podcast/m%C3%BAsica-en-el-bosque/id1576932690",
+          "support_notes": "Fresh full13106view0 creator-owned ElBosque podcast, episode1 IndieNicaragua and regional independent artist/production community. Podcast is classification corroboration, not selected audio rendition.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent.",
+      "model_policy": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+      "dependency_audit": {
+        "baseline_existing": 1638,
+        "new_instruments": [],
+        "distinction": "Existing voice and upright piano used; no instrument identity change."
+      },
+      "classification_evidence": "Indie Nica is the Nicaraguan independent-music community across styles, including diaspora practice. Exact creator roster names CeshiaUbau at19 and ElBosqueDeLosBuhos at2. Ubau describes her self-managed artist practice without a record label in a firsthand interview; the latter artist publishes the IndieNicaragua podcast and a regional independent-production support platform. This provides a positively named community beyond an isolated birthplace claim. Full old rock_nica is the broad national rock field, not only its Rexurgir hardcore exemplar; these fields substantially overlap, but the independent-community corpus also positively includes this self-issued poetry/piano branch and singer-songwriters. NuevaCancion is the historical political-song movement, not all current independent production, and spoken_word_poetry is a global medium rather than this national community. Selected EP is a documented literary offshoot of a positively included artist, not a claim every IndieNica work is spoken poetry or that all Nicaraguan artists are independent.",
+      "vocal_count_audit": {
+        "singers": 0,
+        "reciters": 1,
+        "total_performers": 1,
+        "basis": "Artist credits text/voice/piano to herself across full spoken-poetry EP. Actual layering unspecified; one authored live voice, not measured recording-track count."
+      },
+      "instrument_role_audit": {
+        "scope": "Ceshia Ubau \u2014 Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed.",
+        "cards": 2,
+        "roles": [
+          "One speaking poet",
+          "Same performer on piano"
+        ],
+        "defaults": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_pure_spoken_no_pitch",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader."
+        }
+      ],
+      "verification_status": "Complete source candidate; original full mechanics/fourformats and independent peer required.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All17 voice and3 piano controls protected, no shared key collision."
+      },
+      "primary_retrieval_refs": [
+        "turn13103view0",
+        "turn13103view2",
+        "turn13104view0",
+        "turn13106view0"
+      ],
+      "source_scope_limitation": "Ceshia Ubau \u2014 Me es urgente, complete five-poem EP issued17September2020. Artist explicitly credits herself with text, voice and piano; recorded at home in Costa Rica during July2020, mixed/mastered by basico3 in Guatemala. Engineering and photography credits are not extra performers. Full spoken-word-poetry/piano scope retained, one reciter who also plays piano, zero source singing asserted. No additional roles from her other song albums or touring band. Actual overdubbing/room equipment are unknown; no audition claimed.",
+      "source_retrieval_caveat": "Full artist-issued EP, exact creator roster, firsthand interview and own podcast metadata freshly retrieved. Raw initial EP/interview/playlist tool response saved indie-nica-primary117.json. No auditory inspection; later Luz album musicians not transferred. Historical old DiganWhisky source remains separately preserved.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "indie_nica",
+          "name": "Indie Nica",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not CeshiaUbau, her piano, actual microphone or home studio.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh13059view0 independently confirms CC BY2.5 IainFergusson/Binksternet crop; exact023 historical bytes/visual receipt inherited, no fresh download.",
+          "fresh_review_ref": "turn13059view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13059view0"
+        ],
+        "fresh_rights_review": "Fresh13059view0 rights/context only; original023 historicalbyte/visual evidence retained."
+      },
+      "authored_render_scope": "Authored intimate recital of the complete EP retains one piano-accompanied speaking performer. All17voice controls preserve source-unspecified physiology/pitch/register, pure spoken delivery, unprocessed single lead; this is not an invented singer or measured original voice mechanism. Three piano controls select a standard studio upright and supportive block chords for unknown original piano architecture. Brisk speech pacing in the generated rendition is an authored editorial delivery, not a measured tempo of the source poems. Controlled live room and combined live recitation are an authored present-day rendition, not proof that the home album was recorded live without overdubbing. No global temperament, original capture apparatus or therapeutic effect asserted. Broad spokenWord placement follows positively tagged spoken-word poetry; regional category remains stylistically broader.",
+      "source_review_refs": [
+        "turn13103view0",
+        "turn13103view2",
+        "turn13104view0",
+        "turn13106view0"
+      ]
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

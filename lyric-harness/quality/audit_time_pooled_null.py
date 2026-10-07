@@ -7,7 +7,7 @@ THE CLAIMS UNDER AUDIT
       "stress    k=23 items, median p=0.701, X2=31.4 on 46 df  ->  p = 0.950
        syllable  k=26 items, median p=0.554, X2=48.4 on 52 df  ->  p = 0.617"
       "That is the predicted null holding under a test that pools 23-26 items"
-  quality/RESULTS_FWER.md and RESULTS_TIME.md repeat both figures; CLAUDE.md
+  quality/RESULTS_FWER.md and RESULTS_TIME.md repeat both figures; HANDBOOK.md
   doctrine 4 cites "Sonnet arm null with pooled power (Fisher p=0.950, k=23)".
 
   Fisher's method assumes the combined p-values are UNIFORM(0,1) under H0.

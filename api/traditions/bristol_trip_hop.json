@@ -3,14 +3,14 @@
   "name": "Bristol trip hop",
   "family": "electronic",
   "lineage": "Bristol sound that grew out of the Wild Bunch sound-system crew and was codified 1991-1998 by Massive Attack, Portishead, Tricky and Smith & Mighty — 65-95 BPM dub-weighted breakbeats, minor-key vinyl-noise loops of soundtrack strings and organ, deep sub bass borrowed from reggae sound-system practice, and murmured, close-miked vocals alternating between soul singing and near-whispered rap.",
-  "recipe": "classic British mid-1990s bristol trip hop, experimental Elec, pop experimental branch, uk soundsystem bass system, intl hip hop MC rhythm, lofi experimental electric motswako chap hop. thick, rap, slow rate, interlocked note trading. field textural sampler, sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, tremolo centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, sub bass analog poly synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 773,
-  "score": 310.16,
+  "recipe": "classic British mid-1990s bristol trip hop, experimental Elec, pop experimental branch, uk soundsystem bass system, intl hip hop MC rhythm, lofi experimental electric motswako 2-step. thick, rap, slow rate, solo with instrumental accompaniment. field textural sampler, sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, tremolo centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, sub bass analog poly synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 783,
+  "score": 181.28,
   "config": {
     "traditions": [
       "bristol_trip_hop",
       "motswako",
-      "chap_hop"
+      "two_step_garage"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 7.245000000000002,
-          "voice_quality": 16.220000000000002,
+          "voice_register": 7.620000000000001,
+          "voice_quality": 11.245000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 22.749999999999996,
-          "voice_microtone": 23.334999999999994,
-          "voice_tradition": 10.425,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 2.6,
-          "voice_speech_song": 22.554999999999996,
-          "voice_ensemble_config": 21.124999999999996,
-          "voice_ornament_system": 4.29,
-          "voice_pitch_organization": 1.885,
-          "voice_processing_chain": 12.24,
-          "voice_multitrack_stack": 1.625
+          "voice_vibrato": 1.365,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.625,
+          "voice_ornament_system": 5.720000000000001,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.325,
+          "voice_multitrack_stack": 0.285
         }
       },
       {
@@ -62,22 +62,22 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 10.075,
-          "sampler_archetypes": 8.98,
-          "sampler_bit_depth": 2.4000000000000004,
-          "sampler_workflow": 14.409999999999998,
-          "sampler_classic_context": 29.412500000000005
+          "electronic_technique": 9.200000000000001,
+          "sampler_archetypes": 6.329999999999999,
+          "sampler_bit_depth": 1.4249999999999998,
+          "sampler_workflow": 13.535,
+          "sampler_classic_context": 25.935000000000002
         }
       },
       {
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_scratch"
+          "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 6.1000000000000005,
-          "turntable_technique": 6.330000000000001
+          "electronic_technique": 4.375,
+          "turntable_technique": 3.93
         }
       },
       {
@@ -88,8 +88,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.214999999999996,
-          "drumhead": 4.62,
+          "drum_technique": 19.825,
+          "drumhead": 4.995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -106,11 +106,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.475,
-          "body_wood": 2.885,
+          "amp_make": 10.205,
+          "body_wood": 2.34,
           "pickup_config": 1,
-          "string_type": 7.0200000000000005,
-          "scale_length_b": 2.34,
+          "string_type": 9.945,
+          "scale_length_b": 1.69,
           "fretted_or_not": 1,
           "bass_technique": 5.75,
           "electric_bass_string_configuration": 0
@@ -127,11 +127,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 4.62,
-          "rhodes_model": 1.69,
-          "rhodes_use": 2.08,
+          "keyboard_technique": 4.995,
+          "rhodes_model": 1.04,
+          "rhodes_use": 1.235,
           "rhodes_tine_material": -0.7350000000000001,
-          "rhodes_hammer_tip": 0.325,
+          "rhodes_hammer_tip": -0.175,
           "rhodes_pickup_position": 1.2349999999999999
         }
       },
@@ -144,13 +144,27 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 12.122499999999999,
+          "electronic_technique": 13.6175,
           "poly_archetypes": 0.3,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
     "room": "studio_british_class_a_commercial",
     "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
@@ -170,6 +184,19 @@
   "source": {
     "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
     "room": "studio_british_class_a_commercial",
+    "parts": {
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_processing_chain": "voice_processing_tape_saturation"
+    },
+    "pin_parts": true,
     "chain_mic": "mic_u47_tube_neumann",
     "chain_pre": "pre_neve_1073_input",
     "chain_comp": "comp_1176_fet",

@@ -1,0 +1,54 @@
+{
+  "predecessor": "572c288153ab7092b5571f5e572667c311e9828e",
+  "head": "572c288153ab7092b5571f5e572667c311e9828e",
+  "frozen_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "counts": {
+    "raw_traditions_old_unchanged": 6338,
+    "raw_instruments_old_unchanged": 1609,
+    "old_extras_unchanged": 6338,
+    "merged_instruments_old_unchanged": 1609,
+    "data/geo.json_old_keys": 6338,
+    "references/_tradition_signatures.json_old_keys": 4316,
+    "old_images_unchanged": 7897,
+    "new_images": 119
+  },
+  "additions": 100,
+  "instrument_additions": [
+    "electronic_drum_kit_unspecified",
+    "credited_sound_effect_unspecified",
+    "viol_consort",
+    "moog_matriarch",
+    "sequential_prophet_xl",
+    "custom_therevox_unspecified",
+    "flauta_pitiusa",
+    "tambor_pitius",
+    "castanyoles_pitiuses",
+    "pandeirola_meia_lua",
+    "flauta_carrizo_tabasquena",
+    "requinto_tabasqueno",
+    "tambor_grande_tabasqueno",
+    "comorian_firimbi",
+    "live_signal_processing_unspecified",
+    "credited_environmental_ambience",
+    "chiapanecan_marimba",
+    "credited_requinto_unspecified",
+    "credited_steel_guitar_unspecified"
+  ],
+  "runtime_independent": {
+    "cards": 269,
+    "effective_parts": 2157,
+    "flat_pins": 2115,
+    "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+  },
+  "app_scope": {
+    "added_signature_rows": 100,
+    "removed_rows": 0,
+    "logic_changes": false
+  },
+  "errors": [],
+  "warnings": [],
+  "reviewer_notes": {
+    "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+    "limitation": "API/regression/exact-head CI separate required gates."
+  }
+}

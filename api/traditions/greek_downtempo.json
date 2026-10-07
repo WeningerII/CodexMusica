@@ -1,0 +1,74 @@
+{
+  "id": "greek_downtempo",
+  "name": "Greek downtempo",
+  "family": "electronic",
+  "lineage": "Greek downtempo connects producers working with relaxed electronic grooves and sample-based instrumental music. Record fragments and programmed rhythm provide one approach within this wider production scene.",
+  "recipe": "classic greek downtempo, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 151,
+  "score": 3.809,
+  "config": {
+    "traditions": [
+      "greek_downtempo"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 0.2315,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 0.313,
+          "sampler_classic_context": 3.3149999999999995
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

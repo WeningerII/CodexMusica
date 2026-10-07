@@ -1,0 +1,112 @@
+{
+  "id": "indian_violin",
+  "name": "Indian violin",
+  "family": "classical",
+  "lineage": "Lalgudi Jayaraman with Palghat Raghu and Vinayakram — complete Parvathi Mysore concert (1973). Authored present-day rendition of the complete credited instrumental programme. Lalgudi violin lineage follows the actual featured violinist; Palghat mridangam lineage is positively supported by a first-person fellow musician’s account of Raghu studying with Mani Iyer. Microtonally inflected bowing, seated South Indian posture, tonic/fifth violin tuning and synthetic strings are explicit representative choices, not measured 1973 equipment. Mridangam jackwood/goat-buffalo construction and standard heads are authored. Ghatam Manamadurai denotes an authored clay-temper construction choice, not Vinayakram’s personal pedagogical lineage or identified historical pot; full-bowl strike is an authored default, not an assertion excluding other gestures. Controlled live room and neutral numeric axes are authored; global temperament and capture apparatus omitted. No new instrument owner or source-inferred lineage is introduced.",
+  "recipe": "classic early-1970s indian violin, art Music, south Asian branch. synthetic core modern lalgudi lineage carnatic violin carnatic, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam. live tracking.",
+  "recipe_chars": 265,
+  "score": 49.939,
+  "config": {
+    "traditions": [
+      "indian_violin"
+    ],
+    "instruments": [
+      {
+        "id": "violin_carnatic",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "violin_carnatic_tuning": "violin_carnatic_carnatic",
+          "violin_carnatic_posture": "violin_carnatic_seated_south",
+          "violin_carnatic_strings": "violin_carnatic_synthetic",
+          "violin_carnatic_lineage": "violin_carnatic_lalgudi"
+        },
+        "scores": {
+          "bowed_technique": 0.6499999999999999,
+          "violin_carnatic_tuning": 19.759999999999994,
+          "violin_carnatic_posture": 1.008,
+          "violin_carnatic_strings": 1.69,
+          "violin_carnatic_lineage": 9.754499999999998
+        }
+      },
+      {
+        "id": "mridangam",
+        "slots": {
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_palghat"
+        },
+        "scores": {
+          "mridangam_heads": 2.08,
+          "mridangam_use": 0,
+          "mridangam_shell_wood": 2.4699999999999998,
+          "mridangam_heads_material": 3.0725000000000002,
+          "mridangam_lineage": 9.4545
+        }
+      },
+      {
+        "id": "ghatam",
+        "slots": {
+          "ghatam_school": "ghatam_manamadurai",
+          "ghatam_technique": "ghatam_full"
+        },
+        "scores": {
+          "ghatam_school": 0,
+          "ghatam_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "violin_carnatic": [
+        "bowed_technique",
+        "violin_carnatic_tuning",
+        "violin_carnatic_posture",
+        "violin_carnatic_strings",
+        "violin_carnatic_lineage"
+      ],
+      "mridangam": [
+        "mridangam_heads",
+        "mridangam_use",
+        "mridangam_shell_wood",
+        "mridangam_heads_material",
+        "mridangam_lineage"
+      ],
+      "ghatam": [
+        "ghatam_school",
+        "ghatam_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "bowed_technique": "bowed_microtonal_inflected",
+      "violin_carnatic_tuning": "violin_carnatic_carnatic",
+      "violin_carnatic_posture": "violin_carnatic_seated_south",
+      "violin_carnatic_strings": "violin_carnatic_synthetic",
+      "violin_carnatic_lineage": "violin_carnatic_lalgudi",
+      "mridangam_heads": "mridangam_standard",
+      "mridangam_use": "mridangam_carnatic",
+      "mridangam_shell_wood": "mridangam_jackwood_canonical",
+      "mridangam_heads_material": "mridangam_goat_buffalo",
+      "mridangam_lineage": "mridangam_palghat",
+      "ghatam_school": "ghatam_manamadurai",
+      "ghatam_technique": "ghatam_full"
+    },
+    "pin_parts": true
+  }
+}

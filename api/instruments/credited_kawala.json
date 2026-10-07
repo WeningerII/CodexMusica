@@ -1,0 +1,62 @@
+{
+  "id": "credited_kawala",
+  "name": "Credited kawala",
+  "short": "Credited kawala",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_kawala_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "credited_kawala_source_unspecified",
+          "name": "Credited kawala; context, register and construction unspecified",
+          "default": true,
+          "descriptors": [
+            "breath-tone-airy",
+            "flute-like"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Isolated source-named instrument owner preserves Credited kawala without assigning unsupported context, register and construction unspecified. Neutral routing axes are authored. No existing owner or shared family part is altered.",
+  "sources": [
+    "https://www.youtube.com/watch?v=5t02fPfr3bo"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_kawala_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "credited_kawala_source_unspecified",
+          "name": "Credited kawala; context, register and construction unspecified",
+          "default": true,
+          "descriptors": [
+            "breath-tone-airy",
+            "flute-like"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,10 +2,10 @@
   "id": "swiss_country",
   "name": "Swiss country",
   "family": "vernacular",
-  "lineage": "Swiss country is represented by Florian Fox — Live at Country Night Gstaad (2024). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic mid-2020s swiss country, functional Song, neo trad branch. group vocals, live take. low mid rich spectrum phosphor bronze modern martin dreadnought acoustic Fender tweed amp American 50s amp tweed breakup basswood alnico humbucker electric guitar, steel plywood laminate spirit varnish modern setup double bass, kevlar aramid extreme tension brushes-and-sticks drum kit, synthetic magic rosin modern acrylic base fiddle. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 527,
-  "score": 79.915,
+  "lineage": "Swiss country connects local performers and audiences with country songwriting and performance traditions. Traditional and newer approaches appear in concerts, recordings and festival settings.",
+  "recipe": "classic swiss country, functional Song, neo trad branch. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning humbucker electric guitar, double bass, brushes-and-sticks drum kit, fiddle. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 42.854,
   "config": {
     "traditions": [
       "swiss_country"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4755,
+          "voice_ensemble_config": 0.207,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 1.363,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -56,56 +56,56 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "eb_standard",
+          "string_tuning": "standard_tuning",
           "top_wood": "adirondack",
-          "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
         },
         "scores": {
           "acoustic_technique": -0.07,
-          "string_tuning": 1.31025,
+          "string_tuning": 0,
           "top_wood": 0.1785,
-          "back_sides": 0.105,
-          "string_acoustic": 1.5177500000000002
+          "back_sides": 0.3,
+          "string_acoustic": 0.399
         }
       },
       {
         "id": "double_bass",
         "slots": {
           "bowed_technique": "bowed_local_song_melody",
-          "bass_size": "bass_seven_eighth",
+          "bass_size": "bass_three_quarter",
           "bass_strings": "bass_steel",
-          "bass_top_wood": "plywood_bass_top",
+          "bass_top_wood": "carpathian_spruce_bass",
           "bass_back_wood": "plywood_bass_back",
           "bass_varnish": "spirit_varnish_bass",
           "bass_setup_period": "modern_setup_bass",
-          "bass_play": "bass_slap",
-          "bass_rosin": "pop_kolstein_rosin",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
           "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": 1.95,
-          "bass_size": 0.09849999999999999,
-          "bass_strings": 1.69,
-          "bass_top_wood": 3.25,
-          "bass_back_wood": 3.25,
-          "bass_varnish": 3.25,
-          "bass_setup_period": 3.86625,
-          "bass_play": 0,
-          "bass_rosin": 3.722,
-          "bass_bow_stick": 3.25
+          "bowed_technique": 2.73,
+          "bass_size": 0.3,
+          "bass_strings": 0.41125,
+          "bass_top_wood": -0.035,
+          "bass_back_wood": -0.05,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 0.26,
+          "bass_play": 0.2575,
+          "bass_rosin": 0.325,
+          "bass_bow_stick": -0.05
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "kevlar_drumhead",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 4.029999999999999,
-          "drumhead": 3.355,
+          "drum_technique": 6.629999999999999,
+          "drumhead": 0.15150000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,50 +114,50 @@
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": 11.25,
-          "amp_make": 11.1075,
-          "body_wood": 1.5177500000000002,
+          "amp_make": 11.139,
+          "body_wood": 0.39,
           "neck_wood": 0.105,
           "fretboard": 0.0315,
-          "pickup_magnet": 1.41275,
-          "pickup_winding": 1.41275,
+          "pickup_magnet": 0.07525,
+          "pickup_winding": 0.07525,
           "string_material": 0.6720000000000002,
-          "bridge": 1.48625,
-          "scale_length": 1.41275,
-          "string_gauge": 1.48625,
+          "bridge": 0.2015,
+          "scale_length": 0.21,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 1.69
+          "string_tuning": 1.0909999999999997
         }
       },
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_local_song_melody",
-          "fiddle_strings": "synthetic_core",
-          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "pizz",
+          "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.95,
-          "fiddle_strings": 1.41275,
-          "fiddle_bow": 3.39425,
-          "fiddle_mute": 1.48625,
-          "fiddle_articulation": 0.105,
+          "bowed_technique": 2.73,
+          "fiddle_strings": 0.40950000000000003,
+          "fiddle_bow": 0.3,
+          "fiddle_mute": 0.78,
+          "fiddle_articulation": 0.625,
           "fiddle_string_configuration": 0
         }
       }

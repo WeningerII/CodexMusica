@@ -1,0 +1,50 @@
+{
+  "id": "credited_cymbals",
+  "name": "Cymbals (credited unspecified types)",
+  "short": "credited cymbals",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": -2,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_cymbals_identity",
+      "name": "Source-credited palette",
+      "variants": [
+        {
+          "id": "credited_cymbals_source_unspecified",
+          "name": "Source-credited cymbals; sizes, alloy and playing method unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_cymbals_identity",
+      "name": "Source-credited palette",
+      "variants": [
+        {
+          "id": "credited_cymbals_source_unspecified",
+          "name": "Source-credited cymbals; sizes, alloy and playing method unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

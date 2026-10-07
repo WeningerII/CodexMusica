@@ -1,0 +1,563 @@
+{
+  "status": "PASS",
+  "reviewer": "research_119",
+  "frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+  "required_predecessor": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+  "counts": {
+    "raw_traditions_old_unchanged": 5238,
+    "raw_instruments_old_unchanged": 1474,
+    "old_extras_unchanged": 5238,
+    "merged_instruments_old_unchanged": 1474,
+    "data/geo.json_old_keys": 5238,
+    "references/_tradition_signatures.json_old_keys": 3216,
+    "old_images_unchanged": 6662,
+    "new_images": 103
+  },
+  "source_append_review": {
+    "predecessor": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+    "head": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+    "frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+    "counts": {
+      "raw_traditions_old_unchanged": 5238,
+      "raw_instruments_old_unchanged": 1474,
+      "old_extras_unchanged": 5238,
+      "merged_instruments_old_unchanged": 1474,
+      "data/geo.json_old_keys": 5238,
+      "references/_tradition_signatures.json_old_keys": 3216,
+      "old_images_unchanged": 6662,
+      "new_images": 103
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "credited_auxiliary_percussion",
+      "doromb_hungarian",
+      "nes_famicom_chip_system"
+    ],
+    "runtime_independent": {
+      "cards": 379,
+      "effective_parts": 3663,
+      "flat_pins": 3558,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "engine_and_shared_data": [
+    {
+      "file": "scripts/_merge.js",
+      "unchanged": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    },
+    {
+      "file": "scripts/_loader.js",
+      "unchanged": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    {
+      "file": "scripts/_seed_workspace.js",
+      "unchanged": true,
+      "sha256": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d"
+    },
+    {
+      "file": "scripts/score.js",
+      "unchanged": true,
+      "sha256": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c"
+    },
+    {
+      "file": "scripts/search.js",
+      "unchanged": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    {
+      "file": "references/01_family_parts.js",
+      "unchanged": true,
+      "sha256": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791"
+    },
+    {
+      "file": "references/03_rooms_chains_tunings.js",
+      "unchanged": true,
+      "sha256": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7"
+    },
+    {
+      "file": "references/04_tree.js",
+      "unchanged": true,
+      "sha256": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90"
+    },
+    {
+      "file": "references/_descriptor_df.json",
+      "unchanged": true,
+      "sha256": "a6d035aac83dcbf5052d7e711ad5333dfab8cd211b60418a13aa9957bdf19076"
+    }
+  ],
+  "authored_default_review": {
+    "source_packet_reviews": "Individual independently reviewed source packets remain attached via frozen provenance; three dependency amendments inspected separately.",
+    "construction_coherence": "No SteinwayD/7foot or hand-hammered/machined cymbal contradiction found. Complete applicable part ownership, imported values, roster,room,tuning,six chain sections validated for100.",
+    "descriptor_amendment": "Neutral percussion has no invented timbre descriptors. Doromb retains high-carbon construction and teeth/breath mechanism in names; rendered existing vocabulary preserves meaning. NES retains distinct five/eight-channel architecture strings and established digital/sequenced/mono. No frozenDF change.",
+    "material_pool": "Strict full merged1474 old instrument objects now identical, not merely curated subsets. Renamed complete doromb construction correctly avoids lending entire-instrument assembly/sonic descriptors as a generic metal material.",
+    "old_app_cards": "Unchanged complete old rawtraditions, merged instruments, environment data and original seed code prove original imported defaults/rosters/environment preserved. No blind compiler-output inference."
+  },
+  "dependency_amendment": {
+    "previous_frozen_sha256": "5ce91dfa6fc3d362e79f296bae439d710d147d82c25a42c2b4ffbc731cac76eb",
+    "final_frozen_sha256": "c08c6dda97662ac1d5f881f8a9c067bbfc0612875b414e64c05635aa027c5e8d",
+    "dependencies": [
+      {
+        "id": "credited_auxiliary_percussion",
+        "before": {
+          "id": "credited_auxiliary_percussion",
+          "name": "Credited auxiliary percussion (source unspecified)",
+          "short": "Unspecified credited percussion",
+          "family": "percussion",
+          "class": "percussion",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": 0,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 0,
+            "articulation": 0,
+            "transduction": 0,
+            "dynamics": 0
+          },
+          "parts": [
+            {
+              "id": "credited_auxiliary_percussion_identity",
+              "name": "Source identification",
+              "variants": [
+                {
+                  "id": "credited_auxiliary_percussion_source_unspecified",
+                  "name": "Percussion credited without instrument identification",
+                  "default": true,
+                  "descriptors": ["source-unspecified percussion"],
+                  "match_tokens": ["percussion"]
+                }
+              ]
+            }
+          ],
+          "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+          "sources": [
+            "https://mencho.bandcamp.com/album/interiores",
+            "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+          ]
+        },
+        "after": {
+          "id": "credited_auxiliary_percussion",
+          "name": "Credited auxiliary percussion (source unspecified)",
+          "short": "Unspecified credited percussion",
+          "family": "percussion",
+          "class": "percussion",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": 0,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 0,
+            "articulation": 0,
+            "transduction": 0,
+            "dynamics": 0
+          },
+          "parts": [
+            {
+              "id": "credited_auxiliary_percussion_identity",
+              "name": "Source identification",
+              "variants": [
+                {
+                  "id": "credited_auxiliary_percussion_source_unspecified",
+                  "name": "Percussion credited without instrument identification",
+                  "default": true,
+                  "descriptors": [],
+                  "match_tokens": ["percussion"]
+                }
+              ]
+            }
+          ],
+          "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+          "sources": [
+            "https://mencho.bandcamp.com/album/interiores",
+            "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+          ]
+        },
+        "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+        "independent_reviewer": "research_119"
+      },
+      {
+        "id": "doromb_hungarian",
+        "before": {
+          "id": "doromb_hungarian",
+          "name": "Doromb (Hungarian steel jaw harp)",
+          "family": "plucked_traditional",
+          "class": "jaw_harp",
+          "short": "doromb",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": -2,
+            "harmonicity": 1,
+            "register": 0,
+            "range": -1,
+            "articulation": 1,
+            "transduction": -2,
+            "dynamics": -2
+          },
+          "parts": [
+            {
+              "id": "doromb_construction",
+              "name": "Frame and spring construction",
+              "variants": [
+                {
+                  "id": "doromb_high_carbon_steel",
+                  "name": "Heat-treated high-carbon steel frame and free spring",
+                  "default": true,
+                  "descriptors": ["high-carbon-steel", "ringing", "buzzing-timbre"],
+                  "match_tokens": ["plucked", "lamellophone", "overtone"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_excitation",
+              "name": "Excitation",
+              "variants": [
+                {
+                  "id": "doromb_inward_finger_pluck",
+                  "name": "Finger plucks spring inward; frame against teeth",
+                  "default": true,
+                  "descriptors": ["finger-plucked", "teeth-coupled", "resonant"],
+                  "match_tokens": ["plucked", "lamellophone", "overtone"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_resonator",
+              "name": "Resonator",
+              "variants": [
+                {
+                  "id": "doromb_oral_formant_breath",
+                  "name": "Tongue-shaped oral resonance and breath modulation",
+                  "default": true,
+                  "descriptors": ["oral-resonance", "overtone-shaped", "breath-modulated"],
+                  "match_tokens": ["plucked", "lamellophone", "overtone"]
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "id": "doromb_hungarian",
+          "name": "Doromb (Hungarian steel jaw harp)",
+          "family": "plucked_traditional",
+          "class": "jaw_harp",
+          "short": "doromb",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": -2,
+            "harmonicity": 1,
+            "register": 0,
+            "range": -1,
+            "articulation": 1,
+            "transduction": -2,
+            "dynamics": -2
+          },
+          "parts": [
+            {
+              "id": "doromb_construction",
+              "name": "Complete instrument construction",
+              "variants": [
+                {
+                  "id": "doromb_high_carbon_steel",
+                  "name": "Heat-treated high-carbon steel frame and free spring",
+                  "default": true,
+                  "descriptors": ["steel", "ringing", "buzzing-timbre"],
+                  "match_tokens": ["plucked"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_excitation",
+              "name": "Excitation",
+              "variants": [
+                {
+                  "id": "doromb_inward_finger_pluck",
+                  "name": "Finger plucks spring inward; frame against teeth",
+                  "default": true,
+                  "descriptors": ["finger-plucked", "resonant"],
+                  "match_tokens": ["plucked"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_resonator",
+              "name": "Resonator",
+              "variants": [
+                {
+                  "id": "doromb_oral_formant_breath",
+                  "name": "Tongue-shaped oral resonance and breath modulation",
+                  "default": true,
+                  "descriptors": ["overtone-shaped", "breath-modulated"],
+                  "match_tokens": ["plucked"]
+                }
+              ]
+            }
+          ]
+        },
+        "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+        "independent_reviewer": "research_119"
+      },
+      {
+        "id": "nes_famicom_chip_system",
+        "before": {
+          "id": "nes_famicom_chip_system",
+          "name": "NES / Famicom chip synthesis system",
+          "short": "NES/Famicom chip synthesis",
+          "family": "electronic",
+          "class": "electronic",
+          "axes": {
+            "pitchFix": 1,
+            "sustain": 1,
+            "polyphony": 2,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 2,
+            "articulation": 1,
+            "transduction": 2,
+            "dynamics": 1
+          },
+          "parts": [
+            {
+              "id": "nes_chip_architecture",
+              "name": "Sound-channel architecture",
+              "variants": [
+                {
+                  "id": "nes_chip_apu_five",
+                  "name": "Five basic NES sound channels",
+                  "descriptors": ["five-channel", "digital-chip-synthesis"],
+                  "match_tokens": ["electronic"]
+                },
+                {
+                  "id": "nes_chip_vrc6_eight",
+                  "name": "Five basic channels plus three VRC6 channels",
+                  "default": true,
+                  "descriptors": ["eight-channel", "VRC6-expanded", "digital-chip-synthesis"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_programming",
+              "name": "Programming method",
+              "variants": [
+                {
+                  "id": "nes_chip_tracker_notes",
+                  "name": "Tracker-programmed notes and channel effects",
+                  "default": true,
+                  "descriptors": ["tracker-sequenced", "note-programmed-effects"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_output",
+              "name": "Output topology",
+              "variants": [
+                {
+                  "id": "nes_chip_mono",
+                  "name": "Mono chip output",
+                  "default": true,
+                  "descriptors": ["mono", "direct-electronic"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            }
+          ],
+          "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+          "sources": [
+            "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+            "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+          ]
+        },
+        "after": {
+          "id": "nes_famicom_chip_system",
+          "name": "NES / Famicom chip synthesis system",
+          "short": "NES/Famicom chip synthesis",
+          "family": "electronic",
+          "class": "electronic",
+          "axes": {
+            "pitchFix": 1,
+            "sustain": 1,
+            "polyphony": 2,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 2,
+            "articulation": 1,
+            "transduction": 2,
+            "dynamics": 1
+          },
+          "parts": [
+            {
+              "id": "nes_chip_architecture",
+              "name": "Sound-channel architecture",
+              "variants": [
+                {
+                  "id": "nes_chip_apu_five",
+                  "name": "Five basic NES sound channels",
+                  "descriptors": ["five-channel NES APU", "digital"],
+                  "match_tokens": ["electronic"]
+                },
+                {
+                  "id": "nes_chip_vrc6_eight",
+                  "name": "Five basic channels plus three VRC6 channels",
+                  "default": true,
+                  "descriptors": ["eight-channel NES APU plus VRC6", "digital"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_programming",
+              "name": "Programming method",
+              "variants": [
+                {
+                  "id": "nes_chip_tracker_notes",
+                  "name": "Tracker-programmed notes and channel effects",
+                  "default": true,
+                  "descriptors": ["sequenced"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_output",
+              "name": "Output topology",
+              "variants": [
+                {
+                  "id": "nes_chip_mono",
+                  "name": "Mono chip output",
+                  "default": true,
+                  "descriptors": ["mono"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            }
+          ],
+          "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+          "sources": [
+            "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+            "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+          ]
+        },
+        "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+        "independent_reviewer": "research_119"
+      }
+    ],
+    "signature": {
+      "id": "jaw_harp",
+      "before": ["plucked", "lamellophone", "overtone"],
+      "after": ["plucked"],
+      "reason": "Only existing classified sonic token retained; no shared vocabulary or cultural ruling change."
+    }
+  },
+  "no_repo_mutations": true,
+  "remaining_gates": [
+    "Exact-head CI after publication; final serial regression1149/1149 reported passed by coordinator."
+  ],
+  "predecessor_rebind": {
+    "proof": {
+      "old_predecessor": "273b4f08c49d5951fd816f53e927f49adfd1719f",
+      "merged_predecessor": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+      "both_tree_sha": "879258eecfa09ad6909f533278f3583ec3584663",
+      "original_frozen_sha256": "c08c6dda97662ac1d5f881f8a9c067bbfc0612875b414e64c05635aa027c5e8d",
+      "final_frozen_sha256": "6afea5df95dbbc99111c5f338c2a9e7ad5e2b0264816758065bf237c9a3807f0",
+      "change": "Required predecessor metadata only; all100 entries and3dependencies byte-equivalent structured data; source/API build inputs unchanged.",
+      "exact_head_ci": {
+        "run_id": 37055171293,
+        "head": "273b4f08c49d5951fd816f53e927f49adfd1719f",
+        "conclusion": "success"
+      },
+      "merged_pr": "https://github.com/WeningerII/CodexMusica/pull/465"
+    },
+    "independently_verified_trees": [
+      "879258eecfa09ad6909f533278f3583ec3584663",
+      "879258eecfa09ad6909f533278f3583ec3584663"
+    ],
+    "old_frozen_reconstructed_by_only_reversing_required_predecessor_matches_prior_hash": true,
+    "api_inputs_changed": false
+  },
+  "final_evidence_rebind": {
+    "status": "PASS",
+    "final_frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+    "exact_reverse_reconstruction": {
+      "photo_only_reversal_sha256": "cb3cee924c3db49148491a868ddb67b78018bdcf59287159eeae9575b04ee375",
+      "pin_evidence_only_reversal_sha256": "6afea5df95dbbc99111c5f338c2a9e7ad5e2b0264816758065bf237c9a3807f0",
+      "method": "Reverse photo source/confidence fields using amendment before-values; restore six evidence row fields from original source packets whose hashes match frozen provenance. Both serialized JSON hashes exactly reproduce previous frozen artifacts."
+    },
+    "changed_entry_fields": [
+      ["romanian_pop", "photo"],
+      ["singaporean_pop", "photo"],
+      ["greek_guitar", "photo"],
+      ["guatemalan_indie", "compiled_unpinned_disclosure"],
+      ["guatemalan_indie", "resolved_parts_audit"],
+      ["guatemalan_indie", "instrument_role_audit"],
+      ["guatemalan_indie", "flat_pin_resolution"],
+      ["guatemalan_indie", "verification_status"],
+      ["h8000", "compiled_unpinned_disclosure"],
+      ["h8000", "resolved_parts_audit"],
+      ["h8000", "instrument_role_audit"],
+      ["h8000", "flat_pin_resolution"],
+      ["h8000", "verification_status"],
+      ["hangoskonyvek", "photo"],
+      ["hard_motivation", "photo"],
+      ["haur_kantak", "photo"],
+      ["high_vibe", "photo"],
+      ["hurdy_gurdy", "photo"],
+      ["hypertrance", "compiled_unpinned_disclosure"],
+      ["hypertrance", "resolved_parts_audit"],
+      ["hypertrance", "instrument_role_audit"],
+      ["hypertrance", "flat_pin_resolution"],
+      ["hypertrance", "verification_status"],
+      ["icelandic_experimental", "photo"],
+      ["icelandic_indie", "photo"],
+      ["indian_fusion", "photo"],
+      ["indian_indie", "compiled_unpinned_disclosure"],
+      ["indian_indie", "resolved_parts_audit"],
+      ["indian_indie", "instrument_role_audit"],
+      ["indian_indie", "flat_pin_resolution"],
+      ["indian_indie", "photo"],
+      ["indian_indie", "verification_status"],
+      ["indian_percussion", "photo"],
+      ["indie_canario", "photo"],
+      ["indie_nordeste_argentino", "compiled_unpinned_disclosure"],
+      ["indie_nordeste_argentino", "resolved_parts_audit"],
+      ["indie_nordeste_argentino", "instrument_role_audit"],
+      ["indie_nordeste_argentino", "flat_pin_resolution"],
+      ["indie_nordeste_argentino", "verification_status"],
+      ["instrumental_lullaby", "photo"],
+      ["iowa_indie", "compiled_unpinned_disclosure"],
+      ["iowa_indie", "resolved_parts_audit"],
+      ["iowa_indie", "instrument_role_audit"],
+      ["iowa_indie", "flat_pin_resolution"],
+      ["iowa_indie", "verification_status"],
+      ["irish_flute", "photo"],
+      ["jewish_a_capella", "photo"]
+    ],
+    "all_catalog_inputs_and_dependency_records_unchanged": true,
+    "all_photo_urls_rights_and_byte_receipts_unchanged": true,
+    "unprotected_slots_disclosed": 7,
+    "photo_classification_rows": 17,
+    "new_instrument_api_exact_merged_record_matches": [
+      "credited_auxiliary_percussion",
+      "doromb_hungarian",
+      "nes_famicom_chip_system"
+    ],
+    "append_review_final_errors": []
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "id": "credited_steel_guitar_unspecified",
+  "name": "Credited steel guitar (architecture unspecified)",
+  "short": "steel guitar",
+  "family": "acoustic_strings",
+  "class": "source_unspecified_steel_guitar",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_steel_guitar_identity",
+      "name": "Source-named instrument",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_identity_source_unspecified",
+          "name": "Steel guitar; horizontal string instrument with sliding metal bar",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_architecture",
+      "name": "Playing support and architecture",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_architecture_source_unspecified",
+          "name": "Source-unspecified lap, console or pedal configuration",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_body",
+      "name": "Body and resonator construction",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_body_source_unspecified",
+          "name": "Source-unspecified body materials and resonator construction",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_stringing",
+      "name": "String and neck configuration",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_stringing_source_unspecified",
+          "name": "Source-unspecified strings, courses and neck count",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_strings",
+      "name": "String materials and gauges",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_strings_source_unspecified",
+          "name": "Source-unspecified string material and gauge",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_tuning_source_unspecified",
+          "name": "Source-unspecified string tuning and pitch standard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_excitation",
+      "name": "Excitation method",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_excitation_source_unspecified",
+          "name": "Plucked strings; fingers or picks unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_slide",
+      "name": "Pitch control",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_slide_source_unspecified",
+          "name": "Metal bar stops and slides along strings; exact gestures unspecified",
+          "default": true,
+          "descriptors": [
+            "sliding"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_transduction",
+      "name": "Transduction and amplification",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_transduction_source_unspecified",
+          "name": "Source-unspecified acoustic or amplified realization; pickup and amplification unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited steel guitar. Smithsonian documents family-wide horizontal plucked strings controlled by a metal bar, while lap/console/pedal and acoustic/electric constructions vary. Separate controls retain unknown architecture, body, string count/material, tuning, excitation detail, bar gesture and transduction. No invented pedal mechanism, pickup, Hawaiian repertoire or source model. Neutral axes authored.",
+  "sources": [
+    "https://www.grammofon.no/utgivelser/album/Erlend%2BGunstveit/In%2BThe%2BHearts%2BWe%2BLeave%2BBehind/594",
+    "https://music.si.edu/object-day/electric-console-steel-guitar-built-felton-w-williams-jr"
+  ],
+  "exclude_family_parts": [
+    "electric_technique",
+    "plucked_traditional_technique",
+    "bowed_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_steel_guitar_identity",
+      "name": "Source-named instrument",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_identity_source_unspecified",
+          "name": "Steel guitar; horizontal string instrument with sliding metal bar",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_architecture",
+      "name": "Playing support and architecture",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_architecture_source_unspecified",
+          "name": "Source-unspecified lap, console or pedal configuration",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_body",
+      "name": "Body and resonator construction",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_body_source_unspecified",
+          "name": "Source-unspecified body materials and resonator construction",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_stringing",
+      "name": "String and neck configuration",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_stringing_source_unspecified",
+          "name": "Source-unspecified strings, courses and neck count",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_strings",
+      "name": "String materials and gauges",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_strings_source_unspecified",
+          "name": "Source-unspecified string material and gauge",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_tuning_source_unspecified",
+          "name": "Source-unspecified string tuning and pitch standard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_excitation",
+      "name": "Excitation method",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_excitation_source_unspecified",
+          "name": "Plucked strings; fingers or picks unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_slide",
+      "name": "Pitch control",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_slide_source_unspecified",
+          "name": "Metal bar stops and slides along strings; exact gestures unspecified",
+          "default": true,
+          "descriptors": [
+            "sliding"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_steel_guitar_transduction",
+      "name": "Transduction and amplification",
+      "variants": [
+        {
+          "id": "credited_steel_guitar_transduction_source_unspecified",
+          "name": "Source-unspecified acoustic or amplified realization; pickup and amplification unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

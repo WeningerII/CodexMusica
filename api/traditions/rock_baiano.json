@@ -2,10 +2,10 @@
   "id": "rock_baiano",
   "name": "Rock baiano",
   "family": "rock",
-  "lineage": "Rock baiano is represented here by Ronei Jorge e os Ladrões de Bicicleta. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Rock baiano connects Bahia’s rock bands and performance communities, including the Salvador scene.",
   "recipe": "classic rock baiano, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 49.154,
+  "score": 49.789,
   "config": {
     "traditions": [
       "rock_baiano"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 6.5,
-          "body_wood": 0.273,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 0.39,
           "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.168,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.4785,
+          "bridge": 0.1785,
           "scale_length": 0.8190000000000001,
-          "string_gauge": 1.51,
+          "string_gauge": 0.21000000000000002,
           "finish": 0,
-          "string_tuning": 0.363
+          "string_tuning": 0.063
         }
       },
       {
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.954999999999999,
+          "amp_make": 7.475,
           "body_wood": 0.0315,
           "pickup_config": 0.063,
-          "string_type": 16.575,
+          "string_type": 17.875,
           "scale_length_b": 0.063,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.75,
-          "drumhead": 0.3,
+          "drum_technique": 13.75,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

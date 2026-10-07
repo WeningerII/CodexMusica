@@ -1,0 +1,130 @@
+{
+  "id": "dark_techno",
+  "name": "Dark Techno",
+  "family": "electronic",
+  "lineage": "A shadowy, forceful strand of techno emphasizing low-register weight, insistent repetition and abrasive or ominous electronic textures. Florian Meindl’s hybrid production and performance practice provides one example.",
+  "recipe": "classic dark techno, electronic Dance, techno branch. modular synth, drum machine analog, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay high-gain distortion.",
+  "recipe_chars": 246,
+  "score": 5.436,
+  "config": {
+    "traditions": [
+      "dark_techno"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "mod_voltage_source": 0.4755,
+          "mod_patch_density": 0.108,
+          "mod_lineage": 0.5775
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.18,
+          "snare_voice": 0,
+          "hat_voice": 0.18,
+          "shuffle_quantize": -0.035
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "maschine_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 1,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 3.25
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "analog_delay",
+      "distortion_high"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_glitch_textural",
+      "mod_voltage_source": "mod_sequencer",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "tone_noise_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "sampler_archetypes": "maschine_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "analog_delay",
+      "distortion_high"
+    ]
+  }
+}

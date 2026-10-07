@@ -1,0 +1,58 @@
+{
+  "id": "police_band",
+  "name": "Police band",
+  "family": "classical",
+  "lineage": "Music performed by police-affiliated ensembles in ceremonial and public-concert settings.",
+  "recipe": "classic police band, art Music, western modern branch. saxophone quartet soprano alto tenor baritone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 200,
+  "score": 0.137,
+  "config": {
+    "traditions": [
+      "police_band"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone_quartet_soprano_alto_tenor_baritone",
+        "slots": {
+          "saxophone_quartet_articulation": "saxophone_quartet_legato"
+        },
+        "scores": {
+          "saxophone_quartet_articulation": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone_quartet_soprano_alto_tenor_baritone": [
+        "saxophone_quartet_articulation"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "saxophone_quartet_articulation": "saxophone_quartet_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

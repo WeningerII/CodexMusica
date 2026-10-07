@@ -2,30 +2,15 @@
   "id": "uk_dnb",
   "name": "UK drum and bass",
   "family": "electronic",
-  "lineage": "The British drum-and-bass scene and producer network, represented by Goldie and Metalheadz. The selected historical branch layers forceful programmed breaks with sustained bass and extended atmospheric sample construction, while recognizing that UK drum and bass also includes many other approaches.",
-  "recipe": "classic British mid-1990s uk drum and bass, bass System, bass descendants branch. sampler drum machine, low sub bass analog synth, sampler. treated studio. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 258,
-  "score": 29.544,
+  "lineage": "UK drum and bass emerged from British jungle and breakbeat production, developing through clubs, pirate radio, labels and studio collaborations. Its broad field includes atmospheric, melodic and harder dancefloor approaches.",
+  "recipe": "classic British mid-1990s uk drum and bass, bass System, bass descendants branch. low sub bass analog synth, sampler. treated studio. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 236,
+  "score": 23.545,
   "config": {
     "traditions": [
       "uk_dnb"
     ],
     "instruments": [
-      {
-        "id": "sampler_drum_machine",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
-          "sample_swing": "mid_swing",
-          "sample_processing": "chopped_break"
-        },
-        "scores": {
-          "electronic_technique": 0.26,
-          "sample_bitdepth": 0.3,
-          "sample_swing": 0,
-          "sample_processing": -0.05
-        }
-      },
       {
         "id": "analog_synth",
         "slots": {
@@ -36,9 +21,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 9.685,
-          "oscillator": 9.49,
-          "filter_topology": 0.33899999999999997,
+          "electronic_technique": 6.695,
+          "oscillator": 6.5,
+          "filter_topology": 0.3,
           "envelope": 0,
           "modulation": 0
         }
@@ -53,20 +38,15 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "sampler_archetypes": -0.05,
+          "electronic_technique": -0.07,
+          "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.3,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 9.23
+          "sampler_classic_context": 7.54
         }
       }
     ],
     "pinned": {
-      "sampler_drum_machine": [
-        "sample_bitdepth",
-        "sample_swing",
-        "sample_processing"
-      ],
       "analog_synth": [
         "electronic_technique",
         "oscillator",
@@ -104,9 +84,6 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "sample_bitdepth": "sixteen_bit",
-      "sample_swing": "mid_swing",
-      "sample_processing": "chopped_break",
       "electronic_technique": "electronic_bass_sub",
       "oscillator": "sine_osc",
       "filter_topology": "svf",

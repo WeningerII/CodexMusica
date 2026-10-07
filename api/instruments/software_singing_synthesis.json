@@ -1,0 +1,83 @@
+{
+  "id": "software_singing_synthesis",
+  "name": "Software singing synthesis",
+  "short": "Synthesized singing",
+  "family": "electronic",
+  "class": "software_singing_synthesizer",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "software_singing_identity",
+      "name": "Singing source",
+      "variants": [
+        {
+          "id": "software_synthesized_singing",
+          "name": "Software-generated singing voice",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_singing_arrangement",
+      "name": "Synthesized vocal arrangement",
+      "variants": [
+        {
+          "id": "software_singing_lead_chorus",
+          "name": "Synthesized lead and chorus parts",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Software-generated sung text and pitch. No human vocal anatomy, live singer count, proprietary voice identity, exact engine generation, oscillator type or neural architecture is implied. Lead and chorus arrangement is an authored realization of positively scored parts.",
+  "sources": [
+    "https://sonicwire.com/product/virtualsinger/special/rinlenv4x?lang=en",
+    "https://www.at-elise.com/elise/JPDPFA07126/"
+  ],
+  "_ownParts": [
+    {
+      "id": "software_singing_identity",
+      "name": "Singing source",
+      "variants": [
+        {
+          "id": "software_synthesized_singing",
+          "name": "Software-generated singing voice",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_singing_arrangement",
+      "name": "Synthesized vocal arrangement",
+      "variants": [
+        {
+          "id": "software_singing_lead_chorus",
+          "name": "Synthesized lead and chorus parts",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

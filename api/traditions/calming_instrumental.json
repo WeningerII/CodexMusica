@@ -1,0 +1,58 @@
+{
+  "id": "calming_instrumental",
+  "name": "Calming Instrumental",
+  "family": "classical",
+  "lineage": "Calming instrumental listening brings gentle instrumental compositions into relaxation, focus and quiet domestic settings. Contemporary piano composers draw on older nocturne forms while using compact melodies and restrained textures suited to these listening contexts.",
+  "recipe": "classic calming instrumental, art Music. upright piano. parlor.",
+  "recipe_chars": 63,
+  "score": 2.831,
+  "config": {
+    "traditions": [
+      "calming_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

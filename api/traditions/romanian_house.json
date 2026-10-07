@@ -2,10 +2,10 @@
   "id": "romanian_house",
   "name": "Romanian house",
   "family": "electronic",
-  "lineage": "A Romanian vocal dance/house discovery network represented by INNA, Edward Maya, Akcent, DJ Project and Play & Win. The selected Edward Maya branch places a recognizable accordion lead alongside a sung hook and programmed club backing.",
-  "recipe": "classic modern romanian house, electronic Dance, house branch. plate reverb medium decay vocal classic, single lead single track no stacking. accordion, sampler drum machine, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "lineage": "Romanian house connects producers and singers working across melodic club music and electronic pop. Internationally circulating releases brought distinctive instrumental hooks and accessible vocal songs into the regional dance-music scene.",
+  "recipe": "classic modern romanian house, electronic Dance, house branch. solo with instrumental accompaniment, plate reverb medium decay vocal classic. accordion, sampler drum machine, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 392,
-  "score": 13.805,
+  "score": 15.089,
   "config": {
     "traditions": [
       "romanian_house"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.0645000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 1.7365000000000002
+          "voice_processing_chain": 1.17,
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -62,7 +62,7 @@
           "accordion_maker_school": "accordion_maker_unspecified"
         },
         "scores": {
-          "free_reed_technique": 0.2,
+          "free_reed_technique": -0.1,
           "accordion_reed_material": 0.273,
           "musette_offset": 0.273,
           "reed_config": 0.1365,
@@ -82,7 +82,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0,
-          "sample_swing": 6.999999999999999,
+          "sample_swing": 9.5,
           "sample_processing": 0.1365
         }
       },

@@ -1,0 +1,74 @@
+{
+  "id": "korg_kronos_workstation",
+  "name": "Korg KRONOS multi-engine workstation",
+  "family": "electronic",
+  "class": "electronic",
+  "short": "KRONOS workstation",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "kronos_architecture",
+      "name": "Source architecture",
+      "variants": [
+        {
+          "id": "kronos_nine_engine",
+          "name": "Nine-engine KRONOS workstation; PCM, modeled and synthesized sounds, selected patches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "kronos_live_control",
+      "name": "Documented performance control",
+      "variants": [
+        {
+          "id": "kronos_split_keyboard_pad",
+          "name": "Single live keyboard with split zones and nanoPAD2 controller; not an additional sound generator",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kronos_architecture",
+      "name": "Source architecture",
+      "variants": [
+        {
+          "id": "kronos_nine_engine",
+          "name": "Nine-engine KRONOS workstation; PCM, modeled and synthesized sounds, selected patches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "kronos_live_control",
+      "name": "Documented performance control",
+      "variants": [
+        {
+          "id": "kronos_split_keyboard_pad",
+          "name": "Single live keyboard with split zones and nanoPAD2 controller; not an additional sound generator",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

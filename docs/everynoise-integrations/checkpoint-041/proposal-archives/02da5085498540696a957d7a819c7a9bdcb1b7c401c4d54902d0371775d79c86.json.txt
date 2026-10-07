@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-003.json",
+  "sha256": "03f369a4c32178ee8cdb9fd6354f779bce6865efbf4e2bce9d1d54024bc37f79",
+  "review": "Individual public prose, actual representative defaults, retained source evidence and all20 literal original outputs read. Not acceptance based only on prose-only diff or parity. No fresh unchanged-source or photo-download claims.",
+  "entries": [
+    {
+      "id": "moorish_traditional",
+      "decision": "PASS",
+      "rationale": "Specific azawan instruments and modal professional heritage remain intact; ardin/tidinit/tbal plus optional modern guitar is credible genre ensemble. Existing grave tidinit mode a selectable branch, not entire repertoire; spacious rendering contains correct instrument identities."
+    },
+    {
+      "id": "musica_michoacana",
+      "decision": "PASS",
+      "rationale": "Concise statewide field and guitar-song strand explicit. Duet nylon guitar is legitimate representative lyrical approach, not artificial orchestral reduction. No up-tempo claim in fouroutputs; wider harp/brass traditions acknowledged, not required simultaneous default."
+    },
+    {
+      "id": "musica_tlaxcalteca",
+      "decision": "PASS",
+      "rationale": "Brass-led amplified carnival/reggae/rock strand is credible and full seven sound families retained. Existing picked bass and small-note vocal groups are authored performance choices, not source biographical claims. Allfouroutputs no unrelated cultural mechanism."
+    },
+    {
+      "id": "new_hampshire_indie",
+      "decision": "PASS",
+      "rationale": "Regional network spans acoustic and electric branches; acoustic song default is a real ordinary scene practice. Flatpicked OM/solo singing and brisk authored delivery valid; no need replace with mandatory generic rock quartet. Narrow balladPoetry applies to representative lyric-led realization, not all regional music."
+    },
+    {
+      "id": "pinoy_praise",
+      "decision": "PASS",
+      "rationale": "Unaccompanied communal singing is substantive faith-community practice, not merely a piano score adaptation. Group unspecified retains flexibility; wider piano/band worship explicitly acknowledged. Spatial hall affect compatible without false source venue."
+    }
+  ],
+  "photos": "Genre-neutral context labels, original licensed receipts/credits remain; no payload identity or rights change detected in this repair scope.",
+  "limits": "Read root original runtime20outputs; integrated build/static regression not independently rerun."
+}

@@ -1,0 +1,151 @@
+{
+  "id": "davul_experimental_solo",
+  "name": "Solo experimental davul",
+  "short": "Solo davul",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "parts": [
+    {
+      "id": "davul_experimental_solo_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_double_headed",
+          "name": "Double-headed bass drum; exact shell and skin species unspecified",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "davul_experimental_solo_implements",
+      "name": "Documented implements",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_soft_mallet_small_tools",
+          "name": "Large soft mallet with smaller implements",
+          "default": true,
+          "descriptors": [
+            "soft-mallet"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "davul_experimental_solo_technique",
+      "name": "Documented technique palette",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_strike_scrape_pressure",
+          "name": "Strikes, scrapes, rubs and skin deformation in solo improvisation",
+          "default": true,
+          "descriptors": [
+            "scraped",
+            "percussive"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "davul_experimental_solo_tension",
+      "name": "Documented relative head tension",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_lower_than_customary",
+          "name": "Tuned lower than customary; exact pitch unspecified",
+          "default": true,
+          "descriptors": [
+            "low-register",
+            "deep-toned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Isolated owner for Cevdet Erek’s positively documented solo davul approach. Existing davul forces zurna partnership, line-dance or mehter context; this record retains double-headed drum identity, source soft mallet/smaller implements and lowered tuning without inventing accompaniment or exact material species. Source supplies no chromatic pitch framework. Axes are authored routing values. No existing owner, family or engine edits.",
+  "sources": [
+    "https://cevdeterek.bandcamp.com/album/davul",
+    "https://cevdeterek.com/wp-content/uploads/2024/11/cevdet-erek-davul-step-3-davul-adim-3.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "davul_experimental_solo_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_double_headed",
+          "name": "Double-headed bass drum; exact shell and skin species unspecified",
+          "default": true,
+          "descriptors": [
+            "double-headed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "davul_experimental_solo_implements",
+      "name": "Documented implements",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_soft_mallet_small_tools",
+          "name": "Large soft mallet with smaller implements",
+          "default": true,
+          "descriptors": [
+            "soft-mallet"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "davul_experimental_solo_technique",
+      "name": "Documented technique palette",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_strike_scrape_pressure",
+          "name": "Strikes, scrapes, rubs and skin deformation in solo improvisation",
+          "default": true,
+          "descriptors": [
+            "scraped",
+            "percussive"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "davul_experimental_solo_tension",
+      "name": "Documented relative head tension",
+      "variants": [
+        {
+          "id": "davul_experimental_solo_lower_than_customary",
+          "name": "Tuned lower than customary; exact pitch unspecified",
+          "default": true,
+          "descriptors": [
+            "low-register",
+            "deep-toned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

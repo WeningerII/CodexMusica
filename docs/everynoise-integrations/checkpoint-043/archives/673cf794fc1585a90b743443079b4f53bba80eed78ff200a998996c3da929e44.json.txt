@@ -1,0 +1,78 @@
+{
+  "status": "PASS_CHANGED_OLD_API_SLOTS_AND_LITERAL_DELTA",
+  "scope": "Only six changed unconstrained physical slots across three rows and one unchanged-config material word; not global or publication approval. Frozen21 and all proposals untouched.",
+  "reviewed_full_current_records": [
+    "odia_pop",
+    "pakistani_pop",
+    "indian_folk_lok_geet",
+    "desi_pop"
+  ],
+  "source_basis": "Actual current lineage, complete extras and owning part definitions, not exemplar-only or generic no-change waiver. No new source factual assertions about historical recordings.",
+  "rows": [
+    {
+      "id": "odia_pop",
+      "diffs": [
+        {
+          "path": "/instruments/2/slots/dholak_tensioning",
+          "before": "dholak_rope_tuning",
+          "after": "dholak_bolt_tuned"
+        }
+      ],
+      "before_recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry haryanvi ragni mappila paattu. thick, breath veiled tone, straight note core, interlocked note trading. reed straight harmonium indian, traditional low fundamental tuning sheesham mango dholak, mardala, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, indian rosewood rosewood clay tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "after_recipe": "classic mid-1960s odia pop, functional Song, south Asian pop branch, indian subcontinent praise song, indian bard ballad poetry haryanvi ragni mappila paattu. thick, breath veiled tone, straight note core, interlocked note trading. reed straight harmonium indian, traditional low fundamental tuning sheesham mango dholak, mardala, kerala bamboo alternative south indian foundational concert bansuri melodic bansuri, indian rosewood rosewood clay tabla, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "verdict": "COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "rationale": "Actual full profile spans1960s film/radio through modern studio/YouTube production, without pinned lacing. Bolt-tuned existing variant is modern concert-stable, retains hand attack and dholak identity. Coherent current authored realization; not asserted1960s original hardware."
+    },
+    {
+      "id": "desi_pop",
+      "diffs": [],
+      "before_recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. extended whistle, declaimed, straight onset, interlocked note trading. dhol, dholak, steel single string canonical Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "after_recipe": "classic South Asian mid-1990s desi pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. extended whistle, declaimed, straight onset, interlocked note trading. dhol, dholak, synthetic steel single string canonical Punjabi ornamented tumbi, harmonium indian, singing lead analog poly synth, layered sub heavy electric bass, late 1980s reverb saturated bus stack multitrack vocal stack. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "verdict": "COMPATIBLE_EXISTING_MATERIAL_DESCRIPTION",
+      "rationale": "Full musical config identical. New literal synthetic is directly supported by already-selected tumbi_construction=tumbi_synthetic, defined as synthetic shell with durable/modern/commercial descriptors. It is construction material, not synthesized sound or fabricated processing. Existing modern fusion context and steel string remain. Surface change is a more explicit existing physical descriptor."
+    },
+    {
+      "id": "pakistani_pop",
+      "diffs": [
+        {
+          "path": "/instruments/1/slots/fretboard",
+          "before": "ebony_fb",
+          "after": "pau_ferro_fb"
+        },
+        {
+          "path": "/instruments/1/slots/string_material",
+          "before": "pure_nickel",
+          "after": "nickel_plated"
+        },
+        {
+          "path": "/instruments/2/slots/amp_make",
+          "before": "amp_british_late_60s_marshall_plexi",
+          "after": "amp_american_ampeg_svt"
+        },
+        {
+          "path": "/instruments/4/slots/tabla_bayan",
+          "before": "copper_bayan",
+          "after": "clay_bayan"
+        }
+      ],
+      "before_recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, late 1970s thirds fifths octaves 16 24 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "after_recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, late 1970s thirds fifths octaves 16 24 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "verdict": "COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "rationale": "Actual profile explicitly guitar/synth pop-rock from1980s onward, clean strumming and tabla layer. No source/pin requires ebony, pure nickel, Marshall or copper. Pau ferro balanced fretboard and nickel-plated steel retain single-coil clean guitar; Ampeg post1969 bass head retains tube rock-bass role for1990s setting; clay bayan is existing dark folk alternative retaining pitched hand-drum identity. These are ordinary source-compatible authored choices, not corrected historical facts."
+    },
+    {
+      "id": "indian_folk_lok_geet",
+      "diffs": [
+        {
+          "path": "/instruments/4/slots/nagara_indian_shell",
+          "before": "nagara_indian_metal",
+          "after": "nagara_indian_clay"
+        }
+      ],
+      "before_recipe": "classic mid-1950s indian folk, field Work, south Asian branch, south Asian domestic rhythm, south Asian wedding, south Asian nursery rhyme bhojpuri lok geet himalayan folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium nagara indian, small steady tala keeping manjira, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gourd bamboo canonical bengali ornamented ektara, hearth tongs chimta. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "after_recipe": "classic mid-1950s indian folk, field Work, south Asian branch, south Asian domestic rhythm, south Asian wedding, south Asian nursery rhyme bhojpuri lok geet himalayan folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium nagara indian, small steady tala keeping manjira, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gourd bamboo canonical bengali ornamented ektara, hearth tongs chimta. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "verdict": "COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "rationale": "Actual pan-regional folk umbrella explicitly includes nagara and seasonal/ritual village practice; no fixed shell material. Existing clay bowl is canonical owner alternative, preserving kettledrum role and field capture. Not an unsupported instrument substitution."
+    }
+  ]
+}

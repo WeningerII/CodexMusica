@@ -1,0 +1,74 @@
+{
+  "id": "musique_alsacienne",
+  "name": "Musique alsacienne",
+  "family": "vernacular",
+  "lineage": "Musique alsacienne connects Alsace’s regional dances, dialect songs and ensemble traditions. Musicians and arrangers transmit repertoire shaped by French and German musical exchange, including polkas, marches and Rhinländer.",
+  "recipe": "classic musique alsacienne, art Music. accordion. live tracking.",
+  "recipe_chars": 64,
+  "score": 0.846,
+  "config": {
+    "traditions": [
+      "musique_alsacienne"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": 0.49999999999999994,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.1365,
+          "reed_config": 0,
+          "bellows": 0.1365,
+          "voicing_chamber": 0.0735,
+          "accordion_maker_school": 0
+        }
+      }
+    ],
+    "pinned": {
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lm_only",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "no_cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified"
+    },
+    "pin_parts": true
+  }
+}

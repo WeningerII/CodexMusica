@@ -1,0 +1,61 @@
+{
+  "id": "credited_guira_unspecified",
+  "name": "Credited güira (construction unspecified)",
+  "short": "Güira scraper",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_guira_identity",
+      "name": "Güira identity",
+      "variants": [
+        {
+          "id": "credited_guira_source_unspecified",
+          "name": "Güira scraper; construction and pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped"
+          ],
+          "match_tokens": [
+            "scraped"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Positively named güira scraper role. Source does not specify dimensions, metal, implement or rhythmic pattern. Does not import Dominican merengue/bachata practice. Neutral axes are authored routing values, not measured acoustic facts.",
+  "sources": [
+    "https://prismacontenidos.com/volvio-una-noche-lo-nuevo-de-cumbia-club/",
+    "https://www.agadu.org/agenda.php?ag=3860"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_guira_identity",
+      "name": "Güira identity",
+      "variants": [
+        {
+          "id": "credited_guira_source_unspecified",
+          "name": "Güira scraper; construction and pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped"
+          ],
+          "match_tokens": [
+            "scraped"
+          ]
+        }
+      ]
+    }
+  ]
+}

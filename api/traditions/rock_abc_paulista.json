@@ -5,7 +5,7 @@
   "lineage": "Rock abc paulista is represented here by Der Baum. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic rock abc paulista, functional Song, new wave branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 59.233,
+  "score": 59.548,
   "config": {
     "traditions": [
       "rock_abc_paulista"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 3.7315,
           "amp_make": 7.0200000000000005,
-          "body_wood": 0.2505,
+          "body_wood": 0.2005,
           "neck_wood": 0.168,
           "fretboard": 0.063,
           "pickup_magnet": 0.168,
           "pickup_winding": 0.168,
           "string_material": 0.063,
-          "bridge": 1.5725,
+          "bridge": 1.6840000000000002,
           "scale_length": 0.336,
-          "string_gauge": 1.5475,
+          "string_gauge": 1.6840000000000002,
           "finish": 0.0315,
           "string_tuning": 0.37424999999999997
         }
@@ -59,10 +59,10 @@
         "scores": {
           "amp_make": 6.5649999999999995,
           "body_wood": 0.336,
-          "pickup_config": 0.0315,
-          "string_type": 13.97125,
+          "pickup_config": 0.039,
+          "string_type": 14.188749999999999,
           "scale_length_b": 0.168,
-          "fretted_or_not": 0.08249999999999999,
+          "fretted_or_not": 0.032499999999999994,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -115,8 +115,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.024999999999999998,
-          "voice_multitrack_stack": 0.13749999999999998
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.105
         }
       },
       {

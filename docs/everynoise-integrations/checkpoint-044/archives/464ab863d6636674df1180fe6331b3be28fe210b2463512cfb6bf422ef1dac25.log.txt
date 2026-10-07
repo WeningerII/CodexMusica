@@ -1,0 +1,4 @@
+=== Name isolation (another tradition's NAME may not move your picks) ===
+  sampling 24 tradition(s) of 6781
+  24 isolated, 0 drifted
+PASS — every sampled tradition ignored every other tradition's name.

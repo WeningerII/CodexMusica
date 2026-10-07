@@ -1,0 +1,23 @@
+{
+  "before_sha256": "13d879f61288993e5154bdb366242c8f489ee59c75cf0d7d5e48e2e5106cb71f",
+  "after_sha256": "42f3d40d72af77c541c2b4bc26f46e3d45d4c771f1b24615ad144f877b0c22a9",
+  "authorization": "Parent explicitly authorized exact existing-node correction and predecessor staging metadata",
+  "changes": [
+    {
+      "id": "musica_sergipana",
+      "path": "extras.parent",
+      "before": "improvOnFrame.bluesElectric",
+      "after": "functionalSong.bluesElectric"
+    },
+    {
+      "path": "required_predecessor",
+      "before": "PENDING_BATCH029_MERGE",
+      "after": "82bf152ed33536398587c8c75c4ab6faf722c3bc"
+    }
+  ],
+  "source_packet_override": {
+    "path": "/tmp/batch029/group157-supplement4.json",
+    "note": "Original peer-reviewed source packet preserved immutable. This authoritative frozen-only parent override must be reapplied if recollected."
+  },
+  "unchanged": "All other entries, source facts, photos, geo, defaults, dependencies, and engine inputs unchanged."
+}

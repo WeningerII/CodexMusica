@@ -1,0 +1,15 @@
+# Checkpoint 049
+
+**STATUS:** SHIPPED — merged as `6936dcc98e6c1eec9cc09ec0e9496124308664dd`; historical counts below describe that checkpoint.
+
+This checkpoint adds 28 individually reviewed genre profiles and two isolated instrument definitions, Apple ES2 software synthesis and flamenco zapateado shoes. Four source-supported partial corrections update Plunderphonics, Música Jíbara, Guitarrada Portuguesa and Kapuka. The expected catalogue contains 6932 traditions and 1664 instruments. The original engine, schema and all existing instrument definitions remain unchanged.
+
+The full 31-addition proposal and its causal checks are preserved. Stomp Pop, Desi Emo Rap and Glitchbreak remain outside this checkpoint because their combined effects introduced specific unsupported settings in existing recipes. Their source approvals remain available for later work. The Kapuka correction preserves three otherwise compatible rap additions without accepting the unsupported borrowed pitch and vocal mechanisms.
+
+Full dependency graphs cover all 6904 preceding API contexts and 1174 regression definitions. The original engine replayed all 208 affected API contexts and 71 affected fixture definitions. Five old payloads differ: Hardstyle has a compatible sampled-production change; the other four are the scoped receiver corrections. Kapuka retains the independently approved configuration, with an additional compatible international hip-hop neighbor. Three fixture outputs—Hardstyle, Plunderphonics and Kapuka—have individually reviewed expectation updates; the other 1146 expectations remain unchanged.
+
+All 28 new profiles reproduce their independently reviewed four browser outputs and full compiled configurations exactly. Integration preserves all 1662 previous instrument definitions and every old tradition/extras object except the four approved replacements.
+
+These are partial repairs. Kapuka's inherited samul bass and taarab room remain unapproved. Plunderphonics retains its disclosed sampler-model limitation; Jíbara and Guitarrada retain their separately documented inherited limitations. A compatible difference does not qualify every pre-existing field.
+
+Source freeze is `641c3fb7`, based on checkpoint 048 at `e2ce461fd22a1a0fa4b5648bbd2f1fb58d53c445`. The original two-worker API build completed in 729.3 seconds with zero failures and all identifiers resolving. Full serial regression passed 1149/1149. Two independent audits compared every regenerated configuration, recipe and public source record: zero unexpected differences, all 1662 old instrument payloads byte-identical, and both new payloads exact. API, atlas, documentation, signatures, duplicates and HTML checks passed. All 15 supporting checks and the mobile layout check (223 assertions across eight viewports) passed, as did lint, formatting and coverage checks. Exact-head CI remains required before merge. The merged checkpoint 048 ancestry is included; reconciliation preserved the complete built tree exactly. Public evidence contains source URLs, concise authored findings and exact generated validation records. Full retrieved third-party pages remain local.

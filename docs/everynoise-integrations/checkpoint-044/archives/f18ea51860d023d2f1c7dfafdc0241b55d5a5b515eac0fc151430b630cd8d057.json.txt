@@ -1,0 +1,278 @@
+{
+  "status": "TWO_SCOPE_JUDGMENTS_PENDING",
+  "rows": [
+    {
+      "id": "jersey_club",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/0/slots/voice_processing_chain",
+          "before": "voice_processing_stutter_edit",
+          "after": "voice_processing_vocoder_32_band_carrier_saw"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "electro_grime",
+          "after": "deep_dubstep"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Existing tradition parts already request16-band vocoding, and UK soundsystem crossRef is explicit.32-band saw carrier is a coherent unpinned vocoder alternative; chopped sampler remains. DeepDubstep replaces ElectroGrime within that optional soundsystem blend. No new unknown live instrument."
+    },
+    {
+      "id": "microhouse",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/traditions/1",
+          "before": "pakistani_electronic",
+          "after": "chill_breakcore"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "polish_electronica",
+          "after": "pakistani_electronic"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Only optional IDM-glitch association changes; all physical/control values unchanged. Positive clicks-and-cuts/sparse micro-sample foreground admits atmospheric fragmented electronic context. No tempo or break-pattern control is replaced by title alone."
+    },
+    {
+      "id": "electroswing",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/2/slots/clarinet_body",
+          "before": "grenadilla_clarinet",
+          "after": "hanson_btr_clarinet"
+        },
+        {
+          "path": "/instruments/3/slots/trumpet_bell_metal",
+          "before": "trumpet_red_brass",
+          "after": "trumpet_yellow_brass"
+        },
+        {
+          "path": "/instruments/3/slots/trumpet_mouthpiece",
+          "before": "yamaha_bobby_shew_jazz_mp",
+          "after": "bach_trumpet_mp_10half_c"
+        },
+        {
+          "path": "/instruments/6/slots/voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_stutter_edit"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Modern thermoset-resin clarinet and yellow-brass/smaller Bach cup are ordinary live-horn realization options in contemporary electro-swing, not claims about1920s archived hardware. New stutter-edit is coherent chopped vocal manipulation under positive sampled-source branch."
+    },
+    {
+      "id": "funky_house",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/3/slots/rhodes_hammer_tip",
+          "before": "rhodes_neoprene_hammer_tip",
+          "after": "rhodes_felt_hammer_tip"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Early felt Rhodes hammer coherent with retained Raymac tines and Suitcase lineage.1970s-loop sampling/late1990s use does not exclude vintage instrument. Groove role remains."
+    },
+    {
+      "id": "tropical_house",
+      "status": "PENDING_ROOT_SCOPE_REVIEW",
+      "changed_slots": [
+        {
+          "path": "/instruments/2/slots/voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_pitched_sample_melodic_bed"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Precise potential source contradiction communicated to root: sampled-bed vs featured lead, or newly asserted field-recording/orchestral source architecture vs known chopped Amen/ragga. Full other sampler/context retained; do not equate every difference with defect."
+    },
+    {
+      "id": "us_garage",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/2/slots/rhodes_hammer_tip",
+          "before": "rhodes_neoprene_hammer_tip",
+          "after": "rhodes_felt_hammer_tip"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Same physically coherent early felt/Raymac Suitcase instrument, warm soul/gospel comping remains. Later genre date does not require recently made hardware."
+    },
+    {
+      "id": "vocal_house",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/2/slots/grand_piano_brand",
+          "before": "yamaha_cfx",
+          "after": "fazioli"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Unpinned Yamaha CFX to Fazioli grand brand retains acoustic piano comping; no source maker constraint."
+    },
+    {
+      "id": "psyprog",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/0/slots/mono_maker_lineage",
+          "before": "mono_roland_kakehashi",
+          "after": "mono_moog_robert"
+        },
+        {
+          "path": "/instruments/2/slots/mod_voltage_source",
+          "before": "mod_sequencer",
+          "after": "mod_keyboard"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Moog instead of Roland mono and keyboard CV instead of sequencer are ordinary synthesized bass/modular control alternatives; separate bass pattern remains and keyboard CV can hold/change pitch while patch evolves. No automatic claims every texture sequenced."
+    },
+    {
+      "id": "balearic_beat",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/0/slots/poly_voices",
+          "before": "poly_8_voice",
+          "after": "poly_5_voice"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Five instead of eight poly voices retains broad chord/pad capability; source requires no specific simultaneous-note count."
+    },
+    {
+      "id": "raggacore",
+      "status": "PENDING_ROOT_SCOPE_REVIEW",
+      "changed_slots": [
+        {
+          "path": "/instruments/0/slots/sampler_archetypes",
+          "before": "ensoniq_asr10",
+          "after": "fairlight_cmi"
+        },
+        {
+          "path": "/instruments/0/slots/sampler_bit_depth",
+          "before": "sampler_twelve_bit",
+          "after": "sampler_sixteen_bit"
+        },
+        {
+          "path": "/instruments/0/slots/sampler_classic_context",
+          "before": "sampler_classic_hiphop",
+          "after": "sampler_classic_industrial"
+        },
+        {
+          "path": "/instruments/0/slots/sampler_workflow",
+          "before": "sampler_microsampling_glitch",
+          "after": "sampler_field_recordings"
+        },
+        {
+          "path": "/instruments/1/slots/sample_bitdepth",
+          "before": "twelve_bit",
+          "after": "sixteen_bit"
+        },
+        {
+          "path": "/instruments/2/slots/voice_multitrack_stack",
+          "before": "voice_multitrack_2000s_elastic_pitch_edited",
+          "after": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        {
+          "path": "/instruments/2/slots/voice_register",
+          "before": "vocal_fry",
+          "after": "chest_voice"
+        },
+        {
+          "path": "/instruments/2/slots/voice_vibrato",
+          "before": "delayed_vibrato",
+          "after": "slow_vibrato"
+        },
+        {
+          "path": "/instruments/5/slots/turntable_technique",
+          "before": "turntable_backspin",
+          "after": "turntable_chirp_baby"
+        },
+        {
+          "path": "/traditions/1",
+          "before": "glitch_hop",
+          "after": "industrial_hardcore"
+        },
+        {
+          "path": "/traditions/2",
+          "before": "industrial_hardcore",
+          "after": "digital_hardcore"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Precise potential source contradiction communicated to root: sampled-bed vs featured lead, or newly asserted field-recording/orchestral source architecture vs known chopped Amen/ragga. Full other sampler/context retained; do not equate every difference with defect."
+    },
+    {
+      "id": "space_house",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/0/slots/poly_maker_lineage",
+          "before": "poly_oberheim_tom",
+          "after": "poly_yamaha_cs"
+        },
+        {
+          "path": "/instruments/4/slots/voc_carrier",
+          "before": "voc_saw_carrier",
+          "after": "voc_noise_carrier"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Yamaha versus Oberheim polysynth retains analog pad role; noise-carrier vocoder adds breathy texture within explicitly heavily processed fragment branch. Existing drum modulator retained, no human vocal mode is newly invented."
+    },
+    {
+      "id": "gospel_house",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/5/slots/clap_technique",
+          "before": "clap_fingers_to_palm",
+          "after": "clap_cupped_muffled"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Cupped clap versus fingers-to-palm is ordinary human clap excitation/tone option; source handclap role and sung choir retained."
+    },
+    {
+      "id": "nu_jazz",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/1/slots/trumpet_mouthpiece",
+          "before": "yamaha_bobby_shew_jazz_mp",
+          "after": "bach_trumpet_mp_10half_c"
+        },
+        {
+          "path": "/instruments/6/slots/poly_maker_lineage",
+          "before": "poly_sequential_smith",
+          "after": "poly_roland_jupiter"
+        }
+      ],
+      "recipe_changed": true,
+      "rationale": "Bach rather than Yamaha trumpet mouthpiece and Roland rather than Sequential poly lineage retain jazz horn/synth roles without specified source hardware constraints."
+    },
+    {
+      "id": "banda_peruana",
+      "status": "PASS_COMPATIBLE_AUTHORED_ALTERNATIVE",
+      "changed_slots": [
+        {
+          "path": "/instruments/1/slots/sax_reed",
+          "before": "medium_reed",
+          "after": "hard_reed"
+        }
+      ],
+      "recipe_changed": false,
+      "rationale": "Hard instead of medium alto reed is qualified ordinary unpinned physical option in representative festive wind band; recipe unchanged."
+    }
+  ],
+  "full_source_scopes": "changed-old-source-scopes.json"
+}

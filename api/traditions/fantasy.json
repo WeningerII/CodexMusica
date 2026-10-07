@@ -1,0 +1,82 @@
+{
+  "id": "fantasy",
+  "name": "Fantasy",
+  "family": "classical",
+  "lineage": "Fantasy music evokes imagined worlds, journeys and characters through instrumental or vocal composition. Standalone concept pieces coexist with music for games, film and other narrative media, crossing acoustic, orchestral and electronic approaches.",
+  "recipe": "classic fantasy, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
+  "recipe_chars": 123,
+  "score": 16.946,
+  "config": {
+    "traditions": [
+      "fantasy"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 1.7315,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": 2.45,
+          "piano_rim": 2.8445,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

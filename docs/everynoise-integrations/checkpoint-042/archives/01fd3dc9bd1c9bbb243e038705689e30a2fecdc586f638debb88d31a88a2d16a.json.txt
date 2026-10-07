@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice003-marathi-balgeet.json",
+  "sha256": "ddd7b4b4675e15f0c5459fc03559361cc8276312e069c019b751781f657ee018",
+  "reviewer": "recover_024",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "fresh_refs": [
+    "turn14952view0",
+    "turn14955view0",
+    "turn14952search0",
+    "turn14925view1"
+  ],
+  "source_review": "Producer directly teaches Marathi rhyme with partnered clapping, hand-impact games and vocal sounds. School independently reports Marathi Balgeet language-learning group songs. Source supports representative participatory practice, not a claim the animation recording contains no accompaniment. Unknown headcount/age physiology preserved. Predominantly sung realization does not erase prose about playful spoken sounds.",
+  "category_review": "Read full Marathi Traditional, Marathi Pop/Devotional/Powada and existing Hindi/Tamil/English nursery and preschool/children-folk fields. Marathi Traditional broadly overlaps family/play/lullaby repertoire; distinct named child-directed language-learning/action repertoire includes contemporary teaching and is not an exact alias to that umbrella. Hindi medium is explicitly different, not pan-Indian every-language coverage. NurseryRhyme.southAsian appropriate.",
+  "validation": {
+    "protected_controls": 19,
+    "four_formats_parity": true,
+    "max_chars": 326,
+    "compiled_api_only_self": true,
+    "pin_errors": [],
+    "owner_preservation": true,
+    "runtime_file": "practice003-independent-runtime024.json"
+  },
+  "output_review": "Clapping-and-syllabicizing/group voice and cheery natural claps fit positive rhythm/game source. No foreign musical mechanism or cultural label introduced.",
+  "rights": "Fresh Commons CC BY2.5/Fergusson+Binksternet read; exact historical023 bytes/hash/dimensions retained, LOW generic microphone context honest. No fresh byte download claimed.",
+  "mutations": "None to candidate, registry, repository or shared engine."
+}

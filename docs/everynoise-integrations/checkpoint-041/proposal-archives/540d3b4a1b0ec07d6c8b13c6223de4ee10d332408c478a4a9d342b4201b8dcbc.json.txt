@@ -1,0 +1,235 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "mising_pop",
+        "name": "Mising pop",
+        "family": "pop",
+        "lineage": "Mising pop brings the Mising language into modern recorded song across Assam and neighbouring Arunachal Pradesh. The Anu ni:tom repertoire developed alongside older song traditions, with video albums, regional talent platforms and online acoustic productions carrying love songs and new compositions to younger audiences.",
+        "instruments": [
+          "human_voice_ensemble_unspecified",
+          "acoustic_guitar_dread"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze",
+          "acoustic_technique": "acoustic_flatpicked"
+        }
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "mising_pop",
+          "name": "Mising pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal-recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13435view2 Commons author/crop/CCBY2.5 verified; original byte and visual receipt retained.",
+          "fresh_review_ref": "turn13435view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn13435view2"
+        ],
+        "fresh_rights_review": "Fresh turn13435view2 rights only; no new byte/visual claim."
+      },
+      "id": "mising_pop",
+      "source_label": "mising pop",
+      "suggested_id": "mising_pop",
+      "allocation_ordinal": 1803,
+      "allocation_group_id": "073",
+      "source_url": "https://everynoise.com/engenremap-misingpop.html",
+      "status": "ready_for_independent_review",
+      "extras": {
+        "parent": "functionalSong",
+        "description": "Melodic singing connects Mising lyrical expression with contemporary accompaniment and studio production. Guitar-led acoustic songs form one strand alongside keyboard, percussion and folk-fusion arrangements. Community events and digital platforms link local performers with listeners throughout the region and its diaspora.",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "exemplars": [
+          "Mrinal Doley",
+          "Poba Gourab",
+          "Binod Pegu"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://indianexpress.com/article/north-east-india/assam/this-youtube-channel-is-taking-mising-musicians-way-beyond-their-tribal-tunes/",
+          "title": "Firsthand Miriwood founders and musicians interview (2018)",
+          "support_notes": "Fresh direct13503view0 describes Miriwood Acoustic, modern Anu ni:tom rather than traditional Oi ni:tom, regional youth community and recorded modern love songs."
+        },
+        {
+          "url": "https://misingmrinal-doley.blogspot.com/p/background.html",
+          "title": "Mrinal Doley artist-owned biography",
+          "support_notes": "Indexed13502search1 and13481search3 document learning guitar, Mising video-film songs and Western-influenced modern repertoire. Direct fetch unavailable; no exact session reconstruction."
+        },
+        {
+          "url": "https://ijfans.org/uploads/paper/39ab2842b9be4a14b9d801f15c30ff3d.pdf",
+          "title": "Sima Bhuyan, Mising culture under the influence of globalization (2022)",
+          "support_notes": "Indexed13481search12 positively identifies guitar, keyboard, harmonium and percussion in modernized recorded Mising practice. Publisher metadata directly verified13484view0. Corroborative source, not sole category authority."
+        }
+      ],
+      "geo": [
+        27.2352,
+        94.1052,
+        "North Lakhimpur",
+        "South Asia"
+      ],
+      "geo_rationale": "Mising popular-song regional anchor supported by the artist biography, not a recording-site claim.",
+      "signature_tokens": [],
+      "model_policy": "Representative acoustic popular-song rendition, supported by the firsthand Miriwood Acoustic modern-song platform and guitar-based modernization evidence. Voice and steel-string guitar form a viable acoustic branch, not a claim that every Mising production excludes keyboards or percussion. The all-mahogany dreadnought and flatpicked accompaniment are authored physical choices; exact artist models, headcounts and recordings are not reconstructed. Functional-harmonic song accompaniment is a representative rendition choice. Global temperament and undocumented recording apparatus remain unspecified.",
+      "neighbor_distinction": "Mising-language Anu ni:tom modern popular song has a community and repertoire identified by its practitioners. It overlaps broader Assamese pop and Northeast Indian indie, but neither larger field exhausts this language-community practice. Traditional Oi ni:tom and festival repertoire exchange melodies with modern songs without making the two entire fields identical. Mizo pop belongs to a different language community; similar acoustic accompaniment does not establish equivalence.",
+      "classification_evidence": "Firsthand founders and singers explicitly distinguish their modern Anu ni:tom platform from traditional folk-song practice and describe its regional youth audience. Regional-language category is independently supported rather than inferred from an artist birthplace.",
+      "instrument_role_audit": {
+        "human_voice_ensemble_unspecified": "Representative Mising popular-song vocal contribution",
+        "acoustic_guitar_dread": "Representative acoustic guitar accompaniment"
+      },
+      "vocal_count_audit": {
+        "headcount": "Variable/unspecified",
+        "additional_voice_cards": 1
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "human_voice_ensemble_unspecified",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+            "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+          },
+          "policy": "Representative acoustic popular-song rendition, supported by the firsthand Miriwood Acoustic modern-song platform and guitar-based modernization evidence. Voice and steel-string guitar form a viable acoustic branch, not a claim that every Mising production excludes keyboards or percussion. The all-mahogany dreadnought and flatpicked accompaniment are authored physical choices; exact artist models, headcounts and recordings are not reconstructed. Functional-harmonic song accompaniment is a representative rendition choice. Global temperament and undocumented recording apparatus remain unspecified."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze",
+            "acoustic_technique": "acoustic_flatpicked"
+          },
+          "policy": "Representative acoustic popular-song rendition, supported by the firsthand Miriwood Acoustic modern-song platform and guitar-based modernization evidence. Voice and steel-string guitar form a viable acoustic branch, not a claim that every Mising production excludes keyboards or percussion. The all-mahogany dreadnought and flatpicked accompaniment are authored physical choices; exact artist models, headcounts and recordings are not reconstructed. Functional-harmonic song accompaniment is a representative rendition choice. Global temperament and undocumented recording apparatus remain unspecified."
+        }
+      ],
+      "prior_scope_hold_preserved": "/tmp/batch040/priority119-ledger.json: exact GOMUG audio/video-credit conflict remains held; this is a distinct general genre-practice rendition, not a reconstruction or subtraction of that master."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

@@ -1,0 +1,1336 @@
+{
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "credited_auxiliary_percussion",
+        "name": "Credited auxiliary percussion (source unspecified)",
+        "short": "Unspecified credited percussion",
+        "family": "percussion",
+        "class": "percussion",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "credited_auxiliary_percussion_identity",
+            "name": "Source identification",
+            "variants": [
+              {
+                "id": "credited_auxiliary_percussion_source_unspecified",
+                "name": "Percussion credited without instrument identification",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": ["percussion"]
+              }
+            ]
+          }
+        ],
+        "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+        "sources": [
+          "https://mencho.bandcamp.com/album/interiores",
+          "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_auxiliary_percussion",
+        "name": "Credited auxiliary percussion (source unspecified)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording-context SM58 photograph only; not a depiction or identification of the unspecified percussion, artist or source equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_auxiliary_percussion",
+          "name": "Credited auxiliary percussion (source unspecified)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording-context SM58 photograph only; not a depiction or identification of the unspecified percussion, artist or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons file-specific rights and context reread2026-10-02. Exact byte/dimension/hash and visual receipts inherited from frozen023; no new download or personal re-view asserted."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Positive auxiliary percussion credits cannot be omitted or assigned an invented physical subtype. Isolated data-only owner preserves the source uncertainty with one explicitly unspecified part; no shared family or engine changes."
+    },
+    {
+      "record": {
+        "id": "doromb_hungarian",
+        "name": "Doromb (Hungarian steel jaw harp)",
+        "family": "plucked_traditional",
+        "class": "jaw_harp",
+        "short": "doromb",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": -2,
+          "harmonicity": 1,
+          "register": 0,
+          "range": -1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": -2
+        },
+        "parts": [
+          {
+            "id": "doromb_construction",
+            "name": "Complete instrument construction",
+            "variants": [
+              {
+                "id": "doromb_high_carbon_steel",
+                "name": "Heat-treated high-carbon steel frame and free spring",
+                "default": true,
+                "descriptors": ["steel", "ringing", "buzzing-timbre"],
+                "match_tokens": ["plucked"]
+              }
+            ]
+          },
+          {
+            "id": "doromb_excitation",
+            "name": "Excitation",
+            "variants": [
+              {
+                "id": "doromb_inward_finger_pluck",
+                "name": "Finger plucks spring inward; frame against teeth",
+                "default": true,
+                "descriptors": ["finger-plucked", "resonant"],
+                "match_tokens": ["plucked"]
+              }
+            ]
+          },
+          {
+            "id": "doromb_resonator",
+            "name": "Resonator",
+            "variants": [
+              {
+                "id": "doromb_oral_formant_breath",
+                "name": "Tongue-shaped oral resonance and breath modulation",
+                "default": true,
+                "descriptors": ["overtone-shaped", "breath-modulated"],
+                "match_tokens": ["plucked"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "doromb_hungarian",
+        "name": "Doromb (Hungarian steel jaw harp)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "matched_label": "Generic SM58 recording-context photograph only; does not depict a doromb, this performer, the concert or actual source recording equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "doromb_hungarian",
+          "name": "Doromb (Hungarian steel jaw harp)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "Generic SM58 recording-context photograph only; does not depict a doromb, this performer, the concert or actual source recording equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Served thumbnail of existing Binksternet crop; no additional crop. Preserve Iain Fergusson photo and Binksternet derivative credit.",
+          "evidence": "File-specific Commons rights and attribution freshly checked. Exact URL/hash/bytes/dimensions and visual receipts are inherited from frozen batch023; no fresh download or personal visual observation claimed."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": ["turn1845view1"]
+      },
+      "dependency_rationale": "Existing regional jaw harps impose a non-Hungarian form; isolated positively documented doromb record avoids misidentifying the Szilágyi instrument. No shared parts or engine changes.",
+      "sources": [
+        {
+          "url": "https://www.doromb.com/en/",
+          "title": "Corroborating primary source",
+          "support_notes": "Manufacturer-family site identifies Hungary and Szilágyi makers.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.doromb.com/shop_ordered/27095/pic/doromb-users_manual-UK.pdf",
+          "title": "Corroborating primary source",
+          "support_notes": "Maker manual: heat-treated high-carbon steel, frame against teeth, inward spring pluck, tongue and breath modulation.",
+          "checked_date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "nes_famicom_chip_system",
+        "name": "NES / Famicom chip synthesis system",
+        "short": "NES/Famicom chip synthesis",
+        "family": "electronic",
+        "class": "electronic",
+        "axes": {
+          "pitchFix": 1,
+          "sustain": 1,
+          "polyphony": 2,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 2,
+          "articulation": 1,
+          "transduction": 2,
+          "dynamics": 1
+        },
+        "parts": [
+          {
+            "id": "nes_chip_architecture",
+            "name": "Sound-channel architecture",
+            "variants": [
+              {
+                "id": "nes_chip_apu_five",
+                "name": "Five basic NES sound channels",
+                "descriptors": ["five-channel NES APU", "digital"],
+                "match_tokens": ["electronic"]
+              },
+              {
+                "id": "nes_chip_vrc6_eight",
+                "name": "Five basic channels plus three VRC6 channels",
+                "default": true,
+                "descriptors": ["eight-channel NES APU plus VRC6", "digital"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          },
+          {
+            "id": "nes_chip_programming",
+            "name": "Programming method",
+            "variants": [
+              {
+                "id": "nes_chip_tracker_notes",
+                "name": "Tracker-programmed notes and channel effects",
+                "default": true,
+                "descriptors": ["sequenced"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          },
+          {
+            "id": "nes_chip_output",
+            "name": "Output topology",
+            "variants": [
+              {
+                "id": "nes_chip_mono",
+                "name": "Mono chip output",
+                "default": true,
+                "descriptors": ["mono"],
+                "match_tokens": ["electronic"]
+              }
+            ]
+          }
+        ],
+        "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+        "sources": [
+          "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+          "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "nes_famicom_chip_system",
+        "name": "NES / Famicom chip synthesis system",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic SM58 recording-context photograph only. It does not depict the NES/Famicom console, VRC6 chip, selected artist, actual source equipment or the new chip instrument. The source is a programmed electronic soundtrack, not microphone-recorded voice.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "nes_famicom_chip_system",
+          "name": "NES / Famicom chip synthesis system",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic SM58 recording-context photograph only. It does not depict the NES/Famicom console, VRC6 chip, selected artist, actual source equipment or the new chip instrument. The source is a programmed electronic soundtrack, not microphone-recorded voice.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons file-specific rights and context reread2026-10-02. Exact byte/dimension/hash and visual receipts inherited from frozen023; no new download or personal re-view asserted."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Existing analog synth card is incompatible with explicitly documented digital console sound architecture; isolated data-only chip system adds no shared family or engine changes."
+    }
+  ],
+  "source_packet_sha256": {
+    "/tmp/batch027/held-group075-venezuela-correction.json": "eec786bdc1a61413fb6be8de4da36bce69fd986aad5df81b23e3cc731a6ed6be",
+    "/tmp/batch027/held-group076-solomon-correction.json": "9353a97d136bea5622fb5162fa64d080c9ad93d27545d70aebab807ea60643a7",
+    "/tmp/batch027/group145-supplement.json": "774192db5f484c73fc01ecb1980d5ad9222295abc9f9aaba70d05b3a39f6ef33",
+    "/tmp/batch027/group144-supplement3.json": "6c28813402b369e5c3a51c100d5ac7c26032fa3514cac857c7a046f5c0c1a2a9",
+    "/tmp/batch027/group144-supplement4.json": "35b86aabf08d09c4d2e2e92917679c89952640da9bb96e602456d18c276ca6be",
+    "/tmp/batch027/group144-supplement5.json": "c67ffa1d43594371dd3f16f34b90b8ecc5eee1eada4097b56107092d65a92e58",
+    "/tmp/batch027/held-group076-supplement.json": "2d5c6c65ea9c44f3a2b1eb3a3264526ddd118b27f450cd624120f9a152387f8d",
+    "/tmp/batch027/held-group076-supplement2.json": "dc115e381601ad57b40f1967eeb6e5ee4ade63f650ca793c572e2d14577fe8b8",
+    "/tmp/batch027/group145.json": "ff30c300a985985e1e8f56a4e930d847d349d3d47c473b8b8dea072df7707f28",
+    "/tmp/batch027/group140-supplement6.json": "7d2af6cdb759b152677d0594b639c3f9cacb7798d7048921420d637b7e694771",
+    "/tmp/batch027/group140-supplement7.json": "439ed9caac07362d64ea6a9e8f6e6795f77844ca8d74868635dee9fd20d1eec1",
+    "/tmp/batch027/held-group076.json": "e10677b1ab6c14e8984bc77ed039990434f530251093123c0b1b34e5f35a7e05",
+    "/tmp/batch027/group142.json": "03dded5abfdf36c70a8e5d51850737214d30a4fa96a5ee4e4e0fd67ff1f7c7ff",
+    "/tmp/batch027/group140-supplement2.json": "38a4a6421ea74b04a9d3d43f2d61463a41e72715a733111eecbe177391b8e003",
+    "/tmp/batch027/group140-supplement5.json": "37c0d4da252436bffc87dbc08d8d6db245f9b97d574baefbf7dd08b378d333d6",
+    "/tmp/batch027/group144.json": "c0b6635d2b18ac81ee8644f42e8f4717ed20eb3aac994c43e201e611863d800b",
+    "/tmp/batch027/group144-supplement.json": "7fee06401f1a3231dacbe42a11e724849208f87c48ad2ce050ddc77bad97c8dd",
+    "/tmp/batch027/group140-supplement4.json": "81bb2ec4510d7c51576e0f90e6acd5fe7e1cba2474366dd72a0f7da990062d7a",
+    "/tmp/batch027/group143-supplement.json": "dcb97977f9e47a7c76a39fbc4968900b72f940413c4a9d3aa317d66aab374f14",
+    "/tmp/batch027/group140-chip.json": "48e5173aaa5bd060197c0ffb06547b023fd2bd49a28fef2f78bfb152c553a84c",
+    "/tmp/batch027/group141-supplement3.json": "9f1a3fcdf146af8219e7bf1539749959ae1ad1326cf93939c865f25b3428fd7f",
+    "/tmp/batch027/group141-supplement4.json": "98fc0f6f0875708ef0c8afca8f49efd2ec8f405ed33bbaa088e027083217865b",
+    "/tmp/batch027/group143.json": "4fac5d7227c7bcde9493bbf3bfd0f5c244bf0cd1134f242a3e7c23240c8fa560",
+    "/tmp/batch027/group140-supplement3.json": "570939ec8e2bdbb46d1461ed70097357fa9ae2f6d018015b3e9b7e175567ea61",
+    "/tmp/batch027/held-group075-singapore-correction.json": "26313a2ab1fc6d0fb32ff77e5f0518dde4b34b68faafbe7eae908fb3a9d0c78c",
+    "/tmp/batch027/group137-supplement9.json": "0a0a0498c27aa1503a5df3694f3ea69e08c5d50b9d24361eccb38be41c622b30",
+    "/tmp/batch027/group137-supplement10.json": "e16c25b417677508ce5534b12706f11b82e180b3b30a5a0dc8b59fc310036789",
+    "/tmp/batch027/group140.json": "0ae73f54d133dbe13ab30aa90ecefa70f0f5777ed239634298bde338e7bfb5d0",
+    "/tmp/batch027/group140-supplement.json": "5e241bbb2502bdbe0f7e5889370fb1c23a57a646b088e47b3d28e5e081889104",
+    "/tmp/batch027/group141.json": "367f533df7ad8d0e4177aed1c47ef1010c75f72c96df700d52b85cb02fc7c6e2",
+    "/tmp/batch027/group141-supplement.json": "76bc4778a4eb3401596e68ffda607ed17088a65f5b1e919e16836de914bcd913",
+    "/tmp/batch027/group141-supplement2.json": "158f0a85b7ed51c2efa7762f5578ca3a64a43b9338d205389fc2bdac2e56f32c",
+    "/tmp/batch027/group139-supplement.json": "dfc09258eb7c560ee130587915540b1594edab951ef17c7652debbcaa2d140d3",
+    "/tmp/batch027/group137-supplement2.json": "b5357269710a81de89ef606f281c144259ded1211c2cfd633ea12283ce3cc0d6",
+    "/tmp/batch027/group137-supplement3.json": "6929f7a874d4e46ab0673ac13a7155c6799a688e91aeb1ca55897feea79368be",
+    "/tmp/batch027/group137-supplement4.json": "797d42637250a8d4659d6a0b80f51dc193304e03890e0d5710b53f368209cfaa",
+    "/tmp/batch027/group137-supplement5.json": "89641ef189e44b0434638b9072206012709ee15319fc6d440fd86aa311733ade",
+    "/tmp/batch027/group137-supplement6.json": "7c3218200ce4917cf0aa7143bdeb219658e4a14cfe010c8809ca36230a5d7c64",
+    "/tmp/batch027/group137-supplement7.json": "cd66039a67d8c5a434ec5291c1954c03ec79502ff603f1a8a2faf0fa84b7a167",
+    "/tmp/batch027/group137-supplement8.json": "f1cb3c2dc9aea7fac69b904e5d1bdc32dcd86e30785d6c1838a20a4f4a1a4f36",
+    "/tmp/batch027/held-group075-accepted5.json": "b45763db9313e960f5c8437096a72dfc7ca1460330892a0c853e0800840d4f0b",
+    "/tmp/batch027/group139.json": "5996e2af24e6dd2e835bc55d79167b1f70c7a8b244c35610286558ac5a664643",
+    "/tmp/batch027/group138-supplement4.json": "3501cc74d0069960c2f9843bea3d4a8aae8b22dbf1e81cc3ba2f50d23e863444",
+    "/tmp/batch026/accepted-ready.json": "344b49b84250a354296a2276f9fbc60b4119035a467b8ec8721b92075b158b09",
+    "/tmp/batch026/group134-supplement2.json": "e36064f0b618c10aadcaa7055763ccf18e6095013a08a4bc0cdcb15d8d2a85bd",
+    "/tmp/batch026/group136.json": "1e1575c8460260139919389734407ee5a7eb77f768e8f5bf7a36e653d7872d5e",
+    "/tmp/batch026/group136-supplement.json": "dd57044403ca21d588f79864af6071cfffec725464082e9e83a81d172d3710d6",
+    "/tmp/batch026/group136-supplement2.json": "9f1108665b328feca4c9ce4807a13beadc9df43b1bf7194f42ddc43e66e13da8",
+    "/tmp/batch027/group137.json": "2fd136d8cae978ff3bf912a75cf590f7e73e5b2e2ccd62c79b4b9c83918d546a",
+    "/tmp/batch027/group137-supplement.json": "824c7b751dbcd7a1cd0c817e4251bfc14b7b710325e1f5518388085c87c44c4e",
+    "/tmp/batch027/group138.json": "b8e4afdb0de900302005e21d233a3e2e51cda9007cc93f61948e6960ce1844c1",
+    "/tmp/batch027/group138-supplement.json": "a46f91856992111f56c39235bd507755ffd50918f9edb94f556193e011a1cf29",
+    "/tmp/batch027/group138-supplement2.json": "50dffecb8c2dbc2cb0ba20fa6b8933175b9bc5416e46a79a6b684772310228e3",
+    "/tmp/batch027/group138-supplement3.json": "cdf68b85c22ae49a24445de10178e774454d89fd7dddf39f1b0d9f24c57c94e8"
+  },
+  "source_file_by_id": {
+    "pop_venezolano": "/tmp/batch027/held-group075-venezuela-correction.json",
+    "solomon_islands_pop": "/tmp/batch027/held-group076-solomon-correction.json",
+    "kinderchor": "/tmp/batch027/group145-supplement.json",
+    "korean_electropop": "/tmp/batch027/group145-supplement.json",
+    "karaoke": "/tmp/batch027/group144-supplement3.json",
+    "karntner_volksmusik": "/tmp/batch027/group144-supplement4.json",
+    "kansas_indie": "/tmp/batch027/group144-supplement5.json",
+    "somali_pop": "/tmp/batch027/held-group076-supplement.json",
+    "swedish_pop": "/tmp/batch027/held-group076-supplement2.json",
+    "kora": "/tmp/batch027/group145.json",
+    "indie_tabasqueno": "/tmp/batch027/group140-supplement6.json",
+    "indie_extremena": "/tmp/batch027/group140-supplement7.json",
+    "singer_songwriter_pop": "/tmp/batch027/held-group076.json",
+    "slovak_pop": "/tmp/batch027/held-group076.json",
+    "slovenian_pop": "/tmp/batch027/held-group076.json",
+    "swedish_indie_pop": "/tmp/batch027/held-group076.json",
+    "swiss_pop": "/tmp/batch027/held-group076.json",
+    "swedish_folk_pop": "/tmp/batch027/held-group076.json",
+    "spanish_indie_pop": "/tmp/batch027/held-group076.json",
+    "irish_indie": "/tmp/batch027/group142.json",
+    "italian_baritone": "/tmp/batch027/group142.json",
+    "italian_romanticism": "/tmp/batch027/group142.json",
+    "italian_mezzo_soprano": "/tmp/batch027/group142.json",
+    "italian_experimental": "/tmp/batch027/group142.json",
+    "italian_alternative": "/tmp/batch027/group142.json",
+    "indie_nordeste_argentino": "/tmp/batch027/group140-supplement2.json",
+    "indie_poptimism": "/tmp/batch027/group140-supplement5.json",
+    "jewish_a_capella": "/tmp/batch027/group144.json",
+    "jaw_harp": "/tmp/batch027/group144-supplement.json",
+    "indie_siciliano": "/tmp/batch027/group140-supplement4.json",
+    "indie_salvadoreno": "/tmp/batch027/group140-supplement4.json",
+    "jacksonville_indie": "/tmp/batch027/group143-supplement.json",
+    "indie_game_soundtrack": "/tmp/batch027/group140-chip.json",
+    "irish_experimental": "/tmp/batch027/group141-supplement3.json",
+    "iowa_indie": "/tmp/batch027/group141-supplement4.json",
+    "japanese_guitar": "/tmp/batch027/group143.json",
+    "japanese_piano": "/tmp/batch027/group143.json",
+    "indie_electropop": "/tmp/batch027/group140-supplement3.json",
+    "singaporean_pop": "/tmp/batch027/held-group075-singapore-correction.json",
+    "haur_kantak": "/tmp/batch027/group137-supplement9.json",
+    "handbells": "/tmp/batch027/group137-supplement10.json",
+    "indie_tico": "/tmp/batch027/group140.json",
+    "indie_quebecois": "/tmp/batch027/group140.json",
+    "indie_platense": "/tmp/batch027/group140.json",
+    "indie_paraense": "/tmp/batch027/group140.json",
+    "indie_napoletano": "/tmp/batch027/group140-supplement.json",
+    "indie_hidrocalido": "/tmp/batch027/group140-supplement.json",
+    "irish_accordion": "/tmp/batch027/group141.json",
+    "irish_fiddle": "/tmp/batch027/group141.json",
+    "irish_flute": "/tmp/batch027/group141.json",
+    "indie_tucumano": "/tmp/batch027/group141-supplement.json",
+    "industrial_noise": "/tmp/batch027/group141-supplement2.json",
+    "instrumental_lullaby": "/tmp/batch027/group141-supplement2.json",
+    "indian_fusion": "/tmp/batch027/group139-supplement.json",
+    "indian_percussion": "/tmp/batch027/group139-supplement.json",
+    "indie_canario": "/tmp/batch027/group139-supplement.json",
+    "heavy_alternative": "/tmp/batch027/group137-supplement2.json",
+    "hel": "/tmp/batch027/group137-supplement2.json",
+    "hengelliset_laulut": "/tmp/batch027/group137-supplement2.json",
+    "high_vibe": "/tmp/batch027/group137-supplement3.json",
+    "harp": "/tmp/batch027/group137-supplement4.json",
+    "harmonikka": "/tmp/batch027/group137-supplement4.json",
+    "hawaiian_indie": "/tmp/batch027/group137-supplement5.json",
+    "hindi_indie": "/tmp/batch027/group137-supplement6.json",
+    "hard_motivation": "/tmp/batch027/group137-supplement7.json",
+    "high_tech_minimal": "/tmp/batch027/group137-supplement8.json",
+    "romanian_pop": "/tmp/batch027/held-group075-accepted5.json",
+    "puerto_rican_pop": "/tmp/batch027/held-group075-accepted5.json",
+    "pop_worship": "/tmp/batch027/held-group075-accepted5.json",
+    "russian_pop": "/tmp/batch027/held-group075-accepted5.json",
+    "pop_violin": "/tmp/batch027/held-group075-accepted5.json",
+    "icelandic_indie": "/tmp/batch027/group139.json",
+    "idaho_indie": "/tmp/batch027/group139.json",
+    "icelandic_experimental": "/tmp/batch027/group139.json",
+    "indian_indie": "/tmp/batch027/group139.json",
+    "indie_asturiana": "/tmp/batch027/group139.json",
+    "hypertrance": "/tmp/batch027/group139.json",
+    "hollywood": "/tmp/batch027/group138-supplement4.json",
+    "grand_rapids_indie": "/tmp/batch026/accepted-ready.json",
+    "graz_indie": "/tmp/batch026/accepted-ready.json",
+    "greek_downtempo": "/tmp/batch026/accepted-ready.json",
+    "greek_guitar": "/tmp/batch026/accepted-ready.json",
+    "geinin_song": "/tmp/batch026/group134-supplement2.json",
+    "german_boom_bap": "/tmp/batch026/group134-supplement2.json",
+    "german_oi": "/tmp/batch026/group134-supplement2.json",
+    "grungegaze": "/tmp/batch026/group136.json",
+    "halifax_indie": "/tmp/batch026/group136.json",
+    "hamilton_on_indie": "/tmp/batch026/group136.json",
+    "guitarra_mexicana": "/tmp/batch026/group136.json",
+    "guam_indie": "/tmp/batch026/group136-supplement.json",
+    "grunneger_muziek": "/tmp/batch026/group136-supplement.json",
+    "h8000": "/tmp/batch026/group136-supplement.json",
+    "guatemalan_indie": "/tmp/batch026/group136-supplement2.json",
+    "hangoskonyvek": "/tmp/batch027/group137.json",
+    "hard_chime": "/tmp/batch027/group137.json",
+    "hard_alternative": "/tmp/batch027/group137.json",
+    "harpsichord": "/tmp/batch027/group137.json",
+    "hampton_roads_indie": "/tmp/batch027/group137-supplement.json",
+    "heavy_psych": "/tmp/batch027/group137-supplement.json",
+    "hard_glam": "/tmp/batch027/group137-supplement.json",
+    "historic_piano_performance": "/tmp/batch027/group138.json",
+    "hurdy_gurdy": "/tmp/batch027/group138.json",
+    "hull_indie": "/tmp/batch027/group138-supplement.json",
+    "historical_keyboard": "/tmp/batch027/group138-supplement.json",
+    "hungarian_indie": "/tmp/batch027/group138-supplement2.json",
+    "hong_kong_indie": "/tmp/batch027/group138-supplement3.json"
+  },
+  "unselected_ready_ids": [
+    "kansas_indie",
+    "karaoke",
+    "karntner_volksmusik",
+    "kinderchor",
+    "kora",
+    "korean_electropop"
+  ],
+  "required_predecessor": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+  "expected_additions": 100,
+  "expected_traditions": 5338,
+  "expected_instruments": 1477,
+  "integration_amendments": {
+    "dependencies": [
+      {
+        "id": "credited_auxiliary_percussion",
+        "before": {
+          "id": "credited_auxiliary_percussion",
+          "name": "Credited auxiliary percussion (source unspecified)",
+          "short": "Unspecified credited percussion",
+          "family": "percussion",
+          "class": "percussion",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": 0,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 0,
+            "articulation": 0,
+            "transduction": 0,
+            "dynamics": 0
+          },
+          "parts": [
+            {
+              "id": "credited_auxiliary_percussion_identity",
+              "name": "Source identification",
+              "variants": [
+                {
+                  "id": "credited_auxiliary_percussion_source_unspecified",
+                  "name": "Percussion credited without instrument identification",
+                  "default": true,
+                  "descriptors": ["source-unspecified percussion"],
+                  "match_tokens": ["percussion"]
+                }
+              ]
+            }
+          ],
+          "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+          "sources": [
+            "https://mencho.bandcamp.com/album/interiores",
+            "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+          ]
+        },
+        "after": {
+          "id": "credited_auxiliary_percussion",
+          "name": "Credited auxiliary percussion (source unspecified)",
+          "short": "Unspecified credited percussion",
+          "family": "percussion",
+          "class": "percussion",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": 0,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 0,
+            "articulation": 0,
+            "transduction": 0,
+            "dynamics": 0
+          },
+          "parts": [
+            {
+              "id": "credited_auxiliary_percussion_identity",
+              "name": "Source identification",
+              "variants": [
+                {
+                  "id": "credited_auxiliary_percussion_source_unspecified",
+                  "name": "Percussion credited without instrument identification",
+                  "default": true,
+                  "descriptors": [],
+                  "match_tokens": ["percussion"]
+                }
+              ]
+            }
+          ],
+          "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+          "sources": [
+            "https://mencho.bandcamp.com/album/interiores",
+            "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+          ]
+        },
+        "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+        "independent_reviewer": "research_119"
+      },
+      {
+        "id": "doromb_hungarian",
+        "before": {
+          "id": "doromb_hungarian",
+          "name": "Doromb (Hungarian steel jaw harp)",
+          "family": "plucked_traditional",
+          "class": "jaw_harp",
+          "short": "doromb",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": -2,
+            "harmonicity": 1,
+            "register": 0,
+            "range": -1,
+            "articulation": 1,
+            "transduction": -2,
+            "dynamics": -2
+          },
+          "parts": [
+            {
+              "id": "doromb_construction",
+              "name": "Frame and spring construction",
+              "variants": [
+                {
+                  "id": "doromb_high_carbon_steel",
+                  "name": "Heat-treated high-carbon steel frame and free spring",
+                  "default": true,
+                  "descriptors": ["high-carbon-steel", "ringing", "buzzing-timbre"],
+                  "match_tokens": ["plucked", "lamellophone", "overtone"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_excitation",
+              "name": "Excitation",
+              "variants": [
+                {
+                  "id": "doromb_inward_finger_pluck",
+                  "name": "Finger plucks spring inward; frame against teeth",
+                  "default": true,
+                  "descriptors": ["finger-plucked", "teeth-coupled", "resonant"],
+                  "match_tokens": ["plucked", "lamellophone", "overtone"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_resonator",
+              "name": "Resonator",
+              "variants": [
+                {
+                  "id": "doromb_oral_formant_breath",
+                  "name": "Tongue-shaped oral resonance and breath modulation",
+                  "default": true,
+                  "descriptors": ["oral-resonance", "overtone-shaped", "breath-modulated"],
+                  "match_tokens": ["plucked", "lamellophone", "overtone"]
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "id": "doromb_hungarian",
+          "name": "Doromb (Hungarian steel jaw harp)",
+          "family": "plucked_traditional",
+          "class": "jaw_harp",
+          "short": "doromb",
+          "axes": {
+            "pitchFix": 0,
+            "sustain": 0,
+            "polyphony": -2,
+            "harmonicity": 1,
+            "register": 0,
+            "range": -1,
+            "articulation": 1,
+            "transduction": -2,
+            "dynamics": -2
+          },
+          "parts": [
+            {
+              "id": "doromb_construction",
+              "name": "Complete instrument construction",
+              "variants": [
+                {
+                  "id": "doromb_high_carbon_steel",
+                  "name": "Heat-treated high-carbon steel frame and free spring",
+                  "default": true,
+                  "descriptors": ["steel", "ringing", "buzzing-timbre"],
+                  "match_tokens": ["plucked"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_excitation",
+              "name": "Excitation",
+              "variants": [
+                {
+                  "id": "doromb_inward_finger_pluck",
+                  "name": "Finger plucks spring inward; frame against teeth",
+                  "default": true,
+                  "descriptors": ["finger-plucked", "resonant"],
+                  "match_tokens": ["plucked"]
+                }
+              ]
+            },
+            {
+              "id": "doromb_resonator",
+              "name": "Resonator",
+              "variants": [
+                {
+                  "id": "doromb_oral_formant_breath",
+                  "name": "Tongue-shaped oral resonance and breath modulation",
+                  "default": true,
+                  "descriptors": ["overtone-shaped", "breath-modulated"],
+                  "match_tokens": ["plucked"]
+                }
+              ]
+            }
+          ]
+        },
+        "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+        "independent_reviewer": "research_119"
+      },
+      {
+        "id": "nes_famicom_chip_system",
+        "before": {
+          "id": "nes_famicom_chip_system",
+          "name": "NES / Famicom chip synthesis system",
+          "short": "NES/Famicom chip synthesis",
+          "family": "electronic",
+          "class": "electronic",
+          "axes": {
+            "pitchFix": 1,
+            "sustain": 1,
+            "polyphony": 2,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 2,
+            "articulation": 1,
+            "transduction": 2,
+            "dynamics": 1
+          },
+          "parts": [
+            {
+              "id": "nes_chip_architecture",
+              "name": "Sound-channel architecture",
+              "variants": [
+                {
+                  "id": "nes_chip_apu_five",
+                  "name": "Five basic NES sound channels",
+                  "descriptors": ["five-channel", "digital-chip-synthesis"],
+                  "match_tokens": ["electronic"]
+                },
+                {
+                  "id": "nes_chip_vrc6_eight",
+                  "name": "Five basic channels plus three VRC6 channels",
+                  "default": true,
+                  "descriptors": ["eight-channel", "VRC6-expanded", "digital-chip-synthesis"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_programming",
+              "name": "Programming method",
+              "variants": [
+                {
+                  "id": "nes_chip_tracker_notes",
+                  "name": "Tracker-programmed notes and channel effects",
+                  "default": true,
+                  "descriptors": ["tracker-sequenced", "note-programmed-effects"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_output",
+              "name": "Output topology",
+              "variants": [
+                {
+                  "id": "nes_chip_mono",
+                  "name": "Mono chip output",
+                  "default": true,
+                  "descriptors": ["mono", "direct-electronic"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            }
+          ],
+          "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+          "sources": [
+            "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+            "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+          ]
+        },
+        "after": {
+          "id": "nes_famicom_chip_system",
+          "name": "NES / Famicom chip synthesis system",
+          "short": "NES/Famicom chip synthesis",
+          "family": "electronic",
+          "class": "electronic",
+          "axes": {
+            "pitchFix": 1,
+            "sustain": 1,
+            "polyphony": 2,
+            "harmonicity": 0,
+            "register": 0,
+            "range": 2,
+            "articulation": 1,
+            "transduction": 2,
+            "dynamics": 1
+          },
+          "parts": [
+            {
+              "id": "nes_chip_architecture",
+              "name": "Sound-channel architecture",
+              "variants": [
+                {
+                  "id": "nes_chip_apu_five",
+                  "name": "Five basic NES sound channels",
+                  "descriptors": ["five-channel NES APU", "digital"],
+                  "match_tokens": ["electronic"]
+                },
+                {
+                  "id": "nes_chip_vrc6_eight",
+                  "name": "Five basic channels plus three VRC6 channels",
+                  "default": true,
+                  "descriptors": ["eight-channel NES APU plus VRC6", "digital"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_programming",
+              "name": "Programming method",
+              "variants": [
+                {
+                  "id": "nes_chip_tracker_notes",
+                  "name": "Tracker-programmed notes and channel effects",
+                  "default": true,
+                  "descriptors": ["sequenced"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            },
+            {
+              "id": "nes_chip_output",
+              "name": "Output topology",
+              "variants": [
+                {
+                  "id": "nes_chip_mono",
+                  "name": "Mono chip output",
+                  "default": true,
+                  "descriptors": ["mono"],
+                  "match_tokens": ["electronic"]
+                }
+              ]
+            }
+          ],
+          "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+          "sources": [
+            "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+            "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+          ]
+        },
+        "reason": "New dependency render words use established frozen descriptor vocabulary without changing the shared DF table. Exact construction/channel/programming details remain in variant names. Unspecified percussion adds no invented timbre; its instrument short already states source uncertainty. Doromb complete-instrument assembly is not a generic metal material and is kept isolated by its accurate own-part label.",
+        "independent_reviewer": "research_119"
+      }
+    ],
+    "signature": {
+      "id": "jaw_harp",
+      "before": ["plucked", "lamellophone", "overtone"],
+      "after": ["plucked"],
+      "reason": "Only existing classified sonic token retained; no shared vocabulary or cultural ruling change."
+    }
+  },
+  "ids": [
+    "pop_venezolano",
+    "pop_violin",
+    "pop_worship",
+    "puerto_rican_pop",
+    "romanian_pop",
+    "russian_pop",
+    "singaporean_pop",
+    "singer_songwriter_pop",
+    "slovak_pop",
+    "slovenian_pop",
+    "solomon_islands_pop",
+    "somali_pop",
+    "spanish_indie_pop",
+    "swedish_folk_pop",
+    "swedish_indie_pop",
+    "swedish_pop",
+    "swiss_pop",
+    "geinin_song",
+    "german_boom_bap",
+    "german_oi",
+    "grand_rapids_indie",
+    "graz_indie",
+    "greek_downtempo",
+    "greek_guitar",
+    "grungegaze",
+    "grunneger_muziek",
+    "guam_indie",
+    "guatemalan_indie",
+    "guitarra_mexicana",
+    "h8000",
+    "halifax_indie",
+    "hamilton_on_indie",
+    "hampton_roads_indie",
+    "handbells",
+    "hangoskonyvek",
+    "hard_alternative",
+    "hard_chime",
+    "hard_glam",
+    "hard_motivation",
+    "harmonikka",
+    "harp",
+    "harpsichord",
+    "haur_kantak",
+    "hawaiian_indie",
+    "heavy_alternative",
+    "heavy_psych",
+    "hel",
+    "hengelliset_laulut",
+    "high_vibe",
+    "high_tech_minimal",
+    "hindi_indie",
+    "historic_piano_performance",
+    "historical_keyboard",
+    "hollywood",
+    "hong_kong_indie",
+    "hull_indie",
+    "hungarian_indie",
+    "hurdy_gurdy",
+    "hypertrance",
+    "icelandic_experimental",
+    "icelandic_indie",
+    "idaho_indie",
+    "indian_fusion",
+    "indian_indie",
+    "indian_percussion",
+    "indie_asturiana",
+    "indie_canario",
+    "indie_electropop",
+    "indie_extremena",
+    "indie_game_soundtrack",
+    "indie_hidrocalido",
+    "indie_napoletano",
+    "indie_nordeste_argentino",
+    "indie_paraense",
+    "indie_platense",
+    "indie_poptimism",
+    "indie_quebecois",
+    "indie_salvadoreno",
+    "indie_siciliano",
+    "indie_tabasqueno",
+    "indie_tico",
+    "indie_tucumano",
+    "industrial_noise",
+    "instrumental_lullaby",
+    "iowa_indie",
+    "irish_accordion",
+    "irish_experimental",
+    "irish_fiddle",
+    "irish_flute",
+    "irish_indie",
+    "italian_alternative",
+    "italian_baritone",
+    "italian_experimental",
+    "italian_mezzo_soprano",
+    "italian_romanticism",
+    "jacksonville_indie",
+    "japanese_guitar",
+    "japanese_piano",
+    "jaw_harp",
+    "jewish_a_capella"
+  ],
+  "equivalent_labels": [],
+  "scope": "100 actual missing tradition additions and three isolated existing-schema instrument data records. Original engine, shared parts, tree, workflows and frozen descriptor frequencies preserved.",
+  "allocation_manifest_sha256": "246ac5b37a638fa6a72627d55fad57cc6a04e4a0d34f968694bbf6eba63c61c7",
+  "frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+  "hash_method": "SHA256 UTF8 canonical JSON sorted keys ensure_ascii=false separators comma/colon",
+  "final_entry_sha256_canonical": {
+    "pop_venezolano": "be0c3ed7d13578649a71c82d74a324c50d951274453e8fc69b65efefe0dcb9d6",
+    "pop_violin": "1e062e2d21b938a3473f96113f0fb1640e55ee261cc7997d8b82edc29ecc8410",
+    "pop_worship": "853e30dc2353dba8cafa9d220c8c4198f9a348119d47aeb7bf3ed1b575e3555d",
+    "puerto_rican_pop": "e5647da0a801a98f1bce144b19641e06db607b4c02dcab327827ac1ea66ba03b",
+    "romanian_pop": "83e112cb185857dd3d60b38600c4e125ee4ae212bc5026c239be4f3c1486787f",
+    "russian_pop": "ad1b7ce3a725e66a3b9cab3502f6c8708a46b0402d48c463a584c93f58dfdad4",
+    "singaporean_pop": "f3ae9f6f646d81f953e0ac13bb2eafa8f25dbcee97cd1cdb62a5c4d078fc1372",
+    "singer_songwriter_pop": "ae4098c8627010cf54eceb4e8a8fdd51d8602c80d50d62d8484f352f841b32e9",
+    "slovak_pop": "00fcc5abedd90d1b7142055d4b569ed7c41af1166342dcb795664599b61b47ce",
+    "slovenian_pop": "ccc5e4f53587065607b6cde523bd236609c480b5c619349e5d4fdd79355057a9",
+    "solomon_islands_pop": "dee613b9a05dac102281608d4293323a5455b792d77a682ae37c14321d272661",
+    "somali_pop": "7c82a4ec02fdfd60186b69ce27f6f0e6516c42a310f1138611faa9fe6f4de345",
+    "spanish_indie_pop": "3a40de5d08cad5b0d7ce3a7159f622cf19aa81f9c2fcc872b17709e87585db97",
+    "swedish_folk_pop": "9ca273ea9b16c8bfe226648f8249d1fd2d54b7b5b94bc3dec42fcf7b34f1567f",
+    "swedish_indie_pop": "8b8fc06dce302c00cb6d6e5be6f91e33f0396f034a87d240191da0b4f544217c",
+    "swedish_pop": "69816b865405a2b7a2aa5287e61633f89810d745238585b927816ee8436afac1",
+    "swiss_pop": "b7c70279ce62527c9d64b6a40d296348d2e1f591068e87f23954853b5ae88ba3",
+    "geinin_song": "45636bf0e7d73e770eb643b9cf4f60af3e37f7df9e2f0c1fafdf504f2a42a2e6",
+    "german_boom_bap": "ac8ed355878a98367b4aaaf1657060dd30f4a52b65447192b858b88f4686f298",
+    "german_oi": "cfe04336df3eabd5a0cab26a788e1dbe23aff1a49a5cda675a43d64459f2c3e4",
+    "grand_rapids_indie": "94287d8aad5fc167bf3b889efcf1b0cad00e32fe6920bbca1d87456302fd2bab",
+    "graz_indie": "ab551e2755f91e6398d991e0774f705ff2496e3165df939fa8a5c159aa6d249a",
+    "greek_downtempo": "0cb53a3f1647bfb31d9eea35a17cd621ba469ab96217eff64fe045fe4c901bb4",
+    "greek_guitar": "3c4debc82448ae900e26b44718dbad15b93cb025b200a2635aa2b129b17431ba",
+    "grungegaze": "45d1bd3c5373e4d2bb864d709b1f433cff78168b165461c21dd3a47cd26433f4",
+    "grunneger_muziek": "1c83e7eb5c4062c2d59f495178a43d53198eaf655052f7453bae53024b619306",
+    "guam_indie": "dc55ff02611111d10993223f80ea2b5d1b930b91fd7162861f1e4b78a3ca1a15",
+    "guatemalan_indie": "4800aebc53908795fec5d1bdbb7a68ea40b1d01b7ab41c2551e8280b959b2674",
+    "guitarra_mexicana": "6b46bc30d1c8a243b290f8a7516830658f95d0ea758aaf602d0fd4133949166d",
+    "h8000": "56c27d3163dcfd98c7e73cb0025055463d62532f6036293b46adba04b8e8c9cb",
+    "halifax_indie": "787a598dad6d83109bfa439d8c6781db329a015625d8f0da9b3909f7084a1d93",
+    "hamilton_on_indie": "a8a8327ca521339ae3ae514c2d0697a7bbdcff6f644f5dd8be96168e7b100354",
+    "hampton_roads_indie": "44f0835b1b54880817ab55772762f3124ce67267e05d50e013671d520b3bd4d0",
+    "handbells": "fe4a00f98edf7039e3712a52d18b4a8ef51a55fa96d972c846a3b68deb3782d2",
+    "hangoskonyvek": "480efe1515af2d1276d04555b1b02b309c9ed039b8700fdc144ae6278dd5462c",
+    "hard_alternative": "b5c72beeba98584da078f7f70f55914016d6461a06b2bce59b7aad54bf4cdff8",
+    "hard_chime": "d6f788fc04177a808159bf9e007a6e36ce6162ef281d85f8a2bfadd560061f25",
+    "hard_glam": "34075417127fcaf8b03b052bc2c5d085c6c3913d126be5561da480cf20efd014",
+    "hard_motivation": "d0db3e4139e401f5a04947733bdf13a977f003cdc8c3e78177c42d3691aa5d30",
+    "harmonikka": "cf674fb9933b751c78e67d946abca35096fdd2355226234a52b66b86840609a9",
+    "harp": "b25836a09dce78ae3d2170c4ba5440dca9ebee229093a7f0e1d1976a789f0e15",
+    "harpsichord": "66d2eb4541075346b11403eb2a83be8fe231e51f19bf89a6cd285d66d6084e41",
+    "haur_kantak": "708c79a822bcd9dbf78e66302572d95432f6d2742cdebf92d0b316223e2ced79",
+    "hawaiian_indie": "5df876ce18f57a4095d717183baee9013894c2875bb1a2806e652dee73a957c3",
+    "heavy_alternative": "6fc932d3134eeb5aeaad31d87ed397c13448e2e7997d66dfae8c2f75c388b956",
+    "heavy_psych": "4e597834ae152be45179afa2c421a54154a8b0708240cb5e097d8fcb6814a63e",
+    "hel": "1eba901da4b118e29d0dc2cfe4ae0c7713d24349da3c4246bbc98293881e45c7",
+    "hengelliset_laulut": "f035b19d7dc77bbc329376881606ba9901ec739ed62d546c438af44ba4cde6dc",
+    "high_vibe": "48d0da0ace3c2162898c7d01488a308d7db73c396f945f53c1c80b13f76b1eb6",
+    "high_tech_minimal": "dcdba059ec51f14083e7519597528c3ff7d50b6685304ac4cf928a9a3e36eb68",
+    "hindi_indie": "fc5d75285041e1689de8e6db57842fb8baf0b6fdc6f4cf2d7e83af9e6f394ad9",
+    "historic_piano_performance": "b061528e8208a875277e400acf4ee4e1f77f7adb1f96ef436e7d793e383dfe88",
+    "historical_keyboard": "f3fa949ec2fa37200012d6037ea6204bf6e264488331625f09f89dca1255e246",
+    "hollywood": "abb85448d401efbab3ccc7c1860920f65f14bfc2e7d37f4c8d0a65d22e2de356",
+    "hong_kong_indie": "c56221cf88a390c687d156836094318e19ab3d25925a007441bec9ef93f54501",
+    "hull_indie": "750ba80429dff706f52f6a3df81d5242d1538981ab7a4171be2b5b6082f56ba6",
+    "hungarian_indie": "2409b69f4eb087bb227dcbf1554f05b783abb36ba53c97290feea7a941681339",
+    "hurdy_gurdy": "a608c5e4b1f4847557b8573a03e93f1db2917734fab06aeb02922947b34c0716",
+    "hypertrance": "146e5234a28aa317a7ec9b028763441042a48fe14b578897782b3900f437a0ba",
+    "icelandic_experimental": "d3aebbfd34e6ef9e181d7e69eb314eb2e954fe09e72f4121857c6675605aa89e",
+    "icelandic_indie": "7817231adf13c434b6e304e9c9d7a73a1c8730327936702cea7fb1c576153b3b",
+    "idaho_indie": "9bf3966e8d4b33b427e2f0a0eb757156e6aab93a9fce2053232e17e93f6a8382",
+    "indian_fusion": "ce62fd4cfc9f61cb052f45ce13c0f0c21109394cce959ea8ca22895d96ac8f0d",
+    "indian_indie": "3755ce57fe3259c0e35c6bbd69f768856e809b924e3552af50b332e432cafb29",
+    "indian_percussion": "7945126bf0c0d0729405f330703c125fd602402bf9c2481454277c5cb57d828b",
+    "indie_asturiana": "e7f666783a58b8310b97ac0bceb0546c771d1f3be33a81923d515b4704741b4b",
+    "indie_canario": "4226aefa73608cc7338faac052bd4f8e3c5cb0e55460fbeb16b9126a18d66f89",
+    "indie_electropop": "f0de571b7a90f7565abf2f807d98f64ffc236571180cceb75cd5321f9b9e2d72",
+    "indie_extremena": "4523abd604d346e0959655c032bbeff15297917c1976eb95cc14f6dc35df16e9",
+    "indie_game_soundtrack": "871a37ef3159e717a5df9cb0a33a40c3e9553795e9bbe4f0749e9576608728d3",
+    "indie_hidrocalido": "da176cf36306706f4573f806e46b0fb6bbe37c74dbe070947834d7bad2d06760",
+    "indie_napoletano": "b94daa3c0be21e7c34e423d0f9a2103dad8df160876200573f31166da80cbb37",
+    "indie_nordeste_argentino": "329b656490dde61358ea69e28024f29ebc272ad5af707c2d3bf6efaa9c3b731a",
+    "indie_paraense": "7761ca46211c67879450e3258c111def8daf269310f5fde1c84230985af7976b",
+    "indie_platense": "d336e26c4b270d94b35c905ab7b9fee85073fa9578390bd2ffd4e0906d6889f4",
+    "indie_poptimism": "e38ec1cb0e9d6d4a8b0c49b4e9936272cb6c3194eb125ea6ce658b83002351ce",
+    "indie_quebecois": "9c0209283a85805dc108995056b5b2ab48e886f4f9195e52adc2e011d9098fe8",
+    "indie_salvadoreno": "24aa94cc77260710e398ddffd0e22ce798ae48e2f26cbb23f0b21a68710a6829",
+    "indie_siciliano": "f6626c5f6379fafd21852f74645345856fff5bcae8605ae8678c847aac466987",
+    "indie_tabasqueno": "1a65e4a42a0d088141e8b95e5b168befd61e32d19ee0f21a065ab42b13d646d7",
+    "indie_tico": "5879efb3d730d2091f35eda22437562b782d22fbae0dd3e5887cd8a8d6cd7343",
+    "indie_tucumano": "742a63aef2ba6055e9d6fb940065bdd614d31cf8d9a73b9a1fb60971d6b828ac",
+    "industrial_noise": "653df8c2aa214383b8a1fc2dec998f8ba920dec111794196322afd4ad89b13b6",
+    "instrumental_lullaby": "f4ee0d4d25dc04b9cc4aa674d02d0a04a9aace84cabff78c16659d74507dc1ca",
+    "iowa_indie": "25e21f51e377ef166b8a24fb3449a939c03ec8cb4da6dc13093011b7f14bc598",
+    "irish_accordion": "7ecfdd30f6425d0185319e2efeaaac32058ae0cc5b5697ca2fa0e720636ab854",
+    "irish_experimental": "3474e67e1ac0509cb2677ddec3436628fbb1622adfea0ab590c87be9f0a91ec6",
+    "irish_fiddle": "5338b3128417f6a6d55104d505022c16923e5370ab3804440983c23225c36d21",
+    "irish_flute": "e4be19e112ecb8c36f0bb47bf14d6b19f4dab922bce540b91b77a62683fe7343",
+    "irish_indie": "680b636f8e3dd322a71e59b7fb890c816b6de589bacf8cabeb7f273cfde9ec66",
+    "italian_alternative": "91e047390a5eaeb92cbd49876d09f33d4eed6c10cc572c17094e9450beac5aac",
+    "italian_baritone": "2993b579ae42ec82f6e27b9eaee80363ce060cfa54fbaffbcec1036a4faf6cad",
+    "italian_experimental": "a383dc8d41def355c7777ede8e36b37695c99e1910c21be07ec78cfea31486a3",
+    "italian_mezzo_soprano": "f90cd1109a92efa6bd4ab9e2dae12e2c349e3f9edf8a1b37cbc70c9d16ec3b2d",
+    "italian_romanticism": "fb089ad39085a899b928c7c069058f57f984675e853aa7f428f5254a09d2ce93",
+    "jacksonville_indie": "68245a3d6236dd2d77b8db9f0599292632c92ccfab0c22ba5e82359e1a355d6b",
+    "japanese_guitar": "a8b53be901edd4b20c9985be4dfd7b6c410d91b20eb1dde3ffb06220680c3db1",
+    "japanese_piano": "1ce7e21803a3e0b874b48520598094bb00d7934d82d4893de8ca8068de91e68a",
+    "jaw_harp": "243c51cabf221b98a6c28096376fee8ea5881e423c067d60902e11e7342e81c2",
+    "jewish_a_capella": "4083318ed954232f3e539df8006fe57d87d8c11099c618d2a068032e62d29b1e"
+  },
+  "validation_status": "PASS: all required local checks, formatting and independent source, integration, API, regression and diff-scope reviews. Exact-head CI required before merge.",
+  "photo_audit": {
+    "generic_microphone_context_count": 19,
+    "generic_context_policy": "All microphone fallbacks are LOW-confidence generic recording context, never instrument, performer or session depictions. Exact inherited URL, hash, byte, dimension and visual receipts are retained; fresh file-specific rights and context were checked separately. No current download or pixel inspection is claimed.",
+    "confidence_counts": {
+      "high": 73,
+      "low": 19,
+      "medium": 8
+    }
+  },
+  "compiled_fallback_disclosure": [
+    {
+      "id": "guatemalan_indie",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled": "electronic_bass_sub",
+      "flatPin": "electronic_sustained_layering",
+      "imported": "electronic_pad_drone"
+    },
+    {
+      "id": "h8000",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled": "electronic_bass_sub",
+      "flatPin": "electronic_sustained_layering",
+      "imported": "electronic_pad_drone"
+    },
+    {
+      "id": "hypertrance",
+      "instrument": "sampler_classic",
+      "part": "electronic_technique",
+      "compiled": "electronic_sample_chopped",
+      "flatPin": "electronic_arpeggiated",
+      "imported": "electronic_sample_chopped"
+    },
+    {
+      "id": "indian_indie",
+      "instrument": "sarod",
+      "part": "plucked_traditional_technique",
+      "compiled": "plucked_classical_idiom",
+      "flatPin": "plucked_folk_strummed",
+      "imported": "plucked_ornamented_melodic"
+    },
+    {
+      "id": "indian_indie",
+      "instrument": "oud",
+      "part": "plucked_traditional_technique",
+      "compiled": "plucked_classical_idiom",
+      "flatPin": "plucked_folk_strummed",
+      "imported": "plucked_ornamented_melodic"
+    },
+    {
+      "id": "indie_nordeste_argentino",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled": "electronic_pluck_short",
+      "flatPin": "electronic_sample_chopped",
+      "imported": "electronic_pad_drone"
+    },
+    {
+      "id": "iowa_indie",
+      "instrument": "mandolin",
+      "part": "acoustic_technique",
+      "compiled": "acoustic_chord_melody",
+      "flatPin": "acoustic_fingerpicked",
+      "imported": "acoustic_strummed_ringing"
+    }
+  ],
+  "local_checks": {
+    "API": "5338traditions1477instruments664.2s0errors",
+    "integrated_runtime": "100x4PASS",
+    "small_suites": {
+      "prefaces": 0,
+      "slots": 0,
+      "app": 0,
+      "equivalence": 0,
+      "audit": 0,
+      "lint": 0
+    },
+    "post_build": {
+      "docs-fix": 1,
+      "atlas": 0,
+      "geography": 0,
+      "docs-check": 0,
+      "docs_fix_note": "The first docs-fix command updated expected catalog counts and exited 1 as designed; the subsequent complete documentation check passed."
+    },
+    "recipe_regressions": {
+      "passed": 1149,
+      "total": 1149,
+      "mode": "REGRESSION_SERIAL=1",
+      "targeted_snapshot_updates": ["gothic_country", "folk_noir"],
+      "independent_review": "data-only-027-regression-review.json"
+    },
+    "formatting": "PASS"
+  },
+  "regression_snapshot_updates": ["gothic_country", "folk_noir"],
+  "independent_reports": [
+    {
+      "path": "data-only-027-api-review.json",
+      "sha256": "a6b2b515016c64de54ffa35876e411eca406a88076354af07d38d913d4b2799e"
+    },
+    {
+      "path": "data-only-027-integration-review.json",
+      "sha256": "a58423fd2338bcbd1b98529a3aba310f8a4b56221e5da3ad070c7a9e9aa17d0b"
+    },
+    {
+      "path": "data-only-027-regression-review.json",
+      "sha256": "9beceeb20c43de22feb0f8156fdab172c3419150128c84a544dfcf17705b174c"
+    },
+    {
+      "path": "data-only-027-scope-review.json",
+      "sha256": "9929f857ed14708ae7ba30c4079412108d3cdd34484c46882f25324bb97eb116"
+    },
+    {
+      "path": "data-only-027-metadata-review.json",
+      "sha256": "e70fa572cdc439280fdc04a329b7fd10658513bc9689b740e92910353009b403"
+    }
+  ],
+  "derived_existing_api_changes": {
+    "total": 34,
+    "score_only": 23,
+    "recipe": 10,
+    "hidden_material": 1,
+    "unprotected_slot_changes": 42,
+    "protected_pin_changes": 0,
+    "cause": "Original neighbor optimizer reacting to new traditions; independently traced."
+  }
+}

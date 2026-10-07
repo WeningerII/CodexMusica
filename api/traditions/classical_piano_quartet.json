@@ -2,10 +2,10 @@
   "id": "classical_piano_quartet",
   "name": "Classical piano quartet",
   "family": "classical",
-  "lineage": "Classical piano quartet is represented by Domus — Fauré Piano Quartets. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical piano quartet, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, carpathian spruce eastern European source European maple general oil varnish amber tinted viola classical, carpathian spruce European maple sycamore maple oil varnish amber tinted cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 531,
-  "score": 249.542,
+  "lineage": "The classical piano quartet combines piano with violin, viola and cello. Historical and contemporary repertoire explores the balance between a keyboard’s articulated resonance and three sustained string voices.",
+  "recipe": "classic classical piano quartet, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano, aluminum wound carpathian spruce European maple sycamore maple cremonese pre 1750 violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 547,
+  "score": 244.18,
   "config": {
     "traditions": [
       "classical_piano_quartet"
@@ -16,34 +16,34 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.483,
-          "grand_piano_brand": 0.705,
-          "piano_hammer": 10.725,
-          "piano_rim": 10.318,
-          "piano_soundboard": 8.25,
-          "piano_pinblock": 8.355,
-          "piano_plate": 8.877,
-          "piano_pitch_standard": 8.5545
+          "grand_piano_size": 0.843,
+          "grand_piano_brand": 1.3,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.116,
+          "piano_soundboard": 7.9725,
+          "piano_pinblock": 7.555000000000001,
+          "piano_plate": 7.807,
+          "piano_pitch_standard": 9.6905
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
+          "orch_strings": "aluminum_wound_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
@@ -51,66 +51,66 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.5,
-          "orch_strings": 0.32549999999999996,
+          "bowed_technique": 8.86,
+          "orch_strings": 1.625,
           "orch_top_wood": 7.5,
-          "orch_back_wood": 8.355,
-          "orch_varnish": 8.25,
-          "orch_setup_period": 8.772,
-          "orch_bow": 0.474,
-          "orch_bow_stick": 10.659999999999998,
-          "orch_articulation": 0.2835,
-          "orch_rosin": 8.772
+          "orch_back_wood": 7.555000000000001,
+          "orch_varnish": 7.8415,
+          "orch_setup_period": 7.936,
+          "orch_bow": 0.29400000000000004,
+          "orch_bow_stick": 9.620000000000001,
+          "orch_articulation": 0.39,
+          "orch_rosin": 7.702
         }
       },
       {
         "id": "viola_classical",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "viola_size": "viola_15_inch",
+          "viola_size": "viola_17_inch",
           "viola_strings": "viola_tungsten_wound_c",
           "viola_top_wood": "viola_carpathian_spruce",
           "viola_back_wood": "viola_european_maple_general",
-          "viola_varnish": "viola_oil_amber",
+          "viola_varnish": "viola_cremonese_pre_1750",
           "viola_setup_period": "viola_modern_setup",
           "viola_bow_stick": "viola_pernambuco",
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 7.5,
-          "viola_size": 0.47250000000000003,
-          "viola_strings": 0.5265,
+          "bowed_technique": 8.86,
+          "viola_size": 1.3,
+          "viola_strings": 1.3,
           "viola_top_wood": 7.5,
-          "viola_back_wood": 8.355,
-          "viola_varnish": 8.25,
-          "viola_setup_period": 8.772,
-          "viola_bow_stick": 10.659999999999998,
-          "viola_rosin": 8.994
+          "viola_back_wood": 7.555000000000001,
+          "viola_varnish": 7.8415,
+          "viola_setup_period": 7.936,
+          "viola_bow_stick": 9.620000000000001,
+          "viola_rosin": 9.049999999999999
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "cello_synthetic",
+          "cello_strings": "silver_wound_lamb_gut_cello",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
-          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.5,
-          "cello_strings": 0.39,
+          "bowed_technique": 8.86,
+          "cello_strings": 1.2349999999999999,
           "cello_top_wood": 7.5,
-          "cello_back_wood": 8.355,
-          "cello_varnish": 8.25,
-          "cello_setup_period": 8.772,
+          "cello_back_wood": 7.555000000000001,
+          "cello_varnish": 7.8415,
+          "cello_setup_period": 7.936,
           "cello_bow_grip": 3.9,
-          "cello_rosin": 8.526,
-          "cello_bow_stick": 10.659999999999998
+          "cello_rosin": 8.978,
+          "cello_bow_stick": 9.620000000000001
         }
       }
     ],

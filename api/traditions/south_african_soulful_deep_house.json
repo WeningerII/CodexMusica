@@ -1,0 +1,50 @@
+{
+  "id": "south_african_soulful_deep_house",
+  "name": "South African Soulful Deep House",
+  "family": "electronic",
+  "lineage": "A soulful branch of South African deep-house production and DJ culture, combining melodic electronic textures, sustained bass grooves and influences from gospel, jazz and disco.",
+  "recipe": "classic south african soulful deep house, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 106,
+  "score": 0.063,
+  "config": {
+    "traditions": [
+      "south_african_soulful_deep_house"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Classic soul",
   "family": "blues_gospel",
   "lineage": "Classic soul is a retrospective discovery and listening category for established soul repertoire, overlapping regional Memphis, Southern, Motown and other soul traditions. The source-author roster explicitly includes Al Green alongside Marvin Gaye, Aretha Franklin and Otis Redding. This representative Al Green/Hi branch takes the documented singer, organ, guitar, bass, drum and conga interplay of Let’s Stay Together as a starting point. The authored reduction includes vocal support but omits the recording’s horn and string layers; it does not invent an exclusive classic-soul instrument set or equate the entire category with one Memphis session.",
-  "recipe": "classic modern classic soul, functional Song, soul R&B branch. one note per syllable. single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ, congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 408,
-  "score": 47.496,
+  "recipe": "classic modern classic soul, functional Song, soul R&B branch. one note per syllable, group vocals, live take. single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ, congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 433,
+  "score": 47.709,
   "config": {
     "traditions": [
       "classic_soul"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.442,
+          "voice_ensemble_config": 0.5329999999999999,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.442
+          "voice_multitrack_stack": 0.5329999999999999
         }
       },
       {
@@ -68,7 +68,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.33599999999999997,
           "neck_wood": 0.2415,

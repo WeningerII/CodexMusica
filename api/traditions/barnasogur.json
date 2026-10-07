@@ -2,10 +2,10 @@
   "id": "barnasogur",
   "name": "Barnasögur (Icelandic children’s narration)",
   "family": "global",
-  "lineage": "Sigurður Arent Jónsson — Barnasögur11 narration. Representative authored present-day recording arrangement. Sources establish the selected roles and bounded category relationship. Exact construction, hardware, playing settings, room, chain, temperament and numeric axes are authored choices, not original-session facts or universal genre traits.",
-  "recipe": "classic barnasögur, functional Song. conversational. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 151,
-  "score": 1.852,
+  "lineage": "Icelandic children's storytelling and audiobook narration present tales through the speaking voice.",
+  "recipe": "classic barnasögur, spoken Word, narration branch. conversational. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 165,
+  "score": 2.196,
   "config": {
     "traditions": [
       "barnasogur"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.054,
+          "voice_speech_song": 0.27449999999999997,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       }
@@ -84,13 +84,11 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
       "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",

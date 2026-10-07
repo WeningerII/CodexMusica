@@ -5,7 +5,7 @@
   "lineage": "Psychedelic punk is represented here by Fucked Up. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic psychedelic punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 377,
-  "score": 49.479,
+  "score": 49.116,
   "config": {
     "traditions": [
       "psychedelic_punk"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.3,
           "string_material": 0.063,
-          "bridge": 1.69,
+          "bridge": 1.573,
           "scale_length": 0.39,
-          "string_gauge": 1.13,
+          "string_gauge": 1,
           "finish": 0.1365,
-          "string_tuning": 0.33899999999999997
+          "string_tuning": 0.3
         }
       },
       {
@@ -62,7 +62,7 @@
           "pickup_config": 0.273,
           "string_type": 4.875,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.0705,
+          "fretted_or_not": 0.0315,
           "bass_technique": 13.2815,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.639,
+          "drumhead": 0.6,
           "drum_kit_kick_pedal": 0
         }
       },

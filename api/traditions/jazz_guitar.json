@@ -2,10 +2,10 @@
   "id": "jazz_guitar",
   "name": "Jazz guitar",
   "family": "jazz",
-  "lineage": "Guitar-centered jazz improvisation; selected solo nylon-string branch",
+  "lineage": "Jazz guitar encompasses melodic improvisation, chordal accompaniment and solo approaches across acoustic and amplified instruments. Chord-melody playing lets a single guitarist combine bass movement, harmony and a singing upper line.",
   "recipe": "classic modern jazz guitar, improv On Frame, American jazz branch. low mid rich spectrum nylon classical nylon-string guitar. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 270,
-  "score": 4.885,
+  "score": 6.023,
   "config": {
     "traditions": [
       "jazz_guitar"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "tirando_cl"
         },
         "scores": {
-          "acoustic_technique": 1.081,
+          "acoustic_technique": 2.181,
           "string_tuning": 0,
-          "top_wood_classical": 0.39,
-          "bracing_classical": 0.2835,
-          "string_classical": 2.3649999999999998,
-          "attack_technique_cl": 0.39
+          "top_wood_classical": 0.6509999999999999,
+          "bracing_classical": 1.2835,
+          "string_classical": 1.3649999999999998,
+          "attack_technique_cl": 0.168
         }
       }
     ],

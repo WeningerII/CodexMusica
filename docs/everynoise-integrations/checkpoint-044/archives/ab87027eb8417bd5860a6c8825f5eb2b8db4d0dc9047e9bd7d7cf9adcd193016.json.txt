@@ -1,0 +1,216 @@
+{
+  "entries": [
+    {
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "deep_dubstep",
+          "name": "Deep Dubstep",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15476view1 reproduces Iain Fergusson credit, Binksternet crop and CC BY 2.5; historical byte/visual receipts preserved.",
+          "fresh_review_ref": "turn15476view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15476view1"
+        ],
+        "reuse_provenance_scope": "Historical exact SM58 byte/visual/license receipt inherited; current Commons rights reread15476view1. Image is generic context, not this DJ or instrument hardware."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "All applicable owning parts protected."
+        }
+      ],
+      "source_label": "deep dubstep",
+      "source_url": "https://everynoise.com/engenremap-deepdubstep.html",
+      "suggested_id": "deep_dubstep",
+      "allocation_ordinal": 158,
+      "allocation_group_id": "007",
+      "id": "deep_dubstep",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "deep_dubstep",
+        "name": "Deep Dubstep",
+        "family": "electronic",
+        "lineage": "Bass-centered dubstep associated with soundsystem listening, restrained percussion and dark atmospheric space, continuing through international producer labels and DJ circulation.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "bassSystem.ukSoundsystem",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 2,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Deep dubstep favors low-frequency weight, space around percussion and atmospheric textures. Its producers and DJs connect the early soundsystem tradition with ongoing bass-music releases and mixes. The label overlaps minimal and classic dubstep, and DJ programmes may move between its half-time feel and faster breakbeat material.",
+        "exemplars": [
+          "TRUTH",
+          "accomplicated"
+        ],
+        "status": "documented",
+        "signature_tokens": [],
+        "crossRefs": []
+      },
+      "signature_tokens": [],
+      "geo": [
+        37.7749,
+        -122.4194,
+        "San Francisco",
+        "North America"
+      ],
+      "geo_rationale": "A documented circulation anchor, not exclusive birthplace: TRUTH firsthand explains that Deep Dark & Dangerous began as a monthly night in San Francisco in2012. International UK/NZ/US practice remains explicit.",
+      "sources": [
+        {
+          "url": "https://edmidentity.com/2022/11/08/truth-ddd100-interview/",
+          "title": "Firsthand TRUTH interview on label, soundsystem and deep-dubstep circulation",
+          "support_notes": "Fresh15488view0/15495view1/2 names field, describes DJ mix series and2012 SanFrancisco nights; no claim exact entire creator corpus equals this label.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://accomplicated.ca/bass-music-vol-01/",
+          "title": "Artist-issued BassMusicVol01 DJ programme",
+          "support_notes": "Fresh15485view0/15488view1: whole38minute25selection mix, explicitly self-identifies deepdubstep among broader bass genres, tight percussion/subbass/atmospheres. No claim all25selections exclusively belong to deepdubstep.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "neighbor_distinction": "Current minimal_dubstep explicitly models sparse UK soundsystem production and classic_dubstep retains a broad historical discovery cluster including later artists. Deep Dubstep substantially overlaps both; the named field is positively used by working DJs and an interviewed label founder. No new exclusive institution, timbre or temporal cutoff is asserted, and no exact equivalence is inferred from shared artists.",
+      "model_policy": "Representative DJ playback/mixing is a positively documented genre practice, not an invented sampler of an opaque studio master. The one existing source-unspecified owner retains full recorded programme material, unknown embedded voices and instruments, and meaningful playback/mixing identity. Hardware, live singer counts and a global tuning are unknown. Controlled live-room presentation and brisk rhythmic editorial pacing are authored, not measured venue orBPM; the primary programme expressly moves between140and170 material.",
+      "source_scope_limitation": "Whole artist-issued38minute programme provides practice evidence. Do not reconstruct the25 constituent masters or claim every selection is exclusively DeepDubstep. Firsthand label interview independently establishes DJ/mix circulation at genre level.",
+      "source_retrieval_caveat": "Creator map not freshly retrieved for this derivative; immutable requested label retained and actual practitioner usage independently verified. No exact creator membership claim for accomplicated.",
+      "classification_evidence": {
+        "mode": "named_label_and_firsthand_practice",
+        "note": "Current minimal_dubstep explicitly models sparse UK soundsystem production and classic_dubstep retains a broad historical discovery cluster including later artists. Deep Dubstep substantially overlaps both; the named field is positively used by working DJs and an interviewed label founder. No new exclusive institution, timbre or temporal cutoff is asserted, and no exact equivalence is inferred from shared artists."
+      },
+      "vocal_count_audit": {
+        "selected_count": null,
+        "added_live_singer_cards": 0,
+        "note": "Embedded/source human counts unknown; no positive separately performed live vocal role inferred."
+      },
+      "instrument_role_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "role": "Complete recorded-program DJ playback and mixing; not a reconstructed studio band."
+        }
+      ],
+      "flat_pin_resolution": {
+        "rule": "One existing owner and one explicit applicable pin; no fallback, orphan key or per-owner conflict."
+      },
+      "dependency_audit": {
+        "baseline_existing": 1658,
+        "new_dependencies": 0,
+        "policy": "Existing exact neutral DJ owner reused unchanged."
+      },
+      "axis_review": {
+        "policy": "One source-characterized setting: electronic production and percussion-forward bass music, restrained density, recurring rhythmic organization; unspecified voicecount/register retained neutral. No parameter sweep."
+      },
+      "primary_retrieval_refs": [
+        "turn15488view0",
+        "turn15495view1",
+        "turn15495view2",
+        "turn15488view1",
+        "turn15476view1"
+      ],
+      "verification_status": "Original043 local qualification passed at0b797c0: all1658 old owners preserved; one valid protected control; all four browser/connector formats and compiled API read, no new roles or cultural prefaces. Independent peer pending.",
+      "prior_hold_preservation": {
+        "path": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field45/ledger.json",
+        "sha256": "528f93ae9fcde612dc6c88921bd06605bff1be0da2319f00b4fd0fbd3774fead",
+        "ordinal": 158,
+        "note": "Earlier boundary hold superseded only because explicit user scope permits named overlapping fields. Original evidence/hold unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

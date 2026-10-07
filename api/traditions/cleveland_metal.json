@@ -5,7 +5,7 @@
   "lineage": "Cleveland’s metal scene includes Mushroomhead’s theatrical mixture of heavy riffing, multiple vocal colors and electronic programming. Producer/drummer Skinny describes digital keyboard experimentation alongside metal influences and the recording work behind A Wonderful Life. This authored reduction keeps guitar, bass, drums, grouped vocal roles and a sample-based electronic layer. The album’s separately recorded choir and expanded percussion are documented optional forces rather than assumed features of every Cleveland band.",
   "recipe": "classic modern cleveland metal, distorted Rock, metal branch. equal tempered, one note per syllable, aurally tuned, plate reverb medium decay vocal classic. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 457,
-  "score": 47.101,
+  "score": 44.318,
   "config": {
     "traditions": [
       "cleveland_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.12,
+          "electric_technique": 13.194249999999998,
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.614625,
           "neck_wood": 0.105,
-          "fretboard": 0.168,
+          "fretboard": 0.205125,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.44299999999999995,
-          "bridge": 0.5775,
+          "string_material": 0.36499999999999994,
+          "bridge": 0.614625,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.5456249999999998
+          "string_tuning": 0.063
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.614625,
           "pickup_config": 0,
-          "string_type": 0.27399999999999997,
-          "scale_length_b": 0.6506249999999998,
-          "fretted_or_not": 0.48262499999999986,
-          "bass_technique": 3.7,
+          "string_type": 0.235,
+          "scale_length_b": 0.205125,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7742500000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.614625,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
-          "shell_thickness": 0.48262499999999986,
+          "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.269125000000001,
+          "cymbal_lathing": 3.7865,
           "cymbal_finish": 0
         }
       },
@@ -120,19 +120,19 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
+          "voice_effort": 0.11324999999999998,
           "voice_vibrato": 0,
           "voice_articulation": -0.07,
           "voice_microtone": 3.500000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.1264999999999998,
-          "voice_ensemble_config": 0.297375,
+          "voice_speech_song": 0.7218749999999998,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": 2.85325,
-          "voice_multitrack_stack": 0.160875
+          "voice_pitch_organization": 0.5516249999999999,
+          "voice_processing_chain": 2.731375,
+          "voice_multitrack_stack": 0
         }
       },
       {
@@ -147,7 +147,7 @@
         "scores": {
           "electronic_technique": -0.035,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.336,
+          "sampler_bit_depth": 0.41025,
           "sampler_workflow": -0.07,
           "sampler_classic_context": -0.15000000000000002
         }

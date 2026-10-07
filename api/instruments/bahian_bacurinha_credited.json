@@ -1,0 +1,56 @@
+{
+  "id": "bahian_bacurinha_credited",
+  "name": "Bacurinha (credited Bahian pagode role)",
+  "short": "Bacurinha with unspecified construction",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "bahian_bacurinha_credited_identity",
+      "name": "Credited source identity",
+      "variants": [
+        {
+          "id": "bahian_bacurinha_credited_source_unspecified",
+          "name": "Bacurinha with unspecified construction; construction and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Positive named bacurinha role in Bahian pagode arrangement. Existing Pernambucan owner fixes unrelated cavalo-marinho/maracatu context. This isolated source-preserving owner leaves membrane, shell, size and technique unspecified rather than importing that context. Neutral axes are authored uncertainty coordinates, not measured acoustics.",
+  "sources": [
+    "https://www.youtube.com/watch?v=JMcyuUhcIZw"
+  ],
+  "_ownParts": [
+    {
+      "id": "bahian_bacurinha_credited_identity",
+      "name": "Credited source identity",
+      "variants": [
+        {
+          "id": "bahian_bacurinha_credited_source_unspecified",
+          "name": "Bacurinha with unspecified construction; construction and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

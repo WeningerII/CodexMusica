@@ -2,10 +2,10 @@
   "id": "argentine_telepop",
   "name": "Argentine telepop",
   "family": "pop",
-  "lineage": "Argentine telepop: Lali — KO (2023), vocal/guitar foreground. Selected positively credited vocal/guitar core. The humbucker guitar is an authored family-level guitar realization, not a claim about CA7RIEL’s actual construction. Telepop is a discovery bucket; no universal television-specific sound is asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s argentine telepop, functional Song, pop rock branch. no specific ornament system. low output no compression clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 255,
-  "score": 15.573,
+  "lineage": "Argentine telepop connects television entertainment with popular music careers. Actor-singers such as Lali have developed independent recording and live-performance identities while retaining connections with audiences formed through screen culture.",
+  "recipe": "classic argentine telepop, functional Song, pop rock branch. group vocals, live take. clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 11.859,
   "config": {
     "traditions": [
       "argentine_telepop"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.441,
-          "voice_ornament_system": 2.6315,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 1.063
         }
       },
       {
@@ -59,9 +59,9 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
@@ -70,15 +70,15 @@
         "scores": {
           "electric_technique": 7.107499999999999,
           "amp_make": -0.07,
-          "body_wood": 0.6194999999999999,
+          "body_wood": 0.483,
           "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 1.3315000000000001,
+          "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.1365,
-          "scale_length": 0.6405000000000001,
-          "string_gauge": 1.1995,
+          "bridge": 0.2415,
+          "scale_length": 0.504,
+          "string_gauge": 0.1995,
           "finish": 0,
           "string_tuning": 0
         }

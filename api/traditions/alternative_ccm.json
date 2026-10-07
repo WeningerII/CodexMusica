@@ -2,10 +2,10 @@
   "id": "alternative_ccm",
   "name": "Alternative ccm",
   "family": "vernacular",
-  "lineage": "Alternative ccm: Switchfoot — documented alternative Christian rock band roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "lineage": "Alternative CCM connects contemporary Christian music audiences with alternative rock. Bands such as San Diego’s Switchfoot developed a following across both markets, bringing spiritually engaged songwriting into guitar-led rock performance.",
   "recipe": "classic alternative ccm, distorted Rock, alternative branch. equal tempered, notated speech melody, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, digital subtractive, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 454,
-  "score": 59.228,
+  "score": 57.224,
   "config": {
     "traditions": [
       "alternative_ccm"
@@ -39,16 +39,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0.4724999999999999,
           "voice_articulation": 0,
-          "voice_microtone": 9.109999999999996,
+          "voice_microtone": 8.499999999999996,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.875,
-          "voice_ensemble_config": 1.503,
+          "voice_speech_song": 1.3649999999999998,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 1.17,
+          "voice_multitrack_stack": 0.546,
           "voice_tessitura": 0
         }
       },
@@ -63,26 +63,26 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 3.5100000000000002,
+          "amp_make": 4.42,
           "body_wood": 2.4255,
           "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.39,
+          "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 1.3,
+          "bridge": 0.441,
           "scale_length": 1.743,
-          "string_gauge": 1.3,
+          "string_gauge": 0.441,
           "finish": 0,
-          "string_tuning": 3.6399999999999997
+          "string_tuning": 4.55
         }
       },
       {
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.965,
+          "amp_make": 4.875,
           "body_wood": 0.8820000000000001,
           "pickup_config": 0.273,
-          "string_type": 9.099999999999998,
+          "string_type": 11.375,
           "scale_length_b": 0.441,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
@@ -118,7 +118,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "va_archetypes": 0.1365,
-          "digital_subtractive_context": 2.773
+          "digital_subtractive_context": -0.035
         }
       },
       {
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
+          "drum_technique": 8.75,
           "drumhead": 0.5145,
           "drum_kit_kick_pedal": 0
         }

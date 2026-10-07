@@ -1,0 +1,94 @@
+{
+  "id": "eletronica_underground_brasileira",
+  "name": "Eletrônica underground brasileira",
+  "family": "electronic",
+  "lineage": "Brazilian underground electronic music develops through independent clubs, labels, producers and resident-DJ networks. House, techno, disco and experimental approaches intersect in a community distinct from, but connected to, the larger commercial dance economy.",
+  "recipe": "classic eletrônica underground brasileira, electronic Dance. analog synth, sampler. live tracking.",
+  "recipe_chars": 98,
+  "score": 7.309,
+  "config": {
+    "traditions": [
+      "eletronica_underground_brasileira"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "oscillator": -0.035,
+          "filter_topology": 0.063,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 7.344999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true
+  }
+}

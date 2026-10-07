@@ -2,10 +2,10 @@
   "id": "khmer_hip_hop",
   "name": "Khmer hip hop",
   "family": "hip_hop",
-  "lineage": "Khmer hip hop encompasses contemporary Cambodian and diasporic rap. VannDa’s collaboration with Kong Nay on Time To Rise supplies the selected rap, sung narrative and chapei dang veng branch.",
-  "recipe": "classic modern khmer hip hop, mc Rhythm, intl hip hop branch. rap, single lead single track no stacking. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 394,
-  "score": 33.816,
+  "lineage": "Khmer hip-hop connects Cambodian and diasporic rap networks with contemporary beat production. VannDa and Kong Nay exemplify an intergenerational strand that brings chapei narrative song into dialogue with rap.",
+  "recipe": "classic modern khmer hip hop, mc Rhythm, intl hip hop branch. rap. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 356,
+  "score": 30.593,
   "config": {
     "traditions": [
       "khmer_hip_hop"
@@ -25,15 +25,16 @@
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
           "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.123,
+          "voice_quality": 16.639999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +44,12 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.0315,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.522
+          "voice_multitrack_stack": 0.18,
+          "voice_tessitura": 0
         }
       },
       {
@@ -57,8 +59,8 @@
           "chapei_lute_tradition": "chapei_lute_dang_veng_canonical"
         },
         "scores": {
-          "chapei_lute_body": 4.9125,
-          "chapei_lute_tradition": 4.9585
+          "chapei_lute_body": 4.312499999999999,
+          "chapei_lute_tradition": 2.9045
         }
       },
       {
@@ -71,7 +73,7 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 0.75,
           "sample_processing": 0.105
         }
@@ -94,13 +96,15 @@
         "voice_ornament_system",
         "voice_pitch_organization",
         "voice_processing_chain",
-        "voice_multitrack_stack"
+        "voice_multitrack_stack",
+        "voice_tessitura"
       ],
       "chapei_lute": [
         "chapei_lute_body",
         "chapei_lute_tradition"
       ],
       "sampler_drum_machine": [
+        "electronic_technique",
         "sample_bitdepth",
         "sample_swing",
         "sample_processing"
@@ -116,36 +120,36 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "aural_relative",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "aural_relative",
     "room": "studio_auteur_home_pro",
     "parts": {
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "rap_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
       "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
       "chapei_lute_body": "chapei_lute_two_string_long_neck_canonical",
       "chapei_lute_tradition": "chapei_lute_dang_veng_canonical",
       "sample_bitdepth": "sixteen_bit",
       "sample_swing": "tight_swing",
-      "sample_processing": "one_shots_layered"
+      "sample_processing": "one_shots_layered",
+      "electronic_technique": "electronic_sample_chopped"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

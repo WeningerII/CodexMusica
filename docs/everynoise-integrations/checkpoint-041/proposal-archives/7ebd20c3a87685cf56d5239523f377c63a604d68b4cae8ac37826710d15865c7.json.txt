@@ -1,0 +1,273 @@
+{
+  "entries": [
+    {
+      "source_label": "korean talent show",
+      "source_url": "https://everynoise.com/engenremap-koreantalentshow.html",
+      "suggested_id": "korean_talent_show",
+      "allocation_ordinal": 3633,
+      "allocation_group_id": "146",
+      "id": "korean_talent_show",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "korean_talent_show",
+        "name": "Korean Talent Show",
+        "family": "classical",
+        "lineage": "Korean Talent Show — complete announced ACC September Brunch Concert, Countertenor David DQ Lee’s Ave Maria, 25September2024,11:00–12:20, ACC Theater2 Gwangju. Organizer gives the entire15-item recital programme and all three musicians: David DQ Lee(countertenor), Haewon Lee(soprano), James Jaewon Moon(piano). Preserve both singers, their separate solo turns and duets, and the pianist including the separately programmed Schubert piano solo. All programme roles retained; no orchestra, quartet colleagues, backing track or television house-band imported. This is the complete announced alumni concert practice, not a claim of personally hearing the performance or reproducing every realised encore; source says programme subject to change. The English page mistakenly calls his four-tenor group ForteDiQuattro; the same organizer French page identifies Forténa, which is retained as the corroborated name. Countertenor and soprano are source-stated musical voice types, not measurements of physiology. Broad artMusic/classical describes this specifically documented art-song/aria concert programme spanning Purcell, Handel, Schubert, Offenbach, Mozart, Beach, Satie and Heggie; it does not claim all television-talent repertoire is classical. One voice-family card retains the two named singers with live-duet/ensemble capacity, including alternating solo turns; no simultaneous duet on every number is asserted. Physiological mechanism, register-setting and ornament controls remain neutral for this mixed pair rather than imposing one shared anatomy. Natural unprocessed singing and moderate effort are authored rendition choices. The source-unspecified piano is realized as a standard modern upright with connected classical keyboard phrasing; not a claim that ACC used an upright or the publisher specified hardware. Shoebox-hall acoustics are an authored concert presentation, not measured Theater2 architecture. No global tuning or recording apparatus asserted.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "concert_hall_shoebox",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "artMusic",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Korean Talent Show — complete announced ACC September Brunch Concert, Countertenor David DQ Lee’s Ave Maria, 25September2024,11:00–12:20, ACC Theater2 Gwangju. Organizer gives the entire15-item recital programme and all three musicians: David DQ Lee(countertenor), Haewon Lee(soprano), James Jaewon Moon(piano). Preserve both singers, their separate solo turns and duets, and the pianist including the separately programmed Schubert piano solo. All programme roles retained; no orchestra, quartet colleagues, backing track or television house-band imported. This is the complete announced alumni concert practice, not a claim of personally hearing the performance or reproducing every realised encore; source says programme subject to change. The English page mistakenly calls his four-tenor group ForteDiQuattro; the same organizer French page identifies Forténa, which is retained as the corroborated name. Countertenor and soprano are source-stated musical voice types, not measurements of physiology. Korean Talent Show is a cross-style Korean televised-audition discovery and subsequent performer/repertoire community. JTBC’s own PhantomSinger programme establishes the vocal-competition institution; exact creator repertoire includes ForteDiQuattro/Forestella, JohnNoh, Miraclass and many related singers. This is not a new acoustic style inferred from a single concert. The selected ACC event explicitly foregrounds Lee’s PhantomSinger4 runner-up identity in its title/promotion and describes the second career generated through that programme, closing the institutional alumni-concert bridge even though this particular recital and Lee are not claimed as exact playlist items. Existing korean_classical_performance is a broad concert-performance field, not only its Bach/Chung exemplar: this selected recital overlaps it, while the televised-audition field also reaches crossover/pop/musical singers. Existing Korean Pop and modern K-pop remain broad popular/idol fields, not all institutionally competition-derived. Existing korean_superband explicitly names a narrower musician-development/band-formation broadcast community; it can overlap this broader television field without making it equivalent. Existing Australian/Latin/Norwegian/Danish talent categories describe other broadcaster communities. Korean Musicals is a theatrical production field, not this audition-to-concert pathway. Repo and accepted queue full relevant records inspected; no strict disjointness asserted. Broad artMusic/classical describes this specifically documented art-song/aria concert programme spanning Purcell, Handel, Schubert, Offenbach, Mozart, Beach, Satie and Heggie; it does not claim all television-talent repertoire is classical. One voice-family card retains the two named singers with live-duet/ensemble capacity, including alternating solo turns; no simultaneous duet on every number is asserted. Physiological mechanism, register-setting and ornament controls remain neutral for this mixed pair rather than imposing one shared anatomy. Natural unprocessed singing and moderate effort are authored rendition choices. The source-unspecified piano is realized as a standard modern upright with connected classical keyboard phrasing; not a claim that ACC used an upright or the publisher specified hardware. Shoebox-hall acoustics are an authored concert presentation, not measured Theater2 architecture. No global tuning or recording apparatus asserted.",
+        "exemplars": [
+          "David DQ Lee / Haewon Lee / James Jaewon Moon — whole ACC25September2024 AveMaria recital"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.15,
+        126.92,
+        "Gwangju",
+        "East Asia"
+      ],
+      "geo_rationale": "Actual organizer ACC performance city Gwangju; coordinate is city anchor, not exact stage measurement.",
+      "sources": [
+        {
+          "url": "https://www.acc.go.kr/en/performance.do?PID=0102&action=Read&bnkey=EM_0000007526",
+          "title": "National Asia Culture Center whole AveMaria recital programme",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12366view0 date/place/full institutional bridge; fresh indexed12369search0 full15item table and three-person roster preserved unmodified in korean-talent-recital-primary-raw119.json. English group-name inconsistency disclosed, not repeated as fact."
+        },
+        {
+          "url": "https://www.acc.go.kr/fr/performance.do?PID=0102&action=Read&bnkey=EM_0000007532",
+          "title": "Same official ACC programme French version",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12369search1 full15items/roster and correct Forténa identity; fresh direct12375view0 date/duration and title. No extra album instrumentation imported."
+        },
+        {
+          "url": "https://tv.jtbc.co.kr/plan/pr10010465",
+          "title": "JTBC PhantomSinger programme institution",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12375view1 broadcaster programme introduction; not claimed selected2024 performance recording."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0HDsBBxxbv2TkKpIZX2Ac0",
+          "title": "Exact creator Korean Talent Show repertoire",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh12367view0 full100positions include ForteDiQuattro/Forestella16, JohnNoh6, Miraclass2 and audition ensemble repertoire. No claimed selectedrecital/Lee membership."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Korean Talent Show is a cross-style Korean televised-audition discovery and subsequent performer/repertoire community. JTBC’s own PhantomSinger programme establishes the vocal-competition institution; exact creator repertoire includes ForteDiQuattro/Forestella, JohnNoh, Miraclass and many related singers. This is not a new acoustic style inferred from a single concert. The selected ACC event explicitly foregrounds Lee’s PhantomSinger4 runner-up identity in its title/promotion and describes the second career generated through that programme, closing the institutional alumni-concert bridge even though this particular recital and Lee are not claimed as exact playlist items. Existing korean_classical_performance is a broad concert-performance field, not only its Bach/Chung exemplar: this selected recital overlaps it, while the televised-audition field also reaches crossover/pop/musical singers. Existing Korean Pop and modern K-pop remain broad popular/idol fields, not all institutionally competition-derived. Existing korean_superband explicitly names a narrower musician-development/band-formation broadcast community; it can overlap this broader television field without making it equivalent. Existing Australian/Latin/Norwegian/Danish talent categories describe other broadcaster communities. Korean Musicals is a theatrical production field, not this audition-to-concert pathway. Repo and accepted queue full relevant records inspected; no strict disjointness asserted.",
+      "classification_evidence": "Korean Talent Show is a cross-style Korean televised-audition discovery and subsequent performer/repertoire community. JTBC’s own PhantomSinger programme establishes the vocal-competition institution; exact creator repertoire includes ForteDiQuattro/Forestella, JohnNoh, Miraclass and many related singers. This is not a new acoustic style inferred from a single concert. The selected ACC event explicitly foregrounds Lee’s PhantomSinger4 runner-up identity in its title/promotion and describes the second career generated through that programme, closing the institutional alumni-concert bridge even though this particular recital and Lee are not claimed as exact playlist items. Existing korean_classical_performance is a broad concert-performance field, not only its Bach/Chung exemplar: this selected recital overlaps it, while the televised-audition field also reaches crossover/pop/musical singers. Existing Korean Pop and modern K-pop remain broad popular/idol fields, not all institutionally competition-derived. Existing korean_superband explicitly names a narrower musician-development/band-formation broadcast community; it can overlap this broader television field without making it equivalent. Existing Australian/Latin/Norwegian/Danish talent categories describe other broadcaster communities. Korean Musicals is a theatrical production field, not this audition-to-concert pathway. Repo and accepted queue full relevant records inspected; no strict disjointness asserted.",
+      "model_policy": "Broad artMusic/classical describes this specifically documented art-song/aria concert programme spanning Purcell, Handel, Schubert, Offenbach, Mozart, Beach, Satie and Heggie; it does not claim all television-talent repertoire is classical. One voice-family card retains the two named singers with live-duet/ensemble capacity, including alternating solo turns; no simultaneous duet on every number is asserted. Physiological mechanism, register-setting and ornament controls remain neutral for this mixed pair rather than imposing one shared anatomy. Natural unprocessed singing and moderate effort are authored rendition choices. The source-unspecified piano is realized as a standard modern upright with connected classical keyboard phrasing; not a claim that ACC used an upright or the publisher specified hardware. Shoebox-hall acoustics are an authored concert presentation, not measured Theater2 architecture. No global tuning or recording apparatus asserted.",
+      "source_scope_limitation": "Korean Talent Show — complete announced ACC September Brunch Concert, Countertenor David DQ Lee’s Ave Maria, 25September2024,11:00–12:20, ACC Theater2 Gwangju. Organizer gives the entire15-item recital programme and all three musicians: David DQ Lee(countertenor), Haewon Lee(soprano), James Jaewon Moon(piano). Preserve both singers, their separate solo turns and duets, and the pianist including the separately programmed Schubert piano solo. All programme roles retained; no orchestra, quartet colleagues, backing track or television house-band imported. This is the complete announced alumni concert practice, not a claim of personally hearing the performance or reproducing every realised encore; source says programme subject to change. The English page mistakenly calls his four-tenor group ForteDiQuattro; the same organizer French page identifies Forténa, which is retained as the corroborated name. Countertenor and soprano are source-stated musical voice types, not measurements of physiology.",
+      "source_retrieval_caveat": "Full organizer programme text and official French corroboration retrieved, no audio/video audition. This is announced complete performance practice with explicit programme-change caveat, not a reconstructed mastered recording. No separately scored physiology inferred.",
+      "instrument_role_audit": {
+        "whole_scope": "Complete announced80minute15item recital",
+        "people": [
+          {
+            "name": "David DQ Lee",
+            "role": "countertenor voice"
+          },
+          {
+            "name": "Haewon Lee",
+            "role": "soprano voice"
+          },
+          {
+            "name": "James Jaewon Moon",
+            "role": "piano"
+          }
+        ],
+        "voice_solo_turns_and_duets": true,
+        "piano_solo_retained": true,
+        "omitted_positive_roles": []
+      },
+      "vocal_count_audit": {
+        "announced_singers": 2,
+        "source_voice_types": [
+          "countertenor",
+          "soprano"
+        ],
+        "voice_family_cards": 1,
+        "decision": "Both named singers retained, live-duet/ensemble setting supports pair and alternating solos; neutral anatomical settings do not claim same individual range."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad artMusic/classical describes this specifically documented art-song/aria concert programme spanning Purcell, Handel, Schubert, Offenbach, Mozart, Beach, Satie and Heggie; it does not claim all television-talent repertoire is classical. One voice-family card retains the two named singers with live-duet/ensemble capacity, including alternating solo turns; no simultaneous duet on every number is asserted. Physiological mechanism, register-setting and ornament controls remain neutral for this mixed pair rather than imposing one shared anatomy. Natural unprocessed singing and moderate effort are authored rendition choices. The source-unspecified piano is realized as a standard modern upright with connected classical keyboard phrasing; not a claim that ACC used an upright or the publisher specified hardware. Shoebox-hall acoustics are an authored concert presentation, not measured Theater2 architecture. No global tuning or recording apparatus asserted."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad artMusic/classical describes this specifically documented art-song/aria concert programme spanning Purcell, Handel, Schubert, Offenbach, Mozart, Beach, Satie and Heggie; it does not claim all television-talent repertoire is classical. One voice-family card retains the two named singers with live-duet/ensemble capacity, including alternating solo turns; no simultaneous duet on every number is asserted. Physiological mechanism, register-setting and ornament controls remain neutral for this mixed pair rather than imposing one shared anatomy. Natural unprocessed singing and moderate effort are authored rendition choices. The source-unspecified piano is realized as a standard modern upright with connected classical keyboard phrasing; not a claim that ACC used an upright or the publisher specified hardware. Shoebox-hall acoustics are an authored concert presentation, not measured Theater2 architecture. No global tuning or recording apparatus asserted."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "All owning control choices compatible and protected; no flat-key competition."
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "korean_talent_show",
+          "name": "Korean Talent Show",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording-microphone context only; not named singers, actual piano, ACC venue or equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn12134view1 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12134view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12134view1"
+        ]
+      },
+      "verification_status": "Source-complete candidate; original owning controls and all four actual formats must pass; independent peer pending."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

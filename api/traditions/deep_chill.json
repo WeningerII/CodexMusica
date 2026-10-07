@@ -1,0 +1,50 @@
+{
+  "id": "deep_chill",
+  "name": "Deep Chill",
+  "family": "electronic",
+  "lineage": "Deep chill connects relaxed electronic listening with lounge, Balearic and chill-house repertoire. Producers and selectors circulate melodic recordings through albums, compilations and continuous radio mixes, balancing gentle rhythmic movement with spacious textures.",
+  "recipe": "classic deep chill, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
+  "recipe_chars": 91,
+  "score": 0.085,
+  "config": {
+    "traditions": [
+      "deep_chill"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.08549999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

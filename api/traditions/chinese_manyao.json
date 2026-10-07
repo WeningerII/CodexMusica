@@ -1,0 +1,96 @@
+{
+  "id": "chinese_manyao",
+  "name": "Chinese manyao",
+  "family": "electronic",
+  "lineage": "Chinese manyao connects Chinese-language popular songs with dance remixes and continuous DJ programmes. Familiar vocal repertoire is recast through electronic rhythm, repeated hooks and contrasting sections.",
+  "recipe": "classic chinese manyao, electronic Dance. analog synth, sampler. live tracking.",
+  "recipe_chars": 79,
+  "score": 6.204,
+  "config": {
+    "traditions": [
+      "chinese_manyao"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "oscillator": "saw_super",
+          "filter_topology": "svf",
+          "envelope": "pad_env",
+          "modulation": "lfo_filter"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "oscillator": -0.035,
+          "filter_topology": 0.063,
+          "envelope": 0,
+          "modulation": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.126,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 6.24
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "oscillator": "saw_super",
+      "filter_topology": "svf",
+      "envelope": "pad_env",
+      "modulation": "lfo_filter",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true
+  }
+}

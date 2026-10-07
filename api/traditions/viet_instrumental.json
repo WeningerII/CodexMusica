@@ -1,0 +1,66 @@
+{
+  "id": "viet_instrumental",
+  "name": "Viet Instrumental",
+  "family": "global",
+  "lineage": "Viet instrumental connects Vietnamese instrumental repertoire across traditional instruments, modern interpreters and varied listening settings. The field includes zither, guitar, piano, saxophone and ensemble approaches rather than a single chamber tradition.",
+  "recipe": "classic viet instrumental, improv On Frame. steel modern dan tranh. live tracking.",
+  "recipe_chars": 82,
+  "score": 3.308,
+  "config": {
+    "traditions": [
+      "viet_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "dan_tranh",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "dan_tranh_use": "dan_tranh_folk",
+          "dan_tranh_strings": "dan_tranh_sixteen",
+          "dan_tranh_string_material": "dan_tranh_steel_modern",
+          "dan_tranh_body_wood": "dan_tranh_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.6445,
+          "dan_tranh_use": 0.39,
+          "dan_tranh_strings": 1.1365,
+          "dan_tranh_string_material": 1.1365,
+          "dan_tranh_body_wood": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dan_tranh": [
+        "plucked_traditional_technique",
+        "dan_tranh_use",
+        "dan_tranh_strings",
+        "dan_tranh_string_material",
+        "dan_tranh_body_wood"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "dan_tranh_use": "dan_tranh_folk",
+      "dan_tranh_strings": "dan_tranh_sixteen",
+      "dan_tranh_string_material": "dan_tranh_steel_modern",
+      "dan_tranh_body_wood": "dan_tranh_paulownia"
+    },
+    "pin_parts": true
+  }
+}

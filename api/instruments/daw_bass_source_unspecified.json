@@ -1,0 +1,52 @@
+{
+  "id": "daw_bass_source_unspecified",
+  "name": "DAW bass source (generator unspecified)",
+  "short": "DAW bass source",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "daw_bass_source_unspecified_identity",
+      "name": "Documented DAW source role",
+      "variants": [
+        {
+          "id": "daw_bass_source_unspecified_architecture_unspecified",
+          "name": "DAW bass source; architecture and interface unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "All positively named808 and bass roles retained as one low-source family; no physical RolandTR808,analog circuit,oscillator orsample mechanism inferred. Positively documented electronic production role in a DAW creation tutorial, not playback of an opaque finished master. Neutral axes are editorial routing; exact construction unknown.",
+  "sources": [
+    "https://www.youtube.com/watch?v=XocuqyTEVhk"
+  ],
+  "_ownParts": [
+    {
+      "id": "daw_bass_source_unspecified_identity",
+      "name": "Documented DAW source role",
+      "variants": [
+        {
+          "id": "daw_bass_source_unspecified_architecture_unspecified",
+          "name": "DAW bass source; architecture and interface unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

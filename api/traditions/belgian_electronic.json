@@ -2,10 +2,10 @@
   "id": "belgian_electronic",
   "name": "Belgian electronic",
   "family": "electronic",
-  "lineage": "Belgian electronic is represented by Joy Wellboy — What Baby synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
-  "recipe": "classic belgian electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 257,
-  "score": 4.375,
+  "lineage": "Belgian electronic music connects local production communities with varied club, experimental and popular-song approaches.",
+  "recipe": "classic belgian electronic, functional Song. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 202,
+  "score": 1.15,
   "config": {
     "traditions": [
       "belgian_electronic"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.168,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
         }
       },
       {
@@ -58,17 +58,20 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0605,
-          "voice_ornament_system": 0.21,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.092
+          "voice_multitrack_stack": 0
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "voice": [
         "voice_register",
@@ -124,7 +127,10 @@
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "electronic_technique": "electronic_pad_drone"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

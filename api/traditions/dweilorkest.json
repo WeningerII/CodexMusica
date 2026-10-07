@@ -1,0 +1,176 @@
+{
+  "id": "dweilorkest",
+  "name": "Dweilorkest",
+  "family": "vernacular",
+  "lineage": "Dweilorkesten are Dutch festive wind-and-percussion bands heard at carnival, sporting events and other public celebrations. Local associations sustain a participatory performance tradition with flexible instrumentation and familiar popular repertoire.",
+  "recipe": "classic dweilorkest, carnival Processional. trumpet, saxophone, trombone, sousaphone, credited auxiliary percussion. live tracking.",
+  "recipe_chars": 131,
+  "score": 0.728,
+  "config": {
+    "traditions": [
+      "dweilorkest"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.363,
+          "trumpet_maker_school": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "sax_size": -0.05,
+          "sax_reed": 0,
+          "sax_body_alloy": 0.26,
+          "sax_mouthpiece": 0.3315,
+          "sax_technique": -0.15000000000000002,
+          "sax_maker_school": -0.1
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": -0.1,
+          "trombone_mute": 0,
+          "trombone_technique": 0.38025,
+          "trombone_bell_metal": 0.363,
+          "trombone_maker_school": 0
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_bb_contrabass",
+          "sousaphone_context": "sousaphone_oompah_march"
+        },
+        "scores": {
+          "sousaphone_bore": 0,
+          "sousaphone_context": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "sousaphone": [
+        "sousaphone_bore",
+        "sousaphone_context"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_honking_attack",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "sousaphone_bore": "sousaphone_bb_contrabass",
+      "sousaphone_context": "sousaphone_oompah_march",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "id": "orquesta_cubana",
+  "name": "Orquesta Cubana",
+  "family": "global",
+  "lineage": "Orquesta Akokán — complete three-song KUTX Studio1A session,10May2022. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic orquesta cubana, groove Percussion, Cuban branch. cedar canonical Cuban tres cubano, grand piano, saxophone section alto tenor baritone, flute, trumpet, trombone, electric bass, mule hide canonical Cuban premium oak staved canonical Cuban congas, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, timbales stick played. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 449,
+  "score": 9.748,
+  "config": {
+    "traditions": [
+      "orquesta_cubana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.345,
+          "voice_ensemble_config": 0.0675,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "tres_cubano",
+        "slots": {
+          "plucked_traditional_technique": "plucked_dance_pattern",
+          "tres_courses": "tres_3x3",
+          "tres_cubano_context": "tres_cubano_salsa",
+          "tres_cubano_body_wood": "tres_cubano_cedar",
+          "tres_cubano_strings": "tres_cubano_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "tres_courses": 1.5,
+          "tres_cubano_context": 0,
+          "tres_cubano_body_wood": 1.5,
+          "tres_cubano_strings": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.3,
+          "piano_hammer": -0.1,
+          "piano_rim": 0.26,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": 0.2,
+          "piano_pitch_standard": -0.035
+        }
+      },
+      {
+        "id": "saxophone_section_alto_tenor_baritone",
+        "slots": {
+          "alto_tenor_baritone_section_articulation": "alto_tenor_baritone_section_articulation_short"
+        },
+        "scores": {
+          "alto_tenor_baritone_section_articulation": 0
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "flute_size": "concert_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "jazz_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "flute_size": 0,
+          "flute_material": 0,
+          "flute_technique": 0,
+          "flute_maker_school": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0,
+          "trumpet_maker_school": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": -0.1,
+          "trombone_mute": 0.3,
+          "trombone_technique": 0,
+          "trombone_bell_metal": 0,
+          "trombone_maker_school": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "conga_set": 0,
+          "conga_skin": 1.5,
+          "conga_shell_wood": 1.5
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "bongos_skin": 1.45,
+          "bongos_context": 0,
+          "bongos_shell_wood": 1.5
+        }
+      },
+      {
+        "id": "timbales_stick_played",
+        "slots": {
+          "timbales_playing": "timbales_stick_pattern",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_salsa"
+        },
+        "scores": {
+          "timbales_playing": 0,
+          "timbales_shell": 0,
+          "timbales_context": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "tres_cubano": [
+        "plucked_traditional_technique",
+        "tres_courses",
+        "tres_cubano_context",
+        "tres_cubano_body_wood",
+        "tres_cubano_strings"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "saxophone_section_alto_tenor_baritone": [
+        "alto_tenor_baritone_section_articulation"
+      ],
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "congas": [
+        "percussion_technique",
+        "conga_set",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "bongos": [
+        "percussion_technique",
+        "bongos_skin",
+        "bongos_context",
+        "bongos_shell_wood"
+      ],
+      "timbales_stick_played": [
+        "timbales_playing",
+        "timbales_shell",
+        "timbales_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_dance_pattern",
+      "tres_courses": "tres_3x3",
+      "tres_cubano_context": "tres_cubano_salsa",
+      "tres_cubano_body_wood": "tres_cubano_cedar",
+      "tres_cubano_strings": "tres_cubano_steel_modern",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "alto_tenor_baritone_section_articulation": "alto_tenor_baritone_section_articulation_short",
+      "wind_articulation": "wind_bebop_runs",
+      "flute_size": "concert_flute",
+      "flute_material": "silver_flute",
+      "flute_technique": "jazz_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "cup_mute",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "conga_skin": "conga_mule_hide",
+      "conga_shell_wood": "conga_oak_staved",
+      "bongos_skin": "bongos_mule_hide",
+      "bongos_context": "bongos_son",
+      "bongos_shell_wood": "bongos_oak_staved",
+      "timbales_playing": "timbales_stick_pattern",
+      "timbales_shell": "timbales_steel",
+      "timbales_context": "timbales_salsa"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

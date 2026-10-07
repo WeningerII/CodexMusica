@@ -1,0 +1,117 @@
+{
+  "id": "cheng_burup",
+  "name": "Cheng Burup pair",
+  "short": "Cheng Burup pair",
+  "family": "percussion",
+  "class": "cheng_burup",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "description": "Source-positive physical role and controls below; all axes editorial neutral. No uncredited source model, precise dimensions, tuning or extra cultural technique inferred.",
+  "sources": [
+    "https://www.easternmirrornagaland.com/rhythm-of-love-in-conversation-with-arak",
+    "https://bcf-india.org/museum/"
+  ],
+  "parts": [
+    {
+      "id": "cheng_burup_body",
+      "name": "body",
+      "variants": [
+        {
+          "id": "cheng_burup_body_tapered",
+          "name": "Inverted-basket taper, wedge-laced tension",
+          "default": true,
+          "descriptors": [
+            "wedge-tensioned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_burup_configuration",
+      "name": "configuration",
+      "variants": [
+        {
+          "id": "cheng_burup_configuration_paired",
+          "name": "Paired drums",
+          "default": true,
+          "descriptors": [
+            "paired"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_burup_playing",
+      "name": "playing",
+      "variants": [
+        {
+          "id": "cheng_burup_playing_sticks",
+          "name": "Bamboo or wooden sticks, membrane species unspecified",
+          "default": true,
+          "descriptors": [
+            "sticks"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cheng_burup_body",
+      "name": "body",
+      "variants": [
+        {
+          "id": "cheng_burup_body_tapered",
+          "name": "Inverted-basket taper, wedge-laced tension",
+          "default": true,
+          "descriptors": [
+            "wedge-tensioned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_burup_configuration",
+      "name": "configuration",
+      "variants": [
+        {
+          "id": "cheng_burup_configuration_paired",
+          "name": "Paired drums",
+          "default": true,
+          "descriptors": [
+            "paired"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "cheng_burup_playing",
+      "name": "playing",
+      "variants": [
+        {
+          "id": "cheng_burup_playing_sticks",
+          "name": "Bamboo or wooden sticks, membrane species unspecified",
+          "default": true,
+          "descriptors": [
+            "sticks"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

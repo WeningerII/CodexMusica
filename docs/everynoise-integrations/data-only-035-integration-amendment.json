@@ -1,0 +1,19 @@
+{
+  "original_frozen_sha256": "6e0aa3e6c5ffbb516b787ffcef41f45ee2eef53f8788a175c6ce8947284ae031",
+  "changes": [
+    {
+      "id": "mexican_techno",
+      "fields": ["extras.axes.percussion", "extras.axes.cyclicity"],
+      "before": [0.5, 0.5],
+      "after": [0, 0],
+      "reason": "Original validator requires integer -2..2. Neutral authored coordinates for complete cross-style source; source facts and full palette unchanged."
+    },
+    {
+      "id": "japanese_chill_rap",
+      "field": "tradition.parts.grand_piano_size and matching resolved_parts_audit",
+      "before": "grand_7_foot",
+      "after": "grand_9_foot",
+      "reason": "Coherent existing size for selected authored Steinway D; no measured source hardware claim."
+    }
+  ]
+}

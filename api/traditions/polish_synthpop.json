@@ -2,10 +2,10 @@
   "id": "polish_synthpop",
   "name": "Polish synthpop",
   "family": "pop",
-  "lineage": "Polish synthpop is represented here by Baasch — Noc-era vocal, synthesizer and drum core. This is a documented branch with an authored present-day studio realization.",
-  "recipe": "classic polish synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 289,
-  "score": 11.534,
+  "lineage": "Polish synthpop combines electronic songwriting with the energy of independent pop and live performance.",
+  "recipe": "classic polish synthpop, functional Song. solo with instrumental accompaniment. analog poly synth, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 234,
+  "score": 6.458,
   "config": {
     "traditions": [
       "polish_synthpop"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.035,
-          "poly_archetypes": 1.95,
-          "poly_voices": 0.168,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": -0.05,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
         }
       },
       {
@@ -34,8 +34,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.7149999999999999,
-          "drumhead": 6.305000000000001,
+          "drum_technique": -0.035,
+          "drumhead": 4.95,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -72,16 +72,19 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.21,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.9555
+          "voice_multitrack_stack": 0.34275
         }
       }
     ],
     "pinned": {
       "analog_poly_synth": [
-        "electronic_technique"
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
       ],
       "drum_kit": [
         "drum_technique"
@@ -141,7 +144,10 @@
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "electronic_technique": "electronic_arpeggiated",
-      "drum_technique": "sticks_disco_four"
+      "drum_technique": "sticks_disco_four",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

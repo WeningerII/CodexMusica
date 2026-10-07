@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "integration_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "entries": 100,
+  "renders": 400,
+  "all_parity": true,
+  "all_within_ceiling": true,
+  "semantic_review": "All 100 original integrated rich/prose/tags/compact outputs inspected against accepted role/physical/source reviews. No unrelated named cultural practice. Expressive prefaces are authored affect bundles, not verbatim source gear or every-token claims.",
+  "changed_vs_preflight": {
+    "cuento_infantile": "didactic becomes narrating with integrated positive story/narrative source signatures; appropriate to complete unaccompanied Spanish story reading. No parts/capture/roster changes."
+  },
+  "french_parent": "Broad artMusic correction leaves all four outputs equal and piano parts unchanged.",
+  "limitations": "Static optimizer outputs and baseline-neighbor causal changes still separately required."
+}

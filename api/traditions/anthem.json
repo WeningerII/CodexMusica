@@ -5,7 +5,7 @@
   "lineage": "Anthem: Jon Batiste — The Star-Spangled Banner, Super Bowl LIX2025; voice/piano core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic anthem, functional Song, pop rock branch. straight note core, equal tempered, notated speech melody, solo with instrumental accompaniment. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 37.723,
+  "score": 37.237,
   "config": {
     "traditions": [
       "anthem"
@@ -39,12 +39,12 @@
           "voice_effort": 0,
           "voice_vibrato": 1.885,
           "voice_articulation": 0,
-          "voice_microtone": 9.659999999999997,
+          "voice_microtone": 9.299999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 6.4350000000000005,
-          "voice_ensemble_config": 1.2285000000000001,
+          "voice_ensemble_config": 1.3365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -69,9 +69,9 @@
           "keyboard_technique": 4.141,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.399,
-          "piano_hammer": 3.9850000000000003,
+          "piano_hammer": 3.931,
           "piano_rim": 3.7630000000000003,
-          "piano_soundboard": 4.88,
+          "piano_soundboard": 4.7,
           "piano_pinblock": -0.05,
           "piano_plate": 0.26,
           "piano_pitch_standard": 0.325

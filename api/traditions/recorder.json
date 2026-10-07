@@ -1,0 +1,70 @@
+{
+  "id": "recorder",
+  "name": "Recorder",
+  "family": "classical",
+  "lineage": "Erik Bosgraaf — Telemann Fantasias / J.S. Bach Partita, complete39-movement2008 recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic recorder, art Music, western early branch. recorder. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 159,
+  "score": 5.861,
+  "config": {
+    "traditions": [
+      "recorder"
+    ],
+    "instruments": [
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "recorder_size": "alto_recorder",
+          "recorder_context": "recorder_baroque_solo",
+          "recorder_body_wood": "recorder_boxwood_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.11850000000000002,
+          "recorder_size": 1.69,
+          "recorder_context": 3.9,
+          "recorder_body_wood": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "recorder": [
+        "wind_articulation",
+        "recorder_size",
+        "recorder_context",
+        "recorder_body_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "recorder_size": "alto_recorder",
+      "recorder_context": "recorder_baroque_solo",
+      "recorder_body_wood": "recorder_boxwood_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

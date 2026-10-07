@@ -1,0 +1,479 @@
+{
+  "id": "zongora_maramures",
+  "name": "Zongoră (Maramureș accompaniment guitar)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Zongoră",
+  "parts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ],
+          "default": true
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": false,
+          "name": "Open-chord strumming (ringing)",
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "sitka",
+          "name": "Sitka spruce",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "headroom-rich",
+            "sitka-spruce",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": true
+        },
+        {
+          "id": "engelmann",
+          "default": false,
+          "name": "Engelmann spruce",
+          "descriptors": [
+            "low-density-tonewood",
+            "vintage",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mahogany_top",
+          "name": "Mahogany top",
+          "descriptors": [
+            "woody",
+            "midrange-thick",
+            "fundamental",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "back_sides",
+      "surface": false,
+      "name": "Back & sides",
+      "variants": [
+        {
+          "id": "rosewood_bs",
+          "default": true,
+          "name": "Indian rosewood",
+          "descriptors": [
+            "deep",
+            "overtone-rich",
+            "dimensional",
+            "indian-rosewood",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "mahogany_bs",
+          "name": "Mahogany",
+          "descriptors": [
+            "dry",
+            "fundamental",
+            "woody",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        },
+        {
+          "id": "maple_bs",
+          "name": "Maple",
+          "descriptors": [
+            "treble-extended",
+            "controlled",
+            "maple"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "string_acoustic",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "eighty_twenty",
+          "default": true,
+          "name": "80/20 bronze (modern bright)",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "bronze",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "silk_steel",
+          "name": "Silk-and-steel (parlor / vintage)",
+          "descriptors": [
+            "low-tension-strings",
+            "mellow",
+            "easy-pull",
+            "steel",
+            "silk"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "zongora_configuration",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "zongora_four_strings",
+          "name": "Four strings, closely grouped for strummed accompaniment",
+          "default": true,
+          "descriptors": [
+            "four-string"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "name": "Accompaniment tuning",
+      "variants": [
+        {
+          "id": "zongora_major_chord_tuning",
+          "name": "Regional major-chord accompaniment tuning; exact pitches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Regional adapted guitar for rapid strummed accompaniment in Maramureș. Reduced string configuration and closely grouped courses distinguish it from a standard six-string guitar. Materials remain selectable authored construction choices; no specific historical player or maker is implied.",
+  "sources": [
+    "https://ich.unesco.org/en/8b-representative-list-01146?id=01594&include=slideshow_inc.php",
+    "https://ich.unesco.org/doc/src/44167.pdf",
+    "https://mek.oszk.hu/06300/06351/06351.htm",
+    "https://eliznik.org.uk/traditions-in-romania/traditional-music/plucked-strings/"
+  ],
+  "_ownParts": [
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "acoustic_fingerpicked",
+          "name": "Fingerpicked",
+          "descriptors": [
+            "fingerpicked",
+            "narrative"
+          ],
+          "match_tokens": [
+            "acoustic-only"
+          ],
+          "canonical_tags": [
+            "singer-songwriter",
+            "folk",
+            "folk-revival",
+            "confessional",
+            "ballad-poetry"
+          ],
+          "default": true
+        },
+        {
+          "id": "acoustic_strummed_ringing",
+          "default": false,
+          "name": "Open-chord strumming (ringing)",
+          "descriptors": [
+            "strummed",
+            "open-chord-ringing-overtones"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "folk-revival",
+            "pop"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "top_wood",
+      "surface": false,
+      "name": "Top wood",
+      "variants": [
+        {
+          "id": "sitka",
+          "name": "Sitka spruce",
+          "descriptors": [
+            "treble-extended",
+            "articulate",
+            "headroom-rich",
+            "sitka-spruce",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": true
+        },
+        {
+          "id": "engelmann",
+          "default": false,
+          "name": "Engelmann spruce",
+          "descriptors": [
+            "low-density-tonewood",
+            "vintage",
+            "spruce"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "mahogany_top",
+          "name": "Mahogany top",
+          "descriptors": [
+            "woody",
+            "midrange-thick",
+            "fundamental",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "back_sides",
+      "surface": false,
+      "name": "Back & sides",
+      "variants": [
+        {
+          "id": "rosewood_bs",
+          "default": true,
+          "name": "Indian rosewood",
+          "descriptors": [
+            "deep",
+            "overtone-rich",
+            "dimensional",
+            "indian-rosewood",
+            "rosewood"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "mahogany_bs",
+          "name": "Mahogany",
+          "descriptors": [
+            "dry",
+            "fundamental",
+            "woody",
+            "mahogany"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        },
+        {
+          "id": "maple_bs",
+          "name": "Maple",
+          "descriptors": [
+            "treble-extended",
+            "controlled",
+            "maple"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "string_acoustic",
+      "surface": false,
+      "name": "Strings",
+      "variants": [
+        {
+          "id": "eighty_twenty",
+          "default": true,
+          "name": "80/20 bronze (modern bright)",
+          "descriptors": [
+            "treble-extended",
+            "snappy",
+            "fresh",
+            "bronze",
+            "80-20-cu-zn"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ]
+        },
+        {
+          "id": "silk_steel",
+          "name": "Silk-and-steel (parlor / vintage)",
+          "descriptors": [
+            "low-tension-strings",
+            "mellow",
+            "easy-pull",
+            "steel",
+            "silk"
+          ],
+          "match_tokens": [
+            "acoustic-only",
+            "plucked",
+            "strummed"
+          ],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "zongora_configuration",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "zongora_four_strings",
+          "name": "Four strings, closely grouped for strummed accompaniment",
+          "default": true,
+          "descriptors": [
+            "four-string"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "name": "Accompaniment tuning",
+      "variants": [
+        {
+          "id": "zongora_major_chord_tuning",
+          "name": "Regional major-chord accompaniment tuning; exact pitches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

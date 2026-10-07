@@ -5,7 +5,7 @@
   "lineage": "Cypriot metal is a national-scene umbrella, represented by Arrayan Path’s epic heavy/power-metal branch. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern cypriot metal, distorted Rock, power branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 421,
-  "score": 40.984,
+  "score": 40.89,
   "config": {
     "traditions": [
       "cypriot_metal"
@@ -131,7 +131,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.6735,
+          "rompler_preset_bank": 0.579,
           "rompler_context": 0.39,
           "rompler_lineage": 0.39
         }

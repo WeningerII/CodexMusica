@@ -1,0 +1,316 @@
+{
+  "entries": [
+    {
+      "id": "magyar_trap",
+      "source_label": "magyar trap",
+      "suggested_id": "magyar_trap",
+      "allocation_ordinal": 387,
+      "allocation_group_id": "016",
+      "status": "ready_for_independent_review",
+      "tradition": {
+        "id": "magyar_trap",
+        "name": "Magyar Trap",
+        "family": "hip_hop",
+        "lineage": "Magyar trap is Hungary’s contemporary trap scene, adapting 808-heavy hip-hop production to Hungarian-language verses, short hooks and playful ad-libs.",
+        "instruments": [
+          "voice",
+          "drum_machine_808"
+        ],
+        "room": "treated_studio",
+        "chain_mic": "condenser_sdc",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "description": "Emerging artists including Lil Frakk, Lmen Prala and the AKC collective connect spacious rap phrasing with heavy electronic low end and programmed rhythm. Personal, ironic and confrontational lyrics coexist, while melodic delivery and pitch processing connect parts of the scene with pop. The local network developed through online releases, collaborations and energetic live audiences.",
+        "exemplars": [
+          "Lil Frakk",
+          "Lmen Prala",
+          "AKC Misi"
+        ],
+        "axes": {
+          "percussion": 2,
+          "soundTech": 2,
+          "intensity": 1
+        }
+      },
+      "geo": [
+        47.4979,
+        19.0402,
+        "Budapest",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial national-scene anchor at Budapest; the RTL report also documents Vác and a Budapest international concert, not a claim of exclusive birthplace.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://kortarsonline.hu/aktual/lilfrakk.html",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh direct turn13532view0. Firsthand Lil Frakk interview positively names Hungarian trap peers, contrasting spacious phrasing with older hip-hop and explicitly describing growling 808s, ad-libs and the local generational community."
+        },
+        {
+          "url": "https://rtl.hu/fokusz/2022/02/12/trap-grosz-bence-lmen-prala-lil-tjay-akc-misi-akc-damigo-akc-kretta",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh direct turn13534view0. Broadcaster interviews Lmen Prala and AKC members; describes rap, short hooks, large bass, pitch processing and music-software production in the Hungarian trap scene."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "magyar_trap",
+          "name": "Magyar Trap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn13534view1 confirms Iain Fergusson/Binksternet credit and CC BY 2.5; inherited historical download and visual receipt retained.",
+          "fresh_review_ref": "turn13534view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh rights review turn13534view1, 2026-10-03; historical bytes and visual receipt inherited unchanged."
+      },
+      "model_policy": "Genre-practice profile. Representative rhythmic MC with 808-family programmed percussion and long low kick; not reconstruction of an individual master. Canonical Roland 808 construction is an authored conventional realization of the positively documented 808 role, not a claim that any named artist used original hardware. Unprocessed rhythmic lead is a viable branch; the public description retains melodic and pitch-processed diversity. No universal singer count, original gear, BPM or measured room claim.",
+      "neighbor_distinction": "The full hungarian_hip_hop record is a broad national rap scene, despite its selected Punnany band example; Magyar Trap is an overlapping named contemporary subfield established by firsthand scene and production discussion, not an exclusion of trap from Hungarian hip-hop. hungarian_underground_rap concerns a different overlapping network rather than all Hungarian rap; Hungarian pop is a broader song field. The global trap umbrella includes this regional branch; the distinction is the documented Hungarian-language community, not a novel synthesis mechanism. The complete underground record includes independent rap beyond its Akkezdet example; trap artists can also be independent, so neither category is claimed disjoint. Lil Frakk explicitly contrasts his old-school beginnings with the named trap cohort and production vocabulary.",
+      "classification_evidence": "mcRhythm.intlHipHop follows the source-positive rap-led Hungarian scene; no drill or nightclub-techno classification inferred from electronic instrumentation.",
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "selected_variant": "voice_register_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "selected_variant": "voice_quality_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vocal_tract",
+          "selected_variant": "tract_neutral",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_effort",
+          "selected_variant": "effort_moderate",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "selected_variant": "voice_vibrato_local_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_articulation",
+          "selected_variant": "spoken_voice",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "selected_variant": "voice_microtone_local_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "selected_variant": "voice_tradition_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "selected_variant": "voice_mechanism_compound_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "selected_variant": "voice_estill_quality_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "selected_variant": "voice_rhythmic_spoken_flow",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "selected_variant": "voice_ensemble_solo_accompanied",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "selected_variant": "voice_ornament_system_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "selected_variant": "voice_pitch_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "selected_variant": "voice_processing_unprocessed",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "selected_variant": "voice_multitrack_single_lead",
+          "protected": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tessitura",
+          "selected_variant": "voice_tessitura_source_unspecified",
+          "protected": true
+        },
+        {
+          "instrument": "drum_machine_808",
+          "part": "tr808_voice",
+          "selected_variant": "tr808_kick_long",
+          "protected": true
+        },
+        {
+          "instrument": "drum_machine_808",
+          "part": "drum_machine_808_context",
+          "selected_variant": "drum_machine_808_trap",
+          "protected": true
+        },
+        {
+          "instrument": "drum_machine_808",
+          "part": "tr808_production_origin",
+          "selected_variant": "tr808_roland_osaka_canonical",
+          "protected": true
+        }
+      ],
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "role": "Representative rhythmic rap lead; optional sung and processed branches described, not asserted for every performance."
+        },
+        {
+          "instrument": "drum_machine_808",
+          "role": "Programmed percussion and extended 808 low-end role explicitly supported by firsthand practice; no extra sampled master proxy."
+        }
+      ],
+      "vocal_count_audit": {
+        "model": "one representative lead role",
+        "genre_wide_headcount": "variable, not prescribed",
+        "source_master_reconstruction": false
+      },
+      "source_scope_limitation": "Genre-level practice from independent firsthand interviews; no claim to exhaustive instrumentation of a named recording.",
+      "source_url": "https://everynoise.com/engenremap-magyartrap.html"
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

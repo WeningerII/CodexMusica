@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "decision": "PASS",
+  "packet": "/tmp/batch040/resume119-28.json",
+  "sha256": "858004f6ba34ee2bd610fb55c26106274acd1c1fe82df51e816c392bd04c4936",
+  "packet_sha256": "858004f6ba34ee2bd610fb55c26106274acd1c1fe82df51e816c392bd04c4936",
+  "reviewer": "review_461",
+  "source_review": {
+    "primary": [
+      "https://kortarsonline.hu/aktual/lilfrakk.html",
+      "https://rtl.hu/fokusz/2022/02/12/trap-grosz-bence-lmen-prala-lil-tjay-akc-misi-akc-damigo-akc-kretta"
+    ],
+    "fresh_refs": [
+      "turn13538view0",
+      "turn13547view1"
+    ],
+    "finding": "Firsthand LilFrakk interview and broadcaster interviews establish Hungarian trap cohort, spacious rhythmic delivery, 808 bass and local language/production practice. Sparse MC plus 808 is a transparent representative genre branch, not a claim of reconstructing every named recording."
+  },
+  "boundary_review": "Read full Hungarian hip hop and Hungarian underground rap records. Their selected concert/sample exemplars do not limit the broad parent fields. Positive Hungarian trap cohort and trap production distinguish this narrower scene branch within overlapping national rap; no disjointness or date-only argument required. Global trap remains broader.",
+  "controls": {
+    "protected_owning_parts": 20,
+    "report": "/tmp/batch040/magyar-peer461-controls.json",
+    "note": "Original owning-control checker adapted only in an external scratch copy to read this packet flat per-part evidence representation. All original applicable variant/import checks and exact historical asset checks unchanged. No source/repository changes."
+  },
+  "render_review": {
+    "report": "/tmp/batch040/magyar-peer461-runtime.json",
+    "formats": 4,
+    "maximum_chars": 1000,
+    "finding": "All literal outputs read. Rhythmic spoken single accompanied lead and long-kick trap 808 are coherent. Street-pulsing/lurking are compatible generic affects. Original Roland physical voice-circuit realization is explicitly authored, not source equipment assertion. No unrelated culture or added role."
+  },
+  "photo_review": {
+    "fresh_ref": "turn13547view0",
+    "finding": "CC BY2.5 Iain Fergusson/Binksternet attribution and crop confirmed. Generic recording context LOW label appropriate; exact historical bytes/hash/dimensions verified, not fresh download claimed."
+  },
+  "limitations": [
+    "Source-only preflight; final combined original build and CI remain root responsibility."
+  ]
+}

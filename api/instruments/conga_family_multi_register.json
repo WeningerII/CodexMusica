@@ -1,0 +1,402 @@
+{
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "id": "conga_family_multi_register",
+  "name": "Conga family (credited multi-register set)",
+  "short": "Quinto, conga and tumba",
+  "parts": [
+    {
+      "id": "conga_complement",
+      "name": "Credited drum complement",
+      "variants": [
+        {
+          "id": "conga_complement_quinto_conga_tumba",
+          "name": "Quinto, conga and tumba/tumbador roles retained across selected program",
+          "default": true,
+          "descriptors": [
+            "low",
+            "mid",
+            "high",
+            "percussive"
+          ],
+          "match_tokens": [
+            "low",
+            "mid",
+            "high",
+            "percussive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica",
+            "conga_family_multi_register"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        },
+        {
+          "id": "percussion_open_slap",
+          "name": "Open / slap (hand-drum)",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "darbuka",
+            "timbales",
+            "conga_family_multi_register"
+          ],
+          "descriptors": [
+            "open-slap",
+            "hand-drum"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "conga_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "conga_mule_hide",
+          "default": true,
+          "name": "Mule-hide (canonical Cuban premium)",
+          "descriptors": [
+            "mule-hide-canonical-cuban-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_water_buffalo",
+          "name": "Water-buffalo hide (premium alternative)",
+          "descriptors": [
+            "water-buffalo-premium-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_cowhide",
+          "name": "Cowhide (mid-tier)",
+          "descriptors": [
+            "cowhide-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_synthetic_head",
+          "name": "Synthetic Remo Fiberskyn (modern stable)",
+          "descriptors": [
+            "synthetic-remo-fiberskyn-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conga_shell_wood",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "conga_oak_staved",
+          "default": true,
+          "name": "Oak staved (canonical Cuban LP / Matador / Gon Bops)",
+          "descriptors": [
+            "oak-staved-canonical-cuban"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_siam_oak",
+          "name": "Siam oak (mid-tier modern)",
+          "descriptors": [
+            "siam-oak-mid-tier-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_fiberglass",
+          "name": "Fiberglass (modern projecting alternative)",
+          "descriptors": [
+            "fiberglass-modern-projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_mahogany",
+          "name": "Mahogany (warmer premium)",
+          "descriptors": [
+            "mahogany-warmer-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "The full Elixir album explicitly credits congas, conga dos, tumbador and quinto to several named players. This owner preserves all three named conga-family registers instead of forcing one conga_set choice to erase the others. It does not assert a simultaneous three-drum setup on every track. Oak stave and mule-hide construction and layered hand playing are authored reproduction choices; actual source construction is unspecified.",
+  "sources": [
+    "https://olafresca.bandcamp.com/album/elixir"
+  ],
+  "_ownParts": [
+    {
+      "id": "conga_complement",
+      "name": "Credited drum complement",
+      "variants": [
+        {
+          "id": "conga_complement_quinto_conga_tumba",
+          "name": "Quinto, conga and tumba/tumbador roles retained across selected program",
+          "default": true,
+          "descriptors": [
+            "low",
+            "mid",
+            "high",
+            "percussive"
+          ],
+          "match_tokens": [
+            "low",
+            "mid",
+            "high",
+            "percussive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "percussion_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "percussion_hands_layered",
+          "default": true,
+          "name": "Hand percussion layered",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "pandeiro",
+            "tar_frame_drum",
+            "timbales",
+            "darbuka",
+            "cuica",
+            "conga_family_multi_register"
+          ],
+          "descriptors": [
+            "hands",
+            "layered"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        },
+        {
+          "id": "percussion_open_slap",
+          "name": "Open / slap (hand-drum)",
+          "applies_to": [
+            "congas",
+            "djembe",
+            "bongos",
+            "darbuka",
+            "timbales",
+            "conga_family_multi_register"
+          ],
+          "descriptors": [
+            "open-slap",
+            "hand-drum"
+          ],
+          "match_tokens": [
+            "open-chord-ringing-overtones",
+            "open-tuned",
+            "slappy",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "afro",
+            "latin"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "conga_skin",
+      "surface": false,
+      "name": "Skin material",
+      "variants": [
+        {
+          "id": "conga_mule_hide",
+          "default": true,
+          "name": "Mule-hide (canonical Cuban premium)",
+          "descriptors": [
+            "mule-hide-canonical-cuban-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_water_buffalo",
+          "name": "Water-buffalo hide (premium alternative)",
+          "descriptors": [
+            "water-buffalo-premium-alternative"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_cowhide",
+          "name": "Cowhide (mid-tier)",
+          "descriptors": [
+            "cowhide-mid-tier"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_synthetic_head",
+          "name": "Synthetic Remo Fiberskyn (modern stable)",
+          "descriptors": [
+            "synthetic-remo-fiberskyn-modern-stable"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conga_shell_wood",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "conga_oak_staved",
+          "default": true,
+          "name": "Oak staved (canonical Cuban LP / Matador / Gon Bops)",
+          "descriptors": [
+            "oak-staved-canonical-cuban"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_siam_oak",
+          "name": "Siam oak (mid-tier modern)",
+          "descriptors": [
+            "siam-oak-mid-tier-modern"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_fiberglass",
+          "name": "Fiberglass (modern projecting alternative)",
+          "descriptors": [
+            "fiberglass-modern-projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        },
+        {
+          "id": "conga_mahogany",
+          "name": "Mahogany (warmer premium)",
+          "descriptors": [
+            "mahogany-warmer-premium"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hands"
+          ]
+        }
+      ]
+    }
+  ]
+}

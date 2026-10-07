@@ -1,0 +1,76 @@
+{
+  "id": "musica_tabasquena",
+  "name": "Música tabasqueña",
+  "family": "vernacular",
+  "lineage": "Música tabasqueña gathers Tabasco’s regional repertoire, including the tamborilero traditions maintained through community performance and cultural transmission. Indigenous and mestizo practices meet in ceremonial, social and dance settings.",
+  "recipe": "classic música tabasqueña, groove Percussion. flauta carrizo tabasquena, requinto tambor grande tabasqueno. live tracking.",
+  "recipe_chars": 122,
+  "score": 0.426,
+  "config": {
+    "traditions": [
+      "musica_tabasquena"
+    ],
+    "instruments": [
+      {
+        "id": "flauta_carrizo_tabasquena",
+        "slots": {
+          "flauta_carrizo_tabasquena_assembly": "flauta_carrizo_tabasquena_seven_openings"
+        },
+        "scores": {
+          "flauta_carrizo_tabasquena_assembly": 0.3
+        }
+      },
+      {
+        "id": "requinto_tabasqueno",
+        "slots": {
+          "requinto_tabasqueno_assembly": "requinto_tabasqueno_mahogany_goat_cord"
+        },
+        "scores": {
+          "requinto_tabasqueno_assembly": 0.063
+        }
+      },
+      {
+        "id": "tambor_grande_tabasqueno",
+        "slots": {
+          "tambor_grande_tabasqueno_assembly": "tambor_grande_tabasqueno_mahogany_goat_cord"
+        },
+        "scores": {
+          "tambor_grande_tabasqueno_assembly": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "flauta_carrizo_tabasquena": [
+        "flauta_carrizo_tabasquena_assembly"
+      ],
+      "requinto_tabasqueno": [
+        "requinto_tabasqueno_assembly"
+      ],
+      "tambor_grande_tabasqueno": [
+        "tambor_grande_tabasqueno_assembly"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "flauta_carrizo_tabasquena_assembly": "flauta_carrizo_tabasquena_seven_openings",
+      "requinto_tabasqueno_assembly": "requinto_tabasqueno_mahogany_goat_cord",
+      "tambor_grande_tabasqueno_assembly": "tambor_grande_tabasqueno_mahogany_goat_cord"
+    },
+    "pin_parts": true
+  }
+}

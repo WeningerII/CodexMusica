@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "authorized_exact_fixture_ids": ["goa_trance", "antifolk_nyc"],
+  "actually_changed": ["antifolk_nyc", "goa_trance"],
+  "unchanged_fixture_count": 1147,
+  "outputs_match_independent_review": true
+}

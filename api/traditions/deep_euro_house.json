@@ -1,0 +1,50 @@
+{
+  "id": "deep_euro_house",
+  "name": "Deep Euro House",
+  "family": "electronic",
+  "lineage": "Deep euro house is a discovery label connecting European-oriented melodic house, vocal crossover records and club producers. Its artist network spans radio-friendly songs, deep-house grooves and longer underground mixes, circulating through streaming playlists, labels and DJ programmes.",
+  "recipe": "classic deep euro house, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 103,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "deep_euro_house"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

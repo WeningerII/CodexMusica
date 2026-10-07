@@ -1,0 +1,60 @@
+{
+  "id": "chakra",
+  "name": "Chakra",
+  "family": "global",
+  "lineage": "Chakra music belongs to contemporary meditation and devotional listening practices that organize sound around the chakra system. Artists such as Sonic Yogi use sustained singing-bowl recordings within this listening tradition.",
+  "recipe": "classic chakra, experimental Elec, ambient branch. himalayan singing bowl. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 173,
+  "score": 0.84,
+  "config": {
+    "traditions": [
+      "chakra"
+    ],
+    "instruments": [
+      {
+        "id": "himalayan_singing_bowl",
+        "slots": {
+          "singing_bowl_form": "singing_bowl_hand_hammered",
+          "singing_bowl_technique": "singing_bowl_rim_rubbed"
+        },
+        "scores": {
+          "singing_bowl_form": 0.4095,
+          "singing_bowl_technique": 0.4305
+        }
+      }
+    ],
+    "pinned": {
+      "himalayan_singing_bowl": [
+        "singing_bowl_form",
+        "singing_bowl_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "singing_bowl_form": "singing_bowl_hand_hammered",
+      "singing_bowl_technique": "singing_bowl_rim_rubbed"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

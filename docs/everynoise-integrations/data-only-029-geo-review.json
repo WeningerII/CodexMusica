@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "id": "kizomba_cabo_verdiana",
+  "before": [16.5388, -23.0418, "Cape Verde", "Africa"],
+  "after": [15.1, -23.6, "Santiago, Cape Verde", "Africa"],
+  "reason": "Atlas land check rejects ocean centroid; editorialnationalanchor moved to existing on-landSantiago catalog convention.",
+  "source": "https://www.governo.cv/documentos/perfil-do-sector-de-habitacao/",
+  "source_ref": "turn228162search12",
+  "frozen_before_sha256": "59920fc0e80c089b82d9a66f11d94a67126b5fa20f6d77170df04b0907396043",
+  "frozen_after_sha256": "76f778653bd1a7ec5bebe0e2966052e5081dc0c0a012bbcbaf8a0046d121cc5c",
+  "api_recipe_inputs_unchanged": true,
+  "changed_entry_fields": ["geo", "geo_rationale"]
+}

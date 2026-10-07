@@ -5,7 +5,7 @@
   "lineage": "Polish noise rock is represented here by Nagrobki — Pod Ziemią. This documented branch is realized as an authored present-day recording arrangement.",
   "recipe": "classic polish noise rock, distorted Rock, noise rock branch. marshall plexi amp British rock amp humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 26.966,
+  "score": 26.731,
   "config": {
     "traditions": [
       "polish_noise_rock"
@@ -31,16 +31,16 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 6.76,
-          "body_wood": 0.4305,
-          "neck_wood": 0.3045,
+          "body_wood": 0.46199999999999997,
+          "neck_wood": 0.3795,
           "fretboard": 0.2415,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.231,
           "string_material": 0.16799999999999998,
-          "bridge": 1.69,
-          "scale_length": 0.609,
-          "string_gauge": 1.69,
-          "finish": 0.0315,
+          "bridge": 1.5415,
+          "scale_length": 0.6839999999999999,
+          "string_gauge": 1.4365,
+          "finish": 0.1365,
           "string_tuning": 0.39
         }
       },
@@ -89,11 +89,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.37050000000000005,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0.1995,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.129
+          "voice_processing_chain": 0.12,
+          "voice_multitrack_stack": 0.0315
         }
       }
     ],

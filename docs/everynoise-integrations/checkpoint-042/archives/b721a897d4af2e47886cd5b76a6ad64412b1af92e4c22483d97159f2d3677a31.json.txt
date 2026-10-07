@@ -1,0 +1,46 @@
+{
+  "status": "PASS_STANDALONE21_ON_453",
+  "packet": "/workspace/genre-continuation/research/next-additions-projection461/qualification-v2/qualified21.json",
+  "sha256": "8cc58e3872f0b354ff669f1848d75aa8329ee59a6c0bcae4d9f93de6a407a8c9",
+  "source_projection23_sha256": "ac1c4554b18870d65db379be2246d1f4cf2213cd8f32b79a8bbbbc8eb0ad46cf",
+  "baseline": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "entries": 21,
+  "controls": 344,
+  "browser_formats": 84,
+  "target_api_configs": 21,
+  "all_source_controls_preserved": true,
+  "all_target_browser_and_API_recipes_identical_to_reviewed23": true,
+  "old_api": {
+    "graph_coverage": 6725,
+    "identical_graphs": 6724,
+    "changed_graph_ids": [
+      "dub_poetry"
+    ],
+    "replayed_musical_configs_and_recipes_identical": true
+  },
+  "old_fixtures": {
+    "definitions": 1174,
+    "unique_ids": 1149,
+    "identical_graphs": 1173,
+    "replayed": [
+      "dub_poetry"
+    ],
+    "musical_configs_and_recipes_identical": true
+  },
+  "deferred_source_approved_additions": [
+    "jain_bhajan",
+    "marathi_balgeet"
+  ],
+  "deferred_reason": "Full23 causes4 untouched old API musical drifts; source and target approvals retained, integration effects not qualified. Omitting pair restores all4 and leaves only harmless DubPoetry graph variation.",
+  "not_claimed": "No full API build/CI or combined302-repair qualification; parent alone integrates.",
+  "evidence": {
+    "subset21-graph-comparison.json": "1b8c9c59d86a5d6cf2f6d513e1def4783b00b7d04656004ccd9e179d8bc498da",
+    "api-without-two-graph.json": "7df106aa31f7b50da6c32999d48c41db211744a77180c8287aa150740c4b3f4c",
+    "fixture-without-two-graph.json": "a2ceebce74a4ef62e02e80868dc95ee4d63e9d9b8803ba1c48c8dd0721e5c78b",
+    "api-subset21-replays.json": "ed1b18ea776c28190457134153476dc462167b50d13a69899d2780f173ceb1c9",
+    "fixture-subset21-replays.json": "708497a3d21d57bd9e643b5ef7216b1eb28ba1540b7ad125ac1bdf0a0f2338d2",
+    "combined21-new-runtime.json": "f7d5bb2478560e1316d0a7d081fcba833d12e0f9510d03d1630dac099bd8c559",
+    "combined-new-semantic-review.json": "fcdfaee2ecf2f1b49365e4d49d1388b77b421d864f44fe7b3adae837057b6ab4",
+    "counterfactual-four-comparison.json": "cf4995313e4a56308a8665cfdcd0549f37b9e49a6bc8743e256feb33550b07ba"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Goa trance",
   "family": "global",
   "lineage": "Mid-1990s Indian-beach electronic dance subgenre, codified through full-moon parties on Goa beaches (Anjuna, Vagator) — Goa Gil as the canonical DJ-organizer, with characteristic 130-140 BPM tempo, acid-bass-line foundation, Indian-modal melodic motifs, and analog-synth-and-303 production aesthetic",
-  "recipe": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional baps devotional music borgeet. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
-  "recipe_chars": 522,
-  "score": 45.375,
+  "recipe": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional odia bhajan. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
+  "recipe_chars": 523,
+  "score": 51.083,
   "config": {
     "traditions": [
       "goa_trance",
-      "baps",
-      "borgeet_assamese"
+      "marathi_devotional",
+      "odia_bhajan"
     ],
     "instruments": [
       {
@@ -27,20 +27,20 @@
           "mono_oscillator": 1.3,
           "mono_filter": 2.6,
           "mono_archetypes": 1.435,
-          "mono_maker_lineage": 3.575
+          "mono_maker_lineage": 2.535
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_lead_line",
           "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.9999999999999999,
+          "electronic_technique": 2.01,
           "va_archetypes": 3.8,
-          "digital_subtractive_context": 9.424999999999997
+          "digital_subtractive_context": 11.830000000000002
         }
       },
       {
@@ -52,7 +52,7 @@
         },
         "scores": {
           "tr909_voice": 0,
-          "drum_machine_909_context": 2.145,
+          "drum_machine_909_context": 1.3,
           "tr909_production_origin": 3.9800000000000004
         }
       },
@@ -60,17 +60,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "emu_emax",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sampler_archetypes": 1.3,
+          "sampler_archetypes": 1.625,
           "sampler_bit_depth": 2.5000000000000004,
-          "sampler_workflow": 2.335,
-          "sampler_classic_context": 11.179999999999994
+          "sampler_workflow": 1.8199999999999998,
+          "sampler_classic_context": 12.934999999999999
         }
       }
     ],

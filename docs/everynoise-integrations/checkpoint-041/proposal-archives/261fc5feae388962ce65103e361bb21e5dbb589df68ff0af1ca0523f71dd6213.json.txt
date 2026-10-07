@@ -1,0 +1,227 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "polish_alternative_rap",
+        "name": "Polish Alternative Rap",
+        "family": "hip_hop",
+        "lineage": "Polish alternative rap connects MCs and producers exploring approaches outside dominant rap conventions. Independent releases, electronic collaborations and specialist radio programming sustain a varied field with international influences.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic verses meet producer-built accompaniment with unconventional textures and contrasting moods. Electronic and sample-based approaches can draw on dark ambient, industrial music or techno, while other branches favor different forms of experimentation.",
+        "exemplars": [
+          "ShortyUnInc",
+          "Korowiow"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "polish_alternative_rap",
+          "name": "Polish Alternative Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rhythmic rapper and produced accompaniment follows documented producer/MC collaboration at genre-practice level. This is not a reconstruction of Lazarus Syndrome: its instrumental tracks, guest rappers and DJ scratches remain acknowledged in evidence, with no claim that a two-card default exhausts that album. Exact beat architecture and performer count remain unknown; neutral produced-beat identity avoids an invented synthesizer or sampler. Moderate unprocessed rhythmic delivery and controlled room are authored choices, not source-session measurements."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rhythmic rapper and produced accompaniment follows documented producer/MC collaboration at genre-practice level. This is not a reconstruction of Lazarus Syndrome: its instrumental tracks, guest rappers and DJ scratches remain acknowledged in evidence, with no claim that a two-card default exhausts that album. Exact beat architecture and performer count remain unknown; neutral produced-beat identity avoids an invented synthesizer or sampler. Moderate unprocessed rhythmic delivery and controlled room are authored choices, not source-session measurements."
+        }
+      ],
+      "source_label": "polish alternative rap",
+      "source_url": "https://everynoise.com/engenremap-polishalternativerap.html",
+      "suggested_id": "polish_alternative_rap",
+      "allocation_ordinal": 445,
+      "allocation_group_id": "018",
+      "id": "polish_alternative_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        54.352,
+        18.6466,
+        "Gdańsk",
+        "Europe"
+      ],
+      "geo_rationale": "One documented practitioner hub; not exclusive origin or session address.",
+      "signature_tokens": [],
+      "model_policy": "Representative rhythmic rapper and produced accompaniment follows documented producer/MC collaboration at genre-practice level. This is not a reconstruction of Lazarus Syndrome: its instrumental tracks, guest rappers and DJ scratches remain acknowledged in evidence, with no claim that a two-card default exhausts that album. Exact beat architecture and performer count remain unknown; neutral produced-beat identity avoids an invented synthesizer or sampler. Moderate unprocessed rhythmic delivery and controlled room are authored choices, not source-session measurements.",
+      "neighbor_distinction": "Polish Hip Hop already includes electronic production and live experimentation, so those sounds are not excluded from the national umbrella. This is its positively self-described alternative field: practitioner self-identification, collaborations across electronic aesthetics and dedicated Polish Radio curatorial usage establish a narrower orientation. Global Alternative Hip Hop is not restricted to De La Soul, and Experimental Hip Hop is not restricted to Shabazz Palaces; both overlap. Queued Polish Underground Rap identifies independent circulation and performance networks, which overlap but do not require an alternative musical orientation. Queued Polish Alternative and Polish Indie span non-rap music as well. Polish Old School Hip Hop concerns foundational bboy/true-school lineage; no mutually exclusive artist membership is claimed.",
+      "classification_evidence": "Polish Hip Hop already includes electronic production and live experimentation, so those sounds are not excluded from the national umbrella. This is its positively self-described alternative field: practitioner self-identification, collaborations across electronic aesthetics and dedicated Polish Radio curatorial usage establish a narrower orientation. Global Alternative Hip Hop is not restricted to De La Soul, and Experimental Hip Hop is not restricted to Shabazz Palaces; both overlap. Queued Polish Underground Rap identifies independent circulation and performance networks, which overlap but do not require an alternative musical orientation. Queued Polish Alternative and Polish Indie span non-rap music as well. Polish Old School Hip Hop concerns foundational bboy/true-school lineage; no mutually exclusive artist membership is claimed.",
+      "source_scope_limitation": "Representative rhythmic rapper and produced accompaniment follows documented producer/MC collaboration at genre-practice level. This is not a reconstruction of Lazarus Syndrome: its instrumental tracks, guest rappers and DJ scratches remain acknowledged in evidence, with no claim that a two-card default exhausts that album. Exact beat architecture and performer count remain unknown; neutral produced-beat identity avoids an invented synthesizer or sampler. Moderate unprocessed rhythmic delivery and controlled room are authored choices, not source-session measurements.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "ShortyUnInc describes guest MC verses written over completed productions; Korowiow identifies his own alternative rap practice."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Firsthand producer explains completing instrumental backing before inviting rappers. This is actual accompaniment construction, not opaque finished-master playback."
+        }
+      ],
+      "vocal_count_audit": {
+        "actual_genre_headcount": "variable",
+        "represented_role": "one authored lead rapper with produced accompaniment",
+        "no_exact_recording_reconstruction": true
+      },
+      "sources": [
+        {
+          "url": "https://jeszczenie.pl/shortyuninc-wywiad/",
+          "primary": true,
+          "evidence_ref": "turn13823view0",
+          "supports": "Original producer interview: alternative-hip-hop self-classification, completed instrumental productions supplied to MCs, electronic influences and optional scratch collaboration. Genre-level practice, not full album reconstruction."
+        },
+        {
+          "url": "https://korowiow.com/",
+          "primary": true,
+          "evidence_ref": "turn13823view1",
+          "supports": "Artist-owned site explicitly identifies Polish alternative rap and describes techno/heavier electronic influences."
+        },
+        {
+          "url": "https://www.polskieradio.pl/10/11436/Artykul/3594451%2Ceksperymentalny-rap-alternatywny-hiphop-i-nowe-projekty-z-polski-i-zagranicy-do-sluchania-zaprosil-adam-smolarek",
+          "primary": true,
+          "evidence_ref": "turn13824search0",
+          "supports": "Institutional original programme explicitly curates alternative/experimental hip-hop from Poland and abroad; supports a field broader than one artist, not a wholly Polish programme."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -1,0 +1,79 @@
+{
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "predecessor": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+  "current_results": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 16.7,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 10.8,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 83.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 33.3,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 98.9,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 20.4,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.4,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "baseline_results": [
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 99.3,
+      "log": "baseline-check_ui_foundation.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.2,
+      "log": "baseline-ui_reachability_check.log"
+    }
+  ],
+  "scope": "Six local browser checks pass. Two failures independently reproduce on exact predecessor with unchanged checker code and local Chromium151; pinned Chromium148 download unavailable. These are not local passes. Exact-head remote CI must pass unchanged gates before merge.",
+  "failure_evidence": {
+    "check_ui_foundation": {
+      "baseline": "UI FOUNDATION: FAIL \u2014 1 problem(s):\n  \u2717 O. with no larger copy loading, the enlarged genre photo did not keep its thumb ({\"open\":true,\"role\":\"dialog\",\"modal\":\"true\",\"label\":\"Photo of Delta blues\",\"src\":\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg/1280px-Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg\",\"width\":1024,\"height\":1024,\"natural\":[1024,1024],\"inView\":true,\"credit\":\"Photo: Nubiatech \u00b7 CC BY-SA 3.0Click anywhere to close\",\"href\":\"https://commons.wikimedia.org/wiki/File:Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg\",\"focusInside\":true,\"locked\":true})\n",
+      "current": "UI FOUNDATION: FAIL \u2014 1 problem(s):\n  \u2717 O. with no larger copy loading, the enlarged genre photo did not keep its thumb ({\"open\":true,\"role\":\"dialog\",\"modal\":\"true\",\"label\":\"Photo of Delta blues\",\"src\":\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg/1280px-Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg\",\"width\":1024,\"height\":1024,\"natural\":[1024,1024],\"inView\":true,\"credit\":\"Photo: Nubiatech \u00b7 CC BY-SA 3.0Click anywhere to close\",\"href\":\"https://commons.wikimedia.org/wiki/File:Big_Jack_Johnson_-_Chicago_Blues_Festival_2009.jpg\",\"focusInside\":true,\"locked\":true})\n"
+    },
+    "ui_reachability_check": {
+      "baseline": "Target is the lazy shell \u2014 building an embedded codex.html for the reachability run.\nBuilt /tmp/codex_reach_embed_94499.html (19,366,457 bytes)\nnote: that is the resolved output dir, not the committed ./codex.html \u2014 that file is unchanged.\n      to update it: CODEX_OUT_DIR=\"$(pwd)\" node scripts/build_html.js   (or --out=codex.html)\nChecking 220 reachable entries against /tmp/codex_reach_embed_94499.html\n\u2717 Reachability check crashed: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/codex_reach_embed_94499.html\nCall log:\n\u001b[2m  - navigating to \"file:///tmp/codex_reach_embed_94499.html\", waiting until \"load\"\u001b[22m\n\n    at main (/workspace/genre-continuation/research/batch031-baseline/source/scripts/ui_reachability_check.js:442:16) {\n  name: 'Error'\n}\n",
+      "current": "Target is the lazy shell \u2014 building an embedded codex.html for the reachability run.\nBuilt /tmp/codex_reach_embed_92805.html (19,767,037 bytes)\nnote: that is the resolved output dir, not the committed ./codex.html \u2014 that file is unchanged.\n      to update it: CODEX_OUT_DIR=\"$(pwd)\" node scripts/build_html.js   (or --out=codex.html)\nChecking 220 reachable entries against /tmp/codex_reach_embed_92805.html\n\u2717 Reachability check crashed: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/codex_reach_embed_92805.html\nCall log:\n\u001b[2m  - navigating to \"file:///tmp/codex_reach_embed_92805.html\", waiting until \"load\"\u001b[22m\n\n    at main (/workspace/CodexMusica/scripts/ui_reachability_check.js:442:16) {\n  name: 'Error'\n}\n"
+    }
+  }
+}

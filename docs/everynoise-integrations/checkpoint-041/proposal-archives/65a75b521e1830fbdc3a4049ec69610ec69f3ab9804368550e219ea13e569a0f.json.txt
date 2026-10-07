@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch040/transfer461-detroit-brasileiro-grand-practice.json",
+  "packet_sha256": "c000f156c2cb105cf467faf526631e449f3ab6cd201da6f2b88ef3cfdbd52fc3",
+  "reviewer": "research_119",
+  "source_review": {
+    "status": "PASS",
+    "fresh_references": [
+      "turn13539view0",
+      "turn13539view1",
+      "turn13539view2"
+    ],
+    "finding": "Original Brazilian scene criticism positively identifies the local Detroit adaptation and piano, bass, drums and rap. Producer-issued beat corroborates production activity. Exact creator repertoire recovered. Genre-practice standard does not demand reconstruction of a named recording."
+  },
+  "boundary_review": {
+    "status": "PASS",
+    "full_existing_records": [
+      "trap_brasileiro",
+      "detroit_hip_hop"
+    ],
+    "finding": "Full national trap and later Detroit rap overlap explicitly acknowledged. Named Brazilian adaptation positively documented; not a claim that Detroit ended with Dilla or that Brazilian trap excludes this branch."
+  },
+  "controls": {
+    "status": "PASS",
+    "applicable": 29,
+    "protected": 29,
+    "invalid": [],
+    "new_dependencies": 0
+  },
+  "rights": {
+    "status": "PASS",
+    "fresh_independent_reference": "turn13534view1",
+    "finding": "Same Commons microphone image, Iain Fergusson/Binksternet, CC BY2.5. Low generic recording context candid, inherited bytes and visual receipt unchanged."
+  },
+  "runtime": {
+    "path": "/tmp/batch040/detroit-brasileiro-runtime119.json",
+    "formats": 4,
+    "mechanical_status": "PASS",
+    "maximum_chars": 917,
+    "semantic_status": "PASS",
+    "reason": "Root scope interpretation checked against actual owning variants: grand_9_foot contributes orchestral/full/soloistic; steinway_d contributes singing/romantic-orchestra. These describe the explicitly authored concert-grand tonal design, not an added orchestra or foreign playing technique. Source positively supports piano; all three roles remain visible, with repeated piano gesture, rap and sub-bass. No remaining contradictory technique identified.",
+    "previously_flagged_literal": [
+      "romantic-orchestra",
+      "orchestral"
+    ]
+  },
+  "next_action": "Eligible for parent collection; no packet change. Provisional hold report preserved, narrow descriptor-to-physical-owner mapping documented.",
+  "semantic_resolution": {
+    "basis": "Parent consistent interpretation of explicit physical-owner descriptors, independently checked references/02_instruments.js:7701,7704",
+    "limits": "Does not excuse source-contradictory performance-technique labels such as erhuang or stride; no blanket semantic override."
+  }
+}

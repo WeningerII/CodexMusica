@@ -1,0 +1,183 @@
+{
+  "entries": [
+    {
+      "source_label": "healing hz",
+      "source_url": "https://everynoise.com/engenremap-healinghz.html",
+      "suggested_id": "healing_hz",
+      "allocation_ordinal": 3417,
+      "allocation_group_id": "137",
+      "id": "healing_hz",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "healing_hz",
+        "name": "Healing Hz",
+        "family": "electronic",
+        "lineage": "Healing Hz is a frequency-labelled listening field circulated through meditation catalogues and sound-generation apps. Sustained tones, frequency pairs and soft electronic layers organize listening around named frequency settings and relaxation-oriented presentation.",
+        "instruments": [
+          "analog_sine_oscillator_z3000"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "z3000_signal_identity": "z3000_direct_sine_signal"
+        }
+      },
+      "extras": {
+        "parent": "experimentalElec.ambient",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Long, steady electronic tones provide a minimal branch of this listening practice. Other productions layer tones, pulses or quiet noise; the frequency-labelled presentation and wellness-oriented circulation connect these differing textures.",
+        "exemplars": [
+          "Gary James Joynes / Clinker",
+          "Healing Miracle Frequencies"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        53.5461,
+        -113.4938,
+        "Edmonton",
+        "North America"
+      ],
+      "geo_rationale": "Issuer identifies Edmonton as the selected tone-maker’s base; editorial practice anchor, not birthplace of the wider international listening field.",
+      "signature_tokens": [],
+      "model_policy": "Representative pure-tone branch: one hand-tuned analog sine oscillator, grounded in the issuer’s nine individually published tone recordings. A steady sustained sine is the intended sound; this is not a claim that the separate multitone bonus recording has only one concurrent signal. The selected existing Z3000 identity retains source-positive oscillator architecture without guessing revision, filter, modulation or keyboard. No global temperament is implied by individually labelled frequencies. The controlled listening/live-room setting is an authored editable presentation, not an assertion of microphone capture: the issuer explicitly describes direct capture. No voices, beat or unknown studio instrumentation added. Medical, chakra and DNA claims on promotional sources are not adopted as demonstrated effects.",
+      "neighbor_distinction": "Full tone is the broader musical sustained-pitch listening field, including overtone attention without wellness branding. Healing Hz is a positively marketed frequency-labelled wellness/listening practice, including single tones, pairs and pulses, and overlaps tone rather than excluding it. Full 528hz is one explicitly specified target and full 432hz is a particular tuning-reference branch; the actual creator programme also contains 285,396,852,963 and binaural/delta pair labels. Binaural describes paired-tone processing, a method within some healing-frequency releases rather than the entire product field. The app producer’s own controls independently support this wider scope. The selected pure-tone rendition shares a legitimate source with 528hz, without claiming a different instrument makes a new category. No current integrated solfeggio_product row or accepted-queue exact ID was found; the related Solfeggio framework does not encompass the app’s entire pulse/noise/binaural offering.",
+      "classification_evidence": "Full tone is the broader musical sustained-pitch listening field, including overtone attention without wellness branding. Healing Hz is a positively marketed frequency-labelled wellness/listening practice, including single tones, pairs and pulses, and overlaps tone rather than excluding it. Full 528hz is one explicitly specified target and full 432hz is a particular tuning-reference branch; the actual creator programme also contains 285,396,852,963 and binaural/delta pair labels. Binaural describes paired-tone processing, a method within some healing-frequency releases rather than the entire product field. The app producer’s own controls independently support this wider scope. The selected pure-tone rendition shares a legitimate source with 528hz, without claiming a different instrument makes a new category. No current integrated solfeggio_product row or accepted-queue exact ID was found; the related Solfeggio framework does not encompass the app’s entire pulse/noise/binaural offering. The existing ambient node fits sustained electronic listening without an inferred beat or verse–chorus form.",
+      "source_scope_limitation": "Creator playlist retrieved directly as a broad frequency-labelled programme; Joynes creator membership is not claimed. Frequency values are issuer settings, not independently measured waveforms. Promotional therapeutic efficacy and ancient-origin claims are not verified or adopted.",
+      "sources": [
+        {
+          "url": "https://gary-james-joynes-clinker.bandcamp.com/album/the-solfeggio-series",
+          "note": "Fresh15422view0: issuer describes nine individually tuned direct analog sine recordings, with distinct bonus multitone item; architecture and selected practice only."
+        },
+        {
+          "url": "https://www.miraclefrequencies.org/studio",
+          "note": "Fresh15422view1: producer’s actual interactive pure-tone/binaural/pulse/noise options establish a wider frequency-listening practice."
+        },
+        {
+          "url": "https://www.miraclefrequencies.org/about",
+          "note": "Fresh15425view1: own artist and production identity; promotional efficacy claims not adopted."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0PaPyYEZfzx2vpoPmjVYzY",
+          "note": "Fresh15425view0 creator programme positively combines multiple target frequencies and paired/delta labels; no selected-artist membership assertion."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15422view0",
+        "turn15422view1",
+        "turn15425view0",
+        "turn15425view1"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "healing_hz",
+          "name": "Healing Hz",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15425view2 confirms attribution and CC BY2.5; historical byte and visual receipts retained.",
+          "fresh_review_ref": "turn15425view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15425view2"
+        ],
+        "fresh_rights_review": "Fresh turn15425view2 rights only; historical bytes and visual observation inherited."
+      },
+      "dependency_audit": {
+        "new": [],
+        "existing_owners": 1653,
+        "baseline": "/workspace/CodexMusica-qualified041",
+        "head": "453cd0f1"
+      },
+      "verification_status": "Pending original browser/connector and compiled API semantic qualification."
+    }
+  ],
+  "instrument_dependencies": []
+}

@@ -5,7 +5,7 @@
   "lineage": "Folk songs performed and transmitted for children include games, work-song adaptations, animals, stories and participatory refrains. Pete Seeger’s documented 1959 Folk Songs for Young People supplies this North American folk-revival example.",
   "recipe": "classic late-1950s children’s folk, nursery Rhyme. thick, incomplete closure resting, leader call answered, neutral third half flat. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 388,
-  "score": 37.421,
+  "score": 38.782,
   "config": {
     "traditions": [
       "children_s_folk"
@@ -29,22 +29,22 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 11.072499999999998,
+          "voice_register": 11.177499999999997,
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.189,
-          "voice_articulation": 1.3499999999999999,
+          "voice_vibrato": 0.369,
+          "voice_articulation": 1.3724999999999998,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.585,
           "voice_speech_song": 5.265,
           "voice_ensemble_config": 0.19500000000000003,
-          "voice_ornament_system": 0.245,
+          "voice_ornament_system": 0.2225,
           "voice_pitch_organization": 0.06500000000000002,
           "voice_processing_chain": 0.6599999999999999,
           "voice_multitrack_stack": 0.39
@@ -54,7 +54,7 @@
         "id": "banjo_5_string",
         "slots": {
           "banjo_back": "open_back",
-          "tone_ring": "tubaphone",
+          "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
@@ -66,13 +66,13 @@
         },
         "scores": {
           "banjo_back": 0,
-          "tone_ring": 0,
+          "tone_ring": 0.0315,
           "banjo_head": 3.769999999999999,
-          "banjo_pot": 0.0375,
+          "banjo_pot": 0.26999999999999996,
           "banjo_play": 0,
           "banjo_rim_wood": 0.0375,
-          "banjo_neck_wood": 0.645,
-          "banjo_strings": 0.7424999999999999,
+          "banjo_neck_wood": 0.69,
+          "banjo_strings": 0.69,
           "banjo_bridge": 0,
           "banjo_setup_period": 3.7049999999999996
         }
@@ -82,16 +82,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_d",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 2.8724999999999996,
-          "string_tuning": 0.2225,
-          "top_wood": 0.054,
-          "back_sides": 0.0375,
-          "string_acoustic": 0.135
+          "acoustic_technique": 2.9174999999999995,
+          "string_tuning": 0.245,
+          "top_wood": 0.0225,
+          "back_sides": 0.33149999999999996,
+          "string_acoustic": 0.6255
         }
       }
     ],

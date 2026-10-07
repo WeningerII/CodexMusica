@@ -2,10 +2,10 @@
   "id": "jazz_tuba",
   "name": "Jazz tuba",
   "family": "jazz",
-  "lineage": "Tuba-led jazz; selected Theon Cross saxophone/drums/tuba trio",
-  "recipe": "classic modern jazz tuba, improv On Frame, American jazz branch. bass line jazz-trained piston valves American school tuba, saxophone, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 348,
-  "score": 35.853,
+  "lineage": "Jazz tuba brings a low brass voice into both bass-line and melodic roles. Contemporary players such as Theon Cross connect that history with London’s rhythmically forceful small-group jazz scene.",
+  "recipe": "classic modern jazz tuba, improv On Frame, American jazz branch. bass line jazz-trained yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, yellow brass modern standard rubber saxophone, maple bronze bell bronze hand hammered random pattern drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 449,
+  "score": 54.963,
   "config": {
     "traditions": [
       "jazz_tuba"
@@ -23,11 +23,11 @@
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
-          "tuba_pitch": 0.06675,
-          "tuba_context": 6.24,
-          "tuba_bell_metal": 0.105,
+          "tuba_pitch": 0.0315,
+          "tuba_context": 10.14,
+          "tuba_bell_metal": 1.405,
           "tuba_valve_system": 2.34,
-          "tuba_maker_school": 0.78
+          "tuba_maker_school": 1.5565
         }
       },
       {
@@ -44,11 +44,11 @@
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "sax_size": 0.19500000000000003,
-          "sax_reed": 0.21375,
-          "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.3,
+          "sax_reed": 0.1785,
+          "sax_body_alloy": 1.56,
+          "sax_mouthpiece": 1.6,
           "sax_technique": -0.05,
-          "sax_maker_school": 0.357
+          "sax_maker_school": 0.477
         }
       },
       {
@@ -67,16 +67,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0.3,
+          "drum_technique": -0.05,
+          "drumhead": 1.6,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.39,
+          "shell_wood": 1.852,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 1.7365000000000002,
           "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
-          "cymbal_hammering": 11.67625,
-          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_alloy": 13.746999999999998,
+          "cymbal_hammering": 14.141,
+          "cymbal_lathing": 1.0915,
           "cymbal_finish": 0
         }
       }

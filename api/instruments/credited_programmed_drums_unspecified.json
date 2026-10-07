@@ -1,0 +1,56 @@
+{
+  "id": "credited_programmed_drums_unspecified",
+  "name": "Credited programmed drums (generator unspecified)",
+  "short": "Credited programmed drums",
+  "family": "electronic",
+  "class": "credited_programmed_drums_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_programmed_drums_identity",
+      "name": "Programmed drum role",
+      "variants": [
+        {
+          "id": "credited_programmed_drums_generator_unspecified",
+          "name": "Programmed drums with source-unspecified sound generator",
+          "default": true,
+          "descriptors": [
+            "programmed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited programmed-drum role. Preserves unknown sound generator, sample or synthesis architecture, software or hardware, triggering protocol and detailed drum inventory. No MIDI assumption; neutral axes are authored routing coordinates.",
+  "sources": [
+    "https://manstabbed.bandcamp.com/album/where-the-sun-dont-shine"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_programmed_drums_identity",
+      "name": "Programmed drum role",
+      "variants": [
+        {
+          "id": "credited_programmed_drums_generator_unspecified",
+          "name": "Programmed drums with source-unspecified sound generator",
+          "default": true,
+          "descriptors": [
+            "programmed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

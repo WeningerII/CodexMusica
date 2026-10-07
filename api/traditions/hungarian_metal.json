@@ -2,10 +2,10 @@
   "id": "hungarian_metal",
   "name": "Hungarian metal",
   "family": "rock_punk",
-  "lineage": "Hungarian metal is a broad geographic discovery category represented here by Ektomorf’s Mezőkovácsháza-origin groove/neo-thrash branch, not an exhaustive account of the country’s metal styles.",
-  "recipe": "classic modern hungarian metal, distorted Rock, metal branch, thrash metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 550,
-  "score": 126.635,
+  "lineage": "Hungarian metal spans several electric-band styles, including Ektomorf’s tightly grooved thrash-influenced sound.",
+  "recipe": "classic modern hungarian metal, distorted Rock, metal branch, thrash metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 630,
+  "score": 102.46,
   "config": {
     "traditions": [
       "hungarian_metal",
@@ -17,53 +17,53 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 22.009999999999998,
-          "amp_make": 14.692499999999999,
-          "body_wood": 10.985,
-          "neck_wood": 0.39,
-          "fretboard": 1.17,
-          "pickup_magnet": 1.365,
-          "pickup_winding": 0.6525,
+          "electric_technique": 19.21,
+          "amp_make": 8.515,
+          "body_wood": 8.905000000000001,
+          "neck_wood": 0.195,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.15,
+          "pickup_winding": 0.255,
           "string_material": 0.195,
-          "bridge": 3.1849999999999996,
-          "scale_length": 10.985,
-          "string_gauge": 1.7249999999999999,
+          "bridge": 1.4949999999999999,
+          "scale_length": 0,
+          "string_gauge": 0.7800000000000001,
           "finish": 0,
-          "string_tuning": 10.790000000000001
+          "string_tuning": 8.71
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "basswood_h",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 6.37,
-          "body_wood": 0.975,
-          "pickup_config": 0.975,
+          "body_wood": 8.905000000000001,
+          "pickup_config": 0.585,
           "string_type": 12.025,
-          "scale_length_b": 0.78,
+          "scale_length_b": 0.7800000000000001,
           "fretted_or_not": 0.195,
           "bass_technique": 9.865,
           "electric_bass_string_configuration": 0
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 9.25,
-          "drumhead": 2.21,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,7 +114,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.625,
+          "voice_ensemble_config": 2.405,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -125,9 +125,21 @@
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
+        "body_wood",
         "bass_technique"
       ],
       "drum_kit": [
@@ -152,7 +164,7 @@
         "voice_multitrack_stack"
       ]
     },
-    "room": "live_room",
+    "room": "studio_auteur_home_pro",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "dynamic_mic",
@@ -170,7 +182,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "live_room",
+    "room": "studio_auteur_home_pro",
     "parts": {
       "voice_register": "voice_register_source_unspecified",
       "voice_quality": "voice_quality_source_unspecified",
@@ -191,7 +203,18 @@
       "electric_technique": "electric_palm_muted_chug",
       "string_tuning": "drop_c",
       "bass_technique": "pick_aggressive",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_11_hum",
+      "amp_make": "amp_mesa_dual_rectifier"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

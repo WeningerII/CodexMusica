@@ -1,0 +1,2362 @@
+{
+  "status": "PASS",
+  "scope": "Qualified 100-entry subset only; not final consolidated-batch approval, static API review, regression approval, or fresh network re-verification of all historical sources. Individual public profiles and literal rich/prose/tags/compact outputs reviewed against retained hash-bound source/practice evidence and peer receipts. Compact vocabulary also checked against the other rendered formats. No source/repository writes.",
+  "baseline": "2765a5e5e1dc1523ff9180625b089af3f04089b2",
+  "frozen_sha256": "29b2355724a90f715e61f64d5f0045491bfc63dd36834499c03fa2282190edb2",
+  "runtime_file": "/tmp/batch041/runtime-current119.json",
+  "runtime_sha256": "9d62d96a8c3afc8f985b1488f2ad55f97e02387bfb5c16dbeee827bce00b3bd7",
+  "previous_runtime_sha256": "16997e9ad6ff1283fa73870944171e0e763e026e9c70e2af138094e55d57d563",
+  "previous_runtime_freeze": "78a1dd0616e68747ba8d7dd1a6ed3e756b9b57f8cd2bf1fc0155cf54bb058c12",
+  "all_400_outputs_and_owning_controls_identical_after_crossref_correction": true,
+  "counts": {
+    "entries": 100,
+    "new_instrument_dependencies": 0,
+    "formats": 400,
+    "cards": 327,
+    "applicable_pins": 2740,
+    "unprotected_imported_slots": 0,
+    "new_semantic_holds": 0
+  },
+  "interpretive_limits": [
+    "Genre-level representative practice need not union every instrument used anywhere in the field; positively documented role classes in the chosen practice are preserved.",
+    "Hall spatial adjectives are selected rendering context, not evidence of actual recorded venue or singer count.",
+    "Instrument model/material descriptors are authored physical choices, not historical gear identification.",
+    "Clapping-and-syllabicizing uses original punctuated group-vocal affect; not an added mandatory clapping performer.",
+    "Street-pulsing rap delivery is compatible with these rhythmic-spoken controls; no automatic rejection from a surface word alone.",
+    "No DF threshold/rebaseline issue established: root corrected its earlier diagnosis. Zero new instruments is subset selection only, not a qualification ban on proposed dependencies."
+  ],
+  "rows": [
+    {
+      "id": "dark_progressive_house",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-dark_progressive_house.json",
+      "source_packet_sha256": "7e69a7b1002b54b04967e8b2c5f8944fc72a7a2b9bb9bcd5aa75ab780e3a6142",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-dark_progressive_house-root-review.json",
+      "prior_review_sha256": "7d65217c90ad3698f3b775691b59c720e9e5fd7c285b8db6c1856cd7b46fad71",
+      "parent": "electronicDance.house",
+      "instruments": [
+        "wavetable_synth",
+        "analog_synth",
+        "drum_machine_909",
+        "credited_samples_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 558,
+      "applicable_pins": 13,
+      "semantic_assessment": "Layered synth/bass/909/sample production is a representative house arrangement; different per-card pace adjectives do not establish different measured track tempos."
+    },
+    {
+      "id": "anime_rap",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-anime-rap.json",
+      "source_packet_sha256": "84cd1e745918d496366b1e71daacae9a465f65e42f5e53e566b49dbdb61e035f",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-anime-rap-root-review.json",
+      "prior_review_sha256": "3375b0f2d29c9df6fd97738508b05d8f3c79a94c86f8f60cd792f0bfb7497a30",
+      "parent": "mcRhythm",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_drum_machine"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 965,
+      "applicable_pins": 21,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "armenian_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-005.json",
+      "source_packet_sha256": "ec53470a999391e8e82be9c70099be62f23440488652afb967f62487028687ba",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-005-root-review.json",
+      "prior_review_sha256": "a6838ad80a57f15e8206e132601e2283bbd3b00f817cd78845d75c7201e5fd45",
+      "parent": "mcRhythm",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 252,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "botswana_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-001-policies-current116.json",
+      "source_packet_sha256": "e83c2effd6a67f0d48ada3c45434d8dd1312b605b402fbc13b746ff9532a941e",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-001-policies-current116-root-review.json",
+      "prior_review_sha256": "8790ae34e5c562b17db894c789a9f1e3621851269f805ad1b552540df330bdd0",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 289,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "classical_drill",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-classical-drill-practice.json",
+      "source_packet_sha256": "b8c6881d69be1110f8cc1057e25695b261a4c785dbacad24f0ec25db51d2dacf",
+      "prior_independent_review": "/tmp/batch040/transfer461-classical-drill-practice-root-review.json",
+      "prior_review_sha256": "23ad0d81bf3fb88ce6c5e47c33f302d63b675483593d04675879bbf09d84829e",
+      "parent": "mcRhythm.drill",
+      "instruments": [
+        "grand_piano",
+        "credited_strings_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 630,
+      "applicable_pins": 11,
+      "semantic_assessment": "Piano/strings/beat production preserved. Grand-piano orchestral/romantic-orchestra tokens belong to the selected physical piano tonal vocabulary; no orchestra card or extra performed orchestra is asserted."
+    },
+    {
+      "id": "detroit_trap_brasileiro",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-detroit-brasileiro-grand-practice.json",
+      "source_packet_sha256": "c000f156c2cb105cf467faf526631e449f3ab6cd201da6f2b88ef3cfdbd52fc3",
+      "prior_independent_review": "/tmp/batch040/transfer461-detroit-brasileiro-independent-review119.json",
+      "prior_review_sha256": "65a75b521e1830fbdc3a4049ec69610ec69f3ab9804368550e219ea13e569a0f",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "grand_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 917,
+      "applicable_pins": 29,
+      "semantic_assessment": "Spoken-flow voice, 808 and piano remain explicit. Grand tonal descriptors do not add an orchestra; source-supported representative piano production remains coherent."
+    },
+    {
+      "id": "ethiopian_hip_hop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-ethiopian-hiphop-rights-corrected.json",
+      "source_packet_sha256": "983e69cdc508cbf9c82db5b52632836e57bc9c4f689259385f981e8ee4180cde",
+      "prior_independent_review": "/tmp/batch040/transfer461-ethiopian-hiphop-independent-review116.json",
+      "prior_review_sha256": "a400a0d43fd24b8f3376dac001a1f087600caa8dcba208eb0874dc706bfa2380",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 326,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "german_viral_rap",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-german-viral-rap-drum-synthesis.json",
+      "source_packet_sha256": "33ad714b28a6f9dc814031d5e565c29eab42d79bf425b4d7d399e07db7600825",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-german-viral-rap-drum-synthesis-root-review.json",
+      "prior_review_sha256": "6ba02f8166fac618e10ed7cc6dfb15dc8dbc01febe362980024751a04c3cfb8e",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "drum_machine_analog",
+        "analog_synth"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 577,
+      "applicable_pins": 26,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "hip_hop_boliviano",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-hip-hop-boliviano-genre-profile.json",
+      "source_packet_sha256": "376fb49663e59172de38726f9b85e323904c010a22427bd601c7a28c4ff115ad",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-hip-hop-boliviano-genre-profile-root-review.json",
+      "prior_review_sha256": "ed3937d7d4ef53de759e62d04d4c0c211d996de3839ecc1e76825c3aa659452b",
+      "parent": "mcRhythm",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 226,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "hip_hop_mauritanien",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-mauritanian-hiphop-practice.json",
+      "source_packet_sha256": "a799c8e218d53f43d1cd6a613663eb99456edae6ee32869016a78d90cf9579f0",
+      "prior_independent_review": "/tmp/batch040/transfer461-mauritanian-hiphop-practice-independent-review117.json",
+      "prior_review_sha256": "7e6eeb111a0c45aab86009b00fcbb457061760e760332774fd22255d9064ffef",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 328,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "hip_hop_timur",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-hip-hop-timur-practice.json",
+      "source_packet_sha256": "a6a92455624712cfb8b442af5a848b2ad8962f212bc395d121c7e1670d77730d",
+      "prior_independent_review": "/tmp/batch040/transfer461-hip-hop-timur-independent-review119.json",
+      "prior_review_sha256": "47c815a60ff3398a3c843f883d9a18483cc3157b59bc63fbb49dd73fd9b59dcd",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 322,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "hong_kong_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-hong_kong_hip_hop.json",
+      "source_packet_sha256": "791d88fb0b1ceaf0df8edd2466781b2645f7a40e83cc02b9ac502ebd17e7fe4c",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-hong_kong_hip_hop-root-review.json",
+      "prior_review_sha256": "3b6aa5d9a5373320f542b3229c0760b744d33f725b5051949086184999a86d4e",
+      "parent": "mcRhythm",
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 999,
+      "applicable_pins": 21,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "icelandic_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-001-policies-current116.json",
+      "source_packet_sha256": "e83c2effd6a67f0d48ada3c45434d8dd1312b605b402fbc13b746ff9532a941e",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-001-policies-current116-root-review.json",
+      "prior_review_sha256": "8790ae34e5c562b17db894c789a9f1e3621851269f805ad1b552540df330bdd0",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "upright_piano",
+        "dj_playback_mixing_unspecified",
+        "credited_electronics_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 981,
+      "applicable_pins": 54,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "israelite_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/israelite_hip_hop-genre-profile-defaults119.json",
+      "source_packet_sha256": "35b283474a94c717ae132be3f14f3acb58a7bff8a6ead45fd083ce3e4694b23f",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/israelite_hip_hop-root-review.json",
+      "prior_review_sha256": "a4c09c324a3664d2d40d2bf9be32f877f43056fd8b4062d750cf54a42531851e",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_classic"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 381,
+      "applicable_pins": 22,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "korean_drill",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-korean-drill.json",
+      "source_packet_sha256": "a26b70e8dd0e4f66781409636a5a1a722f8ae67043e70ff1195369148864f418",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-korean-drill-root-review.json",
+      "prior_review_sha256": "6894f57b8b96eaf8282f9a8df2d3489c2c6d72c77e1bebe3630f83e192924025",
+      "parent": "mcRhythm.drill",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 999,
+      "applicable_pins": 25,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "korean_underground_rap",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-korean-underground-rap-genre-production.json",
+      "source_packet_sha256": "f7dd5ce584ab0bfa6de064007fc0a9477867bcdaf479a50789305cd185eb6702",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-korean-underground-rap-genre-production-root-review.json",
+      "prior_review_sha256": "329ebade51ee5d55d4107f2994efd440925b0e79e3a8addd8fc53028846c82d3",
+      "parent": "mcRhythm",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 286,
+      "applicable_pins": 18,
+      "semantic_assessment": "Original burlesque lexicon describes brassy, projected, swung/syncopated theatrical delivery; it does not impose a separate burlesque genre or added instrumentation. Authored expressive MC setting retains rhythmic-spoken-flow and source-supported live roles."
+    },
+    {
+      "id": "lao_hip_hop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-lao-hiphop-general-practice.json",
+      "source_packet_sha256": "31f5058d5ba8e8f34d761f41ce90fd53c7018a61b8b65eb0dca9a143a076b86a",
+      "prior_independent_review": "/tmp/batch040/transfer461-lao-hiphop-general-practice-independent-review117.json",
+      "prior_review_sha256": "380764d9c5ddbd6300b64072f3fc976992e55bd203cd9704cdd2d19d10e1c0db",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 320,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "latvian_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-latvian-hip-hop-genre-profile.json",
+      "source_packet_sha256": "bd9081af4fecff4735f06d4d12fa1fe27fd6429261b6246862d8dc07728def5f",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-latvian-hip-hop-genre-profile-root-review.json",
+      "prior_review_sha256": "deee36d000d1b69c0da788f62e8ee4cf443ef67c941e52d34346b9527c58b8d0",
+      "parent": "mcRhythm",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 316,
+      "applicable_pins": 18,
+      "semantic_assessment": "Original burlesque lexicon describes brassy, projected, swung/syncopated theatrical delivery; it does not impose a separate burlesque genre or added instrumentation. Authored expressive MC setting retains rhythmic-spoken-flow and source-supported live roles."
+    },
+    {
+      "id": "magyar_trap",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-28.json",
+      "source_packet_sha256": "858004f6ba34ee2bd610fb55c26106274acd1c1fe82df51e816c392bd04c4936",
+      "prior_independent_review": "/tmp/batch040/resume119-28-independent-review461.json",
+      "prior_review_sha256": "95d6d2b5163d6014ce6d64a1d73006c783de7a8d71fd8eb8b1b7051a33c37065",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "drum_machine_808"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 1000,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "military_rap",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-005.json",
+      "source_packet_sha256": "ec53470a999391e8e82be9c70099be62f23440488652afb967f62487028687ba",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-005-root-review.json",
+      "prior_review_sha256": "a6838ad80a57f15e8206e132601e2283bbd3b00f817cd78845d75c7201e5fd45",
+      "parent": "mcRhythm",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 248,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "mongolian_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-004.json",
+      "source_packet_sha256": "2553b28c9b5e0de419165ed558132f26c0d50207d494fa981e046e9b5650fe1d",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-004-root-review.json",
+      "prior_review_sha256": "054ed59a0d4d3e1b18cc24790f1bde695b981c788a2087fb78f59c6d930f297f",
+      "parent": "experimentalElec",
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 234,
+      "applicable_pins": 4,
+      "semantic_assessment": "Public profile explicitly preserves wider MC-led field and identifies instrumental sample-based producer branch. Sampler-only is that documented branch, not a claim all Mongolian hip hop lacks rappers."
+    },
+    {
+      "id": "northeast_indian_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-001-source-clarified.json",
+      "source_packet_sha256": "b27dc4b51ccdc4437d0c4a355da0f0a9d4f6d9cacd27b9c746758a5eed45ce00",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-001-source-clarified-root-review.json",
+      "prior_review_sha256": "dee8e02aa88fca7b4ea048f2704a726d5aaacb4b35c4de710b1a06b1a2fcc212",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 992,
+      "applicable_pins": 50,
+      "semantic_assessment": "Original burlesque lexicon describes brassy, projected, swung/syncopated theatrical delivery; it does not impose a separate burlesque genre or added instrumentation. Authored expressive MC setting retains rhythmic-spoken-flow and source-supported live roles."
+    },
+    {
+      "id": "norwegian_trap",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume461-norwegian-trap-practice.json",
+      "source_packet_sha256": "cc1f994d1105ea4056a498c61884ae1a360fc5c8cedca5671280fe3c8655c04d",
+      "prior_independent_review": "/tmp/batch040/resume461-norwegian-trap-independent-review119.json",
+      "prior_review_sha256": "f3d070ca3120312ecc4f08bb009ec0a616302030abf0d637eac37e0a6bacc573",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 323,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "persian_underground_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-002-policies-current116.json",
+      "source_packet_sha256": "10e82f0f6858a1e3f44449f6857a52b60c83f2c8df06dc3e0d4d2ced9710cae2",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-002-policies-current116-root-review.json",
+      "prior_review_sha256": "94c2c079bc70d1563c15ab28f257acb3eeb6074e3871228212e48aff512b6291",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 899,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "pinoy_alternative_rap",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-001-source-clarified.json",
+      "source_packet_sha256": "b27dc4b51ccdc4437d0c4a355da0f0a9d4f6d9cacd27b9c746758a5eed45ce00",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-001-source-clarified-root-review.json",
+      "prior_review_sha256": "dee8e02aa88fca7b4ea048f2704a726d5aaacb4b35c4de710b1a06b1a2fcc212",
+      "parent": "mcRhythm",
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "credited_samples_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 412,
+      "applicable_pins": 22,
+      "semantic_assessment": "Original burlesque lexicon describes brassy, projected, swung/syncopated theatrical delivery; it does not impose a separate burlesque genre or added instrumentation. Authored expressive MC setting retains rhythmic-spoken-flow and source-supported live roles."
+    },
+    {
+      "id": "polish_drill",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-polish-drill-practice.json",
+      "source_packet_sha256": "17aa66243f58f3335c34d631f9aa6d18e1597a716431d07e0fbefee8291ee670",
+      "prior_independent_review": "/tmp/batch040/transfer461-polish-drill-independent-review119.json",
+      "prior_review_sha256": "8d137be0ce42a97fb51f684b4879303cbc088fd6a74a974eaa078c38fee24e74",
+      "parent": "mcRhythm.drill",
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "analog_synth"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 999,
+      "applicable_pins": 25,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "polish_old_school_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/polish_old_school_hip_hop-genre-profile-defaults119.json",
+      "source_packet_sha256": "3e1acd33f4067759ebad95c3a409b8feda1232cebf44bbf5ac5c4ec93017adab",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/polish_old_school_hip_hop-root-review.json",
+      "prior_review_sha256": "c3c6dfb4ae44ddf97837c6f2ac0259efa73c0994e38aee5b0b992b0f18e2ba46",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "sampler_classic",
+        "turntable"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 448,
+      "applicable_pins": 24,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "polish_underground_rap",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-polish-underground-rap-genre-profile.json",
+      "source_packet_sha256": "a78a154f48a51ad6e40acb96c6838ff15427d3a047cf1010378a08ebaba48555",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-polish-underground-rap-genre-profile-root-review.json",
+      "prior_review_sha256": "d855b9c30927b472f0cf8f3bf46cd123110c62b3dd424d9a996e475b8f511bd6",
+      "parent": "mcRhythm",
+      "instruments": [
+        "voice",
+        "turntable",
+        "drum_kit"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 637,
+      "applicable_pins": 30,
+      "semantic_assessment": "Original burlesque lexicon describes brassy, projected, swung/syncopated theatrical delivery; it does not impose a separate burlesque genre or added instrumentation. Authored expressive MC setting retains rhythmic-spoken-flow and source-supported live roles."
+    },
+    {
+      "id": "rap_geek",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-rap-geek-practice.json",
+      "source_packet_sha256": "8441321b1df0d2054e0db862be553f975ccb69cabac6b7b16e857b4b09ff6f44",
+      "prior_independent_review": "/tmp/batch040/transfer461-rap-geek-practice-independent-review117.json",
+      "prior_review_sha256": "e36a196260f20a960e1fb4aac1a1791f5f3f5e1c761b6738759b5262bf65d404",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 317,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "surinamese_hip_hop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-surinamese-hip-hop-genre-profile.json",
+      "source_packet_sha256": "cd831b9cbd7b9a64519784b92261d27ca330d37bc929442aaaaf7f3adab3914d",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-surinamese-hip-hop-genre-profile-root-review.json",
+      "prior_review_sha256": "fab4dcbb09aed57eee1087f9a36b18aac6bfe50380da546c5779f05788c550dc",
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": [
+        "voice",
+        "credited_auxiliary_percussion",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 259,
+      "applicable_pins": 19,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "swedish_drill",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-002-policies-current116.json",
+      "source_packet_sha256": "10e82f0f6858a1e3f44449f6857a52b60c83f2c8df06dc3e0d4d2ced9710cae2",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-002-policies-current116-root-review.json",
+      "prior_review_sha256": "94c2c079bc70d1563c15ab28f257acb3eeb6074e3871228212e48aff512b6291",
+      "parent": "mcRhythm.drill",
+      "instruments": [
+        "voice",
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 222,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "kamba_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-kamba-pop-band-realization.json",
+      "source_packet_sha256": "2b258f72757e3ab78fffe286684b2d803fd67fd60648cc35b52ca0d18eac2cf8",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-kamba-pop-band-realization-root-review.json",
+      "prior_review_sha256": "a6cb2ca47e748cac81c0757ce265c665d0fa8097690ca28f6b88cbb4310ea2c2",
+      "parent": "functionalSong.africanPop",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 998,
+      "applicable_pins": 49,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "karen_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-005.json",
+      "source_packet_sha256": "ec53470a999391e8e82be9c70099be62f23440488652afb967f62487028687ba",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-005-root-review.json",
+      "prior_review_sha256": "a6838ad80a57f15e8206e132601e2283bbd3b00f817cd78845d75c7201e5fd45",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "credited_drums_unspecified",
+        "electric_bass",
+        "credited_synthesizer_unspecified",
+        "upright_piano",
+        "credited_strings_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 772,
+      "applicable_pins": 31,
+      "semantic_assessment": "Softer connected vocal/piano/string branch is preserved with unknown drums/synth architecture; parlor affect does not claim recorded venue."
+    },
+    {
+      "id": "ladakhi_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/ladakhi_pop-genre-profile119.json",
+      "source_packet_sha256": "86cd4e7edcd571c2bc4319b30e411ebcf16ba0b2ef2704cd49b1e258c7b0653d",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/ladakhi_pop-root-review.json",
+      "prior_review_sha256": "56764192655f0c74aa4772a8d0bb407fcc7245695291cadee69bb758118958c4",
+      "parent": "balladPoetry",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 335,
+      "applicable_pins": 22,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "lao_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-003-policies-current116.json",
+      "source_packet_sha256": "2a48c102308ddb227cce1b0c967f2630dd8a74513c3773711a45e4e42fd00f07",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-003-policies-current116-root-review.json",
+      "prior_review_sha256": "ebcc24f208d3bfbb364b834e7d4293fe4ed2bb0b1f6d23dac46ac4b5b31b1f82",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "credited_auxiliary_percussion"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 320,
+      "applicable_pins": 21,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "liberian_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-001-source-clarified.json",
+      "source_packet_sha256": "b27dc4b51ccdc4437d0c4a355da0f0a9d4f6d9cacd27b9c746758a5eed45ce00",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-001-source-clarified-root-review.json",
+      "prior_review_sha256": "dee8e02aa88fca7b4ea048f2704a726d5aaacb4b35c4de710b1a06b1a2fcc212",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "drum_machine_analog"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 624,
+      "applicable_pins": 25,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "maluku_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-maluku-pop-band-realization.json",
+      "source_packet_sha256": "5a133e21bcad690a6aff79f944a2d8126eecd1c8ecb482298ae2136f0592528f",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-maluku-pop-band-realization-root-review.json",
+      "prior_review_sha256": "09897502801a37c4d37aef62e530b20e89d58c749db468fe0da265b6a0733883",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_auxiliary_percussion",
+        "electronic_keyboard_unspecified",
+        "saxophone",
+        "flute"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 995,
+      "applicable_pins": 64,
+      "semantic_assessment": "Guitar-band, keyboards, auxiliary percussion and wind roles preserved. Tongue-tying lexicon contains continuous-airflow/legato/lyrical tokens, not rapid tonguing; lyrical sax controls are consistent. Jazz-flute color fits documented fusion/improvisatory branch."
+    },
+    {
+      "id": "mising_pop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-26.json",
+      "source_packet_sha256": "540d3b4a1b0ec07d6c8b13c6223de4ee10d332408c478a4a9d342b4201b8dcbc",
+      "prior_independent_review": "/tmp/batch040/resume119-26-independent-review116.json",
+      "prior_review_sha256": "3b648aef3876a3248fa9bdd06a06377423b5eb5eedc224869aae9ba3676fa144",
+      "parent": "functionalSong",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 334,
+      "applicable_pins": 22,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "mizo_pop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-23.json",
+      "source_packet_sha256": "da116657b71995ee05ca91707ebdd4e307ba2f328c028d68603bf7d8b2609bb5",
+      "prior_independent_review": "/tmp/batch040/resume119-23-independent-review117.json",
+      "prior_review_sha256": "da028bb3235d3388c3be76d5eff71bb9ee36762f2d50a9a90c292c8a50b34398",
+      "parent": "functionalSong",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 332,
+      "applicable_pins": 22,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "oromo_pop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-from116-oromo-general-profile.json",
+      "source_packet_sha256": "4fa86af856e4f7385907bcb115add623bdd4c98281999752f7257a96e209fa3e",
+      "prior_independent_review": "/tmp/batch040/transfer461-from116-oromo-general-profile-independent-review116.json",
+      "prior_review_sha256": "2e75bc03abfd868ad709335621da1e0ee627e922e0bdaa6fd7ff6977af0b3c41",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 993,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "pahadi_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-003-policies-current116.json",
+      "source_packet_sha256": "2a48c102308ddb227cce1b0c967f2630dd8a74513c3773711a45e4e42fd00f07",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-003-policies-current116-root-review.json",
+      "prior_review_sha256": "ebcc24f208d3bfbb364b834e7d4293fe4ed2bb0b1f6d23dac46ac4b5b31b1f82",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "credited_flute_unspecified",
+        "upright_piano",
+        "congas",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 693,
+      "applicable_pins": 30,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "palestinian_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/palestinian_pop-genre-profile119.json",
+      "source_packet_sha256": "4eb31ec80a0f284f85a62b075fe51cc6b8fd3fe5fdd5832d77a7dd6513b2b567",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/palestinian_pop-root-review.json",
+      "prior_review_sha256": "94ba6edd3c5f9ba832321e8f7121a19a8fb88cd48a20e34f9a3b4038d1bbe264",
+      "parent": "electronicDance",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "bass_drum",
+        "darbuka",
+        "credited_synthesizer_unspecified",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 862,
+      "applicable_pins": 39,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "png_pop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-31-form-clarified119.json",
+      "source_packet_sha256": "c5bba04ecda9672d4beee3fe418a380bb935811bd92a7514cfc85d7ed9306fbb",
+      "prior_independent_review": "/tmp/batch040/resume119-31-independent-review116.json",
+      "prior_review_sha256": "616dac0612b439177df71be6274d84cce188d3cae04b5c5e5c7ac7ee4fc375f2",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "electronic_keyboard_unspecified",
+        "drum_kit"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 999,
+      "applicable_pins": 51,
+      "semantic_assessment": "Representative upbeat band profile supersedes old mellow single reconstruction. Fingerstyle bass/rock sticks/group syllabic singing remain coherent. Clapping-and-syllabicizing is original punctuated group-vocal affect, not an added percussion role."
+    },
+    {
+      "id": "polish_viral_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-polish-viral-pop-metadata-corrected-root.json",
+      "source_packet_sha256": "f8394457ef6e15160f65f91938fcc32b9cdff75817934569248182be456a9960",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-polish-viral-pop-metadata-corrected-root-root-review.json",
+      "prior_review_sha256": "8341e373402bde8549217988bfafdede99ed4873170dde35a0361e28754d7070",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 222,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "pop_flamenco",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116.json",
+      "source_packet_sha256": "098d4385b46e4cfdb112b663d2bbf55816e42f9d24413719e8682647efca65a9",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116-root-review.json",
+      "prior_review_sha256": "bc40f6b14e49e8a2b28c049bcb4904a15907018e58fe72576901d542c6df6f62",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 319,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "pop_urbaine",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116.json",
+      "source_packet_sha256": "098d4385b46e4cfdb112b663d2bbf55816e42f9d24413719e8682647efca65a9",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116-root-review.json",
+      "prior_review_sha256": "bc40f6b14e49e8a2b28c049bcb4904a15907018e58fe72576901d542c6df6f62",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "credited_beat_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 318,
+      "applicable_pins": 18,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "sambalpuri_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116.json",
+      "source_packet_sha256": "098d4385b46e4cfdb112b663d2bbf55816e42f9d24413719e8682647efca65a9",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116-root-review.json",
+      "prior_review_sha256": "bc40f6b14e49e8a2b28c049bcb4904a15907018e58fe72576901d542c6df6f62",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 987,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "santali_pop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-santali-recital-practice.json",
+      "source_packet_sha256": "75d0cd72a29dbe7bcaa5fa8fc056427391c1a51ad93250c512c56121220b5edd",
+      "prior_independent_review": "/tmp/batch040/transfer461-santali-recital-practice-root-review.json",
+      "prior_review_sha256": "68e2b307bf0c0cc2167d1808e239c6b97bd47b1e705d130bce8fabb520c99b77",
+      "parent": "functionalSong.southAsianPop",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_parlor",
+        "ukulele",
+        "cajon_peruano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 741,
+      "applicable_pins": 27,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "sorani_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/sorani_pop-genre-profile119.json",
+      "source_packet_sha256": "9446797e0a6c2e2081b3e4fb6c5db853de4c42032217781b1d0cb07fecc3cd14",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/sorani_pop-root-review.json",
+      "prior_review_sha256": "62f676ec59a40a9ba54b57b00064fc0c37857b65b51a42631ae03713caf4b6fd",
+      "parent": "artMusic",
+      "instruments": [
+        "voice",
+        "tar_persian",
+        "santur",
+        "kamancheh",
+        "tombak",
+        "oud",
+        "credited_auxiliary_percussion",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 990,
+      "applicable_pins": 44,
+      "semantic_assessment": "Retained source review supports Kurdish concert repertoire with neighboring Persian/Arab instruments and authored modal playing. Tahrir/radif and Arab oud vocabulary are contextualized instrumental realizations, not unsupported claims about the named singer training."
+    },
+    {
+      "id": "thai_indie_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116.json",
+      "source_packet_sha256": "098d4385b46e4cfdb112b663d2bbf55816e42f9d24413719e8682647efca65a9",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-004-policies-current116-root-review.json",
+      "prior_review_sha256": "bc40f6b14e49e8a2b28c049bcb4904a15907018e58fe72576901d542c6df6f62",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 1000,
+      "applicable_pins": 49,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "underground_power_pop",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-001.json",
+      "source_packet_sha256": "7703c5d190473292b54037f062bd59c3952b939519ad9c47615688dc8ff49ca9",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-001-independent-review117.json",
+      "prior_review_sha256": "0213a4a162ba0353471d90f1e80defc3749078be5f409face24ad180e155d553",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 994,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "zomi_pop",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-21.json",
+      "source_packet_sha256": "9ee6688f355e7fb41b7f2dcc37ef79acb2dfcbf4b575fe6c62dc83ce9a06170b",
+      "prior_independent_review": "/tmp/batch040/resume119-21-independent-review117.json",
+      "prior_review_sha256": "a72b3641d5ffa5a3fa31dc0c2e55a98175e5c754b759ec8a94f7a8d236013b06",
+      "parent": "functionalSong",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 999,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "viet_edm",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-005-policies-current116.json",
+      "source_packet_sha256": "5a40e8569ecc33ae3854b463a76688f4b3e93495e8b6b0f77a859b17fc5cc468",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-005-policies-current116-root-review.json",
+      "prior_review_sha256": "69fd047acafd2627cf30850e5b220fd25dc21967ff1c2990d19d73816e558305",
+      "parent": "electronicDance",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 133,
+      "applicable_pins": 1,
+      "semantic_assessment": "Positively documented DJ practice can represent dance field without pretending to reconstruct every embedded track."
+    },
+    {
+      "id": "myanmar_gospel",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/myanmar_gospel-genre-profile119.json",
+      "source_packet_sha256": "93adb2a0916b2c5ee066f19d9b86a7c5a0134d2dfa7e6c3cfdf339802f7f8b90",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/myanmar_gospel-root-review.json",
+      "prior_review_sha256": "426ea653d58c36b6976e7970af695e8e7c6c0d924d17124df9326c15d7ed1871",
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 165,
+      "applicable_pins": 17,
+      "semantic_assessment": "Unaccompanied devotional branch retains unknown voice count and no imported religious-identity technique beyond field-supported vocal practice."
+    },
+    {
+      "id": "cantaditas",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-cantaditas-genre-profile.json",
+      "source_packet_sha256": "00fb32dec03488f39fc80d6791ce9e4481180f641bbec18d93300674cdd517cd",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-cantaditas-genre-profile-root-review.json",
+      "prior_review_sha256": "be450b292f2e9e0f641608da3b8d09e759307badaa5fd69d519a087cbab06597",
+      "parent": "electronicDance",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 135,
+      "applicable_pins": 1,
+      "semantic_assessment": "Issued/announced DJ repertoire practice is valid for this vocal dance-song circulation field; embedded recorded voices are not falsely counted as separately live singers."
+    },
+    {
+      "id": "cantonese_worship",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected.json",
+      "source_packet_sha256": "e583cf7c0d37e024c9b777e7a697d6e201f5122b49c3049dd3ef9b8d9d75a892",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected-root-review.json",
+      "prior_review_sha256": "21ada01ba1858982a98442c2b5cfa3c3fa62449da6d9da1c2c9fec1c5a60aa49",
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 431,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "cartoni_animati",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-cartoni-animati-band-realization.json",
+      "source_packet_sha256": "0a19ef36b0c7d3adba8e1fa280d96effcc57a3fa42dac332091718188e0e8485",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-cartoni-animati-band-realization-root-review.json",
+      "prior_review_sha256": "3073a1bd0e69691009063aceb98ab8d19cfd0c6431201d2f7921400c02d66cd4",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 1000,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "chinese_bgm",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002.json",
+      "source_packet_sha256": "df6ba201ae94c5e76d6ea8bdd967da15cc64d62b0c8c8ceef121ed15be575eac",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002-root-review.json",
+      "prior_review_sha256": "195c8a88f80a3955a035cef75a6c499445b6ba956d35c9640290315a46bedc88",
+      "parent": "functionalSong",
+      "instruments": [
+        "upright_piano",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 357,
+      "applicable_pins": 8,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "chinese_drama_ost",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected.json",
+      "source_packet_sha256": "e583cf7c0d37e024c9b777e7a697d6e201f5122b49c3049dd3ef9b8d9d75a892",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected-root-review.json",
+      "prior_review_sha256": "21ada01ba1858982a98442c2b5cfa3c3fa62449da6d9da1c2c9fec1c5a60aa49",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 421,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "classic_bhangra",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-19-genre-profile119-photo-context119.json",
+      "source_packet_sha256": "ba493d699906d30b83cc35aa3dd1b631951ab855f26fbf17bf0839c9babd3c16",
+      "prior_independent_review": "/tmp/batch040/resume119-19-genre-profile-independent-review117.json",
+      "prior_review_sha256": "b26c00ab35c1373b2c3c29a0a1c304e2e3c44ff103e47657520c4846e3b9325c",
+      "parent": "groovePercussion",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "hand_pumped_harmonium",
+        "dhol",
+        "dholak"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 530,
+      "applicable_pins": 28,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "cumbia_cristiana",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-cumbia-cristiana-band.json",
+      "source_packet_sha256": "3e183ee185690ba37039f5f0f305ca946593fdc0d4fc5a30f14c1f6c60a33d50",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-cumbia-cristiana-band-independent-review117.json",
+      "prior_review_sha256": "390b2889e85b9f27e879eea35547d35ef2c1aa7628f90e0d4935ff920834943d",
+      "parent": "groovePercussion.latinAm",
+      "instruments": [
+        "voice",
+        "electronic_keyboard_unspecified",
+        "electric_bass",
+        "timbales_stick_played",
+        "guiro"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 681,
+      "applicable_pins": 32,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "cumbia_ecuatoriana",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002.json",
+      "source_packet_sha256": "df6ba201ae94c5e76d6ea8bdd967da15cc64d62b0c8c8ceef121ed15be575eac",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002-root-review.json",
+      "prior_review_sha256": "195c8a88f80a3955a035cef75a6c499445b6ba956d35c9640290315a46bedc88",
+      "parent": "groovePercussion.latinAm",
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "electric_bass",
+        "trumpet",
+        "trombone",
+        "saxophone",
+        "congas",
+        "timbales_stick_played",
+        "guiro"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 1000,
+      "applicable_pins": 58,
+      "semantic_assessment": "Complete selected tropical-orchestra role classes and percussion preserved. Continuous-legato sax setting is not contradicted by tongue-tying: original lexicon explicitly includes continuous-airflow, legato, lyrical. Brass instrument-maker orchestral tokens describe selected construction, not an added orchestra."
+    },
+    {
+      "id": "double_drumming",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-005-policies-current116.json",
+      "source_packet_sha256": "5a40e8569ecc33ae3854b463a76688f4b3e93495e8b6b0f77a859b17fc5cc468",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-005-policies-current116-root-review.json",
+      "prior_review_sha256": "69fd047acafd2627cf30850e5b220fd25dc21967ff1c2990d19d73816e558305",
+      "parent": "distortedRock.experimental",
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 959,
+      "applicable_pins": 32,
+      "semantic_assessment": "Existing drum-kit owner groups the positively documented two-drummer practice; one family card is not a headcount assertion. Riff guitar and picked saturated bass fit selected loud ensemble branch."
+    },
+    {
+      "id": "ethnotronica",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006.json",
+      "source_packet_sha256": "03e326841a35f99c776bcf4035b16fcb7bd75072ea1d30951167533b87695d79",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006-root-review.json",
+      "prior_review_sha256": "7b61a66048191e4175c2b0359f77791c2f4d874c34826022ca8e87c81df25c3b",
+      "parent": "electronicDance",
+      "instruments": [
+        "bansuri",
+        "tabla",
+        "sampler_classic"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 495,
+      "applicable_pins": 13,
+      "semantic_assessment": "Bansuri/tabla and electronic sample-loop branch is explicit; meend/raga instrumental vocabulary is supported by the selected Indian-classical fusion practice."
+    },
+    {
+      "id": "experimental_big_band",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-003.json",
+      "source_packet_sha256": "e3ce15f2d515639b85fea09dbf3d80eadf8e6005f01b58d53f1a190d422b4c39",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-003-root-review.json",
+      "prior_review_sha256": "c4af3565959e6f01d9d579aff05edae4575a470735b7b88c126e0e03da9ebeac",
+      "parent": "improvOnFrame.americanJazz.avant",
+      "instruments": [
+        "saxophone_section_tenor_baritone",
+        "bass_clarinet",
+        "upright_piano",
+        "double_bass",
+        "drum_kit"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 998,
+      "applicable_pins": 27,
+      "semantic_assessment": "Documented creative-jazz branch supports section winds, bass clarinet, piano, double bass and jazz drum technique. Brushes-and-sticks and ride-driven wording are compatible here, unlike metal contexts."
+    },
+    {
+      "id": "festigal",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-festigal.json",
+      "source_packet_sha256": "d6446f21a04186d4d80c23b11582ad96947296d7457c3d449a8c3abca8de5f26",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-festigal-root-review.json",
+      "prior_review_sha256": "86f03782b0419a336176ae577d9c51148d22ba030c9db0ed0ee3723dbbb0a513",
+      "parent": "functionalSong",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 990,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "focus",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected.json",
+      "source_packet_sha256": "e583cf7c0d37e024c9b777e7a697d6e201f5122b49c3049dd3ef9b8d9d75a892",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected-root-review.json",
+      "prior_review_sha256": "21ada01ba1858982a98442c2b5cfa3c3fa62449da6d9da1c2c9fec1c5a60aa49",
+      "parent": "artMusic",
+      "instruments": [
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 192,
+      "applicable_pins": 3,
+      "semantic_assessment": "Connected solo-piano branch fits concentration listening; public text preserves electronic/beat alternatives without forcing their union."
+    },
+    {
+      "id": "french_movie_tunes",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-french_movie_tunes.json",
+      "source_packet_sha256": "7476e0599a905742845c8c94f759a2d9cf9c459de83cd78476bfb6fe59b963f3",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-french_movie_tunes-root-review.json",
+      "prior_review_sha256": "3e2b0e82f2ece152c8ecb4dc1c159cc8913405ea6342d1d9e6bb9bb1a41ea2a5",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 487,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "grupero_romantico",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-001.json",
+      "source_packet_sha256": "7703c5d190473292b54037f062bd59c3952b939519ad9c47615688dc8ff49ca9",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-001-independent-review117.json",
+      "prior_review_sha256": "0213a4a162ba0353471d90f1e80defc3749078be5f409face24ad180e155d553",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "electronic_keyboard_unspecified",
+        "credited_synthesizer_unspecified",
+        "electronic_drum_kit_unspecified",
+        "credited_auxiliary_percussion"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 911,
+      "applicable_pins": 43,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "gumbe",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-001-photo-label-corrected.json",
+      "source_packet_sha256": "9dd2efde8647e2af0c27ced697ea0c419e87e3d0b8f3b7ee31e444a88df8f4ad",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-001-root-review.json",
+      "prior_review_sha256": "273590cf9caa8eefc352b3d1c8e92272fc483e94281c76db2ce2d5a94ec11d22",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_auxiliary_percussion",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 995,
+      "applicable_pins": 52,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "hyperpop_brasileiro",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-005-policies-current116.json",
+      "source_packet_sha256": "5a40e8569ecc33ae3854b463a76688f4b3e93495e8b6b0f77a859b17fc5cc468",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-005-policies-current116-root-review.json",
+      "prior_review_sha256": "69fd047acafd2627cf30850e5b220fd25dc21967ff1c2990d19d73816e558305",
+      "parent": "electronicDance",
+      "instruments": [
+        "dj_playback_mixing_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 144,
+      "applicable_pins": 1,
+      "semantic_assessment": "Documented DJ performance branch retained, not a claim genre production consists only of a mixer."
+    },
+    {
+      "id": "hyperpop_en_espanol",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006.json",
+      "source_packet_sha256": "03e326841a35f99c776bcf4035b16fcb7bd75072ea1d30951167533b87695d79",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006-root-review.json",
+      "prior_review_sha256": "7b61a66048191e4175c2b0359f77791c2f4d874c34826022ca8e87c81df25c3b",
+      "parent": "experimentalElec.popExperimental",
+      "instruments": [
+        "voice",
+        "wavetable_synth",
+        "drum_machine_analog"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 588,
+      "applicable_pins": 25,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "ilahiler",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/ilahiler-genre-profile119.json",
+      "source_packet_sha256": "073ca68f08c1554ab97878425d524875787073acb3f3a24f4a36a09dbea4611f",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/ilahiler-root-review.json",
+      "prior_review_sha256": "9276efa4913a77a6c985336c8238773351ef1c02f2cb9175de7326636aaff0d2",
+      "parent": "ritualDevotional.islamic",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 159,
+      "applicable_pins": 17,
+      "semantic_assessment": "Unaccompanied Turkish devotional-song branch preserves unknown voice count and no global tuning imposition."
+    },
+    {
+      "id": "indie_boliviano",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-004.json",
+      "source_packet_sha256": "2553b28c9b5e0de419165ed558132f26c0d50207d494fa981e046e9b5650fe1d",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-004-root-review.json",
+      "prior_review_sha256": "054ed59a0d4d3e1b18cc24790f1bde695b981c788a2087fb78f59c6d930f297f",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_synthesizer_unspecified",
+        "credited_programming_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 994,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "indie_catala",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-indie-catala-description-clarified024.json",
+      "source_packet_sha256": "4e6aa512970e9bd55fafb01cb6275148908788225948c40f234efeb9816d4d81",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-indie-catala-description-clarified024-root-review.json",
+      "prior_review_sha256": "a02593ade13ebc62b40cb3b7a779fc84a882b3e30152f48de1a27dcd5d0712a0",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "wurlitzer_ep",
+        "credited_synthesizer_unspecified",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 983,
+      "applicable_pins": 58,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "indie_cristao",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002.json",
+      "source_packet_sha256": "df6ba201ae94c5e76d6ea8bdd967da15cc64d62b0c8c8ceef121ed15be575eac",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002-root-review.json",
+      "prior_review_sha256": "195c8a88f80a3955a035cef75a6c499445b6ba956d35c9640290315a46bedc88",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 519,
+      "applicable_pins": 22,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "indie_liguria",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006.json",
+      "source_packet_sha256": "03e326841a35f99c776bcf4035b16fcb7bd75072ea1d30951167533b87695d79",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006-root-review.json",
+      "prior_review_sha256": "7b61a66048191e4175c2b0359f77791c2f4d874c34826022ca8e87c81df25c3b",
+      "parent": "electronicDance",
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 230,
+      "applicable_pins": 4,
+      "semantic_assessment": "Public profile identifies guitar/songwriting and producer strands. Sample-based setting represents the documented electronic strand; not a whole-scene claim or arbitrary omission from a named recording."
+    },
+    {
+      "id": "indie_nica",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006.json",
+      "source_packet_sha256": "03e326841a35f99c776bcf4035b16fcb7bd75072ea1d30951167533b87695d79",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-006-root-review.json",
+      "prior_review_sha256": "7b61a66048191e4175c2b0359f77791c2f4d874c34826022ca8e87c81df25c3b",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 414,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "japanese_buddhist_chant",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-20.json",
+      "source_packet_sha256": "82195fc6fdca97c4dccf9c20fe843550cf6632d72815082fc0339a8e50fb0c3d",
+      "prior_independent_review": "/tmp/batch040/resume119-20-independent-review117.json",
+      "prior_review_sha256": "6777f528f02b327c9a63ab58366e37cf5eacf7b629ee0153d0e0fe43f219450f",
+      "parent": "ritualDevotional.buddhist",
+      "instruments": [
+        "human_voice_ensemble_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 290,
+      "applicable_pins": 17,
+      "semantic_assessment": "Fixed-rhythm pitched chant and unknown vocal headcount retained. Voice-only represents positively documented unaccompanied chanting, not silent deletion of known ritual instruments."
+    },
+    {
+      "id": "japanese_psychedelic",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/review461/queued-japanese_psychedelic.json",
+      "source_packet_sha256": "d94c17d330be295dad5c516d32f3396639bca8b84076bc24f0db62e0255269ef",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/review461/queued-japanese_psychedelic-root-review.json",
+      "prior_review_sha256": "0b9d61fb08e96597bad829ad06cac7e95c29cca8b47e08ad7b6f7782c197cf9e",
+      "parent": "experimentalElec",
+      "instruments": [
+        "credited_synthesizer_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 197,
+      "applicable_pins": 1,
+      "semantic_assessment": "Explicit electronic exploration branch uses neutral synthesizer identity plus digital delay; no unknown synthesis architecture invented."
+    },
+    {
+      "id": "japanese_vgm",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002.json",
+      "source_packet_sha256": "df6ba201ae94c5e76d6ea8bdd967da15cc64d62b0c8c8ceef121ed15be575eac",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-002-root-review.json",
+      "prior_review_sha256": "195c8a88f80a3955a035cef75a6c499445b6ba956d35c9640290315a46bedc88",
+      "parent": "experimentalElec.retroAesthetic",
+      "instruments": [
+        "upright_piano",
+        "fm_synth",
+        "analog_poly_synth"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 530,
+      "applicable_pins": 12,
+      "semantic_assessment": "Keyboard/synthesis branch is representative, with actual piano/FM/analog role classes. Hardware-model tags are authored instrument options, not asserted historical master gear."
+    },
+    {
+      "id": "kabyle_moderne",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003.json",
+      "source_packet_sha256": "4ab3ae87d51c79b5f071872b6dddee21b3e6042a5516e9c5570af9fa86e00604",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003-root-review.json",
+      "prior_review_sha256": "b2e36e5498d6901f8267e50638411b8c54bc7eb07328540d27f4824ec4664713",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "credited_auxiliary_percussion",
+        "darbuka"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 982,
+      "applicable_pins": 56,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "korean_soundtrack",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003.json",
+      "source_packet_sha256": "4ab3ae87d51c79b5f071872b6dddee21b3e6042a5516e9c5570af9fa86e00604",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003-root-review.json",
+      "prior_review_sha256": "b2e36e5498d6901f8267e50638411b8c54bc7eb07328540d27f4824ec4664713",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "upright_piano",
+        "acoustic_guitar_dread",
+        "credited_strings_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 691,
+      "applicable_pins": 26,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "korean_talent_show",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/korean_talent_show-genre-profile119.json",
+      "source_packet_sha256": "77c1c1674dc2bcfd68db07600eb8d7b5433c04c8bde46b82e11f02df5124a0e2",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research119/queued/korean_talent_show-root-review.json",
+      "prior_review_sha256": "eb8b0959770364eb379dcbb0e4ccdf54d8e5998f808a4f78e821f975fd879fb3",
+      "parent": "artMusic",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 343,
+      "applicable_pins": 20,
+      "semantic_assessment": "Art-music classification applies to documented vocal-crossover recital branch; public field retains competitions beyond this branch."
+    },
+    {
+      "id": "lagu_iban",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003.json",
+      "source_packet_sha256": "4ab3ae87d51c79b5f071872b6dddee21b3e6042a5516e9c5570af9fa86e00604",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003-root-review.json",
+      "prior_review_sha256": "b2e36e5498d6901f8267e50638411b8c54bc7eb07328540d27f4824ec4664713",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 991,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "lagu_jambi",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003.json",
+      "source_packet_sha256": "4ab3ae87d51c79b5f071872b6dddee21b3e6042a5516e9c5570af9fa86e00604",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003-root-review.json",
+      "prior_review_sha256": "b2e36e5498d6901f8267e50638411b8c54bc7eb07328540d27f4824ec4664713",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 695,
+      "applicable_pins": 30,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "lagu_maluku",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003.json",
+      "source_packet_sha256": "4ab3ae87d51c79b5f071872b6dddee21b3e6042a5516e9c5570af9fa86e00604",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-003-root-review.json",
+      "prior_review_sha256": "b2e36e5498d6901f8267e50638411b8c54bc7eb07328540d27f4824ec4664713",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "ukulele"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 428,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "lagu_tarling",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/new-lagu-tarling-genre-profile.json",
+      "source_packet_sha256": "46cbc6c1901609cb6d8be0ab8005bb88c6dc52e2902eb37048e222af256ca703",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/new-lagu-tarling-genre-profile-independent-review116.json",
+      "prior_review_sha256": "c22e72d75df36f5a7f34850b3bc2a6da7790e1022842025cc09c51cde4dfa15b",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "rompler_workstation"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 332,
+      "applicable_pins": 21,
+      "semantic_assessment": "Representative modern organ-tunggal/workstation branch supported; public history retains older guitar/flute origins. Auto-accompaniment instrument is explicit rather than silently removed band roles."
+    },
+    {
+      "id": "lo_fi_brasileiro",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-lo-fi-brasileiro-production.json",
+      "source_packet_sha256": "a640b10c75ed212a6c1141e4ee6f4c403c2573e1a0043bc7b83d73052133785b",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-lo-fi-brasileiro-production-independent-review117.json",
+      "prior_review_sha256": "6651643c6e02576adc6267198153cb14d7d5bef02103715cc392ee8ea0b4c77b",
+      "parent": "mcRhythm",
+      "instruments": [
+        "sampler_classic",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 375,
+      "applicable_pins": 10,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "louvores_pentecostais",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected.json",
+      "source_packet_sha256": "e583cf7c0d37e024c9b777e7a697d6e201f5122b49c3049dd3ef9b8d9d75a892",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research117/queued-profiles-002-audit-corrected-root-review.json",
+      "prior_review_sha256": "21ada01ba1858982a98442c2b5cfa3c3fa62449da6d9da1c2c9fec1c5a60aa49",
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": [
+        "voice",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 380,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "magyar_kabare",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-002.json",
+      "source_packet_sha256": "ce4a77b2693802260d1308f3be0f0899cf31897cd58af866781a3cc81942bf0e",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-002-independent-review117.json",
+      "prior_review_sha256": "524b7500bd3e3cb605605afb702d8b18c3f36a26bfe685a0413c85a4a9365f23",
+      "parent": "spokenWord.stagePerformance",
+      "instruments": [
+        "voice"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 299,
+      "applicable_pins": 17,
+      "semantic_assessment": "Pure spoken stage-comedy branch preserves speech-only pitch/rhythm controls; no instrumental backing falsely required from broader cabaret field."
+    },
+    {
+      "id": "merida_indie",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/recover024/queued-merida-indie.json",
+      "source_packet_sha256": "1e3c12f959d2b5e78babd07ff33b1f4f8dce40f2b8dd5c5bbf5fc22d762836fa",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/recover024/queued-merida-indie-root-review.json",
+      "prior_review_sha256": "eb8480a2541df63fb9cc349fd9b70640887553fef905f36bdda32335b8af7c85",
+      "parent": "distortedRock.alternative",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "credited_synthesizer_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 1000,
+      "applicable_pins": 52,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "middle_eastern_traditional",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/resume119-30.json",
+      "source_packet_sha256": "6d2c82149452a5b71d256757f82681828254aa2cc08a4eac7715b6581d08b31b",
+      "prior_independent_review": "/tmp/batch040/resume119-30-independent-review461.json",
+      "prior_review_sha256": "d87197ffa06ead6d5bdca3c0c6ae130e0617a10e8b3f87a7967f50019612b2ca",
+      "parent": "improvOnFrame.persianArabImprov",
+      "instruments": [
+        "oud"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 876,
+      "applicable_pins": 7,
+      "semantic_assessment": "Modal solo oud branch is supported within broader transregional field. Arab-school construction/ornamented microtonal playing are compatible; no global twelve-tone tuning imposed."
+    },
+    {
+      "id": "musica_aguascalentense",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-004.json",
+      "source_packet_sha256": "b4f2ff766636c94c5afbebc013b174fc8b05bffb5277d8016acdd13e59d8a466",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-004-root-review.json",
+      "prior_review_sha256": "08387697649a8cfc96d4d90451b7176afd1760e2b926bd97c9bf294a7606fecc",
+      "parent": "distortedRock.regional",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "credited_auxiliary_percussion",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 999,
+      "applicable_pins": 66,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "musica_bautista",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-004.json",
+      "source_packet_sha256": "b4f2ff766636c94c5afbebc013b174fc8b05bffb5277d8016acdd13e59d8a466",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-004-root-review.json",
+      "prior_review_sha256": "08387697649a8cfc96d4d90451b7176afd1760e2b926bd97c9bf294a7606fecc",
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": [
+        "human_voice_ensemble_unspecified",
+        "upright_piano"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 432,
+      "applicable_pins": 20,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "musica_coahuilense",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-004.json",
+      "source_packet_sha256": "b4f2ff766636c94c5afbebc013b174fc8b05bffb5277d8016acdd13e59d8a466",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/sourceaudit/queued-profiles-004-root-review.json",
+      "prior_review_sha256": "08387697649a8cfc96d4d90451b7176afd1760e2b926bd97c9bf294a7606fecc",
+      "parent": "groovePercussion.latinAm",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "saxophone"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 1000,
+      "applicable_pins": 58,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "musica_evangelica_instrumental",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-evangelica-instrumental-duet.json",
+      "source_packet_sha256": "48b19955fd8d3a10f21c75b451a3fdd6304eb1cbc3ab04b09443c4538ad3806c",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-evangelica-instrumental-duet-independent-review117.json",
+      "prior_review_sha256": "19a107065b7f7c67412dcad499de5c1a64ce5733e12ae4901596cc35a908f73c",
+      "parent": "functionalSong",
+      "instruments": [
+        "saxophone",
+        "acoustic_guitar_dread"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 483,
+      "applicable_pins": 12,
+      "semantic_assessment": "Instrumental devotional sax/guitar branch is explicit. Tongue-tying lexicon is legato/lyrical rather than an incompatible articulated technique; no singers added to instrumental field."
+    },
+    {
+      "id": "musica_michoacana",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-003.json",
+      "source_packet_sha256": "03f369a4c32178ee8cdb9fd6354f779bce6865efbf4e2bce9d1d54024bc37f79",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/root/queued-profiles-003-independent-review117.json",
+      "prior_review_sha256": "02da5085498540696a957d7a819c7a9bdcb1b7c401c4d54902d0371775d79c86",
+      "parent": "functionalSong.mexican",
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 427,
+      "applicable_pins": 23,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "musica_nayarita",
+      "status": "PASS",
+      "source_packet": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-006-policies-current116.json",
+      "source_packet_sha256": "17c015f095fe388ddd92326038a07b6dacfe7f6e3e5e8c436293c10dddaf95d7",
+      "prior_independent_review": "/workspace/genre-continuation/repairs-20261003/research116/queued-profiles-006-policies-current116-root-review.json",
+      "prior_review_sha256": "01eca8a7409292e9f1acdec78af13771348dd39866eb4c45e32615c3e970e533",
+      "parent": "functionalSong.mexican",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 988,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    },
+    {
+      "id": "musica_timor_leste",
+      "status": "PASS",
+      "source_packet": "/tmp/batch040/transfer461-timor-metadata-corrected.json",
+      "source_packet_sha256": "834fff289c51fcd28a1a15080eb35a8f9737f882922e009801032057d7a1f5f1",
+      "prior_independent_review": "/tmp/batch040/transfer461-timor-metadata-corrected-independent-review116.json",
+      "prior_review_sha256": "cad7e5f4a7d9b5ceb03681c48c2910b76c6a9878f84e4e08604eb034bdda60bd",
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "render_formats": [
+        "rich",
+        "prose",
+        "tags",
+        "compact"
+      ],
+      "max_chars": 996,
+      "applicable_pins": 51,
+      "semantic_assessment": "Reviewed representative palette against retained genre-practice evidence and public history/style profile; literal vocal/instrument, room and technique output is compatible with the selected branch. No new semantic blocker identified."
+    }
+  ],
+  "pending": [
+    "Consolidated freeze and incremental review beyond these 100",
+    "Root completed static API signal, then compiled-pin and old-delta review",
+    "Original regression results and any exact causal review"
+  ]
+}

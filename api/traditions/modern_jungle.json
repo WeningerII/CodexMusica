@@ -1,0 +1,64 @@
+{
+  "id": "modern_jungle",
+  "name": "Modern jungle",
+  "family": "electronic",
+  "lineage": "Modern jungle renews and recombines jungle’s breakbeat and bass language through contemporary producers, labels and club communities. Networks such as Rupture and Future Retro connect new records with the genre’s earlier repertoire.",
+  "recipe": "classic modern jungle, electronic Dance. chopped sampler.",
+  "recipe_chars": 57,
+  "score": 17.816,
+  "config": {
+    "traditions": [
+      "modern_jungle"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.49999999999999994,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 2.126,
+          "sampler_workflow": 7.7,
+          "sampler_classic_context": 7.54
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_edm"
+    },
+    "pin_parts": true
+  }
+}

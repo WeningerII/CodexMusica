@@ -5,7 +5,7 @@
   "lineage": "Canadian stoner rock is represented here by Low Orbit. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic canadian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp alder mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 387,
-  "score": 57.078,
+  "score": 56.688,
   "config": {
     "traditions": [
       "canadian_stoner_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.8724999999999999,
+          "electric_technique": 0.9099999999999999,
           "amp_make": 5.2,
           "body_wood": 1.69,
-          "neck_wood": 1.6045,
-          "fretboard": 1.5545,
-          "pickup_magnet": 0.16899999999999998,
+          "neck_wood": 1.6435,
+          "fretboard": 1.5935000000000001,
+          "pickup_magnet": 0.12999999999999998,
           "pickup_winding": 1.69,
           "string_material": 0.105,
-          "bridge": 3.38,
+          "bridge": 3.0420000000000003,
           "scale_length": 1.69,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.33899999999999997
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 5.654999999999999,
           "body_wood": 1.69,
-          "pickup_config": 0.3055,
+          "pickup_config": 0.26649999999999996,
           "string_type": 13.325,
           "scale_length_b": 1.69,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.07799999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 1.8925,
+          "drumhead": 1.7755,
           "drum_kit_kick_pedal": 0
         }
       },

@@ -1,0 +1,80 @@
+{
+  "id": "musica_pitiusa",
+  "name": "Música pitiusa",
+  "family": "vernacular",
+  "lineage": "Música Pitiusa connects the repertoires of Ibiza and Formentera, including traditional dance music, song and later revival or popular approaches. Island communities and cultural organizations sustain distinct practices within the wider Catalan-speaking musical world.",
+  "recipe": "classic música pitiusa, improv On Frame. flauta pitiusa, tambor pitius, castanyoles pitiuses. live tracking.",
+  "recipe_chars": 108,
+  "score": 0.831,
+  "config": {
+    "traditions": [
+      "musica_pitiusa"
+    ],
+    "instruments": [
+      {
+        "id": "flauta_pitiusa",
+        "slots": {
+          "flauta_pitiusa_form": "flauta_pitiusa_oleander_three_hole"
+        },
+        "scores": {
+          "flauta_pitiusa_form": 0.6945
+        }
+      },
+      {
+        "id": "tambor_pitius",
+        "slots": {
+          "tambor_pitius_form": "tambor_pitius_hollow_pine",
+          "tambor_pitius_heads": "tambor_pitius_goat_rope_buzz"
+        },
+        "scores": {
+          "tambor_pitius_form": 0,
+          "tambor_pitius_heads": 0.0315
+        }
+      },
+      {
+        "id": "castanyoles_pitiuses",
+        "slots": {
+          "castanyoles_pitiuses_form": "castanyoles_pitiuses_juniper_badall"
+        },
+        "scores": {
+          "castanyoles_pitiuses_form": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "flauta_pitiusa": [
+        "flauta_pitiusa_form"
+      ],
+      "tambor_pitius": [
+        "tambor_pitius_form",
+        "tambor_pitius_heads"
+      ],
+      "castanyoles_pitiuses": [
+        "castanyoles_pitiuses_form"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "flauta_pitiusa_form": "flauta_pitiusa_oleander_three_hole",
+      "tambor_pitius_form": "tambor_pitius_hollow_pine",
+      "tambor_pitius_heads": "tambor_pitius_goat_rope_buzz",
+      "castanyoles_pitiuses_form": "castanyoles_pitiuses_juniper_badall"
+    },
+    "pin_parts": true
+  }
+}

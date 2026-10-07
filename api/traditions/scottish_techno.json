@@ -1,0 +1,113 @@
+{
+  "id": "scottish_techno",
+  "name": "Scottish Techno",
+  "family": "electronic",
+  "lineage": "Scottish techno connects club culture with adventurous electronic production, including broken rhythms, bass pressure and sampling. Neil Landstrumm exemplifies its hardware-based, cross-style approach.",
+  "recipe": "classic scottish techno, electronic Dance, techno branch. digital synthesis drum machine, digital multiengine synthesizer, sampler, software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 256,
+  "score": 2.29,
+  "config": {
+    "traditions": [
+      "scottish_techno"
+    ],
+    "instruments": [
+      {
+        "id": "digital_synthesis_drum_machine",
+        "slots": {
+          "digital_synthesis_drum_machine_identity": "digital_synthesis_drum_machine_digital"
+        },
+        "scores": {
+          "digital_synthesis_drum_machine_identity": 0
+        }
+      },
+      {
+        "id": "digital_multiengine_synthesizer",
+        "slots": {
+          "digital_multiengine_synthesizer_identity": "digital_multiengine_synthesizer_digital"
+        },
+        "scores": {
+          "digital_multiengine_synthesizer_identity": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.25999999999999995,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 1.95
+        }
+      },
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "digital_synthesis_drum_machine": [
+        "digital_synthesis_drum_machine_identity"
+      ],
+      "digital_multiengine_synthesizer": [
+        "digital_multiengine_synthesizer_identity"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "digital_synthesis_drum_machine_identity": "digital_synthesis_drum_machine_digital",
+      "digital_multiengine_synthesizer_identity": "digital_multiengine_synthesizer_digital",
+      "electronic_technique": "electronic_sample_chopped",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "software_sample_playback_identity": "software_sample_playback_digital"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Online-native offshoot of the wave and trap scenes formed roughly 2018-2021 across SoundCloud and Discord through Sidewalks and Skeletons, Hyperforms, Aire Atlantica and Kanuto, pairing 140-160 BPM half-time trap drums and 808 slides with towering distorted supersaw leads, sidechained shoegaze-scale reverb walls, and pitched-up or wordless vocal fragments used as texture rather than lyric.",
   "recipe": "classic 2018-2021 hardwave, bass System, bass descendants branch, retro aesthetic experimental electric, hardstyle electronic dance vapor twitch j-core. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. sub bass analog poly sub bass wavetable modular granular synth, TR-808, classic rock hard rock soft down tuning humbucker electric guitar. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 526,
-  "score": 204.915,
+  "score": 205.565,
   "config": {
     "traditions": [
       "hardwave",
@@ -95,7 +95,7 @@
           "pickup_magnet": 0.65,
           "pickup_winding": 0.6425,
           "string_material": 0.26749999999999996,
-          "bridge": 0.65,
+          "bridge": 1.3,
           "scale_length": 0.39,
           "string_gauge": 0.57,
           "finish": 0.045,

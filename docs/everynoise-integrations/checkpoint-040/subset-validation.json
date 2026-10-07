@@ -1,0 +1,200 @@
+{
+  "status": "EXPANDED_SUBSET_LOCAL_REGRESSION_AND_BUILD_PASS_TWO_LOCAL_UI_FAILURES_EXACT_HEAD_CI_PENDING",
+  "updated_at": "2026-10-04T04:25:10.184658+00:00",
+  "full_proposal_head": "d63210cbe63b8d9e7edb9b52de3fa0ee1971aa25",
+  "main_preserved": "70426a9861fe2591e66789879a6fde3082aad4f6",
+  "retained_repairs": 2153,
+  "deferred_repairs": 201,
+  "catalog_counts": {
+    "traditions": 6538,
+    "instruments": 1638
+  },
+  "original_baseline_cohort_records_preserved": 2638,
+  "snapshot_updates": 0,
+  "engine_changes": 0,
+  "musical_defects_fixed": 0,
+  "bounded_compatible_frozen_differences": 32,
+  "bounded_held_frozen_differences": 72,
+  "whole_frozen_outputs_qualified": 7,
+  "whole_frozen_outputs_held": 97,
+  "frozen_differences_contained_by_subset": 104,
+  "snapshot_differences_in_subset": 0,
+  "checks": {
+    "full_serial_regression": "PASS1149/1149 original snapshots unchanged",
+    "complete_musical_configuration_comparison": "PASS260/260 output and musical configurations identical, excluding cached scores",
+    "remaining_fixture_graphs": "PASS889/889 exact weighted-neighbor and reachable-staple graphs unchanged; no retained changed read inputs",
+    "static_api_build_jobs2": "PASS6538 traditions, zero failures;1638 instruments;628.8s; all IDs resolve and recipes <=1000 chars",
+    "post_api_checks": "PASS discovery, API contract, atlas geography/tree/check, generated HTML check",
+    "supporting_checks": "27/29 PASS; photo-dialog foundation failure byte-identical to prior local subset; reachability blocked by administrator file URL policy",
+    "lint": "PASS",
+    "formatting": "PASS",
+    "documentation": "PASS",
+    "exact_head_ci": "PENDING_NEW_HEAD_PUBLICATION",
+    "reference_validation": "PASS",
+    "independent_data_api_audit": "PASS exact2153/201 partition,2638 protected original records,6538 generated API records,223214 valid owning slots and aggregate; main481/shared engine/owners/fixtures preserved"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "54b2a31835eb46ef53c11fd33f5a1d0998e992dead4a74ac51ee0b27f62691f5",
+    "references/06_extras.js": "e4f38c2bd89a1074cb25281c0ce2a6c014d685381d2579150de19ac7a3e13bd9"
+  },
+  "candidate_catalog_semantic_sha256": "cd42f439755177107824991ac9f2180d6f5498be400ca1af0061b939e81da647",
+  "limits": [
+    "Existing baseline musical mistakes are not repaired.",
+    "Two local UI failures remain disclosed; no merge qualification is claimed pending exact-head CI and remaining musical holds.",
+    "Full configuration equality is directly checked for260 fixtures and established through identical read/context graphs plus rendered regression for889; nonfixture source reviews do not prove absence of every inherited musical issue.",
+    "Original2638 data correction proposals remain unapplied."
+  ],
+  "historical_validation": "historical-1734-subset-validation.json",
+  "original_recipe_snapshots_sha256": "632aea57afc06f54bee01785ab575c66b9a4393e46e69557a179b5eb46d4a524",
+  "supporting_results": [
+    {
+      "check": "discovery",
+      "exit_code": 0,
+      "seconds": 0.0
+    },
+    {
+      "check": "api-contract",
+      "exit_code": 0,
+      "seconds": 1.4
+    },
+    {
+      "check": "atlas-geo",
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    {
+      "check": "atlas-tree",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "atlas-check",
+      "exit_code": 0,
+      "seconds": 9.6
+    },
+    {
+      "check": "html",
+      "exit_code": 0,
+      "seconds": 3.9
+    },
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.1
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 10.3
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 11.0
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 16.5
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 28.1
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.3
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 105.9
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.2
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 46.2
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.8
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 11.0
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 50.8
+    },
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.4
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 14.3
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.2
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 85.2
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 35.9
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 100.4
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 18.8
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.8
+    }
+  ],
+  "independent_data_api_audit": {
+    "file": "subset-generated-api-audit.json",
+    "workspace_input_sha256": "c7af96fe0955dd22c7d3280cd413df65beabdde2f1a6939e3e82764f07611cca"
+  }
+}

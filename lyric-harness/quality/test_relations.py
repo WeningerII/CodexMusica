@@ -246,7 +246,7 @@ def test_inventory():
     _n = len(R.REGISTRY)
     _sites = {
         "lyric_harness.py": r"~~77~~ (\d+) named relation",
-        "CLAUDE.md": r"~~77~~ (\d+)",
+        "HANDBOOK.md": r"~~77~~ (\d+)",
         "MISSING.md": r"~~77~~ (\d+) schemas since",
         "quality/figures.py": r"~~77~~ (\d+)",
         "quality/plan.py": r"~~77~~ (\d+)",

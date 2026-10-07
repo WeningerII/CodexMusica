@@ -1,0 +1,64 @@
+{
+  "id": "cheeze_machine_pro",
+  "name": "Cheeze Machine PRO virtual-analog synthesizer",
+  "short": "Cheeze Machine PRO virtual-analog synthesizer",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "cheeze_machine_pro_identity",
+      "name": "Documented source identity",
+      "variants": [
+        {
+          "id": "cheeze_machine_pro_source",
+          "name": "Source-documented virtual-analog synthesis; exact patch unspecified",
+          "default": true,
+          "descriptors": [
+            "synthesized"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Software subtractive synthesizer; dual virtual-analog generators, noise and sub oscillator, four-pole lowpass. Full source sound palette retained, no guessed preset or acoustic instrument.",
+  "sources": [
+    "https://www.2getheraudio.com/instruments/cheeze-machine-pro/"
+  ],
+  "exclude_family_parts": [
+    "electronic_technique",
+    "percussion_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "cheeze_machine_pro_identity",
+      "name": "Documented source identity",
+      "variants": [
+        {
+          "id": "cheeze_machine_pro_source",
+          "name": "Source-documented virtual-analog synthesis; exact patch unspecified",
+          "default": true,
+          "descriptors": [
+            "synthesized"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ]
+}

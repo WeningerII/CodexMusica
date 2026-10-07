@@ -2,10 +2,10 @@
   "id": "brazilian_metalcore",
   "name": "Brazilian metalcore",
   "family": "rock_punk",
-  "lineage": "Brazilian metalcore discovery scope represented by São Paulo’s Project46. Primary accounts document band-level riff development, Portuguese-language performance and a later shift toward more melody and groove.",
-  "recipe": "classic modern brazilian metalcore, distorted Rock, metal branch, punk distorted rock dc hardcore deep punk rock. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 440,
-  "score": 74.125,
+  "lineage": "Brazilian metalcore connects heavy guitar riffs and hardcore-derived rhythm with local independent production. São Paulo’s Project46 exemplify Portuguese-language performance and collaborative riff writing that also incorporates melody and groove.",
+  "recipe": "classic modern brazilian metalcore, distorted Rock, metal branch, punk distorted rock dc hardcore deep punk rock. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 555,
+  "score": 101.9,
   "config": {
     "traditions": [
       "brazilian_metalcore",
@@ -17,7 +17,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -31,25 +31,25 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 10.875,
-          "amp_make": 0,
+          "electric_technique": 13,
+          "amp_make": 20.28,
           "body_wood": 0.39,
-          "neck_wood": 0.39,
+          "neck_wood": 0.09,
           "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 0.195,
-          "string_material": 0.39,
+          "pickup_winding": 0.39,
+          "string_material": 0.09,
           "bridge": 0.39,
           "scale_length": 0,
-          "string_gauge": 1,
+          "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 5.915
+          "string_tuning": 4.9399999999999995
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
+          "amp_make": 6.175,
           "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 0.585,
+          "string_type": 0.28500000000000003,
           "scale_length_b": 0.39,
           "fretted_or_not": 0,
-          "bass_technique": 18.045,
+          "bass_technique": 19.795,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,16 +85,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.124999999999999,
+          "drum_technique": 9.25,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.78,
-          "shell_wood": 0.39,
+          "shell_wood": 0.31499999999999995,
           "shell_thickness": 0,
-          "bearing_edges": 0.585,
+          "bearing_edges": 0.28500000000000003,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 11.59,
-          "cymbal_lathing": 11.2,
+          "cymbal_hammering": 10.79,
+          "cymbal_lathing": 10.399999999999999,
           "cymbal_finish": 0
         }
       },
@@ -130,18 +130,17 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.8850000000000002,
+          "voice_ensemble_config": 2.535,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.15
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -155,7 +154,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -248,7 +246,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_punk",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

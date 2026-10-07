@@ -2,10 +2,10 @@
   "id": "deep_funk_ostentacao",
   "name": "Deep funk ostentacao",
   "family": "global",
-  "lineage": "Deep funk ostentacao: DJ VM — BEAT WOW, credited MC Magrinho & MC GW version (4 December 2020). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
-  "recipe": "classic early-2020s deep funk ostentacao, electronic Dance, Latin electric branch. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 203,
-  "score": 4.532,
+  "lineage": "Deep funk ostentação belongs to Brazilian funk’s interconnected MC and producer networks. The wider ostentação movement developed around São Paulo and the Baixada Santista, with music videos and recordings carrying stories of consumption, aspiration and life in peripheral communities.",
+  "recipe": "classic deep funk ostentacao, electronic Dance, Latin electric branch. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 191,
+  "score": 4.671,
   "config": {
     "traditions": [
       "deep_funk_ostentacao"
@@ -61,8 +61,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.39,
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.1995,
           "sample_swing": 3.7815,
           "sample_processing": 0.21
         }

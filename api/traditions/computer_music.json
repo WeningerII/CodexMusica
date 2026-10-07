@@ -3,9 +3,9 @@
   "name": "Computer Music",
   "family": "classical",
   "lineage": "Institutional art-music practice begun at Bell Labs in 1957 with Max Mathews's MUSIC I and extended at Stanford CCRMA, IRCAM and CCRMA-adjacent centres by John Chowning, Jean-Claude Risset and Barry Truax — sound synthesised or algorithmically composed by computer, using FM and granular techniques, spectral analysis-resynthesis, non-tempered frequency structures and fixed-media multichannel diffusion rather than live instrumental performance.",
-  "recipe": "classic Asian late-1950s computer music, art Music, western modern branch, musique concrete experimental electric, ambient experimental electric tape music organic ambient. thick, breath veiled tone, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity pad fm evolving modular granular glitched textural wavetable evolving modular modular synth, prepared piano. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 579,
-  "score": 179.476,
+  "recipe": "classic Asian late-1950s computer music, art Music, western modern branch, musique concrete experimental electric, ambient experimental electric tape music organic ambient. thick, breath veiled tone, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity pad fm glitched textural granular glitched textural wavetable glitched textural modular synth, prepared piano. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 581,
+  "score": 176.27,
   "config": {
     "traditions": [
       "computer_music",
@@ -23,8 +23,8 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 6.075,
-          "fm_algorithm": 2.76,
+          "electronic_technique": 4.9750000000000005,
+          "fm_algorithm": 2.26,
           "fm_modulator_ratio": 0,
           "fm_polyphony": 0.31977272727272726,
           "fm_model_lineage": 3.3150000000000004
@@ -33,12 +33,12 @@
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
+          "electronic_technique": "electronic_glitch_textural",
           "granular_use": "granular_ambient",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 9.1,
+          "electronic_technique": 8.997045454545455,
           "granular_use": 0.047045454545454536,
           "granular_synth_source": 5.9799999999999995
         }
@@ -61,16 +61,16 @@
       {
         "id": "modular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
+          "electronic_technique": "electronic_glitch_textural",
           "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 9.1,
+          "electronic_technique": 8.997045454545455,
           "mod_voltage_source": 0.045,
-          "mod_patch_density": 3.26,
-          "mod_lineage": 0.39
+          "mod_patch_density": 2.6100000000000003,
+          "mod_lineage": 0.195
         }
       },
       {
@@ -110,7 +110,7 @@
         },
         "scores": {
           "voice_register": 5.07,
-          "voice_quality": 6.76,
+          "voice_quality": 6.11,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.046666666666667,
@@ -118,13 +118,13 @@
           "voice_microtone": 14.624999999999991,
           "voice_tradition": 13,
           "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 3.9350000000000005,
-          "voice_speech_song": 19.044999999999995,
-          "voice_ensemble_config": 14.754999999999992,
+          "voice_estill_quality": 4.585000000000001,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 15.404999999999992,
           "voice_ornament_system": 4.65,
           "voice_pitch_organization": 6.693333333333334,
-          "voice_processing_chain": 5.880833333333333,
-          "voice_multitrack_stack": 1.3
+          "voice_processing_chain": 4.880833333333333,
+          "voice_multitrack_stack": 1.4949999999999999
         }
       }
     ],

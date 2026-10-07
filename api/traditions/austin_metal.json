@@ -2,10 +2,10 @@
   "id": "austin_metal",
   "name": "Austin metal",
   "family": "rock_punk",
-  "lineage": "Austin’s metal discovery field, represented by The Sword’s guitar-led metal/boogie practice and primary rig documentation.",
-  "recipe": "classic modern austin metal, distorted Rock, metal branch. equal tempered, one note per syllable. distorted power chord humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter MXR phase 90 analog bucket-brigade delay.",
-  "recipe_chars": 437,
-  "score": 43.762,
+  "lineage": "Austin metal includes a range of local heavy bands, with The Sword exemplifying a riff-driven strand shaped by metal, boogie and vintage hard rock. Guitar interplay and recurring rhythmic figures contribute to its energetic live-band character.",
+  "recipe": "classic modern austin metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier power chord humbucker electric guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter MXR phase 90 analog bucket-brigade delay.",
+  "recipe_chars": 592,
+  "score": 67.801,
   "config": {
     "traditions": [
       "austin_metal"
@@ -15,7 +15,7 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
@@ -29,15 +29,15 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 16.58125,
-          "amp_make": 0,
-          "body_wood": 0.7855,
+          "electric_technique": 15.874,
+          "amp_make": 5.655000000000001,
+          "body_wood": 0.7464999999999999,
           "neck_wood": 0.105,
-          "fretboard": 0.506,
+          "fretboard": 0.4669999999999999,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.7855,
+          "bridge": 0.7464999999999999,
           "scale_length": 0,
           "string_gauge": 0.7,
           "finish": 0,
@@ -47,7 +47,7 @@
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_unspecified",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_h",
           "pickup_config": "split_coil",
           "string_type": "roundwound_s",
@@ -57,13 +57,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0,
-          "body_wood": 0.7855,
+          "amp_make": 3.575,
+          "body_wood": 0.7464999999999999,
           "pickup_config": 0,
           "string_type": 0.105,
-          "scale_length_b": 0.376,
+          "scale_length_b": 0.33699999999999997,
           "fretted_or_not": 0.12999999999999998,
-          "bass_technique": 3.7,
+          "bass_technique": 6.539,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,17 +83,17 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.75,
+          "drum_technique": 6.55,
           "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.42,
+          "shell_wood": 0.5499999999999999,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 3.7865,
-          "cymbal_finish": 0.3
+          "cymbal_hammering": 6.2865,
+          "cymbal_lathing": 6.2865,
+          "cymbal_finish": 1
         }
       },
       {
@@ -123,23 +123,22 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 3.5315000000000007,
+          "voice_microtone": 6.031500000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
-          "voice_processing_chain": 0.34275,
-          "voice_multitrack_stack": 0.249
+          "voice_processing_chain": 0.12449999999999999,
+          "voice_multitrack_stack": 0.21
         }
       }
     ],
     "pinned": {
       "electric_guitar_humbucker": [
         "electric_technique",
-        "amp_make",
         "body_wood",
         "neck_wood",
         "fretboard",
@@ -153,7 +152,6 @@
         "string_tuning"
       ],
       "electric_bass": [
-        "amp_make",
         "body_wood",
         "pickup_config",
         "string_type",
@@ -249,7 +247,6 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "amp_make": "amp_unspecified",
       "drum_technique": "sticks_rock",
       "shell_wood": "birch_shell",
       "shell_thickness": "medium_shell",

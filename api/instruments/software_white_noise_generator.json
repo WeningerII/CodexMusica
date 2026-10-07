@@ -1,0 +1,59 @@
+{
+  "id": "software_white_noise_generator",
+  "name": "Software white-noise generator",
+  "short": "Software-generated white noise",
+  "family": "electronic",
+  "class": "software_noise_generator",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "software_white_noise_identity",
+      "name": "Noise source",
+      "variants": [
+        {
+          "id": "software_generated_white_noise",
+          "name": "Software-generated white noise",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "continuous"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Computer-generated white-noise source. Does not imply any pitched synthesizer oscillator, physical instrument, modular hardware or sampled song. Routing axes are neutral authored coordinates; amplitude, duration and subsequent source processing remain unspecified.",
+  "sources": [
+    "https://manual.audacityteam.org/man/noise.html",
+    "https://dinofizzotti.com/blog/2017-08-21-noiseblanket-arduino-white-noise-player-with-ir-remote-control/"
+  ],
+  "_ownParts": [
+    {
+      "id": "software_white_noise_identity",
+      "name": "Noise source",
+      "variants": [
+        {
+          "id": "software_generated_white_noise",
+          "name": "Software-generated white noise",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "continuous"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -2,10 +2,10 @@
   "id": "north_carolina_metal",
   "name": "North carolina metal",
   "family": "rock_punk",
-  "lineage": "North Carolina metal is a regional umbrella represented by Corrosion of Conformity’s heavy Southern-rock/metal branch. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
-  "recipe": "classic modern north carolina metal, distorted Rock, metal branch. single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 471,
-  "score": 74.036,
+  "lineage": "North Carolina metal includes Southern-rock and metal currents alongside hardcore and crossover traditions.",
+  "recipe": "classic modern north carolina metal, distorted Rock, metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 415,
+  "score": 53.778,
   "config": {
     "traditions": [
       "north_carolina_metal"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1575,
-          "voice_multitrack_stack": 0.78,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -58,53 +58,53 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "maple_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_11_hum",
+          "finish": "poly_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 17.6065,
-          "amp_make": 6.825,
-          "body_wood": 7.02,
-          "neck_wood": 0.5775,
-          "fretboard": 0.315,
-          "pickup_magnet": 0.21,
-          "pickup_winding": 0.78,
-          "string_material": 0.1365,
-          "bridge": 0.5775,
-          "scale_length": 7.02,
-          "string_gauge": 0.7875,
-          "finish": 0.105,
-          "string_tuning": 0.78
+          "electric_technique": 15.43,
+          "amp_make": 5.655000000000001,
+          "body_wood": 5.85,
+          "neck_wood": 0.105,
+          "fretboard": 0.168,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.105,
+          "bridge": 0.315,
+          "scale_length": 0,
+          "string_gauge": 0.5775,
+          "finish": 0,
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "body_wood": "basswood_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.965,
-          "body_wood": 1.155,
-          "pickup_config": 0.21,
-          "string_type": 9.099999999999998,
-          "scale_length_b": 0.5775,
-          "fretted_or_not": 0.231,
-          "bass_technique": 6.949999999999999,
+          "body_wood": 5.85,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0,
+          "bass_technique": 7.076,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 6.999999999999999,
-          "drumhead": 0.78,
+          "drum_technique": 7.031499999999999,
+          "drumhead": 0.7245,
           "drum_kit_kick_pedal": 0
         }
       }
@@ -144,10 +144,26 @@
       ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
         "string_tuning"
       ],
       "electric_bass": [
-        "bass_technique"
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
       ],
       "drum_kit": [
         "drum_technique"
@@ -192,7 +208,22 @@
       "electric_technique": "electric_power_chord",
       "string_tuning": "d_standard",
       "drum_technique": "sticks_rock",
-      "bass_technique": "pick_aggressive"
+      "bass_technique": "pick_aggressive",
+      "body_wood": "basswood_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "ebony_fb_h",
+      "string_material": "nickel_plated_h",
+      "scale_length": "scale_fender_h",
+      "finish": "poly_hum",
+      "bridge": "string_thru",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_gauge": "g_11_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

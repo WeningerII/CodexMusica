@@ -3,14 +3,14 @@
   "name": "Bluegrass",
   "family": "vernacular",
   "lineage": "Kentucky-and-Appalachian string-band genre codified by Bill Monroe (the founding figure, his Blue Grass Boys band of 1939-onward giving the genre its name, with the 1945-1948 lineup of Earl Scruggs banjo, Lester Flatt guitar, Chubby Wise fiddle, Cedric Rainwater bass marking the genre birth) — extended through Lester Flatt and Earl Scruggs (their post-Monroe Foggy Mountain Boys, 1948 onward), the Stanley Brothers, Jim and Jesse, the Osborne Brothers, the second-wave New Grass Revival (Sam Bush, Bela Fleck) and the modern Alison Krauss and Union Station era",
-  "recipe": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian old-time fiddle. sitka spruce spruce maple coated nanoweb dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, treble-extended sustaining steel upright bass, steel double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 713,
-  "score": 249.609,
+  "recipe": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian coco de roda. sitka spruce spruce maple bronze clawhammer dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, treble-extended sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 745,
+  "score": 216.47,
   "config": {
     "traditions": [
       "bluegrass",
       "old_time",
-      "old_time_fiddle"
+      "coco"
     ],
     "instruments": [
       {
@@ -20,14 +20,14 @@
           "string_tuning": "open_e",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "coated_nano_acoustic"
+          "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 11.439999999999998,
-          "string_tuning": 1.2025,
-          "top_wood": 1.573,
-          "back_sides": 1.573,
-          "string_acoustic": 2.015
+          "acoustic_technique": 9.699999999999998,
+          "string_tuning": 0.5524999999999999,
+          "top_wood": 1.4365,
+          "back_sides": 1.4365,
+          "string_acoustic": 1.4365
         }
       },
       {
@@ -43,14 +43,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 11.043,
-          "mandolin_shape": 10.05,
-          "mandolin_top": 10.368,
-          "mandolin_back": 9.75,
-          "mandolin_bracing": 9.7815,
-          "mandolin_strings": 1.573,
-          "mandolin_fingerboard": 0.39,
-          "mandolin_pickup": 14.754999999999999
+          "acoustic_technique": 9.25,
+          "mandolin_shape": 8.425,
+          "mandolin_top": 8.711500000000001,
+          "mandolin_back": 8.125,
+          "mandolin_bracing": 8.1565,
+          "mandolin_strings": 1.4365,
+          "mandolin_fingerboard": 0.9950000000000001,
+          "mandolin_pickup": 14.95
         }
       },
       {
@@ -68,16 +68,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 1.573,
-          "tone_ring": 9.795,
-          "banjo_head": 15.665,
-          "banjo_pot": 2.391,
-          "banjo_play": 5.07,
-          "banjo_rim_wood": 11.532,
-          "banjo_neck_wood": 11.832,
-          "banjo_strings": 11.8635,
-          "banjo_bridge": 11.9535,
-          "banjo_setup_period": 31.589999999999996
+          "banjo_back": 1.4365,
+          "tone_ring": 8.17,
+          "banjo_head": 15.405,
+          "banjo_pot": 1.9495,
+          "banjo_play": 4.225,
+          "banjo_rim_wood": 9.5815,
+          "banjo_neck_wood": 9.8815,
+          "banjo_strings": 9.913,
+          "banjo_bridge": 10.152999999999999,
+          "banjo_setup_period": 29.6725
         }
       },
       {
@@ -87,8 +87,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.6045,
-          "upright_play": 1.2349999999999999
+          "upright_strings": 1.468,
+          "upright_play": 0.585
         }
       },
       {
@@ -96,17 +96,17 @@
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
-          "fiddle_bow": "light_rosin",
+          "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "sul_tasto",
+          "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 18.61,
-          "fiddle_strings": 1.6045,
-          "fiddle_bow": 1.573,
-          "fiddle_mute": 0.345,
-          "fiddle_articulation": 1.105,
+          "bowed_technique": 15.36,
+          "fiddle_strings": 1.468,
+          "fiddle_bow": 1.4649999999999999,
+          "fiddle_mute": 0.39,
+          "fiddle_articulation": 0.65,
           "fiddle_string_configuration": 0
         }
       },
@@ -114,18 +114,18 @@
         "id": "mandola",
         "slots": {
           "acoustic_technique": "acoustic_flatpicked",
-          "mandola_size": "octave_mandola",
+          "mandola_size": "mandola_alto",
           "mandola_context": "mandola_session",
           "mandola_top": "mandola_italian_alpine",
           "mandola_back": "mandola_big_leaf_maple",
           "mandola_strings": "mandola_phosphor"
         },
         "scores": {
-          "acoustic_technique": 11.043,
-          "mandola_size": 0.9199999999999999,
-          "mandola_context": 5.525,
-          "mandola_top": 2.535,
-          "mandola_back": 1.7549999999999994,
+          "acoustic_technique": 9.25,
+          "mandola_size": 0.39,
+          "mandola_context": 3.3799999999999994,
+          "mandola_top": 1.885,
+          "mandola_back": 2.0799999999999996,
           "mandola_strings": 0
         }
       }

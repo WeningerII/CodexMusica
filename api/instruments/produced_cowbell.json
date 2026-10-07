@@ -1,0 +1,158 @@
+{
+  "id": "produced_cowbell",
+  "name": "Produced cowbell sound",
+  "short": "produced cowbell",
+  "family": "electronic",
+  "class": "produced_cowbell",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "Cowbell-like metallic tone used in produced music. The sound source may be sampled or synthesized; no physical bell, specific drum machine or synthesis circuit is inferred. Event decay and repetition are editable production choices.",
+  "sources": [
+    "https://the-flow.ru/phonk/shadowraze-intervyu"
+  ],
+  "parts": [
+    {
+      "id": "produced_cowbell_identity",
+      "name": "Produced sound identity",
+      "variants": [
+        {
+          "id": "produced_cowbell_generator_unspecified",
+          "name": "Produced cowbell tone; generator unspecified",
+          "default": true,
+          "descriptors": [
+            "metallic",
+            "bell-like"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_cowbell_decay",
+      "name": "Event decay",
+      "variants": [
+        {
+          "id": "produced_cowbell_short_decay",
+          "name": "Authored short-decay bell event",
+          "default": true,
+          "descriptors": [
+            "short-decay"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_cowbell_ringing_decay",
+          "name": "Authored ringing bell event",
+          "default": false,
+          "descriptors": [
+            "ringing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_cowbell_articulation",
+      "name": "Event articulation",
+      "variants": [
+        {
+          "id": "produced_cowbell_repeated_pattern",
+          "name": "Authored repeated cowbell pattern",
+          "default": true,
+          "descriptors": [
+            "repeated",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_cowbell_sparse_accents",
+          "name": "Authored separated cowbell accents",
+          "default": false,
+          "descriptors": [
+            "sparse",
+            "accented"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "produced_cowbell_identity",
+      "name": "Produced sound identity",
+      "variants": [
+        {
+          "id": "produced_cowbell_generator_unspecified",
+          "name": "Produced cowbell tone; generator unspecified",
+          "default": true,
+          "descriptors": [
+            "metallic",
+            "bell-like"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_cowbell_decay",
+      "name": "Event decay",
+      "variants": [
+        {
+          "id": "produced_cowbell_short_decay",
+          "name": "Authored short-decay bell event",
+          "default": true,
+          "descriptors": [
+            "short-decay"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_cowbell_ringing_decay",
+          "name": "Authored ringing bell event",
+          "default": false,
+          "descriptors": [
+            "ringing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "produced_cowbell_articulation",
+      "name": "Event articulation",
+      "variants": [
+        {
+          "id": "produced_cowbell_repeated_pattern",
+          "name": "Authored repeated cowbell pattern",
+          "default": true,
+          "descriptors": [
+            "repeated",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "produced_cowbell_sparse_accents",
+          "name": "Authored separated cowbell accents",
+          "default": false,
+          "descriptors": [
+            "sparse",
+            "accented"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

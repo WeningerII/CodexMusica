@@ -1,0 +1,52 @@
+{
+  "id": "daw_percussion_source_unspecified",
+  "name": "DAW drum and percussion sources (generator unspecified)",
+  "short": "DAW drum and percussion sources",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "daw_percussion_source_unspecified_identity",
+      "name": "Documented DAW source role",
+      "variants": [
+        {
+          "id": "daw_percussion_source_unspecified_architecture_unspecified",
+          "name": "DAW drum and percussion sources; architecture and interface unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Both drums and additional percussion chapters retained; no acoustic kit,physical drum machine,or individual instrument roster inferred. Positively documented electronic production role in a DAW creation tutorial, not playback of an opaque finished master. Neutral axes are editorial routing; exact construction unknown.",
+  "sources": [
+    "https://www.youtube.com/watch?v=XocuqyTEVhk"
+  ],
+  "_ownParts": [
+    {
+      "id": "daw_percussion_source_unspecified_identity",
+      "name": "Documented DAW source role",
+      "variants": [
+        {
+          "id": "daw_percussion_source_unspecified_architecture_unspecified",
+          "name": "DAW drum and percussion sources; architecture and interface unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

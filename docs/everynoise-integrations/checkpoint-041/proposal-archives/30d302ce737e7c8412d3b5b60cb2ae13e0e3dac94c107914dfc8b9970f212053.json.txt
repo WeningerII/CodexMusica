@@ -1,0 +1,204 @@
+{
+  "entries": [
+    {
+      "source_label": "liberian pop",
+      "source_url": "https://everynoise.com/engenremap-liberianpop.html",
+      "suggested_id": "liberian_pop",
+      "allocation_ordinal": 1785,
+      "allocation_group_id": "072",
+      "id": "liberian_pop",
+      "tradition": {
+        "id": "liberian_pop",
+        "name": "Liberian Pop",
+        "family": "pop",
+        "lineage": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted. The existing source-unspecified DJ playback/mixing owner retains the complete assembled recorded programme, including all unknown embedded instrumental and vocal layers. Its one meaningful identity control deliberately avoids invented turntable, vinyl, scratch, synth, sampling mechanism or equipment. Broad electronicDance is an authored rhythmic DJ-mix presentation of the mixed popular repertoire, not a claim all Liberian pop has one electronic production method. A controlled live room and brisk up-tempo presentation are editorial choices for a new DJ rendition, not measured BPM or venue of the issued programme; individual original song tempos remain unknown. No global temperament or added live voice is inferred.",
+        "instruments": [
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted. Exact creator Liberian Pop corpus includes DenG Kemah at4, matching the selected programme item3, with Eric Geso, TeddyRide, Togar Howard and Yung Muse also shared. DJ Chirpz is not claimed to be a creator-playlist performer. His own national record-pool/mix community and firsthand Stunna interview establish a contemporary Liberian popular-music field spanning Afropop, Afrosoul and R&B alongside rap. Stunna is creator item25; his later interview supports community scope only, not presence in this earlier mix or its performing roster. Existing hipco expressly defines Liberian colloquial-English rap and its social practice; its own selected Chief Boima mix already crosses into Gbema. This broader national popular field overlaps Hipco and does not pretend the old record excludes all sung music, but is not synonymous with the narrower rap-language practice. Existing afrobeats is the wider transnational West African pop umbrella, not an exclusive Nigerian-only field; national scene specialization overlaps it. Current queued records contain no equivalent Liberian Pop category. Artist nationality alone is not the bridge: the DJ expressly organizes a national repertoire/record pool and exact mixed composition belongs to the creator field. The existing source-unspecified DJ playback/mixing owner retains the complete assembled recorded programme, including all unknown embedded instrumental and vocal layers. Its one meaningful identity control deliberately avoids invented turntable, vinyl, scratch, synth, sampling mechanism or equipment. Broad electronicDance is an authored rhythmic DJ-mix presentation of the mixed popular repertoire, not a claim all Liberian pop has one electronic production method. A controlled live room and brisk up-tempo presentation are editorial choices for a new DJ rendition, not measured BPM or venue of the issued programme; individual original song tempos remain unknown. No global temperament or added live voice is inferred.",
+        "exemplars": [
+          "DJ Chirpz — complete The Liberian Mixtape vol.6"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.9606,
+        -83.9207,
+        "Knoxville",
+        "North America"
+      ],
+      "geo_rationale": "DJ own Mixcloud profile states Knoxville; editorial diaspora-practitioner anchor, not the national origin of the repertoire or claimed recording venue.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Exact creator Liberian Pop corpus includes DenG Kemah at4, matching the selected programme item3, with Eric Geso, TeddyRide, Togar Howard and Yung Muse also shared. DJ Chirpz is not claimed to be a creator-playlist performer. His own national record-pool/mix community and firsthand Stunna interview establish a contemporary Liberian popular-music field spanning Afropop, Afrosoul and R&B alongside rap. Stunna is creator item25; his later interview supports community scope only, not presence in this earlier mix or its performing roster. Existing hipco expressly defines Liberian colloquial-English rap and its social practice; its own selected Chief Boima mix already crosses into Gbema. This broader national popular field overlaps Hipco and does not pretend the old record excludes all sung music, but is not synonymous with the narrower rap-language practice. Existing afrobeats is the wider transnational West African pop umbrella, not an exclusive Nigerian-only field; national scene specialization overlaps it. Current queued records contain no equivalent Liberian Pop category. Artist nationality alone is not the bridge: the DJ expressly organizes a national repertoire/record pool and exact mixed composition belongs to the creator field.",
+      "classification_evidence": "Exact creator Liberian Pop corpus includes DenG Kemah at4, matching the selected programme item3, with Eric Geso, TeddyRide, Togar Howard and Yung Muse also shared. DJ Chirpz is not claimed to be a creator-playlist performer. His own national record-pool/mix community and firsthand Stunna interview establish a contemporary Liberian popular-music field spanning Afropop, Afrosoul and R&B alongside rap. Stunna is creator item25; his later interview supports community scope only, not presence in this earlier mix or its performing roster. Existing hipco expressly defines Liberian colloquial-English rap and its social practice; its own selected Chief Boima mix already crosses into Gbema. This broader national popular field overlaps Hipco and does not pretend the old record excludes all sung music, but is not synonymous with the narrower rap-language practice. Existing afrobeats is the wider transnational West African pop umbrella, not an exclusive Nigerian-only field; national scene specialization overlaps it. Current queued records contain no equivalent Liberian Pop category. Artist nationality alone is not the bridge: the DJ expressly organizes a national repertoire/record pool and exact mixed composition belongs to the creator field.",
+      "source_scope_limitation": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted.",
+      "source_retrieval_caveat": "Own full Mixcloud page and profile freshly retrieved; description itself truncates at item25. Exact playlist and firsthand interview freshly read. No full audio audition or invented publication date.",
+      "model_policy": "The existing source-unspecified DJ playback/mixing owner retains the complete assembled recorded programme, including all unknown embedded instrumental and vocal layers. Its one meaningful identity control deliberately avoids invented turntable, vinyl, scratch, synth, sampling mechanism or equipment. Broad electronicDance is an authored rhythmic DJ-mix presentation of the mixed popular repertoire, not a claim all Liberian pop has one electronic production method. A controlled live room and brisk up-tempo presentation are editorial choices for a new DJ rendition, not measured BPM or venue of the issued programme; individual original song tempos remain unknown. No global temperament or added live voice is inferred.",
+      "vocal_count_audit": {
+        "live_vocal_count": "not independently credited",
+        "embedded_vocal_count": "unknown",
+        "decision": "All mixed-in voices retained at documented DJ assembly layer; no zero-vocal assertion."
+      },
+      "instrument_role_audit": {
+        "dj_playback_mixing_unspecified": "DJ Chirpz full assembled programme, all embedded sounds preserved; source hardware unspecified."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "The existing source-unspecified DJ playback/mixing owner retains the complete assembled recorded programme, including all unknown embedded instrumental and vocal layers. Its one meaningful identity control deliberately avoids invented turntable, vinyl, scratch, synth, sampling mechanism or equipment. Broad electronicDance is an authored rhythmic DJ-mix presentation of the mixed popular repertoire, not a claim all Liberian pop has one electronic production method. A controlled live room and brisk up-tempo presentation are editorial choices for a new DJ rendition, not measured BPM or venue of the issued programme; individual original song tempos remain unknown. No global temperament or added live voice is inferred."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": [],
+        "note": "Sole applicable original identity part explicitly pinned."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "sources": [
+        {
+          "url": "https://www.mixcloud.com/djchirpz/the-liberian-mixtape-vol-6/",
+          "title": "Own complete Liberian Mixtape vol.6",
+          "retrieval_ref": "turn12157view0",
+          "support_notes": "DJ Chirpz — complete issued The Liberian Mixtape vol.6, duration2:27:10 on his own Mixcloud. His source identifies an LIB mixtape assembled from named recordings and directs DJs to the Liberian record pool for those tracks; his own profile offers DJ bookings, receives promotional tracks and issues a continuing Liberian mix series. This is the complete DJ programme, not an opaque studio master treated as an instrument. Retrieved public description lists selections1–24 and truncates item25; no complete track count or complete textual tracklist is claimed. Embedded singers, rappers and instruments remain within the mixed recordings, with unknown total human counts and original session palette. No additional live singer, commentator or instrumentalist is positively credited in the selected programme. No audition, exact release day or deck/software architecture is asserted."
+        },
+        {
+          "url": "https://www.mixcloud.com/djchirpz/",
+          "title": "Own DJ profile and continuing national record-pool mix practice",
+          "retrieval_ref": "turn12163view1",
+          "support_notes": "Knoxville profile, bookings/promotional record pool and multi-style Liberian mix series."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/2Uu1r2ra4Xjiweb2VjDkjl",
+          "title": "Exact creator Liberian Pop composition/artist bridge",
+          "retrieval_ref": "turn12159view0",
+          "support_notes": "Kemah DenG4 exact mixed composition; Stunna25 and multiple other scene artists."
+        },
+        {
+          "url": "https://theecho.substack.com/p/stunna-a-star-of-today-making-music",
+          "title": "Firsthand Liberian performer interview on broader popular community",
+          "retrieval_ref": "turn12157view1",
+          "support_notes": "Own Afrosoul/Afropop/AfroR&B identity and Liberian audience; community evidence only, not selected programme roster."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "liberian_pop",
+          "name": "Liberian Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not DJ decks, DJ Chirpz or actual programme equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12149view2 confirms Iain Fergusson/Binksternet CC BY2.5; exact023 historical bytes inherited without new transfer.",
+          "fresh_review_ref": "turn12149view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12149view2"
+        ]
+      },
+      "status": "ready_independent_review",
+      "verification_status": "Pending original mechanical and four-format preflight."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ready_independent_review"
+}

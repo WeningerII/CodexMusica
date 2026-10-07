@@ -1,0 +1,477 @@
+{
+  "id": "russian_seven_string_guitar",
+  "name": "Russian seven-string guitar",
+  "short": "seven-string-guitar",
+  "family": "acoustic_strings",
+  "class": "fretted_guitar",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "r7_string_count",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "r7_seven_single",
+          "name": "Seven independently tuned single strings",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "name": "Open-string tuning",
+      "variants": [
+        {
+          "id": "r7_romany_open_g",
+          "name": "Romany open G; seven-string tuning",
+          "default": true,
+          "descriptors": [
+            "open-tuned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_soundboard",
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "r7_solid_red_cedar",
+          "name": "Solid western red cedar",
+          "default": true,
+          "descriptors": [
+            "cedar"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_back_sides",
+      "name": "Back and sides",
+      "variants": [
+        {
+          "id": "r7_solid_indian_rosewood",
+          "name": "Solid Indian rosewood",
+          "default": true,
+          "descriptors": [
+            "rosewood"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_neck",
+      "name": "Neck construction",
+      "variants": [
+        {
+          "id": "r7_honduras_cedar_neck",
+          "name": "Honduras cedar neck",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_fingerboard",
+      "name": "Fingerboard",
+      "variants": [
+        {
+          "id": "r7_ebony_fingerboard",
+          "name": "Ebony fingerboard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_string_material",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "r7_nylon_wound_basses",
+          "name": "Classical nylon set with wound bass strings",
+          "default": true,
+          "descriptors": [
+            "nylon"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_scale",
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "r7_650mm",
+          "name": "650 mm speaking length",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_nut_width",
+      "name": "Nut width",
+      "variants": [
+        {
+          "id": "r7_55mm",
+          "name": "55 mm neck width at nut",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_nut_saddle",
+      "name": "Nut and saddle",
+      "variants": [
+        {
+          "id": "r7_bone_nut_saddle",
+          "name": "Bone nut and saddle",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_body",
+      "name": "Body access",
+      "variants": [
+        {
+          "id": "r7_venetian_cutaway",
+          "name": "Hollow acoustic body with Venetian cutaway",
+          "default": true,
+          "descriptors": [
+            "resonant"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_bracing",
+      "name": "Internal bracing",
+      "variants": [
+        {
+          "id": "r7_bracing_unspecified",
+          "name": "Internal bracing pattern unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "r7_fingerstyle_variation",
+          "name": "Fingerstyle melody and chordal variation",
+          "default": true,
+          "descriptors": [
+            "fingerpicked",
+            "articulated"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_attack",
+      "name": "Finger contact",
+      "variants": [
+        {
+          "id": "r7_finger_nail_mix",
+          "name": "Authored mixed fingertip and nail attack",
+          "default": true,
+          "descriptors": [
+            "rounded-attack"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_pickup",
+      "name": "Installed pickup system",
+      "variants": [
+        {
+          "id": "r7_prefix_pro_blend",
+          "name": "Fishman Prefix Pro Blend: undersaddle pickup and internal microphone",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_capture",
+      "name": "Signal use",
+      "variants": [
+        {
+          "id": "r7_acoustic_unplugged",
+          "name": "Authored acoustic presentation; onboard output unused",
+          "default": true,
+          "descriptors": [
+            "acoustic-only"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Seven independently tuned strings on a fretted acoustic guitar, used in Russian and Russian Romani performance. Open-chord tuning supports bass notes, melody and chordal variation. The contemporary cedar-and-rosewood cutaway model preserves its distinctive seven-string configuration rather than treating it as a six-string classical guitar.",
+  "sources": [
+    "https://www.kremona.com/en/performer/fiesta-cw-7-kremona",
+    "https://www.barynya.com/romen/kolpakov_archives.htm"
+  ],
+  "_ownParts": [
+    {
+      "id": "r7_string_count",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "r7_seven_single",
+          "name": "Seven independently tuned single strings",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "string_tuning",
+      "name": "Open-string tuning",
+      "variants": [
+        {
+          "id": "r7_romany_open_g",
+          "name": "Romany open G; seven-string tuning",
+          "default": true,
+          "descriptors": [
+            "open-tuned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_soundboard",
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "r7_solid_red_cedar",
+          "name": "Solid western red cedar",
+          "default": true,
+          "descriptors": [
+            "cedar"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_back_sides",
+      "name": "Back and sides",
+      "variants": [
+        {
+          "id": "r7_solid_indian_rosewood",
+          "name": "Solid Indian rosewood",
+          "default": true,
+          "descriptors": [
+            "rosewood"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_neck",
+      "name": "Neck construction",
+      "variants": [
+        {
+          "id": "r7_honduras_cedar_neck",
+          "name": "Honduras cedar neck",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_fingerboard",
+      "name": "Fingerboard",
+      "variants": [
+        {
+          "id": "r7_ebony_fingerboard",
+          "name": "Ebony fingerboard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_string_material",
+      "name": "String material",
+      "variants": [
+        {
+          "id": "r7_nylon_wound_basses",
+          "name": "Classical nylon set with wound bass strings",
+          "default": true,
+          "descriptors": [
+            "nylon"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_scale",
+      "name": "Scale length",
+      "variants": [
+        {
+          "id": "r7_650mm",
+          "name": "650 mm speaking length",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_nut_width",
+      "name": "Nut width",
+      "variants": [
+        {
+          "id": "r7_55mm",
+          "name": "55 mm neck width at nut",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_nut_saddle",
+      "name": "Nut and saddle",
+      "variants": [
+        {
+          "id": "r7_bone_nut_saddle",
+          "name": "Bone nut and saddle",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_body",
+      "name": "Body access",
+      "variants": [
+        {
+          "id": "r7_venetian_cutaway",
+          "name": "Hollow acoustic body with Venetian cutaway",
+          "default": true,
+          "descriptors": [
+            "resonant"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_bracing",
+      "name": "Internal bracing",
+      "variants": [
+        {
+          "id": "r7_bracing_unspecified",
+          "name": "Internal bracing pattern unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "acoustic_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "r7_fingerstyle_variation",
+          "name": "Fingerstyle melody and chordal variation",
+          "default": true,
+          "descriptors": [
+            "fingerpicked",
+            "articulated"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_attack",
+      "name": "Finger contact",
+      "variants": [
+        {
+          "id": "r7_finger_nail_mix",
+          "name": "Authored mixed fingertip and nail attack",
+          "default": true,
+          "descriptors": [
+            "rounded-attack"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_pickup",
+      "name": "Installed pickup system",
+      "variants": [
+        {
+          "id": "r7_prefix_pro_blend",
+          "name": "Fishman Prefix Pro Blend: undersaddle pickup and internal microphone",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "r7_capture",
+      "name": "Signal use",
+      "variants": [
+        {
+          "id": "r7_acoustic_unplugged",
+          "name": "Authored acoustic presentation; onboard output unused",
+          "default": true,
+          "descriptors": [
+            "acoustic-only"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

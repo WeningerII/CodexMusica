@@ -1,0 +1,48 @@
+{
+  "id": "whale_song",
+  "name": "Whale song",
+  "family": "electronic",
+  "lineage": "Recorded whale vocalizations offer a listening field distinct from recordings of ocean water or human music. Early recordings by Frank Watlington and Roger and Katharine Payne helped bring these sounds to a wider audience.",
+  "recipe": "classic whale song, experimental Elec. field recording whale environmental recording.",
+  "recipe_chars": 85,
+  "score": 1.2,
+  "config": {
+    "traditions": [
+      "whale_song"
+    ],
+    "instruments": [
+      {
+        "id": "whale_environmental_recording",
+        "slots": {
+          "whale_environmental_source": "whale_field_recording_source"
+        },
+        "scores": {
+          "whale_environmental_source": 1.1995
+        }
+      }
+    ],
+    "pinned": {
+      "whale_environmental_recording": [
+        "whale_environmental_source"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "parts": {
+      "whale_environmental_source": "whale_field_recording_source"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "entries": [
+    {
+      "source_label": "pop flamenco",
+      "source_url": "https://everynoise.com/engenremap-popflamenco.html",
+      "suggested_id": "pop_flamenco",
+      "allocation_ordinal": 1839,
+      "allocation_group_id": "074",
+      "id": "pop_flamenco",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "pop_flamenco",
+        "name": "Pop Flamenco",
+        "family": "pop",
+        "lineage": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown. Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown. Pop Flamenco is the positively named popular-song crossover and circulation field, with substantial overlap with Nuevo Flamenco, traditional flamenco artists and Spanish pop. It is not defined by a supposedly disjoint artist list or by this duo instrumentation. A contemporaneous1994 Music and Media firsthand interview with Compadres publisher Adrian Vogel explicitly distinguishes pop-flamenco popular-audience arrangements/production from the broader tradition-led Nuevo Flamenco innovation; Nuevos Medios founder Mario Pacheco discusses the overlapping movement, and the article itself identifies Rosario material crossing both. This is a documented practical distinction, not a timeless purity boundary or a claim Nuevo Flamenco excludes pop. The current duo expressly uses pop-flamenco for its acoustic popular repertoire, and the exact creator category includes its named repertoire artists Niña Pastori, Antonio Orozco, India Martínez, Vanesa Martín and Estopa. The duo itself is not claimed to appear in the creator sample. Full old nuevo_flamenco already includes pop production/jazz/Latin fusion; old flamenco itself distinguishes later pop/fusion from cante-foreground traditional practice. Spanish popular-song fields remain overlapping broader contexts. The new entry represents the explicitly named popular-song branch rather than rewriting the broader old fusion field or defining it as strictly noncommercial. Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred.",
+        "exemplars": [
+          "Julia Gaz & Claudia de la Torre — complete advertised acoustic pop-flamenco/Spanish-pop duo practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        36.7213,
+        -4.4214,
+        "Málaga",
+        "Europe"
+      ],
+      "geo_rationale": "Artist own profile explicitly Málaga/Marbella and Costa del Sol; Málaga is the disclosed editorial practice anchor, not a recording location or exclusive genre origin.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Pop Flamenco is the positively named popular-song crossover and circulation field, with substantial overlap with Nuevo Flamenco, traditional flamenco artists and Spanish pop. It is not defined by a supposedly disjoint artist list or by this duo instrumentation. A contemporaneous1994 Music and Media firsthand interview with Compadres publisher Adrian Vogel explicitly distinguishes pop-flamenco popular-audience arrangements/production from the broader tradition-led Nuevo Flamenco innovation; Nuevos Medios founder Mario Pacheco discusses the overlapping movement, and the article itself identifies Rosario material crossing both. This is a documented practical distinction, not a timeless purity boundary or a claim Nuevo Flamenco excludes pop. The current duo expressly uses pop-flamenco for its acoustic popular repertoire, and the exact creator category includes its named repertoire artists Niña Pastori, Antonio Orozco, India Martínez, Vanesa Martín and Estopa. The duo itself is not claimed to appear in the creator sample. Full old nuevo_flamenco already includes pop production/jazz/Latin fusion; old flamenco itself distinguishes later pop/fusion from cante-foreground traditional practice. Spanish popular-song fields remain overlapping broader contexts. The new entry represents the explicitly named popular-song branch rather than rewriting the broader old fusion field or defining it as strictly noncommercial.",
+      "classification_evidence": "Pop Flamenco is the positively named popular-song crossover and circulation field, with substantial overlap with Nuevo Flamenco, traditional flamenco artists and Spanish pop. It is not defined by a supposedly disjoint artist list or by this duo instrumentation. A contemporaneous1994 Music and Media firsthand interview with Compadres publisher Adrian Vogel explicitly distinguishes pop-flamenco popular-audience arrangements/production from the broader tradition-led Nuevo Flamenco innovation; Nuevos Medios founder Mario Pacheco discusses the overlapping movement, and the article itself identifies Rosario material crossing both. This is a documented practical distinction, not a timeless purity boundary or a claim Nuevo Flamenco excludes pop. The current duo expressly uses pop-flamenco for its acoustic popular repertoire, and the exact creator category includes its named repertoire artists Niña Pastori, Antonio Orozco, India Martínez, Vanesa Martín and Estopa. The duo itself is not claimed to appear in the creator sample. Full old nuevo_flamenco already includes pop production/jazz/Latin fusion; old flamenco itself distinguishes later pop/fusion from cante-foreground traditional practice. Spanish popular-song fields remain overlapping broader contexts. The new entry represents the explicitly named popular-song branch rather than rewriting the broader old fusion field or defining it as strictly noncommercial.",
+      "model_policy": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred.",
+      "source_scope_limitation": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown.",
+      "source_retrieval_caveat": "Whole artist-defined booking practice, no claimed actual event/audio audition. Contemporary source first-person booking text fresh direct; historical primary interview fullindexed article retrieved but direct PDF403. Creator full map read; performer duo absent and exact repertoire-member bridge distinguished.",
+      "sources": [
+        {
+          "url": "https://www.espectaculosmf.es/julia-gaz/",
+          "title": "Artist first-person full duo practice",
+          "support_notes": "555647view0 full source lines56/89 voice+piano,92 repertoire artists,112/118 whole40plus-song/up-to-two-hour practice,124 explicit pop-flamenco ballad/dance range,129 locality.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.worldradiohistory.com/UK/Music-and-Media/90s/1994/MM-1994-04-02.pdf",
+          "title": "Contemporaneous firsthand publisher interviews, printed page15",
+          "support_notes": "785139search1 full indexed article by Terry Berne; Adrian Vogel and Mario Pacheco distinguish popular-audience pop-flamenco circulation from overlapping Nuevo Flamenco innovation. Direct403 disclosed; no universal artist exclusion.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-popflamenco.html",
+          "title": "Exact creator full category map",
+          "support_notes": "862887view1 full map contains named repertoire artists, and overlaps traditional/Nuevo Flamenco figures; no exclusive roster claim.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn555647view0",
+        "turn785139search1",
+        "turn862887view1"
+      ],
+      "vocal_count_audit": {
+        "selected_singers": 1,
+        "selected_people": 2,
+        "decision": "One singer Julia Gaz and one pianist Claudia de la Torre; phrase both female describes two people, not two singers."
+      },
+      "instrument_role_audit": {
+        "scope": "Julia Gaz and Claudia de la Torre — whole current artist-described acoustic duo practice, voice and piano. Their first-person booking profile explicitly defines the complete two-person formation, more than40 Spanish-language hits, and a flexible performance of up to two hours. Julia sings and Claudia plays piano; one singer, one pianist. This selects the whole offered duo configuration, not an invented extraction from a larger produced master or a claim that an individual booking occurred. The repertoire spans pop-flamenco and Spanish pop from ballads to danceable material; all of that mixed programme remains included. Exact piano architecture, vocal register, score voicings, source tempo and realized setlist remain unknown.",
+        "roles": {
+          "voice": "Julia Gaz sings",
+          "upright_piano": "Claudia de la Torre piano; upright subtype authored"
+        },
+        "authored_defaults": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Broad functionalSong/pop is an explicitly authored verse-chorus-bridge popular-song rendition over functional harmonic progressions, not a transcription of every original song or source arrangement. One accompanied singer retains unspecified physiology/register/ornament and a natural unprocessed voice; no cante-jondo technique or twelve-beat compás is inferred from the category label. Source-unspecified piano is authored as a standard studio upright with connected legato and pedal resonance in a controlled live room, not measured source equipment. Brisk vocal pacing, where rendered, is an intentionally energetic presentation of the source-described danceable branch, not the original tempo of all ballads. No global tuning or capture apparatus is inferred."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "upright_piano"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All20 applicable owning controls protected; no shared-key conflict or fallback."
+      },
+      "verification_status": "Pending independent source/mechanical/render peer.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_flamenco",
+          "name": "Pop Flamenco",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not the duo, piano or source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh952183view2 confirms original IainFergusson/Binksternet crop CC BY2.5. Historical023 byte and visual receipts unchanged.",
+          "fresh_review_ref": "turn952183view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn952183view2"
+        ],
+        "fresh_rights_review": "Fresh952183view2 rights/context only; no new byte or visual claim."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

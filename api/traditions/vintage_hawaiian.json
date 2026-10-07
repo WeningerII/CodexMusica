@@ -5,7 +5,7 @@
   "lineage": "Mainland-facing Hawaiian popular style running from the 1915 Panama-Pacific Exposition craze through the 1920s-40s Victor and Columbia sides and the Hawaii Calls broadcasts — Joseph Kekuku's bar-slid steel guitar carrying the melody with wide portamento and tremolo, ukulele and tenor guitar chording a gentle two-beat, string bass on the downbeats, English-and-Hawaiian hapa haole lyrics in close crooned harmony, at leisurely 70-100 BPM.",
   "recipe": "classic mid-1920s vintage hawaiian, functional Song, tropical song branch, crooners functional song, American jazz early american barbershop quartet great american songbook. thick, breath veiled tone, straight onset, interlocked note trading. steel c6 sacred steel lap steel, fingerpicked koa ukulele, rosewood parlor classic steel silk strummed parlor acoustic chord friendly guitar topped tenor guitar, growly gut upright bass. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 567,
-  "score": 190.703,
+  "score": 190.532,
   "config": {
     "traditions": [
       "vintage_hawaiian",
@@ -20,7 +20,7 @@
           "lap_steel_style": "lap_steel_sacred_steel"
         },
         "scores": {
-          "lap_steel_tuning": 3.3532142857142855,
+          "lap_steel_tuning": 3.3499999999999996,
           "lap_steel_style": 5.784999999999999
         }
       },
@@ -33,7 +33,7 @@
         },
         "scores": {
           "ukulele_size": 9.045,
-          "ukulele_style": 10.243214285714284,
+          "ukulele_style": 10.239999999999998,
           "ukulele_wood": 9.344999999999999
         }
       },
@@ -47,10 +47,10 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 3.507142857142857,
+          "acoustic_technique": 3.49,
           "string_tuning": 0.12499999999999997,
           "top_wood_parlor": 0.845,
-          "back_sides_parlor": 1.5714285714285714,
+          "back_sides_parlor": 1.55,
           "string_acoustic_parlor": 2.9899999999999998
         }
       },
@@ -62,7 +62,7 @@
           "tenor_guitar_build": "tenor_guitar_build_flattop"
         },
         "scores": {
-          "tenor_guitar_form": 4.602142857142857,
+          "tenor_guitar_form": 4.585,
           "tenor_guitar_style": 0.06499999999999999,
           "tenor_guitar_build": -0.07
         }
@@ -103,10 +103,10 @@
           "voice_quality": 14.819999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.681428571428571,
+          "voice_vibrato": 4.659999999999999,
           "voice_articulation": 15.014999999999997,
           "voice_microtone": 12.479999999999993,
-          "voice_tradition": 10.483928571428567,
+          "voice_tradition": 10.469999999999997,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 4.3225,
           "voice_speech_song": 23.269999999999992,
@@ -114,7 +114,7 @@
           "voice_ornament_system": 2.45,
           "voice_pitch_organization": 3.87,
           "voice_processing_chain": 6.955000000000001,
-          "voice_multitrack_stack": 6.032857142857143
+          "voice_multitrack_stack": 5.96
         }
       }
     ],

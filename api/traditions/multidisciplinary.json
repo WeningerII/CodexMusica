@@ -1,0 +1,58 @@
+{
+  "id": "multidisciplinary",
+  "name": "Multidisciplinary",
+  "family": "global",
+  "lineage": "Multidisciplinary music connects artists whose work crosses composition, visual art, design, performance and other practices. Methods and ideas move between media, producing varied forms rather than one common instrumental style.",
+  "recipe": "classic multidisciplinary, art Music. upright piano. live tracking.",
+  "recipe_chars": 67,
+  "score": 0.982,
+  "config": {
+    "traditions": [
+      "multidisciplinary"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.0315,
+          "upright_piano_size": 1
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

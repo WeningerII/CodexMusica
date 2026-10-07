@@ -1,0 +1,465 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "turkce_trap_metal",
+        "name": "Türkçe Trap Metal",
+        "family": "hip_hop",
+        "lineage": "Türkçe trap metal connects Turkish-language rap with the intensity of metal-influenced vocal performance and contemporary beat production. Independent rappers and producers circulate releases and collaborations through a shared online underground, bringing screamed delivery alongside rhythmic verses.",
+        "instruments": [
+          "voice",
+          "produced_808_bass",
+          "credited_programmed_drums_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_overdriven_scream",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "produced_808_bass_identity": "produced_808_bass_low_bass",
+          "produced_808_bass_decay": "produced_808_bass_long_decay",
+          "produced_808_bass_processing": "produced_808_bass_soft_clipped",
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Forceful rhythmic verses and screamed accents meet programmed drums and distorted 808 low bass. Abrasive textures and sharply delivered phrases characterize this crossover, while individual tracks vary in vocal approach and instrumental color.",
+        "exemplars": [
+          "KHVN",
+          "Furkan Karakılıç",
+          "ERU",
+          "13 Killoki"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "turkce_trap_metal",
+          "name": "Türkçe Trap Metal",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh15093view3 rights confirms original/crop/CCBY2.5.",
+          "fresh_review_ref": "turn15093view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15093view3"
+        ],
+        "fresh_rights_review": "Fresh rights only; inherited023 exact binary and visual receipt retained."
+      },
+      "source_label": "turkce trap metal",
+      "source_url": "https://everynoise.com/engenremap-turkcetrapmetal.html",
+      "suggested_id": "turkce_trap_metal",
+      "allocation_ordinal": 619,
+      "allocation_group_id": "025",
+      "id": "turkce_trap_metal",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "geo": [
+        39.9334,
+        32.8597,
+        "Ankara",
+        "Middle East"
+      ],
+      "geo_rationale": "First-person producer interview explicitly identifies Ankara upbringing and continuing local connections; approximate city anchor, not a recording address.",
+      "sources": [
+        {
+          "url": "https://open.spotify.com/artist/7JFi4yDhAv5O8TJVJshw1e",
+          "title": "KHVN artist-owned biography",
+          "support_notes": "Fresh indexed15193search0 and15200search5 positively Turkish rapper/singer/producer, rap+metal mixture, scream and rap vocals, Distordead producer collaboration."
+        },
+        {
+          "url": "https://www.rapertuar.com/roportaj/furkan-karakilic-ile-roportaj-kimdir-taginin-hikayesi-nedir-fuego-2de-bizi-neler-bekliyor/",
+          "title": "Furkan Karakılıç first-person producer interview",
+          "support_notes": "Fresh full indexed turn15273search0 first-person interview explicitly documents Ankara upbringing, 808 bass and substantial distortion; architecture/clipper not specified."
+        },
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-turkcetrapmetal.html",
+          "title": "Exact creator category map",
+          "support_notes": "Fresh full indexed15200search1 names actualartist/producer network; direct403."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15193search0",
+        "turn15193search2",
+        "turn15200search1",
+        "turn15200search5",
+        "turn15273search0"
+      ],
+      "neighbor_distinction": "Full Turkish hip hop spans diasporic and domestic rap with broad sampled and later trap practice; full Turkish trap includes melodic hooks and dense rap. This narrower positively named Turkish trap-metal artist/producer network adds an explicit rap/metal crossover and scream-vocal practice, rather than merely angry lyrics or a different rapper. Existing trap_metal_italiana is another national/language community and remains overlapping in technique. No disjoint sound or mandatory guitar is asserted. Exact creator map freshly indexes KHVN, Furkan Karakılıç, ERU and13Killoki; KHVN himself explicitly calls the relevant producer collaboration trap metal.",
+      "model_policy": "Representative harsh rhythmic vocal and produced-beat branch, supported by KHVN’s own biography documenting rap plus scream vocals and his collaboration on producer Furkan Karakılıç’s Distordead. The producer’s firsthand interview supports authored beat production. A single accompanied rhythmic lead with overdriven scream effort realizes an aggressive passage; this is an authored performance gesture, not a claim about measured subglottal pressure or false-fold anatomy. Actual vocal fold mechanism, tessitura, training and pitch organization remain source-unspecified. No guitar is inferred merely from metal influence, and the separate black-metal band biography is not reduced to this trap production. The producer explicitly describes regularly hearing 808 bass with substantial distortion. A produced 808 low-bass owner and separate programmed-drum owner retain these meaningful sound roles without claiming a named hardware drum machine or a sampled versus synthesized generator. Long bass decay and soft clipping are authored production choices for this representative rendition; the interview supports distorted 808 practice but does not establish the actual clipper, decay time or distortion circuit. Natural dry capture and treated studio are authored. This is not a reconstruction of a particular album or its featured-artist headcounts.",
+      "source_scope_limitation": "Genre-level rap/metal-influenced beat-production branch. Separate black-metal-band instrumentation and exact album guest rosters are not asserted.",
+      "authored_render_scope": "Representative harsh rhythmic vocal and produced-beat branch, supported by KHVN’s own biography documenting rap plus scream vocals and his collaboration on producer Furkan Karakılıç’s Distordead. The producer’s firsthand interview supports authored beat production. A single accompanied rhythmic lead with overdriven scream effort realizes an aggressive passage; this is an authored performance gesture, not a claim about measured subglottal pressure or false-fold anatomy. Actual vocal fold mechanism, tessitura, training and pitch organization remain source-unspecified. No guitar is inferred merely from metal influence, and the separate black-metal band biography is not reduced to this trap production. The producer explicitly describes regularly hearing 808 bass with substantial distortion. A produced 808 low-bass owner and separate programmed-drum owner retain these meaningful sound roles without claiming a named hardware drum machine or a sampled versus synthesized generator. Long bass decay and soft clipping are authored production choices for this representative rendition; the interview supports distorted 808 practice but does not establish the actual clipper, decay time or distortion circuit. Natural dry capture and treated studio are authored. This is not a reconstruction of a particular album or its featured-artist headcounts. The literal brutalist bass preface is consistent here with the deliberately distorted, dry, low-register clipped-bass treatment; it applies to the 808 layer, not an undocumented sound-effects role. Frosty programmed drums is an authored cool/contained production color. Spoken-flowing describes the chosen rhythmic rap passage alongside source-positive screamed effort, not a denial that the broader artist also sings.",
+      "source_retrieval_caveat": "Artist-owned biography and creator map independently indexed in full after direct retrieval failure; first-person producer interview indexed. No audio audition or exact-master reconstruction.",
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap and screamed intensity positively documented; one aggressive passage authored, source-specific anatomical mechanism remains unknown.",
+        "produced_808_bass": "Source-positive 808 low bass with substantial distortion; long decay and soft clipping are explicit authored choices, generator and actual source processing implementation unknown.",
+        "credited_programmed_drums_unspecified": "Trap beatmaking preserves a programmed rhythmic drum layer separately from the 808 low-bass role; no MIDI or hardware provenance inferred."
+      },
+      "vocal_count_audit": {
+        "authored_lead_cards": 1,
+        "actual_master_headcount": "not asserted; representative genre passage"
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [
+          "produced_808_bass"
+        ],
+        "baseline_existing": 1653,
+        "reuse": "Exact independently reviewed Necrotrap dependency fffbd180ff2bb3ebc9faa1eb2fc8efdb364e51133346b1fceded2b5f6b8245e0; do not append twice during combined integration."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_overdriven_scream",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative harsh rhythmic vocal and produced-beat branch, supported by KHVN’s own biography documenting rap plus scream vocals and his collaboration on producer Furkan Karakılıç’s Distordead. The producer’s firsthand interview supports authored beat production. A single accompanied rhythmic lead with overdriven scream effort realizes an aggressive passage; this is an authored performance gesture, not a claim about measured subglottal pressure or false-fold anatomy. Actual vocal fold mechanism, tessitura, training and pitch organization remain source-unspecified. No guitar is inferred merely from metal influence, and the separate black-metal band biography is not reduced to this trap production. The producer explicitly describes regularly hearing 808 bass with substantial distortion. A produced 808 low-bass owner and separate programmed-drum owner retain these meaningful sound roles without claiming a named hardware drum machine or a sampled versus synthesized generator. Long bass decay and soft clipping are authored production choices for this representative rendition; the interview supports distorted 808 practice but does not establish the actual clipper, decay time or distortion circuit. Natural dry capture and treated studio are authored. This is not a reconstruction of a particular album or its featured-artist headcounts."
+        },
+        {
+          "instrument": "produced_808_bass",
+          "parts": {
+            "produced_808_bass_identity": "produced_808_bass_low_bass",
+            "produced_808_bass_decay": "produced_808_bass_long_decay",
+            "produced_808_bass_processing": "produced_808_bass_soft_clipped"
+          },
+          "policy": "Representative harsh rhythmic vocal and produced-beat branch, supported by KHVN’s own biography documenting rap plus scream vocals and his collaboration on producer Furkan Karakılıç’s Distordead. The producer’s firsthand interview supports authored beat production. A single accompanied rhythmic lead with overdriven scream effort realizes an aggressive passage; this is an authored performance gesture, not a claim about measured subglottal pressure or false-fold anatomy. Actual vocal fold mechanism, tessitura, training and pitch organization remain source-unspecified. No guitar is inferred merely from metal influence, and the separate black-metal band biography is not reduced to this trap production. The producer explicitly describes regularly hearing 808 bass with substantial distortion. A produced 808 low-bass owner and separate programmed-drum owner retain these meaningful sound roles without claiming a named hardware drum machine or a sampled versus synthesized generator. Long bass decay and soft clipping are authored production choices for this representative rendition; the interview supports distorted 808 practice but does not establish the actual clipper, decay time or distortion circuit. Natural dry capture and treated studio are authored. This is not a reconstruction of a particular album or its featured-artist headcounts."
+        },
+        {
+          "instrument": "credited_programmed_drums_unspecified",
+          "parts": {
+            "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+          },
+          "policy": "Representative harsh rhythmic vocal and produced-beat branch, supported by KHVN’s own biography documenting rap plus scream vocals and his collaboration on producer Furkan Karakılıç’s Distordead. The producer’s firsthand interview supports authored beat production. A single accompanied rhythmic lead with overdriven scream effort realizes an aggressive passage; this is an authored performance gesture, not a claim about measured subglottal pressure or false-fold anatomy. Actual vocal fold mechanism, tessitura, training and pitch organization remain source-unspecified. No guitar is inferred merely from metal influence, and the separate black-metal band biography is not reduced to this trap production. The producer explicitly describes regularly hearing 808 bass with substantial distortion. A produced 808 low-bass owner and separate programmed-drum owner retain these meaningful sound roles without claiming a named hardware drum machine or a sampled versus synthesized generator. Long bass decay and soft clipping are authored production choices for this representative rendition; the interview supports distorted 808 practice but does not establish the actual clipper, decay time or distortion circuit. Natural dry capture and treated studio are authored. This is not a reconstruction of a particular album or its featured-artist headcounts."
+        }
+      ],
+      "format_repair": {
+        "prior_packet": "/workspace/genre-continuation/research/remaining436-practice-pass/research117/candidate-619.json",
+        "prior_sha256": "5524732b2d635e2b9b7d679ff7d88282913d5867221563eb0d1764b1845d3eb5",
+        "reason": "Independent peer identified missing source-positive distorted808 bass behavior. Preserve original; distinguish low bass and drum roles with meaningful production controls, and source-positive Ankara geography. No shared changes."
+      }
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "produced_808_bass",
+        "name": "Produced 808 low bass",
+        "short": "Produced 808 bass",
+        "family": "electronic",
+        "class": "produced_808_bass",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 1,
+          "polyphony": -1,
+          "harmonicity": 0,
+          "register": -2,
+          "range": -1,
+          "articulation": 0,
+          "transduction": 2,
+          "dynamics": 0
+        },
+        "description": "808-derived low-bass production role, distinct from a complete named hardware rhythm machine. Sound-generation architecture may be sampled or synthesized and remains unspecified unless independently documented. Decay and clipping controls describe audible production choices without claiming a particular circuit, plugin or device.",
+        "sources": [
+          "https://www.soundbetter.com/profiles/596182-slxndxr"
+        ],
+        "parts": [
+          {
+            "id": "produced_808_bass_identity",
+            "name": "Low-bass role",
+            "variants": [
+              {
+                "id": "produced_808_bass_low_bass",
+                "name": "808-derived low-bass sound; sampled or synthesized generator unspecified",
+                "default": true,
+                "descriptors": [
+                  "sub-bass",
+                  "low"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "produced_808_bass_decay",
+            "name": "Bass decay",
+            "variants": [
+              {
+                "id": "produced_808_bass_long_decay",
+                "name": "Authored long-decay low bass",
+                "default": true,
+                "descriptors": [
+                  "long-decay"
+                ],
+                "match_tokens": []
+              },
+              {
+                "id": "produced_808_bass_short_decay",
+                "name": "Authored short-decay low bass",
+                "default": false,
+                "descriptors": [
+                  "short-decay"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "produced_808_bass_processing",
+            "name": "Amplitude processing",
+            "variants": [
+              {
+                "id": "produced_808_bass_soft_clipped",
+                "name": "Soft-clipped 808 low bass; clipper implementation unspecified",
+                "default": true,
+                "descriptors": [
+                  "clipped"
+                ],
+                "match_tokens": []
+              },
+              {
+                "id": "produced_808_bass_unclipped",
+                "name": "Unclipped low bass",
+                "default": false,
+                "descriptors": [
+                  "clean"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "produced_808_bass",
+        "name": "Produced 808 low bass",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "produced_808_bass",
+          "name": "Produced 808 low bass",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "sources": [
+        "https://www.soundbetter.com/profiles/596182-slxndxr"
+      ],
+      "source_evidence": "Firsthand producer explicitly states 808 bass and clipping; separate decay and clipping controls preserve meaningful production behavior. Sample/synthesis architecture unknown. Existing Roland TR808 owner forces hardware provenance unavailable here.",
+      "preservation_policy": "New isolated class and local parts, no shared family/part changes; existing owners must remain deep-equal under full original merge."
+    }
+  ]
+}

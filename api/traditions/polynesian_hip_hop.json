@@ -5,7 +5,7 @@
   "lineage": "Polynesian hip hop includes the South Auckland Samoan-diaspora scene represented by Savage and the Deceptikonz. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern polynesian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 35.664,
+  "score": 35.718,
   "config": {
     "traditions": [
       "polynesian_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.23,
-          "voice_ensemble_config": 0.9015,
+          "voice_ensemble_config": 0.8474999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 5.6499999999999995,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.213,
           "sample_swing": 9.879999999999999,
           "sample_processing": 0.105
         }

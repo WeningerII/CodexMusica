@@ -1,0 +1,122 @@
+{
+  "id": "sinyaka",
+  "name": "Sinyaka (internally filled calabash rattle)",
+  "short": "sinyaka",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "sinyaka_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "sinyaka_calabash_shell",
+          "name": "Calabash gourd shell; exact dimensions unknown",
+          "default": true,
+          "descriptors": [
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sinyaka_filling",
+      "name": "Filling",
+      "variants": [
+        {
+          "id": "sinyaka_hard_berry_filling",
+          "name": "Internal hard berries; botanical species and count unknown",
+          "default": true,
+          "descriptors": [
+            "organic-rattle"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sinyaka_gesture",
+      "name": "Gesture",
+      "variants": [
+        {
+          "id": "sinyaka_two_hand_struck_tossed",
+          "name": "Struck and tossed between two hands",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "shaken"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-documented northern Ghanaian calabash internally filled with hard berries and struck/tossed between two hands. Separate shell, filling and gesture controls preserve known physical facts; size, species and filling quantity unknown. Axes are neutral authored scaffold. No shared or existing instrument modifications.",
+  "sources": [
+    "https://ayuunesule.bandcamp.com/album/we-have-one-destiny",
+    "https://ayuunesule.bandcamp.com/track/senyaane",
+    "https://www.cafeoto.co.uk/artists/ayuune-sule/"
+  ],
+  "_ownParts": [
+    {
+      "id": "sinyaka_shell",
+      "name": "Shell",
+      "variants": [
+        {
+          "id": "sinyaka_calabash_shell",
+          "name": "Calabash gourd shell; exact dimensions unknown",
+          "default": true,
+          "descriptors": [
+            "gourd",
+            "calabash"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sinyaka_filling",
+      "name": "Filling",
+      "variants": [
+        {
+          "id": "sinyaka_hard_berry_filling",
+          "name": "Internal hard berries; botanical species and count unknown",
+          "default": true,
+          "descriptors": [
+            "organic-rattle"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sinyaka_gesture",
+      "name": "Gesture",
+      "variants": [
+        {
+          "id": "sinyaka_two_hand_struck_tossed",
+          "name": "Struck and tossed between two hands",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "shaken"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

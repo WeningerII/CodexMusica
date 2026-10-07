@@ -1,0 +1,99 @@
+{
+  "id": "santoor",
+  "name": "Santoor",
+  "family": "classical",
+  "lineage": "Santoor-led Hindustani music develops raga melody on a hammered string instrument.",
+  "recipe": "classic santoor, improv On Frame, indian classical improv branch. steel modern santoor canonical lineage santoor, pitched indian rosewood rosewood tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 18.003,
+  "config": {
+    "traditions": [
+      "santoor"
+    ],
+    "instruments": [
+      {
+        "id": "santoor",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "santoor_courses": "santoor_100",
+          "santoor_mallets": "walnut_mallets",
+          "santoor_strings": "steel_strings_santoor",
+          "santoor_body_wood": "santoor_walnut_kashmir",
+          "santoor_lineage": "santoor_shivkumar_sharma_canon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.3865,
+          "santoor_courses": 0,
+          "santoor_mallets": 0.1365,
+          "santoor_strings": 3.25,
+          "santoor_body_wood": 0,
+          "santoor_lineage": 2.9899999999999998
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 5.135,
+          "tabla_bayan": 0.105,
+          "tabla_syahi": 0
+        }
+      }
+    ],
+    "pinned": {
+      "santoor": [
+        "plucked_traditional_technique",
+        "santoor_courses",
+        "santoor_mallets",
+        "santoor_strings",
+        "santoor_body_wood",
+        "santoor_lineage"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "santoor_courses": "santoor_100",
+      "santoor_mallets": "walnut_mallets",
+      "santoor_strings": "steel_strings_santoor",
+      "santoor_body_wood": "santoor_walnut_kashmir",
+      "santoor_lineage": "santoor_shivkumar_sharma_canon",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

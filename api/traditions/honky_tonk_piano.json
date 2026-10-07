@@ -1,0 +1,58 @@
+{
+  "id": "honky_tonk_piano",
+  "name": "Honky-tonk piano",
+  "family": "vernacular",
+  "lineage": "Honky-tonk piano connects lively keyboard playing with country, blues, ragtime and early popular dance music. Its influence extends through R&B, rockabilly, rock-and-roll and jazz, crossing the boundaries of the vocal-country style that shares its name.",
+  "recipe": "classic honky-tonk piano, improv On Frame. upright piano. live tracking.",
+  "recipe_chars": 72,
+  "score": 8,
+  "config": {
+    "traditions": [
+      "honky_tonk_piano"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_honky_tonk",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 8,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_honky_tonk",
+      "upright_use": "upright_honky_tonk",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

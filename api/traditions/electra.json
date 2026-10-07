@@ -1,0 +1,50 @@
+{
+  "id": "electra",
+  "name": "Electra",
+  "family": "electronic",
+  "lineage": "Electra is a discovery field joining varied experimental electronic composition, song and club practices. Its repertoire includes Laurel Halo, Sarah Davachi, Lucrecia Dalt and Holly Herndon, spanning detailed sound design, acoustic-electronic combinations and contrasting approaches to rhythm.",
+  "recipe": "classic electra, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 81,
+  "score": 0.37,
+  "config": {
+    "traditions": [
+      "electra"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.3705
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

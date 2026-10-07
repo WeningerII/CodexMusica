@@ -1,0 +1,174 @@
+{
+  "id": "donso_ngoni_eight_string",
+  "name": "Donso ngoni (eight-string hunters harp)",
+  "short": "eight-string donso ngoni",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "donso_eight_configuration",
+      "name": "Source string configuration",
+      "variants": [
+        {
+          "id": "donso_eight_string_source",
+          "name": "Eight strings; individual pitch assignments unspecified",
+          "default": true,
+          "descriptors": [
+            "donso",
+            "hunters"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_soundboard",
+      "name": "Source soundboard",
+      "variants": [
+        {
+          "id": "donso_eight_antelope_skin",
+          "name": "Antelope-skin soundboard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_resonator",
+      "name": "Authored resonator",
+      "variants": [
+        {
+          "id": "donso_eight_calabash",
+          "name": "Authored calabash resonator",
+          "default": true,
+          "descriptors": [
+            "calabash"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_string_setup",
+      "name": "Authored string setup",
+      "variants": [
+        {
+          "id": "donso_eight_nylon",
+          "name": "Authored modern nylon strings",
+          "default": true,
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_technique",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "donso_eight_fingerpicked",
+          "name": "Fingerpicked accompaniment",
+          "default": true,
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Isolated eight-string hunter-harp realization for positively documented Nfaly Diakite source; does not mutate existing six-string donso owner. Antelope skin and eight-string regional instrument identity from artist/label. Calabash resonator, nylon strings and fingerpicking are compatible authored construction/performance choices, not measured historical specifications.",
+  "sources": [
+    "https://nfalydiakite.bandcamp.com/album/hunter-folk-vol-1-tribute-to-toumani-kon"
+  ],
+  "_ownParts": [
+    {
+      "id": "donso_eight_configuration",
+      "name": "Source string configuration",
+      "variants": [
+        {
+          "id": "donso_eight_string_source",
+          "name": "Eight strings; individual pitch assignments unspecified",
+          "default": true,
+          "descriptors": [
+            "donso",
+            "hunters"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_soundboard",
+      "name": "Source soundboard",
+      "variants": [
+        {
+          "id": "donso_eight_antelope_skin",
+          "name": "Antelope-skin soundboard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_resonator",
+      "name": "Authored resonator",
+      "variants": [
+        {
+          "id": "donso_eight_calabash",
+          "name": "Authored calabash resonator",
+          "default": true,
+          "descriptors": [
+            "calabash"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_string_setup",
+      "name": "Authored string setup",
+      "variants": [
+        {
+          "id": "donso_eight_nylon",
+          "name": "Authored modern nylon strings",
+          "default": true,
+          "descriptors": [
+            "nylon-modern"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "donso_eight_technique",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "donso_eight_fingerpicked",
+          "name": "Fingerpicked accompaniment",
+          "default": true,
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

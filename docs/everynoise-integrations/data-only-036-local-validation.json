@@ -1,0 +1,191 @@
+{
+  "integration_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "api_build": [
+    "Done: 6238 traditions (0 failed), 1595 instruments in 658.8s -> /workspace/CodexMusica/api",
+    "Self-verify OK: 6238/6238 traditions, all recipes <=1000 chars, all ids resolve."
+  ],
+  "original_validator": "VALID — 6238 traditions, 317 tree nodes, 1595 instruments, 256 rooms, 84 chain archetypes, 21 production aesthetics. All refs resolve.\n",
+  "supporting_checks": [
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.9
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.7
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 11.9
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 14.9
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 17.9
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 18.2,
+      "initial_exit_code": 1,
+      "retry_report": "supporting-browser-path-retry.json",
+      "log": "check_minified_equivalence-retry.log"
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.4
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 113.7
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.8
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 45.8
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.8
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 10.7
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 51.4
+    }
+  ],
+  "supporting_browser_path_retry": {
+    "check": "check_minified_equivalence",
+    "initial_exit": 1,
+    "initial_reason": "Harness omitted PLAYWRIGHT_BROWSERS_PATH; browser binary already installed in /tmp/codex-playwright.",
+    "rerun_exit": 0,
+    "rerun_environment": {
+      "PLAYWRIGHT_BROWSERS_PATH": "/tmp/codex-playwright"
+    },
+    "rerun_log": "check_minified_equivalence-retry.log",
+    "repo_changes": false
+  },
+  "initial_serial_regression": "1139/1149; ten exact derived-neighbor changes independently replayed and isolated before targeted snapshot updates.",
+  "targeted_update": {
+    "jam_band": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "ethio_pop_modern": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "carnival_brazilian_samba": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "minimalist": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "german_wiegenlied": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "filin_cubano": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "russian_kolybelnaya": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "french_berceuse": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "brazilian_mpb_protest": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+    "brazilian_samba_school_enredo": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n"
+  },
+  "final_serial_regression": "REGRESSION: 1149/1149 fixture(s) match snapshot.",
+  "runtime": "100 integrated traditions times four original browser/connector formats passed.",
+  "ui_checks": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 15.2,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.4,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 85.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 41.7,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 111.4,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 22.1,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.8,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "ui_baseline_report": "data-only-036-ui-baseline-review.json",
+  "initial_gates": [
+    "validate",
+    "duplicates",
+    "signature tokens and mirrored table",
+    "frozen descriptor DF",
+    "audit"
+  ],
+  "geography": "GEOGRAPHIC EXPANSION: PASS — 96 candidates, 51 instruments, 63 tradition configurations, 252 browser/connector renders.\nGEOGRAPHIC ROUND 2: PASS — 24 traditions, 10 instruments, 96 browser/connector renders.\n",
+  "everynoise": "EVERYNOISE BATCHES: PASS — 2 batches, 50 genres, 200 browser/connector renders; CLI pins retained.\n",
+  "atlas": "Original complete npm run check:atlas passed.",
+  "lint": "Original npm run lint passed.",
+  "format": "Final complete format check required before commit.",
+  "ci": "Exact published-head CI required before merge.",
+  "sequencing": {
+    "original_frozen_packet": "frozen.json",
+    "final_packet": "integration-final.json",
+    "approved_amendments": [
+      "French Soundtrack broad composed artMusic parent; no musical role or physical part changes"
+    ],
+    "initial_api_exit": 143,
+    "initial_api_reason": "Root explicitly terminated precompletion before corrected rerun; partial outputs not consumed.",
+    "final_api_exit": 0,
+    "final_source_validation": "PASS6238traditions1595instruments, signature mirrors and frozenDF pass; all109images tracked",
+    "integrated_runtime": "400formatchecksPASS",
+    "final_api_build": "6238traditions0failed1595instruments658.8s; allrecipes<=1000allidsresolve"
+  }
+}

@@ -1,0 +1,1996 @@
+{
+  "owner": "research117",
+  "scope": "Transferred119 held entries; exact-current public prose only; musical/output holds explicitly retained",
+  "entries": [
+    {
+      "id": "high_vibe",
+      "before": {
+        "tradition": {
+          "id": "high_vibe",
+          "name": "High Vibe",
+          "family": "pop",
+          "lineage": "Geminelle — In the Loop2015 full musical roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "ukulele",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "ukulele_size": "ukulele_concert",
+            "ukulele_style": "ukulele_strum",
+            "ukulele_wood": "ukulele_mahogany",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_s1000",
+            "sampler_bit_depth": "sampler_sixteen_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_pop_production"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong.soulRb",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Artist states all beats use loop pedal, voice and ukulele and describes recording the pedal directly. All three roles retained; generic profile guitar/cajon roles do not override exact album credits. Creator high-vibe playlist includes Geminelle. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Geminelle — In the Loop2015 full musical roles"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "high_vibe",
+          "name": "High Vibe",
+          "family": "pop",
+          "lineage": "High vibe connects a popular-music listening community with expressive vocal and layered song approaches. Performers can combine acoustic accompaniment with repeated recorded textures.",
+          "instruments": [
+            "voice",
+            "ukulele",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "ukulele_size": "ukulele_concert",
+            "ukulele_style": "ukulele_strum",
+            "ukulele_wood": "ukulele_mahogany",
+            "electronic_technique": "electronic_sustained_layering",
+            "sampler_archetypes": "akai_s1000",
+            "sampler_bit_depth": "sampler_sixteen_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_pop_production"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong.soulRb",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A singer and ukulele can build patterns through looping and layered playback. Repeated vocal fragments and plucked rhythm create a changing foundation beneath melodic phrases.",
+          "exemplars": [
+            "Geminelle"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://geminelle.bandcamp.com/album/in-the-loop",
+          "title": "Geminelle — In the Loop2015 full musical roles",
+          "support_notes": "Artist states all beats use loop pedal, voice and ukulele and describes recording the pedal directly. All three roles retained; generic profile guitar/cajon roles do not override exact album credits. Creator high-vibe playlist includes Geminelle.",
+          "checked_date": "2026-10-02",
+          "retrieval_ref": "turn817107view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6GTqoouUghFknnAozSCGnj",
+          "title": "The Sound of High Vibe",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original synthetic futuristic ukulele conflicts with acoustic role; coherent live-room alternative emits unrelated oro voice. Actual sampler micro-stuttering itself is supported layered playback.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-015-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-015-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-015-candidate.json",
+        "proposal_sha256": "595fb0ff686e6e1d609a0c8a57a07167044bfd161055097324b012cbfb465423",
+        "current_before_sha256": "e00a73dd92e7de012e0c8dfaf3f17d1e9936d0babde4a3ed2f6523435c659465",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Geminelle voice including looped vocal beat production; one performer, layered recorded takes, not additional singers."
+              },
+              {
+                "instrument": "ukulele",
+                "source_role": "Artist explicitly identifies ukulele as source of all beats alongside voice and loop pedal."
+              },
+              {
+                "instrument": "sampler_classic",
+                "source_role": "Artist explicitly records with loop pedal; sampler card is authored loop-playback timbral realization, not original pedal hardware or a newly invented drum kit."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "All positively specified musical roles of selected source scope retained; no uncredited production or guest roles invented."
+          }
+        }
+      }
+    },
+    {
+      "id": "hindi_indie",
+      "before": {
+        "tradition": {
+          "id": "hindi_indie",
+          "name": "Hindi Indie",
+          "family": "pop",
+          "lineage": "Anuv Jain — Husn2023 credited performing roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong.southAsianPop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Licensed release credits list Anuv Jain vocals and Harsimran Singh Bhatia acoustic guitar. Anuv Jain, Angad Bahra and PUNA production credits retained as production evidence, not inferred extra performers. Exact Husn recording appears in creator Hindi-indie playlist. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+          "exemplars": [
+            "Anuv Jain — Husn2023 credited performing roles"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hindi_indie",
+          "name": "Hindi Indie",
+          "family": "pop",
+          "lineage": "Hindi indie connects independent Hindi-language songwriters and listeners through recordings and live performance. Intimate acoustic writing forms one strand alongside fuller band and electronic arrangements.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_strummed_ringing",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong.southAsianPop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A lead voice with acoustic guitar can carry returning melodic phrases over chordal support. Changes in vocal emphasis and ringing accompaniment give a compact song setting its shape.",
+          "exemplars": [
+            "Anuv Jain"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.shazam.com/song/1717140552/husn",
+          "title": "Anuv Jain — Husn2023 credited performing roles",
+          "support_notes": "Licensed release credits list Anuv Jain vocals and Harsimran Singh Bhatia acoustic guitar. Anuv Jain, Angad Bahra and PUNA production credits retained as production evidence, not inferred extra performers. Exact Husn recording appears in creator Hindi-indie playlist.",
+          "checked_date": "2026-10-02",
+          "read_mode": "licensed_release_credits_search_index",
+          "retrieval_ref": "turn942936search0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4Mx67aqgClMsDfdtN0mmVC",
+          "title": "The Sound of Hindi Indie",
+          "support_notes": "Creator-owned discovery playlist positively contains the named artist; exact documented arrangement chosen as exemplar rather than universal genre instrumentation.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=gJLVTKhTnog",
+          "title": "Anuv Jain official Husn upload",
+          "support_notes": "Artist-owned official release search index confirms written, sung and composed by Anuv Jain; detailed acoustic guitar role from published licensed-release credits.",
+          "read_mode": "official_artist_channel_search_index",
+          "retrieval_ref": "turn942936youtube26",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Natural voice receives synthetic futuristic descriptor, while coherent acoustic live-room alternative emits unsupported engineered micro-stutter.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "34ac14dd11633d3bdabe98e7772f3778d2a31304f4cc63d7f7bc407196758575",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "selected_roles": [
+              {
+                "instrument": "voice",
+                "source_role": "Anuv Jain explicitly credited vocals."
+              },
+              {
+                "instrument": "acoustic_guitar_dread",
+                "source_role": "Harsimran Singh Bhatia explicitly acoustic guitar; dreadnought subtype authored."
+              }
+            ],
+            "authored_defaults": "Complete applicable merged parts pinned. Instrument subtypes and constructions are authored contextual choices.",
+            "exclusions": "No positively named performing role omitted. Producer-only credits do not establish separate instrumental roles; no assertion of exhaustive audio-stem reconstruction."
+          }
+        }
+      }
+    },
+    {
+      "id": "historic_piano_performance",
+      "before": {
+        "tradition": {
+          "id": "historic_piano_performance",
+          "name": "Historic piano performance",
+          "family": "classical",
+          "lineage": "Wilhelm Kempff — Beethoven Sonata No. 14, July 1924 Berlin recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Reissue label identifies Kempff's early acoustical piano recordings made in Berlin and dates the selected solo Beethoven sonata to July 1924. Selected solo piano sonata, excluding the separately credited concerto orchestra elsewhere in the set. Narrow historic-pianism category within the broader historic-classical umbrella; not equivalent solely because both currently select pianists. Present-day Steinway D nine-foot construction and digital studio recipe are authored realization, not a reconstruction of the 1924 instrument, acoustical horn recording or transfer process. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Wilhelm Kempff — Beethoven Sonata No. 14, July 1924 Berlin recording"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "historic_piano_performance",
+          "name": "Historic piano performance",
+          "family": "classical",
+          "lineage": "Historic piano performance preserves earlier pianists’ interpretations through recordings and reissues. Listening to these performances connects changing musical styles with the history of recorded piano sound.",
+          "instruments": [
+            "grand_piano"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "grand_piano_size": "grand_9_foot",
+            "grand_piano_brand": "steinway_d",
+            "piano_hammer": "steinway_original_hammer",
+            "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+            "piano_soundboard": "sitka_spruce_diaphragmatic",
+            "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+            "piano_plate": "gray_iron_full_perimeter_plate",
+            "piano_pitch_standard": "a_440_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Solo piano can develop contrasting melodic and accompanying lines through phrasing, touch and dynamics. Modern performances and transfers offer different listening contexts; an archival recording’s original equipment is not implied by a new rendition.",
+          "exemplars": [
+            "Wilhelm Kempff"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.marstonrecords.com/collections/piano/products/kempff",
+          "title": "Wilhelm Kempff — Beethoven Sonata No. 14, July 1924 Berlin recording",
+          "support_notes": "Primary reissue label gives Berlin 1923–1925 collection, solo sonata movements and July 1924 date; contrasts separate orchestral concerto tracks.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original conductors implies ensemble leadership; concert alternative breath-coloring implies tube/mouth mechanism incompatible with solo piano. Modern rendition caveat does not cure mechanism.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "550be92f554b2f2611627b9a5cd0ce2b243d96999b61121bc1a8cb171d5501cc",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Reissue label identifies Kempff's early acoustical piano recordings made in Berlin and dates the selected solo Beethoven sonata to July 1924. Selected solo piano sonata, excluding the separately credited concerto orchestra elsewhere in the set. Narrow historic-pianism category within the broader historic-classical umbrella; not equivalent solely because both currently select pianists. Present-day Steinway D nine-foot construction and digital studio recipe are authored realization, not a reconstruction of the 1924 instrument, acoustical horn recording or transfer process.",
+            "instrumental_evidence": "https://www.marstonrecords.com/collections/piano/products/kempff",
+            "photo_context": "Grand-piano instrument context, not Kempff, his 1924 instrument or recording location."
+          }
+        }
+      }
+    },
+    {
+      "id": "historical_keyboard",
+      "before": {
+        "tradition": {
+          "id": "historical_keyboard",
+          "name": "Historical keyboard",
+          "family": "classical",
+          "lineage": "Peter Sykes — The Master's Legacy: Couperin to Bach, Ravensong, September 25, 2026. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "harpsichord"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "harpsichord_register": "harpsi_8_foot",
+            "harpsichord_context": "harpsichord_solo",
+            "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+            "harpsichord_plectrum": "harpsichord_quill_canonical",
+            "harpsichord_temperament": "harpsichord_equal_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Ravensong explicitly defines its historic-keyboard remit around harpsichord, fortepiano and clavichord. Its selected September 2026 program names Peter Sykes on harpsichord, performing Louis and François Couperin and Bach's Fourth Partita. Selected solo harpsichord recital within the wider historical-keyboard practice; excludes fortepiano and clavichord from other programs. Category concerns historic keyboard instruments and performance practice, distinct from historic piano performance's archival recording focus. Instrument maker, register, quill, temperament and modern recording chain are authored realization, not source instrument measurements. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Peter Sykes — The Master's Legacy: Couperin to Bach, Ravensong, September 25, 2026"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "historical_keyboard",
+          "name": "Historical keyboard",
+          "family": "classical",
+          "lineage": "Historical keyboard performance explores repertoire through instruments such as harpsichord, fortepiano and clavichord. Concert series and performers connect distinctive keyboard mechanisms with older and renewed interpretive practices.",
+          "instruments": [
+            "harpsichord"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "keyboard_technique": "keyboard_classical_legato",
+            "harpsichord_register": "harpsi_8_foot",
+            "harpsichord_context": "harpsichord_solo",
+            "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+            "harpsichord_plectrum": "harpsichord_quill_canonical",
+            "harpsichord_temperament": "harpsichord_equal_modern"
+          }
+        },
+        "extras": {
+          "parent": "artMusic.westernCommonPractice",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A solo harpsichord can articulate interweaving lines through its plucked attack and contrasting registers. Different instruments and tuning choices offer other approaches across this broad performance field.",
+          "exemplars": [
+            "Peter Sykes"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.ravensongseries.com/the-masters-legacy-couperin-to-bach",
+          "title": "Peter Sykes — The Master's Legacy: Couperin to Bach, Ravensong, September 25, 2026",
+          "support_notes": "Presenter lists solo performer Peter Sykes, harpsichord, repertoire, date and Philadelphia venue.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.ravensongseries.com/about",
+          "title": "Corroborating primary source",
+          "support_notes": "Presenter explicitly names historic keyboard practice, harpsichord/fortepiano/clavichord, and explains mechanisms.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.ravensongseries.com/contact",
+          "title": "Corroborating primary source",
+          "support_notes": "Own institutional name is Ravensong Historic Keyboard Series.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Actual classical-legato control renders pedal-resonant on historical harpsichord; no source-positive existing non-pedal classical control found.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "6661582019d5a0b6c55808e6a203b0e16d8a5c480dbfb55cd24e3728e950b999",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Ravensong explicitly defines its historic-keyboard remit around harpsichord, fortepiano and clavichord. Its selected September 2026 program names Peter Sykes on harpsichord, performing Louis and François Couperin and Bach's Fourth Partita. Selected solo harpsichord recital within the wider historical-keyboard practice; excludes fortepiano and clavichord from other programs. Category concerns historic keyboard instruments and performance practice, distinct from historic piano performance's archival recording focus. Instrument maker, register, quill, temperament and modern recording chain are authored realization, not source instrument measurements.",
+            "instrumental_evidence": "https://www.ravensongseries.com/the-masters-legacy-couperin-to-bach",
+            "photo_context": "Historical harpsichord context; Italian museum instrument is not claimed to be Sykes's recital instrument."
+          }
+        }
+      }
+    },
+    {
+      "id": "hong_kong_indie",
+      "before": {
+        "tradition": {
+          "id": "hong_kong_indie",
+          "name": "Hong Kong indie",
+          "family": "rock",
+          "lineage": "GDJYB — No Way Back (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Creator Hong Kong Indie playlist item19 is the exact selected recording. Primary artist track credits Soft for main and backing vocals, Soni for all guitars and programming, Wing for bass, and Karen Hui for drums. Complete credited role set for one track. Main and backing vocal layers are one credited human vocalist, not multiple singers. Guitar construction is authored; source does not identify guitar types. Programming is retained as an authored polyphonic electronic layer, not inferred from producer credit or claimed specific source synthesizer. Regional indie category distinct from the broader Hong Kong rock scene. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored three-part self-harmony stack realizes the positively credited lead/backing layers; three tracks are an editorial choice, not three human singers or a measured original layer count.",
+          "exemplars": [
+            "GDJYB — No Way Back (2021)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hong_kong_indie",
+          "name": "Hong Kong indie",
+          "family": "rock",
+          "lineage": "Hong Kong indie connects independent bands, songwriters and recording communities. Guitar-based arrangements can meet layered voices and electronic colour in varied local approaches.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "A lead voice and supporting vocal layers can sit over guitar, bass, drums and synthesizer. Changes in density and repeating instrumental figures frame recurring melodies.",
+          "exemplars": [
+            "GDJYB"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://gdjyb.bandcamp.com/track/no-way-back",
+          "title": "GDJYB — No Way Back (2021)",
+          "support_notes": "Primary track credits explicitly name each instrument and one vocalist performing lead and backing layers.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/03z0ld7Fs4mI1PfWTqRc06",
+          "title": "Corroborating primary source",
+          "support_notes": "Creator Hong Kong Indie playlist item19 exact GDJYB No Way Back recording.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Actual four outputs attach kora identity to guitar, unsupported by practice evidence.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "3554ef47623761c3616d473e93a1fa655d60c8ba3765842d14f2c37962f669e2",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Creator Hong Kong Indie playlist item19 is the exact selected recording. Primary artist track credits Soft for main and backing vocals, Soni for all guitars and programming, Wing for bass, and Karen Hui for drums. Complete credited role set for one track. Main and backing vocal layers are one credited human vocalist, not multiple singers. Guitar construction is authored; source does not identify guitar types. Programming is retained as an authored polyphonic electronic layer, not inferred from producer credit or claimed specific source synthesizer. Regional indie category distinct from the broader Hong Kong rock scene.",
+            "instrumental_evidence": "https://gdjyb.bandcamp.com/track/no-way-back",
+            "photo_context": "Electric-guitar context; pictured Les Paul is an authored realization, not confirmed source hardware."
+          }
+        }
+      }
+    },
+    {
+      "id": "hull_indie",
+      "before": {
+        "tradition": {
+          "id": "hull_indie",
+          "name": "Hull indie",
+          "family": "vernacular",
+          "lineage": "Katie Spencer — What Love Is (2025), complete credited album role union. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "clarinet",
+            "pedal_steel",
+            "double_bass",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "wind_articulation": "wind_continuous_legato",
+            "clarinet_body": "grenadilla_clarinet",
+            "clarinet_size": "a_clarinet",
+            "clarinet_reed": "medium_clarinet_reed",
+            "clarinet_articulation": "tongued_clarinet",
+            "electric_technique": "electric_steel_pedal_swells",
+            "amp_make": "amp_unspecified",
+            "pickup_steel": "single_coil_steel",
+            "string_setup": "standard_e9",
+            "bar_material": "steel_bar",
+            "pedal_steel_brand": "sho_bud_classic",
+            "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+            "pedal_steel_strings": "pedal_steel_george_l_e9",
+            "bowed_technique": "bowed_pizzicato",
+            "bass_size": "bass_three_quarter",
+            "bass_strings": "bass_steel",
+            "bass_top_wood": "norway_spruce_alpine_bass",
+            "bass_back_wood": "bosnian_flamed_maple_bass",
+            "bass_varnish": "oil_amber_varnish_bass",
+            "bass_setup_period": "modern_setup_bass",
+            "bass_play": "bass_pizz",
+            "bass_rosin": "pop_kolstein_rosin",
+            "bass_bow_stick": "pernambuco_stick_bass",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry.angloSingerSong.indieFolk",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Creator Hull Indie playlist includes Katie Spencer (item 32). Artist album tags independently identify Hull and indie folk. Album credits name Spencer guitar and voice, Giacomo Smith clarinet, Max Clilverd pedal steel, Tom Mason double bass, and Matt Ingram drums and Juno; her own biography corroborates steel-string guitar and identifies the last role as synth. Full credited album role union, not a claim every instrument plays every track. One named singer. Regional indie category represented by its acoustic folk branch; not synonymous with all folk rock. Authored dreadnought, A clarinet, E9 pedal steel, pizzicato bass and Prophet-style polyphonic synth are realizations, not claims of exact source hardware. Source identifies Juno but does not identify a model; no exact Juno model reconstruction asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Katie Spencer — What Love Is (2025), complete credited album role union"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hull_indie",
+          "name": "Hull indie",
+          "family": "vernacular",
+          "lineage": "Hull indie connects independent musicians and audiences in the English port city. Folk-related songwriting provides one approach within its wider scene.",
+          "instruments": [
+            "voice",
+            "acoustic_guitar_dread",
+            "clarinet",
+            "pedal_steel",
+            "double_bass",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "acoustic_technique": "acoustic_fingerpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "engelmann",
+            "back_sides": "rosewood_bs",
+            "string_acoustic": "eighty_twenty",
+            "wind_articulation": "wind_continuous_legato",
+            "clarinet_body": "grenadilla_clarinet",
+            "clarinet_size": "a_clarinet",
+            "clarinet_reed": "medium_clarinet_reed",
+            "clarinet_articulation": "tongued_clarinet",
+            "electric_technique": "electric_steel_pedal_swells",
+            "amp_make": "amp_unspecified",
+            "pickup_steel": "single_coil_steel",
+            "string_setup": "standard_e9",
+            "bar_material": "steel_bar",
+            "pedal_steel_brand": "sho_bud_classic",
+            "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+            "pedal_steel_strings": "pedal_steel_george_l_e9",
+            "bowed_technique": "bowed_pizzicato",
+            "bass_size": "bass_three_quarter",
+            "bass_strings": "bass_steel",
+            "bass_top_wood": "norway_spruce_alpine_bass",
+            "bass_back_wood": "bosnian_flamed_maple_bass",
+            "bass_varnish": "oil_amber_varnish_bass",
+            "bass_setup_period": "modern_setup_bass",
+            "bass_play": "bass_pizz",
+            "bass_rosin": "pop_kolstein_rosin",
+            "bass_bow_stick": "pernambuco_stick_bass",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "balladPoetry.angloSingerSong.indieFolk",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Singing and fingerpicked guitar can meet clarinet, pedal steel, double bass, drums and synthesizer. Plucked lines and sustained colours create contrasting textures around the song.",
+          "exemplars": [
+            "Katie Spencer"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://katiespencerofficial.bandcamp.com/album/what-love-is",
+          "title": "Katie Spencer — What Love Is (2025), complete credited album role union",
+          "support_notes": "Primary artist album full credits and Hull/indie-folk tags establish all roles and single credited singer.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.katiespencer.net/bio",
+          "title": "Corroborating primary source",
+          "support_notes": "Artist biography confirms steel-string guitar, album personnel and synth role.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0IO0gpqCNRyp1tawpP9YSN",
+          "title": "Corroborating primary source",
+          "support_notes": "The Sounds of Spotify category playlist The Sound of Hull Indie includes Katie Spencer at item 32; artist lineage mapping to selected later album.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original synthetic futuristic voice; coherent live alternative emits engineered micro-stutter and unrelated oro double bass. All positive roles retained.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "bee9e6363a9961bf695e747088fcb55ad5e223a344fe40b10df1273a43bdc9e1",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Creator Hull Indie playlist includes Katie Spencer (item 32). Artist album tags independently identify Hull and indie folk. Album credits name Spencer guitar and voice, Giacomo Smith clarinet, Max Clilverd pedal steel, Tom Mason double bass, and Matt Ingram drums and Juno; her own biography corroborates steel-string guitar and identifies the last role as synth. Full credited album role union, not a claim every instrument plays every track. One named singer. Regional indie category represented by its acoustic folk branch; not synonymous with all folk rock. Authored dreadnought, A clarinet, E9 pedal steel, pizzicato bass and Prophet-style polyphonic synth are realizations, not claims of exact source hardware. Source identifies Juno but does not identify a model; no exact Juno model reconstruction asserted.",
+            "instrumental_evidence": "https://katiespencerofficial.bandcamp.com/album/what-love-is",
+            "photo_context": "Steel-string acoustic guitar context; Walden instrument is not claimed to be Spencer's guitar."
+          }
+        }
+      }
+    },
+    {
+      "id": "hungarian_indie",
+      "before": {
+        "tradition": {
+          "id": "hungarian_indie",
+          "name": "Hungarian indie",
+          "family": "rock",
+          "lineage": "Platon Karataev — Napkötöző (2025), complete album credits. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Creator Hungarian Indie playlist includes Platon Karataev at item 1 and selected album title track at item 55. Primary album credits Gergely Balla voice/guitar, Sebestyén Czakó-Kuraly voice/guitar/keyboards, Zsombor Farkas drums, László Sallai voice/bass guitar and guest Ábel Zwickl guitar/keyboards. Complete credited album role union: three distinct vocalists, guitar roles aggregated into one authored electric-guitar card, two keyboard roles into an authored polyphonic synth card, bass and drums. Construction and keyboard type are authored choices for unspecified guitar/keyboard roles, not source hardware claims. Regional independent-rock scene distinct from the broader Hungarian rock category; no Anglosphere-only taxonomy node used. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored ensemble realization retains three credited human singers without claiming source contrapuntal texture or original tracking method.",
+          "exemplars": [
+            "Platon Karataev — Napkötöző (2025), complete album credits"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hungarian_indie",
+          "name": "Hungarian indie",
+          "family": "rock",
+          "lineage": "Hungarian indie connects independent performers and listeners through local and wider music communities. Guitar-led song and electronic accompaniment meet in varied band arrangements.",
+          "instruments": [
+            "voice",
+            "electric_guitar_humbucker",
+            "electric_bass",
+            "drum_kit",
+            "analog_poly_synth"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "mahogany_maple_cap",
+            "neck_wood": "mahogany_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning",
+            "pickup_config": "split_coil",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "pick_aggressive",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish",
+            "electronic_technique": "electronic_pad_drone",
+            "poly_archetypes": "prophet_5",
+            "poly_voices": "poly_5_voice",
+            "poly_maker_lineage": "poly_sequential_smith"
+          }
+        },
+        "extras": {
+          "parent": "distortedRock.alternative",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": 0,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": 0,
+            "cyclicity": 0
+          },
+          "description": "Lead and supporting voices can be backed by electric guitars, bass, drums and synthesizer. Layered melodic phrases and changes between sections give the amplified ensemble movement.",
+          "exemplars": [
+            "Platon Karataev"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://platonkarataev.bandcamp.com/album/napk-t-z",
+          "title": "Platon Karataev — Napkötöző (2025), complete album credits",
+          "support_notes": "Primary complete Hungarian-language credits: ének voice, gitár guitar, billentyűs hangszerek keyboards, dobok drums, basszusgitár bass guitar; Budapest artist identity.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6IbzEpJ0swzazw9HEFMKb7",
+          "title": "Corroborating primary source",
+          "support_notes": "Creator Hungarian Indie playlist maps band item1 and exact Napkötöző title track item55.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Actual four outputs attach kora identity to guitar, unsupported by practice evidence.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "b8eba2a2bd14c62a06011672f677dff5d7d05ebbf83dbdb3bf5f09a70fd2c49a",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Creator Hungarian Indie playlist includes Platon Karataev at item 1 and selected album title track at item 55. Primary album credits Gergely Balla voice/guitar, Sebestyén Czakó-Kuraly voice/guitar/keyboards, Zsombor Farkas drums, László Sallai voice/bass guitar and guest Ábel Zwickl guitar/keyboards. Complete credited album role union: three distinct vocalists, guitar roles aggregated into one authored electric-guitar card, two keyboard roles into an authored polyphonic synth card, bass and drums. Construction and keyboard type are authored choices for unspecified guitar/keyboard roles, not source hardware claims. Regional independent-rock scene distinct from the broader Hungarian rock category; no Anglosphere-only taxonomy node used.",
+            "instrumental_evidence": "https://platonkarataev.bandcamp.com/album/napk-t-z",
+            "photo_context": "Electric-guitar context; Les Paul is an authored instrument family illustration, not claimed source hardware."
+          }
+        }
+      }
+    },
+    {
+      "id": "hurdy_gurdy",
+      "before": {
+        "tradition": {
+          "id": "hurdy_gurdy",
+          "name": "Hurdy gurdy",
+          "family": "vernacular",
+          "lineage": "Guilhem Desq — Visions title track (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "hurdy_gurdy"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "bowed_technique": "bowed_local_song_melody",
+            "hurdy_strings": "hurdy_4_string",
+            "hurdy_buzz": "chien_active",
+            "hurdy_wheel_rosin": "hurdy_petromax_rosin",
+            "hurdy_string_material": "hurdy_steel_modern",
+            "hurdy_tradition": "hurdy_french_bal_folk"
+          }
+        },
+        "extras": {
+          "parent": "droneModal.string",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist states all album sounds originate on his hurdy gurdy except specifically named exceptions; the title track adds only his own voice. Artist page locates the practice in Toulouse. Selected title track retains one credited human voice and hurdy-gurdy-derived textures. Bells and guest trombone are explicitly credited to other tracks and are not imported. Hurdy-gurdy card aggregates recorded instrument layers; modern steel strings and local-song playing method are authored, not source build claims. Vocal register and delivery remain source-unspecified. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Guilhem Desq — Visions title track (2017)"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hurdy_gurdy",
+          "name": "Hurdy gurdy",
+          "family": "vernacular",
+          "lineage": "Hurdy-gurdy music connects wheel-bowed string performance with folk, concert and experimental approaches. Players develop melody and drone through continuous wheel motion and contrasting articulation.",
+          "instruments": [
+            "voice",
+            "hurdy_gurdy"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "bowed_technique": "bowed_local_song_melody",
+            "hurdy_strings": "hurdy_4_string",
+            "hurdy_buzz": "chien_active",
+            "hurdy_wheel_rosin": "hurdy_petromax_rosin",
+            "hurdy_string_material": "hurdy_steel_modern",
+            "hurdy_tradition": "hurdy_french_bal_folk"
+          }
+        },
+        "extras": {
+          "parent": "droneModal.string",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A hurdy-gurdy can support singing with a sustained string texture and rhythmic buzzing bridge. Solo instrumental and electronically expanded treatments provide other ways to explore its sound.",
+          "exemplars": [
+            "Guilhem Desq"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://guilhemdesq.bandcamp.com/album/visions",
+          "title": "Guilhem Desq — Visions title track (2017)",
+          "support_notes": "First-person artist notes identify hurdy-gurdy source for all sounds with track-specific voice, bells and trombone exceptions.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://guilhemdesq.bandcamp.com/track/visions",
+          "title": "Corroborating primary source",
+          "support_notes": "Selected title track confirms release identity; linked artist profile says Toulouse.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Original synthetic futuristic acoustic hurdy-gurdy; coherent live alternative removes that but adds engineered micro-stuttering natural voice. No role omission.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "4f6408c2a92235a7d558fcedade09d7fab92c89f457a42029609fdfb11e7cde1",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist states all album sounds originate on his hurdy gurdy except specifically named exceptions; the title track adds only his own voice. Artist page locates the practice in Toulouse. Selected title track retains one credited human voice and hurdy-gurdy-derived textures. Bells and guest trombone are explicitly credited to other tracks and are not imported. Hurdy-gurdy card aggregates recorded instrument layers; modern steel strings and local-song playing method are authored, not source build claims. Vocal register and delivery remain source-unspecified.",
+            "instrumental_evidence": "https://guilhemdesq.bandcamp.com/album/visions",
+            "photo_context": "Generic recording-microphone context for credited vocal contribution only; does not depict a hurdy gurdy, artist or confirmed session equipment."
+          }
+        }
+      }
+    },
+    {
+      "id": "hypertrance",
+      "before": {
+        "tradition": {
+          "id": "hypertrance",
+          "name": "Hypertrance",
+          "family": "electronic",
+          "lineage": "nuphory — Hypertrance production toolkit and its published producer demos. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "wavetable_synth",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_arpeggiated",
+            "wt_position": "wt_static",
+            "wt_family": "wt_analog_emul",
+            "wt_polyphony": "wt_poly",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_edm"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance.trance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Creator-authored Hypertrance toolkit documents sampled drums, kicks and loops, atmosphere and effect samples, bass sounds and lead/pad synthesizer presets. It supplies complete production demos by named producers; a Vital synthesizer screenshot accompanies its synth section. Artist Bandcamp links the same toolkit and identifies nuphory in Vienna. Hypertrance production scene, distinct from all trance and from a general hyperpop song. Model follows the creator-defined complete electronic toolkit branch, retaining synthesizer bass/lead/pad and all sampled rhythm, atmosphere and effects categories. It is not an inferred personnel transcription of a specific release. No human singer is specified by this toolkit branch; vocals are not asserted absent from the genre. Polyphonic wavetable synthesis and modern sampler hardware are authored realizations of the documented preset-and-sample workflow, not claims about every producer’s actual equipment. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "nuphory — Hypertrance production toolkit and its published producer demos"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "hypertrance",
+          "name": "Hypertrance",
+          "family": "electronic",
+          "lineage": "Hypertrance connects electronic dance producers through synthesizer sound design and sample-based rhythm. Shared production tools and releases develop a recognisable contemporary creative community.",
+          "instruments": [
+            "wavetable_synth",
+            "sampler_classic"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "electronic_technique": "electronic_arpeggiated",
+            "wt_position": "wt_static",
+            "wt_family": "wt_analog_emul",
+            "wt_polyphony": "wt_poly",
+            "sampler_archetypes": "mpc_modern",
+            "sampler_bit_depth": "sampler_twentyfour_bit",
+            "sampler_workflow": "sampler_loop_layered",
+            "sampler_classic_context": "sampler_classic_edm"
+          }
+        },
+        "extras": {
+          "parent": "electronicDance.trance",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Layered synthesizer leads, pads and bass can interact with sampled drums, loops and atmospheric effects. Repeating figures and transitions in texture organize the electronic arrangement.",
+          "exemplars": [
+            "nuphory"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://www.hypertrance.eu/",
+          "title": "nuphory — Hypertrance production toolkit and its published producer demos",
+          "support_notes": "Creator-authored Hypertrance toolkit documents sampled drums, kicks and loops, atmosphere and effect samples, bass sounds and lead/pad synthesizer presets. It supplies complete production demos by named producers; a Vital synthesizer screenshot accompanies its synth section. Artist Bandcamp links the same toolkit and identifies nuphory in Vienna.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://nuphory.bandcamp.com/album/hypertrance-samplepack-free-demo",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Artist-issued toolkit demonstration links the same official sample/preset source.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://nuphory.bandcamp.com/album/ditherdream1",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Artist profile gives Vienna and links new Hypertrance label.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/playlist/3O5yTBh7Y28RTYRWqqv9eg",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Exact Hypertrance category playlist; classification corroboration rather than instrument credits.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Strict actual owner audit finds flat electronic_arpeggiated invalid for sampler despite formatter fallback; full synth+sample palette retained.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-016-candidate.json",
+        "proposal_sha256": "78cefb51513968c74d916bb05a0e64b5ed76a41ff153cb712650dfa8c1102723",
+        "current_before_sha256": "a8eed3cc4e0e30bc43d574c0689defabccff9eba414f0982b1634c47eb97e187",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Creator-authored Hypertrance toolkit documents sampled drums, kicks and loops, atmosphere and effect samples, bass sounds and lead/pad synthesizer presets. It supplies complete production demos by named producers; a Vital synthesizer screenshot accompanies its synth section. Artist Bandcamp links the same toolkit and identifies nuphory in Vienna. Hypertrance production scene, distinct from all trance and from a general hyperpop song. Model follows the creator-defined complete electronic toolkit branch, retaining synthesizer bass/lead/pad and all sampled rhythm, atmosphere and effects categories. It is not an inferred personnel transcription of a specific release. No human singer is specified by this toolkit branch; vocals are not asserted absent from the genre. Polyphonic wavetable synthesis and modern sampler hardware are authored realizations of the documented preset-and-sample workflow, not claims about every producer’s actual equipment.",
+            "instrumental_evidence": "https://www.hypertrance.eu/",
+            "photo_context": "Selected instrument-family context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+            "compiled_default_scope": "Construction and technique descriptions identify authored source-record/import choices, not protection of all compiled choices. See compiled_unpinned_disclosure."
+          }
+        }
+      }
+    },
+    {
+      "id": "icelandic_indie",
+      "before": {
+        "tradition": {
+          "id": "icelandic_indie",
+          "name": "Icelandic indie",
+          "family": "pop",
+          "lineage": "Sóley — Circles, accordion version recorded 2018 and released 2021. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "instruments": [
+            "voice",
+            "accordion"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "free_reed_technique": "free_reed_drone_under",
+            "accordion_reed_material": "steel_reeds",
+            "musette_offset": "dry_tuning",
+            "reed_config": "lmm",
+            "bellows": "cardboard_leather",
+            "voicing_chamber": "cassotto",
+            "accordion_maker_school": "accordion_maker_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "Artist release credits Sóley Stefánsdóttir on accordion and voice, Albert Finnbogason for mixing. It explicitly identifies a separate accordion version of Circles. Profile locates Sóley in Reykjavík, Iceland; exact Icelandic Indie playlist contains Sóley. Icelandic independent-pop scene, distinct from all Icelandic folk or experimental music. Complete two-role actual alternate recording retained; this is not a vocal-and-accordion reduction of the full Mother Melancholia album. Mixer is not counted as performer. Accordion construction/tuning are authored because source gives no make or reed configuration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+          "exemplars": [
+            "Sóley — Circles, accordion version recorded 2018 and released 2021"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "after": {
+        "tradition": {
+          "id": "icelandic_indie",
+          "name": "Icelandic indie",
+          "family": "pop",
+          "lineage": "Icelandic indie connects independent songwriters, bands and recording communities. Intimate acoustic reinterpretations form one strand within a wider range of local approaches.",
+          "instruments": [
+            "voice",
+            "accordion"
+          ],
+          "room": "treated_studio",
+          "tuning": "twelve_tet",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "transformerless",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified",
+            "free_reed_technique": "free_reed_drone_under",
+            "accordion_reed_material": "steel_reeds",
+            "musette_offset": "dry_tuning",
+            "reed_config": "lmm",
+            "bellows": "cardboard_leather",
+            "voicing_chamber": "cassotto",
+            "accordion_maker_school": "accordion_maker_unspecified"
+          }
+        },
+        "extras": {
+          "parent": "functionalSong",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 0,
+            "density": -1,
+            "transmission": 0,
+            "improv": 0,
+            "soundTech": 0,
+            "intensity": 0,
+            "voice": 0,
+            "timbre": 0,
+            "percussion": -1,
+            "cyclicity": 0
+          },
+          "description": "A singer with accordion can shape recurring melodies over sustained reed accompaniment. Contrasting vocal and instrumental phrases create a compact setting, while other performers use fuller ensembles.",
+          "exemplars": [
+            "Sóley"
+          ],
+          "status": "documented",
+          "crossRefs": []
+        }
+      },
+      "decision": "PUBLIC_PROSE_ONLY",
+      "reason": "Previously individually reviewed genre history/style and source-supported representative palette; move documentary and session-specific public prose into preserved evidence. This partial does not resolve or approve musical defaults or rendered output.",
+      "sources": [
+        {
+          "url": "https://soley.bandcamp.com/track/circles-accordion-version-2018",
+          "title": "Sóley — Circles, accordion version recorded 2018 and released 2021",
+          "support_notes": "Artist release credits Sóley Stefánsdóttir on accordion and voice, Albert Finnbogason for mixing. It explicitly identifies a separate accordion version of Circles. Profile locates Sóley in Reykjavík, Iceland; exact Icelandic Indie playlist contains Sóley.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/1Jhwq1axwpxTbZd0jcFa1j",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "The Sound of Icelandic Indie includes Sóley, Pretty Face, and her trio collaboration.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "default_review": {
+        "status": "HOLD_UNRESOLVED_UNCHANGED",
+        "reason": "Four outputs impose klezmer accordion practice without source bridge.",
+        "musical_fields_unchanged": true,
+        "runtime_approval": false,
+        "hold_receipt": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-017-holds.json",
+        "original_runtime": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-017-runtime.json"
+      },
+      "preserved_provenance": {
+        "individually_reviewed_proposal": "/workspace/genre-continuation/repairs-20261003/reassigned119/repairs-017-candidate.json",
+        "proposal_sha256": "35b4362f6a6185c2a975c61770b5c39b7ecad05ec736ab3368f72fe6537d79aa",
+        "current_before_sha256": "6ea100099c7d2a959b97c0c18b90d428170f5602db74c968d784b8e7e1a99da2",
+        "original_evidence": {
+          "evidence_path": "/workspace/CodexMusica/docs/everynoise-integrations/data-only-027-evidence.json",
+          "original_instrument_role_audit": {
+            "rationale": "Artist release credits Sóley Stefánsdóttir on accordion and voice, Albert Finnbogason for mixing. It explicitly identifies a separate accordion version of Circles. Profile locates Sóley in Reykjavík, Iceland; exact Icelandic Indie playlist contains Sóley. Icelandic independent-pop scene, distinct from all Icelandic folk or experimental music. Complete two-role actual alternate recording retained; this is not a vocal-and-accordion reduction of the full Mother Melancholia album. Mixer is not counted as performer. Accordion construction/tuning are authored because source gives no make or reed configuration.",
+            "instrumental_evidence": "https://soley.bandcamp.com/track/circles-accordion-version-2018",
+            "photo_context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "ho_dama_kettle_drum",
+  "name": "Ho dama kettle drum",
+  "short": "Ho dama kettle drum",
+  "family": "percussion",
+  "class": "ho_dama_kettle_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "description": "A Ho single-headed kettle drum, sounded by striking a stretched membrane over a kettle-shaped resonator.",
+  "sources": [
+    "https://tribal.nic.in/repository/ViewDoc.aspx?RepositoryNo=TRI28-08-2017121607&file=Docs%2FTRI28-08-2017121607.pdf",
+    "https://endangeredlanguages.com/node/110017/printable/print"
+  ],
+  "parts": [
+    {
+      "id": "ho_dama_kettle_drum_construction",
+      "name": "construction",
+      "variants": [
+        {
+          "id": "ho_dama_kettle_drum_construction_documented",
+          "name": "Kettle-shaped resonator; shell material and dimensions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "kettle-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dama_kettle_drum_membranes",
+      "name": "membranes",
+      "variants": [
+        {
+          "id": "ho_dama_kettle_drum_membranes_documented",
+          "name": "One stretched membrane; skin species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "membranophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dama_kettle_drum_excitation",
+      "name": "excitation",
+      "variants": [
+        {
+          "id": "ho_dama_kettle_drum_excitation_documented",
+          "name": "Struck drum; hand or stick choice and stroke pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "struck"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ho_dama_kettle_drum_construction",
+      "name": "construction",
+      "variants": [
+        {
+          "id": "ho_dama_kettle_drum_construction_documented",
+          "name": "Kettle-shaped resonator; shell material and dimensions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "kettle-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dama_kettle_drum_membranes",
+      "name": "membranes",
+      "variants": [
+        {
+          "id": "ho_dama_kettle_drum_membranes_documented",
+          "name": "One stretched membrane; skin species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "membranophone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ho_dama_kettle_drum_excitation",
+      "name": "excitation",
+      "variants": [
+        {
+          "id": "ho_dama_kettle_drum_excitation_documented",
+          "name": "Struck drum; hand or stick choice and stroke pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "struck"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

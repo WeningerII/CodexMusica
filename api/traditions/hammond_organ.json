@@ -1,0 +1,70 @@
+{
+  "id": "hammond_organ",
+  "name": "Hammond organ",
+  "family": "global",
+  "lineage": "Hammond organ music spans jazz, gospel, rock and experimental performance. Tonewheel sound, drawbar registration and rotating-speaker color connect solo exploration with ensembles, from organ trios to amplified bands and sustained drone-based work.",
+  "recipe": "classic hammond organ, improv On Frame. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched tonewheel organ. live tracking.",
+  "recipe_chars": 185,
+  "score": 13.171,
+  "config": {
+    "traditions": [
+      "hammond_organ"
+    ],
+    "instruments": [
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "drawbar_setting": 2.5,
+          "rotary_speed": -0.1,
+          "percussion_setting": 0.34275,
+          "tonewheel_model": 8.277750000000001,
+          "leslie_cabinet_model": 2.25
+        }
+      }
+    ],
+    "pinned": {
+      "tonewheel_organ": [
+        "keyboard_technique",
+        "drawbar_setting",
+        "rotary_speed",
+        "percussion_setting",
+        "tonewheel_model",
+        "leslie_cabinet_model"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "drawbar_setting": "rock_drawbars",
+      "rotary_speed": "slow_chorale",
+      "percussion_setting": "percussion_off",
+      "tonewheel_model": "tonewheel_hammond_b3",
+      "leslie_cabinet_model": "leslie_122_canonical"
+    },
+    "pin_parts": true
+  }
+}

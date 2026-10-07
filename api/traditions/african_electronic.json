@@ -1,0 +1,62 @@
+{
+  "id": "african_electronic",
+  "name": "African electronic",
+  "family": "electronic",
+  "lineage": "Mamman Sani — La Musique Electronique du Niger (1978;2013 reissue). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic late-1970s african electronic, experimental Elec. electronic organ unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 186,
+  "score": 0.168,
+  "config": {
+    "traditions": [
+      "african_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "electronic_organ_unspecified",
+        "slots": {
+          "electronic_organ_identity": "electronic_organ_architecture_unspecified",
+          "keyboard_technique": "electronic_organ_melodic_sustained"
+        },
+        "scores": {
+          "electronic_organ_identity": 0.105,
+          "keyboard_technique": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "electronic_organ_unspecified": [
+        "electronic_organ_identity",
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_organ_identity": "electronic_organ_architecture_unspecified",
+      "keyboard_technique": "electronic_organ_melodic_sustained"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

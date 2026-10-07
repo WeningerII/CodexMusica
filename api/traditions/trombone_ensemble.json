@@ -1,0 +1,99 @@
+{
+  "id": "trombone_ensemble",
+  "name": "Trombone Ensemble",
+  "family": "classical",
+  "lineage": "Trombone ensembles extend brass chamber practice through composed works and arrangements.",
+  "recipe": "classic trombone ensemble, art Music. yellow brass canonical 70 30 bach 42 standard tenor standard standard backbore trombone, bass trombone. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 246,
+  "score": 7.837,
+  "config": {
+    "traditions": [
+      "trombone_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "trombone_type": -0.035,
+          "trombone_mouthpiece": 2.45,
+          "trombone_mute": 0.7314999999999999,
+          "trombone_technique": 0.3675,
+          "trombone_bell_metal": 1,
+          "trombone_maker_school": 0.34650000000000003
+        }
+      },
+      {
+        "id": "bass_trombone",
+        "slots": {
+          "bass_trombone_valves": "bass_trombone_single_trigger",
+          "bass_trombone_context": "bass_trombone_orchestral_legato"
+        },
+        "scores": {
+          "bass_trombone_valves": 0.1365,
+          "bass_trombone_context": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "bass_trombone": [
+        "bass_trombone_valves",
+        "bass_trombone_context"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "bass_trombone_valves": "bass_trombone_single_trigger",
+      "bass_trombone_context": "bass_trombone_orchestral_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

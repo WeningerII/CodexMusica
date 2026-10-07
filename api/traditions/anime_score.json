@@ -2,10 +2,10 @@
   "id": "anime_score",
   "name": "Anime score",
   "family": "classical",
-  "lineage": "Anime score: Nicolas Horvath — Joe Hisaishi Ghibli Piano CollectionVol2, One Summers Day. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic anime score, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 24.3,
+  "lineage": "Anime scores provide composed musical settings for animated stories. Film composers such as Joe Hisaishi create themes and dramatic cues that also reach audiences through soundtrack releases, concerts and authorised piano collections.",
+  "recipe": "classic anime score, art Music, western common practice branch. modern bright oversize maple tension resonator European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 23.117,
   "config": {
     "traditions": [
       "anime_score"
@@ -16,9 +16,9 @@
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
@@ -27,13 +27,13 @@
         "scores": {
           "keyboard_technique": 2.5,
           "grand_piano_size": 0.84,
-          "grand_piano_brand": 0.63,
-          "piano_hammer": 4.485,
-          "piano_rim": 3.8280000000000003,
+          "grand_piano_brand": 0.9345000000000001,
+          "piano_hammer": 3.185,
+          "piano_rim": 3.25,
           "piano_soundboard": 3.25,
           "piano_pinblock": 2.555,
           "piano_plate": 3.0275000000000003,
-          "piano_pitch_standard": 3.185
+          "piano_pitch_standard": 3.575
         }
       }
     ],

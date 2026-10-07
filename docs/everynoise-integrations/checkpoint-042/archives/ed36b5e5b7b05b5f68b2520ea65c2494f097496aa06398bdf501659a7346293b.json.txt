@@ -1,0 +1,202 @@
+{
+  "entries": [
+    {
+      "source_label": "sepedi pop",
+      "source_url": "https://everynoise.com/engenremap-sepedipop.html",
+      "suggested_id": "sepedi_pop",
+      "allocation_ordinal": 1870,
+      "allocation_group_id": "075",
+      "id": "sepedi_pop",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "sepedi_pop",
+        "name": "Sepedi Pop",
+        "family": "pop",
+        "lineage": "Sepedi pop connects Northern Sotho-language songwriting with Limpopo popular-music networks. Manyalo performers and contemporary Afro-pop producers bring local vocal expression into amplified keyboard and beat-based arrangements.",
+        "instruments": [
+          "voice",
+          "electronic_keyboard_unspecified",
+          "credited_beat_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Sung phrases and memorable refrains sit above melodic keyboard support and a rhythmic backing. Wedding-oriented Manyalo and contemporary Afro-pop offer overlapping branches with different performance settings and lyrical purposes.",
+        "exemplars": [
+          "Pleasure tša Manyalo",
+          "John Lundun"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -23.9045,
+        29.4689,
+        "Polokwane",
+        "Africa"
+      ],
+      "geo_rationale": "Editorial regional anchor in the documented Limpopo music network; not a claimed recording location.",
+      "signature_tokens": [],
+      "model_policy": "Representative keyboard-and-beat-backed vocal practice, not a transcription of a named master or festival. A solo accompanied singer and single lead are authored staffing choices; no source-wide headcount is asserted. Syllabic singing, moderate effort, neutral physiology, source-unspecified register/ornament/pitch system and melodic/chordal keyboard support are deliberate representative defaults. Beat production is separately retained from keyboard harmony, while their hardware, generator and possible performer doubling remain unspecified. The source producer explicitly describes making beats with keyboard; the beat owner does not assert separate hardware. Controlled live-room presentation and lively concert pacing are authored. Functional-harmonic verse–chorus–bridge organization is a new rendition choice, not measured form of Marobalo or a universal Manyalo structure. No global tuning or exact signal chain is inferred.",
+      "neighbor_distinction": "This language-centered Limpopo popular-song field is broader than wedding-specific Manyalo practice and differs from the existing mbaqanga record’s specific township-jive lineage/configuration. Sesotho hip hop concerns another Sotho language and MC-centered practice; Lesotho traditional, famo, mohobelo and litolobonya describe Basotho instrumental/dance fields. Overlap with Southern African pop and contemporary dance production is explicit, not sonic exclusivity.",
+      "source_scope_limitation": "Genre-practice evidence: Pleasure’s own site positively reports Sepedi Afro Pop and Manyalo awards; her verified organizer announcement documents live keyboard Manyalo practice. Independent first-person interview with John Lundun positively connects his Sepedi/Afro-Pop award-nominated singer collaboration with his keyboard-based beatmaking. No reproduction of any entire album/concert, no measured tempo, no announced-event execution claim.",
+      "sources": [
+        {
+          "url": "https://pleasureonline.co.za/",
+          "title": "Pleasure official biography and Sepedi/Manyalo/Afro Pop awards",
+          "support_notes": "Fresh14890search0 own artist institutional language/category bridge."
+        },
+        {
+          "url": "https://computicket-boxoffice.com/e/manyalo-mathomong-thomong-with-pleasure-AUpTyC",
+          "title": "Pleasure/Ramadimetja Peta verified concert announcement",
+          "support_notes": "Fresh full indexed14898search1 live keyboard Manyalo practice; direct retrieval failed14893view1."
+        },
+        {
+          "url": "https://www.sowetan.co.za/entertainment/2021-09-23-excitement-as-john-lundun-finally-gets-recognition-for-his-songs/",
+          "title": "John Lundun first-person keyboard/beatmaking and Sepedi Afro-Pop interview",
+          "support_notes": "Fresh full14898search0 includes singer Morayks, Marobalo nominations and keyboard production; not an exact song-layer inventory."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14890search0",
+        "turn14898search1",
+        "turn14898search0"
+      ],
+      "classification_evidence": "This language-centered Limpopo popular-song field is broader than wedding-specific Manyalo practice and differs from the existing mbaqanga record’s specific township-jive lineage/configuration. Sesotho hip hop concerns another Sotho language and MC-centered practice; Lesotho traditional, famo, mohobelo and litolobonya describe Basotho instrumental/dance fields. Overlap with Southern African pop and contemporary dance production is explicit, not sonic exclusivity.",
+      "source_retrieval_caveat": "Indexed full primary passages retained; announced Manyalo event direct fetch failed. No original audio analysis or undisclosed equipment inference.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "sepedi_pop",
+          "name": "Sepedi Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context; not the artists, regional instruments or source hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh14898view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn14898view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14898view0"
+        ],
+        "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_head": "453cd0f1",
+        "baseline": "/workspace/CodexMusica-qualified041"
+      },
+      "verification_status": "Original browser/connector all four outputs read:20 protected owning controls,352 maximum characters, no architecture claim. Brisk voice/bright witty keyboard/bold beat are compatible authored lively amplified pop arrangement; no actual BPM or historical source swing asserted. Independent peer pending."
+    }
+  ],
+  "instrument_dependencies": []
+}

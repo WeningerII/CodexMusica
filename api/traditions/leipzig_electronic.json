@@ -2,7 +2,7 @@
   "id": "leipzig_electronic",
   "name": "Leipzig electronic",
   "family": "electronic",
-  "lineage": "Leipzig electronic is represented by The Micronaut — documented sampler-and-effects live-performance core. One documented branch receives an authored present-day studio realization.",
+  "lineage": "Leipzig electronic music includes independent producers who connect club rhythms with varied recorded and acoustic source material.",
   "recipe": "classic leipzig electronic, experimental Elec, idm glitch branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 188,
   "score": 8.39,
@@ -17,7 +17,7 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": -0.07,
@@ -29,7 +29,10 @@
     ],
     "pinned": {
       "sampler_drum_machine": [
-        "electronic_technique"
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
       ]
     },
     "room": "treated_studio",
@@ -51,7 +54,10 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "electronic_technique": "electronic_sample_chopped"
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

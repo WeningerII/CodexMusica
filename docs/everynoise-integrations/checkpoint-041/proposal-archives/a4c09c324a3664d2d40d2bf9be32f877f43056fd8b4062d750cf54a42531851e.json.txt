@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ROOT_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/research119/queued/israelite_hip_hop-genre-profile-defaults119.json",
+  "packet_sha256": "35b283474a94c717ae132be3f14f3acb58a7bff8a6ead45fd083ce3e4694b23f",
+  "ids": [
+    "israelite_hip_hop"
+  ],
+  "checked_at": "2026-10-03T22:49:54.751164+00:00",
+  "checks": [
+    "Root individually read new public history/style prose, actual palette and default rationale. Original record and recording evidence retained in exact source packet and candidate provenance.",
+    "Root independently reran original four-format parity/ceiling and full owning-control/photo receipt audits. Root read actual rich output; author all-four literal review retained.",
+    "Restored rap beats, DJ role, singing and hyperpop processing where previous exact-edition arrangements had narrowed whole genre; other documented representative acoustic/vocal/band branches retained. No source-master reconstruction implied.",
+    "Queue overlay only, not a new source acceptance or publication; final integrated build/regression/CI pending."
+  ]
+}

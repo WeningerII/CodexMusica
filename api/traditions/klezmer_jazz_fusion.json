@@ -5,7 +5,7 @@
   "lineage": "1980s-and-onward American-Jewish jazz-fusion style integrating klezmer modal-and-melodic vocabulary with jazz-improvisational practice. Don Byron's Plays the Music of Mickey Katz (1993) and the Klezmatics 1980s-onward recordings constitute the canonical type-specimens; the parallel Frank London-led ensembles and David Krakauer's solo work extended the genre. Distinguished from broader klezmer revival by jazz-fusion's explicit jazz-improvisation-and-harmonic emphasis.",
   "recipe": "classic North American mid-1980s klezmer-jazz fusion, improv On Frame, klezmer improv branch, Jewish ritual devotional hasidic niggun sephardi bakkashot. thick, breath veiled tone, straight onset, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, klezmer ensemble. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 809,
-  "score": 409.651,
+  "score": 410.325,
   "config": {
     "traditions": [
       "klezmer_jazz_fusion",
@@ -38,7 +38,7 @@
           "voice_quality": 14.884999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.176499999999997,
+          "voice_vibrato": 18.145,
           "voice_articulation": 15.729999999999995,
           "voice_microtone": 24.082499999999992,
           "voice_tradition": 19.299999999999997,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 14.624999999999993,
           "voice_ornament_system": 8.9,
           "voice_pitch_organization": 7.51,
-          "voice_processing_chain": 6.714999999999999,
-          "voice_multitrack_stack": 7.697999999999999
+          "voice_processing_chain": 6.639999999999999,
+          "voice_multitrack_stack": 7.874999999999999
         }
       },
       {
@@ -63,7 +63,7 @@
         },
         "scores": {
           "wind_articulation": 5.02,
-          "clarinet_body": 17.616,
+          "clarinet_body": 16.755,
           "clarinet_size": 1.495,
           "clarinet_reed": 1.45,
           "clarinet_articulation": 12.75
@@ -99,19 +99,19 @@
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.98,
-          "grand_piano_size": 1.495,
+          "keyboard_technique": 2.875,
+          "grand_piano_size": 1.54,
           "grand_piano_brand": 1.495,
-          "piano_hammer": 4.478,
-          "piano_rim": 8.520999999999999,
+          "piano_hammer": 4.415,
+          "piano_rim": 8.379999999999999,
           "piano_soundboard": 6.922499999999999,
-          "piano_pinblock": 3.295,
-          "piano_plate": 3.4449999999999994,
+          "piano_pinblock": 3.685,
+          "piano_plate": 3.4899999999999993,
           "piano_pitch_standard": 4.225
         }
       },
@@ -134,7 +134,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 33.30749999999999,
+          "drum_technique": 34.904999999999994,
           "drumhead": 18.375,
           "drum_kit_kick_pedal": 0
         }
@@ -146,7 +146,7 @@
           "rhythm_section": "klez_accordion"
         },
         "scores": {
-          "sections": 0.49949999999999994,
+          "sections": 0.195,
           "rhythm_section": 0.195
         }
       }

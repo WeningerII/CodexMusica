@@ -2,10 +2,10 @@
   "id": "russian_indie_rock",
   "name": "Russian indie rock",
   "family": "rock",
-  "lineage": "Russian indie rock is represented here by Hospital — Memory Waves. This is one documented branch, with an authored present-day studio realization.",
+  "lineage": "Russian indie rock connects independent guitar bands and melodic alternative-song approaches.",
   "recipe": "classic russian indie rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 54.975,
+  "score": 50.53,
   "config": {
     "traditions": [
       "russian_indie_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.818,
-          "amp_make": 6.11,
+          "electric_technique": 5.368,
+          "amp_make": 5.720000000000001,
           "body_wood": 1.3335,
           "neck_wood": 0.3045,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 0.9749999999999999,
           "scale_length": 0.7875000000000001,
-          "string_gauge": 1.69,
+          "string_gauge": 0.9749999999999999,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.162
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.5649999999999995,
+          "amp_make": 6.175,
           "body_wood": 0.609,
           "pickup_config": 0.1365,
-          "string_type": 15.6,
+          "string_type": 14.625,
           "scale_length_b": 0.3045,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.18,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12,
-          "drumhead": 0.39,
+          "drum_technique": 11.25,
+          "drumhead": 0.378,
           "drum_kit_kick_pedal": 0
         }
       },

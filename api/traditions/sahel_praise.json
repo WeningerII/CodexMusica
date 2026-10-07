@@ -3,9 +3,9 @@
   "name": "Sahel praise music (Mali, Senegal, Mauritania, Niger)",
   "family": "global",
   "lineage": "Contemporary West African Sahel praise-music tradition that extends the Mande jeli vocal-and-praise lineage into the modern electric-band context — Salif Keita (Maninka noble-line singer who broke caste taboo by becoming a commercial musician, 1987 Soro album the Paris-recorded breakthrough), Youssou NDour (Senegalese Wolof, his 1984 Immigrés the Paris recording), Baaba Maal (Senegalese Fulani Pulaar-language), Mory Kanté (Guinean kora-virtuoso, 1987 Yé Ké Yé Ké), Ali Farka Touré, Toumani Diabaté, Khaira Arby, Oumou Sangaré",
-  "recipe": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 882,
-  "score": 291.075,
+  "recipe": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 854,
+  "score": 286.185,
   "config": {
     "traditions": [
       "sahel_praise",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 8.000000000000002,
-          "voice_quality": 22.174999999999997,
+          "voice_quality": 22.024999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1750000000000007,
+          "voice_vibrato": 2.9800000000000004,
           "voice_articulation": 7.6049999999999995,
-          "voice_microtone": 8.255,
-          "voice_tradition": 49.370000000000005,
+          "voice_microtone": 8.445,
+          "voice_tradition": 47.405,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 2.7950000000000004,
           "voice_speech_song": 11.244999999999996,
           "voice_ensemble_config": 8.19,
-          "voice_ornament_system": 5.640000000000001,
+          "voice_ornament_system": 5.04,
           "voice_pitch_organization": 1.6999999999999997,
-          "voice_processing_chain": 7.460000000000001,
+          "voice_processing_chain": 7.115000000000001,
           "voice_multitrack_stack": 3.6399999999999997
         }
       },
@@ -66,7 +66,7 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "open_g",
+          "string_tuning": "dadgad",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
@@ -81,7 +81,7 @@
           "bridge": 1.3650000000000002,
           "scale_length": 0.65,
           "finish": 0.045,
-          "string_tuning": 1.125,
+          "string_tuning": 0.845,
           "single_coil_pickup_construction": 0
         }
       },
@@ -104,7 +104,7 @@
           "string_type": 1.3650000000000002,
           "scale_length_b": 1.3650000000000002,
           "fretted_or_not": 0.585,
-          "bass_technique": 6.525,
+          "bass_technique": 6.375,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 7.215,
-          "drumhead": 11.48,
+          "drumhead": 11.285,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -134,7 +134,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 22.7825,
-          "kora_strings": 4.55,
+          "kora_strings": 4.415,
           "kora_resonator": 1.3650000000000002,
           "kora_strings_mat": 2.6650000000000005,
           "kora_top_skin": 1.69,
@@ -146,11 +146,11 @@
         "id": "griot_voice",
         "slots": {
           "griot_origin": "griot_wolof",
-          "griot_voice_context": "griot_voice_praise"
+          "griot_voice_context": "griot_voice_stage"
         },
         "scores": {
           "griot_origin": 7.15,
-          "griot_voice_context": 1.095
+          "griot_voice_context": 0.8850000000000001
         }
       },
       {
@@ -164,7 +164,7 @@
         "scores": {
           "dunun_size": 0.845,
           "dunun_bell": 4.745,
-          "dunun_shell_wood": 12.415000000000001,
+          "dunun_shell_wood": 11.950000000000001,
           "dunun_head": 1.3
         }
       },
@@ -179,7 +179,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 22.7825,
-          "donso_ngoni_strings": 9.59,
+          "donso_ngoni_strings": 9.200000000000001,
           "donso_ngoni_use": 6.825,
           "donso_ngoni_resonator": 1.3,
           "donso_ngoni_string_material": 2.99

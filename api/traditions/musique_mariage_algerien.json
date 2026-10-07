@@ -1,0 +1,199 @@
+{
+  "id": "musique_mariage_algerien",
+  "name": "Musique Mariage Algérien",
+  "family": "vernacular",
+  "lineage": "Algerian wedding music brings regional song traditions into celebrations, from Chaâbi and Hawzi to Kabyle, Chaoui and contemporary popular repertories. Performers adapt ensemble size and repertoire to families and different stages of the festivities.",
+  "recipe": "classic musique mariage algérien, wedding. solo with instrumental accompaniment. upright piano, bendir, qanun. live tracking.",
+  "recipe_chars": 125,
+  "score": 3.741,
+  "config": {
+    "traditions": [
+      "musique_mariage_algerien"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.17,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.378,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.09250000000000001,
+          "upright_use": 0.007499999999999999,
+          "upright_piano_size": 0
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_with_snares",
+          "bendir_context": "bendir_folk",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 0.014999999999999998,
+          "bendir_context": 1.4365,
+          "bendir_shell_wood": 0.39,
+          "bendir_head": 0.049999999999999996
+        }
+      },
+      {
+        "id": "qanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "qanun_strings": "qanun_arab_72",
+          "qanun_levers": "mandal_brass",
+          "qanun_pick": "qanun_finger_picks",
+          "qanun_body_wood": "qanun_walnut_body",
+          "qanun_bridge_skin": "qanun_goat_skin_bridge",
+          "qanun_string_material": "qanun_nylon_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.14250000000000002,
+          "qanun_strings": 0.007499999999999999,
+          "qanun_levers": 0,
+          "qanun_pick": 0.0315,
+          "qanun_body_wood": 0.049999999999999996,
+          "qanun_bridge_skin": 0.049999999999999996,
+          "qanun_string_material": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "bendir": [
+        "bendir_snares",
+        "bendir_context",
+        "bendir_shell_wood",
+        "bendir_head"
+      ],
+      "qanun": [
+        "plucked_traditional_technique",
+        "qanun_strings",
+        "qanun_levers",
+        "qanun_pick",
+        "qanun_body_wood",
+        "qanun_bridge_skin",
+        "qanun_string_material"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "bendir_snares": "bendir_with_snares",
+      "bendir_context": "bendir_folk",
+      "bendir_shell_wood": "bendir_juniper_canonical",
+      "bendir_head": "bendir_goat_skin_canonical",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "qanun_strings": "qanun_arab_72",
+      "qanun_levers": "mandal_brass",
+      "qanun_pick": "qanun_finger_picks",
+      "qanun_body_wood": "qanun_walnut_body",
+      "qanun_bridge_skin": "qanun_goat_skin_bridge",
+      "qanun_string_material": "qanun_nylon_modern"
+    },
+    "pin_parts": true
+  }
+}

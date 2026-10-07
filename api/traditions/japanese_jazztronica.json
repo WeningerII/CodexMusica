@@ -1,0 +1,121 @@
+{
+  "id": "japanese_jazztronica",
+  "name": "Japanese Jazztronica",
+  "family": "jazz",
+  "lineage": "Japanese jazztronica connects jazz-oriented musicians and electronic production through releases and collaborative networks. Acoustic playing and programmed rhythm meet in varied instrumental arrangements.",
+  "recipe": "classic japanese jazztronica, improv On Frame, fusion branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard credited beat unspecified, upright bass. live tracking.",
+  "recipe_chars": 220,
+  "score": 29.016,
+  "config": {
+    "traditions": [
+      "japanese_jazztronica"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "sax_size": -0.15000000000000002,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0,
+          "sax_technique": 8.75,
+          "sax_maker_school": 11.309999999999999
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0.1365,
+          "keyboard_technique": 0.39
+        }
+      },
+      {
+        "id": "credited_beat_unspecified",
+        "slots": {
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        },
+        "scores": {
+          "credited_beat_identity": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": 8.75
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
+      ],
+      "credited_beat_unspecified": [
+        "credited_beat_identity"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal",
+      "credited_beat_identity": "credited_beat_mechanism_unspecified",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright"
+    },
+    "pin_parts": true
+  }
+}

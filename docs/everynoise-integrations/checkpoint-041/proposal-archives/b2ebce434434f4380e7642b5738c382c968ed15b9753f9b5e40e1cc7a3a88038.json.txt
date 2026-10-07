@@ -1,0 +1,246 @@
+{
+  "entries": [
+    {
+      "source_label": "french movie tunes",
+      "source_url": "https://everynoise.com/engenremap-frenchmovietunes.html",
+      "suggested_id": "french_movie_tunes",
+      "allocation_ordinal": 3315,
+      "allocation_group_id": "133",
+      "id": "french_movie_tunes",
+      "tradition": {
+        "id": "french_movie_tunes",
+        "name": "French Movie Tunes",
+        "family": "pop",
+        "lineage": "Libérée, délivrée — complete Noviscore Level1 six-page piano-solo edition, standard version. The publisher explicitly distinguishes solo scores, where one pianist plays both melody and accompaniment, from its separate accompaniment and solo-instrument products. Preserve the entire independent piano edition: one pianist, no separate singer. No paid score pages or audio audition claimed, and no inference that the original Anaïs Delva film recording lacks its singers or backing. French Movie Tunes here is the French-language film-song localization and performer/repertoire network. The actual creator programme includes the same Libérée, délivrée/Anaïs Delva at item39 and many explicitly French soundtrack versions; peripheral opera and nonfilm items are acknowledged, not all100 declared French cinema songs. Disney France positively documents Delva voicing Elsa, the French soundtrack, a Disney-princess-song album, and its France/Belgium concert circulation. This is an institutionally circulated localization repertoire, not merely a new pianist or a French-born performer. Full Hollywood and Show Tunes already cover film-musical and stage/screen songs, including Disney; overlap is substantial and their exemplars do not restrict their breadth. This is a narrower evidenced French-language localization/performer field within those wider repertoires. French Soundtrack is the wider national cinema-scoring/composer network, not defined as excluding songs, but does not exhaust localized foreign-film song circulation. French Pop and modern/classic Chanson overlap in language and performers but have broader popular/songwriter or literary-text scopes. Existing and accepted queued screen-music categories compared; no disjoint harmony or newly invented genre technique asserted. Broad functionalSong models an explicitly authored verse-chorus-bridge rendition over functional harmonic progressions of the published film song; exact section layout and chord voicing are authored choices, not a transcription claim about the unseen edition. Standard studio upright and block-chord pop touch are a source-compatible authored realization of publisher-unspecified piano construction. Controlled live-room recording is authored; global tuning and capture hardware omitted. Not classical merely because notated.",
+        "instruments": [
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": -1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": -1,
+          "cyclicity": 0
+        },
+        "description": "Libérée, délivrée — complete Noviscore Level1 six-page piano-solo edition, standard version. The publisher explicitly distinguishes solo scores, where one pianist plays both melody and accompaniment, from its separate accompaniment and solo-instrument products. Preserve the entire independent piano edition: one pianist, no separate singer. No paid score pages or audio audition claimed, and no inference that the original Anaïs Delva film recording lacks its singers or backing. French Movie Tunes here is the French-language film-song localization and performer/repertoire network. The actual creator programme includes the same Libérée, délivrée/Anaïs Delva at item39 and many explicitly French soundtrack versions; peripheral opera and nonfilm items are acknowledged, not all100 declared French cinema songs. Disney France positively documents Delva voicing Elsa, the French soundtrack, a Disney-princess-song album, and its France/Belgium concert circulation. This is an institutionally circulated localization repertoire, not merely a new pianist or a French-born performer. Full Hollywood and Show Tunes already cover film-musical and stage/screen songs, including Disney; overlap is substantial and their exemplars do not restrict their breadth. This is a narrower evidenced French-language localization/performer field within those wider repertoires. French Soundtrack is the wider national cinema-scoring/composer network, not defined as excluding songs, but does not exhaust localized foreign-film song circulation. French Pop and modern/classic Chanson overlap in language and performers but have broader popular/songwriter or literary-text scopes. Existing and accepted queued screen-music categories compared; no disjoint harmony or newly invented genre technique asserted. Broad functionalSong models an explicitly authored verse-chorus-bridge rendition over functional harmonic progressions of the published film song; exact section layout and chord voicing are authored choices, not a transcription claim about the unseen edition. Standard studio upright and block-chord pop touch are a source-compatible authored realization of publisher-unspecified piano construction. Controlled live-room recording is authored; global tuning and capture hardware omitted. Not classical merely because notated.",
+        "exemplars": [
+          "Libérée, délivrée — Noviscore complete Level1 six-page solo-piano edition"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        48.8566,
+        2.3522,
+        "Paris",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial French screen-song industry anchor, not a claim of pianist session, Noviscore premises or genre origin.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://www.noviscore.fr/partition-piano-liberee-delivree",
+          "title": "Noviscore complete solo-piano edition",
+          "support_notes": "Libérée, délivrée — complete Noviscore Level1 six-page piano-solo edition, standard version. The publisher explicitly distinguishes solo scores, where one pianist plays both melody and accompaniment, from its separate accompaniment and solo-instrument products. Preserve the entire independent piano edition: one pianist, no separate singer. No paid score pages or audio audition claimed, and no inference that the original Anaïs Delva film recording lacks its singers or backing.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11482search0; turn11489search0"
+        },
+        {
+          "url": "https://www.noviscore.fr/page/comment/",
+          "title": "Publisher solo versus accompaniment definition",
+          "support_notes": "Solo piano includes melody and accompaniment, unlike the separately offered accompaniment product.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11487view1"
+        },
+        {
+          "url": "https://newsroom.disney.fr/actualites/anais-delva-illumine-disneyland-paris-d0f2e-dc71f.html",
+          "title": "Disney France: film-song artist and touring repertoire",
+          "support_notes": "Official2017 publication positively binds Elsa, Libérée délivrée, French film soundtrack and princess repertoire circulated through France/Belgium. Its four-musician concert is a separate version, not the selected piano score.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11487view0"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/4XtqklANeRcUs9OYeasbxD",
+          "title": "Creator French Movie Tunes programme",
+          "support_notes": "Item39 exact song/performer; many explicitly French soundtrack versions, plus disclosed peripheral opera/nonfilm recordings. Actual playlist linked from creator1d page.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11480view0"
+        },
+        {
+          "url": "https://furia.com/everynoise_public/everynoise1d-frenchmovietunes.html",
+          "title": "Creator category and playlist link",
+          "support_notes": "Actual creator page link13 supplies the exact programme; not a guessed playlist.",
+          "checked_date": "2026-10-03",
+          "retrieval_ref": "turn11458view0"
+        }
+      ],
+      "neighbor_distinction": "French Movie Tunes here is the French-language film-song localization and performer/repertoire network. The actual creator programme includes the same Libérée, délivrée/Anaïs Delva at item39 and many explicitly French soundtrack versions; peripheral opera and nonfilm items are acknowledged, not all100 declared French cinema songs. Disney France positively documents Delva voicing Elsa, the French soundtrack, a Disney-princess-song album, and its France/Belgium concert circulation. This is an institutionally circulated localization repertoire, not merely a new pianist or a French-born performer. Full Hollywood and Show Tunes already cover film-musical and stage/screen songs, including Disney; overlap is substantial and their exemplars do not restrict their breadth. This is a narrower evidenced French-language localization/performer field within those wider repertoires. French Soundtrack is the wider national cinema-scoring/composer network, not defined as excluding songs, but does not exhaust localized foreign-film song circulation. French Pop and modern/classic Chanson overlap in language and performers but have broader popular/songwriter or literary-text scopes. Existing and accepted queued screen-music categories compared; no disjoint harmony or newly invented genre technique asserted.",
+      "model_policy": "Broad functionalSong models an explicitly authored verse-chorus-bridge rendition over functional harmonic progressions of the published film song; exact section layout and chord voicing are authored choices, not a transcription claim about the unseen edition. Standard studio upright and block-chord pop touch are a source-compatible authored realization of publisher-unspecified piano construction. Controlled live-room recording is authored; global tuning and capture hardware omitted. Not classical merely because notated.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "upright_piano"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Only original existing upright-piano owner, with all3 merged parts explicitly pinned; no instrument dependency."
+      },
+      "classification_evidence": {
+        "mode": "primary_creator_plus_rightsholder_institutional_repertoire",
+        "url": "https://open.spotify.com/embed/playlist/4XtqklANeRcUs9OYeasbxD",
+        "matched_artist": "Anaïs Delva",
+        "note": "French Movie Tunes here is the French-language film-song localization and performer/repertoire network. The actual creator programme includes the same Libérée, délivrée/Anaïs Delva at item39 and many explicitly French soundtrack versions; peripheral opera and nonfilm items are acknowledged, not all100 declared French cinema songs. Disney France positively documents Delva voicing Elsa, the French soundtrack, a Disney-princess-song album, and its France/Belgium concert circulation. This is an institutionally circulated localization repertoire, not merely a new pianist or a French-born performer. Full Hollywood and Show Tunes already cover film-musical and stage/screen songs, including Disney; overlap is substantial and their exemplars do not restrict their breadth. This is a narrower evidenced French-language localization/performer field within those wider repertoires. French Soundtrack is the wider national cinema-scoring/composer network, not defined as excluding songs, but does not exhaust localized foreign-film song circulation. French Pop and modern/classic Chanson overlap in language and performers but have broader popular/songwriter or literary-text scopes. Existing and accepted queued screen-music categories compared; no disjoint harmony or newly invented genre technique asserted."
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [],
+        "selected_count": 0,
+        "count_basis": "Whole positively scored piano-solo edition; zero separate voice applies only to this edition. Original film singer is not silently deleted from that recording.",
+        "decision": "Libérée, délivrée — complete Noviscore Level1 six-page piano-solo edition, standard version. The publisher explicitly distinguishes solo scores, where one pianist plays both melody and accompaniment, from its separate accompaniment and solo-instrument products. Preserve the entire independent piano edition: one pianist, no separate singer. No paid score pages or audio audition claimed, and no inference that the original Anaïs Delva film recording lacks its singers or backing."
+      },
+      "instrument_role_audit": {
+        "rationale": "Libérée, délivrée — complete Noviscore Level1 six-page piano-solo edition, standard version. The publisher explicitly distinguishes solo scores, where one pianist plays both melody and accompaniment, from its separate accompaniment and solo-instrument products. Preserve the entire independent piano edition: one pianist, no separate singer. No paid score pages or audio audition claimed, and no inference that the original Anaïs Delva film recording lacks its singers or backing.",
+        "selected_scope": "Whole Level1 six-page standard solo-piano edition",
+        "roles": [
+          {
+            "instrument": "upright_piano",
+            "source_role": "Piano, melody and accompaniment by one pianist",
+            "authored_realization": "Broad functionalSong models an explicitly authored verse-chorus-bridge rendition over functional harmonic progressions of the published film song; exact section layout and chord voicing are authored choices, not a transcription claim about the unseen edition. Standard studio upright and block-chord pop touch are a source-compatible authored realization of publisher-unspecified piano construction. Controlled live-room recording is authored; global tuning and capture hardware omitted. Not classical merely because notated."
+          }
+        ],
+        "omissions": "No positively scored family omitted. Original film recording and Disney touring concert are different arrangements."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "All original owning parts pinned as source-compatible authored standard studio upright with block-chord pop touch; publisher piano make/model unspecified."
+        }
+      ],
+      "verification_status": "primary_source_reviewed_complete_merged_defaults_pinned_inherited_photo_bytes_fresh_rights",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "french_movie_tunes",
+          "name": "French Movie Tunes",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not a piano, performer, source studio or demonstrated equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "File-specific Commons rights and attribution re-read in this session. Byte/hash/dimension and personal visual receipts below are inherited from frozen data-only-023 evidence, not new downloads.",
+          "fresh_review_ref": "turn11487view2; turn11489view0/1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "shared_keys_reviewed": [],
+        "rule": "All three original merged upright-piano parts explicitly authored and pinned, no shared owner collision or fallback."
+      },
+      "primary_retrieval_refs": [
+        "turn11482search0",
+        "turn11489search0",
+        "turn11487view1",
+        "turn11487view0",
+        "turn11480view0",
+        "turn11458view0"
+      ],
+      "source_access_limitation": "Publisher exact product metadata reproduced indexed; direct product fetch errored. Publisher solo-definition and Disney institutional pages read directly. Full paid score pages and source audio not inspected. Historical exact photo bytes and visual receipt inherited, rights freshly read."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": [],
+  "pending": [],
+  "status": "source_ready_pending_independent_review"
+}

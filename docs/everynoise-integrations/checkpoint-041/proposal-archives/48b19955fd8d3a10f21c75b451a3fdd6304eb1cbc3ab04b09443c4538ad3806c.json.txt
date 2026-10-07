@@ -1,0 +1,528 @@
+{
+  "entries": [
+    {
+      "source_label": "musica evangelica instrumental",
+      "source_url": "https://everynoise.com/engenremap-musicaevangelicainstrumental.html",
+      "suggested_id": "musica_evangelica_instrumental",
+      "allocation_ordinal": 3857,
+      "allocation_group_id": "155",
+      "id": "musica_evangelica_instrumental",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "musica_evangelica_instrumental",
+        "name": "Música Evangélica Instrumental",
+        "family": "global",
+        "lineage": "Música evangélica instrumental connects Brazil’s evangelical instrumental performers, recordings and listening communities. Hymns and contemporary worship melodies are reinterpreted through solo playing, intimate ensembles and fuller popular arrangements.",
+        "instruments": [
+          "saxophone",
+          "acoustic_guitar_dread"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "wind_articulation": "wind_cool_lyrical",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_cool_lyrical",
+          "sax_maker_school": "sax_yamaha_custom",
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Instrumental melody carries devotional repertoire through phrasing, dynamic contrast and familiar song forms. Saxophone and guitar offer one intimate approach; piano, strings and electric-band arrangements broaden a field that remains centered on instrumental interpretation.",
+        "exemplars": [
+          "Eddie Lewis",
+          "Angelo Torres"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        29.7604,
+        -95.3698,
+        "Houston",
+        "North America"
+      ],
+      "geo_rationale": "Artist professional home-city anchor from his own Houston Trumpet site, not whole Brazilian-community birthplace or measured recording room.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Música Evangélica Instrumental is the Brazilian evangelical instrumental recording and performance network, with international repertoire and interpreters circulating through it. This narrower community axis overlaps the broad Christian instrumental field; it is not a translation-based claim of disjoint styles. Santo Angelo directly documents its national instrumental Gospel contest, with a participant becoming a judge, separately from its later vocal-band Gospel competition. Angelo Torres directly identifies his instrumental Gospel career, national circuit and recorded adaptations of Hillsong repertoire. The exact creator corpus contains Torres and Brazilian orchestral, guitar and wind practitioners alongside Eddie Lewis; nationality is not an entry requirement. Together the primary organizer and practitioner sources support a real instrumental evangelical network beyond the playlist language weighting alone. Full existing musica_instrumental_cristiana remains broadly Christian instrumental, not piano-only or Spanish-only: its exemplar Samy Galí explicitly also covers English and Portuguese repertoire. It is a broader overlapping field, not an identical description of this particular national production and circulation network. Brazilian Gospel already covers the broader commercial evangelical industry, while this instrumental segment crosses ensemble types; piano_worship and denominational lds_instrumental do not exhaust it. The selected entire Lewis trumpet-duet edition is a documented devotional practice of an artist positively present in the discovery corpus, not a claim he participated in the Brazilian contest or recorded in Brazil. Substantial cross-border overlap is acknowledged; no stylistic exclusivity or historical origin is inferred.",
+      "classification_evidence": "Música Evangélica Instrumental is the Brazilian evangelical instrumental recording and performance network, with international repertoire and interpreters circulating through it. This narrower community axis overlaps the broad Christian instrumental field; it is not a translation-based claim of disjoint styles. Santo Angelo directly documents its national instrumental Gospel contest, with a participant becoming a judge, separately from its later vocal-band Gospel competition. Angelo Torres directly identifies his instrumental Gospel career, national circuit and recorded adaptations of Hillsong repertoire. The exact creator corpus contains Torres and Brazilian orchestral, guitar and wind practitioners alongside Eddie Lewis; nationality is not an entry requirement. Together the primary organizer and practitioner sources support a real instrumental evangelical network beyond the playlist language weighting alone. Full existing musica_instrumental_cristiana remains broadly Christian instrumental, not piano-only or Spanish-only: its exemplar Samy Galí explicitly also covers English and Portuguese repertoire. It is a broader overlapping field, not an identical description of this particular national production and circulation network. Brazilian Gospel already covers the broader commercial evangelical industry, while this instrumental segment crosses ensemble types; piano_worship and denominational lds_instrumental do not exhaust it. The selected entire Lewis trumpet-duet edition is a documented devotional practice of an artist positively present in the discovery corpus, not a claim he participated in the Brazilian contest or recorded in Brazil. Substantial cross-border overlap is acknowledged; no stylistic exclusivity or historical origin is inferred.",
+      "model_policy": "Authored lyrical alto saxophone and acoustic-guitar devotional duet. Conventional yellow-brass Yamaha-style sax, medium reed/hard-rubber mouthpiece and mahogany phosphor-bronze steelstring are explicit representative choices, not Angelo Torres equipment. Full old trumpet-duet and performance-source facts remain evidence.",
+      "source_scope_limitation": "Artist own Comunhão presentation identifies saxophone-and-guitar instrumental Gospel practice; no exact performance/session reconstruction. Broader community boundary and old evidence retained.",
+      "source_retrieval_caveat": "Full duet publisher and creator directly retrieved; original full returned objects retained resume116-evangelica-new-primary-raw.json. General homepage indexed; paid score/audio not inspected. Root fresh source review: organizer indexed text; direct timeout. Torres indexed own page; direct suspended host. Galí and exact creator directly retrieved. No audio or complete paid score viewed.",
+      "vocal_count_audit": {
+        "policy": "Instrumental rendition has no singer; familiar vocal song sources do not require a vocal track."
+      },
+      "instrument_role_audit": {
+        "scope": "Authored lyrical alto saxophone and acoustic-guitar devotional duet. Conventional yellow-brass Yamaha-style sax, medium reed/hard-rubber mouthpiece and mahogany phosphor-bronze steelstring are explicit representative choices, not Angelo Torres equipment. Full old trumpet-duet and performance-source facts remain evidence.",
+        "cards": 2
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "saxophone",
+          "parts": {
+            "wind_articulation": "wind_cool_lyrical",
+            "sax_size": "alto_sax",
+            "sax_reed": "medium_reed",
+            "sax_body_alloy": "yellow_brass_sax",
+            "sax_mouthpiece": "hard_rubber_mp",
+            "sax_technique": "sax_cool_lyrical",
+            "sax_maker_school": "sax_yamaha_custom"
+          },
+          "policy": "Authored lyrical alto saxophone and acoustic-guitar devotional duet. Conventional yellow-brass Yamaha-style sax, medium reed/hard-rubber mouthpiece and mahogany phosphor-bronze steelstring are explicit representative choices, not Angelo Torres equipment. Full old trumpet-duet and performance-source facts remain evidence."
+        },
+        {
+          "instrument": "acoustic_guitar_dread",
+          "parts": {
+            "acoustic_technique": "acoustic_flatpicked",
+            "string_tuning": "standard_tuning",
+            "top_wood": "mahogany_top",
+            "back_sides": "mahogany_bs",
+            "string_acoustic": "phosphor_bronze"
+          },
+          "policy": "Authored lyrical alto saxophone and acoustic-guitar devotional duet. Conventional yellow-brass Yamaha-style sax, medium reed/hard-rubber mouthpiece and mahogany phosphor-bronze steelstring are explicit representative choices, not Angelo Torres equipment. Full old trumpet-duet and performance-source facts remain evidence."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "saxophone",
+          "acoustic_guitar_dread"
+        ]
+      },
+      "flat_pin_resolution": {
+        "policy": "Independent saxophone and acoustic-guitar controls without overlapping assignment."
+      },
+      "sources": [
+        {
+          "url": "https://eddielewis.com/trumpet-books/trumpet-hymn-duets/",
+          "support_notes": "Fresh995736view0 complete author-publisher page: all21hymns, two trumpet parts and performer overdubbing both, separate play-along edition, actual worship usage."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3ASdA5uOWObzjjp6PFw2Q5",
+          "support_notes": "Fresh633074view1 entire91-entry exact creator roster; Eddie Lewis11/57/87 alongside Brazilian/Portuguese-speaking instrumental devotional artists; not exclusive-national claim."
+        },
+        {
+          "url": "https://eddielewis.com/",
+          "support_notes": "Fresh indexed797807search0 identifies Houston trumpet practice. Direct site transient failure candid; selected book page freshly direct accessible."
+        },
+        {
+          "url": "https://blog.santoangelo.com.br/querer-e-poder-de-concorrente-a-jurada/",
+          "support_notes": "Organizer primary indexed full article: 2012 instrumental Gospel contest, participant Lari Basilio becoming 2013 judge. Direct distinction from generic Gospel performance; national community corroboration, not selected artist event membership."
+        },
+        {
+          "url": "https://blog.santoangelo.com.br/juntando-e-fazendo-acontecer/",
+          "support_notes": "Organizer firsthand national contest account explicitly recalls earlier instrumental Gospel competition separately from vocal-band original-song contest. Direct request timed out; fresh indexed primary article read."
+        },
+        {
+          "url": "https://angelotorres.com.br/cd-angelo-torres/",
+          "support_notes": "Fresh indexed own artist describes instrumental Gospel career; direct now redirects to suspended-host page, so indexed retrieval limitation explicit."
+        },
+        {
+          "url": "https://galipiano.com/bio",
+          "support_notes": "Fresh full nearest existing exemplar biography positively includes Spanish, English and Portuguese repertoire; disproves any proposed exclusive Spanish-language boundary."
+        },
+        {
+          "url": "https://angelotorres.com.br/",
+          "support_notes": "Fresh indexed own career account turn866075search5 describes national circuit, named Gospel collaborations and instrumental2016 Hillsong reinterpretation album. Direct related artist site currently suspended; no current direct retrieval claimed."
+        },
+        {
+          "url": "https://angelotorres.com.br/cd-comunhao/",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh root primary retrieval preserved in primary-genre-practice-retrievals.json. Artist own description identifies instrumental saxophone and guitar devotional music. Genre practice sufficient; no exact master lineup imposed."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn995736view0",
+        "turn633074view1",
+        "turn797807search0"
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "musica_evangelica_instrumental",
+          "name": "Música Evangélica Instrumental",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh330848view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical023 bytes/visual preserved.",
+          "fresh_review_ref": "turn330848view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh330848view0; no fresh binary or visual inspection claimed.",
+        "fresh_rights_retrieval_refs": [
+          "turn330848view0"
+        ]
+      },
+      "verification_status": "Complete source and existing-control render checks passed; materially new category evidence awaits independent assessment.",
+      "source_review_refs": [
+        "turn995736view0",
+        "turn633074view1",
+        "turn797807search0",
+        "turn330848view0"
+      ],
+      "root_boundary_revision": {
+        "preserved_original": "/tmp/batch040/resume116-13.json",
+        "sha256": "672c2ba50691621d5fda5900f48ba933583479249a5efa83e558b7c6c255a4fe",
+        "changed": "Category/source prose only; every tradition/control/photo/source-edition setting unchanged.",
+        "fresh_refs": [
+          "turn989592search0",
+          "turn989592search3",
+          "turn414720search2",
+          "turn780764view1",
+          "turn780764view2",
+          "turn780764view3",
+          "turn637224view0"
+        ]
+      },
+      "format_repair": {
+        "before_packet": "/tmp/batch040/resume-root-evangelica-boundary.json",
+        "before_packet_sha256": "1cfa0a71e9cd2b2ec27f1c7e3412f8f751081988cc624d8a296318156fe55fdf",
+        "before_entry": {
+          "source_label": "musica evangelica instrumental",
+          "source_url": "https://everynoise.com/engenremap-musicaevangelicainstrumental.html",
+          "suggested_id": "musica_evangelica_instrumental",
+          "allocation_ordinal": 3857,
+          "allocation_group_id": "155",
+          "id": "musica_evangelica_instrumental",
+          "status": "READY_FOR_INDEPENDENT_REVIEW",
+          "tradition": {
+            "id": "musica_evangelica_instrumental",
+            "name": "Música Evangélica Instrumental",
+            "family": "global",
+            "lineage": "Eddie Lewis — complete21-hymn Trumpet Hymn Duets published book and its complete demonstration album. His own issuer page positively states two trumpet parts, both played by Lewis on the demonstration recording. The separate42-track play-along edition is not selected. No singing, piano, backing tracks or original congregational ensemble is inferred. This materially different complete issued rendition replaces no physical fact in the preserved Rafael Alves fingerstyle-source hold. Paid score and audio have not been inspected; complete scoring and edition boundary are explicit publisher metadata. Both trumpet lines are retained through one shared trumpet-family card; source one human overdubs two parts, not two source people. A new duet realization uses B-flat trumpets, yellow-brass Bach-style construction, medium-cup7C mouthpieces, open bells and controlled connected legato. These coherent physical and gesture choices are authored, not measured original gear or a claim all notes are legato. Controlled live-room acoustics are authored, not source venue. No global temperament or capture apparatus is inferred. Broad ritualDevotional/global follows explicit worship function; no Black-gospel, jazz, congregational vocal or orchestral lineage is asserted.",
+            "instruments": [
+              "trumpet"
+            ],
+            "room": "live_room",
+            "pin_parts": true,
+            "parts": {
+              "wind_articulation": "wind_classical_legato",
+              "brass_size": "trumpet_b_flat",
+              "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+              "brass_mute": "no_mute_brass",
+              "trumpet_technique": "trumpet_classical_legato",
+              "trumpet_bell_metal": "trumpet_yellow_brass",
+              "trumpet_maker_school": "trumpet_bach_stradivarius"
+            }
+          },
+          "extras": {
+            "parent": "ritualDevotional",
+            "axes": {
+              "harm": 0,
+              "pitch": 0,
+              "ornament": 0,
+              "meter": 0,
+              "density": 0,
+              "transmission": 0,
+              "improv": 0,
+              "soundTech": 0,
+              "intensity": 0,
+              "voice": -2,
+              "timbre": 0,
+              "percussion": 0,
+              "cyclicity": 0
+            },
+            "description": "Eddie Lewis — complete21-hymn Trumpet Hymn Duets published book and its complete demonstration album. His own issuer page positively states two trumpet parts, both played by Lewis on the demonstration recording. The separate42-track play-along edition is not selected. No singing, piano, backing tracks or original congregational ensemble is inferred. This materially different complete issued rendition replaces no physical fact in the preserved Rafael Alves fingerstyle-source hold. Paid score and audio have not been inspected; complete scoring and edition boundary are explicit publisher metadata. Música Evangélica Instrumental is the Brazilian evangelical instrumental recording and performance network, with international repertoire and interpreters circulating through it. This narrower community axis overlaps the broad Christian instrumental field; it is not a translation-based claim of disjoint styles. Santo Angelo directly documents its national instrumental Gospel contest, with a participant becoming a judge, separately from its later vocal-band Gospel competition. Angelo Torres directly identifies his instrumental Gospel career, national circuit and recorded adaptations of Hillsong repertoire. The exact creator corpus contains Torres and Brazilian orchestral, guitar and wind practitioners alongside Eddie Lewis; nationality is not an entry requirement. Together the primary organizer and practitioner sources support a real instrumental evangelical network beyond the playlist language weighting alone. Full existing musica_instrumental_cristiana remains broadly Christian instrumental, not piano-only or Spanish-only: its exemplar Samy Galí explicitly also covers English and Portuguese repertoire. It is a broader overlapping field, not an identical description of this particular national production and circulation network. Brazilian Gospel already covers the broader commercial evangelical industry, while this instrumental segment crosses ensemble types; piano_worship and denominational lds_instrumental do not exhaust it. The selected entire Lewis trumpet-duet edition is a documented devotional practice of an artist positively present in the discovery corpus, not a claim he participated in the Brazilian contest or recorded in Brazil. Substantial cross-border overlap is acknowledged; no stylistic exclusivity or historical origin is inferred. Both trumpet lines are retained through one shared trumpet-family card; source one human overdubs two parts, not two source people. A new duet realization uses B-flat trumpets, yellow-brass Bach-style construction, medium-cup7C mouthpieces, open bells and controlled connected legato. These coherent physical and gesture choices are authored, not measured original gear or a claim all notes are legato. Controlled live-room acoustics are authored, not source venue. No global temperament or capture apparatus is inferred. Broad ritualDevotional/global follows explicit worship function; no Black-gospel, jazz, congregational vocal or orchestral lineage is asserted.",
+            "exemplars": [
+              "Eddie Lewis — complete Trumpet Hymn Duets21-hymn edition"
+            ],
+            "status": "documented",
+            "crossRefs": []
+          },
+          "geo": [
+            29.7604,
+            -95.3698,
+            "Houston",
+            "North America"
+          ],
+          "geo_rationale": "Artist professional home-city anchor from his own Houston Trumpet site, not whole Brazilian-community birthplace or measured recording room.",
+          "signature_tokens": [],
+          "neighbor_distinction": "Música Evangélica Instrumental is the Brazilian evangelical instrumental recording and performance network, with international repertoire and interpreters circulating through it. This narrower community axis overlaps the broad Christian instrumental field; it is not a translation-based claim of disjoint styles. Santo Angelo directly documents its national instrumental Gospel contest, with a participant becoming a judge, separately from its later vocal-band Gospel competition. Angelo Torres directly identifies his instrumental Gospel career, national circuit and recorded adaptations of Hillsong repertoire. The exact creator corpus contains Torres and Brazilian orchestral, guitar and wind practitioners alongside Eddie Lewis; nationality is not an entry requirement. Together the primary organizer and practitioner sources support a real instrumental evangelical network beyond the playlist language weighting alone. Full existing musica_instrumental_cristiana remains broadly Christian instrumental, not piano-only or Spanish-only: its exemplar Samy Galí explicitly also covers English and Portuguese repertoire. It is a broader overlapping field, not an identical description of this particular national production and circulation network. Brazilian Gospel already covers the broader commercial evangelical industry, while this instrumental segment crosses ensemble types; piano_worship and denominational lds_instrumental do not exhaust it. The selected entire Lewis trumpet-duet edition is a documented devotional practice of an artist positively present in the discovery corpus, not a claim he participated in the Brazilian contest or recorded in Brazil. Substantial cross-border overlap is acknowledged; no stylistic exclusivity or historical origin is inferred.",
+          "classification_evidence": "Música Evangélica Instrumental is the Brazilian evangelical instrumental recording and performance network, with international repertoire and interpreters circulating through it. This narrower community axis overlaps the broad Christian instrumental field; it is not a translation-based claim of disjoint styles. Santo Angelo directly documents its national instrumental Gospel contest, with a participant becoming a judge, separately from its later vocal-band Gospel competition. Angelo Torres directly identifies his instrumental Gospel career, national circuit and recorded adaptations of Hillsong repertoire. The exact creator corpus contains Torres and Brazilian orchestral, guitar and wind practitioners alongside Eddie Lewis; nationality is not an entry requirement. Together the primary organizer and practitioner sources support a real instrumental evangelical network beyond the playlist language weighting alone. Full existing musica_instrumental_cristiana remains broadly Christian instrumental, not piano-only or Spanish-only: its exemplar Samy Galí explicitly also covers English and Portuguese repertoire. It is a broader overlapping field, not an identical description of this particular national production and circulation network. Brazilian Gospel already covers the broader commercial evangelical industry, while this instrumental segment crosses ensemble types; piano_worship and denominational lds_instrumental do not exhaust it. The selected entire Lewis trumpet-duet edition is a documented devotional practice of an artist positively present in the discovery corpus, not a claim he participated in the Brazilian contest or recorded in Brazil. Substantial cross-border overlap is acknowledged; no stylistic exclusivity or historical origin is inferred.",
+          "model_policy": "Both trumpet lines are retained through one shared trumpet-family card; source one human overdubs two parts, not two source people. A new duet realization uses B-flat trumpets, yellow-brass Bach-style construction, medium-cup7C mouthpieces, open bells and controlled connected legato. These coherent physical and gesture choices are authored, not measured original gear or a claim all notes are legato. Controlled live-room acoustics are authored, not source venue. No global temperament or capture apparatus is inferred. Broad ritualDevotional/global follows explicit worship function; no Black-gospel, jazz, congregational vocal or orchestral lineage is asserted.",
+          "source_scope_limitation": "Eddie Lewis — complete21-hymn Trumpet Hymn Duets published book and its complete demonstration album. His own issuer page positively states two trumpet parts, both played by Lewis on the demonstration recording. The separate42-track play-along edition is not selected. No singing, piano, backing tracks or original congregational ensemble is inferred. This materially different complete issued rendition replaces no physical fact in the preserved Rafael Alves fingerstyle-source hold. Paid score and audio have not been inspected; complete scoring and edition boundary are explicit publisher metadata.",
+          "source_retrieval_caveat": "Full duet publisher and creator directly retrieved; original full returned objects retained resume116-evangelica-new-primary-raw.json. General homepage indexed; paid score/audio not inspected. Root fresh source review: organizer indexed text; direct timeout. Torres indexed own page; direct suspended host. Galí and exact creator directly retrieved. No audio or complete paid score viewed.",
+          "vocal_count_audit": {
+            "selected_singing_roles": 0,
+            "positive_basis": "Publisher complete two-trumpet edition; no voices. One source performer records both parts."
+          },
+          "instrument_role_audit": {
+            "scope": "Eddie Lewis — complete21-hymn Trumpet Hymn Duets published book and its complete demonstration album. His own issuer page positively states two trumpet parts, both played by Lewis on the demonstration recording. The separate42-track play-along edition is not selected. No singing, piano, backing tracks or original congregational ensemble is inferred. This materially different complete issued rendition replaces no physical fact in the preserved Rafael Alves fingerstyle-source hold. Paid score and audio have not been inspected; complete scoring and edition boundary are explicit publisher metadata.",
+            "roles": {
+              "trumpet": "Two complete trumpet parts, one source recording performer"
+            },
+            "authored_defaults": "Both trumpet lines are retained through one shared trumpet-family card; source one human overdubs two parts, not two source people. A new duet realization uses B-flat trumpets, yellow-brass Bach-style construction, medium-cup7C mouthpieces, open bells and controlled connected legato. These coherent physical and gesture choices are authored, not measured original gear or a claim all notes are legato. Controlled live-room acoustics are authored, not source venue. No global temperament or capture apparatus is inferred. Broad ritualDevotional/global follows explicit worship function; no Black-gospel, jazz, congregational vocal or orchestral lineage is asserted."
+          },
+          "resolved_parts_audit": [
+            {
+              "instrument": "trumpet",
+              "parts": {
+                "wind_articulation": "wind_classical_legato",
+                "brass_size": "trumpet_b_flat",
+                "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+                "brass_mute": "no_mute_brass",
+                "trumpet_technique": "trumpet_classical_legato",
+                "trumpet_bell_metal": "trumpet_yellow_brass",
+                "trumpet_maker_school": "trumpet_bach_stradivarius"
+              },
+              "policy": "Both trumpet lines are retained through one shared trumpet-family card; source one human overdubs two parts, not two source people. A new duet realization uses B-flat trumpets, yellow-brass Bach-style construction, medium-cup7C mouthpieces, open bells and controlled connected legato. These coherent physical and gesture choices are authored, not measured original gear or a claim all notes are legato. Controlled live-room acoustics are authored, not source venue. No global temperament or capture apparatus is inferred. Broad ritualDevotional/global follows explicit worship function; no Black-gospel, jazz, congregational vocal or orchestral lineage is asserted."
+            }
+          ],
+          "dependency_audit": {
+            "new_instruments": [],
+            "reused_instruments": [
+              "trumpet"
+            ]
+          },
+          "flat_pin_resolution": {
+            "rule": "Seven owning parts protected; one owner, no shared conflict or fallback."
+          },
+          "sources": [
+            {
+              "url": "https://eddielewis.com/trumpet-books/trumpet-hymn-duets/",
+              "support_notes": "Fresh995736view0 complete author-publisher page: all21hymns, two trumpet parts and performer overdubbing both, separate play-along edition, actual worship usage."
+            },
+            {
+              "url": "https://open.spotify.com/embed/playlist/3ASdA5uOWObzjjp6PFw2Q5",
+              "support_notes": "Fresh633074view1 entire91-entry exact creator roster; Eddie Lewis11/57/87 alongside Brazilian/Portuguese-speaking instrumental devotional artists; not exclusive-national claim."
+            },
+            {
+              "url": "https://eddielewis.com/",
+              "support_notes": "Fresh indexed797807search0 identifies Houston trumpet practice. Direct site transient failure candid; selected book page freshly direct accessible."
+            },
+            {
+              "url": "https://blog.santoangelo.com.br/querer-e-poder-de-concorrente-a-jurada/",
+              "support_notes": "Organizer primary indexed full article: 2012 instrumental Gospel contest, participant Lari Basilio becoming 2013 judge. Direct distinction from generic Gospel performance; national community corroboration, not selected artist event membership."
+            },
+            {
+              "url": "https://blog.santoangelo.com.br/juntando-e-fazendo-acontecer/",
+              "support_notes": "Organizer firsthand national contest account explicitly recalls earlier instrumental Gospel competition separately from vocal-band original-song contest. Direct request timed out; fresh indexed primary article read."
+            },
+            {
+              "url": "https://angelotorres.com.br/cd-angelo-torres/",
+              "support_notes": "Fresh indexed own artist describes instrumental Gospel career; direct now redirects to suspended-host page, so indexed retrieval limitation explicit."
+            },
+            {
+              "url": "https://galipiano.com/bio",
+              "support_notes": "Fresh full nearest existing exemplar biography positively includes Spanish, English and Portuguese repertoire; disproves any proposed exclusive Spanish-language boundary."
+            },
+            {
+              "url": "https://angelotorres.com.br/",
+              "support_notes": "Fresh indexed own career account turn866075search5 describes national circuit, named Gospel collaborations and instrumental2016 Hillsong reinterpretation album. Direct related artist site currently suspended; no current direct retrieval claimed."
+            }
+          ],
+          "primary_retrieval_refs": [
+            "turn995736view0",
+            "turn633074view1",
+            "turn797807search0"
+          ],
+          "photo": {
+            "manifest": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "kind": "tradition",
+              "source": "generic_recording_context",
+              "id": "musica_evangelica_instrumental",
+              "name": "Música Evangélica Instrumental",
+              "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "matched_label": "LOW generic microphone recording context only; not trumpet, source performer, source gear or Brazilian identity.",
+              "match_confidence": "low"
+            },
+            "rights": {
+              "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+              "source_title": "Shure SM58.jpg",
+              "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+              "license": "CC BY",
+              "license_raw": "CC BY 2.5 Generic",
+              "license_url": "https://creativecommons.org/licenses/by/2.5/",
+              "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+              "checked_date": "2026-10-03",
+              "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+              "evidence": "Fresh330848view0 confirms Iain Fergusson, Binksternet crop and CC BY2.5. Historical023 bytes/visual preserved.",
+              "fresh_review_ref": "turn330848view0"
+            },
+            "full": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "thumbnail": {
+              "dimensions": [
+                250,
+                720
+              ],
+              "bytes": 33015,
+              "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+              "content_type": "image/jpeg",
+              "checked_date": "2026-10-02",
+              "status": "served_preview_downloaded_via_browser_link",
+              "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+              "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+              "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+              "receipt_scope": "inherited historical download; not downloaded in current environment"
+            },
+            "visual": {
+              "checked": true,
+              "checked_date": "2026-10-02",
+              "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+              "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+              "reviewed_paths": [
+                "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+              ],
+              "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+            },
+            "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+            "reuse_provenance": {
+              "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+              "source_entry": "baps",
+              "same_image_url": true,
+              "same_thumb_url": true,
+              "fresh_rights_review_date": "2026-10-03",
+              "fresh_download": false,
+              "fresh_visual_review": false,
+              "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+            },
+            "fresh_rights_review": "Fresh330848view0; no fresh binary or visual inspection claimed.",
+            "fresh_rights_retrieval_refs": [
+              "turn330848view0"
+            ]
+          },
+          "verification_status": "Complete source and existing-control render checks passed; materially new category evidence awaits independent assessment.",
+          "source_review_refs": [
+            "turn995736view0",
+            "turn633074view1",
+            "turn797807search0",
+            "turn330848view0"
+          ],
+          "root_boundary_revision": {
+            "preserved_original": "/tmp/batch040/resume116-13.json",
+            "sha256": "672c2ba50691621d5fda5900f48ba933583479249a5efa83e558b7c6c255a4fe",
+            "changed": "Category/source prose only; every tradition/control/photo/source-edition setting unchanged.",
+            "fresh_refs": [
+              "turn989592search0",
+              "turn989592search3",
+              "turn414720search2",
+              "turn780764view1",
+              "turn780764view2",
+              "turn780764view3",
+              "turn637224view0"
+            ]
+          }
+        },
+        "reason": "Replace an exact two-trumpet demonstration identity with a representative melodic devotional instrumental duet grounded in Brazilian field practice.",
+        "semantic_review": "All four outputs root read. Actual original lexicon tongue-tying tokens are continuous airflow/legato/lyrical/alto, compatible with selected lyrical melody. Callous denotes controlled dry neutral acoustic color, not an assertion about devotional emotion or performer character. No unrelated named cultural practice."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "ROOT_QUEUED_GENRE_DEFAULT_REPAIR_AWAITING_PEER"
+}

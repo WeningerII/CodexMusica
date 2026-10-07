@@ -1,0 +1,263 @@
+{
+  "entries": [
+    {
+      "id": "pop_dance",
+      "source_label": "pop dance",
+      "source_url": "https://everynoise.com/engenremap-popdance.html",
+      "suggested_id": "pop_dance",
+      "allocation_ordinal": 1836,
+      "allocation_group_id": "074",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "pop_dance",
+        "name": "Pop Dance",
+        "family": "pop",
+        "lineage": "Pop dance joins vocal hooks and familiar song structures to emphatic dance rhythms and electronic production. Its international recording tradition reaches across disco-derived pop, synthesizer-led dance songs and later club-pop crossovers.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified",
+          "credited_electronics_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified",
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Melody and vocal hooks remain central while a strong rhythmic backing and electronic colors keep the song danceable. Bright, punctuated delivery and recurring refrains connect the pop-song foreground with club-oriented production.",
+        "exemplars": [
+          "Madonna",
+          "Kylie Minogue",
+          "Janet Jackson",
+          "Dua Lipa"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        40.7128,
+        -74.006,
+        "New York",
+        "North America"
+      ],
+      "geo_rationale": "Editorial historical disco/pop circulation anchor, not exclusive birthplace or recording location.",
+      "signature_tokens": [],
+      "model_policy": "Representative electronic vocal-song arrangement based on the Academy field definition, not a transcription of any nominated master. Voice, rhythmic production and additional electronic instrumental color remain separate roles; source-unspecified mechanisms are not replaced by invented hardware. The solo lead, direct syllabic rhythmic singing, natural unprocessed vocal and controlled live room are editable authored settings. Functional-harmonic verse–chorus–bridge organization is an authored pop rendition, not a measured statement about every member recording. The field may include instrumental recordings and layered vocals; the default selects its documented vocal-led branch. No source headcount, synthesizer architecture or universal BPM is inferred. Rendered punctuated syllabic phrasing is the authored rhythmic vocal gesture, not a claim of added hand-claps. Brisk dance-driving beat follows the institutional up-tempo field definition. Bold, fun, funk-derived swing in electronic color is an authored disco-pop-inflected treatment consistent with the Academy history, not an ancestry claim for every electronic dance song.",
+      "neighbor_distinction": "The Recording Academy explicitly renamed Pop Dance to Dance Pop, establishing synonymous field naming. Its definition is danceable pop arrangement with strong rhythmic beats, electronic instrumentation and vocal/melodic hooks. The existing dance_pop_2010s record explicitly narrows itself to 2010s American-European EDM-festival aesthetics; its entire lineage and description were read. Academy history covers earlier disco-pop and1990s pop/dance crossover as well as2020s revival, supporting a broader cross-era field with that2010s branch included, not excluded. Existing synthpop emphasizes synthesizer-based song lineage, while house/electrohouse center club-production lineages; all overlap. No distinctness is claimed from word reversal or the date an award was introduced.",
+      "classification_evidence": "The Recording Academy explicitly renamed Pop Dance to Dance Pop, establishing synonymous field naming. Its definition is danceable pop arrangement with strong rhythmic beats, electronic instrumentation and vocal/melodic hooks. The existing dance_pop_2010s record explicitly narrows itself to 2010s American-European EDM-festival aesthetics; its entire lineage and description were read. Academy history covers earlier disco-pop and1990s pop/dance crossover as well as2020s revival, supporting a broader cross-era field with that2010s branch included, not excluded. Existing synthpop emphasizes synthesizer-based song lineage, while house/electrohouse center club-production lineages; all overlap. No distinctness is claimed from word reversal or the date an award was introduced.",
+      "source_scope_limitation": "Genre-level production practice; no claimed complete recording roster or exact creator membership. Academy editorial and category sources define the broader field.",
+      "instrument_role_audit": {
+        "voice": "Vocal melody/hooks explicit Academy field emphasis; authored syllabic rhythmic lead.",
+        "credited_beat_unspecified": "Strong rhythmic beat explicit; mechanism unspecified.",
+        "credited_electronics_unspecified": "Additional electronic-based instrumental role explicit; generator unspecified."
+      },
+      "vocal_count_audit": {
+        "source_count": null,
+        "authored_lead_cards": 1,
+        "basis": "Representative accompanied lead, not a census of performers."
+      },
+      "sources": [
+        {
+          "url": "https://www.grammy.com/news/new-categories-announced-66th-annual-grammy-awards-2024-grammys/",
+          "title": "Recording Academy2023 category announcement",
+          "support_notes": "Fresh14528search0 defines beats/electronic instrumentation/vocal hooks and pop arrangement."
+        },
+        {
+          "url": "https://qa.grammy.com/news/2025-grammys-awards-updates-changes-amendments-rules-guidelines",
+          "title": "Recording Academy2025 category changes",
+          "support_notes": "Fresh14522search0 explicitly PopDance renamedDancePop."
+        },
+        {
+          "url": "https://qa.grammy.com/news/donna-summer-gloria-gaynor-dua-lipa-aluna-women-singers-who-shaped-dance-music",
+          "title": "Recording Academy history of dance-pop vocal practice",
+          "support_notes": "Fresh14522search1 historical lineage through disco and contemporaryrevival; exact selectedexamples editorial, no personnel inference."
+        }
+      ],
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_dance",
+          "name": "Pop Dance",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn14528view0 Commons page confirms CC BY2.5 and named attribution.",
+          "fresh_review_ref": "turn14528view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh turn14528view0; exact historical byte and visual receipts inherited unchanged.",
+        "fresh_rights_retrieval_refs": [
+          "turn14528view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "staccato_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          }
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          }
+        },
+        {
+          "instrument": "credited_electronics_unspecified",
+          "parts": {
+            "credited_electronics_identity": "credited_electronics_generator_unspecified"
+          }
+        }
+      ],
+      "render_review": {
+        "all_four_formats_read": true,
+        "runtime": "/tmp/batch040/resume116-unvisited-2-runtime.json",
+        "literal_review": "Punctuated syllabic vocal, brisk beat and bold funky/swing electronic affect understood literally as authored disco-pop treatment; no named unrelated culture or instrument added. Requires independent semantic judgment."
+      },
+      "axis_completeness_amendment": {
+        "original_packet": "/tmp/batch040/resume116-unvisited-2.json",
+        "reason": "Explicit neutral authored values for ten unspecified axes; preserve three original positive values. Zero denotes uncommitted midpoint, not measured equality or source analysis. Completes required13-field genre metadata.",
+        "before": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "added_neutral_axes": [
+          "harm",
+          "pitch",
+          "ornament",
+          "meter",
+          "density",
+          "transmission",
+          "improv",
+          "intensity",
+          "timbre",
+          "cyclicity"
+        ]
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

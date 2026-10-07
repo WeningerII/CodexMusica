@@ -1,0 +1,797 @@
+{
+  "entries": [
+    {
+      "source_label": "muzica maramureseana",
+      "source_url": "https://everynoise.com/engenremap-muzicamaramureseana.html",
+      "suggested_id": "muzica_maramureseana",
+      "allocation_ordinal": 3961,
+      "allocation_group_id": "159",
+      "id": "muzica_maramureseana",
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "tradition": {
+        "id": "muzica_maramureseana",
+        "name": "Muzică Maramureșeană",
+        "family": "vernacular",
+        "lineage": "Maramureș music brings together village singing, wedding repertories, dance tunes and pastoral music from northern Romania. The cetera fiddle and strummed zongoră form a characteristic instrumental partnership, often joined by a dobă drum. Solo long-song traditions coexist with lively collective performances.",
+        "instruments": [
+          "voice",
+          "fiddle",
+          "zongora_maramures",
+          "doba_maramures"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_heightened_speech",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "eighty_twenty",
+          "zongora_configuration": "zongora_four_strings",
+          "string_tuning": "zongora_major_chord_tuning",
+          "doba_form": "doba_double_headed_medium",
+          "doba_shell": "doba_shell_unspecified",
+          "doba_heads": "doba_heads_unspecified",
+          "doba_stroke": "doba_stick_pulse"
+        }
+      },
+      "extras": {
+        "parent": "improvOnFrame",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 1,
+          "meter": 1,
+          "density": 0,
+          "transmission": 1,
+          "improv": 1,
+          "soundTech": -2,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "A decorated fiddle melody moves over insistent strummed chords and a drum pulse. Wedding musicians vary and elaborate the tunes, with shouted strigături adding vocal energy. Other parts of the regional repertoire favor free, sustained solo singing and quieter pastoral sounds.",
+        "exemplars": [
+          "Ionu’ lu Grigore",
+          "Ion Pop",
+          "Nicolae Pițiș"
+        ],
+        "status": "documented",
+        "crossRefs": [],
+        "signature_tokens": []
+      },
+      "geo": [
+        47.653,
+        24.35,
+        "Săliștea de Sus",
+        "Europe"
+      ],
+      "geo_rationale": "ICR directly locates the documented fiddler and wedding practice in Săliștea de Sus, Maramureș.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "muzica_maramureseana",
+          "name": "Muzică Maramureșeană",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "model_policy": "Representative lively wedding-dance branch with fiddle, zongoră, dobă and strigături retained. ICR directly describes the trio and energetic vocal calls/improvisation; the separate museum programme confirms regional sung and instrumental practice but is not treated as the same ensemble or recording. Projected shouted heightened speech realizes the positive calls without inventing exact words, number of callers or pitch anatomy. Fiddle melody uses the existing school-unspecified local melody control; steel-core strings/light rosin/unmuted bowing are authored practical choices. Modern four-string zongoră is positively documented by the Romanian national inventory; closely grouped rapid strumming and major-chord accompaniment preserve its distinct practice. Sitka soundboard, maple back/sides and80/20 strings are explicit authored guitar construction, not measured regional timbers or universal string alloy. Dobă preserves the documented medium double-headed form, separate unknown shell/head materials, and an authored stick-struck support gesture. No kick pedal, foreign drum identity, undocumented cymbal, or orchestral doubling is inferred. Broad improvOnFrame reflects the ICR-described creative melodic elaboration over strummed/drummed support. No exact master, uniform regional ensemble or global tuning is claimed.",
+      "neighbor_distinction": "The full existing romanian_folk umbrella already uses a Maramureș shepherd melody as its representative example; regional coverage is not absent and that one example does not define the whole national field. Muzică Maramureșeană is the positively documented regional repertoire encompassing wedding dances, vocal calls, pastoral music and long songs within Romanian folk. Existing doina/romanian_doina describe improvised free-rhythm lament and include Maramureș; the regional field includes that practice but also metered ensemble dancing. No alias follows from shared performers or a shared example, and no exclusive regional instrument list is asserted.",
+      "sources": [
+        {
+          "url": "https://www.icr.ro/pagini/o-cetera-o-zongora-o-doba-ionu-lu-grigore-zis-paganini-la-icr",
+          "title": "ICR — regional wedding fiddler and trio",
+          "support_notes": "Institutional direct programme identifies cetera/zongora/dobă, strigături and creative wedding performance.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://sitevechi.muzeultaranuluiroman.ro/mtr-event-archive/hori-stravechi-din-tara-lapusului-si-a-maramuresului-en.html",
+          "title": "Romanian Peasant Museum — Hori străvechi programme",
+          "support_notes": "Institutional regional voices/fiddle/zongora/drum programme supports broader singing repertoire; separate event not imported roster.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://ich.unesco.org/en/8b-representative-list-01146?id=01594&include=slideshow_inc.php",
+          "title": "Romanian nomination photographs — UNESCO host",
+          "support_notes": "Explicit modern4/5-string adapted zongoră and shouted call practice.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://ich.unesco.org/doc/src/44167.pdf",
+          "title": "Romanian national inventory — UNESCO host",
+          "support_notes": "Regional violin–zongora–drum variant, earlier2-string D–A and later major-chord support; directPDF blocked, actual indexed text preserved.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://mek.oszk.hu/06300/06351/06351.htm",
+          "title": "Dorin Ștef — Maramureș cultural monograph",
+          "support_notes": "Ethnographic monograph hosted by national library documents medium double-headed dobă and regional repertoire; not a source of exact materials.",
+          "checked_date": "2026-10-04"
+        },
+        {
+          "url": "https://eliznik.org.uk/traditions-in-romania/traditional-music/plucked-strings/",
+          "title": "Eliznik researcher account — plucked strings",
+          "support_notes": "Researcher account documents close string spacing and rapid strumming, used as corroboration not sole source.",
+          "checked_date": "2026-10-04"
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15212view1",
+        "turn15270view0",
+        "turn15237search0",
+        "turn15270search2",
+        "turn15270search0",
+        "turn15272view1"
+      ],
+      "source_scope_limitation": "Regional genre-practice wedding branch with positive vocal calls and instrumental roles. Other regional forms and enlarged ensembles remain acknowledged without being forced into every rendition.",
+      "source_retrieval_caveat": "UNESCO-hosted inventory directPDF returned anti-bot challenge; indexed primary text and the official photograph captions were actually retrieved. National library monograph and direct ICR/museum sources support physical and regional context; no PDF screenshot or exact artist equipment inspection claimed."
+    }
+  ],
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "zongora_maramures",
+        "name": "Zongoră (Maramureș accompaniment guitar)",
+        "family": "acoustic_strings",
+        "class": "plucked_string_rhythm",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": -1,
+          "polyphony": 1,
+          "harmonicity": 1,
+          "register": 0,
+          "range": 1,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "short": "Zongoră",
+        "parts": [
+          {
+            "id": "acoustic_technique",
+            "name": "Playing technique",
+            "variants": [
+              {
+                "id": "acoustic_fingerpicked",
+                "name": "Fingerpicked",
+                "descriptors": [
+                  "fingerpicked",
+                  "narrative"
+                ],
+                "match_tokens": [
+                  "acoustic-only"
+                ],
+                "canonical_tags": [
+                  "singer-songwriter",
+                  "folk",
+                  "folk-revival",
+                  "confessional",
+                  "ballad-poetry"
+                ],
+                "default": true
+              },
+              {
+                "id": "acoustic_strummed_ringing",
+                "default": false,
+                "name": "Open-chord strumming (ringing)",
+                "descriptors": [
+                  "strummed",
+                  "open-chord-ringing-overtones"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "ringing"
+                ],
+                "canonical_tags": [
+                  "folk-revival",
+                  "pop"
+                ]
+              }
+            ],
+            "_fromFamily": true
+          },
+          {
+            "id": "top_wood",
+            "surface": false,
+            "name": "Top wood",
+            "variants": [
+              {
+                "id": "sitka",
+                "name": "Sitka spruce",
+                "descriptors": [
+                  "treble-extended",
+                  "articulate",
+                  "headroom-rich",
+                  "sitka-spruce",
+                  "spruce"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ],
+                "default": true
+              },
+              {
+                "id": "engelmann",
+                "default": false,
+                "name": "Engelmann spruce",
+                "descriptors": [
+                  "low-density-tonewood",
+                  "vintage",
+                  "spruce"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ]
+              },
+              {
+                "id": "mahogany_top",
+                "name": "Mahogany top",
+                "descriptors": [
+                  "woody",
+                  "midrange-thick",
+                  "fundamental",
+                  "mahogany"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ],
+                "default": false
+              }
+            ]
+          },
+          {
+            "id": "back_sides",
+            "surface": false,
+            "name": "Back & sides",
+            "variants": [
+              {
+                "id": "rosewood_bs",
+                "default": true,
+                "name": "Indian rosewood",
+                "descriptors": [
+                  "deep",
+                  "overtone-rich",
+                  "dimensional",
+                  "indian-rosewood",
+                  "rosewood"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ],
+                "canonical_tags": [
+                  "cites-app-ii"
+                ]
+              },
+              {
+                "id": "mahogany_bs",
+                "name": "Mahogany",
+                "descriptors": [
+                  "dry",
+                  "fundamental",
+                  "woody",
+                  "mahogany"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ],
+                "default": false
+              },
+              {
+                "id": "maple_bs",
+                "name": "Maple",
+                "descriptors": [
+                  "treble-extended",
+                  "controlled",
+                  "maple"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ],
+                "default": false
+              }
+            ]
+          },
+          {
+            "id": "string_acoustic",
+            "surface": false,
+            "name": "Strings",
+            "variants": [
+              {
+                "id": "eighty_twenty",
+                "default": true,
+                "name": "80/20 bronze (modern bright)",
+                "descriptors": [
+                  "treble-extended",
+                  "snappy",
+                  "fresh",
+                  "bronze",
+                  "80-20-cu-zn"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ]
+              },
+              {
+                "id": "silk_steel",
+                "name": "Silk-and-steel (parlor / vintage)",
+                "descriptors": [
+                  "low-tension-strings",
+                  "mellow",
+                  "easy-pull",
+                  "steel",
+                  "silk"
+                ],
+                "match_tokens": [
+                  "acoustic-only",
+                  "plucked",
+                  "strummed"
+                ],
+                "default": false
+              }
+            ]
+          },
+          {
+            "id": "zongora_configuration",
+            "name": "String configuration",
+            "variants": [
+              {
+                "id": "zongora_four_strings",
+                "name": "Four strings, closely grouped for strummed accompaniment",
+                "default": true,
+                "descriptors": [
+                  "four-string"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "string_tuning",
+            "name": "Accompaniment tuning",
+            "variants": [
+              {
+                "id": "zongora_major_chord_tuning",
+                "name": "Regional major-chord accompaniment tuning; exact pitches unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Regional adapted guitar for rapid strummed accompaniment in Maramureș. Reduced string configuration and closely grouped courses distinguish it from a standard six-string guitar. Materials remain selectable authored construction choices; no specific historical player or maker is implied.",
+        "sources": [
+          "https://ich.unesco.org/en/8b-representative-list-01146?id=01594&include=slideshow_inc.php",
+          "https://ich.unesco.org/doc/src/44167.pdf",
+          "https://mek.oszk.hu/06300/06351/06351.htm",
+          "https://eliznik.org.uk/traditions-in-romania/traditional-music/plucked-strings/"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "zongora_maramures",
+        "name": "Zongoră (Maramureș accompaniment guitar)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "zongora_maramures",
+          "name": "Zongoră (Maramureș accompaniment guitar)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "sources": [
+        "https://ich.unesco.org/en/8b-representative-list-01146?id=01594&include=slideshow_inc.php",
+        "https://ich.unesco.org/doc/src/44167.pdf",
+        "https://mek.oszk.hu/06300/06351/06351.htm",
+        "https://eliznik.org.uk/traditions-in-romania/traditional-music/plucked-strings/"
+      ],
+      "source_evidence": "Regional adapted guitar for rapid strummed accompaniment in Maramureș. Reduced string configuration and closely grouped courses distinguish it from a standard six-string guitar. Materials remain selectable authored construction choices; no specific historical player or maker is implied.",
+      "preservation_policy": "Existing-schema isolated record, no shared family/part mutation; full raw baseline merge required."
+    },
+    {
+      "record": {
+        "id": "doba_maramures",
+        "name": "Dobă (Maramureș drum)",
+        "short": "Dobă",
+        "family": "percussion",
+        "class": "doba_maramures",
+        "axes": {
+          "pitchFix": -2,
+          "sustain": -1,
+          "polyphony": -2,
+          "harmonicity": -1,
+          "register": -1,
+          "range": -2,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 1
+        },
+        "description": "Maramureș regional double-headed drum supporting the fiddle and zongoră ensemble. Form, resonator, membrane construction and stroke remain separate controls; no Anatolian davul or kick-pedal identity is imported.",
+        "sources": [
+          "https://www.icr.ro/pagini/o-cetera-o-zongora-o-doba-ionu-lu-grigore-zis-paganini-la-icr",
+          "https://sitevechi.muzeultaranuluiroman.ro/mtr-event-archive/hori-stravechi-din-tara-lapusului-si-a-maramuresului-en.html",
+          "https://mek.oszk.hu/06300/06351/06351.htm"
+        ],
+        "parts": [
+          {
+            "id": "doba_form",
+            "name": "Drum form",
+            "variants": [
+              {
+                "id": "doba_double_headed_medium",
+                "name": "Medium-sized double-headed drum",
+                "default": true,
+                "descriptors": [
+                  "double-headed"
+                ],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "doba_shell",
+            "name": "Resonator construction",
+            "variants": [
+              {
+                "id": "doba_shell_unspecified",
+                "name": "Resonator material and exact dimensions unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "doba_heads",
+            "name": "Membrane construction",
+            "variants": [
+              {
+                "id": "doba_heads_unspecified",
+                "name": "Two tensioned sounding surfaces; composition unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "doba_stroke",
+            "name": "Playing gesture",
+            "variants": [
+              {
+                "id": "doba_stick_pulse",
+                "name": "Authored stick-struck rhythmic support",
+                "default": true,
+                "descriptors": [
+                  "struck",
+                  "rhythmic"
+                ],
+                "match_tokens": []
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "doba_maramures",
+        "name": "Dobă (Maramureș drum)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "doba_maramures",
+          "name": "Dobă (Maramureș drum)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh turn15196view0 confirms original author, crop and CC BY2.5.",
+          "fresh_review_ref": "turn15196view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn15196view0"
+        ],
+        "fresh_rights_review": "Fresh turn15196view0 rights only; exact historical binary and visual receipts retained without new-download claims."
+      },
+      "sources": [
+        "https://www.icr.ro/pagini/o-cetera-o-zongora-o-doba-ionu-lu-grigore-zis-paganini-la-icr",
+        "https://sitevechi.muzeultaranuluiroman.ro/mtr-event-archive/hori-stravechi-din-tara-lapusului-si-a-maramuresului-en.html",
+        "https://mek.oszk.hu/06300/06351/06351.htm"
+      ],
+      "source_evidence": "Maramureș regional double-headed drum supporting the fiddle and zongoră ensemble. Form, resonator, membrane construction and stroke remain separate controls; no Anatolian davul or kick-pedal identity is imported.",
+      "preservation_policy": "Existing-schema isolated record, no shared family/part mutation; full raw baseline merge required."
+    }
+  ]
+}

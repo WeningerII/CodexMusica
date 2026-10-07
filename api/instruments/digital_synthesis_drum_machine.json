@@ -1,0 +1,56 @@
+{
+  "id": "digital_synthesis_drum_machine",
+  "name": "Digital synthesis drum machine",
+  "short": "Digital synthesis drum machine",
+  "family": "electronic",
+  "class": "digital_synthesis_drum_machine",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "digital_synthesis_drum_machine_identity",
+      "name": "Digital source identity",
+      "variants": [
+        {
+          "id": "digital_synthesis_drum_machine_digital",
+          "name": "Digital synthesis drum machine",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Preserves a positively credited digital drum-synthesis machine with multiple available models and factory sampled percussion, without replacing it with analogue circuitry or claiming a particular session engine. Source Machinedrum exact generation and enabled user-wave facilities unspecified. Neutral routing axes are authored coordinates, not hardware measurements.",
+  "sources": [
+    "https://www.elektron.se/wp-content/uploads/2024/09/machinedrum_manual_OS1.63.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "digital_synthesis_drum_machine_identity",
+      "name": "Digital source identity",
+      "variants": [
+        {
+          "id": "digital_synthesis_drum_machine_digital",
+          "name": "Digital synthesis drum machine",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

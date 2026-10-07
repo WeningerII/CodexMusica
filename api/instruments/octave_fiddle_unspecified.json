@@ -1,0 +1,90 @@
+{
+  "id": "octave_fiddle_unspecified",
+  "name": "Octave fiddle (source-unspecified construction)",
+  "short": "source-unspecified octave fiddle",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_local_song_melody",
+          "name": "Bowed local song melody (school unspecified)",
+          "auto": false,
+          "descriptors": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "octave_fiddle_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "octave_fiddle_unspecified_credited",
+          "name": "Documented instrument role; construction unspecified",
+          "default": true,
+          "descriptors": []
+        }
+      ]
+    }
+  ],
+  "description": "Nominal role directly credited on Malmin Med Åshild Vetrhus (2025). No invented material, string count, fret layout, pickup, maker or measured tuning. Neutral authored axes do not assert source measurements. Original existing instruments unchanged.",
+  "sources": [
+    "https://malmin.bandcamp.com/album/med-shild-vetrhus"
+  ],
+  "_ownParts": [
+    {
+      "id": "octave_fiddle_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "octave_fiddle_unspecified_credited",
+          "name": "Documented instrument role; construction unspecified",
+          "default": true,
+          "descriptors": []
+        }
+      ]
+    }
+  ]
+}

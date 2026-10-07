@@ -1,0 +1,70 @@
+{
+  "id": "synthesizer",
+  "name": "Synthesizer",
+  "family": "electronic",
+  "lineage": "Synthesizer repertoire foregrounds electronically generated tone across several musical approaches.",
+  "recipe": "classic synthesizer, experimental Elec. modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 161,
+  "score": 5.525,
+  "config": {
+    "traditions": [
+      "synthesizer"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_keyboard",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_moog_east_coast"
+        },
+        "scores": {
+          "electronic_technique": 4.357,
+          "mod_voltage_source": 0.063,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0.7149999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_keyboard",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_moog_east_coast"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

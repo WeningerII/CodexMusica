@@ -5,7 +5,7 @@
   "lineage": "Brazilian surf rock is represented here by Terremotor. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic brazilian surf rock, distorted Rock, surf rock branch. Fender blackface amp American 60s amp spring reverb bright tremolo humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, tzouras. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 353,
-  "score": 64.878,
+  "score": 64.261,
   "config": {
     "traditions": [
       "brazilian_surf_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.693499999999998,
-          "amp_make": 11.212249999999996,
-          "body_wood": 0.1815,
-          "neck_wood": 0.13375,
-          "fretboard": 0.2615,
+          "electric_technique": 9.716999999999999,
+          "amp_make": 11.180749999999996,
+          "body_wood": 0.16899999999999998,
+          "neck_wood": 0.15275,
+          "fretboard": 0.2415,
           "pickup_magnet": 0.3045,
           "pickup_winding": 0.22049999999999997,
-          "string_material": 0.01625,
-          "bridge": 1.69,
-          "scale_length": 0.2675,
-          "string_gauge": 1.69,
+          "string_material": 0.03125,
+          "bridge": 1.5415,
+          "scale_length": 0.27399999999999997,
+          "string_gauge": 1.3,
           "finish": 0,
-          "string_tuning": 0.39
+          "string_tuning": 0.3
         }
       },
       {
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 7.215,
-          "body_wood": 0.39424999999999993,
+          "body_wood": 0.42574999999999996,
           "pickup_config": 0.27299999999999996,
-          "string_type": 17.134999999999998,
-          "scale_length_b": 0.13375,
-          "fretted_or_not": 0.007499999999999999,
+          "string_type": 17.225,
+          "scale_length_b": 0.12125,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.355,
-          "drumhead": 0.39,
+          "drumhead": 0.3,
           "drum_kit_kick_pedal": 0
         }
       },

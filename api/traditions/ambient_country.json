@@ -3,14 +3,14 @@
   "name": "Ambient country",
   "family": "vernacular",
   "lineage": "Late-2010s onward instrumental country-ambient convergence represented by New York group SUSS: sustained pedal steel and resonator-guitar traces against synthesizer beds, with country timbre retained while dance pulse and verse-chorus singing recede. The selected three-instrument arrangement and clean digital recording chain are authored models, not a reconstruction of a documented studio session.",
-  "recipe": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal south african country memphis americana. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
-  "recipe_chars": 574,
-  "score": 122.183,
+  "recipe": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal virginia indie south african country. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
+  "recipe_chars": 571,
+  "score": 161.315,
   "config": {
     "traditions": [
       "ambient_country",
-      "south_african_country",
-      "memphis_americana"
+      "virginia_indie",
+      "south_african_country"
     ],
     "instruments": [
       {
@@ -26,14 +26,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 21.400000000000002,
-          "amp_make": 18.65,
+          "electric_technique": 28.7,
+          "amp_make": 25.649999999999995,
           "pickup_steel": 0.195,
-          "string_setup": 8.775,
-          "bar_material": 2.6650000000000005,
-          "pedal_steel_brand": 17.41,
-          "pedal_steel_neck_config": 21.9375,
-          "pedal_steel_strings": 17.4
+          "string_setup": 12.415,
+          "bar_material": 3.055,
+          "pedal_steel_brand": 24.41,
+          "pedal_steel_neck_config": 28.96,
+          "pedal_steel_strings": 24.4
         }
       },
       {
@@ -44,9 +44,9 @@
           "resonator_technique": "resonator_bottleneck_slide_fingerpicked"
         },
         "scores": {
-          "resonator_body": 3.755,
+          "resonator_body": 4.3549999999999995,
           "resonator_strings": 0,
-          "resonator_technique": 0.9150000000000001
+          "resonator_technique": 0.195
         }
       },
       {
@@ -59,10 +59,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 11.499999999999998,
-          "oscillator": 0.195,
-          "filter_topology": 1.74,
-          "envelope": 4.8999999999999995,
+          "electronic_technique": 11.649999999999999,
+          "oscillator": 0.045,
+          "filter_topology": 1.24,
+          "envelope": 4.3999999999999995,
           "modulation": 0.045
         }
       }

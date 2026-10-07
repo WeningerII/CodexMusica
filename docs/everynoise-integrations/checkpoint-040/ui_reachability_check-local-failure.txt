@@ -1,0 +1,12 @@
+Target is the lazy shell — building an embedded codex.html for the reachability run.
+Built /tmp/codex_reach_embed_449488.html (22,047,293 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+Checking 220 reachable entries against /tmp/codex_reach_embed_449488.html
+✗ Reachability check crashed: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/codex_reach_embed_449488.html
+Call log:
+[2m  - navigating to "file:///tmp/codex_reach_embed_449488.html", waiting until "load"[22m
+
+    at main (/workspace/CodexMusica-qualify480-expanded/scripts/ui_reachability_check.js:442:16) {
+  name: 'Error'
+}

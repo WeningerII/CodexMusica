@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130",
+  "baseline": "5b2a5760b4d5605f7b1c6dab529515ab50aca9a8",
+  "source": {
+    "predecessor": "5b2a5760b4d5605f7b1c6dab529515ab50aca9a8",
+    "head": "5b2a5760b4d5605f7b1c6dab529515ab50aca9a8",
+    "frozen_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130",
+    "counts": {
+      "raw_traditions_old_unchanged": 5738,
+      "raw_instruments_old_unchanged": 1519,
+      "old_extras_unchanged": 5738,
+      "merged_instruments_old_unchanged": 1519,
+      "data/geo.json_old_keys": 5738,
+      "references/_tradition_signatures.json_old_keys": 3716,
+      "old_images_unchanged": 7207,
+      "new_images": 116
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "environmental_sound_collage",
+      "credited_banjo_unspecified",
+      "saxophone_palette_soprano_unspecified",
+      "contraguitar",
+      "credited_electronics_unspecified",
+      "korg_kronos_workstation",
+      "acoustic_lap_steel_monteleone",
+      "saxophone_section_soprano_alto_tenor",
+      "bahian_bacurinha_credited",
+      "torpedo_percussion_credited",
+      "credited_cymbals",
+      "saxophone_section_alto_tenor_baritone",
+      "slide_archtop_guitar",
+      "foot_operated_cymbal",
+      "credited_frame_drums",
+      "dunun_three_size_palette"
+    ],
+    "runtime_independent": {
+      "cards": 422,
+      "effective_parts": 4016,
+      "flat_pins": 3883,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "actual_browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1519,
+      "traditions": 5738,
+      "cards": 24915
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "original_pipeline": {
+    "baseline": "5b2a5760b4d5605f7b1c6dab529515ab50aca9a8",
+    "files_checked": 264,
+    "changed_files": [],
+    "allowed_package_metadata": "Only description count 5738/1519 to 5838/1535; all other package fields exact",
+    "frozen_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130"
+  },
+  "new_parts": {
+    "frozen_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+    "parts": 4016,
+    "protectedParts": 4014,
+    "unpinned": [
+      {
+        "tradition": "salsa_cristiana",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_jazz_comping",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "sasscore",
+        "instrument": "sampler_classic",
+        "part": "electronic_technique",
+        "flat_value": "electronic_lead_line",
+        "imported_default": "electronic_sample_chopped",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      }
+    ],
+    "errors": []
+  },
+  "fallback_policy": "All listed nonapplicable shared-key slots retain stated choices on original import only. They are unprotected under compilation; no assertion that the optimizer retains those imported choices. Final compiled API choices require separate completed-build review.",
+  "review_boundary": "Mechanical integrated preservation and complete defaults/runtime review; source/category/photo peer-review records remain individual packet evidence. No blanket new independent primary-source claim.",
+  "remaining_required": [
+    "Completed API delta and protected/unprotected choices audit",
+    "Regression causal review of differences",
+    "Exact-head CI"
+  ],
+  "no_repository_mutation": true,
+  "cache_amendment": {
+    "status": "PASS",
+    "before_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+    "final_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130",
+    "removed_cache_ids": [
+      "contraguitar",
+      "credited_cymbals",
+      "saxophone_section_alto_tenor_baritone",
+      "slide_archtop_guitar",
+      "foot_operated_cymbal",
+      "credited_frame_drums",
+      "dunun_three_size_palette"
+    ],
+    "entries_unchanged": true,
+    "full_merged_instruments": 1535,
+    "merged_objects_identical": true,
+    "merged_json_sha256": "e3d9e5ddf337e018b066ff2505e2b8ca6064276bb7d4d68b701e50e90b78c0f2",
+    "errors": []
+  },
+  "frozen_projection": {
+    "new_traditions": 100,
+    "new_dependencies": 16,
+    "errors": []
+  },
+  "contract_amendment": {
+    "status": "PASS",
+    "before_sha256": "38a224a0f86a133265bf9c46a89424733fbebfdc74706c692e96279f65334773",
+    "after_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+    "exact_changes": [
+      ["/instrument_dependencies/3/record/family", "plucked", "acoustic_strings"],
+      [
+        "/instrument_dependencies/4/image_manifest",
+        null,
+        {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_electronics_unspecified",
+          "name": "Credited electronics (source-unspecified generator)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+          "match_confidence": "low"
+        }
+      ]
+    ],
+    "musical_entry_changes": false,
+    "complete_source_and_runtime_audits_repeated": true
+  }
+}

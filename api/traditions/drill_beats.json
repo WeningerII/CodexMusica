@@ -1,0 +1,62 @@
+{
+  "id": "drill_beats",
+  "name": "Drill Beats",
+  "family": "hip_hop",
+  "lineage": "Drill beats are the producer-facing instrumental language of drill, used both for MC performances and as standalone beat releases. British drill production is an influential reference within the wider field.",
+  "recipe": "classic drill beats, mc Rhythm, drill branch. sampler drum machine. live tracking.",
+  "recipe_chars": 82,
+  "score": 1.05,
+  "config": {
+    "traditions": [
+      "drill_beats"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "sample_808_legato_slides"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.39,
+          "sample_swing": -0.05,
+          "sample_processing": 0.78
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "sample_808_legato_slides"
+    },
+    "pin_parts": true
+  }
+}

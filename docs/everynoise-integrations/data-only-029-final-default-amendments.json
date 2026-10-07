@@ -1,0 +1,618 @@
+{
+  "before_sha256": "76f778653bd1a7ec5bebe0e2966052e5081dc0c0a012bbcbaf8a0046d121cc5c",
+  "after_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "affected_ids": [
+    "kenyan_traditional",
+    "marcha_funebre",
+    "mariachi_cristiano",
+    "melodic_doom",
+    "messianic_praise",
+    "mestissatge"
+  ],
+  "changes": [
+    {
+      "path": ["entries", "kenyan_traditional", "tradition", "family"],
+      "before": "folk",
+      "after": "vernacular"
+    },
+    {
+      "path": ["entries", "marcha_funebre", "tradition", "family"],
+      "before": "sacred",
+      "after": "classical"
+    },
+    {
+      "path": ["entries", "mariachi_cristiano", "tradition", "family"],
+      "before": "sacred",
+      "after": "vernacular"
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 0, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 1, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 2, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 3, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "melodic_doom",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 4, "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 4, "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "melodic_doom",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 4, "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 4, "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 4, "instrument"],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "melodic_doom", "resolved_parts_audit", 4, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "melodic_doom", "extras", "description"],
+      "before": "Releasing label explicitly calls Hinayana melodic doom/death and lists Casey Hurd guitar/vocals, Erik Shtaygrud guitar, Daniel Vieira drums, Joseph Maniscalco bass and Michael Anstice keyboard. One singer and keyboard role retained in complete five-person album roster. Complete album roster, two guitarists aggregated into one construction card. Source keyboard is realized with an authored Prophet-5 analog polyphonic keyboard, not asserted as actual source hardware or confirmed synthesis mechanism. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Releasing label explicitly calls Hinayana melodic doom/death and lists Casey Hurd guitar/vocals, Erik Shtaygrud guitar, Daniel Vieira drums, Joseph Maniscalco bass and Michael Anstice keyboard. One singer and keyboard role retained in complete five-person album roster. Complete album roster, two guitarists aggregated into one construction card. Source keyboard retains the neutral source-unspecified electronic-keyboard owner, without inferring a synthesis mechanism or source hardware. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "melodic_doom", "vocal_count_audit", "decision"],
+      "before": "Complete album roster, two guitarists aggregated into one construction card. Source keyboard is realized with an authored Prophet-5 analog polyphonic keyboard, not asserted as actual source hardware or confirmed synthesis mechanism. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal.",
+      "after": "Complete album roster, two guitarists aggregated into one construction card. Source keyboard retains the neutral source-unspecified electronic-keyboard owner, without inferring a synthesis mechanism or source hardware. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal."
+    },
+    {
+      "path": ["entries", "melodic_doom", "dependency_audit", "rationale"],
+      "before": null,
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "melodic_doom", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "melodic_doom", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "after": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"]
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "tradition", "instruments", 4],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "melodic_doom", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "melodic_doom", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood"],
+      "after": null
+    },
+    {
+      "path": ["entries", "melodic_doom", "flat_pin_resolution", "rule"],
+      "before": "Flat pin only applies to owning merged part when applicable; other owner retains own default. Resolved audit records effective values.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "melodic_doom", "neighbor_distinction"],
+      "before": "Complete album roster, two guitarists aggregated into one construction card. Source keyboard is realized with an authored Prophet-5 analog polyphonic keyboard, not asserted as actual source hardware or confirmed synthesis mechanism. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal.",
+      "after": "Complete album roster, two guitarists aggregated into one construction card. Source keyboard retains the neutral source-unspecified electronic-keyboard owner, without inferring a synthesis mechanism or source hardware. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal."
+    },
+    {
+      "path": ["entries", "melodic_doom", "instrument_role_audit", "rationale"],
+      "before": "Releasing label explicitly calls Hinayana melodic doom/death and lists Casey Hurd guitar/vocals, Erik Shtaygrud guitar, Daniel Vieira drums, Joseph Maniscalco bass and Michael Anstice keyboard. One singer and keyboard role retained in complete five-person album roster. Complete album roster, two guitarists aggregated into one construction card. Source keyboard is realized with an authored Prophet-5 analog polyphonic keyboard, not asserted as actual source hardware or confirmed synthesis mechanism. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal.",
+      "after": "Releasing label explicitly calls Hinayana melodic doom/death and lists Casey Hurd guitar/vocals, Erik Shtaygrud guitar, Daniel Vieira drums, Joseph Maniscalco bass and Michael Anstice keyboard. One singer and keyboard role retained in complete five-person album roster. Complete album roster, two guitarists aggregated into one construction card. Source keyboard retains the neutral source-unspecified electronic-keyboard owner, without inferring a synthesis mechanism or source hardware. Guitar and bass models/techniques likewise authored. Doom branch reflects explicit primary melodic-doom category rather than silently reducing it to generic death metal."
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 0, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 1, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 2, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "messianic_praise",
+        "resolved_parts_audit",
+        3,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": [
+        "entries",
+        "messianic_praise",
+        "resolved_parts_audit",
+        3,
+        "parts",
+        "poly_maker_lineage"
+      ],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 3, "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "messianic_praise",
+        "resolved_parts_audit",
+        3,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "messianic_praise",
+        "resolved_parts_audit",
+        3,
+        "parts",
+        "keyboard_technique"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": [
+        "entries",
+        "messianic_praise",
+        "resolved_parts_audit",
+        3,
+        "parts",
+        "poly_archetypes"
+      ],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 3, "instrument"],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 3, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 4, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 5, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "messianic_praise", "resolved_parts_audit", 6, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "messianic_praise", "extras", "description"],
+      "before": "Primary single tagged messianic praise and worship: Eli Ben-Moshe acoustic guitars/percussion; Eli Haitov voice/keys; Alan Serruya electric guitar; Avi Perrodin bass; Gabriel Elbaz drums; Rachel Haitov voice. All seven musical role families and two singers retained. Exact six-person studio single, not generic worship template. Generic keys realized with authored Prophet-5, with no actual source hardware claim. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Primary single tagged messianic praise and worship: Eli Ben-Moshe acoustic guitars/percussion; Eli Haitov voice/keys; Alan Serruya electric guitar; Avi Perrodin bass; Gabriel Elbaz drums; Rachel Haitov voice. All seven musical role families and two singers retained. Exact six-person studio single, not generic worship template. Generic keys retain the neutral source-unspecified electronic-keyboard owner; no generator architecture or source hardware is inferred. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "messianic_praise", "vocal_count_audit", "decision"],
+      "before": "Exact six-person studio single, not generic worship template. Generic keys realized with authored Prophet-5, with no actual source hardware claim. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system.",
+      "after": "Exact six-person studio single, not generic worship template. Generic keys retain the neutral source-unspecified electronic-keyboard owner; no generator architecture or source hardware is inferred. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system."
+    },
+    {
+      "path": ["entries", "messianic_praise", "dependency_audit", "rationale"],
+      "before": null,
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "messianic_praise", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "messianic_praise", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "acoustic_guitar_dread",
+        "credited_auxiliary_percussion",
+        "analog_poly_synth",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "after": [
+        "voice",
+        "acoustic_guitar_dread",
+        "credited_auxiliary_percussion",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ]
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "family"],
+      "before": "sacred",
+      "after": "pop"
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "tradition", "instruments", 3],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "messianic_praise", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "messianic_praise", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood"],
+      "after": null
+    },
+    {
+      "path": ["entries", "messianic_praise", "flat_pin_resolution", "rule"],
+      "before": "Flat pin only applies to owning merged part when applicable; other owner retains own default. Resolved audit records effective values.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "messianic_praise", "neighbor_distinction"],
+      "before": "Exact six-person studio single, not generic worship template. Generic keys realized with authored Prophet-5, with no actual source hardware claim. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system.",
+      "after": "Exact six-person studio single, not generic worship template. Generic keys retain the neutral source-unspecified electronic-keyboard owner; no generator architecture or source hardware is inferred. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system."
+    },
+    {
+      "path": ["entries", "messianic_praise", "instrument_role_audit", "rationale"],
+      "before": "Primary single tagged messianic praise and worship: Eli Ben-Moshe acoustic guitars/percussion; Eli Haitov voice/keys; Alan Serruya electric guitar; Avi Perrodin bass; Gabriel Elbaz drums; Rachel Haitov voice. All seven musical role families and two singers retained. Exact six-person studio single, not generic worship template. Generic keys realized with authored Prophet-5, with no actual source hardware claim. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system.",
+      "after": "Primary single tagged messianic praise and worship: Eli Ben-Moshe acoustic guitars/percussion; Eli Haitov voice/keys; Alan Serruya electric guitar; Avi Perrodin bass; Gabriel Elbaz drums; Rachel Haitov voice. All seven musical role families and two singers retained. Exact six-person studio single, not generic worship template. Generic keys retain the neutral source-unspecified electronic-keyboard owner; no generator architecture or source hardware is inferred. Unspecified additional percussion uses neutral credited owner, no invented instrument subtype. Broad ritualDevotional parent preserves exact Messianic worship function without asserting a narrower Christian denomination or a specific Jewish cantillation system."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 0, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 1, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 2, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 3, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "mestissatge",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 4, "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 4, "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "mestissatge",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 4, "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 4, "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 4, "instrument"],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 4, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 5, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 6, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "resolved_parts_audit", 7, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "mestissatge", "extras", "description"],
+      "before": "Artist explicitly calls its alternative-rock/ska/rap/rumba fusion mestissatge. Full single credits: Juan Vallés voice; Teresa Merle keyboards/voice; Pau Salvador bass; Pere Tent guitar; Luis Garcia trumpet/voice; Óscar Rosa trombone/backing voices; Alfredo Ripoll tenor sax; Adrià Ribes drums. Four named singers and all seven non-vocal roles retained. Complete eight-person single roster. Generic credited keyboard realized with authored Prophet-5; no claim source used this model. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist explicitly calls its alternative-rock/ska/rap/rumba fusion mestissatge. Full single credits: Juan Vallés voice; Teresa Merle keyboards/voice; Pau Salvador bass; Pere Tent guitar; Luis Garcia trumpet/voice; Óscar Rosa trombone/backing voices; Alfredo Ripoll tenor sax; Adrià Ribes drums. Four named singers and all seven non-vocal roles retained. Complete eight-person single roster. Generic credited keyboard retains the neutral source-unspecified electronic-keyboard owner; no particular generator architecture or source model is inferred. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "mestissatge", "vocal_count_audit", "decision"],
+      "before": "Complete eight-person single roster. Generic credited keyboard realized with authored Prophet-5; no claim source used this model. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership.",
+      "after": "Complete eight-person single roster. Generic credited keyboard retains the neutral source-unspecified electronic-keyboard owner; no particular generator architecture or source model is inferred. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership."
+    },
+    {
+      "path": ["entries", "mestissatge", "dependency_audit", "rationale"],
+      "before": null,
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "mestissatge", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "mestissatge", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ],
+      "after": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ]
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "tradition", "instruments", 4],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "mestissatge", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "mestissatge", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood"],
+      "after": null
+    },
+    {
+      "path": ["entries", "mestissatge", "flat_pin_resolution", "rule"],
+      "before": "Flat pin only applies to owning merged part when applicable; other owner retains own default. Resolved audit records effective values.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "mestissatge", "neighbor_distinction"],
+      "before": "Complete eight-person single roster. Generic credited keyboard realized with authored Prophet-5; no claim source used this model. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership.",
+      "after": "Complete eight-person single roster. Generic credited keyboard retains the neutral source-unspecified electronic-keyboard owner; no particular generator architecture or source model is inferred. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership."
+    },
+    {
+      "path": ["entries", "mestissatge", "instrument_role_audit", "rationale"],
+      "before": "Artist explicitly calls its alternative-rock/ska/rap/rumba fusion mestissatge. Full single credits: Juan Vallés voice; Teresa Merle keyboards/voice; Pau Salvador bass; Pere Tent guitar; Luis Garcia trumpet/voice; Óscar Rosa trombone/backing voices; Alfredo Ripoll tenor sax; Adrià Ribes drums. Four named singers and all seven non-vocal roles retained. Complete eight-person single roster. Generic credited keyboard realized with authored Prophet-5; no claim source used this model. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership.",
+      "after": "Artist explicitly calls its alternative-rock/ska/rap/rumba fusion mestissatge. Full single credits: Juan Vallés voice; Teresa Merle keyboards/voice; Pau Salvador bass; Pere Tent guitar; Luis Garcia trumpet/voice; Óscar Rosa trombone/backing voices; Alfredo Ripoll tenor sax; Adrià Ribes drums. Four named singers and all seven non-vocal roles retained. Complete eight-person single roster. Generic credited keyboard retains the neutral source-unspecified electronic-keyboard owner; no particular generator architecture or source model is inferred. Tenor sax source-supported; B-flat trumpet, tenor trombone and lyrical open horn phrasing are authored, not actual construction or technique facts. Broad functional song-form parent deliberately reflects the published verse/refrain song and mixed popular styles; no Anglo pop or exclusively Jamaican lineage imposed. Genre artist self-identification supplies positive classification, without claiming unverified creator-playlist membership."
+    }
+  ],
+  "no_dependency_record_changes": true,
+  "source_photo_geo_unchanged": true,
+  "family_whitelist_errors": [],
+  "remaining_generator_owner_review": {
+    "replaced_keyboard_only": ["messianic_praise", "melodic_doom", "mestissatge"],
+    "remaining_positive_synth_roles": [
+      "comfy_synth",
+      "lombok_indie",
+      "magyar_mulatos",
+      "malaysian_indie",
+      "malmo_indie",
+      "miami_indie",
+      "monterrey_indie",
+      "morelos_indie",
+      "mumbai_indie",
+      "munich_indie",
+      "musica_andorra"
+    ],
+    "finding": "All remaining analog/digital synthesis owners have positive synth/synthesizer role, separately retain any generic keys on neutral owner. No remaining bare-keyboard credit assigned known generator in frozen100."
+  },
+  "effective_parts": 3777,
+  "protected_parts": 3771,
+  "intentional_unpinned_parts": 6
+}

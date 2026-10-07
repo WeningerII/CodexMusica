@@ -1,0 +1,17 @@
+{
+  "baseline_head": "f94053d65f1bc67e545cb7dacf04c659609d03dc",
+  "archived_initial_head": "9c940fc4b161cdad23d5118af4fab68a215ab799",
+  "changed_paths": [
+    "codex.html",
+    "docs/everynoise-integrations/data-only-028-freshness-correction.json",
+    "docs/everynoise-integrations/data-only-028-manifest.json"
+  ],
+  "reference_and_api_sources_byte_identical": true,
+  "baseline_api_counts": {
+    "traditions": 5438,
+    "instruments": 1483
+  },
+  "baseline_html": "Updated to exact corrected predecessor bytes",
+  "merged_main": "ad35e6b770f08dc8c14fbdcb65b5ca8d9a5f7591",
+  "merged_tree_equals_reviewed_head": true
+}

@@ -1,0 +1,322 @@
+{
+  "id": "radio_symphony",
+  "name": "Radio symphony",
+  "family": "classical",
+  "lineage": "Radio symphony orchestras developed as broadcaster-maintained ensembles, sustaining orchestral concerts, recordings and radio commissions. Their repertoire ranges across historical concert music and contemporary composition.",
+  "recipe": "classic radio symphony, art Music, western modern branch. silver powell boston canonical American orchestral flute, grenadilla African blackwood canonical modern conservatoire loree paris canonical American school oboe, english french horn, grenadilla African blackwood traditional clarinet, glotin var French cane bassoon, contrabassoon, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral student friendly legato trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, yellow brass canonical orchestral rotary valves canonical German orchestral miraphone canonical German orchestral tuba. shoebox concert hall.",
+  "recipe_chars": 745,
+  "score": 87.04,
+  "config": {
+    "traditions": [
+      "radio_symphony"
+    ],
+    "instruments": [
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "flute_size": 0,
+          "flute_material": 1.95,
+          "flute_technique": 1.1365,
+          "flute_maker_school": 1.69
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "oboe_reed": "oboe_american_scrape",
+          "oboe_class": "oboe_modern",
+          "oboe_body_wood": "oboe_grenadilla_canonical",
+          "oboe_maker_school": "oboe_loree_paris"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "oboe_reed": 1.3,
+          "oboe_class": 1.6,
+          "oboe_body_wood": 1.885,
+          "oboe_maker_school": 1.7745000000000004
+        }
+      },
+      {
+        "id": "english_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "english_horn_school": "english_horn_american",
+          "english_horn_context": "english_horn_orch_solo",
+          "english_horn_body_wood": "english_horn_grenadilla"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "english_horn_school": 1.95,
+          "english_horn_context": 0,
+          "english_horn_body_wood": -0.035
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "clarinet_body": 6.3365,
+          "clarinet_size": 0,
+          "clarinet_reed": 0.9099999999999999,
+          "clarinet_articulation": 0.1365
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "bassoon_school": "bassoon_heckel",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_orch"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "bassoon_school": 1.3,
+          "bassoon_body_wood": 0.9555000000000002,
+          "bassoon_reed": 1.2285000000000001,
+          "bassoon_context": 1.3
+        }
+      },
+      {
+        "id": "contrabassoon",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "contrabassoon_school": "contrabassoon_heckel",
+          "contrabassoon_context": "contrabassoon_orch",
+          "contrabassoon_body_wood": "contrabassoon_maple_canonical"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "contrabassoon_school": 0,
+          "contrabassoon_context": 0,
+          "contrabassoon_body_wood": 0.9555000000000002
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "french_horn_bore": 1.3,
+          "french_horn_metal": 0.44099999999999995
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "brass_size": 0.44099999999999995,
+          "trumpet_mouthpiece": 6.25,
+          "brass_mute": 1.3,
+          "trumpet_technique": 2.6365,
+          "trumpet_bell_metal": 1.1235000000000002,
+          "trumpet_maker_school": 1.69
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": 6.25,
+          "trombone_mute": 1.3,
+          "trombone_technique": 1.1365,
+          "trombone_bell_metal": 1.1235000000000002,
+          "trombone_maker_school": 1.69
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_orch",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "tuba_pitch": 1.3,
+          "tuba_context": 1.3,
+          "tuba_bell_metal": 1.69,
+          "tuba_valve_system": 1.69,
+          "tuba_maker_school": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "oboe": [
+        "wind_articulation",
+        "oboe_reed",
+        "oboe_class",
+        "oboe_body_wood",
+        "oboe_maker_school"
+      ],
+      "english_horn": [
+        "wind_articulation",
+        "english_horn_school",
+        "english_horn_context",
+        "english_horn_body_wood"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "bassoon": [
+        "wind_articulation",
+        "bassoon_school",
+        "bassoon_body_wood",
+        "bassoon_reed",
+        "bassoon_context"
+      ],
+      "contrabassoon": [
+        "wind_articulation",
+        "contrabassoon_school",
+        "contrabassoon_context",
+        "contrabassoon_body_wood"
+      ],
+      "french_horn": [
+        "wind_articulation",
+        "french_horn_bore",
+        "french_horn_metal"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "wind_articulation": "wind_classical_legato",
+      "flute_size": "concert_flute",
+      "flute_material": "silver_flute",
+      "flute_technique": "classical_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "oboe_reed": "oboe_american_scrape",
+      "oboe_class": "oboe_modern",
+      "oboe_body_wood": "oboe_grenadilla_canonical",
+      "oboe_maker_school": "oboe_loree_paris",
+      "english_horn_school": "english_horn_american",
+      "english_horn_context": "english_horn_orch_solo",
+      "english_horn_body_wood": "english_horn_grenadilla",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "bassoon_school": "bassoon_heckel",
+      "bassoon_body_wood": "bassoon_maple_canonical",
+      "bassoon_reed": "bassoon_glotin_cane",
+      "bassoon_context": "bassoon_orch",
+      "contrabassoon_school": "contrabassoon_heckel",
+      "contrabassoon_context": "contrabassoon_orch",
+      "contrabassoon_body_wood": "contrabassoon_maple_canonical",
+      "french_horn_bore": "french_horn_full",
+      "french_horn_metal": "horn_yellow_brass",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "tuba_pitch": "tuba_bbb",
+      "tuba_context": "tuba_orch",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_rotary_german",
+      "tuba_maker_school": "tuba_miraphone_german"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "status": "PASS_DATA_API_AND_REGRESSION_EVIDENCE",
+  "reviewer": "research116",
+  "scope": "Independent expanded data partition, original protection, generated API source/config validity/aggregate consistency and qualification artifact comparison; no source edits or new full build.",
+  "timestamp": "2026-10-04T04:25:56.951Z",
+  "head": "96d07fa7fa2f943246fb4d7c14323669d2c5de66",
+  "baseline": "2541e078c9f4326c2d75826779813d933a27f1bb",
+  "frozen": "8bb2cee97d5feee7b48147b61da9a61ea5f5c71c",
+  "main_preserved": "70426a9861fe2591e66789879a6fde3082aad4f6",
+  "counts": {
+    "traditions": 6538,
+    "instruments": 1638,
+    "proposals": 2354,
+    "retained": 2153,
+    "deferred": 201,
+    "original_records_and_extras_unchanged": 2638,
+    "api_rows": 6538,
+    "api_valid_owning_slots": 223214,
+    "exact_musical_configs_and_outputs": 260,
+    "remaining_identical_dependency_graphs": 889,
+    "regression_fixtures": 1149
+  },
+  "source_sha256": {
+    "05_traditions.js": "54b2a31835eb46ef53c11fd33f5a1d0998e992dead4a74ac51ee0b27f62691f5",
+    "06_extras.js": "e4f38c2bd89a1074cb25281c0ce2a6c014d685381d2579150de19ac7a3e13bd9"
+  },
+  "api_index_counts": {
+    "traditions": 6538,
+    "instruments": 1638
+  },
+  "deferred_archive_exact": true,
+  "protected_engine_tests_owners_unchanged": true,
+  "full_main481_preserved": true,
+  "order_and_extras_keys_preserved": true,
+  "qualification_artifact_sha256": {
+    "candidate2-union.json": "9edf505640cc97a82ef64783b419ce8bf47892cefc51b7c4c169ace99ee24e4a",
+    "candidate2-spec.json": "9ed232e450899e422a5b2fc4a293f3d0400736ed14e2f9380ceb95fecbd89e47",
+    "candidate2-result.json": "fa85cf2c80c6191c68f97d9c985687db472d282c1d03cd07a71d5c66b0927c9b",
+    "candidate2-config-review.json": "193ff2de8cdfd78405bed7ce210ec08026135efc07d0b9aa13a0a7f70a1a4da1",
+    "candidate2-full-risk.json": "a16020b51acd5f5ce9d61195ff1d16ec8620573f9758d396c3de21266c19f2b7",
+    "baseline-all-fixture-graph.json": "a743556abfc62f0aa4085efe6fe5ad191e801774fd3a49adc7b04c5f3a9e164d",
+    "candidate2-graph-coverage-review.json": "6777966b3d56948fb53ee1dce8fd16c26e75945e43ea8a6711d0c65d385e5c1a",
+    "candidate2-preservation.json": "0e9a5fe72ffed95df11734257a6c56c3dcad61bde11be72318eb3d0381580e6d",
+    "candidate2-deferred201-proposals.json": "c4b8952d723a7cd3e72b416c36f8e9cf4254e8a1eb3f015fbde37a943dcf2fab",
+    "candidate2-retained-structural.json": "b6876022c8f6e90726318d9299ff204389df9625cc5fdcfbb5f1c0adec5787b2",
+    "candidate2-vs-conservative.json": "2e925c66b4fd274d91a0cdc06d72ab7d45c14e370b6a56283f0c65ec38d8deb8",
+    "candidate2-full-regression.log": "b4f0ff7f1aaac7e2e013cd3e6d6fcedd00fd82b1fd817ad9e599e3dd8ea03ead",
+    "preload-candidate2.cjs": "d05a9c2afc58390f98ca5ce274e357759870d30f22aedd5b123042aa409b257a",
+    "replay.cjs": "0d3328722c84f6bac8fa6971572d6a3b98ee1a1d5302c93a187003d47526eaa4",
+    "candidate2-risk.cjs": "a86db94238f8077fb57bb28dd17979d38657f3cabdcea50ac98137a097743ebe",
+    "baseline-all-graph.cjs": "32264086777c12607a1fc1159e9876867666a377a71a451cbfdf026ba5b2c175",
+    "candidate2-preservation.cjs": "4c2c5dc729f5f257573b39e69f66b03512108001ec5cecc78ab2fc7718b14cf8",
+    "compare-candidate2.py": "c07dcf27dbb46cc20f9721ff2cbddc25d5ba69c2a462d17b06d17bdcdaade0b9",
+    "additional-config-review.json": "ab98a198a8b9f18994dd3084f6c709ac6999eae6773303b6de670ec7232cc7e5",
+    "candidate2-expanded-source-binding.json": "9d7e33951fddfbe2b6e70714c6c8a66baf09696a20a0d8e53098e23db7602d4a"
+  },
+  "additional_artifact_sha256": {
+    "api_build": "fd7ee45401d4144f72505293857c42516e3152f99fe22ec80d46147babcdbf3c",
+    "supporting_results": "f2bc2579a3cf77f2ea5da60096d344d7ca6728ed8bf002d45ab174a694dd4fec",
+    "qualification119": "481bacb73f98da61596b6e44de37bcdbc1316f3e4191bc11af2cda035c858f57"
+  },
+  "generated_tree_map_matches_all_current_extras": true,
+  "supporting_checks": 29,
+  "supporting_failures": [
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 100.4
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.8
+    }
+  ],
+  "publication_gate_status": "NOT_ALL_SUPPORTING_GATES_PASSED",
+  "limitations": [
+    "Baseline musical-semantic defects are not fixed or musically approved by this regression containment result.",
+    "260 replay outputs and complete musical configs were independently compared, excluding diagnostic scores;889 remaining fixtures were independently checked for unchanged dependency/context graphs, not replayed here.",
+    "Full1149 serial regression and628.8-second APIbuild receipts were verified and hash-bound, not rerun.",
+    "API validation checks all source fields, config IDs/owning selections and aggregate equality; it is not exhaustive musical listening or fresh solving of6538 recipes.",
+    "201 deferred proposals remain preserved; subset is not proved minimal.",
+    "Mutable documentation edits were outside this data/artifact audit.",
+    "Supporting UI foundation reports enlarged-photo thumbnail fallback failure; reachability crashes with ERR_BLOCKED_BY_ADMINISTRATOR on file URL. These are not resolved or waived by data/API PASS."
+  ]
+}

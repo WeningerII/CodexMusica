@@ -1,0 +1,76 @@
+seed garage_rock:
+  ✓ 5 cards, header "Garage rock, "
+  ✓ baseline voice preface: evangelizing
+
+set_preface(voice → satirical):
+  ✓ recipe names "satirical voice:" verbatim
+  ✓ voice settings were re-derived (parts changed)
+  ✓ preface locked verbatim on the edited card
+  ✓ still ≤ 1000 chars
+  ✓ IMMUTABLE: ws0 voice untouched (no lock, original parts)
+
+add_tradition(punk) then remove_tradition(punk):
+  ✓ header becomes "Garage rock + Punk, "
+  ✓ punk cards added
+  ✓ remove restores "Garage rock, " and card count
+  ✓ IMMUTABLE: ws0 still 5 cards
+
+add_instrument(harmonica) then remove:
+  ✓ card added + still renders ≤1000
+  ✓ removed back to 5
+
+set_variant(electric_guitar_single_coil, body_wood → mahogany):
+  ✓ guitar card body_wood = mahogany
+  ✓ recipe reflects mahogany
+  ✓ IMMUTABLE: ws0 guitar still alder
+  ✓ set_variant leaves an explicitly set room alone
+  ✓ set_variant leaves tuning alone
+  ✓ set_variant leaves the chain alone
+  ✓ every pin survives a 3-edit sequence
+  ✓ the pin sequence actually discriminates (control loses at least one)
+  ✓ the pin sequence left pins to clear
+  ✓ set_preface clears the accumulated pins
+
+errors:
+  ✓ unknown tradition rejected
+  ✓ unknown variant rejected
+  ✓ unknown preface rejected
+  ✓ chain: bare string at a multi-select stage is lifted and ADDED to the list
+  ✓ chain: fx survives a subsequent edit without spreading into characters
+  ✓ chain: both effects still render after a re-clone (section not silently dropped)
+  ✓ chain: adding an id already in the list leaves the list as it was
+  ✓ chain: array of ids accepted at a multi-select stage (added in order, no duplicates)
+  ✓ chain: null clears a multi-select stage to an empty list
+  ✓ clear: empties a multi-select stage
+  ✓ clear runs before the edit sets: clear + one id replaces the list
+  ✓ clear: room, tuning and a single-select stage go to null (the app's "Not set")
+  ✓ chain: single-select stage still stores a bare id
+  ✓ chain: unknown fx id rejected
+  ✓ chain: unknown id INSIDE an fx array rejected
+  ✓ chain: unknown stage rejected
+  ✓ chain: unknown single-select id rejected
+  ✓ chain: non-string, non-array value at a multi-select stage rejected
+  ✓ clear: an unknown field is rejected
+  ✓ IMMUTABLE: fx seed workspace still holds its original single effect
+
+set_environment with no card:
+  ✓ a bare card at the front is not the environment card
+  ✓ an omitted card writes to the environment card, not to cards[0]
+  ✓ the tuning and chain the recipe had are still there
+  ✓ the recipe renders the new room AND keeps the rest of the environment
+  ✓ with no cards at all there is nothing to set, and it says so
+
+card ids across processes:
+  ✓ a seed numbers its cards from card_1 in any process
+  ✓ a card added by a second fresh process takes an id the workspace does not already hold
+  ✓ removing it by id removes exactly that one card
+  ✓ a legacy workspace with a duplicated id loses one card per removal, not both
+  ✓ and a new card never reuses an id already present
+  ✓ start_recipe is idempotent in its ids as well as its recipe
+
+add_instrument with a tradition:
+  ✓ an off-roster guest gets the tradition's whole recording chain, not just room and tuning
+  ✓ it lands after that tradition's last card (src/app.js _placeCardAfterTraditionRun)
+  ✓ moved to the front, it is the environment card and renders the chain it was given
+
+PASS

@@ -2,10 +2,10 @@
   "id": "acoustic_guitar_cover",
   "name": "Acoustic guitar cover",
   "family": "popular",
-  "lineage": "Acoustic guitar cover is represented by Gene Akimoff — Game of Thrones Titles Theme Cover, Classical Guitar Favorites (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-  "recipe": "classic late-2010s acoustic guitar cover, art Music. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 220,
-  "score": 6.338,
+  "lineage": "Acoustic guitar covers translate songs and instrumental themes into guitar-led arrangements. Classical-guitar performers and other acoustic players adapt repertory from popular music, films and television for solo or small-ensemble performance.",
+  "recipe": "classic acoustic guitar cover, art Music. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 5.74,
   "config": {
     "traditions": [
       "acoustic_guitar_cover"
@@ -22,12 +22,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": -0.05,
+          "acoustic_technique": 0.25,
           "string_tuning": 0,
-          "top_wood_classical": 0.016875,
-          "bracing_classical": 1.3875,
-          "string_classical": 1.73325,
-          "attack_technique_cl": 3.25
+          "top_wood_classical": 0.39,
+          "bracing_classical": 1.3,
+          "string_classical": 1.3,
+          "attack_technique_cl": 2.5
         }
       }
     ],

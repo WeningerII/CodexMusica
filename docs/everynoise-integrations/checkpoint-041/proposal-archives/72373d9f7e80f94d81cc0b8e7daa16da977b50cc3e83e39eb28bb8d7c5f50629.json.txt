@@ -1,0 +1,252 @@
+{
+  "entries": [
+    {
+      "source_label": "louange",
+      "source_url": "https://everynoise.com/engenremap-louange.html",
+      "suggested_id": "louange",
+      "allocation_ordinal": 3713,
+      "allocation_group_id": "149",
+      "id": "louange",
+      "status": "READY_FOR_REVIEW",
+      "tradition": {
+        "id": "louange",
+        "name": "Louange",
+        "family": "blues_gospel",
+        "lineage": "Louange connects Christian praise with Afro-francophone gospel networks linking West and Central Africa, the Caribbean and Europe. Churches, choirs and touring ministries circulate repertoire across these communities.",
+        "instruments": [
+          "voice"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Collective singing, devotional texts and repeated phrases shape this praise repertoire. Unaccompanied groups combine sung lines with vocal imitations of instrumental sounds; other settings use instrumental accompaniment. French and African-language songs share a transnational church and concert network.",
+        "exemplars": [
+          "Zeresch Acapella",
+          "Total Praise"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        5.36,
+        -4.0083,
+        "Abidjan",
+        "Africa"
+      ],
+      "geo_rationale": "Firsthand Abidjan album conference and church community anchor; not claimed recording location or whole transnational category birthplace.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Louange is represented here by the Afro-francophone Christian gospel and praise network positively documented in Sébastien Fath’s original fieldwork on West/Central Africa, Caribbean and European circulation. The exact creator map contains Total Praise, Alain Moloto, Constance Aman, Guy Christ Israël, Mohammed Sanogo and related ministries; Fath specifically documents Total Praise within this Afropean network. This is a community branch overlapping broad French Worship, not a translation-only distinction. Full French Worship already spans transnational francophone churches and ecumenical ministries and does not exclude Africa; the present narrower network is supported by independent field research, not a geographical exclusion invented for the old row. Full African Gospel is continental and likewise broader; Congolese Gospel names one overlapping national and Lingala/francophone network. Zeresch’s own press conference situates its practice in Ivorian churches and names Constance Aman among its influences; announced West African church circulation is evidence of intended community practice, not proof that those future shows occurred. Selected Zeresch membership in the creator map is not established. Its complete album is one positively documented practice within this network, not the sole definition of the category.",
+      "classification_evidence": "Louange is represented here by the Afro-francophone Christian gospel and praise network positively documented in Sébastien Fath’s original fieldwork on West/Central Africa, Caribbean and European circulation. The exact creator map contains Total Praise, Alain Moloto, Constance Aman, Guy Christ Israël, Mohammed Sanogo and related ministries; Fath specifically documents Total Praise within this Afropean network. This is a community branch overlapping broad French Worship, not a translation-only distinction. Full French Worship already spans transnational francophone churches and ecumenical ministries and does not exclude Africa; the present narrower network is supported by independent field research, not a geographical exclusion invented for the old row. Full African Gospel is continental and likewise broader; Congolese Gospel names one overlapping national and Lingala/francophone network. Zeresch’s own press conference situates its practice in Ivorian churches and names Constance Aman among its influences; announced West African church circulation is evidence of intended community practice, not proof that those future shows occurred. Selected Zeresch membership in the creator map is not established. Its complete album is one positively documented practice within this network, not the sole definition of the category.",
+      "model_policy": "Authored nine-person unaccompanied gospel rendition retains both song and all vocal onomatopoeic instrumental imitations in the voice family. No imitation is converted into a physical instrument or a guessed beatbox mechanism. Source-unspecified vocal register, physiology, pitch organization and ornament remain neutral; live ensemble/unprocessed presentation is an editorial new rendition, not a claim that the issued album had no overdubbing or effects. A controlled live-room and lively brisk collective praise treatment are authored musical choices, not a measured original tempo, source room or universal devotional rule. No global tuning or recording apparatus is inferred. Christian devotional purpose supplies ritualDevotional.christianGospel ancestry.",
+      "source_scope_limitation": "Zeresch Acapella — complete six-song 2018 C’est une grâce album introduced at its23February Abidjan press conference. The firsthand report explicitly explains unaccompanied singing without instruments and says all apparent instrumental sounds are onomatopoeia produced by the nine male members. French, Baoulé and Yoruba repertoire all retained. Nine human voices include singing and vocal instrument imitation; there is no physical drum, keyboard or guitar inferred from the imitated sounds. Exact voice allocation, ranges, tracking and production processing remain unknown. The report inconsistently calls the same release Tout est grâce once but repeats C’est une grâce in headline and main album identification; this internal title inconsistency is disclosed, not treated as two releases.",
+      "source_retrieval_caveat": "Retained unmodified successful full primary responses available in louangenewprimary-raw116.json and louangecreator-raw116.json. No audio audition; primary report positively describes full released ensemble practice.",
+      "sources": [
+        {
+          "url": "https://news.abidjan.net/articles/631607/musique-chretienne-sortie-dalbum-zeresch-acapella-presente-cest-une-grace",
+          "support_notes": "Fresh506131view0 firsthand launch report: six songs, three languages, nine men and all instruments imitated vocally, Constance Aman influence and planned church circulation. Internal title discrepancy retained."
+        },
+        {
+          "url": "https://sciendo.com/fr/article/10.2478/sck-2023-0017?tab=article",
+          "support_notes": "Fresh506131view1 original Fath fieldwork/interviews, Afropean transnational gospel network; specifically Total Praise. Article online2025 with2023copyright and2024journal context, no simplified date claim."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-louange.html",
+          "support_notes": "Fresh930380view0 full creator map: Total Praise and Constance Aman among many African francophone ministries. No Zeresch membership claim."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn506131view0",
+        "turn506131view1",
+        "turn930380view0"
+      ],
+      "vocal_count_audit": {
+        "selected_count": 9,
+        "source_sex_description": "nine male group members",
+        "decision": "All singing and onomatopoeic imitation retained; exact per-person role and studio layering unknown."
+      },
+      "instrument_role_audit": {
+        "scope": "Zeresch Acapella — complete six-song 2018 C’est une grâce album introduced at its23February Abidjan press conference. The firsthand report explicitly explains unaccompanied singing without instruments and says all apparent instrumental sounds are onomatopoeia produced by the nine male members. French, Baoulé and Yoruba repertoire all retained. Nine human voices include singing and vocal instrument imitation; there is no physical drum, keyboard or guitar inferred from the imitated sounds. Exact voice allocation, ranges, tracking and production processing remain unknown. The report inconsistently calls the same release Tout est grâce once but repeats C’est une grâce in headline and main album identification; this internal title inconsistency is disclosed, not treated as two releases.",
+        "roles": {
+          "voice": "Nine singers, including positively documented vocal instrument imitation; no physical instruments"
+        },
+        "authored_defaults": "Authored nine-person unaccompanied gospel rendition retains both song and all vocal onomatopoeic instrumental imitations in the voice family. No imitation is converted into a physical instrument or a guessed beatbox mechanism. Source-unspecified vocal register, physiology, pitch organization and ornament remain neutral; live ensemble/unprocessed presentation is an editorial new rendition, not a claim that the issued album had no overdubbing or effects. A controlled live-room and lively brisk collective praise treatment are authored musical choices, not a measured original tempo, source room or universal devotional rule. No global tuning or recording apparatus is inferred. Christian devotional purpose supplies ritualDevotional.christianGospel ancestry."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored nine-person unaccompanied gospel rendition retains both song and all vocal onomatopoeic instrumental imitations in the voice family. No imitation is converted into a physical instrument or a guessed beatbox mechanism. Source-unspecified vocal register, physiology, pitch organization and ornament remain neutral; live ensemble/unprocessed presentation is an editorial new rendition, not a claim that the issued album had no overdubbing or effects. A controlled live-room and lively brisk collective praise treatment are authored musical choices, not a measured original tempo, source room or universal devotional rule. No global tuning or recording apparatus is inferred. Christian devotional purpose supplies ritualDevotional.christianGospel ancestry."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice"
+        ]
+      },
+      "flat_pin_resolution": {
+        "rule": "All17 owning voice parts individually authored; no shared-owner collisions."
+      },
+      "verification_status": "Pending independent source/category and original four-format checks.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "louange",
+          "name": "Louange",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording context; not Zeresch, album equipment, Abidjan or African instruments.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh778481view1 confirms CC BY2.5 attribution/crop; original023 exact historical receipts unchanged.",
+          "fresh_review_ref": "turn778481view1"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn778481view1"
+        ],
+        "fresh_rights_review": "Fresh778481view1 rights only; no fresh byte or visual claim."
+      },
+      "authored_render_scope": "Authored nine-person unaccompanied gospel rendition retains both song and all vocal onomatopoeic instrumental imitations in the voice family. No imitation is converted into a physical instrument or a guessed beatbox mechanism. Source-unspecified vocal register, physiology, pitch organization and ornament remain neutral; live ensemble/unprocessed presentation is an editorial new rendition, not a claim that the issued album had no overdubbing or effects. A controlled live-room and lively brisk collective praise treatment are authored musical choices, not a measured original tempo, source room or universal devotional rule. No global tuning or recording apparatus is inferred. Christian devotional purpose supplies ritualDevotional.christianGospel ancestry.",
+      "source_review_refs": [
+        "turn506131view0",
+        "turn506131view1",
+        "turn930380view0"
+      ],
+      "repair_evidence": {
+        "original_packet": "/tmp/batch040/resume116-22.json",
+        "original_sha256": "ecec4e0996e8b1f3117fc76daed44138dddbfa1adb82cda389b29f566f33400a",
+        "original_lineage": "Zeresch Acapella — complete six-song 2018 C’est une grâce album introduced at its23February Abidjan press conference. The firsthand report explicitly explains unaccompanied singing without instruments and says all apparent instrumental sounds are onomatopoeia produced by the nine male members. French, Baoulé and Yoruba repertoire all retained. Nine human voices include singing and vocal instrument imitation; there is no physical drum, keyboard or guitar inferred from the imitated sounds. Exact voice allocation, ranges, tracking and production processing remain unknown. The report inconsistently calls the same release Tout est grâce once but repeats C’est une grâce in headline and main album identification; this internal title inconsistency is disclosed, not treated as two releases. Authored nine-person unaccompanied gospel rendition retains both song and all vocal onomatopoeic instrumental imitations in the voice family. No imitation is converted into a physical instrument or a guessed beatbox mechanism. Source-unspecified vocal register, physiology, pitch organization and ornament remain neutral; live ensemble/unprocessed presentation is an editorial new rendition, not a claim that the issued album had no overdubbing or effects. A controlled live-room and lively brisk collective praise treatment are authored musical choices, not a measured original tempo, source room or universal devotional rule. No global tuning or recording apparatus is inferred. Christian devotional purpose supplies ritualDevotional.christianGospel ancestry.",
+        "original_description": "Zeresch Acapella — complete six-song 2018 C’est une grâce album introduced at its23February Abidjan press conference. The firsthand report explicitly explains unaccompanied singing without instruments and says all apparent instrumental sounds are onomatopoeia produced by the nine male members. French, Baoulé and Yoruba repertoire all retained. Nine human voices include singing and vocal instrument imitation; there is no physical drum, keyboard or guitar inferred from the imitated sounds. Exact voice allocation, ranges, tracking and production processing remain unknown. The report inconsistently calls the same release Tout est grâce once but repeats C’est une grâce in headline and main album identification; this internal title inconsistency is disclosed, not treated as two releases. Louange is represented here by the Afro-francophone Christian gospel and praise network positively documented in Sébastien Fath’s original fieldwork on West/Central Africa, Caribbean and European circulation. The exact creator map contains Total Praise, Alain Moloto, Constance Aman, Guy Christ Israël, Mohammed Sanogo and related ministries; Fath specifically documents Total Praise within this Afropean network. This is a community branch overlapping broad French Worship, not a translation-only distinction. Full French Worship already spans transnational francophone churches and ecumenical ministries and does not exclude Africa; the present narrower network is supported by independent field research, not a geographical exclusion invented for the old row. Full African Gospel is continental and likewise broader; Congolese Gospel names one overlapping national and Lingala/francophone network. Zeresch’s own press conference situates its practice in Ivorian churches and names Constance Aman among its influences; announced West African church circulation is evidence of intended community practice, not proof that those future shows occurred. Selected Zeresch membership in the creator map is not established. Its complete album is one positively documented practice within this network, not the sole definition of the category. Authored nine-person unaccompanied gospel rendition retains both song and all vocal onomatopoeic instrumental imitations in the voice family. No imitation is converted into a physical instrument or a guessed beatbox mechanism. Source-unspecified vocal register, physiology, pitch organization and ornament remain neutral; live ensemble/unprocessed presentation is an editorial new rendition, not a claim that the issued album had no overdubbing or effects. A controlled live-room and lively brisk collective praise treatment are authored musical choices, not a measured original tempo, source room or universal devotional rule. No global tuning or recording apparatus is inferred. Christian devotional purpose supplies ritualDevotional.christianGospel ancestry.",
+        "original_exemplars": [
+          "Zeresch Acapella — C’est une grâce, complete six-song2018 album"
+        ],
+        "change": "Public prose only; source dossier retained here and in immutable original. Full voice palette, controls and photo receipts unchanged."
+      }
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "READY_FOR_REVIEW"
+}

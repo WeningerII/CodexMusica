@@ -2,10 +2,10 @@
   "id": "indie_r_and_b",
   "name": "Indie r&b",
   "family": "blues_gospel",
-  "lineage": "Indie r&b is represented by Touched — In Touch (2022), regular album ensemble. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-  "recipe": "classic early-2020s indie r&b, functional Song, soul R&B branch. group vocals, live take. 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, ensemble large cup large rim orchestral bottom heavy trumpet, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 641,
-  "score": 69.461,
+  "lineage": "Indie R&B develops rhythm-and-blues and soul songwriting through independent releases and collaborative production. Its bands and studio projects draw on neighboring pop, rock and experimental practices, with ensembles such as Touched exploring expanded instrumental colors.",
+  "recipe": "classic indie r&b, functional Song, soul R&B branch. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Fender blackface amp American 60s amp spring reverb bright clean strummed humbucker electric guitar, hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, singing lead digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, ensemble trumpet, pre muffled edge muffled sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 636,
+  "score": 97.899,
   "config": {
     "traditions": [
       "indie_r_and_b"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6165,
+          "voice_ensemble_config": 0.49649999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.6165,
+          "voice_multitrack_stack": 0.49649999999999994,
           "voice_tessitura": 0
         }
       },
@@ -58,23 +58,23 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 4.2145,
+          "keyboard_technique": 6.8945,
           "grand_piano_size": 0.33599999999999997,
           "grand_piano_brand": 0.441,
-          "piano_hammer": 2.06,
-          "piano_rim": 2.21,
-          "piano_soundboard": 2.06,
-          "piano_pinblock": 1.213,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 1.3649999999999998
+          "piano_hammer": 2.765,
+          "piano_rim": 2.861,
+          "piano_soundboard": 2.45,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.17,
+          "piano_pitch_standard": -0.035
         }
       },
       {
@@ -82,72 +82,72 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "korina",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": -0.1,
-          "amp_make": 3.8230000000000004,
-          "body_wood": 0.504,
+          "electric_technique": 5.75,
+          "amp_make": 8.053,
+          "body_wood": 0.9240000000000002,
           "neck_wood": 0.33599999999999997,
           "fretboard": 0.2415,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.39,
+          "pickup_magnet": 0.315,
+          "pickup_winding": 0.315,
           "string_material": 0.2415,
-          "bridge": 1.3,
-          "scale_length": 0.6720000000000002,
-          "string_gauge": 1.3,
+          "bridge": 0.33599999999999997,
+          "scale_length": 0.9555,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 0.8715000000000002
+          "string_tuning": 1.3
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "silver_wound_lamb_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "baroque_bow",
+          "orch_bow": "modern_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "pizz_orch",
-          "orch_rosin": "magic_rosin_orch"
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "orch_strings": 1.2349999999999999,
-          "orch_top_wood": 1.2349999999999999,
-          "orch_back_wood": 1.17,
-          "orch_varnish": 1.3649999999999998,
-          "orch_setup_period": 0.9099999999999999,
-          "orch_bow": 0.1785,
-          "orch_bow_stick": 0.975,
-          "orch_articulation": 0.0735,
-          "orch_rosin": 0.975
+          "bowed_technique": -0.035,
+          "orch_strings": 0.2415,
+          "orch_top_wood": -0.035,
+          "orch_back_wood": 1.1284999999999998,
+          "orch_varnish": 1.2349999999999999,
+          "orch_setup_period": -0.07,
+          "orch_bow": 0.39,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.11699999999999999,
+          "orch_rosin": -0.035
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_arpeggiated",
+          "electronic_technique": "electronic_lead_line",
           "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": -0.05,
+          "electronic_technique": 3.2045,
           "va_archetypes": 0.0315,
-          "digital_subtractive_context": 3.3799999999999994
+          "digital_subtractive_context": 7.669999999999999
         }
       },
       {
@@ -157,19 +157,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.221,
+          "amp_make": 8.451,
           "body_wood": 0.6720000000000002,
-          "pickup_config": 0.39,
-          "string_type": 4.8100000000000005,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.08549999999999999,
-          "bass_technique": 3.65,
+          "pickup_config": 0.45149999999999996,
+          "string_type": 8.06,
+          "scale_length_b": 0.33599999999999997,
+          "fretted_or_not": 0.39,
+          "bass_technique": 6.15,
           "electric_bass_string_configuration": 0
         }
       },
@@ -177,7 +177,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_1c",
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
@@ -185,13 +185,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.979,
-          "brass_size": 0.2415,
-          "trumpet_mouthpiece": 1.2349999999999999,
-          "brass_mute": 0.1365,
-          "trumpet_technique": 5.979,
-          "trumpet_bell_metal": 0.36750000000000005,
-          "trumpet_maker_school": 0.7455
+          "wind_articulation": 7.767,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": -0.035,
+          "brass_mute": 0.3165,
+          "trumpet_technique": 7.767,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.9255
         }
       },
       {
@@ -202,8 +202,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0.7629999999999999,
+          "drum_technique": 2.563,
+          "drumhead": 2.5130000000000003,
           "drum_kit_kick_pedal": 0
         }
       }

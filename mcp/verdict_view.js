@@ -9,8 +9,8 @@
 // What a writer does with a grade or a stopped revise is: read the verdict,
 // present the song, and fix what stands. So on the session endpoints the
 // default verdict is that and nothing else: the verdict fields, one line per
-// thing that stands (a flag or a banned pair, merged where the same thing
-// stands on several lines), one line per line a requested obligation could not
+// thing that stands (a flag — ~~or a banned pair~~, dropped 2026-10-04 by the
+// owner's ruling — merged where the same thing stands on several lines), one line per line a requested obligation could not
 // be judged on, and a count of notes. Everything else is still stored with the
 // operation, and `get_operation` with `detail` returns it.
 //

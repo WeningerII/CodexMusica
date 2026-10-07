@@ -1,0 +1,205 @@
+{
+  "entries": [
+    {
+      "source_label": "pop romantico",
+      "source_url": "https://everynoise.com/engenremap-popromantico.html",
+      "suggested_id": "pop_romantico",
+      "allocation_ordinal": 1849,
+      "allocation_group_id": "074",
+      "id": "pop_romantico",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "pop_romantico",
+        "name": "Pop Romantico",
+        "family": "pop",
+        "lineage": "Pop romántico foregrounds intimate relationships and emotive melodic songwriting within Spanish-language pop. Its flexible arrangements span ballads and newer acoustic or produced pop rather than requiring one historical orchestral formula.",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread"
+        ],
+        "room": "parlor",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "A close melodic vocal and guitar accompaniment can expose the personal address of the lyric. Repeated harmonic patterns support memorable refrains, while changes in phrasing and dynamics give emotional contrast.",
+        "exemplars": [
+          "Consuelo Schuster",
+          "Alexia Naomi",
+          "Ariztía"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -33.4489,
+        -70.6693,
+        "Santiago",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Editorial anchor for the positively documented Chilean branch of a wider Spanish-language field; not the origin of all romantic pop.",
+      "signature_tokens": [],
+      "model_policy": "Representative intimate songwriter branch based on Alexia Naomi’s firsthand account of composing the whole song with guitar. Not a reconstruction of the produced Pedazos de mí recording, and not the full Ariztía concert. One accompanied sung lead with connected phrasing is authored; source-unspecified vocal physiology/register/ornament retained. Mahogany-top/back dreadnought with phosphor-bronze strings, standard tuning and chord-melody accompaniment is an authored warm acoustic realization of unspecified guitar, not observed wood or strings. Parlor acoustics and an unprocessed single lead are new recording choices. Functional-harmonic verse–chorus–bridge organization is explicitly authored, not measured source-song form.",
+      "neighbor_distinction": "Actual latin_ballad describes the historically codified slow, orchestrated pan-Hispanic balada; this romantic-pop field overlaps those songs but also includes the updated resources and varied pop aesthetics expressly described in the Schuster and Ariztía institutional interviews. Actual latin_pop is the larger language/production umbrella and includes this branch. This distinction rests on positively named romantic songwriting practice, not one different exemplar or an exclusion of all ballads. No geographical exclusivity is claimed.",
+      "source_scope_limitation": "Documented songwriter practice supports a newly authored voice-and-guitar rendition. Additional production in any original released master remains unknown and is not claimed reproduced. Creator map retrieval failed; no exact map membership asserted for the new representative composer.",
+      "sources": [
+        {
+          "url": "https://www.musicachilena.cl/v2/alexia-naomi-explora-el-pop-romantico-en-el-single-pedazos-de-mi/",
+          "title": "Música Chilena: Alexia Naomi firsthand guitar-writing practice",
+          "support_notes": "Fresh14893view2 positively names pop romántico and full guitar composition practice; not complete master instrumentation."
+        },
+        {
+          "url": "https://www.musicachilena.cl/v2/wp-content/uploads/2024/03/ELCantodeTodas-vol4-def.pdf",
+          "title": "El Canto de Todas: Consuelo Schuster interview",
+          "support_notes": "Fresh14892search12 distinguishes evolving pop romántico from only balada."
+        },
+        {
+          "url": "https://www.musicachilena.cl/v2/entrevista/jose-ignacio-ariztia-estamos-llenos-de-tecnologia-pero-hay-poca-musica-que-emociona/",
+          "title": "Ariztía firsthand interview on romantic-pop song aesthetics",
+          "support_notes": "Fresh14912search0 full institutional interview acknowledges ballads alongside other pop aesthetics."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn14893view2",
+        "turn14892search12",
+        "turn14912search0"
+      ],
+      "classification_evidence": "Actual latin_ballad describes the historically codified slow, orchestrated pan-Hispanic balada; this romantic-pop field overlaps those songs but also includes the updated resources and varied pop aesthetics expressly described in the Schuster and Ariztía institutional interviews. Actual latin_pop is the larger language/production umbrella and includes this branch. This distinction rests on positively named romantic songwriting practice, not one different exemplar or an exclusion of all ballads. No geographical exclusivity is claimed.",
+      "source_retrieval_caveat": "Direct first-person Alexia source read; indexed full Schuster/Ariztía source passages preserved. Exact creator map direct failure14912view0 is not inferred membership.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "pop_romantico",
+          "name": "Pop Romantico",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic microphone recording context, not named artists or source guitar.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh14898view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn14898view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14898view0"
+        ],
+        "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_head": "453cd0f1",
+        "baseline": "/workspace/CodexMusica-qualified041"
+      },
+      "verification_status": "Pending original runtime and independent category peer.",
+      "amendment": "An authored chord-melody guitar arrangement combines harmonic support with melodic answering phrases in the documented intimate guitar-written branch. This is not source-observed technique. Initial fingerpicking remains preserved as unresolved kora-cascading render."
+    }
+  ],
+  "instrument_dependencies": []
+}

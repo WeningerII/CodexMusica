@@ -173,7 +173,9 @@ const MAX_STATE_CHARS = STATE_MAX_CHARS;
 // this cap's only job is to eventually free the box, which a ten-minute
 // bound still does.
 const SUBPROCESS_TIMEOUT_MS = TOOL_BUDGET_MS;
-const MAX_OUTPUT_BYTES = 4 * 1024 * 1024;
+// ~~4 MiB~~ -> 9 MiB 2026-10-04: the report carries checkpoint lines, which
+// grew x2.25 with STATE_DECODED_BYTES (owner's ruling).
+const MAX_OUTPUT_BYTES = 9 * 1024 * 1024;
 
 // A word that reaches argv: letters, apostrophes, internal hyphens. The
 // leading character is constrained separately so no input can grow into a
@@ -291,7 +293,9 @@ const EXIT_MEANING = {
   // resource, into a refusal at 2 — anything still reaching 1 is a crash).
   1: 'CRASHED — not an answer; the harness died before reaching a verdict, stderr follows',
   2: 'REFUSED — the harness did not answer; the report names why',
-  3: 'answered — at least one FLAG or banned pair stands; the report names the lines',
+  // ~~or banned pair~~ dropped 2026-10-04 (owner's ruling): banned pairs are
+  // reported as notes and no longer move an exit code.
+  3: 'answered — at least one FLAG stands; the report names the lines',
   4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
 };
 
@@ -493,7 +497,8 @@ function loopStatusOf(code, verdict) {
       verdict.whole_flags === 0 &&
       verdict.loop_unresolved === 0 &&
       verdict.loop_whole_flags === 0 &&
-      verdict.banned_pairs === 0 &&
+      // ~~verdict.banned_pairs === 0 &&~~ dropped 2026-10-04 (owner's ruling):
+      // banned pairs are reported, not a condition of finishing.
       Array.isArray(verdict.final_draft) &&
       verdict.final_draft.length > 0
       ? 'finished_clean'
@@ -788,11 +793,13 @@ function publishedReport(text) {
   );
 }
 
-// WHAT STANDS: a flag, or a mandated pair on the two-tier ban. One
-// definition, read by the verdict's own `standing`/`banned` fields and by
-// the session's short verdict (verdict_view.js), so the two cannot differ.
+// WHAT STANDS: a flag. One definition, read by the verdict's own `standing`
+// field and by the session's short verdict (verdict_view.js), so the two
+// cannot differ. ~~or a mandated pair on the two-tier ban~~ — dropped
+// 2026-10-04 (owner's ruling): banned pairs are still counted in
+// `banned_pairs` and named in `banned`, but they do not stand.
 export const BAN_CODES = ['HOMEOTELEUTON', 'MODAL_RHYME'];
-export const isStanding = (f) => f.severity === 'flag' || BAN_CODES.includes(f.code);
+export const isStanding = (f) => f.severity === 'flag';
 
 function verdictOf(r) {
   // Only the per-process authenticated record carries machine truth. The report
@@ -969,7 +976,8 @@ function gradeStamp(seed, v) {
         : 'no FLAG stands'
     );
     if (v.banned_pairs === null) parts.push('two-tier ban not asked');
-    if (nBanned) parts.push('banned pairs UNSKIPPABLE, not finished');
+    // ~~if (nBanned) parts.push('banned pairs UNSKIPPABLE, not finished');~~
+    // dropped 2026-10-04 (owner's ruling): the count below still reports them.
     state = parts.join(', ');
   }
   return `[GRADED — seed ${seed} — exit ${v.exit_code}, ${state} — ${nBanned} banned pair(s)]`;
@@ -1761,7 +1769,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. A FILTER over each seed's plan as drawn without these predicates — not lyric_plan's `wants`, which conditions the draw itself. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.verse=5, min_lines.verse=4, max_lines.verse=4 (replace verse with any declared section function; absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), n_sounds (how many DISTINCT rhyme sounds the drawn scheme asks the song to find), adjacencies (how many adjacent line pairs the scheme asks to share a sound), crossings (how many pairs INTERLEAVE — ABAB rather than the nested ABBA), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), binding_cap (the plan's own DENSITY coordinate: the most web bindings any line was ASKED to draw, drawn per plan uniform over 1..the line-binding ceiling — binding_cap<=1 is the classic end-rhyme song with one web binding a line, and bound_words_per_line is what that draw then measured), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. A FILTER over each seed's plan as drawn without these predicates — not lyric_plan's `wants`, which conditions the draw itself. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Function-specific counts: sections.verse=5, min_lines.verse=4, max_lines.verse=4 (replace verse with any declared section function; absence reads zero). Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), n_sounds (how many DISTINCT rhyme sounds the drawn scheme asks the song to find), adjacencies (how many adjacent line pairs the scheme asks to share a sound), crossings (how many pairs INTERLEAVE — ABAB rather than the nested ABBA), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
       ),
     form: formField,
     lines: linesField,
@@ -1974,8 +1982,7 @@ function reviseDescription({ kitchen = false } = {}) {
     'names the flags. Exit 2 means coverage was not certified (`coverage` and `certified` say which pairs ' +
     'went unjudged); when its stamp also names UNRESOLVED lines, the song is parked as well. Present an exit ' +
     '2 or 3 stop as parked or uncertified, never as finished — its note says what to do next. ' +
-    'The two-tier ban is enforced by the loop itself: banned pairs hold their lines open and the loop keeps ' +
-    'asking for replacements. Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
+    'Banned pairs (the two-tier ban) are reported as notes and hold no line open. Budget fields (max_rounds, attempts, backtrack) are declared once per run; a ' +
     `moved declaration is refused. Writer execution enforces ${MAX_LINE_CHARS} characters per sung line. ` +
     'A journal_capacity stop preserves ' +
     'the exact journal and accepted draft and cannot resume; reduce the requested scope before independent ' +
@@ -2119,12 +2126,11 @@ export function registerLyricTools(server, tool) {
         'pair and requested layer was judged (coverage.refused_obligations names what was not); flags and whole_flags ' +
         'count the FLAGS standing (defects); banned_pairs counts mandated pairs on the two-tier ban (HOMEOTELEUTON / ' +
         'MODAL_RHYME), and banned[] names each pair by its lines and, in binding, the bound word and its place on each ' +
-        'line — often not the end word. The code follows from those: 0 is measured and certified with no flag and no ' +
-        'banned pair; 3 is measured and certified with a flag, a whole-draft flag or a banned pair standing; 2 is either ' +
+        'line — often not the end word. The code follows from those: 0 is measured and certified with no flag; ' +
+        '3 is measured and certified with a flag or a whole-draft flag standing; 2 is either ' +
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
-        'The stamp says which. banned_pairs above zero means the song is NOT finished: rewrite the banned word at the ' +
-        'place binding names (screen replacements with lyric_screen) and grade again; other NOTES are measurements, not ' +
-        'defects. Revise the flagged and banned lines only and call again. ' +
+        'The stamp says which. Banned pairs are notes: rewrite one only if you want to. Other NOTES are ' +
+        'measurements, not defects. Revise the flagged lines only and call again. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
@@ -3148,8 +3154,8 @@ export function registerLyricTools(server, tool) {
         'and get the same rhyme grading and slop floor the full pipeline runs. After lyric_recover, pass its `lines` ' +
         'with its mandate, so the line numbers name the same lines. A declaration is REQUIRED: nothing declared means ' +
         'nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
-        'numbers; banned_pairs counts declared pairs on the two-tier ban (HOMEOTELEUTON / MODAL_RHYME), unskippable at ' +
-        'any exit code, and banned[] names each pair by its lines and, in binding, the bound word and its place on ' +
+        'numbers; banned_pairs counts declared pairs on the two-tier ban (HOMEOTELEUTON / MODAL_RHYME), reported as ' +
+        'notes, and banned[] names each pair by its lines and, in binding, the bound word and its place on ' +
         'each line — rewrite that word; other NOTES are measurements. THE EXIT CODE IS NOT THE VERDICT: this verb ' +
         'exits 0 whenever it answers, with flags standing or coverage incomplete. Read `flags` and `whole_flags` for ' +
         'what stands, `certified` and `coverage` for whether every declared pair and requested layer was judged ' +
@@ -3294,14 +3300,8 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'a song presented without its [FINISHED …] stamp is an interim draft and must be presented as one, a stop ' +
     'at exit 2 or 3 is parked or uncertified (its note says what to do next), and stopping at step (3) ' +
     'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
-    'says when revision is over. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is ' +
-    'the harness answering NO — the song is not finished whatever the exit code, and inside lyric_revise those ' +
-    'pairs hold their lines open mechanically. ' +
-    (kitchen
-      ? "Before revising, rewrite the banned words at the places each banned entry's binding names (screen the " +
-        'replacements with lyric_screen); never present a song as finished while banned pairs stand. '
-      : "Rewrite the banned words at the places each banned entry's binding names (screen the replacements " +
-        'with lyric_screen) and keep answering; never present a song as finished while banned pairs stand. ') +
+    'says when revision is over. Banned pairs (banned_pairs, banned[]) are reported as notes: they hold no ' +
+    'line open and do not stop a song from finishing. ' +
     'PRESENTATION IS PART OF THE CONTRACT: the first text block of a lyric_grade result, and of a lyric_revise ' +
     'result at a stop condition, is the song under its bracket headers and stamp — reproduce the song and its ' +
     'stamp character for character, exactly as you reproduce a recipe string; the bracket headers ([CHORUS — 3 ' +
@@ -3317,7 +3317,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'bare lyric_check on a paste is the rhyme and floor layers only, and its verdict says so. lyric_verify ' +
     'judges a CHANGE to one, which is the other half of a revision round: read its `accepted`, not its exit ' +
     'code, and remember it is a DIFF that cannot report banned pairs surviving untouched. FLAGS are defects; ' +
-    'banned pairs are unskippable whatever their severity; other NOTES are measurements and are not to be ' +
+    'banned pairs and other NOTES are measurements and are not to be ' +
     '"fixed". A verdict carrying structures_uncalibrated is the third thing to read: correctness IS graded for ' +
     'that declared structure and laziness is NOT; the two-tier ban is not asked of pairs judged under a declared ' +
     'structure — ban_not_asked lists them, and banned_pairs is null when no pair was asked. For unresolved ' +

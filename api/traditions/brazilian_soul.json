@@ -5,7 +5,7 @@
   "lineage": "Brazilian soul: Edu Camargo & Marina Sirabello — Saudade, track 9 of Infinito... E Além. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
   "recipe": "classic brazilian soul, functional Song, soul R&B branch. Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, digital subtractive, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 381,
-  "score": 62.423,
+  "score": 62.435,
   "config": {
     "traditions": [
       "brazilian_soul"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.453,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.273,
+          "voice_multitrack_stack": 0.453,
           "voice_tessitura": 0
         }
       },
@@ -78,9 +78,9 @@
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
           "string_material": 0.2415,
-          "bridge": 1.2535,
+          "bridge": 1.0735,
           "scale_length": 0.6720000000000002,
-          "string_gauge": 1.2535,
+          "string_gauge": 1.0735,
           "finish": 0,
           "string_tuning": 1.0080000000000002
         }
@@ -93,7 +93,7 @@
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -103,7 +103,7 @@
           "pickup_config": 0.39,
           "string_type": 12.675,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.0735,
+          "fretted_or_not": 0.08549999999999999,
           "bass_technique": 9.399999999999999,
           "electric_bass_string_configuration": 0
         }

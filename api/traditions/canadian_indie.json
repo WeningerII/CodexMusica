@@ -2,10 +2,10 @@
   "id": "canadian_indie",
   "name": "Canadian indie",
   "family": "vernacular",
-  "lineage": "Basement Revolver — Tunnel Vision. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic canadian indie, distorted Rock. single lead single track no stacking. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 377,
-  "score": 23.405,
+  "lineage": "Canadian independent music connects local bands, labels and recording communities across the country. Hamilton’s Basement Revolver represents a guitar-oriented branch moving between indie rock, shoegaze and experimental rock.",
+  "recipe": "classic canadian indie, distorted Rock. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 356,
+  "score": 40.689,
   "config": {
     "traditions": [
       "canadian_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.2355,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.636,
+          "voice_processing_chain": 0.378,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -77,10 +77,10 @@
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.0225,
+          "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 0.1365,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,16 +124,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.5,
+          "drum_technique": 8.75,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0225,
+          "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.054,
+          "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 4.4225,
-          "cymbal_lathing": 4.431500000000001,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 8.649999999999999,
+          "cymbal_lathing": 8.649999999999999,
           "cymbal_finish": 0
         }
       },
@@ -146,9 +146,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "poly_archetypes": 0.0315,
-          "poly_voices": 0,
+          "electronic_technique": 2.4815,
+          "poly_archetypes": 0,
+          "poly_voices": 0.0315,
           "poly_maker_lineage": -0.05
         }
       },
@@ -167,14 +167,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.0225,
-          "piano_hammer": 2.21,
-          "piano_rim": 2.21,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.0945,
+          "piano_hammer": 4.42,
+          "piano_rim": 4.42,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
-          "piano_plate": -0.07,
-          "piano_pitch_standard": -0.035
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.2229999999999999
         }
       }
     ],

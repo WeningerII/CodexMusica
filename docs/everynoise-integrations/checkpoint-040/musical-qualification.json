@@ -1,0 +1,880 @@
+{
+  "status": "INDIVIDUAL_MUSICAL_QUALIFICATION_NO_SNAPSHOT_REFRESH",
+  "frozen_source": "8bb2cee97d5feee7b48147b61da9a61ea5f5c71c",
+  "created_at": "2026-10-04T03:47:50.572361+00:00",
+  "reviewed": 104,
+  "compatible_changed_settings": 32,
+  "changed_settings_on_hold": 72,
+  "whole_outputs_qualified": 7,
+  "whole_outputs_on_hold": 97,
+  "snapshot_updates": 0,
+  "interpretation": "Compatible incidental differences are not proof of intended scoring behavior. Whole-output holds include separately documented inherited baseline defects. The proposed safe subset removes checkpoint-induced changes without claiming those baseline errors are correct.",
+  "rows": [
+    {
+      "id": "antifolk_nyc",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Breath-pulsed humor and pine-bodied guitar can fit deliberately amateur antifolk. Jingju role mechanics and Pythagorean pitch organization are not implied by comic interruption or lo-fi production.",
+      "whole_output_issue": "The visible breath pulse is plausible; the hidden Chinese-opera and tuning choices are not.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "art_rock",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Mahogany/shorter-scale guitar, thicker strings, fretless bass and a plucked synth envelope fit an experimental amplified art-rock rendition. They do not remove the ensemble or force an unrelated genre.",
+      "whole_output_issue": "The retained voice has a specific dhrupad ornament system and other unsubstantiated pitch/tradition settings. Broad experimentation is not evidence for these particular traditions. This is pre-existing.",
+      "report_sha256": "12e17c4ec5c57400d115b0c142dbcad44d03a158bfa2198beb4f8a7ebdb77fe4",
+      "reviewer": "review461"
+    },
+    {
+      "id": "baroque_pop_60s",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "The French harpsichord school, leather plectra and Vallotti choice can form an authored early-instrument color. Instrumental baroque influence does not establish bel-canto vocal ornament; the Fazioli identity also does not fit a literal 1960s production without a modern-recreation qualification.",
+      "whole_output_issue": "The new grand-opera neighbor strengthens an unsupported vocal recasting. This does not reject harpsichord variation as such.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "bengali_chhotoder_chora",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Raga-derived Bengali children\u2019s melodies do not establish Carnatic gamaka plus Persian tahrir mechanics. Even the stored Carnatic pitch default is not independent proof of this South-Indian/Persian combination; natural retuning is also not a 1930s field-recording technique.",
+      "whole_output_issue": "The apparently closer Hindi/Tamil neighbors do not make these distinct musical systems interchangeable.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "bengali_ghum_paranir_gan",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Chest rather than fry can be an authored domestic voice. AI-trained choir processing replaces the intimate Bengali single-singer/lullaby context without support.",
+      "whole_output_issue": "The changed text only says thick, but the hidden artificial stack is a material change.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "blend_afro_cuban_bebop",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "A Sitka soundboard, high quinto role, dense rosewood claves and glass shekere beads are coherent within the retained Cubop percussion and jazz palette.",
+      "whole_output_issue": "The unchanged timbales control/output explicitly says open-slap hand drum. This misrepresents the timbales role in the otherwise source-supported percussion battery; it is not caused by the four changes.",
+      "report_sha256": "63d5678a65f997f4a164df3954535a45b39b4e4ef91dd8e64553ff4fd02ac93a",
+      "reviewer": "review461"
+    },
+    {
+      "id": "blend_carnatic_minimalist",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Laya/sarvalaghu accompaniment is a better ensemble-role match than a morsing solo/thanam default for the sourced rhythm-cycle blend.",
+      "whole_output_issue": "The unchanged voice simultaneously selects maqam/tahrir and other specific non-Carnatic systems. These are not explained by a Carnatic/minimalist blend. An improved morsing setting does not qualify that full vocal configuration.",
+      "report_sha256": "e862aeecef5604f1e2d12c332e25fd9d339b3c9acb06b57585adbcfb40d109ac",
+      "reviewer": "review461"
+    },
+    {
+      "id": "blend_classical_jazz_third_stream",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "A larger recital grand and a 3C trumpet mouthpiece are reasonable chamber-jazz options. Pizzicato strings can occur in Third Stream, but the selected configuration must state how that relates to its retained arco control.",
+      "whole_output_issue": "The newly plucked violin default coexists with orch_articulation=arco_orch. This could describe alternating passages, but no such interpretation is encoded or explained; it is an unresolved default-control ambiguity, not proof that playing both in one work is physically impossible.",
+      "report_sha256": "c2070c6ddbd3419c38f7523f8c1dbe846c7a5e071ee772c6e7138a7ab2b8baa8",
+      "reviewer": "review461"
+    },
+    {
+      "id": "blend_doom_drone_metal",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Mahogany neck and a resonant vintage-style coated drumhead are plausible doom/drone construction choices. The drumhead historical jazz association is not a requirement to perform jazz.",
+      "whole_output_issue": "The unchanged voice carries named sub-Saharan/operatic and other elaborate systems not established by the drone-metal blend. Those pre-existing controls need separate qualification; the neck/head changes themselves are acceptable.",
+      "report_sha256": "07751b0d56f3ba441b7e5f4ac9f0677f6de3a2bd71cdc70659e545bd92c65ae3",
+      "reviewer": "review461"
+    },
+    {
+      "id": "bouyon",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Chest rather than fry, low-tension flat strings and locked fingerstyle preserve a plausible live/electronic Caribbean groove. No source-positive bouyon role is removed; the source permits a hybrid band realization.",
+      "whole_output_issue": "The new bass phrase accurately reflects the changed technique. Afro-Brazilian neighbor blends and pre-existing interlocked vocal texture remain separate output limitations.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Slow vibrato and AM-like mediation can fit a historical protest-song recording. An operatic vocal configuration is not established by the intimate Brazilian songwriter/bossa profile and needs a positive arrangement rationale.",
+      "whole_output_issue": "The actual text only reveals slower vibrato; it must not conceal the new opera-quality configuration.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "brazilian_samba_school_enredo",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Brighter oral projection can fit a puxador. Quechua/Aymara training and huayno ornament do not preserve Rio Portuguese samba-school singing.",
+      "whole_output_issue": "Andean matrimonio huayno is newly explicit in the result, a direct false cultural association rather than a harmless sound adjective.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "british_brass_band",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Concert/community context is explicitly part of the civic-band lineage. A B-flat cornet and articulated ensemble trombone are ordinary representatives; competition and soprano-cornet settings are not mandatory for every rendition.",
+      "whole_output_issue": "The current recipe calls the British tradition North American. This is a pre-existing output/environment problem, not caused by the cornet or context changes. New German-baroque adjacency is not proof of German historical provenance.",
+      "report_sha256": "b271cfff3cd4c638635bf60bfe8db3c189c8f3b7dc0dd1e9a6798d31c4793be3",
+      "reviewer": "review461"
+    },
+    {
+      "id": "british_invasion_rb",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Pressed-top archtop and portable combo piano are viable period-band alternatives. Replacing the specifically defining blues-shouter delivery with breath-veiled aspiration loses a source-positive feature of this fixture.",
+      "whole_output_issue": "The actual text changes blues-shouter to breath-veiled tone; this is more than hidden technical drift.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "brostep",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Fingerstyle replaces slap on the added electric-bass role without changing the defining electronic low-end or instrument inventory. Fingerstyle itself is not a stylistic contradiction.",
+      "whole_output_issue": "The overall current configuration has a sine/sub/gated electronic setting without a clearly expressed wobble/distorted bass mechanism, despite the profile defining that sound. This is an existing representativeness gap, not caused by changing the electric-bass fingers. Retain for explicit musical assessment rather than assume slap was essential.",
+      "report_sha256": "a638a4f901c29deb725803482875dfcda88472cef91ab5b83ad06f48812720ef",
+      "reviewer": "review461"
+    },
+    {
+      "id": "brutal_death_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Heavier guitar strings suit low aggressive riffing and short-scale bass is not inherently impossible. Quarter-comma organization and an AI-trained harmony choir do not preserve guttural/pig-squeal brutal-death voice.",
+      "whole_output_issue": "The actual result already underrepresents blast beats and gutturals; hidden new settings add rather than cure the mismatch.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "carnatic_vocal",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Morsing laya accompaniment positively fits the vocal concert ensemble and tala support.",
+      "whole_output_issue": "Unchanged voice settings include maqam/tahrir and other foreign-system controls rather than a coherently specified Carnatic vocal line. The morsing improvement does not resolve them.",
+      "report_sha256": "79a6d3a57837bb30ae2786eac06145b448199a5a7bdb0de740b0e6af36294085",
+      "reviewer": "review461"
+    },
+    {
+      "id": "carnival_brazilian_samba",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Oral twang can express projected carnival singing, but Quechua/Aymara training and huayno ornament do not follow from Rio Portuguese samba-enredo.",
+      "whole_output_issue": "The current text newly names Andean matrimonio huayno. That is a direct cultural substitution, not just a different adjective.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "choro",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Open-strummed nylon accompaniment, sustained flute phrasing and a Powell flute are plausible in a modern choro ensemble.",
+      "whole_output_issue": "The new clarinet family variant is explicitly canonical-tagged dixieland/new-orleans, whereas the source distinguishes choro from Dixieland. A generic front-line role is compatible, but this named tradition transfer is not qualified from the evidence. Existing klezmer wording in the clarinet output is a separate prior issue.",
+      "report_sha256": "2cbc6fc4eda30598603641a06a4c1018f6ee332c0257ec0c7920c8cfedfca97c",
+      "reviewer": "review461"
+    },
+    {
+      "id": "cool_jazz_vocal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Smaller grand and alternate sax alloy could fit an intimate club. Four-plus counterpoint, Irish ornament, overtone-drone pitch and a pitched vocal sample-bed replace conversational solo jazz singing. Fazioli with Yamaha casting/Steinway board is also physically unresolved.",
+      "whole_output_issue": "The output exposes a mixed grand construction but hides most of the changed vocal architecture.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "coupe_decale_ivorian",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Terminal vibrato, synth lead and half-round bass strings are plausible alternatives within the source\u2019s electronic dance-pop/synth-bass palette. The source does not require every electronic part to remain a short pluck.",
+      "whole_output_issue": "The actual lead/bass words follow those changes. Existing whistle register, hocket and incompatible studio-era/location labels are not newly validated by this delta qualification.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "cumbia_rebajada",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Bass amplification/materials and accordion maker may vary in a cumbia reconstruction. Tuvan throat-singing, full woven choir and slendro do not model slowing a recorded cumbia; lowered playback pitch does not create a different tuning system.",
+      "whole_output_issue": "Only the accordion brand becomes visible, masking the decisive vocal/cultural changes.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "currulao_pacifico",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Chest voice and slower vibrato are plausible lead choices. AI choir-of-self cannot substitute for the positive human lead/chorus practice, and the exact third-degree glide lacks source support.",
+      "whole_output_issue": "The current roster also omits named currulao percussion in the unchanged baseline; that separate omission is not caused by this update.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "dark_electro_aggrotech",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "A nasal edge can support harsh electronic vocals. Connemara free-rhythm ornament is not established by distorted fast industrial-club singing.",
+      "whole_output_issue": "The only visible change is synth salience; that does not neutralize the specific new Irish ornament.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "death_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "High-output pickups fit death-metal riffing and arena bus color is at least a production choice. Arab maww\u0101l ornament and an AI choir do not represent the source\u2019s low guttural death-growl.",
+      "whole_output_issue": "The current output also retains brushes-and-sticks and breath-veiled/slow voice descriptors from the baseline; newly hidden Arabic/AI settings are independently wrong.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "deep_house_soulful",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Belted soulful delivery and plate reverb can fit house; an orchestral library is a possible production resource. Bel-canto ornaments plus harmonic-series drone pitch undermine the specified extended-chord Rhodes/soul vocal framework.",
+      "whole_output_issue": "The literal blues-shouter change alone is not a blocker, but it does not validate the separate overtone pitch system.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "desert_rock_palm",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Slow vibrato, muffled heads and fretless bass can be plausible desert-rock variants. Chinese opera training, Dhrupad ornament and Carnatic pitch organization are independent unsupported substitutions.",
+      "whole_output_issue": "The literal slow-rate change is compatible, but the hidden cultural tuple is not.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "doom",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Wide blues vibrato and a mahogany neck fit the slow heavy-blues source. New extreme-tension Kevlar heads materially change the sustained ordinary rock-kit realization and lack a source-compatible stated rationale.",
+      "whole_output_issue": "Kevlar is literal in the current result. This is an unresolved construction/sonic choice, not a claim Kevlar can never appear in doom.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "early_rock_and_roll_50s",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "ADT/tape-offset doubling is explicitly a mid-1960s mechanism and is not justified by the fixture\u2019s 1954\u201358 single-take live-band practice.",
+      "whole_output_issue": "The rendered archtop detail changes without a corresponding changed instrument slot; text salience is not proof that the hidden vocal production is acceptable.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "easy_listening_orchestral",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "An ordinary multilaminate pinblock is a reasonable piano-construction substitute with no repertoire or roster change.",
+      "whole_output_issue": "The existing choir is explicitly Sardinian cantu a tenore/polyrhythmic small a cappella rather than the source orchestral-pop chorus; the violin also combines pizzicato/arco. Neither the pinblock nor a new French-Renaissance neighbor resolves those mismatches.",
+      "report_sha256": "8ac3d2cbb02f595036466d13dc42e937dc9ed87455a6701776db0c399e58167a",
+      "reviewer": "review461"
+    },
+    {
+      "id": "ebm_european_body",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "A nasal edge could serve aggressive EBM vocals. Explicit Connemara unaccompanied ornament and fixed five-limit just intonation are not established by shouted sequencer-based European body music.",
+      "whole_output_issue": "The only conspicuous text change is synth decay; hidden Irish/intonation changes remain material.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "electroacoustic_composition",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "No slot changed. The newly surfaced Doepfer/Eurorack words describe the already selected modular lineage. Contemporary small-format modular synthesis is compatible with a continuing electroacoustic-composition field whose history begins in the 1960s; the opening historical date is not a claim that Eurorack existed then.",
+      "whole_output_issue": null,
+      "report_sha256": "bc49687427d83e9d5f3fbb59c64cea7eda8131003b428a7dde70aef1eecad7fc",
+      "reviewer": "review461"
+    },
+    {
+      "id": "ethio_pop_modern",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Andean huayno ornament and AI-trained harmonizer are not established by Addis pentatonic modern pop. Maple fingerboard, conventional kit head and a larger synth voice count are plausible alternatives.",
+      "whole_output_issue": "The unchanged-looking voice summary hides the newly imported ornament and processing mechanism.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "ethiopian_eskista_wedding",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Belted festive projection and semi-hand accordion reeds can fit a wedding arrangement. Connemara ornaments are not Ethiopian qenet or azmari practice.",
+      "whole_output_issue": "No Irish wording appears in the brief output, but the underlying named tradition remains unsupported.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "fado",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Speech quality is compatible with the Lisbon solo-song profile; tape saturation is a defensible recorded timbre rather than a new musical lineage. Neither change requires a specific historical machine.",
+      "whole_output_issue": "The output still blends Bulgarian female choir with fado and retains interlocked note trading; the prior Alpine-yodel/Albanian blend was also problematic. These inherited/neighbor effects prevent approving the whole result.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "festejo_afroperuano",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Cedar/bronze parlor construction and bright projection are possible arrangements. Afro-Peruvian ancestry does not establish Yoruba tonal-language singing, Dhrupad ornament or vocoded lead.",
+      "whole_output_issue": "The visible percussion remains Afro-Peruvian, but these hidden culture/mechanism changes are unsupported.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "filin_cubano",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Breathy intimacy and fingerpicked accompaniment fit filin\u2019s confessional trova/jazz setting; piano construction must remain coherent with its selected brand. Dhrupad ornament is not established by extended jazz harmony or blue notes.",
+      "whole_output_issue": "The audible-looking improvements in guitar and voice cannot validate the separate South Asian ornament setting.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "forro_pe_de_serra",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Chest/straight tone and semi-hand accordion reeds fit traditional forr\u00f3. Beatboxing, huayno ornament and eight-band vocoding do not preserve the acoustic trio\u2019s sung lead.",
+      "whole_output_issue": "The new pure/straight wording is benign, but hidden imported practice remains wrong. Existing guiro-for-triangle roster problems are separate.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "freak_folk_2000s",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Slow wavering voice, alternative guitar tuning, accordion detuning, synthetic violin strings and extended glockenspiel range can fit eccentric folk. Jingju role mechanics are a specific Chinese opera practice, not a synonym for quirky singing; meantone also lacks an ensemble-tuning rationale.",
+      "whole_output_issue": "The visible slow vibrato is compatible, but cannot excuse the hidden opera substitution.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "french_berceuse",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "A note-end flourish is compatible with a cradle song. Fado lament, Scottish/Irish traditions and vocoding are not justified by French gentle rocking/song practice.",
+      "whole_output_issue": "Lament wail actually replaces breath-veiled tone, while additional culture/processing errors remain hidden.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "frevo",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Projected belt and a different trumpet mute are plausible frevo-song colors. Converting voice into a percussive sampled stab is not justified by the acoustic brass-carnival source.",
+      "whole_output_issue": "The hidden voice-source substitution persists even though the visible brass roster is unchanged; existing brushes are a separate concern.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "fusion",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "Lighter guitar strings, alder active/soapbar extended-scale bass, ladder-filter synthesis and piezo electric violin are coherent electric jazz/rock/funk timbre choices. Bebop trumpet articulation positively fits the retained jazz improvisational foundation.",
+      "whole_output_issue": null,
+      "report_sha256": "8f6ed7efdeb8a33d4b1c01f7c03f1528dfcf8cc847246903d884c82a23050efe",
+      "reviewer": "review461"
+    },
+    {
+      "id": "gabber",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "The S1000-style 16-bit sampler is coherent for early sampled hardcore. Sampling industrial/ambient found sound can serve the stated siren/noise palette, but the source does not specifically establish field-recording workflow.",
+      "whole_output_issue": "The emitted Asian geographic framing is already inconsistent with the Rotterdam source. The new specific field-source workflow remains an unsupported choice rather than a proven requirement of gabber.",
+      "report_sha256": "f0193fe1bdd399b830d75264e42d31e10611a87d1714d8d3e14aa241b3f57e26",
+      "reviewer": "review461"
+    },
+    {
+      "id": "gangsta_rap",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Saw oscillator and gated envelope can support a funk-derived rap beat. Hocket explicitly splits a melody across voices and replaces narrative delivery, contradicting the fixture\u2019s foregrounded street-narrative rap role.",
+      "whole_output_issue": "Interlocked note trading directly replaces narrative in the rendered sentence.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "german_wiegenlied",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "German cradle-song/art-song history does not establish Scottish t\u00e0ladh or Irish sean-n\u00f3s ornament. Removing Chinese/Dhrupad settings simply exchanges unrelated cultures.",
+      "whole_output_issue": "The result hides these settings behind a generic soft voice; contemporary French-song neighbors are also not evidence for German cradle practice.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "gospel_quartet_male",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Emitted Andean three-voice parallel-thirds Quechua/Aymara choir replaces Sardinian cantu a tenore. Neither is justified as the unchanged male gospel-quartet field. Exact counterfactual proves catalog-induced drift, not semantic correctness.",
+      "reviewer": "research119",
+      "whole_output_issue": "Precise data cause identified. Original-record repair proposal tested but unapplied; subset containment does not certify legacy baseline."
+    },
+    {
+      "id": "gothic_metal",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Removing huayno ornament, choosing gated reverberation, longer bass scale, nickel guitar strings and slow synth pad preserve a credible atmospheric gothic-metal arrangement. A resonant filter can color a pad without making the genre acid house.",
+      "whole_output_issue": "Singing resonant synth is compatible with a pad/drone. The unchanged generic voice still does not certify the source\u2019s contrasting male/female roles; qualification applies to these changes only.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "groove_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Emitted ride-driven brushes-and-sticks replaces sticks/backbeat. The unchanged heavy groove-metal source does not positively support this newly selected jazz-like brush rendition; requires source-specific qualification before refresh.",
+      "reviewer": "research119",
+      "whole_output_issue": "Precise data cause identified. Original-record repair proposal tested but unapplied; subset containment does not certify legacy baseline."
+    },
+    {
+      "id": "grunge",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Lowered-larynx color can be compatible with a distressed grunge rendition; ebony, heavy strings, long-scale or fretless bass are possible variants. Eight-band vocoding is not a supported replacement for the natural distressed lead.",
+      "whole_output_issue": "A visible larynx change is not the only change: the hidden carrier processing remains material.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "hair_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Rosewood, winding, bridge, string gauge and bass amplifier variations are plausible arena-rock choices. Replacing the voice with eight-band vocoding plus operatic quality is not supported by the source\u2019s melodic rock/gang-chorus identity.",
+      "whole_output_issue": "The vocoder change is largely hidden in output. Baseline modern correction was not an approved historical reference either.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "hard_bop",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "Sitka soundboard and A442 are viable modern acoustic-piano realization choices. A442 is a modest concert-reference change; neither the genre source nor other explicit fixture controls fixes this ensemble to A432.",
+      "whole_output_issue": null,
+      "report_sha256": "b8c7cd6194908a64bc772127ffdb3f8621d25532fd81033be71e6193c71d4264",
+      "reviewer": "review461"
+    },
+    {
+      "id": "hard_rock",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Heavier strings, rosewood, Eb tuning and Plexi bass amplification are plausible amplified blues-rock settings; self-overdub harmony is closer to the stored stack. Irish sean-n\u00f3s ornaments and eight-band vocoding are not supported by the defining shouted/wailed blues-rock voice.",
+      "whole_output_issue": "The output foregrounds only the bass-amplifier change, hiding the decisive vocal mismatch.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "hardcore_punk",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "The new AI-trained choir-of-self replaces an already unsuitable processed voice in a specifically 1979\u201385 shouted DIY practice. Kevlar extreme-tension kit heads also need a deliberate rationale; maple fingerboard/heavier guitar strings alone are acceptable.",
+      "whole_output_issue": "Kevlar is actually emitted; AI processing is hidden by summarization. A shorter visible prompt does not make that new control harmless.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "hokum_blues_vaudeville",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Blues-shouter improves the vaudeville delivery and narrow-band color can emulate historical mediation. Bel-canto ornament is not established by comic blues; a solo-chromatic tuning paired with the retained Marine Band diatonic identity also needs a coherent instrument decision.",
+      "whole_output_issue": "The visible improved shouter must not conceal the incompatible harmonica architecture or imported opera ornaments.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "industrial",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Bridged-T kick, slow synth envelope, quick shimmer and speech quality are compatible industrial sound-design variations. Dhrupad ornament and a prescribed third-degree microtonal glide have no support in this mechanical-noise/shouted-voice profile.",
+      "whole_output_issue": "Fast rate is visible but the specific new pitch/ornament mechanism is hidden. The former slendro setting was also not evidence-backed.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "interior_confessional_60s",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "A laminated birch/maple rim and laminated pinblock can support an intimate songwriter piano; geographic manufacturing descriptors do not relocate the genre.",
+      "whole_output_issue": "The unchanged vocal line uses jingju ornaments, hocket, choral-drone ensemble and chopped rhythmic sample stack. Those are not supported as representative intimate confessional singing. The materials delta is acceptable separately.",
+      "report_sha256": "8209e834d81e4f2108c85f793eec5c3ae5a4847e94f065123052a2b0915f5cdd",
+      "reviewer": "review461"
+    },
+    {
+      "id": "isicathamiya",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Straight tone instead of slow vibrato is a defensible ensemble-blending choice for tightly coordinated close-harmony isicathamiya. No named culture, instrumentation or pitch-system control changes.",
+      "whole_output_issue": "Pure is the only changed vocal adjective and is not a new purity/ethnicity claim. Existing Afro-Cuban/jubilee blend and hocket wording require separate baseline scrutiny; this qualification is limited to the changed vibrato.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "j_rock",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Drop-D is a plausible alternative guitar tuning for J-rock. Eight-band vocoding replaces the source\u2019s theatrical melodic voice/subtle correction with a distinct electronic carrier mechanism without support.",
+      "whole_output_issue": "The prompt mostly hides this processing change; this cannot qualify the underlying configuration.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "jam_band",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "The guitar woods, gauges, scale lengths, hydraulic heads and conga construction are plausible live improvising-band choices. Explicit Irish sean-n\u00f3s training is not warranted by Dead/Allmans/Phish-style improvisation.",
+      "whole_output_issue": "Blues vibrato can improve the voice, but does not legitimize the separate Irish lineage setting or incidental regional rock blends.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "jangle_pop",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "The new arena-scale massed reverb stack conflicts with the profile\u2019s small harmonies/minimal processing. Although it matches an unprotected stored default, that internal source/default conflict requires resolution. Guitar and bass construction changes alone are defensible.",
+      "whole_output_issue": "The visible prompt mainly exposes bass amplifier changes; the hidden vocal stack still changes the represented arrangement.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "japanese_matsuri_taiko",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Medium taiko is appropriate and an Edo ensemble shamisen color can be considered. Breath-veiled aspiration, Melodyne correction and a cent-locked overdub harmony stack do not preserve shouted wasshoi/soiya festival calls.",
+      "whole_output_issue": "The text directly loses declaimed delivery. Modern studio pitch/stack assumptions require a separate sourced rendition, not automatic substitution for processional practice.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "kapuka_kenyan",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Neutral-third maqam inflection does not follow from Swahili/Sheng R&B-oriented Nairobi pop. A neighboring Moroccan rap label cannot establish that pitch practice.",
+      "whole_output_issue": "The changed microtone setting is hidden in the summary; the new regional blend is not independent evidence.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "khaliji_gulf",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "An animal-hide drumhead is physically plausible, but the actual selected variant is not a culturally neutral material descriptor.",
+      "whole_output_issue": "The new skin descriptor explicitly emits Turkish regional darbuka while the retained body/style emits Egyptian Sombaty. The source establishes a Gulf/Arab-Persian popular idiom, not this Turkish regional substitution. Hold the new culturally marked head choice until its intended musical meaning is justified; do not infer that goat skin itself is impossible.",
+      "report_sha256": "dbe91c331d7462f392907e4544c339223d05287c8b2d6544bb2407cd59239878",
+      "reviewer": "review461"
+    },
+    {
+      "id": "kompa_direkt",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Blackface amplification is plausible for later kompa recordings, with an explicit period caveat for the mid-1950s label. Chopped vocal-sample rhythm replaces the dance-band sung lead without supporting source.",
+      "whole_output_issue": "The visible amplifier improvement cannot qualify the hidden lead-to-sample-bed substitution; baseline microtuned choir was also not authoritative.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "lambada_carimbo",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Slow vibrato, bright twang and guitar construction can vary in commercial lambada. Dhrupad ornament, fixed third glide and vocoded voice do not follow from Par\u00e1 dance-song; DADGAD also requires a deliberate harmonic arrangement rather than an inferred norm.",
+      "whole_output_issue": "The hidden vocal changes are the blocker, not the mere choice of mahogany or medium strings.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "latin_jazz",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Quinto solo/lead drum, rosewood claves, glass-beaded shekere and Sitka piano construction remain within the source-supported Latin-jazz palette.",
+      "whole_output_issue": "The unchanged timbales is still assigned/emits open-slap hand-drum technique. That substantive role error is not repaired by these otherwise valid material changes.",
+      "report_sha256": "b482c7ecb5251fb0b52415fefe70dac3010eb13c78becfc898f780275156fdd4",
+      "reviewer": "review461"
+    },
+    {
+      "id": "lutheran_chorale",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Maqam neutral thirds, Dhrupad glides and granular time-stretched voice do not preserve German Lutheran chorale harmony and congregational singing.",
+      "whole_output_issue": "The literal Kakhetian choir identity is an existing additional error; changing choir-neighbor labels cannot qualify the new pitch/processing settings.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "math_rock_post_rock",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "No slot changed. Australian psychedelic-rock adjacency is within the stated experimental-rock neighborhood; it does not alter the protected ensemble or introduce a new playing mechanism. The existing power-chord setting can represent the source heavy crescendo section.",
+      "whole_output_issue": null,
+      "report_sha256": "7a6974ba6b0446c5a5a3242031df98855b9ca61d8139edfd92e3a91f384dd3af",
+      "reviewer": "review461"
+    },
+    {
+      "id": "maya_marimba",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Spruce top, oil varnish, modern bass setup, rosin and pernambuco stick are plausible bass-construction alternatives in a contemporary marimba ensemble.",
+      "whole_output_issue": "The retained double-bass configuration selects both bowed legato and bass pizzicato. Those can alternate musically, but the current default does not explain the relationship. Renaissance string terminology in the recipe is a material/model association, not evidence of Maya Renaissance repertoire; no such repertoire claim is approved.",
+      "report_sha256": "02c8030810530079d5140f3dfa555fb8df6590170c4c30e8b5ff5d199ac2c3e6",
+      "reviewer": "review461"
+    },
+    {
+      "id": "methodist_hymnody",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Emitted Sardinian cantu a tenore oche/mesu/contra/bassu replaces Kakhetian three-voice drone. Unchanged Methodist hymnody source does not support either regional configuration; accepting new output would ratify an unresolved literal mismatch.",
+      "reviewer": "research119",
+      "whole_output_issue": "Precise data cause identified. Original-record repair proposal tested but unapplied; subset containment does not certify legacy baseline."
+    },
+    {
+      "id": "minimalist",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "European beech/maple laminated piano rim is compatible with a composed repetitive piano rendition. It changes construction/timbre, not process structure or instrument count.",
+      "whole_output_issue": null,
+      "report_sha256": "ad78135d9ca92110af0b2667380b85523657c4d1bf797d6f2c45cec2728c7876",
+      "reviewer": "review461"
+    },
+    {
+      "id": "modal_jazz",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "Muted B-flat trumpet, darker sax alloy, brushes, recital-scale piano and A441 are musically coherent for spacious modal small-combo jazz. Replacement piano materials alter timbre without requiring a different repertoire. Removed unrelated regional neighbor labels improve the current text.",
+      "whole_output_issue": null,
+      "report_sha256": "99cc82a851b45d240379354a5a7173ba1aadd257b575ba0510c28c0931517403",
+      "reviewer": "review461"
+    },
+    {
+      "id": "mormon_tabernacle_choir",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Four-part polyphony better matches the stated mixed SATB choir than an obligatory antiphonal double choir.",
+      "whole_output_issue": "The retained choir regional configuration still explicitly asserts Kakhetian three-voice/two-soloist drone while the new setting is four-voice polyphony; the voice separately carries Chinese/Carnatic/maqam systems and the organ is quarter-comma meantone under global twelve-TET. These are substantive pre-existing problems, not repaired by a single choir part.",
+      "report_sha256": "7c61e85714df45991207290de18296a3193f0d0c6680a5455fe6f1882234785b",
+      "reviewer": "review461"
+    },
+    {
+      "id": "new_orleans",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Walnut banjo neck and grenadilla clarinet are reasonable physical timbre alternatives; neither changes the ensemble or requires a different playing tradition.",
+      "whole_output_issue": "The retained banjo combines clawhammer/open-back choices with a Scruggs/bluegrass setup, and the literal recipe expressly emits bluegrass setup and picks. That is not established by the New Orleans ensemble source. This issue predates the two material changes.",
+      "report_sha256": "2dd34a0c1432359255cf39b444f2509104d9ffe8f84f9b4db1e9245e61297bc5",
+      "reviewer": "review461"
+    },
+    {
+      "id": "new_wave",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Ampeg bass amplification, a sine oscillator and a slow synth-pad envelope are reasonable new-wave timbres. A pad-shaped sound can carry a melodic line; it is not inherently incompatible with the electronic lead role.",
+      "whole_output_issue": "The unchanged voice specifies Connemara ornaments and pelog pitch organization without a source bridge. The natural/new-wave source cannot independently qualify those specific systems.",
+      "report_sha256": "d0cf7099daf1c605e291d123371cf3b995d2fa4043f01585ab96fc13ca78bfda",
+      "reviewer": "review461"
+    },
+    {
+      "id": "noise_rock",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Heavier guitar strings, Alnico-5 lower-wind pickup, stoptail and fretless bass are usable experimental noise-rock choices; amplifier/pedal feedback remains present. A low-output pickup can still produce noise through the retained amplification.",
+      "whole_output_issue": "The existing voice has specific dhrupad/slendro and 31-TET selections without a source bridge. Experimental dissonance does not establish those particular musical systems.",
+      "report_sha256": "0864f11ca6c715a125ea61b91f5643b9107c502512265c2070fa17cdaf62f628",
+      "reviewer": "review461"
+    },
+    {
+      "id": "nwobhm",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Alder and fretted bass strengthen a conventional articulated heavy-metal bass realization. Neither is an unsupported genre transfer.",
+      "whole_output_issue": "The unchanged voice has Connemara ornaments, quarter-comma meantone and vocoder processing not justified as representative NWOBHM here. The positive bass delta does not validate the whole vocal configuration.",
+      "report_sha256": "b9ac6684271df5ff8d35e5e3872d3e5d4ddcb5fb0ec9ae5b7145cdc71435a0f8",
+      "reviewer": "review461"
+    },
+    {
+      "id": "pop_punk",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Rosewood, stoptail and medium strings fit pop-punk. Replacing a talkbox with an eight-band vocoder still fails to recover the natural melodic punk lead; one unsupported processor cannot validate another.",
+      "whole_output_issue": "The output diff mainly changes a neighboring punk label, leaving the new voice mechanism inaudible in the text.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "post_metal",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "A cranked Marshall-style bass amp is credible for the source heavy amplified sections, even though an Ampeg is another valid option. No bass role or string configuration is removed.",
+      "whole_output_issue": "The unchanged voice selects dhrupad and pelog/31-TET systems without a source bridge. Keep that pre-existing qualification failure separate from the acceptable amp choice.",
+      "report_sha256": "5bfd685b50e198ca2c5bc0beb3818e12a3fc7fae804a563c645e80482b7380c8",
+      "reviewer": "review461"
+    },
+    {
+      "id": "post_rock_extended",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Stoptail guitar and Ampeg bass amplification suit the amplified post-rock ensemble. Pizzicato is possible in a passage, but its relation to the retained arco default is unresolved.",
+      "whole_output_issue": "The violin newly has bowed_pizzicato while orch_articulation remains arco_orch. A sectional alternation is possible but unstated. Do not refresh the complete fixture as if this control ambiguity were resolved.",
+      "report_sha256": "dd71bb203e4c51a36f6f8827d34513cc59789db08b19ea491f329bef0d0a5f0e",
+      "reviewer": "review461"
+    },
+    {
+      "id": "progressive_trance",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "The original Roland 909 identity is a suitable representative rhythm machine. The new field-recording workflow is a specific source-material choice, not merely another generic sampler sound.",
+      "whole_output_issue": "The profile supports sampled loops and atmospheric electronic textures but does not establish field-source sampling as the intended replacement for microsampling. The current sampler also combines an ASR-10 archetype with a 24-bit setting; do not treat this review as confirmation of literal historical ASR-10 hardware specifications. Dungeon-synth adjacency alone does not supply the missing workflow rationale.",
+      "report_sha256": "71ada2180aced5d8e842f1c5df3f8805f80d5ae6d676ac14f7ce1f400296bd63",
+      "reviewer": "review461"
+    },
+    {
+      "id": "reggae_fusion_modern",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "No instrument slot changed. Replacing one international rap neighbor with another does not change the reggae/hip-hop ensemble mechanism. Neither neighbor should be read as a documented national origin of this fixture.",
+      "whole_output_issue": "The unchanged voice contains Connemara ornamentation and a specific meantone/maqam combination not justified by the reggae-fusion profile. This blocks unconditional full-result qualification despite the limited textual delta.",
+      "report_sha256": "ce4839f8cded73f45cc03932803606ca1ab892cec46f289b0273372a808d8417",
+      "reviewer": "review461"
+    },
+    {
+      "id": "russian_folk_balalaika_choir",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Declamatory projection is appropriate to the folk choir, but Mediterranean demotic training and Pythagorean organization are not justified by the codified Russian balalaika/domra/bayan profile. Replacing Scottish training does not establish the new tradition.",
+      "whole_output_issue": "The emitted Orthodox blend also conflates the explicitly secular folk ensemble with a neighboring church tradition.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "russian_kolybelnaya",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Russian bayu-bayu lullaby practice does not establish Scottish training, Dhrupad ornament, Thai seven-equal tuning or an AI choir.",
+      "whole_output_issue": "Soft output words conceal these changes. The old Chinese/Carnatic settings were also problematic and must not be treated as approved semantics.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "salsa_nuyorican",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Unison doubling, modern claves and welded cencerro can fit salsa. The newly selected Yamaha CFX must be reconciled with the simultaneous Steinway-specific diaphragmatic board and other mixed grand-construction controls; brand-specific physical identity is not a generic tone adjective.",
+      "whole_output_issue": "The output literally exposes the mixed grand construction. Existing hand-slap timbales/hocket issues are separate, not caused by the approved percussion-material alternatives.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "samba_jazz",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Several changes are reasonable: recital grand materials, vintage coated heads, B-flat trumpet, straight mute, darker sax alloy and a breathier flute. Block-chord accompaniment can serve a head arrangement, but should not be mistaken for evidence that the jazz improvisation requirement disappeared.",
+      "whole_output_issue": "The new A432 piano reference is not supported by this acoustic horn-combo profile or an explicit corresponding ensemble-retuning choice. It is a meaningful pitch-reference change, not benign wording. The simultaneous shift away from bebop articulation across the front line needs a stated arrangement rationale; material alternatives alone do not qualify the complete new rendition.",
+      "report_sha256": "e3ea6ca1c0a9acbb468d5883ede8ec5e2bd57e63cec715b918cf32d5758de642",
+      "reviewer": "review461"
+    },
+    {
+      "id": "shidaiqu",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Jazz mute choices, pizzicato and rosin can fit Shanghai popular orchestration. A pitched sample-bed replaces the historical vocal lead; modern CFX casting and simultaneous baroque string setups need reconciliation with the 1927\u201349 band. Punchy trumpet technique also conflicts with continuous-legato articulation.",
+      "whole_output_issue": "The source\u2019s acoustic Chinese/jazz synthesis does not authorize those processing/period contradictions; some were already latent before the update.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "singer_songwriter",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Wide expressive vibrato, walnut guitar and a brass-reed Richter Marine Band are plausible songwriter choices. A fixed third-degree glide needs support rather than replacing one arbitrary pitch system; the new B\u00f6sendorfer identity also conflicts with explicitly Steinway rim construction.",
+      "whole_output_issue": "The actual grand description exposes that mixed physical configuration. Existing hocket texture already conflicts with intimate solo storytelling.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "ska_revival_2tone",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Guitar tuning/gauge and a terminal vibrato can vary within punk-influenced ska. Vedic three-tone organization and Melodyne replace the period ska voice with unrelated pitch practice and later processing.",
+      "whole_output_issue": "The summary conceals both material vocal changes, despite apparently ordinary ska/rock wording.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "slacker_rock",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Removing Irish ornament, reducing vibrato, AM-band color and Drop-D/korina can fit rough indie recording. Recasting the lead as a pitched vocal-sample bed is not supported by deadpan songwriter delivery.",
+      "whole_output_issue": "The output\u2019s equal-tempered improvement is real, but existing Kevlar/hocket issues and the hidden sample-role change prevent whole acceptance.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "sludge_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Four-plus woven vocal counterpoint materially replaces a gang/lead arrangement in a hardcore-shouted sludge profile. A prescribed microtonal third glide is also unsupported.",
+      "whole_output_issue": "The prompt hides this full-choir reconfiguration; retaining heavy guitars does not preserve the vocal architecture.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "somali_qaraami",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Switching a pitched vocal bed to chopped vocal rhythm still substitutes sample construction for the source\u2019s poetic melismatic Somali art-song lead.",
+      "whole_output_issue": "The new sampler setting is hidden; unchanged oud/qanun texture and expanded darbuka description do not establish appropriate vocal practice.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "soul_jazz",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": true,
+      "rationale": "Korina guitar body, Alnico-5 medium-wind pickups and nickel-silver saxophone are ordinary timbral choices for the amplified R&B/gospel-influenced jazz group. Pickup high-gain capacity does not by itself claim that the clean/funk guitar is distorted.",
+      "whole_output_issue": null,
+      "report_sha256": "b13c7b2529776c7f7262e96b37f5f92a57c0cfe0dbb42837bf0a14277dc0307d",
+      "reviewer": "review461"
+    },
+    {
+      "id": "speed_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Orange amplification and MM pickup are viable fast-metal choices. Eight-band vocoding replaces the defining melodic vocal line without support.",
+      "whole_output_issue": "The visible amplifier change is compatible; hidden voice processing and inherited brushes are not thereby approved.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "stoner_metal",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Fretless bass and a clear kit head can be authored heavy-rock variants. Quarter-comma meantone is unsupported for this conventional downtuned blues/pentatonic metal realization; replacing pelog with another unrelated pitch system does not cure it.",
+      "whole_output_issue": "The new temperament is hidden in the abbreviated result. The baseline pelog was already unsuitable.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "stoner_rock",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Split-coil/fretless bass can be considered for a heavy jam arrangement. Chinese classical training and pelog do not follow from Sabbath/Hendrix-derived California stoner rock.",
+      "whole_output_issue": "The current output hides those settings; removing a Venezuelan neighbor does not make the configuration culturally accurate.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "string_quartet",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Pizzicato is a legitimate quartet gesture, but converting all three family cards to it materially changes the representative articulation.",
+      "whole_output_issue": "The violin retains arco_orch alongside newly selected bowed_pizzicato. The source supports quartet repertoire generally, not an unexplained universal plucked rendition. Hold this articulation change pending a coherent intended interpretation; it is not a mere wood substitution.",
+      "report_sha256": "113afe9fda16cbafbbf7c40ea29a7f9255d1651e01d3c8c44d95f5df13949375",
+      "reviewer": "review461"
+    },
+    {
+      "id": "symphonic",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Four-octave orchestral xylophone, Yamaha oboe, Miraphone tuba and soloistic tuba context are plausible orchestral resources. Film-oriented English-horn color is transferable to symphonic writing and does not by itself claim a film soundtrack.",
+      "whole_output_issue": "The existing violin has both pizzicato and arco defaults without an explicit sectional distinction. This did not arise from these five substitutions. Recipe compression also does not expose every configured instrument; inspect the config rather than infer a dropped role from the short string.",
+      "report_sha256": "66df60890535c6ba96aaf4a8673624de467346700cb2bd10d4e9842aa38a5e1a",
+      "reviewer": "review461"
+    },
+    {
+      "id": "tarantella_napoletana",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Campanian tammorra is an improvement over the Salentine drum for this Naples source; guitar materials/transposition and terminal vibrato can vary. Quarter-comma vocal tuning alongside the fixed guitar/mandolin setup lacks reconciliation.",
+      "whole_output_issue": "Campanian drum wording is defensible, but the output still blends Brazilian/Catalan dances and does not expose the new tuning conflict.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "tin_pan_alley_song",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Sob coloration and classical piano touch can fit a romantic song rendition. Connemara free-rhythm ornament is not justified by Tin Pan Alley\u2019s functional popular-song practice.",
+      "whole_output_issue": "The actual result retains a Sardinian choir identity, independently preventing whole-output acceptance; this was not newly created by the piano touch change.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "traditional_doom",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Split-coil/fretless bass can be an authored variant but does not explain Japanese min\u2019y\u014d training or Sub-Saharan yodel/griot ornament in melodic English heavy-blues doom.",
+      "whole_output_issue": "The text suppresses the imported cultural controls; neighboring metal labels do not supply that missing rationale.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "tropicalia",
+      "changed_settings_compatible": true,
+      "whole_output_qualified": false,
+      "rationale": "Removing Andean ornament and changing opera quality to speech better fits the pop-song core. Drop-D, fretless bass, heavier sticks and gated synthesizer are defensible authored variations within the explicitly experimental psychedelic collage. Fretless is not required, but the source does not forbid it.",
+      "whole_output_issue": "French post-rock and the hocket-like interlocked vocal texture remain; qualification concerns changed settings, not a claim those blended descriptors are canonical Tropic\u00e1lia.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "yacht_rock",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "Modern commercial training, muffled kit and pickup choices can fit yacht rock. False-fold distortion, quarter-comma temperament and split-tone overblowing conflict with the defined smooth/clear polished voice and lyrical harmonic texture; arena wash also needs a deliberate arrangement rationale.",
+      "whole_output_issue": "The new JCM800 stack saturation and hair-metal blend move the literal result toward a harder style. They cannot be approved just because some era-compatible hardware is possible.",
+      "reviewer": "research116"
+    },
+    {
+      "id": "zouglou_ivorian",
+      "changed_settings_compatible": false,
+      "whole_output_qualified": false,
+      "rationale": "A bass-string change and breath pulse can vary. Replacing sung call-and-response with explicitly rap voice is not justified merely by political/Nouchi text; the source distinguishes a participatory song practice.",
+      "whole_output_issue": "Rap is newly literal in the output, so this is a delivery regression rather than just a hidden preset choice.",
+      "reviewer": "research116"
+    }
+  ]
+}

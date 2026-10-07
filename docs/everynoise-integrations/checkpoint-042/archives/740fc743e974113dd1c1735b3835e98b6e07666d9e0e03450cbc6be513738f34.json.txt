@@ -1,0 +1,46 @@
+{
+  "status": "PASS_SOURCE_AND_GLOBAL_MUSICAL_CONFIG_QUALIFICATION_PENDING_COMBINED_BUILD",
+  "proposal": "/workspace/genre-continuation/repairs-combined394-453cd119/qualified302-proposal.json",
+  "proposal_sha256": "48fa5b77a89654e17fedd690b1e2bb3eb11cb0f3c14900c3b33c0000dc2c0098",
+  "baseline_commit": "453cd0f1d03f7a4a025207d635d2778cf6496912",
+  "merged_equivalent": "7ed80fbcc14597af3cdefff1e683ed4a30ffd7c1",
+  "original_proposals": 394,
+  "retained": 302,
+  "whole_proposals_held": 92,
+  "old_fixture_holds": 49,
+  "additional_actual_api_holds": 43,
+  "static_api_coverage": {
+    "all_ids": 6725,
+    "affected_replayed": 978,
+    "unchanged_by_graph_and_full_readsets": 5747,
+    "musical_differences": 0,
+    "expected": "Baseline453 except118 retained explicit source corrections independently mapped to reviewed345 configurations.",
+    "same_config_recipe_changes_pending_text_review": 20
+  },
+  "fixture_coverage": {
+    "definitions": 1174,
+    "unique_ids": 1149,
+    "affected_replayed": 62,
+    "unaffected_full_graph_readsets": 1112,
+    "config_differences": 0,
+    "output_differences": 0
+  },
+  "safety_limits": [
+    "302 subset has not undergone an original full API build; proposed combined302+21 checkpoint requires combined qualification and original build/regression.",
+    "Inclusion-maximal in345 for77static criteria; not a global maximum across394. Original49 remain preserved and may warrant later addback investigation.",
+    "Existing inherited musical defects in retained partial public-data repairs are not claimed resolved.",
+    "20same-config text differences require final semantic signoff."
+  ],
+  "source_and_engine_mutations_during_qualification": false,
+  "evidence": [
+    "api-refinement-result.json",
+    "api-all302-graph.json",
+    "api-qualified302-global-spec.json",
+    "api-qualified302-global-replay.json",
+    "fixture302-coverage.json",
+    "fixture302-configs.json",
+    "source-owning-audit345.json",
+    "root-direct143-intent-mapping.json",
+    "root-direct143-environment-review.json"
+  ]
+}

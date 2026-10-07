@@ -1,0 +1,21 @@
+{
+  "status": "PASS_ROOT_DATA_REVIEW",
+  "packet": "/workspace/genre-continuation/repairs-20261003/sourceaudit/repairs-071.json",
+  "packet_sha256": "411e3309bb99f2a6ad2f438bf2226b149b4d3b39c15e74cd54a4f03427afde2a",
+  "ids": [
+    "glass",
+    "granada_indie",
+    "greek_indie",
+    "guadalajara_indie",
+    "guitarra_andina",
+    "gyerekdalok",
+    "hipco",
+    "humour_francais"
+  ],
+  "checked_at": "2026-10-04T02:49:57.286532+00:00",
+  "checks": [
+    "Glass friction and Andean plucked construction coherent. Greek electronic roles remain distinct, Guadalajara turntable scratching source-positive. Gyerekdalok sung group/piano and Hipco rap/sample cores restore broader genre practice. Public fields of all eight read.",
+    "Root individually inspected all four literal formats or exact previously reviewed bodies; fresh original browser/connector parity and ceiling pass. Owning controls zero new gaps/orphans, zero inherited gaps. Original2638 guarded by apply.",
+    "Continued review branch after frozen2354 build: not included in snapshot under current artifact regeneration. Final integrated regression/build/CI pending."
+  ]
+}

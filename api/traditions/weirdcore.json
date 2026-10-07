@@ -5,7 +5,7 @@
   "lineage": "Internet-native aesthetic-driven electronic style spreading through Tumblr, YouTube and TikTok from roughly 2020, soundtracking liminal-space and dreamcore imagery — slow 70-100 BPM loops built from degraded 1990s sample libraries and MIDI presets, pitch-warped and wow-flutter-detuned pads, sparse reverbed drum-machine hits and buried, unintelligible vocal fragments",
   "recipe": "classic mid-1990s weirdcore, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric vaporwave chillwave. thick, breath veiled tone, slow rate, interlocked note trading. field textural sampler, tape replay keyboard, analog poly glitched textural granular synth, TR-909. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 422,
-  "score": 197.226,
+  "score": 197.737,
   "config": {
     "traditions": [
       "weirdcore",
@@ -26,20 +26,20 @@
           "electronic_technique": 12.94,
           "sampler_archetypes": 1.9825,
           "sampler_bit_depth": 1.7224999999999997,
-          "sampler_workflow": 13.768214285714283,
+          "sampler_workflow": 13.933214285714284,
           "sampler_classic_context": 21.514999999999997
         }
       },
       {
         "id": "tape_replay_keyboard",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "tape_voice": "brass_tape",
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 1.95,
-          "tape_voice": 0.32999999999999996,
+          "keyboard_technique": 1.9995,
+          "tape_voice": 0.3795,
           "tape_state": 0.195
         }
       },
@@ -99,12 +99,12 @@
           "voice_vibrato": 2.21,
           "voice_articulation": 16.574999999999992,
           "voice_microtone": 16.37999999999999,
-          "voice_tradition": 16.181785714285713,
+          "voice_tradition": 16.099285714285713,
           "voice_mechanism_compound": 1.8199999999999998,
           "voice_estill_quality": 1.6249999999999998,
           "voice_speech_song": 19.499999999999993,
           "voice_ensemble_config": 17.744999999999994,
-          "voice_ornament_system": 0.195,
+          "voice_ornament_system": 0.36,
           "voice_pitch_organization": 3.1107142857142867,
           "voice_processing_chain": 11.45,
           "voice_multitrack_stack": 4.7125
@@ -115,12 +115,12 @@
         "slots": {
           "tr909_voice": "tr909_hat",
           "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_behringer_rd_9"
+          "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
           "tr909_voice": 0,
           "drum_machine_909_context": 2.6650000000000005,
-          "tr909_production_origin": 0.15
+          "tr909_production_origin": 0.315
         }
       }
     ],

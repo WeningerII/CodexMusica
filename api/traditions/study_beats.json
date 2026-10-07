@@ -1,0 +1,63 @@
+{
+  "id": "study_beats",
+  "name": "Study Beats",
+  "family": "electronic",
+  "lineage": "Study beats developed within online instrumental hip-hop listening, where beatmakers, labels and streaming channels connect relaxed grooves with studying and everyday concentration. Chillhop and its collaborators helped circulate this listening culture through curated streams, compilations and producer exchanges.",
+  "recipe": "classic study beats, experimental Elec. software sample playback, credited programmed drums unspecified. treated studio.",
+  "recipe_chars": 120,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "study_beats"
+    ],
+    "instruments": [
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0
+        }
+      },
+      {
+        "id": "credited_programmed_drums_unspecified",
+        "slots": {
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        },
+        "scores": {
+          "credited_programmed_drums_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ],
+      "credited_programmed_drums_unspecified": [
+        "credited_programmed_drums_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+    },
+    "pin_parts": true
+  }
+}

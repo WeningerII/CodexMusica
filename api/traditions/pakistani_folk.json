@@ -5,7 +5,7 @@
   "lineage": "Pakistani folk: Folk Dance (Region of Sind) — Folk Music of Pakistan, FW04425_105 (1951 release). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic early-1950s pakistani folk, drone Modal, wind pipe branch. maihar gharana canonical 20th century melodic bansuri, dark folk clay tabla, algoza. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 250,
-  "score": 28.996,
+  "score": 28.636,
   "config": {
     "traditions": [
       "pakistani_folk"
@@ -21,7 +21,7 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 10.055,
+          "wind_articulation": 10.109,
           "bansuri_length": 10.105,
           "bansuri_ornament": 0,
           "bansuri_body_material": 0,
@@ -37,8 +37,8 @@
         },
         "scores": {
           "tabla_dayan": 0.39,
-          "tabla_bayan": 5.008,
-          "tabla_syahi": 0.6974999999999999
+          "tabla_bayan": 4.882,
+          "tabla_syahi": 0.4095
         }
       },
       {

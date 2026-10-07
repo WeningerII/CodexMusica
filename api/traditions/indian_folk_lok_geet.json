@@ -5,7 +5,7 @@
   "lineage": "Umbrella category of India's non-classical regional song traditions — Bhojpuri kajri and chaiti, Garhwali and Kumaoni jhoda, Gujarati garba, Chhattisgarhi pandavani, Malwi and Haryanvi ragini — surveyed institutionally from the 1950s by All India Radio's folk units and the Sangeet Natak Akademi; typically a solo or call-and-response voice over dholak or nagara in keherwa and dadra, with harmonium and manjira added in broadcast and cassette contexts, melodies in narrow pentatonic or raga-derived bands and text carrying seasonal, ritual or agricultural function.",
   "recipe": "classic mid-1950s indian folk, field Work, south Asian branch, south Asian domestic rhythm, south Asian wedding, south Asian nursery rhyme bhojpuri lok geet himalayan folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium nagara indian, small steady tala keeping manjira, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gourd bamboo canonical bengali ornamented ektara, hearth tongs chimta. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 581,
-  "score": 278.202,
+  "score": 277.788,
   "config": {
     "traditions": [
       "indian_folk_lok_geet",
@@ -38,10 +38,10 @@
           "voice_quality": 9.165,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.770625,
+          "voice_vibrato": 5.815625,
           "voice_articulation": 24.179999999999996,
           "voice_microtone": 23.984999999999992,
-          "voice_tradition": 29.083625,
+          "voice_tradition": 28.863125000000004,
           "voice_mechanism_compound": 4.68,
           "voice_estill_quality": 4.745,
           "voice_speech_song": 28.925,
@@ -79,7 +79,7 @@
           "free_reed_technique": 6.669999999999999,
           "harmonium_action": 1.4299999999999997,
           "harmonium_voicing": 2.08,
-          "harmonium_use": 2.9677499999999997
+          "harmonium_use": 2.930625
         }
       },
       {
@@ -90,7 +90,7 @@
           "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 1.105,
+          "manjira_form": 1.06375,
           "manjira_stroke": 1.0956249999999998,
           "manjira_metal": 0.12999999999999998
         }
@@ -99,13 +99,13 @@
         "id": "nagara_indian",
         "slots": {
           "nagara_indian_size": "nagara_indian_folk",
-          "nagara_indian_shell": "nagara_indian_metal",
+          "nagara_indian_shell": "nagara_indian_clay",
           "nagara_indian_context": "nagara_indian_shehnai"
         },
         "scores": {
           "nagara_indian_size": 0.195,
-          "nagara_indian_shell": 0.03712499999999999,
-          "nagara_indian_context": 0.386625
+          "nagara_indian_shell": 0,
+          "nagara_indian_context": 0.3
         }
       },
       {
@@ -120,7 +120,7 @@
         "scores": {
           "wind_articulation": 6.719999999999999,
           "bansuri_length": 6.589999999999999,
-          "bansuri_ornament": 4.237124999999999,
+          "bansuri_ornament": 4.199999999999999,
           "bansuri_body_material": 10.660000000000002,
           "bansuri_lineage": 1.95
         }

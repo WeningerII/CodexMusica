@@ -2,10 +2,10 @@
   "id": "polish_contemporary_classical",
   "name": "Polish contemporary classical",
   "family": "classical",
-  "lineage": "Polish contemporary classical is represented by Royal String Quartet — Szymański: Four pieces for string quartet. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+  "lineage": "Polish contemporary classical music develops through new composition and performance across acoustic, vocal and electronic settings. Composers explore varied relationships between musical inheritance, structure and sound.",
   "recipe": "classic polish contemporary classical, art Music, western modern branch. sustained legato string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 209,
-  "score": 8.34,
+  "score": 9.457,
   "config": {
     "traditions": [
       "polish_contemporary_classical"
@@ -19,9 +19,9 @@
           "string_quartet_inst_era": "string_quartet_inst_contemporary"
         },
         "scores": {
-          "bowed_technique": 7.605,
-          "quartet_school": 0.315,
-          "string_quartet_inst_era": 0.42000000000000004
+          "bowed_technique": 8.00175,
+          "quartet_school": 0.495,
+          "string_quartet_inst_era": 0.9600000000000001
         }
       }
     ],

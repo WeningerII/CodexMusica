@@ -3,9 +3,9 @@
   "name": "Korean indie folk",
   "family": "vernacular",
   "lineage": "Korean independent folk includes small song-led ensembles and solo performers in the Hongdae scene. Kim Sawol and Kim Haewon supply a documented guitar-and-vocal branch.",
-  "recipe": "classic modern korean indie folk, ballad Poetry. thick, breath veiled tone, neutral third half flat, notated speech melody. acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 278,
-  "score": 28.063,
+  "recipe": "classic modern korean indie folk, ballad Poetry. thick, breath veiled tone, neutral third half flat, m1 with m0 pulse borrowing. acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 283,
+  "score": 28.348,
   "config": {
     "traditions": [
       "korean_indie_folk"
@@ -36,12 +36,12 @@
           "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.36,
+          "voice_vibrato": 0.414,
           "voice_articulation": 0,
           "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.453,
-          "voice_estill_quality": 0,
+          "voice_mechanism_compound": 0.5609999999999999,
+          "voice_estill_quality": 0.054,
           "voice_speech_song": 6.5649999999999995,
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 5.999999999999999,
@@ -62,9 +62,9 @@
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.054,
-          "back_sides": 0,
+          "back_sides": 0.054,
           "string_acoustic": 0.1365,
-          "acoustic_om_technique": -0.05
+          "acoustic_om_technique": -0.035
         }
       }
     ],

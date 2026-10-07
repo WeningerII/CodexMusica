@@ -2,10 +2,10 @@
   "id": "albany_ny_indie",
   "name": "Albany NY indie",
   "family": "vernacular",
-  "lineage": "Scotchka — Afraid To Fall Asleep. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic albany ny indie, distorted Rock, alternative branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 318,
-  "score": 21.469,
+  "lineage": "Albany’s independent rock scene includes bands working across indie rock, emo, punk and related styles. Groups such as Scotchka connect guitar-led songwriting with the city’s recording and live-music community.",
+  "recipe": "classic albany ny indie, distorted Rock, alternative branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 329,
+  "score": 32.393,
   "config": {
     "traditions": [
       "albany_ny_indie"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.503,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
@@ -70,7 +70,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.868,
           "amp_make": 0,
           "body_wood": 0.441,
           "neck_wood": 0.441,
@@ -80,7 +80,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.8820000000000001,
-          "string_gauge": 1.69,
+          "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
         }
@@ -124,16 +124,16 @@
           "cymbal_finish": "hand_hammered"
         },
         "scores": {
-          "drum_technique": 4.5,
+          "drum_technique": 8.75,
           "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": 1.3339999999999999,
-          "cymbal_hammering": 4.431500000000001,
-          "cymbal_lathing": 4.5365,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 8.681499999999998,
+          "cymbal_lathing": 8.786499999999998,
           "cymbal_finish": 0.27299999999999996
         }
       }

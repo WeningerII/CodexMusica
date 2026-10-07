@@ -2,10 +2,10 @@
   "id": "australian_blues",
   "name": "Australian blues",
   "family": "vernacular",
-  "lineage": "Australian blues is represented by Fiona Boyes — At the Crossroads / Love Changing Blues (Professin’ the Blues). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-  "recipe": "classic australian blues, functional Song, blues acoustic branch. unprocessed natural acoustic, single lead single track no stacking. low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 313,
-  "score": 6.704,
+  "lineage": "Australian blues develops through local performers and touring communities interpreting acoustic and amplified blues traditions. Songwriting and instrumental personality connect the field with wider blues practice.",
+  "recipe": "classic australian blues, functional Song, blues acoustic branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 299,
+  "score": 8.585,
   "config": {
     "traditions": [
       "australian_blues"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.34,
+          "voice_processing_chain": 3.6399999999999997,
           "voice_multitrack_stack": 0.693,
           "voice_tessitura": 0
         }
@@ -56,17 +56,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": -0.175,
-          "string_tuning": 1.305,
+          "acoustic_technique": 0.06500000000000002,
+          "string_tuning": 0,
           "top_wood": 0.3045,
           "back_sides": 0.273,
-          "string_acoustic": 1.573
+          "string_acoustic": 0.6194999999999999
         }
       }
     ],

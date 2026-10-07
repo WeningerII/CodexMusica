@@ -1,0 +1,120 @@
+{
+  "id": "canadian_celtic",
+  "name": "Canadian Celtic",
+  "family": "vernacular",
+  "lineage": "Canadian Celtic music connects Irish and Scottish inheritances with regional Canadian fiddle, song and dance traditions. Festivals and touring ensembles link Atlantic, Quebec, prairie and western communities while sustaining distinctive local styles.",
+  "recipe": "classic canadian celtic, improv On Frame, Celtic traditional branch. fiddle, dreadnought acoustic guitar, upright piano. hardwood living.",
+  "recipe_chars": 137,
+  "score": 12.643,
+  "config": {
+    "traditions": [
+      "canadian_celtic"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 9.0315,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.105,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 1.51,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood": 0.847,
+          "back_sides": 0.9099999999999999,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "upright_use": 0.3045,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "hardwood_living",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "hardwood_living",
+    "parts": {
+      "bowed_technique": "bowed_celtic_session",
+      "fiddle_strings": "steel_core",
+      "fiddle_bow": "dark_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "eighty_twenty",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "acoustic_technique": "acoustic_strummed_ringing"
+    },
+    "pin_parts": true
+  }
+}

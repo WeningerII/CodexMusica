@@ -5,7 +5,7 @@
   "lineage": "Evangelical adaptation of Northeastern forró that spread through Brazilian Assembleia de Deus and neo-Pentecostal congregations from the 1990s onward, keeping the sanfona-zabumba-triângulo baião and xote rhythms and their tempos while replacing romantic and drinking lyrics with louvor texts, adding electric bass, kit and congregational chorus, and recording in church-affiliated studios for cassette and later digital distribution.",
   "recipe": "classic mid-1990s forró gospel, ritual Devotional, pentecostal branch, Brazilian song functional song, christian gospel ritual devotional, sub saharan African praise song contemporary christian music rock cristiano. thick, declaimed, straight onset, interlocked note trading. accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation pine single coil electric guitar. pentecostal storefront church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 936,
-  "score": 364.902,
+  "score": 363.976,
   "config": {
     "traditions": [
       "forro_gospel",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
@@ -47,7 +47,7 @@
           "voice_speech_song": 26,
           "voice_ensemble_config": 24.83,
           "voice_ornament_system": 13.775000000000002,
-          "voice_pitch_organization": 1.173,
+          "voice_pitch_organization": 0.9099999999999999,
           "voice_processing_chain": 5.85,
           "voice_multitrack_stack": 5.135000000000002
         }
@@ -64,7 +64,7 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 0.195,
+          "free_reed_technique": 0.19500000000000003,
           "accordion_reed_material": 0.65,
           "musette_offset": 1.8199999999999998,
           "reed_config": 0.845,
@@ -127,7 +127,7 @@
         },
         "scores": {
           "drum_technique": 22.425,
-          "drumhead": 7.858,
+          "drumhead": 7.195,
           "drum_kit_kick_pedal": 0
         }
       },

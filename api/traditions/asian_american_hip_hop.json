@@ -5,7 +5,7 @@
   "lineage": "Asian-American hip-hop communities; selected Dumbfoundead electronic-rap branch",
   "recipe": "classic modern asian-american hip hop, mc Rhythm, west coast branch. rap, retune speed 0ms hard correction robot effect, single lead single track no stacking. sampled chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 329,
-  "score": 38.865,
+  "score": 38.807,
   "config": {
     "traditions": [
       "asian_american_hip_hop"
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.3260000000000005,
+          "electronic_technique": 5.2945,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.39,
+          "sampler_bit_depth": 0.363,
           "sampler_workflow": -0.1,
           "sampler_classic_context": 7.6049999999999995
         }

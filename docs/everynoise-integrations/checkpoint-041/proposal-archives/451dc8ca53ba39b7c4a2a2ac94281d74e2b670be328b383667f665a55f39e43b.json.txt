@@ -1,0 +1,317 @@
+{
+  "entries": [
+    {
+      "source_label": "palestinian pop",
+      "source_url": "https://everynoise.com/engenremap-palestinianpop.html",
+      "suggested_id": "palestinian_pop",
+      "allocation_ordinal": 1823,
+      "allocation_group_id": "073",
+      "id": "palestinian_pop",
+      "status": "ready_independent_review",
+      "tradition": {
+        "id": "palestinian_pop",
+        "name": "Palestinian Pop",
+        "family": "pop",
+        "lineage": "47SOUL — complete NPR Tiny Desk concert published26August2019, all three songs Mo Light, Don’t Care Where You From and Jerusalem. Four named musicians and all six credited families: Walaa Sbeit voice/bass drum; Tareq Abu Kwaik voice/darbuka; Ramzy Suleiman voice/synthesizer/keyboard; Hamza Arnaout guitar. Three human singers retained in a live group without guessed interval relationships. Dance is performance context, not a missing musical instrument. Production crew are not added as performers. The whole published concert is represented, not an extracted section, original album or hypothetical DJ/master playback. No independent audio audition or source equipment identification claimed. Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance.",
+        "instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "bass_drum",
+          "darbuka",
+          "credited_synthesizer_unspecified",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified",
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_felt_pedal",
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty",
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "electronicDance",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "47SOUL — complete NPR Tiny Desk concert published26August2019, all three songs Mo Light, Don’t Care Where You From and Jerusalem. Four named musicians and all six credited families: Walaa Sbeit voice/bass drum; Tareq Abu Kwaik voice/darbuka; Ramzy Suleiman voice/synthesizer/keyboard; Hamza Arnaout guitar. Three human singers retained in a live group without guessed interval relationships. Dance is performance context, not a missing musical instrument. Production crew are not added as performers. The whole published concert is represented, not an extracted section, original album or hypothetical DJ/master playback. No independent audio audition or source equipment identification claimed. Palestinian Pop is the broad Palestinian popular-music discovery field, positively established by the exact creator corpus spanning Elyanna, Mohammad Assaf,47SOUL, DAM, Le Trio Joubran, Rim Banna and many other popular and heritage-linked artists. The creator directly places47SOUL in this field; NPR independently documents its Palestinian/Levantine collective and contemporary acoustic/electronic dance practice. Existing Palestinian Hip Hop covers the regional rap community, Palestinian Alternative the overlapping alternative discovery community, and Palestinian Traditional inherited and art repertoires; none is restricted to its selected exemplar. This broader popular field overlaps all three but its full creator corpus and popular-song circulation are not exhausted by a rap, alternative or traditional subset. Full Arab Pop emphasizes pan-Arab commercial song yet overlaps Palestinian popular artists; Jordanian Pop also overlaps this Amman-founded collective and does not make it exclusively Jordanian. Dabke describes the Levantine line-dance practice across countries, not the entirety of this Palestinian cross-style popular corpus. Shamstep is the selected complete programme’s positively named musical practice, not the sole definition or a newly invented distinction based on one concert. No geopolitical exclusivity or birthplace-only identity test is imposed. Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance.",
+        "exemplars": [
+          "47SOUL — complete2019 NPR Tiny Desk concert"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.908,
+        -77.022,
+        "Washington",
+        "North America"
+      ],
+      "geo_rationale": "Documented NPR Tiny Desk programme venue city; not origin of the Palestinian community or all source artists.",
+      "sources": [
+        {
+          "url": "https://www.krvs.org/npr-music/2019-08-26/47soul-tiny-desk-concert",
+          "support_notes": "Fresh12838view1 NPR author/full programme3songs,4people,3voices6families."
+        },
+        {
+          "url": "https://www.furia.com/everynoise_public/engenremap-palestinianpop.html",
+          "support_notes": "Fresh indexed12834search1/12841search0 exactcreator full roster names47SOUL and broad Palestine popular corpus. Raw saved palestinian-pop-creator-raw119.json. Direct timeout candid."
+        }
+      ],
+      "signature_tokens": [],
+      "neighbor_distinction": "Palestinian Pop is the broad Palestinian popular-music discovery field, positively established by the exact creator corpus spanning Elyanna, Mohammad Assaf,47SOUL, DAM, Le Trio Joubran, Rim Banna and many other popular and heritage-linked artists. The creator directly places47SOUL in this field; NPR independently documents its Palestinian/Levantine collective and contemporary acoustic/electronic dance practice. Existing Palestinian Hip Hop covers the regional rap community, Palestinian Alternative the overlapping alternative discovery community, and Palestinian Traditional inherited and art repertoires; none is restricted to its selected exemplar. This broader popular field overlaps all three but its full creator corpus and popular-song circulation are not exhausted by a rap, alternative or traditional subset. Full Arab Pop emphasizes pan-Arab commercial song yet overlaps Palestinian popular artists; Jordanian Pop also overlaps this Amman-founded collective and does not make it exclusively Jordanian. Dabke describes the Levantine line-dance practice across countries, not the entirety of this Palestinian cross-style popular corpus. Shamstep is the selected complete programme’s positively named musical practice, not the sole definition or a newly invented distinction based on one concert. No geopolitical exclusivity or birthplace-only identity test is imposed.",
+      "classification_evidence": {
+        "note": "Palestinian Pop is the broad Palestinian popular-music discovery field, positively established by the exact creator corpus spanning Elyanna, Mohammad Assaf,47SOUL, DAM, Le Trio Joubran, Rim Banna and many other popular and heritage-linked artists. The creator directly places47SOUL in this field; NPR independently documents its Palestinian/Levantine collective and contemporary acoustic/electronic dance practice. Existing Palestinian Hip Hop covers the regional rap community, Palestinian Alternative the overlapping alternative discovery community, and Palestinian Traditional inherited and art repertoires; none is restricted to its selected exemplar. This broader popular field overlaps all three but its full creator corpus and popular-song circulation are not exhausted by a rap, alternative or traditional subset. Full Arab Pop emphasizes pan-Arab commercial song yet overlaps Palestinian popular artists; Jordanian Pop also overlaps this Amman-founded collective and does not make it exclusively Jordanian. Dabke describes the Levantine line-dance practice across countries, not the entirety of this Palestinian cross-style popular corpus. Shamstep is the selected complete programme’s positively named musical practice, not the sole definition or a newly invented distinction based on one concert. No geopolitical exclusivity or birthplace-only identity test is imposed."
+      },
+      "model_policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance.",
+      "source_scope_limitation": "47SOUL — complete NPR Tiny Desk concert published26August2019, all three songs Mo Light, Don’t Care Where You From and Jerusalem. Four named musicians and all six credited families: Walaa Sbeit voice/bass drum; Tareq Abu Kwaik voice/darbuka; Ramzy Suleiman voice/synthesizer/keyboard; Hamza Arnaout guitar. Three human singers retained in a live group without guessed interval relationships. Dance is performance context, not a missing musical instrument. Production crew are not added as performers. The whole published concert is represented, not an extracted section, original album or hypothetical DJ/master playback. No independent audio audition or source equipment identification claimed.",
+      "source_retrieval_caveat": "Fresh full NPR syndicated primary12838view1 establishes entire set and credits. Exact creator12834search1/12841search0 full indexed response is retained unmodified; direct map12838view0 timed out. No false current direct-read or video audition claim.",
+      "instrument_role_audit": {
+        "scope": "47SOUL — complete NPR Tiny Desk concert published26August2019, all three songs Mo Light, Don’t Care Where You From and Jerusalem. Four named musicians and all six credited families: Walaa Sbeit voice/bass drum; Tareq Abu Kwaik voice/darbuka; Ramzy Suleiman voice/synthesizer/keyboard; Hamza Arnaout guitar. Three human singers retained in a live group without guessed interval relationships. Dance is performance context, not a missing musical instrument. Production crew are not added as performers. The whole published concert is represented, not an extracted section, original album or hypothetical DJ/master playback. No independent audio audition or source equipment identification claimed.",
+        "roles": {
+          "voice": "Walaa/Tareq/Ramzy",
+          "electric_guitar_single_coil": "Hamza guitar; authored clean electric realization",
+          "bass_drum": "Walaa bass drum; authored pedal construction",
+          "darbuka": "Tareq darbuka",
+          "credited_synthesizer_unspecified": "Ramzy synthesizer",
+          "electronic_keyboard_unspecified": "Ramzy keyboard"
+        },
+        "omitted_positive_roles": [],
+        "authored_defaults": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+      },
+      "vocal_count_audit": {
+        "singers": 3,
+        "other_people": 1,
+        "total_people": 4,
+        "voicing": "unknown",
+        "tracking": "Authored live group with no added overdub stack; source live concert."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder",
+            "neck_wood": "maple",
+            "fretboard": "rosewood_fb",
+            "pickup_magnet": "alnico_2",
+            "string_material": "pure_nickel",
+            "string_gauge": "g_10",
+            "bridge": "two_point_trem",
+            "scale_length": "scale_fender",
+            "finish": "nitro",
+            "string_tuning": "standard_tuning",
+            "single_coil_pickup_construction": "single_coil_construction_unspecified"
+          },
+          "policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+        },
+        {
+          "instrument": "bass_drum",
+          "parts": {
+            "bass_drum_size": "bass_drum_22_standard",
+            "bass_drum_beater": "bass_drum_felt_pedal"
+          },
+          "policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+        },
+        {
+          "instrument": "darbuka",
+          "parts": {
+            "percussion_technique": "percussion_open_slap",
+            "darbuka_material": "darbuka_aluminum_sombaty",
+            "darbuka_skin": "darbuka_synthetic_mylar",
+            "darbuka_regional_style": "darbuka_egyptian_sombaty"
+          },
+          "policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+        },
+        {
+          "instrument": "credited_synthesizer_unspecified",
+          "parts": {
+            "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+          },
+          "policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Authored present-day dance-band rendition preserves the full programme roles. Conventional clean-strummed alder/maple single-coil electric guitar with pure-nickel10s and unspecified amplifier realizes the credited source-unspecified guitar. A standard22-inch felt-pedal bass drum and contemporary aluminum/Mylar Egyptian Sombaty open/slap darbuka are explicit compatible authored physical/playing choices, not Walaa’s or Tareq’s measured instruments, playing lineage or exact original gesture. The generic synthesizer and electronic keyboard remain distinct source credits with unspecified architectures; neither is converted into a guessed sampler or analog model. Live vocal ensemble has unknown voicing, neutral physiological defaults and no editorial overdub stack. Brisk dance pacing is an authored representative treatment consistent with the presenter’s dance context, not a measured original BPM. Controlled live-room and clean digital chain are editorial, not NPR room/equipment claims. Global temperament omitted. Broad electronicDance follows NPR’s explicit electronic-dance Shamstep branch with live instruments; no assertion all Palestinian popular music is electronic dance."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_single_coil",
+          "bass_drum",
+          "darbuka",
+          "credited_synthesizer_unspecified",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_resolution": "All applicable owning controls explicitly pinned; no incompatible flat-key collision.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "palestinian_pop",
+          "name": "Palestinian Pop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not47SOUL, instruments or NPR venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn12862view0 confirms Iain Fergusson/Binksternet CC BY2.5; historical bytes and visual receipt unchanged.",
+          "fresh_review_ref": "turn12862view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12862view0"
+        ]
+      },
+      "verification_status": "Source-complete candidate pending independent peer and original literal render review."
+    }
+  ],
+  "instrument_dependencies": [],
+  "equivalences": [],
+  "blockers": []
+}

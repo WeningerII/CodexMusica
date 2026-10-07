@@ -1,0 +1,172 @@
+{
+  "id": "wind_quintet",
+  "name": "Wind quintet",
+  "family": "classical",
+  "lineage": "The standard woodwind quintet brings together flute, oboe, clarinet, horn and bassoon in a chamber ensemble. Composers explore the contrast and blend of these five instrumental colors.",
+  "recipe": "classic wind quintet, art Music. flute, oboe, grenadilla African blackwood traditional clarinet, projecting brass french horn, bassoon. shoebox concert hall.",
+  "recipe_chars": 157,
+  "score": 24.408,
+  "config": {
+    "traditions": [
+      "wind_quintet"
+    ],
+    "instruments": [
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_muramatsu"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "flute_size": 0,
+          "flute_material": 0.063,
+          "flute_technique": 0.3675,
+          "flute_maker_school": 0
+        }
+      },
+      {
+        "id": "oboe",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "oboe_reed": "oboe_american_scrape",
+          "oboe_class": "oboe_modern",
+          "oboe_body_wood": "oboe_grenadilla_canonical",
+          "oboe_maker_school": "oboe_loree_paris"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "oboe_reed": 0.1365,
+          "oboe_class": 0.0315,
+          "oboe_body_wood": -0.05,
+          "oboe_maker_school": 0.315
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "clarinet_body": 2.5365,
+          "clarinet_size": 0,
+          "clarinet_reed": 1.7315,
+          "clarinet_articulation": 0.3675
+        }
+      },
+      {
+        "id": "french_horn",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "french_horn_bore": "french_horn_full",
+          "french_horn_metal": "horn_yellow_brass"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "french_horn_bore": 1.0315,
+          "french_horn_metal": 1
+        }
+      },
+      {
+        "id": "bassoon",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "bassoon_school": "bassoon_heckel",
+          "bassoon_body_wood": "bassoon_maple_canonical",
+          "bassoon_reed": "bassoon_glotin_cane",
+          "bassoon_context": "bassoon_orch"
+        },
+        "scores": {
+          "wind_articulation": 2.8675,
+          "bassoon_school": 1.7,
+          "bassoon_body_wood": 0,
+          "bassoon_reed": 0,
+          "bassoon_context": 0.84
+        }
+      }
+    ],
+    "pinned": {
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "oboe": [
+        "wind_articulation",
+        "oboe_reed",
+        "oboe_class",
+        "oboe_body_wood",
+        "oboe_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "french_horn": [
+        "wind_articulation",
+        "french_horn_bore",
+        "french_horn_metal"
+      ],
+      "bassoon": [
+        "wind_articulation",
+        "bassoon_school",
+        "bassoon_body_wood",
+        "bassoon_reed",
+        "bassoon_context"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "wind_articulation": "wind_classical_legato",
+      "flute_size": "concert_flute",
+      "flute_material": "gold_flute",
+      "flute_technique": "classical_flute",
+      "flute_maker_school": "flute_muramatsu",
+      "oboe_reed": "oboe_american_scrape",
+      "oboe_class": "oboe_modern",
+      "oboe_body_wood": "oboe_grenadilla_canonical",
+      "oboe_maker_school": "oboe_loree_paris",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "french_horn_bore": "french_horn_full",
+      "french_horn_metal": "horn_yellow_brass",
+      "bassoon_school": "bassoon_heckel",
+      "bassoon_body_wood": "bassoon_maple_canonical",
+      "bassoon_reed": "bassoon_glotin_cane",
+      "bassoon_context": "bassoon_orch"
+    },
+    "pin_parts": true
+  }
+}

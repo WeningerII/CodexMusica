@@ -5,7 +5,7 @@
   "lineage": "Russian choir is represented by State Academic Russian Choir / Alexander Sveshnikov — Rachmaninov: Priidite, poklonimsia, 1965. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
   "recipe": "classic mid-1960s russian choir, ritual Devotional, Russian orthodox branch. no specific ornament system. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 204,
-  "score": 1.317,
+  "score": 1.375,
   "config": {
     "traditions": [
       "russian_choir"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3765,
+          "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.609,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3315
+          "voice_multitrack_stack": 0.3765
         }
       }
     ],

@@ -1,0 +1,344 @@
+{
+  "entries": [
+    {
+      "source_label": "gumbe",
+      "source_url": "https://everynoise.com/engenremap-gumbe.html",
+      "suggested_id": "gumbe",
+      "allocation_ordinal": 3389,
+      "allocation_group_id": "136",
+      "id": "gumbe",
+      "tradition": {
+        "id": "gumbe",
+        "name": "Gumbé",
+        "family": "global",
+        "lineage": "Bandé-Gamboa — complete eight-person performing lineup published in the official producer/press kit for Horizonte. Micas Cabral, Débora Paris and Iragrett Tavares alternate main vocals; Débora and Iragrett also alternate backing vocals (three distinct singers, not five). Juvenal Cabral music direction/bass; Ivan Gomes electric guitar; Cau Paris drums; Ernesto da Silva percussion; Calú Ferreira keyboard. All eight people and six sound families retained. Select this explicitly published ensemble practice, not a fabricated per-track reconstruction or the entire two-band recording union: the same producer's album account distinguishes Guinea-Bissau Gumbé and Cape Verde Funaná groups. Its full advertised band repertoire can cross both traditions; it is not asserted every piece or all twelve album tracks is pure Gumbé. Exact set date, duration, performed titles, gear and percussion subtype are unknown; no audition or complete album-credit claim. Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "credited_auxiliary_percussion",
+          "electronic_keyboard_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish",
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Bandé-Gamboa — complete eight-person performing lineup published in the official producer/press kit for Horizonte. Micas Cabral, Débora Paris and Iragrett Tavares alternate main vocals; Débora and Iragrett also alternate backing vocals (three distinct singers, not five). Juvenal Cabral music direction/bass; Ivan Gomes electric guitar; Cau Paris drums; Ernesto da Silva percussion; Calú Ferreira keyboard. All eight people and six sound families retained. Select this explicitly published ensemble practice, not a fabricated per-track reconstruction or the entire two-band recording union: the same producer's album account distinguishes Guinea-Bissau Gumbé and Cape Verde Funaná groups. Its full advertised band repertoire can cross both traditions; it is not asserted every piece or all twelve album tracks is pure Gumbé. Exact set date, duration, performed titles, gear and percussion subtype are unknown; no audition or complete album-credit claim. Producer Francisco Fininho Sousa's first-person account explicitly names modern Gumbé as a diverse Bissau musical field drawing several local traditions together, gives its history and separates it from Santiago/Cape Verde Funaná. His own project expressly reinterprets Gumbé with this advertised band; a complete documented performing practice is used, not nationality-only classification. Existing funana describes the Santiago gaita/ferrinho dance practice. The broader cape_verdean_funana_maritime record covers Cape Verde maritime/emigration traditions including morna, coladeira, funaná and batuque, with guitar, cavaquinho and accordion; it is not limited to the gaita/ferrinho duo. Both overlap this cross-border project, but neither makes the separately documented Guinea-Bissau Gumbé field an alias. Broad African popular music and Lusophone diaspora fields overlap. No single homogeneous rhythm or universal instrumentation is asserted; the producer explicitly stresses Gumbé's internal stylistic diversity. Exact creator map not necessary or claimed for this directly named primary practice. Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred.",
+        "exemplars": [
+          "Bandé-Gamboa — official producer-published eight-person ensemble practice"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.722,
+        -9.139,
+        "Lisbon",
+        "Europe"
+      ],
+      "geo_rationale": "Producer locates assembled diaspora project and rehearsing/recording in Lisbon. Community project anchor, not Guinea-Bissau origin claim or exact performance venue.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Producer Francisco Fininho Sousa's first-person account explicitly names modern Gumbé as a diverse Bissau musical field drawing several local traditions together, gives its history and separates it from Santiago/Cape Verde Funaná. His own project expressly reinterprets Gumbé with this advertised band; a complete documented performing practice is used, not nationality-only classification. Existing funana describes the Santiago gaita/ferrinho dance practice. The broader cape_verdean_funana_maritime record covers Cape Verde maritime/emigration traditions including morna, coladeira, funaná and batuque, with guitar, cavaquinho and accordion; it is not limited to the gaita/ferrinho duo. Both overlap this cross-border project, but neither makes the separately documented Guinea-Bissau Gumbé field an alias. Broad African popular music and Lusophone diaspora fields overlap. No single homogeneous rhythm or universal instrumentation is asserted; the producer explicitly stresses Gumbé's internal stylistic diversity. Exact creator map not necessary or claimed for this directly named primary practice.",
+      "classification_evidence": "Producer Francisco Fininho Sousa's first-person account explicitly names modern Gumbé as a diverse Bissau musical field drawing several local traditions together, gives its history and separates it from Santiago/Cape Verde Funaná. His own project expressly reinterprets Gumbé with this advertised band; a complete documented performing practice is used, not nationality-only classification. Existing funana describes the Santiago gaita/ferrinho dance practice. The broader cape_verdean_funana_maritime record covers Cape Verde maritime/emigration traditions including morna, coladeira, funaná and batuque, with guitar, cavaquinho and accordion; it is not limited to the gaita/ferrinho duo. Both overlap this cross-border project, but neither makes the separately documented Guinea-Bissau Gumbé field an alias. Broad African popular music and Lusophone diaspora fields overlap. No single homogeneous rhythm or universal instrumentation is asserted; the producer explicitly stresses Gumbé's internal stylistic diversity. Exact creator map not necessary or claimed for this directly named primary practice.",
+      "model_policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred.",
+      "sources": [
+        {
+          "url": "https://www.accent-presse.com/wp-content/uploads/IMG/pdf/-493.pdf",
+          "checked_date": "2026-10-03",
+          "support_notes": "Fresh11596view1/11600view2 full7-page official producer presskit. Page0 complete8-person instrumentation; pages4–5 producer firstperson Gumbé history and distinction, page3 Guinea-Bissau track grouping. No extrapolated whole-album roster."
+        },
+        {
+          "url": "https://bande-gamboa.bandcamp.com/album/horizonte-revamping-rare-gems-from-cabo-verde-and-guin-bissau",
+          "checked_date": "2026-10-03",
+          "support_notes": "Issuer11594search0 corroborates actual2020project/two ensembles and12tracks, studioLisbon; albumpage does not provide complete album personnel, not claimed."
+        }
+      ],
+      "vocal_count_audit": {
+        "credited_singers": 3,
+        "names": [
+          "Micas Cabral",
+          "Débora Paris",
+          "Iragrett Tavares"
+        ],
+        "count_basis": "Main3 alternate; backing2 are same named individuals. Combined group rendering authored, not every song simultaneous."
+      },
+      "instrument_role_audit": {
+        "scope": "Bandé-Gamboa — complete eight-person performing lineup published in the official producer/press kit for Horizonte. Micas Cabral, Débora Paris and Iragrett Tavares alternate main vocals; Débora and Iragrett also alternate backing vocals (three distinct singers, not five). Juvenal Cabral music direction/bass; Ivan Gomes electric guitar; Cau Paris drums; Ernesto da Silva percussion; Calú Ferreira keyboard. All eight people and six sound families retained. Select this explicitly published ensemble practice, not a fabricated per-track reconstruction or the entire two-band recording union: the same producer's album account distinguishes Guinea-Bissau Gumbé and Cape Verde Funaná groups. Its full advertised band repertoire can cross both traditions; it is not asserted every piece or all twelve album tracks is pure Gumbé. Exact set date, duration, performed titles, gear and percussion subtype are unknown; no audition or complete album-credit claim.",
+        "people": 8,
+        "sound_families": 6,
+        "authored_defaults": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "thin_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "machine_symmetric_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+        },
+        {
+          "instrument": "credited_auxiliary_percussion",
+          "parts": {
+            "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+          },
+          "policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "Authored present-day six-family band realization retains three singers as a combined live group with alternating lead/backing functions; no claim all three sing every line. Source-compatible recurring verse/refrain with functional chord accompaniment supports broad functionalSong; not measured full-repertoire harmony. Vocal physiology/intervals remain unknown. Authored alder-body electric guitar with maple neck/rosewood fingerboard, AlnicoII medium-wind humbuckers, pure-nickel10gauge strings, short Gibson scale/vibrato bridge/nitro finish and clean chordal strum; original source gear unspecified. Alder-body soapbar electric bass, nickel roundwounds,34-inch fretted scale and locked fingerstyle are coherent authored choices for bare source bass, not observed electric construction. Maple thin-shell kit,45degree edges, coated heads,20snare wires, felt single pedal and B20 fully lathed machine-hammered traditional-finish cymbals use authored contemporary dance-song stick accompaniment. Positively credited bare percussion retains unspecified inventory; bare keyboard retains unspecified architecture with authored held/moving harmonic chord support (sustained keyboard layer can sit beneath the active rhythm section; no claim whole band is beat-free). Controlled live room and natural unprocessed voice are editorial, not recovered session/capture facts. No global tuning or original amp inferred."
+        }
+      ],
+      "dependency_audit": {
+        "new_instruments": [],
+        "reused_instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "credited_auxiliary_percussion",
+          "electronic_keyboard_unspecified"
+        ]
+      },
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": {
+        "rule": "Alder shared body pin valid both electric guitar and bass; every other applicable owning control protected."
+      },
+      "primary_retrieval_refs": [
+        "turn11596view1",
+        "turn11600view2",
+        "turn11594search0"
+      ],
+      "source_retrieval_caveat": "Full direct official producer7-pagePDF retrieved; exact published practice, not alleged recording-specific inventory. No audition.",
+      "source_scope_limitation": "Bandé-Gamboa — complete eight-person performing lineup published in the official producer/press kit for Horizonte. Micas Cabral, Débora Paris and Iragrett Tavares alternate main vocals; Débora and Iragrett also alternate backing vocals (three distinct singers, not five). Juvenal Cabral music direction/bass; Ivan Gomes electric guitar; Cau Paris drums; Ernesto da Silva percussion; Calú Ferreira keyboard. All eight people and six sound families retained. Select this explicitly published ensemble practice, not a fabricated per-track reconstruction or the entire two-band recording union: the same producer's album account distinguishes Guinea-Bissau Gumbé and Cape Verde Funaná groups. Its full advertised band repertoire can cross both traditions; it is not asserted every piece or all twelve album tracks is pure Gumbé. Exact set date, duration, performed titles, gear and percussion subtype are unknown; no audition or complete album-credit claim.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "gumbe",
+          "name": "Gumbé",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Bandé-Gamboa, original instruments or recording apparatus.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11689view0 confirms CC BY2.5 IainFergusson/Binksternet. Exact023 historical bytes/visual receipts inherited; no fresh download.",
+          "fresh_review_ref": "turn11689view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11689view0"
+        ]
+      },
+      "verification_status": "Original owning controls52parts50flatpins allprotected, zero fallback/errors and1638 prior owners preserved; four original browser/connector formats parity true, all <=1000characters, no unrelated namedcultural labels. Final integrated static/CI not claimed.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

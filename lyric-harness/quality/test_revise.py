@@ -3100,11 +3100,16 @@ def test_the_whole_draft_half_reaches_the_report():
     # which is the scoping decision (the gate is on the whole-song verb, not
     # on the interactive one) and would now FAIL if `song`'s exit code ever
     # leaked into `brief`.
+    # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter (HANDBOOK.md
+    # standing rule 5): `wire` (L1) and `every` (L3) are judged on one whole
+    # reading, so nothing is left unjudged and `song` answers with its two
+    # standing whole-draft flags. ~~(2,)~~ and ~~"EXIT 2 — required checks
+    # remain unjudged"~~, which named meter:COUNT_IS_A_LOWER_BOUND:L1 and :L3.
     for verb, rc, out in (("brief", rc_b, out_b), ("song", rc_s, out_s)):
-        answered = (0,) if verb == "brief" else (2,)
+        answered = (0,) if verb == "brief" else (3,)
         check(f"`{verb}` keeps its exit contract on this incompletely specified draft (exit {' or '.join(map(str, answered))})",
               rc in answered and (verb != "song" or
-                                  "EXIT 2 — required checks remain unjudged" in out),
+                                  "EXIT 3 — no per-line FLAG; 2 WHOLE-DRAFT FLAG(S)" in out),
               f"rc {rc}")
         check(f"`{verb}` PRINTS HOOK_ABSENT — the whole point: this verb's "
               f"own banner says song-function joins the finding set, and "
@@ -3565,11 +3570,18 @@ def test_uncovered_bars_reaches_the_loop_not_only_fit():
     # SUCCESS. MEASURED: uncertified after 1 round, unresolved [], refused
     # obligations meter:COUNT_IS_A_LOWER_BOUND:L3/L4. superseded:
     # no_progress after 2 rounds with L3/L4 unresolved and unjudged.
+    # REPINNED 2026-10-04, THE ANY-READING RULE reaches the meter: those two
+    # lower bounds were `every` (L3) and `toward` (L4), words whose
+    # dictionary readings disagree on the count, now judged on one whole
+    # reading. Nothing is left the draft cannot give, so the loop stops
+    # SUCCESS and certifies with the uncovered bars standing as notes.
+    # ~~stop_reason "uncertified", certified False~~. The genuine-unknown
+    # half is the `qzzxv` draft below, unchanged.
     check("uncovered bars remain whole-draft notes and hold no line open; "
-          "the coverage the draft cannot give still prevents certification",
-          shipped.stop_reason == "uncertified"
+          "a draft whose every line is judged certifies with them standing",
+          shipped.stop_reason == "success"
           and shipped.unresolved == []
-          and shipped.coverage.get("certified") is False
+          and shipped.coverage.get("certified") is True
           and any(f.code == "UNCOVERED_BARS" for f in shipped.whole)
           and not any(f.severity == "flag" for f in shipped.whole
                       if f.code == "UNCOVERED_BARS"),

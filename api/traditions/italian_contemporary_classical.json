@@ -2,10 +2,10 @@
   "id": "italian_contemporary_classical",
   "name": "Italian contemporary classical",
   "family": "classical",
-  "lineage": "Italian contemporary classical is represented by Andrea Bacchetti — Luciano Berio: Piano Works. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "lineage": "Italian contemporary classical music develops through new composition and performance across acoustic, vocal and electronic media. Experimentation with gesture, timbre and structure coexists with dialogue with earlier forms.",
   "recipe": "classic italian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 241,
-  "score": 96.858,
+  "score": 85.88,
   "config": {
     "traditions": [
       "italian_contemporary_classical"
@@ -25,15 +25,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.5,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 5.139749999999999,
-          "piano_hammer": 15.4695,
-          "piano_rim": 14.5125,
-          "piano_soundboard": 12.75,
-          "piano_pinblock": 12.828,
-          "piano_plate": 14.988,
-          "piano_pitch_standard": 13.376
+          "keyboard_technique": 7.539,
+          "grand_piano_size": 0.387,
+          "grand_piano_brand": 4.719,
+          "piano_hammer": 13.7095,
+          "piano_rim": 11.589,
+          "piano_soundboard": 11.25,
+          "piano_pinblock": 11.25,
+          "piano_plate": 13.18125,
+          "piano_pitch_standard": 12.254999999999999
         }
       }
     ],

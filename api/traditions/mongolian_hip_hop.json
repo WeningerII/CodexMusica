@@ -1,0 +1,62 @@
+{
+  "id": "mongolian_hip_hop",
+  "name": "Mongolian Hip Hop",
+  "family": "hip_hop",
+  "lineage": "Mongolian hip hop brings together rap and beat production within Mongolia’s contemporary music scene. Ulaanbaatar producers connect local releases with international hip-hop networks, including an instrumental sample-based strand.",
+  "recipe": "classic mongolian hip hop, experimental Elec. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 98,
+  "score": 10.732,
+  "config": {
+    "traditions": [
+      "mongolian_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 4.7815,
+          "sample_bitdepth": 0,
+          "sample_swing": 6,
+          "sample_processing": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break"
+    },
+    "pin_parts": true
+  }
+}

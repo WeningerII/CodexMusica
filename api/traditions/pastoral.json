@@ -1,0 +1,66 @@
+{
+  "id": "pastoral",
+  "name": "Pastoral",
+  "family": "classical",
+  "lineage": "Ben Harper — Winter Is for Lovers (2020), complete fifteen-movement solo album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s pastoral, art Music. acoustic lap steel monteleone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 170,
+  "score": 0.332,
+  "config": {
+    "traditions": [
+      "pastoral"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_lap_steel_monteleone",
+        "slots": {
+          "monteleone_lap_body": "monteleone_square_neck_archtop",
+          "monteleone_lap_tuning": "monteleone_open_d",
+          "monteleone_lap_touch": "monteleone_slide_fingers_pick"
+        },
+        "scores": {
+          "monteleone_lap_body": 0.0315,
+          "monteleone_lap_tuning": 0,
+          "monteleone_lap_touch": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_lap_steel_monteleone": [
+        "monteleone_lap_body",
+        "monteleone_lap_tuning",
+        "monteleone_lap_touch"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "monteleone_lap_body": "monteleone_square_neck_archtop",
+      "monteleone_lap_tuning": "monteleone_open_d",
+      "monteleone_lap_touch": "monteleone_slide_fingers_pick"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

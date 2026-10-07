@@ -2,10 +2,10 @@
   "id": "italian_blues",
   "name": "Italian blues",
   "family": "blues_gospel",
-  "lineage": "Italian blues is the performance and local transmission of blues in Italy. Fabio Treves represents its Milan harmonica-led network, linking local bands with visiting and resident American musicians.",
+  "lineage": "Italian blues develops through local bands, clubs and collaborations with international blues musicians. Harmonica players such as Fabio Treves helped establish networks linking Italian performers with American repertoire and instrumental practice.",
   "recipe": "classic modern italian blues, functional Song, blues electric branch. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 413,
-  "score": 62.419,
+  "score": 54.697,
   "config": {
     "traditions": [
       "italian_blues"
@@ -14,7 +14,7 @@
       {
         "id": "harmonica",
         "slots": {
-          "harmonica_type": "tremolo_harm",
+          "harmonica_type": "diatonic_blues",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
           "harmonica_technique": "harm_blues_cross",
@@ -22,12 +22,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.33599999999999997,
-          "harmonica_comb": 13.267,
-          "harmonica_reed": 13.036,
-          "harmonica_technique": 13.687,
-          "harmonica_maker_school": 13.909999999999998,
-          "harmonica_tuning": 6.629999999999999
+          "harmonica_type": 0.063,
+          "harmonica_comb": 11.767,
+          "harmonica_reed": 11.536,
+          "harmonica_technique": 12.487,
+          "harmonica_maker_school": 11.959999999999999,
+          "harmonica_tuning": 5.85
         }
       },
       {
@@ -48,7 +48,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": 0.26,
           "amp_make": 0,
           "body_wood": 0.063,
           "neck_wood": 0.0315,
@@ -108,7 +108,7 @@
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
     "parts": {
-      "harmonica_type": "tremolo_harm",
+      "harmonica_type": "diatonic_blues",
       "harmonica_comb": "pearwood_comb",
       "harmonica_reed": "brass_harm",
       "harmonica_technique": "harm_blues_cross",

@@ -10,7 +10,9 @@ import { readFile, stat } from 'node:fs/promises';
 const CHECKPOINT = '  lyric checkpoint: ';
 const USAGE = '  proposer event: ';
 const RESULT = '  lyric result: ';
-const CONTROL_CAP = 8 * 1024 * 1024;
+// ~~8 MiB~~ -> 18 MiB 2026-10-04: a control record carries a checkpoint, which
+// grew x2.25 with STATE_DECODED_BYTES (owner's ruling).
+const CONTROL_CAP = 18 * 1024 * 1024;
 const positiveInteger = (value, fallback) =>
   Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : fallback;
 export const PYTHON_MAX_ADMITTED = positiveInteger(process.env.LYRIC_QUEUE_MAX_JOBS, 16);

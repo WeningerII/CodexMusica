@@ -1,0 +1,58 @@
+{
+  "id": "deep_turkish_pop",
+  "name": "Deep Turkish Pop",
+  "family": "pop",
+  "lineage": "Deep Turkish pop is a discovery grouping within Turkish popular song, spanning dance-oriented releases, melodic ballads and acoustic reinterpretations. Its repertoire circulates through recordings, remixes and published instrumental arrangements, with no single production style implied by the word deep.",
+  "recipe": "classic deep turkish pop, functional Song. upright piano. live tracking.",
+  "recipe_chars": 72,
+  "score": -0.013,
+  "config": {
+    "traditions": [
+      "deep_turkish_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.03712499999999999,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

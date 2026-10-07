@@ -5,7 +5,7 @@
   "lineage": "Guitar-and-voice style of the Niger Bend around Niafunké and Timbuktu, brought to record by Ali Farka Touré from the mid-1970s and extended by Afel Bocoum, Boubacar Traoré and Vieux Farka Touré — Songhai, Peul and Bambara song forms transferred to fingerpicked acoustic or clean electric guitar over a droning open-string bass, moderate 4/4 or lilting 6/8 marked by calabash and njarka fiddle, and a low conversational vocal on modal pentatonic melodies that resemble Mississippi blues without its twelve-bar harmony.",
   "recipe": "classic West African 1974-1976 malian blues, functional Song, blues acoustic branch, modal electric drone modal, west African griot ballad poetry tuareg desert blues musique soninke. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar maple steel silk drone like dreadnought acoustic mahogany rosewood alnico nickel plated steel nickel single coil electric guitar, foundational low fundamental tuning deep calabash inverted calabash, calabash gourd canonical bambara call-and-response ngoni, hunters large calabash wassoulou call-and-response kamele ngoni, snappy to palm hand clap. bamako griot jeli compound. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 684,
-  "score": 337.549,
+  "score": 337.159,
   "config": {
     "traditions": [
       "malian_blues",
@@ -24,8 +24,8 @@
         },
         "scores": {
           "acoustic_technique": 8.84,
-          "string_tuning": 1.3199999999999998,
-          "top_wood": 2.39375,
+          "string_tuning": 1.65,
+          "top_wood": 2.19875,
           "back_sides": 1,
           "string_acoustic": 1.19875
         }
@@ -49,17 +49,17 @@
         },
         "scores": {
           "electric_technique": 1.9749999999999999,
-          "amp_make": 2.1937500000000005,
-          "body_wood": 2.39375,
-          "neck_wood": 2.39375,
-          "fretboard": 2.34375,
+          "amp_make": 1.9987500000000005,
+          "body_wood": 2.19875,
+          "neck_wood": 2.19875,
+          "fretboard": 2.14875,
           "pickup_magnet": 1.19875,
           "string_material": 1,
-          "string_gauge": 2.89375,
+          "string_gauge": 2.69875,
           "bridge": 1.19875,
           "scale_length": 3.24375,
           "finish": 0,
-          "string_tuning": 8.608749999999999,
+          "string_tuning": 8.653749999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,8 +98,8 @@
           "voice_ensemble_config": 21.384999999999994,
           "voice_ornament_system": 4.42,
           "voice_pitch_organization": 3.120000000000001,
-          "voice_processing_chain": 10.00625,
-          "voice_multitrack_stack": 5.11
+          "voice_processing_chain": 10.32125,
+          "voice_multitrack_stack": 4.915000000000001
         }
       },
       {
@@ -109,7 +109,7 @@
           "inverted_calabash_technique": "inverted_calabash_cloth_sticks"
         },
         "scores": {
-          "inverted_calabash_size": 3.78625,
+          "inverted_calabash_size": 4.07125,
           "inverted_calabash_technique": 0.345
         }
       },

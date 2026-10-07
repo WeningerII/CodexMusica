@@ -2,10 +2,10 @@
   "id": "danish_rock",
   "name": "Danish rock",
   "family": "rock_punk",
-  "lineage": "A broad Danish rock discovery label, represented by D-A-D’s Copenhagen-rooted guitar-band branch. This default retains the group’s genuine two-string E–A electric bass beside contrasting single-coil and semi-hollow guitar voices, drums and singing.",
-  "recipe": "classic danish rock, distorted Rock, regional branch. one note per syllable, single lead single track no stacking. ampeg svt amp rock bass amp two string electric bass low e a pair electric bass, marshall plexi amp British rock amp single coil electric guitar, marshall plexi amp British rock amp semi hollow, sticks backbeat drum kit. live tracking. shure SM57, console-strip pre, marshall JCM800 2203, parametric EQ. 24-bit digital spring reverb.",
-  "recipe_chars": 448,
-  "score": 64.492,
+  "lineage": "Danish rock spans local guitar-band scenes, melodic songwriting and heavier international rock circuits. Copenhagen’s D-A-D connect country-inflected twang and direct hard-rock riffs with concise, energetic songs.",
+  "recipe": "classic danish rock, distorted Rock, regional branch. one note per syllable, solo with instrumental accompaniment. ampeg svt amp rock bass amp electric bass, marshall plexi amp British rock amp single coil electric guitar, marshall plexi amp British rock amp semi hollow, sticks backbeat drum kit. live tracking. shure SM57, console-strip pre, marshall JCM800 2203, parametric EQ. 24-bit digital spring reverb.",
+  "recipe_chars": 410,
+  "score": 64.643,
   "config": {
     "traditions": [
       "danish_rock"
@@ -21,56 +21,56 @@
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
-          "electric_bass_string_configuration": "electric_bass_two_string_ea"
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.955000000000001,
-          "body_wood": 0.3,
+          "amp_make": 7.475,
+          "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.663,
-          "fretted_or_not": 1.1792500000000001,
-          "bass_technique": 9.481499999999999,
-          "electric_bass_string_configuration": 12.461
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.17925000000000002,
+          "bass_technique": 14.0315,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
-          "bridge": "two_point_trem",
-          "scale_length": "scale_short",
-          "finish": "nitro",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_fender",
+          "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.8199999999999998,
-          "amp_make": 4.8100000000000005,
-          "body_wood": 0.3,
-          "neck_wood": 0.3,
-          "fretboard": 0.3,
+          "electric_technique": 0.7,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 0,
+          "neck_wood": 0.273,
+          "fretboard": 0.273,
           "pickup_magnet": 0,
           "string_material": 0.273,
           "string_gauge": 0.7735,
           "bridge": 0.3,
-          "scale_length": 0.3,
-          "finish": 0,
-          "string_tuning": 5.719999999999999,
+          "scale_length": 0,
+          "finish": 0.3,
+          "string_tuning": 7.54,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "semi_hollow",
         "slots": {
-          "electric_technique": "semi_overdriven_strum",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "semi_archetypes": "semi_es335",
           "semi_hollow_pickup": "semi_dual_humbucker",
@@ -78,12 +78,12 @@
           "semi_hollow_context": "semi_hollow_indie"
         },
         "scores": {
-          "electric_technique": 0.231,
-          "amp_make": 4.8100000000000005,
+          "electric_technique": 0.7,
+          "amp_make": 7.0200000000000005,
           "semi_archetypes": -0.05,
           "semi_hollow_pickup": 0,
           "semi_hollow_strings": 0,
-          "semi_hollow_context": 0.77925
+          "semi_hollow_context": 1.0365
         }
       },
       {
@@ -96,10 +96,10 @@
           "cymbal_alloy": "b20"
         },
         "scores": {
-          "drum_technique": 9.5,
-          "drumhead": 0.3,
+          "drum_technique": 13.75,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.3,
+          "shell_wood": 0,
           "cymbal_alloy": -0.2
         }
       },
@@ -134,12 +134,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.1792500000000001,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 1.222,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 1.2842500000000001
+          "voice_multitrack_stack": 0.2415
         }
       }
     ],
@@ -152,6 +152,7 @@
         "electric_bass_string_configuration"
       ],
       "electric_guitar_single_coil": [
+        "electric_technique",
         "body_wood",
         "pickup_magnet",
         "string_material"
@@ -224,11 +225,11 @@
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_vocal_tract": "tract_neutral",
       "voice_effort": "effort_moderate",
-      "electric_bass_string_configuration": "electric_bass_two_string_ea",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
       "bass_technique": "pick_aggressive",
       "pickup_config": "split_coil",
       "string_type": "roundwound_n",
-      "electric_technique": "semi_overdriven_strum",
+      "electric_technique": "electric_clean_strummed",
       "body_wood": "alder",
       "string_material": "nickel_plated",
       "pickup_magnet": "alnico_5",

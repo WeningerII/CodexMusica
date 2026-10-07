@@ -2,10 +2,10 @@
   "id": "candy_pop",
   "name": "Candy pop",
   "family": "pop",
-  "lineage": "Candy pop is represented here by The Primitives — classic quartet. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic candy pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 279,
-  "score": 44.586,
+  "lineage": "Candy pop emphasizes bright hooks and compact melodic songs, including guitar-pop approaches shaped by indie and punk influences.",
+  "recipe": "classic candy pop, functional Song, pop rock branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 47.808,
   "config": {
     "traditions": [
       "candy_pop"
@@ -15,40 +15,40 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.407499999999999,
-          "amp_make": 1.8199999999999998,
-          "body_wood": 0.6194999999999999,
+          "electric_technique": 13.8575,
+          "amp_make": 5.005,
+          "body_wood": 0.39,
           "neck_wood": 0.2415,
-          "fretboard": 0.0315,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 1,
+          "fretboard": 0.3,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.1365,
           "string_material": 0.0315,
-          "bridge": 1.4365,
+          "bridge": 0.2415,
           "scale_length": 0.6405000000000001,
-          "string_gauge": 1.4995,
+          "string_gauge": 0.39,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.378,
+          "body_wood": 0.39,
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 12.1915,
+          "drumhead": 13.9415,
           "drum_kit_kick_pedal": 0
         }
       },

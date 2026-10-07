@@ -1,0 +1,58 @@
+{
+  "id": "nuevo_tango",
+  "name": "Nuevo tango",
+  "family": "classical",
+  "lineage": "Nuevo tango developed through Astor Piazzolla’s expansion of Argentine tango into composed concert music, incorporating jazz, counterpoint and adventurous harmony. It circulates through instrumental ensembles and published solo arrangements as well as recordings.",
+  "recipe": "classic nuevo tango, art Music. upright piano. shoebox concert hall.",
+  "recipe_chars": 68,
+  "score": 2.531,
+  "config": {
+    "traditions": [
+      "nuevo_tango"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

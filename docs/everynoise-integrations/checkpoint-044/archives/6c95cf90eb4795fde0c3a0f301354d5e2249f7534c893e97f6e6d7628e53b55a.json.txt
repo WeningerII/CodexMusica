@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice016-swazi-traditional-signature-corrected.json",
+  "sha256": "bf2d66bc2bcbd8727bdc9d8c3ff39d46dbbb04f24f10158d167556203bce0c95",
+  "reviewer": "research116",
+  "timestamp_utc": "2026-10-04T08:42:46.240512+00:00",
+  "sources": {
+    "urls": [
+      "https://www.thekingdomofeswatini.com/news-blogs/how-marula-beer-is-brewed/",
+      "https://www.thekingdomofeswatini.com/eswatini-experiences/events/marula-festival/",
+      "https://www.thekingdomofeswatini.com/news-blogs/the-buganu-ceremony-a-taste-of-tradition-and-tourism-triumph/",
+      "https://open.spotify.com/embed/playlist/1vSYauLcP94YFZ2JniVyUQ"
+    ],
+    "refs": [
+      "turn15438view0",
+      "turn15439view0",
+      "turn15439view1",
+      "turn15440view0"
+    ],
+    "judgment": "Fresh official eyewitness account establishes rehearsed unison communal women’s singing and public dance. 25-litre drums contain delivered beer, not musical percussion. Genre-practice voice branch is complete without invented ceremonial instruments. Full51 creator programme includes royal-village, men/women and regimental repertoires; selected public branch does not claim universal ensemble or restricted ritual reconstruction."
+  },
+  "category": "Full frozen SwaziPop/HipHop, Isicathamiya/Mbube and ZuluIzibongo read. Positive Eswatini heritage field differs from contemporary production fields and particular Zulu choral/praise practices, with overlap candid. Broad praiseSong actual formal royal honor/thanks contract fits official programme; common virtuoso/melismatic priors not mandatory every local branch.",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/practice016-peer116-runtime.json",
+  "checks": {
+    "protected_controls": 17,
+    "original_owners_preserved": 1653,
+    "four_formats_max_chars": 340,
+    "compiled_pin_errors": [],
+    "final_metadata_only": "Only empty unsigned signature field moved to required entry location; musical fields unchanged.",
+    "immutable_five_fields": "retained",
+    "geo": "Lobamba cultural/royal anchor in Africa, explicitly not claimed Buganu exact venue",
+    "rights": "Independent fresh Commons15425view2 CC BY2.5/Iain Fergusson/crop attribution; exact historical250x720/33015byteSHA7a97 preserved. No new binary/visual claimed."
+  },
+  "literal_review": "All four browser outputs inspected: projected punctuated syllabic live group and field-recording ambience are coherent authored performance choices. Clapping-and-syllabicizing actual lexicon describes punctuated vocal delivery, not a separate handclap source; no unsupported choir harmony, Zulu identity or instrument introduced. Compiled API remains field-recorded praise-song context."
+}

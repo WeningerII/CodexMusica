@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice003-deep-dubstep-qualified024.json",
+  "packet_sha256": "ab87027eb8417bd5860a6c8825f5eb2b8db4d0dc9047e9bd7d7cf9adcd193016",
+  "reviewer": "source_audit",
+  "source_review": {
+    "fresh_refs": [
+      "turn15508view0",
+      "turn15508view1"
+    ],
+    "raw": "/workspace/genre-continuation/research/remaining436-practice-pass/sourceaudit/deep-dubstep-peer-primary-raw.json",
+    "finding": "TRUTH firsthand replies affirm deep-dubstep movement and DJ mix circulation; own artist programme positively identifies Deep Dubstep within its entire38-minute25-selection bass mix. No all-selections exclusivity or guessed embedded roster. San Francisco is explicitly founding2012 label-night anchor."
+  },
+  "scope_review": "Full actual minimal_dubstep and classic_dubstep tradition+extras read from043. Broad overlap candid; named working-practitioner field supports addition without fabricated exclusive timbre or inferred alias. Actual DJ practice preserves recorded layers including unknown voices.",
+  "controls_review": {
+    "raw_owner": "Existing electronic DJ owner with single source-medium-unspecified playback/mixing control; excludes electronic_technique; exact protected pin inspected.",
+    "immutable5": "exact",
+    "new_dependencies": 0,
+    "photo": "Current independent Commons15502view4 confirms same CC BY2.5/Iain Fergusson credit/crop; original exact URL/SHA/dimensions and historical observation retained.",
+    "runtime_receipt": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-scope-revisit/practice003-runtime.json",
+    "runtime_sha256": "db4fa98052b9e061b52e37a8051280f55ddf905c08d81b91c4932117d15064d0",
+    "runtime_baseline": "/tmp/CodexMusica-next043/",
+    "runtime_head": "0b797c01948d0176f76dae9d2e4e511522efeab9",
+    "review_method": "Independently read all four actual author-generated043 browser strings and compiled API config/recipe. Verified final derivative differs only verification_status. No fresh VM replay launched: root explicitly requested avoiding runtime VMs during memory-pressure jobs.",
+    "literal_verdict": "All four up-tempo DJ outputs coherent with explicit140/170 rhythmic programme and authored brisk editorial presentation. Amplified/layered refers full DJ material, not invented live players. Compiled config contains only declared owner, exactpin and controlled live room.",
+    "protected_controls": 1,
+    "max_chars": 137
+  },
+  "limitations": [
+    "No claim of independent runtime execution in this receipt; exact supplied execution artifact independently inspected.",
+    "Creator map retrieval unavailable candidly; firsthand positive field usage establishes taxonomy.",
+    "No repository, registry or candidate mutation."
+  ]
+}

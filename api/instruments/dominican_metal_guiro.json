@@ -1,0 +1,60 @@
+{
+  "id": "dominican_metal_guiro",
+  "name": "Dominican metal güiro (pattern unspecified)",
+  "family": "percussion",
+  "class": "metal_scraper",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "metal güiro",
+  "parts": [
+    {
+      "id": "dominican_metal_guiro_form",
+      "name": "Metal scraper and striker",
+      "variants": [
+        {
+          "id": "dominican_metal_guiro_metal_stick",
+          "name": "Metal body scraped with metal stick; pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped",
+            "rasping"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dominican_metal_guiro_form",
+      "name": "Metal scraper and striker",
+      "variants": [
+        {
+          "id": "dominican_metal_guiro_metal_stick",
+          "name": "Metal body scraped with metal stick; pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped",
+            "rasping"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp"
+          ]
+        }
+      ]
+    }
+  ]
+}

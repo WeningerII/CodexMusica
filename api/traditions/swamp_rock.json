@@ -5,7 +5,7 @@
   "lineage": "Late-1960s American style joining Louisiana and Gulf-Coast blues and swamp-pop feel to California rock recording, defined by Creedence Clearwater Revival, Tony Joe White and Dale Hawkins — medium-tempo shuffles and straight backbeats, tremolo-and-reverb single-coil guitar riffs, sparse organ, prominent bass-and-snare pocket, and drawled narrative vocals about rivers, work and superstition",
   "recipe": "classic North American 1967-1969 swamp rock, distorted Rock, southern rock branch, blues electric functional song, country rock country modern country rock. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright swamp ash ash single coil electric open d tuning slide steel resonator guitar, Fender tweed amp American 50s amp tweed breakup swamp ash ash electric bass, pre muffled edge muffled sticks backbeat drum kit, reed pearwood marine band tradition brass traditional harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 840,
-  "score": 520.195,
+  "score": 527.32,
   "config": {
     "traditions": [
       "swamp_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 48.97000000000002,
-          "voice_quality": 9.52,
+          "voice_register": 49.84500000000002,
+          "voice_quality": 10.045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.405,
-          "voice_articulation": 19.955000000000005,
+          "voice_vibrato": 24.28,
+          "voice_articulation": 21.254999999999995,
           "voice_microtone": 27.299999999999997,
           "voice_tradition": 6.695,
           "voice_mechanism_compound": 2.165,
-          "voice_estill_quality": 12.694999999999999,
-          "voice_speech_song": 24.18,
-          "voice_ensemble_config": 20.280000000000005,
+          "voice_estill_quality": 13.569999999999999,
+          "voice_speech_song": 25.48,
+          "voice_ensemble_config": 20.735,
           "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0.6900000000000001,
-          "voice_processing_chain": 6.76,
-          "voice_multitrack_stack": 6.175000000000001
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 11.255,
-          "amp_make": 15.395,
+          "electric_technique": 12.13,
+          "amp_make": 16.419999999999998,
           "body_wood": 2.84,
           "neck_wood": 0.43500000000000005,
           "fretboard": 0.045,
           "pickup_magnet": 0.045,
           "string_material": 0.045,
           "string_gauge": 0.9750000000000001,
-          "bridge": 0.74,
+          "bridge": 0.59,
           "scale_length": 0.87,
           "finish": 0.045,
-          "string_tuning": 18.85,
+          "string_tuning": 18.654999999999998,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,9 +98,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.174999999999999,
+          "amp_make": 15.049999999999999,
           "body_wood": 2.84,
-          "pickup_config": 0.74,
+          "pickup_config": 0.59,
           "string_type": 25.045,
           "scale_length_b": 1.3,
           "fretted_or_not": 0.09,
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.394999999999996,
-          "drumhead": 5.175000000000001,
+          "drum_technique": 25.544999999999998,
+          "drumhead": 4.800000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,10 +133,10 @@
         },
         "scores": {
           "harmonica_type": 1.3,
-          "harmonica_comb": 13.184999999999999,
+          "harmonica_comb": 13.034999999999998,
           "harmonica_reed": 12.055,
           "harmonica_technique": 14.66,
-          "harmonica_maker_school": 13.487499999999997,
+          "harmonica_maker_school": 13.292499999999997,
           "harmonica_tuning": 6.044999999999999
         }
       },
@@ -169,8 +169,8 @@
           "res_strings": "phosphor_res"
         },
         "scores": {
-          "acoustic_technique": 8.66,
-          "string_tuning": 7.71,
+          "acoustic_technique": 9.185,
+          "string_tuning": 8.084999999999999,
           "cone_type": 1.625,
           "body_resonator": 0.48,
           "res_strings": 0.48

@@ -5,7 +5,7 @@
   "lineage": "Indonesian alternative rock is represented here by Navicula. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic indonesian alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 408,
-  "score": 46.861,
+  "score": 46.69,
   "config": {
     "traditions": [
       "indonesian_alternative_rock"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 1.0944999999999998,
           "amp_make": 4.8100000000000005,
-          "body_wood": 2.46825,
+          "body_wood": 2.4255,
           "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.17925000000000002,
+          "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
           "bridge": 1.573,
-          "scale_length": 1.7857500000000002,
+          "scale_length": 1.743,
           "string_gauge": 1.573,
           "finish": 0.042749999999999996,
           "string_tuning": 0.3
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 5.265,
           "body_wood": 0.8820000000000001,
-          "pickup_config": 0.31575000000000003,
+          "pickup_config": 0.273,
           "string_type": 12.35,
           "scale_length_b": 0.441,
           "fretted_or_not": 0.11624999999999999,

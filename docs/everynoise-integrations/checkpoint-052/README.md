@@ -1,0 +1,13 @@
+# Checkpoint 052
+
+Adds 73 source-reviewed genre profiles and applies 11 scoped receiver corrections using the original recipe engine. The existing string-quartet owner receives one reviewed explicit-only variant; no new instrument identity is added. Expected catalog totals: 7078 traditions and 1667 instruments.
+
+The immutable candidate is `654f431fbedd974c439ac21c02980e91d430709bafe0b6af9cb4e1000e5b8c16`, based on merged checkpoint051 commit `c86909cf88b0b02cb1a05eff7e4e4c129b83b257`. Full source projection and reference checks passed before building. Exactly ten individually reviewed recipe expectations changed; the other 1139 remain unchanged.
+
+Global source qualification covers all 7005 existing API contexts and 1174 fixture definitions, with 1290 API and 324 fixture replays. Twenty existing API differences were individually reviewed:11 intended scoped repairs and 9 compatible changes. The two hardware corrections retain coherent Minimoog voltage-controlled/Moog construction and Prophet Sequential lineage. No shared engine, schema or scoring changes are included.
+
+Música Colimense retains all 17 voice controls and its group-singing role in every browser format and full compiled configuration. Its compressed API summary omits the low-weight group-vocals phrase; this documented limitation does not instruct an instrumental-only arrangement. Other inherited processing, era and model limitations remain disclosed in the individual reviews; scoped corrections do not claim full-profile repair.
+
+The original two-worker API build passed in 666.4 seconds with zero failures. Serial regression passed 1149/1149; it was reversibly paused during memory pressure and resumed in the same process. Two independent full-artifact audits passed: all 7078 profiles match qualified recipes/configurations/public source fields; 18 old configurations and 19 old recipes change across the reviewed 20 records. All 1666 unaffected curated instrument payloads are byte-identical, and the one string-quartet extension matches exactly. API, atlas, documentation and HTML checks passed. All 15 supporting checks and lint passed. Mobile layout passed 223 assertions across eight viewports. Exact-head CI remains pending publication; inherited limitations are not cleared by these checks.
+
+The archive contains generated proof, authored source summaries and hash-bound review receipts. Full retrieved third-party pages remain preserved locally and are excluded from public evidence. Original proposals, rejected variants and holds remain immutable in the local research record.

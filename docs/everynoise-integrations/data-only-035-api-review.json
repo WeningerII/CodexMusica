@@ -1,0 +1,583 @@
+{
+  "status": "PASS",
+  "integration_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "baseline": "07b920338cbcfea21f74dccd39b3e9bdb29b069f; exact tree equals merged0c3e9a6767273aaab31f77f8492b977c72fb40a1",
+  "summary": {
+    "old_traditions": 6038,
+    "unchanged_old_payloads": 6025,
+    "derived_changed_payloads": 13,
+    "changed_recipes": 6,
+    "changed_unprotected_slots": 18,
+    "old_instruments_unchanged": 1566,
+    "new_traditions": 100,
+    "new_instruments": 20,
+    "new_owning_parts": 2066,
+    "new_protected_parts": 2064
+  },
+  "new_compiled_fallbacks": [
+    {
+      "tradition": "bangladeshi_hip_hop",
+      "instrument": "rhodes_electric",
+      "part": "keyboard_technique",
+      "flat_value": "electronic_keyboard_melodic_chordal",
+      "imported_default": "keyboard_block_chord_pop",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "keyboard_jazz_comping",
+      "changed_from_import": true,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "latin_arena_pop",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "changed_from_import": false,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "bases_de_freestyle",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "bases_de_freestyle",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "grime_brasileiro",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "egyptian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gambian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gothenburg_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "greek_underground_rap",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["bases_de_freestyle"],
+      "current_selected_staples": ["bases_de_freestyle"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "bboy",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "bboy",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "grime_brasileiro",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "egyptian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gambian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gothenburg_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "greek_underground_rap",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["bboy"],
+      "current_selected_staples": ["bboy"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "beatboxing",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "beatboxing",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "grime_brasileiro",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "egyptian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gambian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gothenburg_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "greek_underground_rap",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["beatboxing"],
+      "current_selected_staples": ["beatboxing"],
+      "classification": "Generated descriptor ordering/content or staple lineage text; no instrument-slot change."
+    },
+    {
+      "id": "beats",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "beats",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "grime_brasileiro",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "egyptian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gambian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gothenburg_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "greek_underground_rap",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["beats"],
+      "current_selected_staples": ["beats"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "birmingham_grime",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "birmingham_grime",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "grime_brasileiro",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "egyptian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gambian_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "gothenburg_hip_hop",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        },
+        {
+          "id": "greek_underground_rap",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["birmingham_grime"],
+      "current_selected_staples": ["birmingham_grime"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "bristol_trip_hop",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "bristol_trip_hop",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_sub_semitone_third_glide",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_pitched_sample_melodic_bed",
+          "after": "voice_multitrack_2010s_melodyne_microtuned",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "turntable",
+          "part": "turntable_technique",
+          "before": "turntable_scratch",
+          "after": "turntable_backspin",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["bristol_trip_hop", "motswako", "chap_hop"],
+      "current_selected_staples": ["bristol_trip_hop", "motswako", "two_step_garage"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "dark_techno",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "dark_techno",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "hard_industrial_techno",
+          "weight": 1.2,
+          "srcs": ["sibling", "axis"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["dark_techno"],
+      "current_selected_staples": ["dark_techno"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "hungarian_techno",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "hungarian_techno",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "hard_industrial_techno",
+          "weight": 1.2,
+          "srcs": ["sibling", "axis"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["hungarian_techno"],
+      "current_selected_staples": ["hungarian_techno"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "indian_techno",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "indian_techno",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "hard_industrial_techno",
+          "weight": 1.2,
+          "srcs": ["sibling", "axis"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["indian_techno"],
+      "current_selected_staples": ["indian_techno"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "jam_band",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "jam_band",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "sean_nos_tradition",
+          "after": "modern_pop_vocal_training",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "fast_vibrato",
+          "after": "delayed_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "before": "scale_gibson_h",
+          "after": "scale_baritone_h",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_2_h",
+          "after": "alnico_8_h",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "body_wood",
+          "before": "basswood_h",
+          "after": "mahogany_maple_cap",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "string_thru",
+          "after": "stoptail",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_10_hum",
+          "after": "g_11_hum",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_10",
+          "after": "g_11",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "mahogany_b",
+          "after": "alder_b",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "hydraulic",
+          "after": "ec_pre_muffled_drumhead",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["hard_rock_brasileiro"],
+      "baseline_selected_staples": ["jam_band", "nwocr", "dutch_rock"],
+      "current_selected_staples": ["jam_band", "hard_rock_brasileiro", "nwocr"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "kapuka_kenyan",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "kapuka_kenyan",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["chinese_melodic_rap"],
+      "baseline_selected_staples": ["kapuka_kenyan", "san_antonio_rap", "rap_maroc"],
+      "current_selected_staples": ["kapuka_kenyan", "chinese_melodic_rap", "san_antonio_rap"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "reggae_fusion_modern",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "reggae_fusion_modern",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["chinese_melodic_rap"],
+      "baseline_selected_staples": [
+        "reggae_fusion_modern",
+        "australian_hip_hop",
+        "german_alternative_rap"
+      ],
+      "current_selected_staples": [
+        "reggae_fusion_modern",
+        "australian_hip_hop",
+        "chinese_melodic_rap"
+      ],
+      "classification": "Generated descriptor ordering/content or staple lineage text; no instrument-slot change."
+    },
+    {
+      "id": "tech_house_classic",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "tech_house_classic",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "digital_subtractive",
+          "part": "va_archetypes",
+          "before": "nord_lead",
+          "after": "novation_supernova",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_workflow",
+          "before": "sampler_microsampling_glitch",
+          "after": "sampler_one_shot_pitched",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "electronic_technique",
+          "before": "electronic_glitch_textural",
+          "after": "electronic_sample_chopped",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["portuguese_techno", "techno_argentina"],
+      "baseline_selected_staples": ["tech_house_classic", "algorave", "dark_techno"],
+      "current_selected_staples": ["tech_house_classic", "portuguese_techno", "techno_argentina"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    }
+  ],
+  "causal_method": "Unchanged original search seedFromTradition/search(maxIters100)/translate exactly reproduce both baseline and current API configs and recipes for every changed old row, and scores after original toFixed(3). Counterfactual removes only new100 traditions/extras in process memory, retaining new instrument owners; all13 baseline full configs, recipes and unrounded scores restored.",
+  "causal_code": {
+    "neighbor_bias": "scripts/score.js getNeighbors: tree crossrefs, parent siblings and axis distance expand global candidate pool; neighbor descriptor bonus affects variant score/ranking.",
+    "staple_selection": "scripts/search.js traditionStapleMoves deduplicates eligible crossref candidates by parent path and picks closest axes, then unchanged search evaluates configurations.",
+    "material_limit": "Changed choices are generated unprotected alternatives, not newly verified historical gear or changed authored source cards. Existing protected pins, roster, room, tuning, production environment and all old imported browser cards remain identical."
+  },
+  "supporting_reports": [
+    "api-delta-independent-review119.json",
+    "api-validation-details119.json",
+    "api-projection-review119.json",
+    "compiled-unpinned-review119.json",
+    "api-causal-trace-baseline119.json",
+    "api-causal-trace-current119.json",
+    "api-counterfactual119.json",
+    "integration-review119.json"
+  ],
+  "remaining_gate": "Original regression fixture review is separate; this report does not authorize blanket snapshot refresh.",
+  "errors": []
+}

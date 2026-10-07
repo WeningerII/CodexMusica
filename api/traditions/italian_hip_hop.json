@@ -5,7 +5,7 @@
   "lineage": "Italian hip hop includes DJ/MC, sample-based and live-band branches. Jovanotti’s rap/funk work with bassist Saturnino supplies the selected live-band recording approach.",
   "recipe": "classic modern italian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. pocket fingerstyle locked electric bass, drum kit, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, grand piano, congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 456,
-  "score": 38.733,
+  "score": 39.414,
   "config": {
     "traditions": [
       "italian_hip_hop"
@@ -58,17 +58,17 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.17,
-          "body_wood": 0.054,
+          "body_wood": 0.162,
           "pickup_config": 0.105,
           "string_type": 0.2955,
-          "scale_length_b": 0.105,
-          "fretted_or_not": 0.054,
+          "scale_length_b": 0.267,
+          "fretted_or_not": 0,
           "bass_technique": 3.1500000000000004,
           "electric_bass_string_configuration": 0
         }
@@ -98,7 +98,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_fender",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -106,14 +106,14 @@
         "scores": {
           "electric_technique": 3.1500000000000004,
           "amp_make": 3.2495000000000003,
-          "body_wood": 0.1365,
+          "body_wood": 0.1905,
           "neck_wood": 0.1365,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.2445,
           "string_gauge": 0.0735,
-          "bridge": 0.105,
-          "scale_length": 0,
+          "bridge": 0.159,
+          "scale_length": 0.108,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
@@ -134,13 +134,13 @@
         },
         "scores": {
           "keyboard_technique": 0.754,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 2.5759999999999996,
+          "grand_piano_size": 0.159,
+          "grand_piano_brand": 2.756,
           "piano_hammer": 0.9099999999999999,
           "piano_rim": 0.9099999999999999,
           "piano_soundboard": 0.8274999999999999,
           "piano_pinblock": -0.05,
-          "piano_plate": -0.05,
+          "piano_plate": -0.035,
           "piano_pitch_standard": 0.7149999999999999
         }
       },

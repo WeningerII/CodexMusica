@@ -1,0 +1,48 @@
+{
+  "id": "white_noise",
+  "name": "White noise",
+  "family": "electronic",
+  "lineage": "White noise is a continuous random signal with equal power per unit frequency across the represented bandwidth. It is distinct from pink and brown noise, which distribute energy differently.",
+  "recipe": "classic white noise, experimental Elec. software white noise generator.",
+  "recipe_chars": 71,
+  "score": 1,
+  "config": {
+    "traditions": [
+      "white_noise"
+    ],
+    "instruments": [
+      {
+        "id": "software_white_noise_generator",
+        "slots": {
+          "software_white_noise_identity": "software_generated_white_noise"
+        },
+        "scores": {
+          "software_white_noise_identity": 1
+        }
+      }
+    ],
+    "pinned": {
+      "software_white_noise_generator": [
+        "software_white_noise_identity"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "parts": {
+      "software_white_noise_identity": "software_generated_white_noise"
+    },
+    "pin_parts": true
+  }
+}

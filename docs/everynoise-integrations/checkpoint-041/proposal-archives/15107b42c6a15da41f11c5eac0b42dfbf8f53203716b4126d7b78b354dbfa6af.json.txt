@@ -1,0 +1,312 @@
+{
+  "entries": [
+    {
+      "source_label": "russian indie",
+      "source_url": "https://everynoise.com/engenremap-russianindie.html",
+      "suggested_id": "russian_indie",
+      "allocation_ordinal": 4231,
+      "allocation_group_id": "170",
+      "id": "russian_indie",
+      "tradition": {
+        "id": "russian_indie",
+        "name": "Russian Indie",
+        "family": "rock",
+        "lineage": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block. Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take.",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+          "drum_technique": "sticks_rock",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "drumhead": "single_coated",
+          "snare_wires": "wires_20",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        }
+      },
+      "extras": {
+        "parent": "functionalSong",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block. Russian Indie is modeled as the broader independent music community and production/distribution field, with this issuer explicitly tagging the selected release russian indie as well as indie pop/rock. The existing russian_indie_rock full record is a broad overlapping rock field, not limited to Hospital or an English-language era; it already includes guitar-band practice like this selected rendition. The proposed wider community boundary is supported independently by Biasioli’s original fieldwork with42 practitioners, which studies independent music as a social/institutional field rather than one rock sound, and by firsthand duo testimony identifying Russian indie alongside synth-pop/EBM and software production. Those contextual electronic roles are NOT transferred into the selected four-family recording. Russian indie pop, post-punk, synth-pop, Russian rock and Russian electronic categories overlap, but style-specific fields do not by themselves exhaust the wider independent community. No state-opposition, language, generation or anti-commercial purity is imposed universally. Exact EveryNoise artist membership is not asserted; positive exact issuer category tagging plus firsthand wider-field evidence supplies the bridge. Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take.",
+        "exemplars": [
+          "ЯРЯДОМ — Решения (2019 full issued single)"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        55.7558,
+        37.6173,
+        "Moscow",
+        "Europe"
+      ],
+      "geo_rationale": "Issuer profile and track production credits identify Moscow; editorial production-community anchor, not inference about all performers residence.",
+      "signature_tokens": [],
+      "neighbor_distinction": "Russian Indie is modeled as the broader independent music community and production/distribution field, with this issuer explicitly tagging the selected release russian indie as well as indie pop/rock. The existing russian_indie_rock full record is a broad overlapping rock field, not limited to Hospital or an English-language era; it already includes guitar-band practice like this selected rendition. The proposed wider community boundary is supported independently by Biasioli’s original fieldwork with42 practitioners, which studies independent music as a social/institutional field rather than one rock sound, and by firsthand duo testimony identifying Russian indie alongside synth-pop/EBM and software production. Those contextual electronic roles are NOT transferred into the selected four-family recording. Russian indie pop, post-punk, synth-pop, Russian rock and Russian electronic categories overlap, but style-specific fields do not by themselves exhaust the wider independent community. No state-opposition, language, generation or anti-commercial purity is imposed universally. Exact EveryNoise artist membership is not asserted; positive exact issuer category tagging plus firsthand wider-field evidence supplies the bridge.",
+      "classification_evidence": "Russian Indie is modeled as the broader independent music community and production/distribution field, with this issuer explicitly tagging the selected release russian indie as well as indie pop/rock. The existing russian_indie_rock full record is a broad overlapping rock field, not limited to Hospital or an English-language era; it already includes guitar-band practice like this selected rendition. The proposed wider community boundary is supported independently by Biasioli’s original fieldwork with42 practitioners, which studies independent music as a social/institutional field rather than one rock sound, and by firsthand duo testimony identifying Russian indie alongside synth-pop/EBM and software production. Those contextual electronic roles are NOT transferred into the selected four-family recording. Russian indie pop, post-punk, synth-pop, Russian rock and Russian electronic categories overlap, but style-specific fields do not by themselves exhaust the wider independent community. No state-opposition, language, generation or anti-commercial purity is imposed universally. Exact EveryNoise artist membership is not asserted; positive exact issuer category tagging plus firsthand wider-field evidence supplies the bridge.",
+      "model_policy": "Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take.",
+      "sources": [
+        {
+          "url": "https://splosh-splosh.bandcamp.com/track/--14",
+          "support_notes": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block. Exact issuer russian-indie tag; Moscow profile.",
+          "retrieval_ref": "turn12526view0"
+        },
+        {
+          "url": "https://api.pageplace.de/preview/DT0400.9781040369401_A50616679/preview-9781040369401_A50616679.pdf",
+          "support_notes": "Biasioli2025 original ethnographic study,42 practitioner interviews2016–2019; broad independent social/production field. Category context only, not recording credits.",
+          "retrieval_ref": "turn12526view2"
+        },
+        {
+          "url": "https://www.whitelight-whiteheat.com/le-vent-dest-interview/",
+          "support_notes": "2019 firsthand duo interview explicitly discusses Russian indie scene and synth-pop/EBM/software production. Context only; selected track has no synthesized role in its full credits.",
+          "retrieval_ref": "turn12530search0"
+        }
+      ],
+      "vocal_count_audit": {
+        "count": 2,
+        "basis": "Exact track names Salyuk lead and Kolesnikov backing voice."
+      },
+      "instrument_role_audit": {
+        "voice": "Two named voices, lead plus backing.",
+        "electric_guitar_humbucker": "Two named guitarists; exact electric architecture authored from generic source guitar roles.",
+        "electric_bass": "Ponomaryov bass; authored generic electric setup.",
+        "drum_kit": "Dikiy drums; complete kit role retained."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_duet",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take."
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "parts": {
+            "electric_technique": "electric_clean_strummed",
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "neck_wood": "maple_neck_h",
+            "fretboard": "rosewood_fb_h",
+            "pickup_magnet": "alnico_2_h",
+            "pickup_winding": "mid_wind",
+            "string_material": "pure_nickel_h",
+            "bridge": "vibrato_arm",
+            "scale_length": "scale_gibson_h",
+            "string_gauge": "g_10_hum",
+            "finish": "nitro_hum",
+            "string_tuning": "standard_tuning"
+          },
+          "policy": "Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take."
+        },
+        {
+          "instrument": "electric_bass",
+          "parts": {
+            "amp_make": "amp_unspecified",
+            "body_wood": "alder_h",
+            "pickup_config": "soapbar",
+            "string_type": "roundwound_n",
+            "scale_length_b": "long_scale_b",
+            "fretted_or_not": "fretted",
+            "bass_technique": "fingerstyle_locked",
+            "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          },
+          "policy": "Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take."
+        },
+        {
+          "instrument": "drum_kit",
+          "parts": {
+            "drum_technique": "sticks_rock",
+            "shell_wood": "maple_shell",
+            "shell_thickness": "medium_shell",
+            "bearing_edges": "edge_45",
+            "drumhead": "single_coated",
+            "snare_wires": "wires_20",
+            "drum_kit_kick_pedal": "dk_kick_single_felt",
+            "cymbal_alloy": "b20",
+            "cymbal_hammering": "hand_random_hammering",
+            "cymbal_lathing": "full_lathe_both_sides",
+            "cymbal_finish": "traditional_finish"
+          },
+          "policy": "Broad functionalSong expresses a newly authored functional-harmonic verse-chorus-bridge rendition of the issued song, not an exact measured score. Source-unspecified guitars are realized as clean-strummed humbucker electrics with coherent alder/maple/rosewood/nickel construction; two guitarists remain in evidence. Source-unspecified bass is authored long-scale fretted soapbar with roundwound strings and locked fingerstyle. Full stick-played maple kit with coated heads, felt pedal and hand-hammered traditional-finish B20 cymbals is an authored physical setup, not reported source hardware. Two source-positive singers use a lead-plus-backing ensemble with no extra singers or measured multitrack count asserted; neutral voice physiology and training remain source-unspecified. Controlled live room and any brisk/up-tempo editorial pacing describe this authored rendition, not source BPM. No global tuning or capture chain imposed. Live-duet/live-take wording is a newly authored simultaneous two-singer realization, not evidence that the issued lead and backing parts were recorded in one take."
+        }
+      ],
+      "dependency_audit": "Four existing instrument families; no new dependency or shared edit.",
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "Shared alder value applicable to guitar and bass; all applicable owning parts protected, no unpinned fallback.",
+      "primary_retrieval_refs": [
+        "turn12526view0",
+        "turn12526view2",
+        "turn12530search0"
+      ],
+      "source_retrieval_caveat": "Full label-issued track credits/category read directly; wider-field researcher preview and firsthand duo interview read directly/indexed respectively. No recording audition or exact EveryNoise artist membership claimed.",
+      "source_scope_limitation": "ЯРЯДОМ — complete separately issued Решения single, released19August2019 by Splosh. Exact track credits name Vladimir Salyuk lead voice/lead guitar, Dmitriy Kolesnikov backing voice/rhythm guitar, Dmitriy Ponomaryov bass and Stas Dikiy drums. Four people, two singers, four instrument families, both guitar parts retained through one guitar family card. Engineering/mixing/mastering/photo personnel are not additional performing roles. No abbreviated biography or other album palette substitutes for this complete track credit block.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "russian_indie",
+          "name": "Russian Indie",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context, not ЯРЯДОМ performers or actual track-session equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons12477view0 confirms Iain Fergusson/Binksternet CC BY2.5 and prior crop; exact023 historical bytes and visual receipt retained.",
+          "fresh_review_ref": "turn12477view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn12477view0"
+        ]
+      },
+      "verification_status": "Original author preflight PASS:49 applicable owning parts47 flat pins, zero fallback/errors,1638 existing owners unchanged, all four browser/connector formats equal and within1000 characters; independent peer pending.",
+      "status": "frozen_for_independent_review"
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "candidate_for_independent_review"
+}

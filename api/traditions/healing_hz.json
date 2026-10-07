@@ -1,0 +1,50 @@
+{
+  "id": "healing_hz",
+  "name": "Healing Hz",
+  "family": "electronic",
+  "lineage": "Healing Hz is a frequency-labelled listening field circulated through meditation catalogues and sound-generation apps. Sustained tones, frequency pairs and soft electronic layers organize listening around named frequency settings and relaxation-oriented presentation.",
+  "recipe": "classic healing hz, experimental Elec, ambient branch. analog sine oscillator z3000. live tracking.",
+  "recipe_chars": 99,
+  "score": 1.69,
+  "config": {
+    "traditions": [
+      "healing_hz"
+    ],
+    "instruments": [
+      {
+        "id": "analog_sine_oscillator_z3000",
+        "slots": {
+          "z3000_signal_identity": "z3000_direct_sine_signal"
+        },
+        "scores": {
+          "z3000_signal_identity": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "analog_sine_oscillator_z3000": [
+        "z3000_signal_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "z3000_signal_identity": "z3000_direct_sine_signal"
+    },
+    "pin_parts": true
+  }
+}

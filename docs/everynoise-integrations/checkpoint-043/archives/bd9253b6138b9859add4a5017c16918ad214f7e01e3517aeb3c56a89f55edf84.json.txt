@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "reviewer": "research116",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field51/practice002-cumbia-metadata-final024.json",
+  "sha256": "f7f047b6d7a2bd449eddebb7ed50ed13a7bc2019d85a995bfb81b5e22bdff7ac",
+  "reviewed_at": "2026-10-04T08:05:23.507513+00:00",
+  "baseline": "/workspace/CodexMusica-qualified041@453cd0f1",
+  "source_review": {
+    "primary_url": "https://revistas.ucm.es/index.php/CMIB/article/download/84770/4564456567791",
+    "fresh_reference": "turn15285view0",
+    "finding": "Full original research independently read. It identifies translocal cumbia audiences, regional adaptations and production circulation, with voice,bass,keyboard,brass,percussion in dance-orchestra practice. Five-role compact authored rendition is supported without claiming exact-master personnel or equipment. Medellin institutional anchor is documented.",
+    "creator_url": "https://furia.com/everynoise_public/engenremap-cumbia.html",
+    "fresh_reference_creator": "turn15286search0",
+    "creator_retrieval": "Direct timed out; full fresh indexed primary independently reproduced, including multinational acts and selected Pastor Lopez."
+  },
+  "boundary_review": "Full frozen cumbia_colombiana includes origins,commercial orchestra and exports, candidly acknowledged. Transnational field positively encompasses independent local adaptation and cross-border audiences; broader umbrella rather than false exclusion or different exemplar. National cumbia/chicha/tecnocumbia remain overlapping branches.",
+  "controls": {
+    "effective": 36,
+    "protected": 36,
+    "new_dependencies": 0,
+    "old1653_preserved": true,
+    "immutable_five_fields": true,
+    "axes13": true,
+    "signature_tokens": "Explicit [] unsigned; no invented attribution."
+  },
+  "literal_review": "All four original browser/connector parity outputs read: bodacious voice,refined upright,confident bass,up-tempo trumpet,cheery percussion. Festive dance-orchestra practice supports expressive/brisk rendition; canonical Bach construction is explicitly authored and not a source gear claim. No mandatory foreign practice or role contradiction. Max848 chars; actual original compiled API has zero pin errors and preserves five families.",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-field51/practice002-peer116-runtime.json",
+  "metadata_rebind": "Exact only [] signature and concise photo label compared to independently rendered original. Musical payload unchanged; [] cannot add descriptors.",
+  "photo_review": {
+    "url": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+    "fresh_reference": "turn15283view1",
+    "finding": "Fresh primary CC BY2.5 creator/crop verified. Exact historical023 full+thumbnail33015byte250x720 hash7a97c264 preserved; no fresh binary or visual claim. Correct tradition identity and generic-context LOW label."
+  },
+  "limitations": [
+    "Representative practice, not exact recording reconstruction.",
+    "Historical photo binary/visual receipts retained; current rights only.",
+    "Original scholar discusses broad repertoire; specific piano/trumpet subtypes and solo staffing remain authored."
+  ]
+}

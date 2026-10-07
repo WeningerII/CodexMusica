@@ -5,7 +5,7 @@
   "lineage": "Doom metal as broad genre family descended from the Black Sabbath template — covering traditional doom (Pentagram, Saint Vitus, Candlemass), funeral doom (the slowest variant, 30-40 BPM, Mournful Congregation, Esoteric, Skepticism), the Electric Wizard / Cathedral UK occult-doom canon, and stoner-doom (psychedelic-sub-elements through Sleep, Electric Wizard, Bongripper) — distinct from the New Orleans sludge-and-hardcore axis covered by sludge metal and distinct from the sustained-tone minimalism covered by drone metal",
   "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal venezuelan metal. thick, larynx lowered, breath pulsed, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
   "recipe_chars": 663,
-  "score": 606.67,
+  "score": 604.663,
   "config": {
     "traditions": [
       "doom",
@@ -42,13 +42,13 @@
           "voice_articulation": 12.284999999999997,
           "voice_microtone": 17.099999999999998,
           "voice_tradition": 2.405,
-          "voice_mechanism_compound": 43.232,
+          "voice_mechanism_compound": 43.089499999999994,
           "voice_estill_quality": 2.8600000000000008,
           "voice_speech_song": 12.674999999999995,
           "voice_ensemble_config": 11.829999999999995,
           "voice_ornament_system": 1.4545,
           "voice_pitch_organization": 3.4459999999999997,
-          "voice_processing_chain": 6.113499999999999,
+          "voice_processing_chain": 5.9769999999999985,
           "voice_multitrack_stack": 4.160000000000001
         }
       },
@@ -58,7 +58,7 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
@@ -70,12 +70,12 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 36.83,
-          "amp_make": 45.897,
+          "electric_technique": 36.6875,
+          "amp_make": 45.623999999999995,
           "body_wood": 13.519999999999998,
           "neck_wood": 0.585,
           "fretboard": 0.7665,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0,
           "pickup_winding": 0.78,
           "string_material": 0.585,
           "bridge": 1.4300000000000002,
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 45.897,
+          "amp_make": 45.623999999999995,
           "body_wood": 0.78,
           "pickup_config": 0,
-          "string_type": 21.9525,
+          "string_type": 21.8685,
           "scale_length_b": 1.6829999999999998,
           "fretted_or_not": 0.345,
           "bass_technique": 18.25,
@@ -133,12 +133,12 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 31.107999999999997,
-          "amp_make": 45.897,
+          "electric_technique": 30.834999999999997,
+          "amp_make": 45.623999999999995,
           "baritone_use": 0.5714999999999999,
           "baritone_electric_tuning": 15.275,
           "baritone_electric_scale": 16.769999999999996,
-          "baritone_electric_strings": 32.7185,
+          "baritone_electric_strings": 32.445499999999996,
           "baritone_electric_pickup": 28.624999999999996
         }
       }

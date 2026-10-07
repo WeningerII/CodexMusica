@@ -1,0 +1,106 @@
+{
+  "id": "string_orchestra_obbligato_violin",
+  "name": "String orchestra with obbligato violin",
+  "family": "ensemble",
+  "class": "bowed_string",
+  "short": "string orchestra and solo violin",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "string_orchestra_obbligato_layout",
+      "name": "Ensemble layout",
+      "variants": [
+        {
+          "id": "strings_obbligato_violin_layout",
+          "default": true,
+          "name": "String orchestra with an obbligato solo violin",
+          "descriptors": [
+            "bowed",
+            "sectional",
+            "solo-and-ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_orchestra_obbligato_technique",
+      "name": "Authored technique",
+      "variants": [
+        {
+          "id": "strings_obbligato_song_melody",
+          "default": true,
+          "name": "Bowed song melody and accompanying string texture",
+          "descriptors": [
+            "melodic",
+            "bowed",
+            "accompanied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "string_orchestra_obbligato_layout",
+      "name": "Ensemble layout",
+      "variants": [
+        {
+          "id": "strings_obbligato_violin_layout",
+          "default": true,
+          "name": "String orchestra with an obbligato solo violin",
+          "descriptors": [
+            "bowed",
+            "sectional",
+            "solo-and-ensemble"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "string_orchestra_obbligato_technique",
+      "name": "Authored technique",
+      "variants": [
+        {
+          "id": "strings_obbligato_song_melody",
+          "default": true,
+          "name": "Bowed song melody and accompanying string texture",
+          "descriptors": [
+            "melodic",
+            "bowed",
+            "accompanied"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "zoom_rt123_rhythm_bass_machine",
+  "name": "Zoom RT-123 rhythm and bass machine",
+  "short": "RT-123 rhythm/bass machine",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "zoom_rt123_rhythm_bass_machine_identity",
+      "name": "Documented complete rhythm and bass source",
+      "variants": [
+        {
+          "id": "zoom_rt123_rhythm_bass_machine_documented",
+          "name": "RT-123 drum and bass programs; exact patches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Named hardware rhythm and bass instrument. Manufacturer documents two drum tracks and one bass track, built-in sounds and pattern/song programming. Whole documented device role preserves programmed drums and bass; it is not playback of the opaque album master. Exact kit, bass program and pattern settings remain unspecified.",
+  "sources": [
+    "https://necoyama-ice.bandcamp.com/album/domestic-rock-n-roll",
+    "https://zoomcorp.com/media/documents/E_RT123.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "zoom_rt123_rhythm_bass_machine_identity",
+      "name": "Documented complete rhythm and bass source",
+      "variants": [
+        {
+          "id": "zoom_rt123_rhythm_bass_machine_documented",
+          "name": "RT-123 drum and bass programs; exact patches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

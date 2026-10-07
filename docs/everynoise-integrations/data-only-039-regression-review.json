@@ -1,0 +1,508 @@
+{
+  "status": "PASS",
+  "integration_sha256": "b8080977df43c25645ed368c75bdd7fa9633477b56c40d6c99472e3a503a0b58",
+  "baseline": "4fc011d5851bc425386cf2b2fcee937f22c65e6d",
+  "original_snapshot_sha256": "36e315c4a45f656b67567a8917f959014a3e6de7e1871919de8510b1d01f6f9a",
+  "initial_result": "1143/1149; exactly six recipe differences",
+  "authorized_exact_fixture_ids": [
+    "chinese_traditional_ensemble",
+    "ethio_pop_modern",
+    "modal_jazz",
+    "freak_folk_2000s",
+    "coupe_decale_ivorian",
+    "salsa_dura"
+  ],
+  "reviewed_rows": [
+    {
+      "id": "chinese_traditional_ensemble",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "chinese_traditional_ensemble",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb."
+      },
+      "staples_before": ["chinese_traditional_ensemble", "sinhala_vannama", "telugu_kirtana"],
+      "staples_after": ["chinese_traditional_ensemble", "indian_violin", "sinhala_vannama"],
+      "material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "vocal_fry",
+          "after": "chest_voice",
+          "source_pin_parts": false,
+          "source_variant": "falsetto",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_retune_10_50ms_natural",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_retune_50_100ms_subtle",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "New Indian Violin enters original artMusic.southAsian cross-reference candidates and replaces Telugu Kirtana staple. Two unprotected voice choices change. No source historical/ensemble claim is rewritten.",
+      "expected_before": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+      "reviewed_after": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music indian violin sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb."
+    },
+    {
+      "id": "ethio_pop_modern",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "ethio_pop_modern",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion ghent indie musique comorienne. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+      },
+      "staples_before": ["ethio_pop_modern", "ghent_indie", "musique_comorienne"],
+      "staples_after": ["ethio_pop_modern", "ghent_indie", "guadalajara_indie"],
+      "material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_single_source",
+          "after": "voice_mechanism_M0_pulse_borrowed",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_speech",
+          "after": "voice_estill_nasal_twang",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_ethiopian_qenet",
+          "after": "voice_pitch_thai_7_equal_step",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_just_intonation",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "finish",
+          "before": "oil_satin",
+          "after": "nitro",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "drop_d",
+          "after": "dadgad",
+          "source_pin_parts": false,
+          "source_variant": "standard_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_archetypes",
+          "before": "oberheim_obxa",
+          "after": "prophet_5",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "New Guadalajara Indie enters existing fusion cross-reference branch and replaces Musique Comorienne third staple. Six unprotected voice/guitar/synth choices change, including Thai pitch and DADGAD optimizer values; these are inherited optimizer alternatives, not new claims about Ethiopian practice.",
+      "expected_before": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion ghent indie musique comorienne. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "reviewed_after": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion ghent indie guadalajara indie. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus alder clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "modal_jazz",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "modal_jazz",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+      },
+      "staples_before": ["modal_jazz"],
+      "staples_after": ["modal_jazz", "borneo_traditional", "rogaland_musikk"],
+      "material_slot_changes": [
+        {
+          "instrument": "saxophone",
+          "part": "sax_body_alloy",
+          "before": "phosphor_bronze_sax",
+          "after": "nickel_silver_sax",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_size",
+          "before": "trumpet_b_flat",
+          "after": "flugelhorn",
+          "source_pin_parts": false,
+          "source_variant": "trumpet_b_flat",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "before": "harmon_out",
+          "after": "no_mute_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_size",
+          "before": "grand_7_foot",
+          "after": "grand_9_foot",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "ronsen_wurzen_hammer",
+          "after": "abel_hammer",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "mason_hamlin_oversize_rim",
+          "after": "steinway_17_ply_hard_rock_maple_rim",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "asian_multi_laminate_pinblock",
+          "after": "hexagrip_7_ply_quartersawn_maple",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_plate",
+          "before": "v_pro_vacuum_cast_plate",
+          "after": "gray_iron_full_perimeter_plate",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_441_japanese",
+          "after": "a_442_european",
+          "source_pin_parts": false,
+          "source_variant": "a_440_modern",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "before": "brushes_jazz",
+          "after": "brushes_and_sticks",
+          "source_pin_parts": false,
+          "source_variant": "brushes_jazz",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "vintage_ambassador_drumhead",
+          "after": "fiberskyn_drumhead",
+          "source_pin_parts": false,
+          "source_variant": "calfskin_drum",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "New Borneo Traditional enters string-drone cross-reference pool; original search now staples Borneo Traditional and existing Rogaland Musikk. Eleven unprotected sax/trumpet/piano/drum settings change. Material flugelhorn/piano-size/pitch and brush settings are valid old catalog options; this is generated recipe movement, not preserved source default movement.",
+      "expected_before": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "reviewed_after": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal borneo traditional rogaland musikk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, no chemical hardener t rivet 17 ply hard rock maple sitka spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+    },
+    {
+      "id": "freak_folk_2000s",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "freak_folk_2000s",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop français dark pop. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, carpathian spruce European maple bosnian source flamed figure French Polish violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay."
+      },
+      "staples_before": ["freak_folk_2000s", "hyperpop_francais", "dark_pop"],
+      "staples_after": ["freak_folk_2000s", "french_indietronica", "hyperpop_francais"],
+      "material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_jingju_role",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pelog_7",
+          "after": "voice_pitch_slendro_5",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_tuning",
+          "before": "eb_standard",
+          "after": "d_standard",
+          "source_pin_parts": false,
+          "source_variant": "dadgad",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_bow",
+          "before": "dark_rosin",
+          "after": "magic_rosin_fiddle",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "sul_tasto",
+          "after": "arco",
+          "source_pin_parts": false,
+          "source_variant": "arco",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "musette_offset",
+          "before": "demi_swing",
+          "after": "dry_tuning",
+          "source_pin_parts": false,
+          "source_variant": "dry_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_strings",
+          "before": "copper_wound_gut_violin",
+          "after": "plain_lamb_gut_violin",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_articulation",
+          "before": "pizz_orch",
+          "after": "arco_orch",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "New French Indietronica enters experimental electric pop branch, replaces Dark Pop among staples. Nine unprotected voice/string/bow/accordion values change; actual source defaults remain exact. Slendro/other regional variant labels are pre-existing optimizer alternatives, not authored genre facts.",
+      "expected_before": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop français dark pop. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, carpathian spruce European maple bosnian source flamed figure French Polish violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "reviewed_after": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric french indietronica hyperpop français. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, synthetic magic rosin modern acrylic base drone like fiddle, castagnari Italian premium folk music straight accordion, plain gut lamb gut whole lamb method carpathian spruce European maple violin orchestral, folk strummed open chord ringing overtones autoharp, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay."
+    },
+    {
+      "id": "coupe_decale_ivorian",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "coupe_decale_ivorian",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+      },
+      "staples_before": ["coupe_decale_ivorian", "hip_hop_galsen", "merenrap"],
+      "staples_after": ["coupe_decale_ivorian", "hip_hop_galsen", "merenrap"],
+      "material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "straight_tone",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "soapbar",
+          "after": "humbucker_mm",
+          "source_pin_parts": false,
+          "source_variant": "soapbar",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "New Hipco changes original neighbor-bias scoring through Afro-diasporic MC cross-reference despite unchanged final staple IDs. Removing Hipco alone restores exact old config/score/recipe. Two unprotected voice vibrato/bass pickup settings change.",
+      "expected_before": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "reviewed_after": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "salsa_dura",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "salsa_dura",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+      },
+      "staples_before": ["salsa_dura", "hip_hop_galsen", "merenrap"],
+      "staples_after": ["salsa_dura", "hip_hop_galsen", "merenrap"],
+      "material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "fast_vibrato",
+          "after": "straight_tone",
+          "source_pin_parts": false,
+          "source_variant": "slow_vibrato",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "before": "harmon_in",
+          "after": "no_mute_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trumpet",
+          "part": "trumpet_bell_metal",
+          "before": "trumpet_yellow_brass",
+          "after": "trumpet_red_brass",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "trombone",
+          "part": "trombone_mute",
+          "before": "cup_mute_trb",
+          "after": "no_mute_trb",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "cencerro",
+          "part": "cencerro_build",
+          "before": "cencerro_welded_steel",
+          "after": "cencerro_cattle_bell",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "New Hipco changes original neighbor-bias scoring through Afro-diasporic MC cross-reference despite unchanged final staple IDs. Removing Hipco alone restores exact old config/score/recipe. Five unprotected vibrato/brass mute/metal/cowbell values change.",
+      "expected_before": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, rap, fast rate, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "reviewed_after": "classic North American mid-1970s salsa dura, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, rap, pure, interlocked note trading. cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, bach 42 canonical American orchestral tenor trombone, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. shure SM57, API 312 op-amp pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+    }
+  ],
+  "pipeline_proof": "pipeline-preservation119.json:261 files unchanged; independent source/browser proof preserves6438 old records and27253 old imported cards.",
+  "update_scope": "Root may use original regression_recipes.js --update --fixture=<one authorized id> for only these six, then rerun full serial suite. No assertion/solver/source edit, no blanket refresh. Reviewer did not mutate snapshots.",
+  "errors": []
+}

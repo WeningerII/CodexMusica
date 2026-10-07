@@ -1,0 +1,50 @@
+{
+  "id": "goa_psytrance",
+  "name": "Goa Psytrance",
+  "family": "electronic",
+  "lineage": "Goa psytrance connects Goa-derived psychedelic dance music with continuing producer and DJ communities. Older melodic approaches and newer productions meet in rhythmically continuous sets, linking the early party tradition with contemporary labels and festivals.",
+  "recipe": "classic goa psytrance, electronic Dance, trance branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 102,
+  "score": 0.39,
+  "config": {
+    "traditions": [
+      "goa_psytrance"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

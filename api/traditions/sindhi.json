@@ -5,7 +5,7 @@
   "lineage": "Music of Sindh in southern Pakistan anchored in the Shah jo Risalo of Shah Abdul Latif Bhittai (18th century) and its surs sung nightly at the Bhit Shah shrine by faqirs on the five-string tambooro, plus Sachal Sarmast and Jhulelal repertoire, carried to broadcast by Radio Pakistan Hyderabad from the 1950s and to cassette by Abida Parveen and Allan Faqir, marked by yaktaro drone, borrindo and narr flutes, surando bowed lute, chapri clappers and dholak, and slow declamatory melismatic singing.",
   "recipe": "classic South Asian mid-1950s sindhi, ritual Devotional, Sufi branch, indian bard ballad poetry, indian subcontinent praise song rajasthani folk hindu stuti and bhajan. thick, declaimed, slow rate, interlocked note trading. yaktaro, borrindo, narh flute, surando, chapri, bolt tuned modern concert stable dholak, vocal male straight harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 528,
-  "score": 193.165,
+  "score": 193.322,
   "config": {
     "traditions": [
       "sindhi",
@@ -100,8 +100,8 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 3.7350000000000008,
-          "harmonium_action": 0.675,
+          "free_reed_technique": 3.690000000000001,
+          "harmonium_action": 1.2149999999999999,
           "harmonium_voicing": 1.04,
           "harmonium_use": 4.095
         }
@@ -127,20 +127,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.44,
-          "voice_quality": 18.554999999999993,
+          "voice_register": 4.3950000000000005,
+          "voice_quality": 18.704999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.8274999999999997,
           "voice_articulation": 20.345,
           "voice_microtone": 20.604999999999997,
-          "voice_tradition": 15.34,
+          "voice_tradition": 14.995,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 6.3375,
           "voice_speech_song": 25.967499999999998,
           "voice_ensemble_config": 22.619999999999997,
           "voice_ornament_system": 7.7749999999999995,
-          "voice_pitch_organization": 2.5025000000000004,
+          "voice_pitch_organization": 2.4050000000000002,
           "voice_processing_chain": 8.45,
           "voice_multitrack_stack": 5.98
         }

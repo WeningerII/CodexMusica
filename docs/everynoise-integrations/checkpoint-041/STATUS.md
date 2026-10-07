@@ -1,0 +1,11 @@
+# Qualified 187-addition checkpoint
+
+The current source selection contains **187 additions and 15 supported instrument records**, on merged PR480. The previous 194-entry build is preserved in commit `6d96ea04f8a02b6a9466a30ff848b66fa22b1bbf` and the historical receipts. All 200 reviewed proposals and 16 instrument proposals remain saved. Thirteen addition proposals are held, plus six older queue holds. There is no fixed batch-size threshold or descriptor-frequency exclusion.
+
+<!-- check_docs:ignore --> The original pipeline rebuilt **6,725 traditions and 1,653 instruments**, zero failures, with two workers in 707.5 seconds. All 187 actual new recipes and full configurations equal their independently reviewed results. All 4,847 protected controls are retained, without fallback or unsupported context additions. All existing 6,538 musical configurations and existing instrument data remain unchanged; 6,524 old payloads are entirely identical and 14 have numeric-score differences. One existing recipe now spells out its already pinned syllabic-singing setting. This is a compatible disclosure, not a new musical setting.
+
+**1,149/1,149 original regression snapshots pass unchanged.** The earlier 43 introduced musical-slot differences are contained by deferring Experimental Big Band, Cumbia Cristiana and Oeteldonk. Four unsupported new blends are held separately. The inherited baseline defects are not represented as fixed. Shared engine/schema and snapshots remain unchanged.
+
+Source/reference, API, atlas, documentation and generated HTML checks pass. All 15 supporting checks pass, including all 28 capability cases. Exact-head CI and final remote content checks remain pending; do not merge until they pass. The separate repair candidates and ongoing research remain outside this frozen source build.
+
+Exact JSON receipt bytes are archived as `.json.txt`; archive indexes record their hashes. The 187 freeze is `c8171af4363aef7273f8a8190846c37d4cf4625b28172048dcb5866efb6e2803`. Its inherited scope wording describes the previous194 selection; its actual entries/expected counts and current qualification reports bind187. The separate longitude amendment records Pinoy Praise at positive121.039 east. Historical measurements remain historical, not current approval claims.

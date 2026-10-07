@@ -2,10 +2,10 @@
   "id": "italian_choir",
   "name": "Italian choir",
   "family": "classical",
-  "lineage": "Italian choir is represented by Coro Costanzo Porta — London A Cappella Choir Competition programme (2014). One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s italian choir, art Music, western common practice branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 190,
-  "score": 3.127,
+  "lineage": "Italian choral music encompasses sacred and secular repertoire performed by chamber, community and concert ensembles. Historical polyphony and contemporary composition contribute to varied vocal traditions.",
+  "recipe": "classic italian choir, art Music. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 148,
+  "score": 1.69,
   "config": {
     "traditions": [
       "italian_choir"
@@ -21,9 +21,9 @@
         },
         "scores": {
           "choir_size": 1.69,
-          "choir_polyphonic_configuration": 0.1365,
+          "choir_polyphonic_configuration": 0,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 1.3
+          "choir_ensemble_repertoire": 0
         }
       }
     ],

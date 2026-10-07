@@ -1,0 +1,50 @@
+{
+  "id": "thai_folk_pop",
+  "name": "Thai Folk Pop",
+  "family": "pop",
+  "lineage": "Thai folk pop brings intimate songwriting and acoustic textures into popular-song settings. Singer-songwriters, small bands and mixed listening programmes connect local lyrics and folk influences with contemporary melodic pop, alongside the wider Thai indie and rural-song fields.",
+  "recipe": "classic thai folk pop, functional Song, east Asian pop branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 109,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "thai_folk_pop"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

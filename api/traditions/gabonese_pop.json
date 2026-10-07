@@ -2,10 +2,10 @@
   "id": "gabonese_pop",
   "name": "Gabonese pop",
   "family": "pop",
-  "lineage": "Gabonese pop is represented here by Pierre Akendengué — guitar-and-voice core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic gabonese pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 302,
-  "score": 15.424,
+  "lineage": "Gabonese pop connects local songwriting and languages with modern African popular music. Acoustic songcraft, choral textures and rhythmic ensembles contribute to its varied repertoire.",
+  "recipe": "classic gabonese pop, functional Song, African pop branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 362,
+  "score": 16.723,
   "config": {
     "traditions": [
       "gabonese_pop"
@@ -21,11 +21,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 11.95,
+          "acoustic_technique": 11.2,
           "string_tuning": 0,
           "top_wood": 0.3045,
           "back_sides": 0.147,
-          "string_acoustic": 0.6405000000000001
+          "string_acoustic": 1.3
         }
       },
       {
@@ -60,10 +60,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.3,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 1.1365,
           "voice_multitrack_stack": 0.7770000000000001
         }
       }

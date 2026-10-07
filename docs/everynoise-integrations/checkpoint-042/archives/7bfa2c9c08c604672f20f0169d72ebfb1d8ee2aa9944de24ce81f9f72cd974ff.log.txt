@@ -1,0 +1,45 @@
+
+> codex-music-tool@2.0.0 check:atlas
+> node scripts/build_atlas_basemap.js --check && node scripts/build_atlas_geo.js --check && node scripts/build_atlas_tree.js --check && node scripts/check_atlas_publish.js && node scripts/check_atlas_publish.js --self-test && node scripts/check_earth_tiles.js && node --test scripts/test_atlas_tiles.js scripts/test_atlas_controls.js
+
+build_atlas_basemap: OK — 242 features, 1621 polygons, 52190 vertices
+build_atlas_geo: OK — atlas-geo.json matches data/geo.json (4690 spread, 2056 exact)
+build_atlas_tree: OK — 317 nodes, 6746 placed traditions, 0 unplaced
+=== Atlas sidecars are publishable ===
+
+  29 referenced path(s); Pages serves this tree verbatim (.nojekyll present)
+  ✓ every path exists, is tracked, and is servable
+=== check_atlas_publish self-test ===
+
+  ✓ underscore sidecar, no .nojekyll → refused
+  ✓ same tree, .nojekyll present → accepted
+  ✓ runtime image missing → refused
+  ✓ sidecar deleted → refused as missing, marker or not
+  ✓ no fetch literals → refused as an empty check
+Earth tiles: 16737 tracked, hashed tiles; 108.81 MB total; overview and manifest within budgets.
+✔ panels close and switch consistently; genre filters stay visible and clearable (622.889658ms)
+✔ every collection opens real members, no editorial blurb or implied migration line (670.3685ms)
+✔ focusing empty search preserves a collection; typing replaces it without stale controls (352.733428ms)
+✔ switching from collection to genre group clears the hidden collection constraint (374.462738ms)
+✔ search with no results explains the empty map and can be cleared (335.013331ms)
+✔ routes expose all catalogued links and clickable genre endpoints, with a real off action (4048.37519ms)
+✔ collection detail can return, close, and clear without a stale back button (470.04773ms)
+✔ a route and a filter are never active together, in either order (1219.343732ms)
+✔ overview needs no tiles; retina/zoom selects detail; off-world view is empty (3.706146ms)
+✔ rapid zoom skips intermediate levels and caps requests/cache; disposal releases pixels (21.784353ms)
+✔ 404 and timeout retain fallback without repeated attempts (1.342057ms)
+✔ drawing uses the same Equal Earth extent and retains loaded parents during zoom (2.38393ms)
+✔ large displays keep complete viewport coverage within the tile budget (1.120702ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8584.031983
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

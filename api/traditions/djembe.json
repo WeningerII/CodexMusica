@@ -1,0 +1,58 @@
+{
+  "id": "djembe",
+  "name": "Djembe",
+  "family": "vernacular",
+  "lineage": "Djembe performance extends from West African drumming traditions into international teaching and ensemble practice. Solo playing and exchanges among performers make contrasting hand-drum sounds central to the music.",
+  "recipe": "classic djembe, groove Percussion, west African branch. djembe. live tracking.",
+  "recipe_chars": 78,
+  "score": 0.578,
+  "config": {
+    "traditions": [
+      "djembe"
+    ],
+    "instruments": [
+      {
+        "id": "djembe",
+        "slots": {
+          "djembe_wood": "djembe_lenke",
+          "djembe_skin": "djembe_synthetic",
+          "djembe_play": "djembe_traditional_3"
+        },
+        "scores": {
+          "djembe_wood": 0.168,
+          "djembe_skin": 0.1365,
+          "djembe_play": 0.273
+        }
+      }
+    ],
+    "pinned": {
+      "djembe": [
+        "djembe_wood",
+        "djembe_skin",
+        "djembe_play"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "djembe_wood": "djembe_lenke",
+      "djembe_skin": "djembe_synthetic",
+      "djembe_play": "djembe_traditional_3"
+    },
+    "pin_parts": true
+  }
+}

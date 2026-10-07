@@ -1,0 +1,113 @@
+{
+  "id": "indonesian_experimental",
+  "name": "Indonesian experimental",
+  "family": "electronic",
+  "lineage": "Indonesian experimental music connects acoustic traditions, electronic processes and environmental sound with contemporary exploratory practice. Artists such as Catu Daya bring gamelan-related resources into improvisatory and spatial sound work without replacing the distinct structures of traditional ensembles.",
+  "recipe": "classic indonesian experimental, experimental Elec. gamelan foundational rebab, gong tamtam, credited electronics unspecified, environmental field recording environmental sound collage. shoebox concert hall.",
+  "recipe_chars": 207,
+  "score": 2.705,
+  "config": {
+    "traditions": [
+      "indonesian_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "rebab_region": "rebab_javanese",
+          "rebab_context": "rebab_solo",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "rebab_goat_skin",
+          "rebab_strings": "rebab_steel_modern"
+        },
+        "scores": {
+          "bowed_technique": -0.07,
+          "rebab_region": 1,
+          "rebab_context": 0,
+          "rebab_body": 0,
+          "rebab_skin": 0,
+          "rebab_strings": 0.054
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0,
+          "gong_striker": 0.0315
+        }
+      },
+      {
+        "id": "credited_electronics_unspecified",
+        "slots": {
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        },
+        "scores": {
+          "credited_electronics_identity": 0
+        }
+      },
+      {
+        "id": "environmental_sound_collage",
+        "slots": {
+          "environmental_collage_source": "environmental_field_recording_collage"
+        },
+        "scores": {
+          "environmental_collage_source": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "rebab": [
+        "bowed_technique",
+        "rebab_region",
+        "rebab_context",
+        "rebab_body",
+        "rebab_skin",
+        "rebab_strings"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "credited_electronics_unspecified": [
+        "credited_electronics_identity"
+      ],
+      "environmental_sound_collage": [
+        "environmental_collage_source"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "bowed_technique": "bowed_rough_drone",
+      "rebab_region": "rebab_javanese",
+      "rebab_context": "rebab_solo",
+      "rebab_body": "rebab_wood_carved",
+      "rebab_skin": "rebab_goat_skin",
+      "rebab_strings": "rebab_steel_modern",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "credited_electronics_identity": "credited_electronics_generator_unspecified",
+      "environmental_collage_source": "environmental_field_recording_collage"
+    },
+    "pin_parts": true
+  }
+}

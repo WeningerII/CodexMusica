@@ -3,14 +3,14 @@
   "name": "March (concert and military band)",
   "family": "classical",
   "lineage": "The European and American wind-band march, standardized in 19th-century military service bands and codified for the concert stage by John Philip Sousa's US Marine Band from 1880 and by Kenneth Alford in Britain — duple time at 112-120 BPM, an unvarying alternating-bass snare-and-bass-drum tread, multi-strain AABBCC form with a modulating trio and a piccolo or cornet obbligato descant, scored for cornets, clarinets, low brass, and sousaphone with no strings.",
-  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music pasodoble brass band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
-  "recipe_chars": 984,
-  "score": 154.466,
+  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass wind symphony. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
+  "recipe_chars": 991,
+  "score": 157.143,
   "config": {
     "traditions": [
       "concert_march",
-      "pasodoble",
-      "brass_band"
+      "baroque_brass",
+      "wind_symphony"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "cornet_maker_school": "cornet_besson_british"
         },
         "scores": {
-          "wind_articulation": 4.54,
-          "cornet_pitch": 9.873749999999998,
-          "cornet_context": 3.7700000000000005,
-          "cornet_bell_metal": 9.6875,
-          "cornet_maker_school": 9.8575
+          "wind_articulation": 5.79,
+          "cornet_pitch": 9.523749999999998,
+          "cornet_context": 4.029999999999999,
+          "cornet_bell_metal": 9.6375,
+          "cornet_maker_school": 9.3075
         }
       },
       {
@@ -36,15 +36,15 @@
           "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "a_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 4.54,
-          "clarinet_body": 4.6000000000000005,
-          "clarinet_size": 1.65,
-          "clarinet_reed": 0.65,
-          "clarinet_articulation": 0.15
+          "wind_articulation": 5.79,
+          "clarinet_body": 5.8500000000000005,
+          "clarinet_size": 2.15,
+          "clarinet_reed": 0.45499999999999996,
+          "clarinet_articulation": 0.45499999999999996
         }
       },
       {
@@ -54,18 +54,18 @@
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_3g",
           "trombone_mute": "straight_mute_trb",
-          "trombone_technique": "big_band_punch",
+          "trombone_technique": "classical_trb",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.54,
+          "wind_articulation": 5.79,
           "trombone_type": 0,
-          "trombone_mouthpiece": 7.663749999999999,
-          "trombone_mute": 1.9012499999999999,
-          "trombone_technique": 0.39,
-          "trombone_bell_metal": 3.7700000000000005,
-          "trombone_maker_school": 4.14
+          "trombone_mouthpiece": 8.41375,
+          "trombone_mute": 2.2512499999999998,
+          "trombone_technique": 0.35,
+          "trombone_bell_metal": 4.029999999999999,
+          "trombone_maker_school": 3.25
         }
       },
       {
@@ -75,8 +75,8 @@
           "sousaphone_context": "sousaphone_nola_brass_band"
         },
         "scores": {
-          "sousaphone_bore": 3.7787499999999996,
-          "sousaphone_context": 8.6225
+          "sousaphone_bore": 3.1849999999999996,
+          "sousaphone_context": 8.5725
         }
       },
       {
@@ -89,11 +89,11 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 4.54,
-          "euph_use": 7.093749999999999,
-          "euphonium_pitch": 9.5725,
-          "euphonium_bell_metal": 10.6375,
-          "euphonium_maker_school": 9.8575
+          "wind_articulation": 5.79,
+          "euph_use": 7.543749999999999,
+          "euphonium_pitch": 9.022499999999999,
+          "euphonium_bell_metal": 10.087499999999999,
+          "euphonium_maker_school": 9.3075
         }
       },
       {
@@ -104,9 +104,9 @@
           "piccolo_context": "piccolo_orch"
         },
         "scores": {
-          "wind_articulation": 4.54,
-          "piccolo_material": 2.24625,
-          "piccolo_context": 2.4949999999999997
+          "wind_articulation": 5.79,
+          "piccolo_material": 1.94625,
+          "piccolo_context": 3.4949999999999997
         }
       },
       {
@@ -116,8 +116,8 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 1.2062499999999998,
-          "bass_drum_beater": 3.8349999999999995
+          "bass_drum_size": 1.05625,
+          "bass_drum_beater": 3.3799999999999994
         }
       },
       {
@@ -129,8 +129,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 2.4949999999999997,
-          "glockenspiel_mallet": 3.630000000000001
+          "glockenspiel_size": 3.4949999999999997,
+          "glockenspiel_mallet": 3.83
         }
       },
       {
@@ -140,8 +140,8 @@
           "school_style": "corps_style"
         },
         "scores": {
-          "sections": 3.6800000000000006,
-          "school_style": 2.9875
+          "sections": 3.88,
+          "school_style": 2.4875
         }
       }
     ],

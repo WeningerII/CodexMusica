@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "packet": "/workspace/genre-continuation/research/remaining436-practice-pass/recover024-jain-axis/jain-acoustic-drone-axes.json",
+  "sha256": "4be287b6d97d1923ad80aca932be47f75d80750cf7e7f1bcddfd4ecf5e11668b",
+  "packet_sha256": "4be287b6d97d1923ad80aca932be47f75d80750cf7e7f1bcddfd4ecf5e11668b",
+  "id": "jain_bhajan",
+  "changed_fields": [
+    "extras.axes.harm:0→-1",
+    "extras.axes.soundTech:1→-1",
+    "axis_review_evidence (evidence only)"
+  ],
+  "source_review": "Previously independently verified scholarly Jain recording practice names devotional singing, tabla and sustained drone. Unprocessed acoustic voice/tabla/plucked tanpura branch is deliberately selected. No new source facts or universal instrumentation claims introduced.",
+  "axis_semantics": "Original AXIS_DEFINITIONS harm negative=modal/drone-tonic; soundTech negative=acoustic. These two directions accurately describe the already authored branch, rather than arbitrary parameters chosen without musical meaning. Neither -1 claims an exact measured acoustic value.",
+  "preservation": "Exact all-other-entry-fields equal approved taxonomy-corrected source; immutable allocation/photo/controls/roles/room unchanged.",
+  "runtime": "/workspace/genre-continuation/research/remaining436-practice-pass/review461/jain-axis-runtime.json",
+  "runtime_sha256": "999d8e3ec4a7562433a2474c46f1c7d2c16d9e2c0102d5322abdfe94f9ad347b",
+  "controls": 26,
+  "four_literal_formats": "PASS unchanged huge voice/tabla/tanpura hall rendition; no new cultural mechanism. Compiled context target-only and all pins survive.",
+  "global_qualification": "NOT YET PASSED; separate combined-axis replay and graph required. Original integration hold preserved.",
+  "qualification_scope": "SOURCE_LED_AXIS_DERIVATIVE_AND_TARGET_OUTPUTS_ONLY"
+}

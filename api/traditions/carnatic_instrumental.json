@@ -5,7 +5,7 @@
   "lineage": "South Indian classical instrumental tradition spanning veena (Saraswathi veena, the South Indian fretted long-neck lute), Carnatic violin (held in vertical Carnatic posture, codified by Baluswami Dikshitar in the early 19th century), bansuri flute (Carnatic flute is distinct from Hindustani in tuning), nadaswaram (temple double-reed), mandolin (U. Shrinivas adaptation), and even saxophone (Kadri Gopalnath South Indian classical saxophone), all interpreting the same 72-melakarta-and-kriti repertoire as the vocal tradition",
   "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 974,
-  "score": 338.823,
+  "score": 338.262,
   "config": {
     "traditions": [
       "carnatic_instrumental",
@@ -25,11 +25,11 @@
           "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 17,
+          "plucked_traditional_technique": 17.045,
           "veena_construction": 0.24,
           "veena_resonator": 0.195,
           "veena_pluck": 8.84,
-          "veena_body_wood": 0.585,
+          "veena_body_wood": 0.63,
           "veena_strings": 0.195,
           "veena_lineage": 16.185
         }
@@ -47,7 +47,7 @@
           "mridangam_heads": 8.84,
           "mridangam_use": 0,
           "mridangam_shell_wood": 6.175,
-          "mridangam_heads_material": 0.585,
+          "mridangam_heads_material": 0.6749999999999999,
           "mridangam_lineage": 6.175
         }
       },
@@ -58,14 +58,14 @@
           "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.39,
+          "ghatam_school": 0.33,
           "ghatam_technique": 0
         }
       },
       {
         "id": "kanjira",
         "slots": {
-          "kanjira_skin": "kanjira_synthetic",
+          "kanjira_skin": "kanjira_goat",
           "kanjira_context": "kanjira_carnatic",
           "kanjira_shell_wood": "kanjira_jackwood_canonical",
           "kanjira_jingle": "kanjira_brass_jingle"
@@ -87,7 +87,7 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 17,
+          "bowed_technique": 17.045,
           "violin_carnatic_tuning": 26.389999999999997,
           "violin_carnatic_posture": 4.81,
           "violin_carnatic_strings": 13.519999999999998,
@@ -108,12 +108,12 @@
         },
         "scores": {
           "acoustic_technique": 1.625,
-          "mandolin_shape": 0.09,
-          "mandolin_top": 19.55375,
+          "mandolin_shape": 0.135,
+          "mandolin_top": 19.89875,
           "mandolin_back": 0.195,
-          "mandolin_bracing": 1.6478125,
+          "mandolin_bracing": 1.4978125,
           "mandolin_strings": 1.25,
-          "mandolin_fingerboard": 8.125,
+          "mandolin_fingerboard": 7.504375,
           "mandolin_pickup": 10.204999999999997
         }
       },
@@ -129,7 +129,7 @@
           "thavil_context": 1.235,
           "thavil_technique": 0.585,
           "thavil_shell_wood": 0.78,
-          "thavil_head": 0.585
+          "thavil_head": 0.6749999999999999
         }
       },
       {
@@ -142,9 +142,9 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 16.995,
+          "wind_articulation": 16.95,
           "bansuri_length": 2.535,
-          "bansuri_ornament": 7.825,
+          "bansuri_ornament": 7.57,
           "bansuri_body_material": 16.185,
           "bansuri_lineage": 3.12
         }
@@ -157,14 +157,14 @@
           "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_continuous_legato",
+          "sax_technique": "sax_cool_lyrical",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 16.995,
+          "wind_articulation": 16.95,
           "sax_size": 0.12999999999999998,
           "sax_reed": 0.195,
-          "sax_body_alloy": 17.7678125,
+          "sax_body_alloy": 17.6178125,
           "sax_mouthpiece": 0.195,
           "sax_technique": -0.035,
           "sax_maker_school": 0.195
@@ -180,8 +180,8 @@
           "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
         },
         "scores": {
-          "nadaswaram_register": 5.07,
-          "nadaswaram_ensemble": 2.34,
+          "nadaswaram_register": 4.755,
+          "nadaswaram_ensemble": 2.2800000000000002,
           "nadaswaram_body_wood": 0.78,
           "nadaswaram_reed": 0.78,
           "nadaswaram_lineage": 2.08
@@ -195,8 +195,8 @@
           "morsing_material": "morsing_steel"
         },
         "scores": {
-          "morsing_form": 22.218749999999996,
-          "morsing_technique": 12.07,
+          "morsing_form": 22.608749999999997,
+          "morsing_technique": 12.115,
           "morsing_material": 11.875
         }
       }

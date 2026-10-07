@@ -1,0 +1,46 @@
+{
+  "packet_sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+  "baseline_instruments": 1535,
+  "after_instruments": 1544,
+  "preserved_existing": true,
+  "changed_existing": [],
+  "unknown_descriptor_tokens": [],
+  "new_merged_parts": [
+    {
+      "id": "credited_acoustic_bass",
+      "parts": ["credited_acoustic_bass_identity"]
+    },
+    {
+      "id": "ilimba_gogo",
+      "parts": ["ilimba_gogo_identity"]
+    },
+    {
+      "id": "microtonal_guitar_unspecified",
+      "parts": ["microtonal_guitar_unspecified_identity"]
+    },
+    {
+      "id": "microtonal_mandolin_unspecified",
+      "parts": ["microtonal_mandolin_unspecified_identity"]
+    },
+    {
+      "id": "octave_fiddle_unspecified",
+      "parts": ["bowed_technique", "octave_fiddle_unspecified_identity"]
+    },
+    {
+      "id": "munnharpe_unspecified",
+      "parts": ["munnharpe_unspecified_identity"]
+    },
+    {
+      "id": "party_cans_credited",
+      "parts": ["party_cans_identity"]
+    },
+    {
+      "id": "tenor_horn_eb",
+      "parts": ["tenor_horn_eb_identity"]
+    },
+    {
+      "id": "baritone_horn_bb",
+      "parts": ["baritone_horn_bb_identity"]
+    }
+  ]
+}

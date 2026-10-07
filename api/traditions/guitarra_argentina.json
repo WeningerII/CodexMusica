@@ -1,0 +1,76 @@
+{
+  "id": "guitarra_argentina",
+  "name": "Guitarra Argentina",
+  "family": "classical",
+  "lineage": "Argentine guitar repertoire brings together concert composition, tango, milonga and folk-derived instrumental practice. Soloists, duos and larger ensembles connect regional dance rhythms with the guitar’s melodic and harmonic resources. Eduardo Falú and Héctor Ayala are among the composers represented in its concert repertoire.",
+  "recipe": "classic guitarra argentina, art Music. classical nylon-string guitar. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 174,
+  "score": 5.45,
+  "config": {
+    "traditions": [
+      "guitarra_argentina"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 2.6000000000000005,
+          "string_tuning": 0,
+          "top_wood_classical": 0.39,
+          "bracing_classical": 0.9099999999999999,
+          "string_classical": 0.25,
+          "attack_technique_cl": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

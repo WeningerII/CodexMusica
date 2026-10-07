@@ -1,0 +1,66 @@
+{
+  "id": "pittsburgh_indie",
+  "name": "Pittsburgh indie",
+  "family": "electronic",
+  "lineage": "Pittsburgh indie connects a varied local independent music community, from guitar bands and songwriters to electronic and sample-based projects. Artists such as Girl Talk demonstrate the field’s reach beyond one rock-band format.",
+  "recipe": "classic pittsburgh indie, experimental Elec. sampler. treated studio.",
+  "recipe_chars": 69,
+  "score": 4.055,
+  "config": {
+    "traditions": [
+      "pittsburgh_indie"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 0.25,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": -0.05,
+          "sampler_workflow": 0.2,
+          "sampler_classic_context": 3.7049999999999996
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "akai_mpc",
+      "sampler_bit_depth": "sampler_twelve_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "entries": [
+    {
+      "id": "cristiana_para_ninos",
+      "suggested_id": "cristiana_para_ninos",
+      "source_label": "cristiana para ninos",
+      "allocation_ordinal": 3098,
+      "status": "READY_FOR_INDEPENDENT_REVIEW",
+      "source_url": "https://everynoise.com/engenremap-cristianaparaninos.html",
+      "tradition": {
+        "id": "cristiana_para_ninos",
+        "name": "Cristiana para niños",
+        "family": "global",
+        "lineage": "Spanish-language Christian children's music links church teaching, family worship and recorded entertainment. Ministries create original songs and Spanish adaptations that make biblical stories and devotional ideas accessible through participation and repetition.",
+        "instruments": [
+          "voice",
+          "upright_piano"
+        ],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "mix_voice",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_unison_octaves",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        }
+      },
+      "extras": {
+        "parent": "ritualDevotional.christianGospel",
+        "axes": {
+          "harm": -1,
+          "pitch": 0,
+          "ornament": -2,
+          "meter": 1,
+          "density": -1,
+          "transmission": 0,
+          "improv": -2,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 2
+        },
+        "description": "Clear melodies, repeated words and easily followed refrains encourage children and adults to sing together. Simple chordal accompaniment can support group worship, while action songs and animated recordings extend the repertoire into homes and classrooms.",
+        "exemplars": [
+          "Yancy y Amigos",
+          "Selah Kids"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        35.8456,
+        -86.3903,
+        "Murfreesboro",
+        "North America"
+      ],
+      "geo_rationale": "Publisher ministry address on official Spanish chord-chart edition; one production/distribution anchor for a transnational Spanish-language field.",
+      "model_policy": "Representative Spanish-language Christian children's singalong practice: group singing with simple chordal piano support. Original ministry resources explicitly invite families/children to sing and dance and publish Spanish chord charts for church/home use. Piano is an authored acoustic realization of those harmonic symbols, not an instrument claim about the produced DVD or a complete transcription of its master. Group unison/octaves, short syllabic phrasing, straight tone, middle register and standard upright block chords are coherent representative choices for participatory children's worship; no actual child/adult count or performer physiology is asserted. All17 voice and3 piano controls retained. The devotional parent reflects religious function. Public genre scope also includes bands, prerecorded accompaniment and other instruments; the modest acoustic branch does not erase those practices or claim one prescribed instrumentation.",
+      "neighbor_distinction": "Full Latin Christian already covers Spanish-language Christian networks and remains an inclusive umbrella; this field is its specifically child-directed worship/teaching repertoire, positively institutionalized by dedicated ministries and church/home resources. Full CCM includes congregation-friendly evangelical pop-rock but does not define children's educational repertoire as its whole scope. Full Spanish rondas centers inherited circle games, while Canción infantil latinoamericana includes broad authored children's song; devotional purpose and Sunday-school/family ministry distinguish this overlapping subset without excluding shared tunes or actions.",
+      "classification_evidence": "Selah Kids explicitly self-identifies Música Cristiana para Niños and original Spanish/English worship songs. Yancy ministry has a dedicated young-children worship series, Spanish collection and official Spanish chord charts. Positive firsthand genre-practice evidence does not depend on inferred ethnicity or one recording.",
+      "source_scope_limitation": "General representative acoustic singalong, not a reconstructed fifteen-track CD/DVD; no assertion of complete master instrumentation or absence of its production layers.",
+      "source_retrieval_caveat": "Official16-pagePDF text extraction returns cover/15titles and publisher data14405view0; chord-chart designation explicit, no claim to independently transcribe every inner page. Issuer full Spanish DVD page14405view1 and Selah14386view1 establish intended use. No exact creator artist-membership assertion.",
+      "sources": [
+        {
+          "url": "https://www.selahkids.com/",
+          "support": "Official explicit field, original worship songs and family/child sing-dance use;14386view1."
+        },
+        {
+          "url": "https://store.yancyministries.com/products/pequena-fiesta-de-alabanza-church-performance-dvd",
+          "support": "Official Spanish translated repertoire, church/home singalong and production context;14405view1."
+        },
+        {
+          "url": "https://yancyministries.com/wp-content/uploads/2015/08/PFdA-Chord-Charts.pdf",
+          "support": "Official Spanish chord-chart edition supports authored chordal acoustic realization;16pages,15titles;14405view0."
+        },
+        {
+          "url": "https://yancyministries.com/our-story/",
+          "support": "Ministry firsthand history and dedicated children's worship purpose;14404search8."
+        }
+      ],
+      "instrument_role_audit": {
+        "roles": [
+          "participatory group singing",
+          "authored piano realization of published chord symbols"
+        ],
+        "scope": "Representative practice, no master reconstruction."
+      },
+      "vocal_count_audit": {
+        "count": null,
+        "scope": "Open participating group, no exact headcount."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "mix_voice",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "straight_tone",
+            "voice_articulation": "staccato_voice",
+            "voice_microtone": "tempered_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_unison_octaves",
+            "voice_ornament_system": "voice_ornament_none",
+            "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative Spanish-language Christian children's singalong practice: group singing with simple chordal piano support. Original ministry resources explicitly invite families/children to sing and dance and publish Spanish chord charts for church/home use. Piano is an authored acoustic realization of those harmonic symbols, not an instrument claim about the produced DVD or a complete transcription of its master. Group unison/octaves, short syllabic phrasing, straight tone, middle register and standard upright block chords are coherent representative choices for participatory children's worship; no actual child/adult count or performer physiology is asserted. All17 voice and3 piano controls retained. The devotional parent reflects religious function. Public genre scope also includes bands, prerecorded accompaniment and other instruments; the modest acoustic branch does not erase those practices or claim one prescribed instrumentation."
+        },
+        {
+          "instrument": "upright_piano",
+          "parts": {
+            "keyboard_technique": "keyboard_block_chord_pop",
+            "upright_use": "upright_studio",
+            "upright_piano_size": "upright_piano_standard"
+          },
+          "policy": "Representative Spanish-language Christian children's singalong practice: group singing with simple chordal piano support. Original ministry resources explicitly invite families/children to sing and dance and publish Spanish chord charts for church/home use. Piano is an authored acoustic realization of those harmonic symbols, not an instrument claim about the produced DVD or a complete transcription of its master. Group unison/octaves, short syllabic phrasing, straight tone, middle register and standard upright block chords are coherent representative choices for participatory children's worship; no actual child/adult count or performer physiology is asserted. All17 voice and3 piano controls retained. The devotional parent reflects religious function. Public genre scope also includes bands, prerecorded accompaniment and other instruments; the modest acoustic branch does not erase those practices or claim one prescribed instrumentation."
+        }
+      ],
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1638
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "cristiana_para_ninos",
+          "name": "Cristiana para niños",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons14319view2 confirms CC BY2.5 and credited crop; historical023 bytes retained.",
+          "fresh_review_ref": "turn14319view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14319view2"
+        ],
+        "fresh_rights_review": "Fresh Commons14319view2; no fresh bytes or visual observation asserted."
+      },
+      "allocation_group_id": "124"
+    }
+  ],
+  "instrument_dependencies": []
+}

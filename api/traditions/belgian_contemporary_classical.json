@@ -2,10 +2,10 @@
   "id": "belgian_contemporary_classical",
   "name": "Belgian contemporary classical",
   "family": "classical",
-  "lineage": "Belgian contemporary classical: Wim Henderickx — Lamento, version for four cellos (2011). A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic early-2010s belgian contemporary classical, art Music, western modern branch. synthetic carpathian spruce European maple sycamore maple oil varnish cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 264,
-  "score": 86.726,
+  "lineage": "Belgian contemporary classical music encompasses new concert composition and performance across solo, chamber, vocal and orchestral settings. Composers develop individual approaches to texture, form and instrumental colour.",
+  "recipe": "classic belgian contemporary classical, art Music, western modern branch. synthetic norway spruce European alpine European maple sycamore maple cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 81.846,
   "config": {
     "traditions": [
       "belgian_contemporary_classical"
@@ -16,7 +16,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "cello_strings": "cello_synthetic",
-          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_top_wood": "norway_spruce_alpine_cello",
           "cello_back_wood": "european_maple_cello_back",
           "cello_varnish": "oil_amber_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
@@ -25,15 +25,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.355,
+          "bowed_technique": 8.103,
           "cello_strings": 1.95,
-          "cello_top_wood": 8.523,
-          "cello_back_wood": 12.273,
-          "cello_varnish": 12,
-          "cello_setup_period": 13.77075,
-          "cello_bow_grip": 4.29,
-          "cello_rosin": 12.1365,
-          "cello_bow_stick": 13.427499999999998
+          "cello_top_wood": 7.84675,
+          "cello_back_wood": 11.523,
+          "cello_varnish": 11.25,
+          "cello_setup_period": 12.909375,
+          "cello_bow_grip": 3.9,
+          "cello_rosin": 11.6865,
+          "cello_bow_stick": 12.677499999999998
         }
       }
     ],

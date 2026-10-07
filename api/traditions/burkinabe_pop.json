@@ -2,10 +2,10 @@
   "id": "burkinabe_pop",
   "name": "Burkinabe pop",
   "family": "pop",
-  "lineage": "Burkinabe pop is represented here by Victor Démé — selected singer-guitarist core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic burkinabe pop, functional Song, African pop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 265,
-  "score": 17.589,
+  "lineage": "Burkinabè pop connects songwriting in Burkina Faso with Manding traditions, blues and other international popular styles.",
+  "recipe": "classic burkinabe pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 303,
+  "score": 15.454,
   "config": {
     "traditions": [
       "burkinabe_pop"
@@ -43,25 +43,25 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.39
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.7770000000000001
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 11.95,
-          "string_tuning": 1.9095,
+          "acoustic_technique": 11.2,
+          "string_tuning": 0,
           "top_wood": 0.3045,
           "back_sides": 0.147,
           "string_acoustic": 0.6405000000000001

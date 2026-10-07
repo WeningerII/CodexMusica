@@ -1,0 +1,90 @@
+{
+  "id": "viet_lo_fi",
+  "name": "Viet Lo-fi",
+  "family": "electronic",
+  "lineage": "Vietnamese lo-fi developed through online producers and channels including Freak D Music, Orinn and1967. Reworked Vietnamese pop songs circulate alongside instrumental listening music, connecting a local song repertoire with the broader international lo-fi aesthetic.",
+  "recipe": "classic viet lo-fi, experimental Elec, lofi branch. software lofi reworking. treated studio.",
+  "recipe_chars": 92,
+  "score": 0.378,
+  "config": {
+    "traditions": [
+      "viet_lo_fi"
+    ],
+    "instruments": [
+      {
+        "id": "software_lofi_reworking",
+        "slots": {
+          "software_lofi_reworking_input": "software_lofi_reworking_input_stereo_mix",
+          "software_lofi_reworking_tempo": "software_lofi_reworking_tempo_ninety_percent",
+          "software_lofi_reworking_pitch": "software_lofi_reworking_pitch_preserved",
+          "software_lofi_reworking_distortion": "software_lofi_reworking_distortion_soft_clip",
+          "software_lofi_reworking_threshold": "software_lofi_reworking_threshold_minus_six_db",
+          "software_lofi_reworking_hardness": "software_lofi_reworking_hardness_twenty_percent",
+          "software_lofi_reworking_makeup": "software_lofi_reworking_makeup_none",
+          "software_lofi_reworking_cutoff": "software_lofi_reworking_cutoff_eight_khz",
+          "software_lofi_reworking_slope": "software_lofi_reworking_slope_twelve_db_octave",
+          "software_lofi_reworking_noise": "software_lofi_reworking_noise_pink",
+          "software_lofi_reworking_noise_level": "software_lofi_reworking_noise_level_minus_fifty_db"
+        },
+        "scores": {
+          "software_lofi_reworking_input": 0,
+          "software_lofi_reworking_tempo": 0.1365,
+          "software_lofi_reworking_pitch": 0,
+          "software_lofi_reworking_distortion": 0.2415,
+          "software_lofi_reworking_threshold": 0,
+          "software_lofi_reworking_hardness": 0,
+          "software_lofi_reworking_makeup": 0,
+          "software_lofi_reworking_cutoff": 0,
+          "software_lofi_reworking_slope": 0,
+          "software_lofi_reworking_noise": 0,
+          "software_lofi_reworking_noise_level": 0
+        }
+      }
+    ],
+    "pinned": {
+      "software_lofi_reworking": [
+        "software_lofi_reworking_input",
+        "software_lofi_reworking_tempo",
+        "software_lofi_reworking_pitch",
+        "software_lofi_reworking_distortion",
+        "software_lofi_reworking_threshold",
+        "software_lofi_reworking_hardness",
+        "software_lofi_reworking_makeup",
+        "software_lofi_reworking_cutoff",
+        "software_lofi_reworking_slope",
+        "software_lofi_reworking_noise",
+        "software_lofi_reworking_noise_level"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "software_lofi_reworking_input": "software_lofi_reworking_input_stereo_mix",
+      "software_lofi_reworking_tempo": "software_lofi_reworking_tempo_ninety_percent",
+      "software_lofi_reworking_pitch": "software_lofi_reworking_pitch_preserved",
+      "software_lofi_reworking_distortion": "software_lofi_reworking_distortion_soft_clip",
+      "software_lofi_reworking_threshold": "software_lofi_reworking_threshold_minus_six_db",
+      "software_lofi_reworking_hardness": "software_lofi_reworking_hardness_twenty_percent",
+      "software_lofi_reworking_makeup": "software_lofi_reworking_makeup_none",
+      "software_lofi_reworking_cutoff": "software_lofi_reworking_cutoff_eight_khz",
+      "software_lofi_reworking_slope": "software_lofi_reworking_slope_twelve_db_octave",
+      "software_lofi_reworking_noise": "software_lofi_reworking_noise_pink",
+      "software_lofi_reworking_noise_level": "software_lofi_reworking_noise_level_minus_fifty_db"
+    },
+    "pin_parts": true
+  }
+}

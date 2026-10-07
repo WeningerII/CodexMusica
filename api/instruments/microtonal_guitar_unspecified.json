@@ -1,0 +1,50 @@
+{
+  "id": "microtonal_guitar_unspecified",
+  "name": "Microtonal guitar (source-unspecified architecture)",
+  "short": "source-unspecified microtonal guitar",
+  "family": "acoustic_strings",
+  "class": "plucked_string",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "microtonal_guitar_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "microtonal_guitar_unspecified_credited",
+          "name": "Documented instrument role; construction unspecified",
+          "default": true,
+          "descriptors": []
+        }
+      ]
+    }
+  ],
+  "description": "Nominal role directly credited on Malmin Med Åshild Vetrhus (2025). No invented material, string count, fret layout, pickup, maker or measured tuning. Neutral authored axes do not assert source measurements. Original existing instruments unchanged.",
+  "sources": [
+    "https://malmin.bandcamp.com/album/med-shild-vetrhus"
+  ],
+  "_ownParts": [
+    {
+      "id": "microtonal_guitar_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "microtonal_guitar_unspecified_credited",
+          "name": "Documented instrument role; construction unspecified",
+          "default": true,
+          "descriptors": []
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "US Southern hybrid consolidated after 2008 through Colt Ford, Bubba Sparxxx and the Average Joes label — rapped verses in a rural Southern accent over 808-driven trap or boom-bap programming at 75-95 BPM, alternating with sung country hooks, acoustic guitar and slide or banjo loops, and lyrics about trucks, dirt roads and small-town life.",
   "recipe": "classic late-2000s country rap, mc Rhythm, southern branch, contemp main country, us hip hop modern christian country. thick, rap, straight note core, interlocked note trading. TR-808, sampled chopped sampler drum machine, phosphor bronze modern martin travis picked dreadnought acoustic guitar, walnut warmer than maple light steel clawhammer canon scruggs stelling banjo 5 string, Fender tweed amp American 50s amp tweed breakup stainless steel roundwound electric bass, steel c6 sacred steel lap steel, sub bass analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 732,
-  "score": 377.317,
+  "score": 377.572,
   "config": {
     "traditions": [
       "country_rap",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 35.18,
+          "voice_register": 35.225,
           "voice_quality": 15.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 28.674999999999997,
+          "voice_vibrato": 28.72,
           "voice_articulation": 14.494999999999996,
           "voice_microtone": 13.389999999999992,
           "voice_tradition": 7.635,
-          "voice_mechanism_compound": 3.75,
-          "voice_estill_quality": 32.059999999999995,
+          "voice_mechanism_compound": 3.81,
+          "voice_estill_quality": 32.16499999999999,
           "voice_speech_song": 17.09499999999999,
           "voice_ensemble_config": 14.364999999999995,
           "voice_ornament_system": 3.750000000000001,

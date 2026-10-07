@@ -2,10 +2,10 @@
   "id": "dark_r_and_b",
   "name": "Dark r&b",
   "family": "global",
-  "lineage": "Dark r&b: Sephxya Studios — R&B Heartbreaks, Heartbreaks instrumental construction-kit stems 9–14. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
-  "recipe": "classic dark r&b, functional Song, soul R&B branch. Asian spruce hokkaido source wet sand cast cast iron modern mass production grand piano, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 261,
-  "score": 16.917,
+  "lineage": "Dark R&B developed within contemporary and alternative R&B production, foregrounding introspection, nocturnal atmosphere and studio experimentation. Artists such as The Weeknd, Frank Ocean and Brent Faiyaz helped popularize a palette shared by singers, beatmakers and independent producers.",
+  "recipe": "classic dark r&b, functional Song, soul R&B branch. 18 ply hard rock maple vintage production wet sand cast cast iron grand piano, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 12.897,
   "config": {
     "traditions": [
       "dark_r_and_b"
@@ -17,23 +17,23 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
           "keyboard_technique": 4.2145,
           "grand_piano_size": 0.33599999999999997,
-          "grand_piano_brand": 2.7409999999999997,
-          "piano_hammer": 2.09,
-          "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 2.09,
-          "piano_pinblock": 0.8049999999999999,
-          "piano_plate": 1.2999999999999998,
-          "piano_pitch_standard": 1.3649999999999998
+          "grand_piano_brand": 2.441,
+          "piano_hammer": -0.035,
+          "piano_rim": 1.17,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": -0.05,
+          "piano_plate": 1.17,
+          "piano_pitch_standard": 2.487
         }
       },
       {
@@ -46,8 +46,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.39,
-          "sample_swing": 0.609,
+          "sample_bitdepth": 0.44499999999999995,
+          "sample_swing": 0.6869999999999999,
           "sample_processing": 0.1365
         }
       }

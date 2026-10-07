@@ -1,0 +1,62 @@
+{
+  "id": "vivo_tahitian",
+  "name": "Vivo (Tahitian bamboo nose flute)",
+  "short": "Vivo",
+  "family": "wind",
+  "class": "nose_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "vivo_tahitian_form",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "vivo_tahitian_bamboo_nasal",
+          "name": "Society Islands bamboo nose flute; natural closed end and finger holes",
+          "default": true,
+          "descriptors": [
+            "bamboo",
+            "breathy",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vivo_tahitian_form",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "vivo_tahitian_bamboo_nasal",
+          "name": "Society Islands bamboo nose flute; natural closed end and finger holes",
+          "default": true,
+          "descriptors": [
+            "bamboo",
+            "breathy",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "uae_indie",
+  "name": "UAE Indie",
+  "family": "jazz",
+  "lineage": "Independent music in the United Arab Emirates includes local, resident and visiting musicians working across song, rock, jazz and experimental settings. Dubai’s performance spaces connect these varied practices.",
+  "recipe": "classic uae indie, improv On Frame. upright piano. live tracking.",
+  "recipe_chars": 65,
+  "score": -0.05,
+  "config": {
+    "traditions": [
+      "uae_indie"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_jazz_comping",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

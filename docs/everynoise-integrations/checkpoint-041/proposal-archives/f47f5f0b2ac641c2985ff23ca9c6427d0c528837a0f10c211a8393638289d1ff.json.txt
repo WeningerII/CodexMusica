@@ -1,0 +1,267 @@
+{
+  "entries": [
+    {
+      "source_label": "swedish drill",
+      "source_url": "https://everynoise.com/engenremap-swedishdrill.html",
+      "suggested_id": "swedish_drill",
+      "allocation_ordinal": 580,
+      "allocation_group_id": "024",
+      "status": "frozen_for_independent_review",
+      "id": "swedish_drill",
+      "tradition": {
+        "id": "swedish_drill",
+        "name": "Swedish Drill",
+        "family": "hip_hop",
+        "lineage": "Dizzy — complete reported act within Spotify100 Live at Way Out West,11August2023. Firsthand reviewer Sultan Ahmed follows the act from BARA OM NI VISSTE through HÄRIFRÅN,guest Sticky on HANNAH MONTANA and closing ZUTTLUKTEN. DJ Ciro accompanies Dizzy with playback, then cuts the sound for audience singing at the close. Preserve the two named rappers, DJ and unknown-size participating audience; two named voices are a minimum, not total count. Adjacent Mohelá,Jelassi andAKI acts are separate and not silently part of this scope. Embedded recorded voices and sources remain unknown and retained; no original studio hardware, source synthesis or complete numbered setlist asserted. This is an eyewitness-defined whole act, not an arbitrary excerpt or an assistant audio audition. Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values.",
+        "instruments": [
+          "voice",
+          "dj_playback_mixing_unspecified"
+        ],
+        "room": "live_room",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.drill",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 0,
+          "intensity": 0,
+          "voice": 0,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "Dizzy — complete reported act within Spotify100 Live at Way Out West,11August2023. Firsthand reviewer Sultan Ahmed follows the act from BARA OM NI VISSTE through HÄRIFRÅN,guest Sticky on HANNAH MONTANA and closing ZUTTLUKTEN. DJ Ciro accompanies Dizzy with playback, then cuts the sound for audience singing at the close. Preserve the two named rappers, DJ and unknown-size participating audience; two named voices are a minimum, not total count. Adjacent Mohelá,Jelassi andAKI acts are separate and not silently part of this scope. Embedded recorded voices and sources remain unknown and retained; no original studio hardware, source synthesis or complete numbered setlist asserted. This is an eyewitness-defined whole act, not an arbitrary excerpt or an assistant audio audition. Dizzy’s own booking agency explicitly identifies him as a key figure in Sweden’s drill scene and names crossovers with trap,reggaeton,afrobeat anddancehall. Exact creator Swedish Drill playlist independently includes him at10/20. This establishes a named national drill community, not nationality alone or a claim every song in the selected act is pure drill. Full existing Swedish Hip Hop already represents the broad national rap field; its selected Timbuktu/Damn lineup does not exclude DJs. Swedish Trap likewise is broader than its Ivory example and shares artists; Swedish Gangsta Rap is a contested narrative/community axis, not a statement of criminality or an exact synonym for every Swedish drill act. The independently named drill-scene affiliation supplies a narrower overlapping practice. Existing Drill includes Chicago and regional offshoots; UKDrill is specifically British, not all global drill. Queued national drill fields concern other national communities. No instrumentation-only boundary or artist-based exclusion. Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values.",
+        "exemplars": [
+          "Dizzy with DJ Ciro,Sticky and audience — whole reported Way Out West2023 act"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        57.7089,
+        11.9746,
+        "Gothenburg",
+        "Europe"
+      ],
+      "geo_rationale": "Documented festival city as editorial performance anchor, not precise stage coordinates or claimed performer birthplace.",
+      "signature_tokens": [],
+      "sources": [
+        {
+          "url": "https://kultmagasin.se/liverecension-100-live-way-out-west-11-8",
+          "title": "Sultan Ahmed firsthand12August2023 festival review",
+          "support_notes": "11961view0 explicitly bounds Dizzy act and all three named performers plus audience singing; unrelated acts separated.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://luger.se/dizzy/",
+          "title": "Artist booking agency scene biography",
+          "support_notes": "11961view1 explicitly Swedishdrillscene and crossstyles; own performingpractice bridge.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/7DZuCNqo9DfOPX7RUOCIYQ",
+          "title": "Exact creator SwedishDrill playlist",
+          "support_notes": "11975view0/1 Dizzy10/20; no requirement wholeconcert allpuregenre.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "neighbor_distinction": "Dizzy’s own booking agency explicitly identifies him as a key figure in Sweden’s drill scene and names crossovers with trap,reggaeton,afrobeat anddancehall. Exact creator Swedish Drill playlist independently includes him at10/20. This establishes a named national drill community, not nationality alone or a claim every song in the selected act is pure drill. Full existing Swedish Hip Hop already represents the broad national rap field; its selected Timbuktu/Damn lineup does not exclude DJs. Swedish Trap likewise is broader than its Ivory example and shares artists; Swedish Gangsta Rap is a contested narrative/community axis, not a statement of criminality or an exact synonym for every Swedish drill act. The independently named drill-scene affiliation supplies a narrower overlapping practice. Existing Drill includes Chicago and regional offshoots; UKDrill is specifically British, not all global drill. Queued national drill fields concern other national communities. No instrumentation-only boundary or artist-based exclusion.",
+      "model_policy": "Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values.",
+      "classification_evidence": {
+        "mode": "agency_explicit_scene_plus_exact_creator",
+        "note": "Dizzy’s own booking agency explicitly identifies him as a key figure in Sweden’s drill scene and names crossovers with trap,reggaeton,afrobeat anddancehall. Exact creator Swedish Drill playlist independently includes him at10/20. This establishes a named national drill community, not nationality alone or a claim every song in the selected act is pure drill. Full existing Swedish Hip Hop already represents the broad national rap field; its selected Timbuktu/Damn lineup does not exclude DJs. Swedish Trap likewise is broader than its Ivory example and shares artists; Swedish Gangsta Rap is a contested narrative/community axis, not a statement of criminality or an exact synonym for every Swedish drill act. The independently named drill-scene affiliation supplies a narrower overlapping practice. Existing Drill includes Chicago and regional offshoots; UKDrill is specifically British, not all global drill. Queued national drill fields concern other national communities. No instrumentation-only boundary or artist-based exclusion.",
+        "url": "https://luger.se/dizzy/",
+        "matched_artist": "Dizzy"
+      },
+      "vocal_count_audit": {
+        "credited_selected_singers": [
+          "Dizzy — rapper",
+          "Sticky — guest rapper",
+          "Audience — closing singing,unknown count"
+        ],
+        "selected_count": null,
+        "named_voice_minimum": 2,
+        "audience_voice_count": "unknown",
+        "embedded_voice_count": "unknown",
+        "decision": "Whole act includes live audience sung response, not just two rappers; aggregate group intentionally has unknown total human count."
+      },
+      "instrument_role_audit": {
+        "selected_scope": "Whole eyewitness-reported Dizzy act,not entire100Livefestival programme",
+        "rationale": "Dizzy — complete reported act within Spotify100 Live at Way Out West,11August2023. Firsthand reviewer Sultan Ahmed follows the act from BARA OM NI VISSTE through HÄRIFRÅN,guest Sticky on HANNAH MONTANA and closing ZUTTLUKTEN. DJ Ciro accompanies Dizzy with playback, then cuts the sound for audience singing at the close. Preserve the two named rappers, DJ and unknown-size participating audience; two named voices are a minimum, not total count. Adjacent Mohelá,Jelassi andAKI acts are separate and not silently part of this scope. Embedded recorded voices and sources remain unknown and retained; no original studio hardware, source synthesis or complete numbered setlist asserted. This is an eyewitness-defined whole act, not an arbitrary excerpt or an assistant audio audition.",
+        "roles": [
+          {
+            "instrument": "voice",
+            "source_role": "Dizzy,Sticky and unknown-number crowd voices",
+            "authored_realization": "Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values."
+          },
+          {
+            "instrument": "dj_playback_mixing_unspecified",
+            "source_role": "DJ Ciro performance backing and intentional playback stop",
+            "authored_realization": "Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values."
+          }
+        ],
+        "omissions": "No source-positive sounding role omitted; crowd voice included; other separately staged acts excluded."
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_ensemble_config": "voice_ensemble_live_group",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values."
+        },
+        {
+          "instrument": "dj_playback_mixing_unspecified",
+          "parts": {
+            "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          },
+          "policy": "Source-positive live rap, audience singing and DJ playback are retained in two aggregate families. Voice group includes all described participants with unknown total count; neutral speech/song setting allows both rapping and sung crowd response without forcing all voices into unpitched speech. Neutral physiology and pitch; moderate effort, source-unspecified articulation and unprocessed group capture are authored choices, not measured delivery. Existing neutral DJ owner retains the entire backing including unknown embedded source layers. Authored controlled live-room listening and brisk energetic pacing are compatible with eyewitness high-energy performance, not measured outdoor acoustics or fixed BPM. No global tuning or imagined deck hardware. mcRhythm.drill/hip_hop follows positively identified scene with this cross-style live branch; axes are neutral authored values."
+        }
+      ],
+      "flat_pin_conflicts": [],
+      "flat_pin_resolution": "All eighteen original applicable voice/DJ controls explicitly pinned; no collision or fallback.",
+      "dependency_audit": "No new owners; all original1638 definitions retained.",
+      "verification_status": "Author checks pending recorded artifacts; no finalCI claim.",
+      "source_scope_limitation": "Dizzy — complete reported act within Spotify100 Live at Way Out West,11August2023. Firsthand reviewer Sultan Ahmed follows the act from BARA OM NI VISSTE through HÄRIFRÅN,guest Sticky on HANNAH MONTANA and closing ZUTTLUKTEN. DJ Ciro accompanies Dizzy with playback, then cuts the sound for audience singing at the close. Preserve the two named rappers, DJ and unknown-size participating audience; two named voices are a minimum, not total count. Adjacent Mohelá,Jelassi andAKI acts are separate and not silently part of this scope. Embedded recorded voices and sources remain unknown and retained; no original studio hardware, source synthesis or complete numbered setlist asserted. This is an eyewitness-defined whole act, not an arbitrary excerpt or an assistant audio audition.",
+      "primary_retrieval_refs": [
+        "turn11961view0",
+        "turn11961view1",
+        "turn11975view0",
+        "turn11915view3"
+      ],
+      "source_retrieval_caveat": "All three sources directly retrieved. Exact duration and full numbered setlist unknown; eyewitness live act scope, no personally auditioned audio.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "swedish_drill",
+          "name": "Swedish Drill",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "LOW generic recording microphone context; not Dizzy,festivalstage,actualequipment or audience depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh11915view3 confirmsCCBY2.5 andIainFergusson/Binksternet crop; exacthistorical023receipt preserved.",
+          "fresh_review_ref": "turn11915view3"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn11915view3"
+        ]
+      },
+      "source_access_limitation": "All three sources directly retrieved. Exact duration and full numbered setlist unknown; eyewitness live act scope, no personally auditioned audio."
+    }
+  ],
+  "instrument_dependencies": [],
+  "status": "frozen_for_independent_review"
+}

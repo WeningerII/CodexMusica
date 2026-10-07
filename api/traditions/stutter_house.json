@@ -5,7 +5,7 @@
   "lineage": "Late-1990s European house production technique-turned-microstyle in which a short vocal or chord sample is retriggered in sixteenth- and thirty-second-note bursts across a straight 124-128 BPM four-on-the-floor, developed out of Paris filter-house and Dutch/Italian club edits by producers working on Akai samplers and early Cubase, with resonant filter sweeps, sidechain-pumped bass and long looped disco-source stabs.",
   "recipe": "classic European 1997-1999 stutter house, electronic Dance, house branch, tech house house, lofi house house, continental electronic dance lo-fi house outsider house. vocal fry, breath veiled tone, straight onset, interlocked note trading. field sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, analog poly synth, monosynth acid bass, turntable. bedroom. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
   "recipe_chars": 530,
-  "score": 239.181,
+  "score": 237.156,
   "config": {
     "traditions": [
       "stutter_house",
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.8949999999999996,
-          "sampler_archetypes": 1.19,
-          "sampler_bit_depth": 0.585,
+          "electronic_technique": 1.8499999999999996,
+          "sampler_archetypes": 0.995,
+          "sampler_bit_depth": 0.5399999999999999,
           "sampler_workflow": 2.09,
-          "sampler_classic_context": 56.34
+          "sampler_classic_context": 55.8
         }
       },
       {
@@ -64,13 +64,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "open_acid",
-          "accent_acid": "no_accent_acid"
+          "accent_acid": "subtle_accent_acid"
         },
         "scores": {
           "electronic_technique": 1.2999999999999998,
           "wave_acid": 1.04,
-          "filter_acid": 0.9950000000000001,
-          "accent_acid": 0.37499999999999994
+          "filter_acid": 0.8450000000000001,
+          "accent_acid": 0.6300000000000001
         }
       },
       {
@@ -94,11 +94,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.08,
+          "voice_register": 1.88875,
           "voice_quality": 7.670000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.95875,
+          "voice_vibrato": 2.9137500000000003,
           "voice_articulation": 17.029999999999998,
           "voice_microtone": 15.534999999999995,
           "voice_tradition": 6.824999999999999,
@@ -108,8 +108,8 @@
           "voice_ensemble_config": 17.744999999999997,
           "voice_ornament_system": 2.4000000000000004,
           "voice_pitch_organization": 1.0612499999999998,
-          "voice_processing_chain": 18.51375,
-          "voice_multitrack_stack": 7.117500000000001
+          "voice_processing_chain": 18.363750000000003,
+          "voice_multitrack_stack": 6.19875
         }
       },
       {

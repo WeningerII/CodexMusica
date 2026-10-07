@@ -5,7 +5,7 @@
   "lineage": "Historical Belgian commercial pop spans several languages and styles. This arrangement selects Vaya Con Dios’s late-1980s acoustic trio roots: Dani Klein’s lead voice against guitar and double bass, with jazz, blues and Latin-pop inflections. It is one grounded model within the national retrospective tag, not a national folk ensemble.",
   "recipe": "classic 1987-1989 classic belgian pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar, modern setup heavier bass bar nyman jazz bass canon double bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 489,
-  "score": 19.803,
+  "score": 19.472,
   "config": {
     "traditions": [
       "classic_belgian_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.643875,
+          "voice_speech_song": 1.523875,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
           "voice_processing_chain": 1.5295,
-          "voice_multitrack_stack": 1.4935
+          "voice_multitrack_stack": 1.4575
         }
       },
       {
@@ -64,7 +64,7 @@
           "string_tuning": 1.9000000000000001,
           "top_wood": 0.1365,
           "back_sides": 0,
-          "string_acoustic": 0.37312500000000004
+          "string_acoustic": 0.478125
         }
       },
       {
@@ -88,9 +88,9 @@
           "bass_top_wood": -0.035,
           "bass_back_wood": -0.05,
           "bass_varnish": -0.035,
-          "bass_setup_period": 1.56,
+          "bass_setup_period": 1.436625,
           "bass_play": 3.25,
-          "bass_rosin": 5.4571250000000004,
+          "bass_rosin": 5.301125000000001,
           "bass_bow_stick": -0.05
         }
       }

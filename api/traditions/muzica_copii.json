@@ -1,0 +1,58 @@
+{
+  "id": "muzica_copii",
+  "name": "Muzică copii",
+  "family": "global",
+  "lineage": "Romanian music for children encompasses play songs, educational singing and purpose-composed instrumental repertoire. Composers and educators draw on folk idioms and contemporary popular material alongside graded pieces for young listeners and learners.",
+  "recipe": "classic muzică copii, art Music. upright piano. live tracking.",
+  "recipe_chars": 62,
+  "score": 1.282,
+  "config": {
+    "traditions": [
+      "muzica_copii"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "upright_use": 0.3315,
+          "upright_piano_size": 1
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

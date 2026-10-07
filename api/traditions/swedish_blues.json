@@ -2,10 +2,10 @@
   "id": "swedish_blues",
   "name": "Swedish blues",
   "family": "blues_gospel",
-  "lineage": "Swedish blues includes Swedish-language writing and local interpretations of blues forms. Rolf Wikström’s singing, guitar and Stockholm band practice provide a documented singer-guitarist branch.",
-  "recipe": "classic modern swedish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 443,
-  "score": 12.643,
+  "lineage": "Swedish blues includes Swedish-language songwriting and local interpretations of blues repertoire. Stockholm singer-guitarist Rolf Wikström and his Hjärtslag band exemplify a combination of narrative singing and electric ensemble performance.",
+  "recipe": "classic modern swedish blues, functional Song, blues electric branch. narrative, blues inflected, one note per syllable, solo with instrumental accompaniment. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 416,
+  "score": 13.681,
   "config": {
     "traditions": [
       "swedish_blues"
@@ -37,13 +37,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": -0.14,
-          "voice_microtone": 6.629999999999999,
+          "voice_articulation": 1.2784999999999997,
+          "voice_microtone": 5.85,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.13025,
+          "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
@@ -102,7 +102,7 @@
           "string_type": 0,
           "scale_length_b": 0.0945,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.035,
+          "bass_technique": 0.325,
           "electric_bass_string_configuration": 0
         }
       },

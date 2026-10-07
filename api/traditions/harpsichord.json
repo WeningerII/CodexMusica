@@ -1,0 +1,78 @@
+{
+  "id": "harpsichord",
+  "name": "Harpsichord",
+  "family": "classical",
+  "lineage": "Harpsichord repertoire connects keyboard performers with historical and renewed approaches to plucked-string keyboard music. Solo works explore ornament, contrasting registers and interweaving lines.",
+  "recipe": "classic harpsichord, art Music. bird quill plectra canonical historical raven crow turkey harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 10.14,
+  "config": {
+    "traditions": [
+      "harpsichord"
+    ],
+    "instruments": [
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_double_8",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_quill_canonical",
+          "harpsichord_temperament": "harpsichord_equal_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "harpsichord_register": 0.3,
+          "harpsichord_context": 5.2,
+          "harpsichord_maker_school": 0,
+          "harpsichord_plectrum": 1.3,
+          "harpsichord_temperament": 0.84
+        }
+      }
+    ],
+    "pinned": {
+      "harpsichord": [
+        "keyboard_technique",
+        "harpsichord_register",
+        "harpsichord_context",
+        "harpsichord_maker_school",
+        "harpsichord_plectrum",
+        "harpsichord_temperament"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "harpsichord_register": "harpsi_double_8",
+      "harpsichord_context": "harpsichord_solo",
+      "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+      "harpsichord_plectrum": "harpsichord_quill_canonical",
+      "harpsichord_temperament": "harpsichord_equal_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

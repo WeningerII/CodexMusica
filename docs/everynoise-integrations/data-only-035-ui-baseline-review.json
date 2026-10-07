@@ -1,0 +1,24 @@
+{
+  "status": "IDENTICAL_BASELINE_FAILURES_CONFIRMED",
+  "integration_final_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "baseline_sha": "0c3e9a6767273aaab31f77f8492b977c72fb40a1",
+  "baseline_tree_equivalence": "Baseline captured07b9203 has identical complete Git tree to merge0c3e9a, independently verified in predecessor-review.",
+  "tests": [
+    {
+      "check": "check_ui_foundation",
+      "current_exit": 1,
+      "baseline_exit": 1,
+      "finding": "Exact entire failure logs byte-identical: original Delta blues enlarged-photo retention assertion,1024x1024 loaded1280px external image. Original test unchanged.",
+      "logs": ["check_ui_foundation.log", "check_ui_foundation-baseline.log"]
+    },
+    {
+      "check": "ui_reachability_check",
+      "current_exit": 2,
+      "baseline_exit": 2,
+      "finding": "Both original runs reach220 entries then browser rejects file:///tmp embedded shell with ERR_BLOCKED_BY_ADMINISTRATOR. Temporary PID filename and generated bundle size differ as expected. Original test unchanged.",
+      "logs": ["ui_reachability_check.log", "ui_reachability_check-baseline.log"]
+    }
+  ],
+  "other_ui": "Six other original UI checks pass.",
+  "resolution": "No shared engine/UI/test workaround. Exact published-head remote CI required before merge."
+}

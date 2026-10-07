@@ -1,0 +1,62 @@
+{
+  "id": "credited_acoustic_bass",
+  "name": "Credited acoustic bass (construction unspecified)",
+  "short": "Acoustic bass",
+  "family": "acoustic_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_acoustic_bass_identity",
+      "name": "Credited source identity",
+      "variants": [
+        {
+          "id": "credited_acoustic_bass_source_unspecified",
+          "name": "Acoustic bass; body, strings and playing method unspecified",
+          "default": true,
+          "descriptors": [
+            "natural-acoustic",
+            "bass"
+          ],
+          "match_tokens": [
+            "bass"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Isolated owner retains an explicitly credited acoustic bass role without resolving the credit into double bass, acoustic bass guitar, string count, body construction or a particular technique. Neutral axes are authored routing coordinates. No existing owner is altered.",
+  "sources": [
+    "https://www.youtube.com/watch?v=MIoBMp6-1gU"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_acoustic_bass_identity",
+      "name": "Credited source identity",
+      "variants": [
+        {
+          "id": "credited_acoustic_bass_source_unspecified",
+          "name": "Acoustic bass; body, strings and playing method unspecified",
+          "default": true,
+          "descriptors": [
+            "natural-acoustic",
+            "bass"
+          ],
+          "match_tokens": [
+            "bass"
+          ]
+        }
+      ]
+    }
+  ]
+}

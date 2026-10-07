@@ -1,0 +1,71 @@
+{
+  "id": "cornetas_y_tambores",
+  "name": "Cornetas y tambores",
+  "family": "vernacular",
+  "lineage": "Cornetas y tambores is a Spanish processional band tradition closely associated with religious brotherhoods and Semana Santa. Corneta and drum ensembles draw on military and civic-band histories while developing distinctive local repertoires.",
+  "recipe": "classic cornetas y tambores, ritual Devotional. esencia spanish corneta section, esencia processional drum set. live tracking.",
+  "recipe_chars": 126,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "cornetas_y_tambores"
+    ],
+    "instruments": [
+      {
+        "id": "esencia_spanish_corneta_section",
+        "slots": {
+          "esencia_corneta_upper": "esencia_corneta_honsuy_do_reb",
+          "esencia_corneta_lower": "esencia_corneta_leon_tenor"
+        },
+        "scores": {
+          "esencia_corneta_upper": 0,
+          "esencia_corneta_lower": 0
+        }
+      },
+      {
+        "id": "esencia_processional_drum_set",
+        "slots": {
+          "esencia_processional_drum": "esencia_samba_35_13",
+          "esencia_processional_timbal": "esencia_np_palio_45_34"
+        },
+        "scores": {
+          "esencia_processional_drum": 0,
+          "esencia_processional_timbal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "esencia_spanish_corneta_section": [
+        "esencia_corneta_upper",
+        "esencia_corneta_lower"
+      ],
+      "esencia_processional_drum_set": [
+        "esencia_processional_drum",
+        "esencia_processional_timbal"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "esencia_corneta_upper": "esencia_corneta_honsuy_do_reb",
+      "esencia_corneta_lower": "esencia_corneta_leon_tenor",
+      "esencia_processional_drum": "esencia_samba_35_13",
+      "esencia_processional_timbal": "esencia_np_palio_45_34"
+    },
+    "pin_parts": true
+  }
+}

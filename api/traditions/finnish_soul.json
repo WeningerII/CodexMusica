@@ -5,7 +5,7 @@
   "lineage": "Finnish soul names Finland-based soul singing and recording practice. The selected Tuomo Prättälä branch foregrounds a soul singer who also plays piano and keyboards. This intentionally reduced voice-and-piano recording model reflects his documented capabilities without assuming that every Tuomo recording or Finnish soul performance uses only two parts.",
   "recipe": "classic modern finnish soul, functional Song, soul R&B branch. many notes per syllable, solo with instrumental accompaniment. a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 373,
-  "score": 6.759,
+  "score": 6.596,
   "config": {
     "traditions": [
       "finnish_soul"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.458,
+          "voice_ensemble_config": 1.4385000000000001,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.36
+          "voice_multitrack_stack": 0.252
         }
       },
       {
@@ -66,7 +66,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "grand_piano_size": 0.33599999999999997,
-          "grand_piano_brand": 1.3675,
+          "grand_piano_brand": 1.3315000000000001,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

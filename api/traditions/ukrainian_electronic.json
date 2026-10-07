@@ -2,10 +2,10 @@
   "id": "ukrainian_electronic",
   "name": "Ukrainian electronic",
   "family": "electronic",
-  "lineage": "Ukrainian electronic is represented by Heinali and Andriana-Yaroslava Saienko — Hildegard modular-and-voice project. This documented branch has an authored present-day studio realization.",
-  "recipe": "classic ukrainian electronic, experimental Elec. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 241,
-  "score": 9.661,
+  "lineage": "Ukrainian electronic music encompasses dance production and experimental composition, including encounters between electronic synthesis and vocal traditions.",
+  "recipe": "classic ukrainian electronic, experimental Elec. solo with instrumental accompaniment. evolving modular modular synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 219,
+  "score": 8.979,
   "config": {
     "traditions": [
       "ukrainian_electronic"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 5.3255,
-          "mod_voltage_source": 1.6885,
-          "mod_patch_density": 0.378,
-          "mod_lineage": 1.69
+          "electronic_technique": 7.157,
+          "mod_voltage_source": 0.39,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0
         }
       },
       {
@@ -58,10 +58,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.105,
           "voice_multitrack_stack": 0.126
         }
       }

@@ -1,0 +1,13 @@
+=== Documentation verification ===
+(185 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)
+
+[NUMERIC CLAIMS]  (22 count types)
+  ✗ docs/everynoise-integrations/checkpoint-044/README.md:3 — claims 6765 traditions (actual: 6781)
+      "This checkpoint applies 197 individually reviewed genre-data repairs and adds sixteen genre records with one cassette pa"
+  ✗ docs/everynoise-integrations/checkpoint-044/README.md:3 — claims 1658 instruments (actual: 1659)
+      "This checkpoint applies 197 individually reviewed genre-data repairs and adds sixteen genre records with one cassette pa"
+
+[SCRIPT REFERENCES]  (95 unique refs across active docs)
+  ✓ All script refs resolve to existing files.
+
+FAIL — 2 drift issue(s) above.

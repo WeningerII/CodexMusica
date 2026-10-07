@@ -1,0 +1,181 @@
+{
+  "id": "world_devotional",
+  "name": "World devotional",
+  "family": "vernacular",
+  "lineage": "World devotional brings sacred song and chant from different religious and cultural traditions into a transnational listening field. Yogananda-inspired chanting is one strand alongside other devotional repertoires.",
+  "recipe": "classic world devotional, ritual Devotional. metrical pitched chant fixed rhythm, solo with instrumental accompaniment, single lead single track no stacking. hand pumped harmonium, small manjira, tabla. live tracking.",
+  "recipe_chars": 217,
+  "score": 21.261,
+  "config": {
+    "traditions": [
+      "world_devotional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_metrical_chant",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.3315000000000001,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.7769999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "hand_pumped_harmonium",
+        "slots": {
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_kirtan",
+          "free_reed_technique": "hand_pumped_harmonium_song_support"
+        },
+        "scores": {
+          "harmonium_action": 0.39,
+          "harmonium_voicing": 0.126,
+          "harmonium_use": 5.85,
+          "free_reed_technique": 0.39
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 11.2,
+          "manjira_stroke": -0.1,
+          "manjira_metal": -0.05
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 0.325,
+          "tabla_bayan": 0.105,
+          "tabla_syahi": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "hand_pumped_harmonium": [
+        "harmonium_action",
+        "harmonium_voicing",
+        "harmonium_use",
+        "free_reed_technique"
+      ],
+      "manjira": [
+        "manjira_form",
+        "manjira_stroke",
+        "manjira_metal"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "free_reed_technique": "hand_pumped_harmonium_song_support",
+      "harmonium_action": "harmonium_hand_pump",
+      "harmonium_voicing": "harmonium_male",
+      "harmonium_use": "harmonium_kirtan",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "manjira_form": "manjira_taal_small",
+      "manjira_stroke": "manjira_tala_ostinato",
+      "manjira_metal": "manjira_brass"
+    },
+    "pin_parts": true
+  }
+}

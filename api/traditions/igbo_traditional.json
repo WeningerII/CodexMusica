@@ -1,0 +1,67 @@
+{
+  "id": "igbo_traditional",
+  "name": "Igbo traditional",
+  "family": "global",
+  "lineage": "Igbo traditional music encompasses inherited community song, dance and instrumental practices in southeastern Nigeria. Travelling ensembles and local ceremonial settings preserve distinct roles for tuned skin drums, slit drums and voices, with practices varying between communities and occasions.",
+  "recipe": "classic igbo traditional, groove Percussion. melodic rhythmic tuned igbo tonal skin drum ensemble, ekwe. live tracking.",
+  "recipe_chars": 119,
+  "score": 2.326,
+  "config": {
+    "traditions": [
+      "igbo_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "igbo_tonal_skin_drum_ensemble",
+        "slots": {
+          "igbo_tonal_skin_drum_ensemble_identity": "igbo_tonal_skin_drum_ensemble_owerri"
+        },
+        "scores": {
+          "igbo_tonal_skin_drum_ensemble_identity": 1.9045
+        }
+      },
+      {
+        "id": "ekwe",
+        "slots": {
+          "ekwe_size": "ekwe_medium",
+          "ekwe_role": "ekwe_timeline"
+        },
+        "scores": {
+          "ekwe_size": 0.0315,
+          "ekwe_role": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "igbo_tonal_skin_drum_ensemble": [
+        "igbo_tonal_skin_drum_ensemble_identity"
+      ],
+      "ekwe": [
+        "ekwe_size",
+        "ekwe_role"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "igbo_tonal_skin_drum_ensemble_identity": "igbo_tonal_skin_drum_ensemble_owerri",
+      "ekwe_size": "ekwe_medium",
+      "ekwe_role": "ekwe_timeline"
+    },
+    "pin_parts": true
+  }
+}

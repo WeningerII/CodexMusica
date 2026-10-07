@@ -1,0 +1,90 @@
+{
+  "id": "cello_ensemble",
+  "name": "Cello ensemble",
+  "family": "classical",
+  "lineage": "Cello ensembles develop the expressive range of several cellos performing together. The Berlin Philharmonic’s twelve-cellist ensemble grew from a 1972 production of Julius Klengel’s Hymnus and expanded into a wide-ranging concert tradition.",
+  "recipe": "classic early-1970s cello ensemble, art Music. norway spruce European alpine European maple bosnian source flamed figure cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 226,
+  "score": 27.43,
+  "config": {
+    "traditions": [
+      "cello_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 3.313,
+          "cello_strings": 0,
+          "cello_top_wood": 3.2,
+          "cello_back_wood": 3.2,
+          "cello_varnish": 3.2,
+          "cello_setup_period": 3.5000000000000004,
+          "cello_bow_grip": 1.69,
+          "cello_rosin": 5.2315000000000005,
+          "cello_bow_stick": 4.095000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "reviewer": "research_116",
+  "packet": "/tmp/batch040/resume119-26.json",
+  "sha256": "540d3b4a1b0ec07d6c8b13c6223de4ee10d332408c478a4a9d342b4201b8dcbc",
+  "source_review": [
+    {
+      "url": "https://indianexpress.com/article/north-east-india/assam/this-youtube-channel-is-taking-mising-musicians-way-beyond-their-tribal-tunes/",
+      "result": "Fresh direct13503view0 describes Miriwood Acoustic, modern Anu ni:tom rather than traditional Oi ni:tom, regional youth community and recorded modern love songs."
+    },
+    {
+      "url": "https://misingmrinal-doley.blogspot.com/p/background.html",
+      "result": "Indexed13502search1 and13481search3 document learning guitar, Mising video-film songs and Western-influenced modern repertoire. Direct fetch unavailable; no exact session reconstruction."
+    },
+    {
+      "url": "https://ijfans.org/uploads/paper/39ab2842b9be4a14b9d801f15c30ff3d.pdf",
+      "result": "Indexed13481search12 positively identifies guitar, keyboard, harmonium and percussion in modernized recorded Mising practice. Publisher metadata directly verified13484view0. Corroborative source, not sole category authority."
+    }
+  ],
+  "independent_retrievals": {
+    "firsthand_founders": "turn13515view0 full Miriwood modern Anu ni:tom versus traditional Oi ni:tom; positive acoustic platform and contemporary love-song field",
+    "artist_biography": "turn13523search0 full indexed guitar study, video-song/Western-influenced modern repertoire, North Lakhimpur",
+    "modernized_palette": "turn13523search1 corroborative indexed guitar/keyboard/harmonium/percussion modernization; not sole category authority",
+    "rights": "turn13523view0 author/crop and CC BY2.5 reproduced"
+  },
+  "category_review": "Full actual Assamese pop and Northeast Indian indie read; those broader language/regional fields overlap but do not exhaust independently named Mising modern-song community. No nationality or alternate-exemplar-only distinction. Mizo pop remains a related language label, not asserted as integrated ID.",
+  "practice_review": "General acoustic branch supported by firsthand platform and guitar tradition; no attempt to reconstruct one recording or omit its known personnel. Variable voices remain unknown; guitar construction/flatpicking are authored choices. Genre-level popular-song harmonic realization is candid.",
+  "mechanics": {
+    "owning_parts": 22,
+    "errors": [],
+    "new_instruments": 0,
+    "runtime": "/tmp/batch040/mising-peer-runtime116.json",
+    "four_formats_read": true,
+    "semantic_review": "Frosty vocal and cramped guitar are cool/intimate authored affect and dry-room/body colour, not a foreign cultural claim or a contradicted measured source performance. No false instrument or singer count."
+  },
+  "photos": "Exact familiar023 anime_cv URL/hash33015-byte250x720 historical receipt retained; fresh rights confirmed, LOW generic recording context and no new download/visual claim.",
+  "limitations": [
+    "Institutional periodical corroboration is not the primary category basis.",
+    "Artist biography indexed rather than direct retrieval.",
+    "Not a recording transcript or static API/final integration approval."
+  ]
+}

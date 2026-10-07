@@ -1,0 +1,89 @@
+{
+  "id": "hard_bass",
+  "name": "Hard bass",
+  "family": "electronic",
+  "lineage": "Hard bass, or hardbass, is a dance style associated with pumping and bumping house and the Saint Petersburg scene’s links with Dutch club music. Its identity involves a distinctive rhythmic and bass-sound vocabulary rather than loud bass alone.",
+  "recipe": "classic hard bass, electronic Dance. yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, drum machine analog.",
+  "recipe_chars": 144,
+  "score": 12.879,
+  "config": {
+    "traditions": [
+      "hard_bass"
+    ],
+    "instruments": [
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_classic",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 4.580500000000001,
+          "fm_algorithm": -0.05,
+          "fm_modulator_ratio": 0.168,
+          "fm_polyphony": 0.063,
+          "fm_model_lineage": 4.6175
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 1,
+          "shuffle_quantize": 2.5
+        }
+      }
+    ],
+    "pinned": {
+      "fm_synth": [
+        "electronic_technique",
+        "fm_algorithm",
+        "fm_modulator_ratio",
+        "fm_polyphony",
+        "fm_model_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "parts": {
+      "electronic_technique": "electronic_bass_sub",
+      "fm_algorithm": "fm_classic",
+      "fm_modulator_ratio": "fm_harmonic",
+      "fm_polyphony": "fm_mono",
+      "fm_model_lineage": "fm_yamaha_tx81z",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
+    },
+    "pin_parts": true
+  }
+}

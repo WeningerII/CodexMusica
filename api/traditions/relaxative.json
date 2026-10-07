@@ -1,0 +1,58 @@
+{
+  "id": "relaxative",
+  "name": "Relaxative",
+  "family": "classical",
+  "lineage": "Relaxative groups gentle listening repertoire across contemporary piano, instrumental covers, lounge and atmospheric electronic music. Streaming discovery brings these different traditions together around relaxed listening rather than a single historical ensemble or technique.",
+  "recipe": "classic relaxative, art Music. upright piano. live tracking.",
+  "recipe_chars": 60,
+  "score": 2.531,
+  "config": {
+    "traditions": [
+      "relaxative"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "upright_use": 0.0315,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

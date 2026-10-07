@@ -1,0 +1,1018 @@
+{
+  "baseline_api": "/workspace/genre-continuation/research/batch041-baseline/source/api",
+  "current_api": "/workspace/CodexMusica-qualified041/api",
+  "old_traditions": 6538,
+  "unchanged_old_traditions": 6515,
+  "changed_old_traditions": 23,
+  "changed_recipe_count": 6,
+  "changed_slots_count": 43,
+  "missing_old_traditions": [],
+  "old_source_or_identity_changes": [],
+  "protected_slot_changes": [],
+  "generated_environment_change_ids": [],
+  "instrument_inventory_changes": [],
+  "old_api_instrument_changes": [],
+  "missing_old_api_instruments": [],
+  "new_tradition_files": [
+    "8d",
+    "anime_rap",
+    "armenian_hip_hop",
+    "botswana_hip_hop",
+    "bouzouki",
+    "brockton_hip_hop",
+    "cantaditas",
+    "cantautor_catala",
+    "cantonese_worship",
+    "cartoni_animati",
+    "chinese_bgm",
+    "chinese_drama_ost",
+    "chinese_talent_show",
+    "classic_bhangra",
+    "classic_ukrainian_pop",
+    "classical_drill",
+    "cloud_rap_francais",
+    "cristiana_para_ninos",
+    "cumbia_cristiana",
+    "cumbia_ecuatoriana",
+    "cumbia_santafesina",
+    "czsk_emo_rap",
+    "dark_progressive_house",
+    "detroit_trap_brasileiro",
+    "dicsoites",
+    "double_drumming",
+    "drill_chileno",
+    "ethiopian_hip_hop",
+    "ethnotronica",
+    "experimental_big_band",
+    "fan_chant",
+    "festigal",
+    "finnish_trap",
+    "flint_hip_hop",
+    "focus",
+    "folclor_colombiano",
+    "folklore_peruano",
+    "frafra",
+    "french_movie_tunes",
+    "german_dark_minimal_techno",
+    "german_viral_rap",
+    "greek_drill",
+    "grupero_romantico",
+    "gumbe",
+    "hip_hop_boliviano",
+    "hip_hop_mauritanien",
+    "hip_hop_timur",
+    "hong_kong_hip_hop",
+    "hyperpop_brasileiro",
+    "icelandic_hip_hop",
+    "ilahiler",
+    "indian_underground_rap",
+    "indie_boliviano",
+    "indie_campechano",
+    "indie_catala",
+    "indie_catracho",
+    "indie_cristao",
+    "indie_curitibano",
+    "indie_liguria",
+    "indie_nica",
+    "indonesian_emo_rap",
+    "iowa_hip_hop",
+    "irish_drill",
+    "israelite_hip_hop",
+    "jain_bhajan",
+    "japanese_psychedelic",
+    "japanese_vgm",
+    "kabyle_moderne",
+    "kamba_pop",
+    "karbi_pop",
+    "karen_pop",
+    "korean_drill",
+    "korean_soundtrack",
+    "korean_talent_show",
+    "korean_underground_rap",
+    "kumaoni_pop",
+    "ladakhi_pop",
+    "lagu_bugis",
+    "lagu_iban",
+    "lagu_jambi",
+    "lagu_maluku",
+    "lagu_tarling",
+    "lao_hip_hop",
+    "lao_pop",
+    "latvian_hip_hop",
+    "liberian_pop",
+    "lo_fi_brasileiro",
+    "louange",
+    "louvores_pentecostais",
+    "magyar_kabare",
+    "magyar_trap",
+    "malawian_hip_hop",
+    "malaysian_tamil_rap",
+    "maltese_hip_hop",
+    "maluku_pop",
+    "mapouka",
+    "medimeisterschaften",
+    "merida_indie",
+    "middle_eastern_traditional",
+    "military_rap",
+    "mising_pop",
+    "mizo_pop",
+    "mongolian_hip_hop",
+    "moorish_traditional",
+    "musica_aguascalentense",
+    "musica_bautista",
+    "musica_coahuilense",
+    "musica_evangelica_instrumental",
+    "musica_michoacana",
+    "musica_nayarita",
+    "musica_otavalena",
+    "musica_timor_leste",
+    "musica_tlaxcalteca",
+    "musica_triste_brasileira",
+    "musica_urbana_oaxaquena",
+    "musik_anak_anak",
+    "musique_traditionnelle_congolaise",
+    "musique_urbaine_brazzaville",
+    "myanmar_gospel",
+    "nasheed",
+    "new_hampshire_indie",
+    "norrbotten_indie",
+    "north_moroccan_rap",
+    "northeast_indian_hip_hop",
+    "norwegian_trap",
+    "ny_roots",
+    "oc_rap",
+    "oeteldonk",
+    "old_school_nederhop",
+    "oldschool_deutschrap",
+    "oromo_pop",
+    "otacore",
+    "pahadi_pop",
+    "palestinian_pop",
+    "persian_drill",
+    "persian_underground_hip_hop",
+    "pinoy_alternative_rap",
+    "pinoy_praise",
+    "plugg_en_espanol",
+    "png_pop",
+    "polish_alternative",
+    "polish_alternative_rap",
+    "polish_drill",
+    "polish_indie",
+    "polish_old_school_hip_hop",
+    "polish_underground_rap",
+    "polish_viral_pop",
+    "pop_boliviano",
+    "pop_dance",
+    "pop_flamenco",
+    "pop_urbaine",
+    "portuguese_indie",
+    "prank",
+    "psybass",
+    "puerto_rican_indie",
+    "quebec_indie",
+    "rap_angolano",
+    "rap_geek",
+    "raspe",
+    "reading",
+    "ringtone",
+    "ritmo_kombina",
+    "rumba",
+    "russian_ccm",
+    "russian_indie",
+    "russian_plugg",
+    "russian_rave",
+    "sambalpuri_pop",
+    "santali_pop",
+    "sorani_pop",
+    "sound",
+    "spa",
+    "spanish_new_wave",
+    "surinamese_hip_hop",
+    "swedish_drill",
+    "swiss_trap",
+    "taiwan_graduation_song",
+    "talent_show",
+    "talentkonkurrence",
+    "talentos_brasileiros",
+    "tamaulipas_rap",
+    "telugu_devotional",
+    "telugu_indie",
+    "telugu_remix",
+    "thai_indie_pop",
+    "tibetan_folk_pop",
+    "turkmen_hip_hop",
+    "underground_power_pop",
+    "viet_edm",
+    "vintage_hollywood",
+    "vintage_italian_soundtrack",
+    "violao_classico",
+    "volkstumliche_musik",
+    "zomi_pop"
+  ],
+  "changes": [
+    {
+      "id": "algerian_rap",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "algerian_rap",
+        "uk_alternative_hip_hop",
+        "gengetone"
+      ],
+      "traditions_after": [
+        "algerian_rap",
+        "uk_alternative_hip_hop",
+        "gengetone"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1990s algerian rap, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Persian arab improv improv on frame uk alternative hip hop gengetone. extended whistle, rap, breath pulsed, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic mid-1990s algerian rap, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Persian arab improv improv on frame uk alternative hip hop gengetone. extended whistle, rap, breath pulsed, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "ambient",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "ambient",
+        "musique_mauritanienne",
+        "tuareg_guitar"
+      ],
+      "traditions_after": [
+        "ambient",
+        "musique_mauritanienne",
+        "tuareg_guitar"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal musique mauritanienne tuareg guitar. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+      "recipe_after": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal musique mauritanienne tuareg guitar. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay."
+    },
+    {
+      "id": "ambient_folk",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "ambient_folk",
+        "bedroom_singer_song",
+        "time_lord_rock"
+      ],
+      "traditions_after": [
+        "ambient_folk",
+        "bedroom_singer_song",
+        "time_lord_rock"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2000s ambient folk, ballad Poetry, indie folk branch, ambient experimental electric, anglo singer song bedroom singer song bedroom singer-songwriter time lord rock. minimal subglottal pressure, pure, interlocked note trading, equal tempered. low tension strings mellow steel silk acoustic guitar. carpeted bedroom. dynamic moving-coil, console-strip pre, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette tape echo plate reverb.",
+      "recipe_after": "classic mid-2000s ambient folk, ballad Poetry, indie folk branch, ambient experimental electric, anglo singer song bedroom singer song bedroom singer-songwriter time lord rock. minimal subglottal pressure, pure, interlocked note trading, equal tempered. low tension strings mellow steel silk acoustic guitar. carpeted bedroom. dynamic moving-coil, console-strip pre, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette tape echo plate reverb."
+    },
+    {
+      "id": "banda_carnavalera",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "banda_carnavalera"
+      ],
+      "traditions_after": [
+        "banda_carnavalera"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2020s banda carnavalera, carnival Processional. big tone large cup large rim orchestral bottom heavy trumpet, trombone, tuba. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2020s banda carnavalera, carnival Processional. big tone large cup large rim orchestral bottom heavy trumpet, trombone, tuba. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "banda_peruana",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "banda_peruana"
+      ],
+      "traditions_after": [
+        "banda_peruana"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "saxophone",
+          "part": "sax_reed",
+          "before": "medium_reed",
+          "after": "hard_reed",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic banda peruana, carnival Processional. softer tone ebonite hard rubber klezmer tradition clarinet, gold brass warmer tone split tone overblown saxophone, big tone large cup large rim orchestral bottom heavy trumpet, euphonium, trombone, tuba, bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic banda peruana, carnival Processional. softer tone ebonite hard rubber klezmer tradition clarinet, gold brass warmer tone split tone overblown saxophone, big tone large cup large rim orchestral bottom heavy trumpet, euphonium, trombone, tuba, bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "cape_jazz",
+      "changed_keys": [
+        "score",
+        "recipe_chars",
+        "recipe",
+        "config"
+      ],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": [
+        "cape_jazz",
+        "spiritual_jazz",
+        "swiss_experimental"
+      ],
+      "traditions_after": [
+        "cape_jazz",
+        "spiritual_jazz",
+        "experimental_big_band"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "trumpet",
+          "part": "brass_mute",
+          "before": "harmon_in",
+          "after": "plunger",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_vocoder_8_band",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz swiss experimental. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "recipe_after": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz experimental big band. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut."
+    },
+    {
+      "id": "cumbia_420",
+      "changed_keys": [
+        "score",
+        "recipe_chars",
+        "recipe",
+        "config"
+      ],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": [
+        "cumbia_420",
+        "cumbia_pop",
+        "freestyle_house"
+      ],
+      "traditions_after": [
+        "cumbia_420",
+        "freestyle_house",
+        "latin_house_percussion"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "beatboxing_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "delayed_vibrato",
+          "after": "terminal_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_sub_saharan_polyphonic",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_sub_semitone_third_glide",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "chest_voice",
+          "after": "vocal_fry",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "rompler_workstation",
+          "part": "rompler_context",
+          "before": "rompler_context_pop_workstation",
+          "after": "rompler_context_arranger_party",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "timbales",
+          "part": "timbales_context",
+          "before": "timbales_salsa",
+          "after": "timbales_son",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_machine_808",
+          "part": "drum_machine_808_context",
+          "before": "drum_machine_808_trap",
+          "after": "drum_machine_808_miami",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic 2015-2018 cumbia 420, electronic Dance, Latin electric branch, reggaeton MC rhythm, Latin am groove percussion, Latin house house cumbia pop freestyle house. thick, full chest belt, straight onset, interlocked note trading. organ preset yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, guiro, open slap hand drum timbales, roland tr 8s modern aira digital recreation TR-808, sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_after": "classic 2015-2018 cumbia 420, electronic Dance, Latin electric branch, reggaeton MC rhythm, Latin am groove percussion, Latin house house freestyle house. vocal fry, full chest belt, straight note core, interlocked note trading. organ preset one man band yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios sub bass rompler workstation, guiro, brass open slap hand drum timbales, TR-808, sub bass digital subtractive. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital."
+    },
+    {
+      "id": "cumbia_argentina",
+      "changed_keys": [
+        "score",
+        "recipe_chars",
+        "recipe",
+        "config"
+      ],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": [
+        "cumbia_argentina",
+        "cumbia_pop",
+        "cumbia_villera"
+      ],
+      "traditions_after": [
+        "cumbia_argentina",
+        "rap_politico",
+        "nueva_cancion"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_lo_fi_narrow_AM",
+          "after": "voice_processing_talkbox",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_oral_twang",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "diaphragm_vibrato",
+          "after": "fast_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_tonal_language_constrained",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "extended_whistle_register",
+          "after": "chest_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_archetypes",
+          "before": "jupiter_8",
+          "after": "oberheim_obxa",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "electronic_technique",
+          "before": "electronic_lead_line",
+          "after": "electronic_bass_sub",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "amp_make",
+          "before": "amp_american_ampeg_svt",
+          "after": "amp_american_ampeg_b15",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "timbales",
+          "part": "timbales_context",
+          "before": "timbales_salsa",
+          "after": "timbales_son",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "accordion_reed_material",
+          "before": "tipo_a_mano",
+          "after": "machine_reeds",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "musette_offset",
+          "before": "dry_tuning",
+          "after": "german_tuning",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "free_reed_technique",
+          "before": "free_reed_chromatic_jazz",
+          "after": "free_reed_folk_first_position",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic 1999-2002 cumbia argentina, functional Song, tropical song branch, Latin am groove percussion, iberian Latin protest song cumbia pop cumbia villera. extended whistle, full chest belt, breath pulsed, interlocked note trading. singing lead analog poly synth, ampeg svt amp rock bass amp mahogany la bella flats Detroit soul bass canon electric bass, guiro, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum timbales, hohner gola canonical premium German concert accordion. no single room 2015-present distributed distributed production. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+      "recipe_after": "classic 1999-2002 cumbia argentina, functional Song, tropical song branch, Latin am groove percussion, iberian Latin protest song rap pol\u00edtico nueva canci\u00f3n. thick, full chest belt, fast rate, interlocked note trading. sub bass analog poly synth, la bella flats Detroit soul bass canon sub heavy electric bass, guiro, lead open slap hand drum congas, open slap hand drum timbales, hohner gola canonical premium German concert accordion. no single room 2015-present distributed distributed production. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter."
+    },
+    {
+      "id": "cumbia_pop",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "cumbia_pop",
+        "cumbia_420",
+        "freestyle"
+      ],
+      "traditions_after": [
+        "cumbia_pop",
+        "cumbia_420",
+        "freestyle"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic 1997-1999 cumbia pop, groove Percussion, Latin am branch, Latin electric electronic dance, tropical song functional song cumbia 420 freestyle. thick, full chest belt, straight onset, interlocked note trading. guiro, open slap hand drum timbales, lead open slap hand drum congas, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass, singing lead analog poly synth, accordion, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic 1997-1999 cumbia pop, groove Percussion, Latin am branch, Latin electric electronic dance, tropical song functional song cumbia 420 freestyle. thick, full chest belt, straight onset, interlocked note trading. guiro, open slap hand drum timbales, lead open slap hand drum congas, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass, singing lead analog poly synth, accordion, pre muffled edge muffled brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "cumbia_ranchera",
+      "changed_keys": [
+        "score",
+        "recipe_chars",
+        "recipe",
+        "config"
+      ],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": [
+        "cumbia_ranchera",
+        "ranchera",
+        "cumbia_pop"
+      ],
+      "traditions_after": [
+        "cumbia_ranchera",
+        "ranchera",
+        "cumbia_cristiana"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "accordion",
+          "part": "reed_config",
+          "before": "lmmh",
+          "after": "lmmm",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "ec_pre_muffled_drumhead",
+          "after": "kevlar_drumhead",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_archetypes",
+          "before": "jupiter_8",
+          "after": "oberheim_obxa",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_voices",
+          "before": "poly_8_voice",
+          "after": "poly_16_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_vocoder_8_band",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "slow_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_quranic_tajwid",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_vedic_three_tone",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Southwestern American mid-1970s cumbia ranchera, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia pop. thick, full chest belt, straight note core, interlocked note trading. castagnari Italian premium folk music chordal accordion, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, lead open slap hand drum congas. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_after": "classic Southwestern American mid-1970s cumbia ranchera, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia cristiana. thick, full chest belt, slow rate, interlocked note trading. castagnari Italian premium folk music chordal accordion, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, guiro, kevlar aramid extreme tension brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, lead open slap hand drum congas. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb."
+    },
+    {
+      "id": "deathstep",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "deathstep"
+      ],
+      "traditions_after": [
+        "deathstep"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic deathstep, bass System. wavetable synth, sampler. treated studio.",
+      "recipe_after": "classic deathstep, bass System. wavetable synth, sampler. treated studio."
+    },
+    {
+      "id": "dweilorkest",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "dweilorkest"
+      ],
+      "traditions_after": [
+        "dweilorkest"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic dweilorkest, carnival Processional. trumpet, saxophone, trombone, sousaphone, credited auxiliary percussion. live tracking.",
+      "recipe_after": "classic dweilorkest, carnival Processional. trumpet, saxophone, trombone, sousaphone, credited auxiliary percussion. live tracking."
+    },
+    {
+      "id": "experimental_bass",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "experimental_bass"
+      ],
+      "traditions_after": [
+        "experimental_bass"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic experimental bass, bass System. low sub bass digital subtractive, drum machine analog. treated studio.",
+      "recipe_after": "classic experimental bass, bass System. low sub bass digital subtractive, drum machine analog. treated studio."
+    },
+    {
+      "id": "german_hyperpop",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "german_hyperpop"
+      ],
+      "traditions_after": [
+        "german_hyperpop"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic german hyperpop, functional Song. solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. singing lead digital subtractive, drum machine analog. treated studio.",
+      "recipe_after": "classic german hyperpop, functional Song. solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. singing lead digital subtractive, drum machine analog. treated studio."
+    },
+    {
+      "id": "german_underground_rap",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "german_underground_rap"
+      ],
+      "traditions_after": [
+        "german_underground_rap"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern german underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_after": "classic modern german underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital."
+    },
+    {
+      "id": "hardstep",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "hardstep",
+        "dub_techno",
+        "ambient_dub"
+      ],
+      "traditions_after": [
+        "hardstep",
+        "dub_techno",
+        "ambient_dub"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic British 1995-1997 hardstep, bass System, bass descendants branch, uk soundsystem bass system, techno electronic dance, dub descendants bass system ambient dub. chopped sampler, sub bass monosynth acid bass, TR-909, sub bass analog poly synth, turntable. concrete basement. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+      "recipe_after": "classic British 1995-1997 hardstep, bass System, bass descendants branch, uk soundsystem bass system, techno electronic dance, dub descendants bass system ambient dub. chopped sampler, sub bass monosynth acid bass, TR-909, sub bass analog poly synth, turntable. concrete basement. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L."
+    },
+    {
+      "id": "japanese_vtuber",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "japanese_vtuber"
+      ],
+      "traditions_after": [
+        "japanese_vtuber"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic japanese vtuber, functional Song. solo with instrumental accompaniment. singing lead digital subtractive, drum machine analog. live tracking.",
+      "recipe_after": "classic japanese vtuber, functional Song. solo with instrumental accompaniment. singing lead digital subtractive, drum machine analog. live tracking."
+    },
+    {
+      "id": "neo_soul_jazz",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "neo_soul_jazz"
+      ],
+      "traditions_after": [
+        "neo_soul_jazz"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s neo soul-jazz, improv On Frame, soul jazz branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_after": "classic early-2020s neo soul-jazz, improv On Frame, soul jazz branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital."
+    },
+    {
+      "id": "oud_taqsim",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "oud_taqsim",
+        "tar_persian_classical",
+        "persian_traditional"
+      ],
+      "traditions_after": [
+        "oud_taqsim",
+        "tar_persian_classical",
+        "persian_traditional"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Middle Eastern mid-1900s oud taqsim, improv On Frame, Persian arab improv branch, middle eastern classical art music, string drone modal persian traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, brass jingles canonical takht riq, kanun drone like modal tortoiseshell traditional kanun, arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, goat skin Turkish darbuka regional iraqi maqam zarb drier finger open slap hand drum darbuka. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_after": "classic Middle Eastern mid-1900s oud taqsim, improv On Frame, Persian arab improv branch, middle eastern classical art music, string drone modal persian traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, brass jingles canonical takht riq, kanun drone like modal tortoiseshell traditional kanun, arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney, goat skin Turkish darbuka regional iraqi maqam zarb drier finger open slap hand drum darbuka. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb."
+    },
+    {
+      "id": "samurai_trap",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "samurai_trap"
+      ],
+      "traditions_after": [
+        "samurai_trap"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic samurai trap, bass System. sampler, drum machine analog. treated studio.",
+      "recipe_after": "classic samurai trap, bass System. sampler, drum machine analog. treated studio."
+    },
+    {
+      "id": "santur_persian",
+      "changed_keys": [
+        "score",
+        "config"
+      ],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "santur_persian",
+        "tar_persian_classical",
+        "persian_traditional"
+      ],
+      "traditions_after": [
+        "santur_persian",
+        "tar_persian_classical",
+        "persian_traditional"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Middle Eastern early-1940s santur, improv On Frame, Persian arab improv branch, middle eastern classical art music, string improv improv on frame, string drone modal persian traditional music. extended whistle, breath veiled tone, slow rate, interlocked note trading. santur, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, brass mulberry bowl canonical double bowl radif tar persian. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_after": "classic Middle Eastern early-1940s santur, improv On Frame, Persian arab improv branch, middle eastern classical art music, string improv improv on frame, string drone modal persian traditional music. extended whistle, breath veiled tone, slow rate, interlocked note trading. santur, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, brass mulberry bowl canonical double bowl radif tar persian. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb."
+    },
+    {
+      "id": "tecnocumbia",
+      "changed_keys": [
+        "score",
+        "recipe",
+        "config"
+      ],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": [
+        "tecnocumbia",
+        "cumbia_pop",
+        "cumbia_420"
+      ],
+      "traditions_after": [
+        "tecnocumbia",
+        "cumbia_420",
+        "freestyle"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_stutter_edit",
+          "after": "voice_processing_vocoder_32_band_carrier_saw",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "diaphragm_vibrato",
+          "after": "slow_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_meantone_quarter_comma",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_register",
+          "before": "extended_whistle_register",
+          "after": "chest_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_single_lead",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fm_synth",
+          "part": "electronic_technique",
+          "before": "electronic_bass_sub",
+          "after": "electronic_lead_line",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fm_synth",
+          "part": "fm_algorithm",
+          "before": "fm_simple",
+          "after": "fm_classic",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fm_synth",
+          "part": "fm_model_lineage",
+          "before": "fm_yamaha_tx81z",
+          "after": "fm_yamaha_dx7",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_archetypes",
+          "before": "jupiter_8",
+          "after": "oberheim_obxa",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "electronic_technique",
+          "before": "electronic_bass_sub",
+          "after": "electronic_lead_line",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_maker_lineage",
+          "before": "poly_oberheim_tom",
+          "after": "poly_sequential_smith",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic 1994-1996 tecnocumbia, functional Song, tropical song branch, Latin am groove percussion, Latin electric electronic dance cumbia pop cumbia 420. extended whistle, full chest belt, breath pulsed, interlocked note trading. yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm sub bass analog poly synth, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, drum machine analog, open slap hand drum timbales, guiro. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+      "recipe_after": "classic 1994-1996 tecnocumbia, functional Song, tropical song branch, Latin am groove percussion, Latin electric electronic dance cumbia 420 freestyle. thick, full chest belt, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead analog poly synth, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, drum machine analog, open slap hand drum timbales, guiro. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter."
+    },
+    {
+      "id": "thai_bl_ost",
+      "changed_keys": [
+        "score",
+        "recipe_chars",
+        "recipe",
+        "config"
+      ],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": [
+        "thai_bl_ost"
+      ],
+      "traditions_after": [
+        "thai_bl_ost"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic thai bl ost, functional Song. solo with instrumental accompaniment. upright piano. shoebox concert hall.",
+      "recipe_after": "classic thai bl ost, functional Song. one note per syllable, solo with instrumental accompaniment. upright piano. shoebox concert hall."
+    }
+  ],
+  "decision": "Pending causal review of changed rows; full comparison is not blanket acceptance."
+}

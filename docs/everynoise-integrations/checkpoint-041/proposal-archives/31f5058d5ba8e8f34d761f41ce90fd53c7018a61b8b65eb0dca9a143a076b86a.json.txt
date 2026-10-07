@@ -1,0 +1,225 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "lao_hip_hop",
+        "name": "Lao Hip Hop",
+        "family": "hip_hop",
+        "lineage": "Lao hip hop connects rap and beat production in Laos with Lao diaspora communities, combining contemporary expression with local languages and cultural memory.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Rhythmic verses and memorable hooks ride produced beats in Lao hip hop. Artists in Laos and the diaspora address everyday experience and identity in Lao and English, while some arrangements introduce the khaen mouth organ or draw on lam traditions. Concerts, cultural festivals and online collaborations link these varied approaches.",
+        "exemplars": [
+          "L.O.G.",
+          "Gumby / Pryce",
+          "One Hunned",
+          "Supasang"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "lao_hip_hop",
+          "name": "Lao Hip Hop",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13547view0 confirms IainFergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13547view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13547view0, exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13547view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative general rap-and-produced-beat practice. Center for Lao Studies directly interviews OneHunned about writing rhymes, putting them to beats and performing concerts/cultural events. This independently described general practice is the basis here, not the separately discussed khaen crossover or full MolamTanSmay collaboration. Source expressly says khaen occurs in some work, so it is not compulsory for every genre default. The positive optional crossover remains in public description and in preserved failed crossover probes; no claim this represents that arrangement. Beat construction remains unspecified, no sample/synth architecture invented. One accompanied lead is an authored ordinary starting arrangement rather than source-wide headcount. Room is an authored controlled studio rendition."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative general rap-and-produced-beat practice. Center for Lao Studies directly interviews OneHunned about writing rhymes, putting them to beats and performing concerts/cultural events. This independently described general practice is the basis here, not the separately discussed khaen crossover or full MolamTanSmay collaboration. Source expressly says khaen occurs in some work, so it is not compulsory for every genre default. The positive optional crossover remains in public description and in preserved failed crossover probes; no claim this represents that arrangement. Beat construction remains unspecified, no sample/synth architecture invented. One accompanied lead is an authored ordinary starting arrangement rather than source-wide headcount. Room is an authored controlled studio rendition."
+        }
+      ],
+      "source_label": "lao hip hop",
+      "source_url": "https://everynoise.com/engenremap-laohiphop.html",
+      "suggested_id": "lao_hip_hop",
+      "allocation_ordinal": 374,
+      "allocation_group_id": "015",
+      "id": "lao_hip_hop",
+      "status": "ready_for_independent_review",
+      "geo": [
+        17.976,
+        102.633,
+        "Vientiane",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Lao national-field anchor; representative diaspora practice is not claimed to have been recorded here.",
+      "signature_tokens": [],
+      "model_policy": "Representative general rap-and-produced-beat practice. Center for Lao Studies directly interviews OneHunned about writing rhymes, putting them to beats and performing concerts/cultural events. This independently described general practice is the basis here, not the separately discussed khaen crossover or full MolamTanSmay collaboration. Source expressly says khaen occurs in some work, so it is not compulsory for every genre default. The positive optional crossover remains in public description and in preserved failed crossover probes; no claim this represents that arrangement. Beat construction remains unspecified, no sample/synth architecture invented. One accompanied lead is an authored ordinary starting arrangement rather than source-wide headcount. Room is an authored controlled studio rendition.",
+      "neighbor_distinction": "Full LaoTraditional spans court ensembles and village lam; Molam and LaoLamSaravane concern inherited sung-poetry and khaen-linked practices. LaoHipHop is instead the positively documented rap/beat scene in Lao communities, including diaspora language and cultural festivals. Traditional quotation or khaen crossover creates overlap without identity. LaoPop is the broader contemporary song field and does not subsume a distinct MC-practice entry as an alias. ThaiHipHop/Isan rap may share languages and cross-border audiences but do not exhaust the documented Lao community network.",
+      "classification_evidence": "Full LaoTraditional spans court ensembles and village lam; Molam and LaoLamSaravane concern inherited sung-poetry and khaen-linked practices. LaoHipHop is instead the positively documented rap/beat scene in Lao communities, including diaspora language and cultural festivals. Traditional quotation or khaen crossover creates overlap without identity. LaoPop is the broader contemporary song field and does not subsume a distinct MC-practice entry as an alias. ThaiHipHop/Isan rap may share languages and cross-border audiences but do not exhaust the documented Lao community network.",
+      "source_scope_limitation": "Representative general rap-and-produced-beat practice. Center for Lao Studies directly interviews OneHunned about writing rhymes, putting them to beats and performing concerts/cultural events. This independently described general practice is the basis here, not the separately discussed khaen crossover or full MolamTanSmay collaboration. Source expressly says khaen occurs in some work, so it is not compulsory for every genre default. The positive optional crossover remains in public description and in preserved failed crossover probes; no claim this represents that arrangement. Beat construction remains unspecified, no sample/synth architecture invented. One accompanied lead is an authored ordinary starting arrangement rather than source-wide headcount. Room is an authored controlled studio rendition.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Representative general rap-and-produced-beat practice. Center for Lao Studies directly interviews OneHunned about writing rhymes, putting them to beats and performing concerts/cultural events. This independently described general practice is the basis here, not the separately discussed khaen crossover or full MolamTanSmay collaboration. Source expressly says khaen occurs in some work, so it is not compulsory for every genre default. The positive optional crossover remains in public description and in preserved failed crossover probes; no claim this represents that arrangement. Beat construction remains unspecified, no sample/synth architecture invented. One accompanied lead is an authored ordinary starting arrangement rather than source-wide headcount. Room is an authored controlled studio rendition."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Representative general rap-and-produced-beat practice. Center for Lao Studies directly interviews OneHunned about writing rhymes, putting them to beats and performing concerts/cultural events. This independently described general practice is the basis here, not the separately discussed khaen crossover or full MolamTanSmay collaboration. Source expressly says khaen occurs in some work, so it is not compulsory for every genre default. The positive optional crossover remains in public description and in preserved failed crossover probes; no claim this represents that arrangement. Beat construction remains unspecified, no sample/synth architecture invented. One accompanied lead is an authored ordinary starting arrangement rather than source-wide headcount. Room is an authored controlled studio rendition."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "authored_default": 1,
+        "basis": "Representative accompanied MC, not source population count."
+      },
+      "sources": [
+        {
+          "url": "https://laostudies.org/molam-tan-smay/artists",
+          "title": "Center for Lao Studies firsthand OneHunned interview",
+          "support_notes": "Fresh13582view0: direct institutional interview, rap-to-beats practice, hooks/verses, national diaspora network and explicit use of Lao khaen in some work. Distinct from the full announced molam troupe collaboration."
+        },
+        {
+          "url": "https://asianrapworldwide.blogspot.com/2008/08/interview-with-lao-rapper-gumby-aka.html",
+          "title": "Original Gumby/Pryce interview",
+          "support_notes": "Fresh13582view1 original interviewer Q&A on rap beats, Lao collaborators and L.O.G in Laos. Primary interview hosted on blog, not scholarly publication."
+        }
+      ],
+      "alternate_branch_evidence": {
+        "khaen_crossover": "/tmp/batch040/transfer461-lao-hiphop-practice.json",
+        "status": "Preserved source-positive optional crossover has unsupported dunun/maracatu renderer labels; it is not this general rap-core arrangement."
+      }
+    }
+  ],
+  "instrument_dependencies": []
+}

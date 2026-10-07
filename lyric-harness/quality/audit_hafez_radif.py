@@ -7,7 +7,7 @@ THE CLAIM UNDER AUDIT
        495 ghazals, radif visible in 297"
   data/sources.tsv: "RADIF VISIBLY PRESENT in 297/495 ghazals as an identical
   final token on the matla first hemistich and every even hemistich".
-  CLAUDE.md doctrine 58 has already established that 297 is exactly
+  HANDBOOK.md doctrine 58 has already established that 297 is exactly
   min_fraction=1.0 on a sweep 318/318/315/311/310/306/301/297 -- the number is
   a coordinate of a threshold that was not written next to it.
 

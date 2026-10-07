@@ -5,7 +5,7 @@
   "lineage": "Venezuelan jazz musicians and diaspora; selected Edward Simon songbook trio",
   "recipe": "classic modern jazz venezolano, improv On Frame, Latin jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 42.09,
+  "score": 42.174,
   "config": {
     "traditions": [
       "jazz_venezolano"
@@ -26,7 +26,7 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.0945,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 0.0315,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
@@ -64,13 +64,13 @@
         },
         "scores": {
           "drum_technique": 8.190000000000001,
-          "drumhead": 0.1575,
+          "drumhead": 0.126,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.126,
+          "shell_wood": 0.0945,
           "shell_thickness": 0,
-          "bearing_edges": 0.126,
+          "bearing_edges": 0.0945,
           "snare_wires": 0,
-          "cymbal_alloy": 11.131499999999997,
+          "cymbal_alloy": 11.341499999999998,
           "cymbal_hammering": 11.231499999999999,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0.0315

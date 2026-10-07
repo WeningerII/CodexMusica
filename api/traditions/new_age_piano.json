@@ -3,9 +3,9 @@
   "name": "New Age Piano",
   "family": "classical",
   "lineage": "Solo acoustic piano branch of new age crystallised by Windham Hill Records in Palo Alto between 1979 and 1990 — George Winston's seasonal albums and Liz Story's and David Lanz's records established slow rubato tempi, sustained-pedal open-fifth left-hand ostinati, diatonic modal melody over unresolved suspended chords, close ribbon-and-condenser capture of a well-tuned grand, and long natural decay with no percussion or backbeat.",
-  "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry avant-garde neo-classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 588,
-  "score": 227.643,
+  "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry avant-garde neo-classical. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 220.66,
   "config": {
     "traditions": [
       "new_age_piano",
@@ -20,22 +20,22 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "renner_blue_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 8.675,
-          "grand_piano_size": 0.735,
+          "keyboard_technique": 8.45,
+          "grand_piano_size": 0.84,
           "grand_piano_brand": 1.365,
-          "piano_hammer": 16.2485,
-          "piano_rim": 13.985000000000001,
-          "piano_soundboard": 13.250000000000002,
-          "piano_pinblock": 13.250000000000002,
-          "piano_plate": 15.558500000000002,
-          "piano_pitch_standard": 15.440000000000001
+          "piano_hammer": 15.440000000000001,
+          "piano_rim": 13.5,
+          "piano_soundboard": 12.5,
+          "piano_pinblock": 12.5,
+          "piano_plate": 14.75,
+          "piano_pitch_standard": 14.490000000000002
         }
       },
       {
@@ -43,13 +43,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
-          "sm_chorus": "sm_chorus_subtle",
+          "sm_chorus": "sm_chorus_lush",
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 4.8500000000000005,
-          "sm_voice_count": 0,
-          "sm_chorus": 0,
+          "electronic_technique": 6.1000000000000005,
+          "sm_voice_count": 0.65,
+          "sm_chorus": 0.105,
           "sm_voicing": 1.15
         }
       },
@@ -67,15 +67,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.525,
-          "cello_strings": 3.055,
-          "cello_top_wood": 8.565000000000001,
-          "cello_back_wood": 13.940000000000001,
-          "cello_varnish": 13.250000000000002,
-          "cello_setup_period": 15.558500000000002,
-          "cello_bow_grip": 3.835,
-          "cello_rosin": 13.445000000000002,
-          "cello_bow_stick": 14.91225
+          "bowed_technique": 8.149999999999999,
+          "cello_strings": 2.8600000000000003,
+          "cello_top_wood": 7.689999999999999,
+          "cello_back_wood": 13.190000000000001,
+          "cello_varnish": 12.5,
+          "cello_setup_period": 14.75,
+          "cello_bow_grip": 3.6399999999999997,
+          "cello_rosin": 12.695,
+          "cello_bow_stick": 13.95
         }
       },
       {
@@ -88,11 +88,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 8.270000000000001,
-          "flute_size": 0.24,
-          "flute_material": 3.055,
-          "flute_technique": 4.355,
-          "flute_maker_school": 3.055
+          "wind_articulation": 7.895,
+          "flute_size": 0.6299999999999999,
+          "flute_material": 2.8600000000000003,
+          "flute_technique": 3.055,
+          "flute_maker_school": 4.355
         }
       },
       {
@@ -104,7 +104,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 4.8500000000000005,
+          "electronic_technique": 6.1000000000000005,
           "poly_archetypes": 1.15,
           "poly_voices": 1.15,
           "poly_maker_lineage": -0.525

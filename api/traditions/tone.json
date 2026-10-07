@@ -1,0 +1,50 @@
+{
+  "id": "tone",
+  "name": "Tone",
+  "family": "electronic",
+  "lineage": "Tone-based listening music foregrounds sustained pitches, overtones and subtle changes in sound. Electronic tone recordings provide one approach within ambient and experimental listening.",
+  "recipe": "classic tone, experimental Elec, ambient branch. analog sine oscillator z3000. live tracking.",
+  "recipe_chars": 93,
+  "score": 5.511,
+  "config": {
+    "traditions": [
+      "tone"
+    ],
+    "instruments": [
+      {
+        "id": "analog_sine_oscillator_z3000",
+        "slots": {
+          "z3000_signal_identity": "z3000_direct_sine_signal"
+        },
+        "scores": {
+          "z3000_signal_identity": 5.5105
+        }
+      }
+    ],
+    "pinned": {
+      "analog_sine_oscillator_z3000": [
+        "z3000_signal_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "z3000_signal_identity": "z3000_direct_sine_signal"
+    },
+    "pin_parts": true
+  }
+}

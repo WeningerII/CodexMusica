@@ -1,0 +1,235 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "rap_criolo",
+        "name": "Rap Criolo",
+        "family": "hip_hop",
+        "lineage": "Rap Criolo connects Cape Verdean Kriolu language with hip-hop communities in the islands and diaspora, notably metropolitan Lisbon. Its lyrics explore neighbourhood life, migration, identity and social experience.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 0,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 1,
+          "cyclicity": 0
+        },
+        "description": "Rhythmic Kriolu verses work with produced beats and low bass. Vocal phrasing and local language give the music its character; unaccompanied passages and melodic approaches also occur.",
+        "exemplars": [
+          "Chullage",
+          "LBC/Soldjah",
+          "Kromo"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "rap_criolo",
+          "name": "Rap Criolo",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons turn14889view2 confirms CC BY2.5 and crop credit; exact historical023 receipt retained.",
+          "fresh_review_ref": "turn14889view2"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14889view2"
+        ],
+        "fresh_rights_review": "Fresh Commons turn14889view2; historical bytes/visual receipt reused, no fresh download."
+      },
+      "source_label": "rap criolo",
+      "source_url": "https://everynoise.com/engenremap-rapcriolo.html",
+      "suggested_id": "rap_criolo",
+      "allocation_ordinal": 475,
+      "allocation_group_id": "019",
+      "id": "rap_criolo",
+      "status": "READY_INDEPENDENT_REVIEW",
+      "geo": [
+        38.7223,
+        -9.1393,
+        "Lisbon",
+        "Europe"
+      ],
+      "geo_rationale": "Documented diaspora scene anchor; does not restrict the Cape Verdean field to Portugal.",
+      "sources": [
+        {
+          "url": "https://www.researchgate.net/publication/263306033_Cape_Verdean_Creole_and_the_Politics_of_Scene-Making_in_Lisbon_Portugal",
+          "support_notes": "Author-uploaded original fieldwork study: Kriolu community, producers, beats and bass-sample-backed rap; a representative individual verse is modeled, not a particular multivoice work."
+        },
+        {
+          "url": "https://www.buala.org/pt/cara-a-cara/lisboa-nas-ruas-entrevista-com-o-rapper-chullage",
+          "support_notes": "Firsthand Chullage interview corroborates neighbourhood and migration context."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15013view0",
+        "turn15015view0",
+        "turn15017view0",
+        "turn15017view1"
+      ],
+      "neighbor_distinction": "Full hip_hop_tuga encompasses the national hip-hop field, including independent and popular rap; rap_tuga_underground describes its independent MC/DJ network, not only Sam The Kid. Rap Criolo overlaps those fields but has a positive Kriolu linguistic and diasporic identity documented by participant fieldwork. Trap Tuga and Drill Tuga identify production-style subsets; this category is not confined to either. Cape Verdean morna, funana and batuko are distinct practices and are not mandatory acoustic instruments in this rap model. The Brazilian performer Criolo is not the category definition.",
+      "model_policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "source_scope_limitation": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "authored_render_scope": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile.",
+      "source_retrieval_caveat": "Fresh primary text retrieved; no audio audition or exact master reconstruction claimed.",
+      "instrument_role_audit": {
+        "voice": "Rhythmic rap lead.",
+        "credited_beat_unspecified": "Produced rhythmic backing, including bass and other supplied elements; mechanism unspecified."
+      },
+      "vocal_count_audit": {
+        "representative_lead_cards": 1,
+        "actual_recording_headcount": "not asserted"
+      },
+      "flat_pin_resolution": {
+        "unpinned_slots": []
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_existing": 1653
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rap-and-produced-beat branch. Authored single rhythmic spoken-flow lead, neutral source-unspecified voice physiology, natural unprocessed capture and treated studio. The existing beat owner retains the complete produced backing, including its low end and musical fragments, without inventing sampler/synthesis architecture. Exact master personnel, gear and track count are not asserted; wider melodic and instrumental branches remain in the public profile."
+        }
+      ],
+      "literal_output_review": "Spoken-flowing matches the selected rhythmic rap branch; the frosty backing adjective is an authored production affect, not a cultural or sound-generator claim. All supplied backing elements remain represented. No assertion that every Kriolu vocal performance lacks melody."
+    }
+  ],
+  "instrument_dependencies": []
+}

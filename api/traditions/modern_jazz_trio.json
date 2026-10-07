@@ -2,10 +2,10 @@
   "id": "modern_jazz_trio",
   "name": "Modern jazz trio",
   "family": "jazz",
-  "lineage": "Modern jazz trio practice; selected composition-led bass/piano/drums group",
+  "lineage": "Modern jazz trio develops close three-way interaction through contemporary composition and improvisation. Piano, bass and drums form a prominent configuration, with other instrumental combinations offering different balances of melody, harmony and rhythm.",
   "recipe": "classic modern modern jazz trio, improv On Frame, American jazz branch. upright bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 373,
-  "score": 92.605,
+  "score": 90.329,
   "config": {
     "traditions": [
       "modern_jazz_trio"
@@ -18,7 +18,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.276,
+          "upright_strings": 0.348,
           "upright_play": 11.25
         }
       },
@@ -36,15 +36,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.035,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": 0.304,
+          "grand_piano_size": 0.147,
           "grand_piano_brand": 0.105,
-          "piano_hammer": 6.298499999999999,
-          "piano_rim": 6.462,
-          "piano_soundboard": 6.132,
-          "piano_pinblock": 5.699999999999999,
-          "piano_plate": 5.699999999999999,
-          "piano_pitch_standard": 7.366999999999999
+          "piano_hammer": 5.5485,
+          "piano_rim": 5.4510000000000005,
+          "piano_soundboard": 5.184,
+          "piano_pinblock": 4.95,
+          "piano_plate": 4.95,
+          "piano_pitch_standard": 7.882999999999999
         }
       },
       {
@@ -63,16 +63,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.67,
+          "drum_technique": 10.399999999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.252,
           "shell_thickness": 0,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
+          "snare_wires": 0.186,
+          "cymbal_alloy": 11.376999999999997,
           "cymbal_hammering": 11.641,
-          "cymbal_lathing": 5.8915,
+          "cymbal_lathing": 5.141500000000001,
           "cymbal_finish": 0
         }
       }

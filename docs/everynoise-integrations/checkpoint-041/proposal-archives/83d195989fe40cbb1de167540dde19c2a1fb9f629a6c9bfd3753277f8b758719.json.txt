@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "reviewer": "research117",
+  "packet_sha256": "b44aa21da0b9d65a194a4280a3256521c58abc9a051c4be993e47b2dfb4d0613",
+  "source_review": {
+    "url": "https://www.elheraldo.hn/entretenimiento/fresh-bodden-bienvenidos-al-raspe-el-genero-emergente-en-honduras-CF25026985",
+    "fresh_reference": "turn13511view0",
+    "finding": "Whole first-person interview freshly reproduced: producer explicitly electronic melody plus dancehall percussion, singer discusses voice/community and north-coast practice. Supports genre representative voice/synth/electronic drum production rather than DJ programme-only identity."
+  },
+  "default_review": "Twenty-five controls specify candid authored single melodic voice, five-voice Prophet architecture and analog electronic drum voices. Device architecture and straight grid are useful representative choices, not source hardware or a transcribed dancehall groove. Full roles retained; no unnecessary exact recording roster restriction. Parent reggaeDiaspora fits positive dancehall construction.",
+  "literal_outputs": "All four actual root outputs read. Up-tempo/bodacious/whirring are coherent authored dance-production affects; clappy is synthesized snare timbre, not invented live handclap performer. No foreign cultural label or added acoustic sound source.",
+  "photo_review": "Generic LOW recording context and unchanged inherited receipts/rights retained; no fresh image byte claim.",
+  "runtime": "queued-raspe-runtime.json",
+  "limitation": "Not final static/API/CI validation."
+}

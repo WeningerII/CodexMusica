@@ -1,0 +1,225 @@
+{
+  "entries": [
+    {
+      "tradition": {
+        "id": "malaysian_tamil_rap",
+        "name": "Malaysian Tamil Rap",
+        "family": "hip_hop",
+        "lineage": "Malaysian Tamil rap grew through local recording crews and producers such as Yogi B and Natchatra, connecting Malaysia’s multilingual hip-hop scene with Tamil-speaking audiences abroad.",
+        "instruments": [
+          "voice",
+          "credited_beat_unspecified"
+        ],
+        "room": "treated_studio",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified",
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "voice": 2,
+          "percussion": 1,
+          "soundTech": 1
+        },
+        "description": "Tamil verses and rhythmic flows ride produced hip-hop accompaniment, ranging from personal and social commentary to celebratory tracks. Malaysian crews, producers and platforms such as Rap Porkalam sustain a local scene with strong links to the wider Tamil diaspora. Sung hooks, beatboxing and live-band collaborations also occur within this varied practice.",
+        "exemplars": [
+          "Yogi B",
+          "Natchatra",
+          "Saint TFC"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "malaysian_tamil_rap",
+          "name": "Malaysian Tamil Rap",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic vocal recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh Commons13685view0 confirms Iain Fergusson/Binksternet CC BY2.5.",
+          "fresh_review_ref": "turn13685view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_review": "Fresh13685view0; exact historical byte/visual receipt inherited.",
+        "fresh_rights_retrieval_refs": [
+          "turn13685view0"
+        ]
+      },
+      "resolved_parts_audit": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "spoken_voice",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_rhythmic_spoken_flow",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "Representative rhythmic MC and produced-accompaniment branch supported by firsthand Malaysian Tamil rapper/producer testimony. This is not a reconstruction of a particular album or the Rap Porkalam live-band week. Existing neutral beat owner represents the production role without inventing a drum machine, sampler architecture, sound-generator list or completed-master playback. One accompanied unprocessed rhythmic spoken lead and a controlled studio are ordinary authored defaults; neither exact source headcount nor absence of singing, beatboxing and instrumental collaborations across the genre is asserted."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "parts": {
+            "credited_beat_identity": "credited_beat_mechanism_unspecified"
+          },
+          "policy": "Representative rhythmic MC and produced-accompaniment branch supported by firsthand Malaysian Tamil rapper/producer testimony. This is not a reconstruction of a particular album or the Rap Porkalam live-band week. Existing neutral beat owner represents the production role without inventing a drum machine, sampler architecture, sound-generator list or completed-master playback. One accompanied unprocessed rhythmic spoken lead and a controlled studio are ordinary authored defaults; neither exact source headcount nor absence of singing, beatboxing and instrumental collaborations across the genre is asserted."
+        }
+      ],
+      "source_label": "malaysian tamil rap",
+      "source_url": "https://everynoise.com/engenremap-malaysiantamilrap.html",
+      "suggested_id": "malaysian_tamil_rap",
+      "allocation_ordinal": 393,
+      "allocation_group_id": "016",
+      "id": "malaysian_tamil_rap",
+      "status": "ready_for_independent_review",
+      "geo": [
+        3.139,
+        101.687,
+        "Kuala Lumpur",
+        "Southeast Asia"
+      ],
+      "geo_rationale": "Editorial national music-industry anchor, not a claimed source recording address.",
+      "signature_tokens": [],
+      "model_policy": "Representative rhythmic MC and produced-accompaniment branch supported by firsthand Malaysian Tamil rapper/producer testimony. This is not a reconstruction of a particular album or the Rap Porkalam live-band week. Existing neutral beat owner represents the production role without inventing a drum machine, sampler architecture, sound-generator list or completed-master playback. One accompanied unprocessed rhythmic spoken lead and a controlled studio are ordinary authored defaults; neither exact source headcount nor absence of singing, beatboxing and instrumental collaborations across the genre is asserted.",
+      "neighbor_distinction": "Full tamil_hip_hop already includes Malaysian Yogi B and diaspora networks, not just South India. Full malaysian_hip_hop is explicitly multilingual, not just its Joe Flizzow exemplar. This entry identifies the independently documented Malaysian Tamil-language community at their intersection: firsthand Yogi B history names local crews/production and Astro’s own Rap Porkalam institution specifically cultivates Malaysian Tamil MCs. No new rhythm is invented and the substantial overlap is candid. Malaysian Tamil identity is supported by institutions and practitioner history rather than an artist birthplace alone; this is narrower than either national multilingual or transnational language field. Queued MalayalamHipHop concerns a different language/community, not a translation alias.",
+      "classification_evidence": "Full tamil_hip_hop already includes Malaysian Yogi B and diaspora networks, not just South India. Full malaysian_hip_hop is explicitly multilingual, not just its Joe Flizzow exemplar. This entry identifies the independently documented Malaysian Tamil-language community at their intersection: firsthand Yogi B history names local crews/production and Astro’s own Rap Porkalam institution specifically cultivates Malaysian Tamil MCs. No new rhythm is invented and the substantial overlap is candid. Malaysian Tamil identity is supported by institutions and practitioner history rather than an artist birthplace alone; this is narrower than either national multilingual or transnational language field. Queued MalayalamHipHop concerns a different language/community, not a translation alias.",
+      "source_scope_limitation": "Representative rhythmic MC and produced-accompaniment branch supported by firsthand Malaysian Tamil rapper/producer testimony. This is not a reconstruction of a particular album or the Rap Porkalam live-band week. Existing neutral beat owner represents the production role without inventing a drum machine, sampler architecture, sound-generator list or completed-master playback. One accompanied unprocessed rhythmic spoken lead and a controlled studio are ordinary authored defaults; neither exact source headcount nor absence of singing, beatboxing and instrumental collaborations across the genre is asserted.",
+      "instrument_role_audit": [
+        {
+          "instrument": "voice",
+          "basis": "Representative rhythmic MC and produced-accompaniment branch supported by firsthand Malaysian Tamil rapper/producer testimony. This is not a reconstruction of a particular album or the Rap Porkalam live-band week. Existing neutral beat owner represents the production role without inventing a drum machine, sampler architecture, sound-generator list or completed-master playback. One accompanied unprocessed rhythmic spoken lead and a controlled studio are ordinary authored defaults; neither exact source headcount nor absence of singing, beatboxing and instrumental collaborations across the genre is asserted."
+        },
+        {
+          "instrument": "credited_beat_unspecified",
+          "basis": "Representative rhythmic MC and produced-accompaniment branch supported by firsthand Malaysian Tamil rapper/producer testimony. This is not a reconstruction of a particular album or the Rap Porkalam live-band week. Existing neutral beat owner represents the production role without inventing a drum machine, sampler architecture, sound-generator list or completed-master playback. One accompanied unprocessed rhythmic spoken lead and a controlled studio are ordinary authored defaults; neither exact source headcount nor absence of singing, beatboxing and instrumental collaborations across the genre is asserted."
+        }
+      ],
+      "vocal_count_audit": {
+        "selected_count": null,
+        "authored_default": 1,
+        "basis": "Genre-level representative MC; actual performances and collaborations have variable headcounts."
+      },
+      "sources": [
+        {
+          "url": "https://astroulagam.com.my/entertainment/setting-new-standard-worldwide-rap-porkalam-s2-judges-mentor-show-247422",
+          "title": "Astro interviews Rap Porkalam judges and mentor",
+          "support_notes": "Fresh13679view0: own Malaysian broadcaster identifies Tamil rap institution, local contestants, rap composition and delivery. Live-band week is acknowledged as an option, not asserted as generic absent or stripped from that performance."
+        },
+        {
+          "url": "https://www.ritzmagazine.in/hip-hop-with-a-heart-the-making-of-a-hip-hopper/",
+          "title": "Firsthand Yogi B interview",
+          "support_notes": "Fresh13682view0: artist describes own music production, rhymes and Malaysian Tamil scene development through Poetic Ammo/Natchatra; record-label practice and broader instrumental collaborations. No exact equipment list inferred."
+        },
+        {
+          "url": "https://www.malaysiakini.com/news/624736",
+          "title": "Firsthand Yogi B national scene interview",
+          "support_notes": "Fresh13679view1: multilingual Malaysian history and independent Tamil recording movement, plus rap/beatboxing background. This general history is not an exhaustive particular-album roster."
+        }
+      ]
+    }
+  ],
+  "instrument_dependencies": []
+}

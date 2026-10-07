@@ -8,8 +8,12 @@ import { assertStateFits, HTTP_REQUEST_BYTES } from './payload_limits.js';
 import { runtimeSourceFingerprint } from './build_identity.js';
 import { runtimeAssets } from './runtime_assets.js';
 
-export const STATE_DECODED_BYTES = 512 * 1024;
-export const WORKER_STATE_BYTES = 448 * 1024;
+// RAISED 2026-10-04 with the harness's JOURNAL_BYTES (owner's ruling), from
+// 512 * 1024 and 448 * 1024: the worker journal limit equals the harness's
+// JOURNAL_BYTES and the decoded limit keeps its 64 KiB of room for the
+// connector's declarations.
+export const WORKER_STATE_BYTES = (1024 + 64) * 1024;
+export const STATE_DECODED_BYTES = (1024 + 128) * 1024;
 export const CONNECTOR_DECLARATION_BYTES = 32 * 1024;
 export const STATE_CODEC_VERSION = 1;
 export const RECOVERY_RESULT_BYTES = HTTP_REQUEST_BYTES - 1024;

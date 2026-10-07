@@ -2,10 +2,10 @@
   "id": "rap_norteno_chileno",
   "name": "Rap norteño chileno",
   "family": "hip_hop",
-  "lineage": "Northern Chilean rap includes Carlitos Furia and Eskina Familia Skuad’s Iquique network. Credited scratch collaborations supply the selected arrangement.",
-  "recipe": "classic modern rap norteño chileno, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 288,
-  "score": 31.292,
+  "lineage": "Hip-hop communities of northern Chile, including the Iquique network associated with Carlitos Furia and Eskina Familia Skuad.",
+  "recipe": "classic modern rap norteño chileno, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 31.773,
   "config": {
     "traditions": [
       "rap_norteno_chileno"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 12.739999999999998,
+          "voice_quality": 10.659999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.464999999999998,
-          "voice_ensemble_config": 0.9015,
+          "voice_speech_song": 10.594999999999999,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.522
         }
       },
       {
@@ -57,8 +57,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.2,
-          "turntable_technique": 2.488
+          "electronic_technique": 4.1499999999999995,
+          "turntable_technique": 4.438
         }
       }
     ],

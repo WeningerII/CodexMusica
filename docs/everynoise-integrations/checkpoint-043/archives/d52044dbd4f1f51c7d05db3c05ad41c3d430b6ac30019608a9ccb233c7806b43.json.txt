@@ -1,0 +1,194 @@
+{
+  "entries": [
+    {
+      "source_label": "gaita",
+      "source_url": "https://everynoise.com/engenremap-gaita.html",
+      "suggested_id": "gaita",
+      "allocation_ordinal": 3330,
+      "allocation_group_id": "134",
+      "id": "gaita",
+      "status": "CANDIDATE_PENDING_RUNTIME_PEER",
+      "tradition": {
+        "id": "gaita",
+        "name": "Gaita",
+        "family": "global",
+        "lineage": "Gaita brings together Iberian piping traditions and the musicians, makers and festivals that sustain them. Galician and Asturian repertories are central to this instrument-led field, which includes solo playing, pipe bands and collaborations with singers or other instruments.",
+        "instruments": [
+          "gaita_galega"
+        ],
+        "room": "field_recording",
+        "pin_parts": true,
+        "parts": {
+          "wind_articulation": "wind_folk_melodic",
+          "gaita_galega_drones": "gaita_galega_three_drones",
+          "gaita_galega_use": "gaita_galega_alborada",
+          "gaita_galega_chanter_wood": "gaita_galega_boxwood",
+          "gaita_galega_reed": "gaita_galega_cane_canonical",
+          "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+        }
+      },
+      "extras": {
+        "parent": "droneModal.windPipe",
+        "axes": {
+          "harm": 0,
+          "pitch": 0,
+          "ornament": 1,
+          "meter": 0,
+          "density": 0,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": -1,
+          "intensity": 0,
+          "voice": -2,
+          "timbre": 0,
+          "percussion": 0,
+          "cyclicity": 0
+        },
+        "description": "A chanter melody unfolds over sustained drones, shaped by finger articulation and ornaments. Dawn pieces, dances and processional tunes form a varied repertory; the Galician solo branch offers a compact example without representing every regional pipe or ensemble.",
+        "exemplars": [
+          "Susana Seivane",
+          "Ricardo Portela",
+          "Xuacu Amieva"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        42.8782,
+        -8.5448,
+        "Santiago de Compostela",
+        "Europe"
+      ],
+      "geo_rationale": "Editorial anchor for selected Galician representative branch within a broader Iberian field, not universal origin or recording site.",
+      "signature_tokens": [],
+      "model_policy": "Representative solo Galician alborada branch, supported by maker accounts of solo piping and the named alborada repertory in the exact creator corpus. This replaces the earlier source-specific waltz route rather than changing that recording into an alborada. Authored three-drone configuration, boxwood chanter, cane reed, traditional goatskin bag and folk melodic articulation are existing meaningful instrument choices, not an assertion of exact Seivane equipment. Manufacturer describes semi-tempered modern tuning; no universal twelve-tone or just-intonation tuning is imposed. Outdoor field capture is authored. Other corpus practices include Asturian pipes, pipe bands, singing and the similarly named Navarre double-reed instrument; no source says these occur together in every performance.",
+      "neighbor_distinction": "Existing galician_pipe_solo expressly defines the Galician regional practice, and asturian_gaita the neighboring Asturian tradition; both overlap this broader instrument-led field. Primary ministry terminology explicitly applies gaita to bagpipes in both regions, and the cultural council documents a shared northern Iberian distribution. Exact creator corpus positively includes numerous Galician and Asturian soloists/bands, not just an isolated outlier. This is broader than either regional row, not a new name for the same soloist. Galician folk includes non-pipe song/percussion repertory; gaita_zuliana is the different Venezuelan song genre. Navarre shawm and wider international peripheral items are acknowledged, not silently defined as Galician bagpipes.",
+      "source_scope_limitation": "Representative Galician alborada solo within a wider instrument field; not reconstruction of the previous waltz recording or mandatory instrumentation for all corpus items.",
+      "sources": [
+        {
+          "url": "https://www.cultura.gob.es/mtraje/visita/visita-virtual/sala-indumentaria-tradicional/pervivencias-identidades/gaita.html",
+          "support_notes": "Ministry museum explicitly calls the bagpipe gaita in both Asturias and Galicia; fresh indexed15088search0, direct502."
+        },
+        {
+          "url": "https://consellodacultura.gal/asg/instrumentos/os-aerofonos/gaita-de-fol-%E2%80%9Dsinxela%E2%80%9D/",
+          "support_notes": "Cultural council organological account documents distribution across Galicia, Asturias, Portugal and neighboring regions and distinguishes configurations; not all claimed identical."
+        },
+        {
+          "url": "https://seivane.es/es/obradoiro/personas/",
+          "support_notes": "Maker family primary explicitly documents Susana as festival soloist; general branch evidence, not exact recording."
+        },
+        {
+          "url": "https://seivane.es/wp-content/uploads/2023/08/seivane_manual.pdf",
+          "support_notes": "Manufacturer manual documents chanter/drone/reed/bag functions and semi-tempered modern tuning; specific authored traditional build is not claimed to be the supplied modern Seivane model."
+        },
+        {
+          "url": "https://embed.spotify.com/?uri=spotify%3Aplaylist%3A0QOMzxeAATjlhQSckJMqhR",
+          "support_notes": "Full exact creator corpus: Susana2, Asturian Xuacu9/60, RicardoPortela alborada11, multiple Asturian bands21/25/30/31/36 etc. Peripheral Navarre GaiterosDeEstella49 and non-pipe items acknowledged."
+        }
+      ],
+      "primary_retrieval_refs": [
+        "turn15088search0",
+        "turn15091view2",
+        "turn15086search2",
+        "turn15091view1",
+        "turn15087view0"
+      ],
+      "classification_evidence": "Existing galician_pipe_solo expressly defines the Galician regional practice, and asturian_gaita the neighboring Asturian tradition; both overlap this broader instrument-led field. Primary ministry terminology explicitly applies gaita to bagpipes in both regions, and the cultural council documents a shared northern Iberian distribution. Exact creator corpus positively includes numerous Galician and Asturian soloists/bands, not just an isolated outlier. This is broader than either regional row, not a new name for the same soloist. Galician folk includes non-pipe song/percussion repertory; gaita_zuliana is the different Venezuelan song genre. Navarre shawm and wider international peripheral items are acknowledged, not silently defined as Galician bagpipes.",
+      "source_retrieval_caveat": "Ministry museum independently indexed but direct502; cultural council/manual/creator full pages retrieved. No audio audition or exact master modeling.",
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "tradition",
+          "source": "generic_recording_context",
+          "id": "gaita",
+          "name": "Gaita",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-04",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh14898view0 confirms Iain Fergusson/Binksternet crop and CC BY2.5. Historical byte/visual receipts retained.",
+          "fresh_review_ref": "turn14898view0"
+        },
+        "full": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [
+            250,
+            720
+          ],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": [
+            "/workspace/scratch/798b01cac944/photos/mic-preview.jpg"
+          ],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-04",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        },
+        "fresh_rights_retrieval_refs": [
+          "turn14898view0"
+        ],
+        "fresh_rights_review": "Fresh14898view0 rights only; exact historical image receipts retained, no new visual or binary inspection claimed."
+      },
+      "dependency_audit": {
+        "new_instruments": [],
+        "baseline_head": "453cd0f1",
+        "baseline": "/workspace/CodexMusica-qualified041"
+      },
+      "verification_status": "Pending independent field/practice and full runtime review."
+    }
+  ],
+  "instrument_dependencies": []
+}

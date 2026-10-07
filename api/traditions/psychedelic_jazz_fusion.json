@@ -2,10 +2,10 @@
   "id": "psychedelic_jazz_fusion",
   "name": "Psychedelic jazz fusion",
   "family": "jazz",
-  "lineage": "Psychedelic jazz fusion is represented here by Black Bombaim & Peter Brötzmann — documented instrumental quartet (2016). This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic mid-2010s psychedelic jazz fusion, improv On Frame, fusion branch. roland jc120 amp solid state stereo chorus riff driven humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, 60s jazz canon vintage ambassador asymmetric drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 465,
-  "score": 99.282,
+  "lineage": "Psychedelic jazz fusion brings exploratory jazz improvisation together with the amplified textures and sustained energy of psychedelic rock.",
+  "recipe": "classic psychedelic jazz fusion, improv On Frame, fusion branch. roland jc120 amp solid state stereo chorus riff driven humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric sticks backbeat drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 456,
+  "score": 107.833,
   "config": {
     "traditions": [
       "psychedelic_jazz_fusion"
@@ -22,32 +22,32 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_10_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_c"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 6.449999999999999,
-          "amp_make": 5.55,
+          "electric_technique": 7.45,
+          "amp_make": 5.1000000000000005,
           "body_wood": 0.9975,
           "neck_wood": 0.5145,
           "fretboard": 0.5145,
           "pickup_magnet": 0.4515,
           "pickup_winding": 0.34650000000000003,
           "string_material": 0.5145,
-          "bridge": 1.1365,
+          "bridge": 0.39,
           "scale_length": 1.4070000000000003,
-          "string_gauge": 1,
+          "string_gauge": 0.1365,
           "finish": 0,
-          "string_tuning": 1.3755000000000002
+          "string_tuning": 1.69
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_fender_tweed",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.6899999999999997,
-          "body_wood": 0.273,
+          "amp_make": 2.0799999999999996,
+          "body_wood": 0.39,
           "pickup_config": 0.315,
-          "string_type": 16.575,
+          "string_type": 17.875,
           "scale_length_b": 0.315,
           "fretted_or_not": 0.147,
           "bass_technique": -0.10500000000000001,
@@ -75,15 +75,15 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 16.509999999999998,
+          "drum_technique": 3.355,
+          "drumhead": 17.81,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_bebop_runs",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
@@ -92,17 +92,20 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.44999999999999996,
+          "wind_articulation": -0.05,
           "sax_size": -0.15000000000000002,
           "sax_reed": 0.5145,
-          "sax_body_alloy": 12.75,
+          "sax_body_alloy": 13.75,
           "sax_mouthpiece": 0.5145,
-          "sax_technique": 12.75,
-          "sax_maker_school": 16.509999999999998
+          "sax_technique": 13.75,
+          "sax_maker_school": 17.81
         }
       }
     ],
     "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique"
+      ],
       "electric_bass": [
         "bass_technique"
       ],
@@ -134,7 +137,8 @@
     "parts": {
       "bass_technique": "fingerstyle_locked",
       "sax_size": "tenor_sax",
-      "drum_technique": "sticks_rock"
+      "drum_technique": "sticks_rock",
+      "electric_technique": "electric_fuzz_riff"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

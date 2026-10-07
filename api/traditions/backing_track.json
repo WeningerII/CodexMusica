@@ -2,10 +2,10 @@
   "id": "backing_track",
   "name": "Backing track",
   "family": "blues_gospel",
-  "lineage": "Backing track: Cliff Smith — A Major Soul Backing Track (Bass & Drums Only), 90bpm (2025). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic mid-2020s backing track, functional Song, soul R&B branch. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 284,
-  "score": 27.021,
+  "lineage": "Backing tracks provide recorded accompaniment for instrumental practice and performance. Music teachers and producers publish play-along material in different keys, tempos and styles, allowing players to work on harmony, rhythm and improvisation.",
+  "recipe": "classic backing track, functional Song, soul R&B branch. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 274,
+  "score": 16.271,
   "config": {
     "traditions": [
       "backing_track"
@@ -24,13 +24,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.687,
+          "amp_make": 4.8870000000000005,
           "body_wood": 0.6720000000000002,
           "pickup_config": 0.588,
-          "string_type": 10.14,
+          "string_type": 5.2,
           "scale_length_b": 0.33599999999999997,
           "fretted_or_not": 0.0735,
-          "bass_technique": 6.15,
+          "bass_technique": 3.65,
           "electric_bass_string_configuration": 0
         }
       },
@@ -38,12 +38,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "calfskin_drum",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.4095,
+          "drumhead": 0.8999999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

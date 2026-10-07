@@ -2,15 +2,15 @@
   "id": "ritual_ambient",
   "name": "Ritual ambient",
   "family": "electronic",
-  "lineage": "Ceremonial ambient practice encompasses electronic production and vocal-centered ritual performance. Lustmord’s The Word as Power documents guest voices and long studio pieces; Phurpa’s performances foreground overtone chanting and ritual instruments. The selected model processes an ametrical vocal source through a sampler, without asserting one shared religion or an authentic monastic instrumentation.",
-  "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial power electronics. pure, interlocked note trading, neutral third half flat, nasal twang velar port open. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
-  "recipe_chars": 399,
-  "score": 75.64,
+  "lineage": "An experimental ambient field linking ceremonial imagery, incantatory voices and sustained sound. It encompasses electronic studio composition and ritual-centered performance, drawing on varied practices rather than one shared religious institution.",
+  "recipe": "classic modern ritual ambient, experimental Elec, ambient branch, industrial noise experimental electric death industrial british industrial. interlocked note trading, neutral third half flat, opera quality low larynx anchored, ametrical pitched chant free rhythm. layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
+  "recipe_chars": 437,
+  "score": 66.112,
   "config": {
     "traditions": [
       "ritual_ambient",
       "death_industrial",
-      "power_electronics"
+      "british_industrial"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_ametrical_chant",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
@@ -38,18 +38,18 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 14.104999999999997,
-          "voice_microtone": 11.634999999999993,
+          "voice_vibrato": 0.37499999999999994,
+          "voice_articulation": 11.894999999999996,
+          "voice_microtone": 10.01,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 2.8649999999999998,
-          "voice_ensemble_config": 2.6649999999999996,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 0.845,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.285,
-          "voice_multitrack_stack": 4.8100000000000005
+          "voice_processing_chain": 0.195,
+          "voice_multitrack_stack": 3.3475
         }
       },
       {
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 12.404999999999998,
-          "sampler_archetypes": 3.25,
-          "sampler_bit_depth": 1.235,
+          "electronic_technique": 11.629999999999999,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 1.4299999999999997,
           "sampler_workflow": 0.06499999999999999,
-          "sampler_classic_context": 26
+          "sampler_classic_context": 27.25
         }
       }
     ],

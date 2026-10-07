@@ -5,7 +5,7 @@
   "lineage": "Irish black metal represented by Altar of Plagues’ atmospheric, post-rock-adjacent Mammal-era practice. Exact defaults are an authored contemporary realization.",
   "recipe": "classic modern irish black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, blast beat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 473,
-  "score": 56.786,
+  "score": 56.378,
   "config": {
     "traditions": [
       "irish_black_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2015,
+          "voice_ensemble_config": 1.1655,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1725,
-          "voice_multitrack_stack": 0.23849999999999996,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
       },
@@ -76,7 +76,7 @@
           "neck_wood": 0.483,
           "fretboard": 0.4095,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.19199999999999998,
+          "pickup_winding": 0.11999999999999998,
           "string_material": 0.4095,
           "bridge": 0.483,
           "scale_length": 6.499999999999999,
@@ -132,7 +132,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "poly_archetypes": 4.029999999999999,
-          "poly_voices": 1.1515,
+          "poly_voices": 1.0315,
           "poly_maker_lineage": -0.035
         }
       }

@@ -2,15 +2,15 @@
   "id": "j_core",
   "name": "J-Core",
   "family": "electronic",
-  "lineage": "Japanese hardcore-techno lineage that formed in late-1990s Tokyo doujin and Comiket circles around HARDCORE TANO*C, Betwixt & Between and m1dy, running 175-190 BPM distorted gabber/happy-hardcore kicks under sampled anime and vocaloid vocal chops, supersaw hoover leads, breakcore-fast amen edits and rapid-fire chiptune melodic writing, produced entirely in-the-box and pressed to self-released CDs.",
-  "recipe": "classic 1997-1999 j-core, electronic Dance, hardstyle branch, eurodance electronic dance, idm glitch experimental electric breakcore. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-909, glitched textural sampler, glitched textural wavetable sub bass fm synth, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 495,
-  "score": 229.735,
+  "lineage": "1990-present Japanese hardcore-techno lineage that formed in late-1990s Tokyo doujin and Comiket circles around HARDCORE TANO*C, Betwixt & Between and m1dy, running 175-190 BPM distorted gabber/happy-hardcore kicks under sampled anime and vocaloid vocal chops, supersaw hoover leads, breakcore-fast amen edits and rapid-fire chiptune melodic writing, produced entirely in-the-box and pressed to self-released CDs.",
+  "recipe": "classic modern j-core, electronic Dance, hardstyle branch, eurodance electronic dance, idm glitch experimental electric glitchbreak. vocal fry, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-909, glitched textural sampler, glitched textural wavetable sub bass fm synth, sub bass monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 538,
+  "score": 218.222,
   "config": {
     "traditions": [
       "j_core",
-      "glitch_hop",
-      "breakcore"
+      "glitchbreak",
+      "glitch_hop"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 7.150000000000002,
+          "voice_quality": 5.005000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.5750000000000006,
-          "voice_articulation": 18.459999999999994,
-          "voice_microtone": 19.109999999999992,
-          "voice_tradition": 7.550000000000001,
-          "voice_mechanism_compound": 11.564999999999998,
+          "voice_articulation": 17.809999999999995,
+          "voice_microtone": 18.264999999999993,
+          "voice_tradition": 7.797500000000001,
+          "voice_mechanism_compound": 10.29,
           "voice_estill_quality": 1.8199999999999996,
-          "voice_speech_song": 18.459999999999994,
-          "voice_ensemble_config": 17.679999999999993,
+          "voice_speech_song": 17.614999999999995,
+          "voice_ensemble_config": 16.834999999999994,
           "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 1.4949999999999997,
-          "voice_processing_chain": 20.935,
-          "voice_multitrack_stack": 6.110000000000001
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 21.224999999999998,
+          "voice_multitrack_stack": 4.03
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 1.6449999999999998,
-          "drum_machine_909_context": 2.795,
-          "tr909_production_origin": 0.845
+          "tr909_voice": 0.995,
+          "drum_machine_909_context": 2.6,
+          "tr909_production_origin": 1.04
         }
       },
       {
@@ -76,10 +76,10 @@
         },
         "scores": {
           "electronic_technique": 14.375,
-          "sampler_archetypes": 2.025,
+          "sampler_archetypes": 1.875,
           "sampler_bit_depth": 0.75,
           "sampler_workflow": 14.375,
-          "sampler_classic_context": 20.604999999999997
+          "sampler_classic_context": 18.914999999999996
         }
       },
       {
@@ -92,8 +92,8 @@
         },
         "scores": {
           "electronic_technique": 14.375,
-          "wt_position": 6.305,
-          "wt_family": 0.39,
+          "wt_position": 6.11,
+          "wt_family": 0.24,
           "wt_polyphony": 1.0650000000000002
         }
       },
@@ -104,14 +104,14 @@
           "fm_algorithm": "fm_classic",
           "fm_modulator_ratio": "fm_harmonic",
           "fm_polyphony": "fm_mono",
-          "fm_model_lineage": "fm_yamaha_tx81z"
+          "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 3.4775000000000005,
-          "fm_algorithm": 1.715,
-          "fm_modulator_ratio": 0.525,
+          "electronic_technique": 4.1275,
+          "fm_algorithm": 2.09,
+          "fm_modulator_ratio": 0.48,
           "fm_polyphony": 1.0650000000000002,
-          "fm_model_lineage": 0.7799999999999992
+          "fm_model_lineage": 0
         }
       },
       {
@@ -123,13 +123,18 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 3.4775000000000005,
-          "wave_acid": 0.48,
+          "electronic_technique": 4.1275,
+          "wave_acid": 0.32999999999999996,
           "filter_acid": 0.39,
-          "accent_acid": 1.6449999999999998
+          "accent_acid": 0.995
         }
       }
     ],
+    "pinned": {
+      "drum_machine_909": [
+        "tr909_voice"
+      ]
+    },
     "room": "studio_auteur_home_pro",
     "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
@@ -149,6 +154,10 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
+    "parts": {
+      "tr909_voice": "tr909_kick"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_fet",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_pumping",

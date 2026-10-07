@@ -1,0 +1,60 @@
+{
+  "id": "pixel",
+  "name": "Pixel",
+  "family": "pop",
+  "lineage": "Online fan-song creators build original songs, parodies and arrangements around games, internet characters and shared fictional worlds. The Pixel discovery field connects catchy pop writing, playful storytelling and digitally circulated reinterpretations across these communities.",
+  "recipe": "classic pixel, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 73,
+  "score": 5.058,
+  "config": {
+    "traditions": [
+      "pixel"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 5.0040000000000004,
+          "upright_use": 0.054,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

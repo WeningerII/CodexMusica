@@ -2,10 +2,10 @@
   "id": "protest_folk",
   "name": "Protest folk",
   "family": "vernacular",
-  "lineage": "Protest folk links vernacular singing to collective dissent and social argument across many movements. Pete Seeger’s Folkways Songs of Struggle and Protest supplies one documented American revival branch.",
-  "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, opera quality low larynx anchored. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 24.733,
+  "lineage": "Protest folk links vernacular singing with collective dissent, social argument and movements for change. Folk-revival performers such as Pete Seeger helped circulate songs through recordings, community gatherings and participatory performance.",
+  "recipe": "classic modern protest folk, protest Song. thick, incomplete closure resting, breath pulsed, neutral third half flat. banjo 5 string, dreadnought acoustic guitar. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 307,
+  "score": 28.155,
   "config": {
     "traditions": [
       "protest_folk"
@@ -18,35 +18,35 @@
           "voice_quality": "incomplete_closure_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "call_response_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 4.5225,
+          "voice_register": 7.0225,
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.39,
-          "voice_articulation": -0.2,
-          "voice_microtone": 2.990000000000001,
+          "voice_vibrato": 0.7224999999999999,
+          "voice_articulation": -0.17750000000000002,
+          "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.35774999999999996,
-          "voice_estill_quality": 0.8874999999999998,
-          "voice_speech_song": 3.185,
+          "voice_mechanism_compound": 1.3,
+          "voice_estill_quality": 1.41025,
+          "voice_speech_song": 5.915,
           "voice_ensemble_config": 0.19500000000000003,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.2639999999999998,
+          "voice_ornament_system": 0.09449999999999999,
+          "voice_pitch_organization": 0.06500000000000002,
+          "voice_processing_chain": 0.954,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -55,43 +55,43 @@
         "slots": {
           "banjo_back": "open_back",
           "tone_ring": "tubaphone",
-          "banjo_head": "fiberskyn",
+          "banjo_head": "calfskin",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
-          "banjo_rim_wood": "banjo_walnut_rim",
+          "banjo_rim_wood": "banjo_mahogany_rim",
           "banjo_neck_wood": "banjo_mahogany_neck",
-          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+          "banjo_setup_period": "banjo_old_time_open_back_setup"
         },
         "scores": {
           "banjo_back": 0,
           "tone_ring": 0,
-          "banjo_head": 3.3799999999999994,
-          "banjo_pot": 0.0375,
+          "banjo_head": 0,
+          "banjo_pot": 0.06,
           "banjo_play": 0,
-          "banjo_rim_wood": 0.0375,
-          "banjo_neck_wood": 0.153,
-          "banjo_strings": 0.2505,
+          "banjo_rim_wood": 0,
+          "banjo_neck_wood": 0.69,
+          "banjo_strings": 0.0225,
           "banjo_bridge": 0,
-          "banjo_setup_period": 3.3149999999999995
+          "banjo_setup_period": 0.69
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "open_d",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "back_sides": "maple_bs",
+          "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 1.5805,
-          "string_tuning": 0,
-          "top_wood": 0.3,
-          "back_sides": 0.0375,
-          "string_acoustic": 0.135
+          "acoustic_technique": 2.1175,
+          "string_tuning": 0.26,
+          "top_wood": 0.3315,
+          "back_sides": 0.7224999999999999,
+          "string_acoustic": 0.075
         }
       }
     ],
@@ -103,13 +103,21 @@
       ],
       "banjo_5_string": [
         "banjo_back",
-        "banjo_play"
+        "tone_ring",
+        "banjo_head",
+        "banjo_pot",
+        "banjo_play",
+        "banjo_rim_wood",
+        "banjo_neck_wood",
+        "banjo_strings",
+        "banjo_bridge",
+        "banjo_setup_period"
       ],
       "acoustic_guitar_dread": [
         "acoustic_technique"
       ]
     },
-    "room": "parlor",
+    "room": "live_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -127,14 +135,22 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "parlor",
+    "room": "live_room",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
       "banjo_back": "open_back",
       "banjo_play": "clawhammer",
       "acoustic_technique": "acoustic_strummed_ringing",
-      "voice_tradition": "voice_tradition_source_unspecified"
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "tone_ring": "tubaphone",
+      "banjo_head": "calfskin",
+      "banjo_pot": "pot_11",
+      "banjo_rim_wood": "banjo_mahogany_rim",
+      "banjo_neck_wood": "banjo_mahogany_neck",
+      "banjo_strings": "banjo_light_clawhammer",
+      "banjo_bridge": "banjo_compensated_bridge",
+      "banjo_setup_period": "banjo_old_time_open_back_setup"
     },
     "pin_parts": true,
     "chain_mic": "condenser_sdc",

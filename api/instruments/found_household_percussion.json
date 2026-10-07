@@ -1,0 +1,49 @@
+{
+  "id": "found_household_percussion",
+  "name": "Household found percussion (bottle and bowl pair)",
+  "short": "bottle-and-bowl household percussion",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "description": "Combined positively documented found-object palette: spoon jangled in a beer bottle and spatula struck against a plastic bowl. One owner represents these two percussion objects, not one performer; precise bottle material, spoon/spatula construction and dimensions remain unspecified.",
+  "parts": [
+    {
+      "id": "found_household_percussion_objects",
+      "name": "Documented household percussion objects",
+      "variants": [
+        {
+          "id": "found_household_percussion_bottle_spoon_bowl_spatula",
+          "name": "Spoon in beer bottle plus spatula striking plastic bowl; dimensions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "found_household_percussion_objects",
+      "name": "Documented household percussion objects",
+      "variants": [
+        {
+          "id": "found_household_percussion_bottle_spoon_bowl_spatula",
+          "name": "Spoon in beer bottle plus spatula striking plastic bowl; dimensions unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}
