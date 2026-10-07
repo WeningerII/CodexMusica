@@ -3,12 +3,14 @@
   "name": "Harip (Hunza shawm and drum ensemble)",
   "family": "global",
   "lineage": "Loud celebratory instrumental music of Hunza in Gilgit-Baltistan, played by ensembles of the surnai shawm of apricot wood, the dadang double-headed juniper drum and the dhamal pair of small metal kettledrums, the drums struck with sticks. It was played mostly by the Bericho (Domaki-speaking) musician community of Mominabad for the court of the Mirs of Hunza, at polo matches, seasonal festivals and shamanic trance ceremonies, and declined after the princely state was abolished; revival efforts have since brought it back to festivals and stages. The surnai card stands in for the Hunza surnai, the drum card for the dadang and the naqareh card for the dhamal.",
-  "recipe": "classic modern harip, carnival Processional, south Asian branch, wind pipe drone modal. surnai afghan, membrane drum pulse resonant acoustic membrane drum, naqareh. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 244,
-  "score": 11.815,
+  "recipe": "classic modern harip, carnival Processional, south Asian branch, wind pipe drone modal gaita mirandesa and pauliteiros żaqq u tanbur. surnai afghan, membrane drum pulse resonant acoustic membrane drum, naqareh. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 290,
+  "score": 16.115,
   "config": {
     "traditions": [
-      "hunza_harip"
+      "hunza_harip",
+      "gaita_mirandesa_pauliteiros",
+      "zaqq_u_tanbur"
     ],
     "instruments": [
       {
@@ -19,7 +21,7 @@
           "surnai_afghan_body": "surnai_afghan_mulberry"
         },
         "scores": {
-          "surnai_afghan_size": 1.645,
+          "surnai_afghan_size": 1.9449999999999998,
           "surnai_afghan_technique": 0.885,
           "surnai_afghan_body": 0
         }
@@ -31,8 +33,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.795,
-          "acoustic_membrane_drum_gesture": 3.795
+          "acoustic_membrane_drum_form": 7.3950000000000005,
+          "acoustic_membrane_drum_gesture": 6.8950000000000005
         }
       },
       {

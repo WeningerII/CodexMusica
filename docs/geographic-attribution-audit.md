@@ -250,9 +250,10 @@ A streaming-listenership taxonomy cannot supply these.
    South Asia, Central and East Africa, Siberia and Russia's peoples, the Andes and
    Amazonia, and Indigenous North America. Start from the verified candidates in
    `gaps.csv`. Source from UNESCO ICH lists, archival labels and regional
-   ethnomusicology, not streaming taxonomies. North Korea has no entries at all. In
-   progress: batch 1 (China, Maritime and Mainland Southeast Asia, the rest of South Asia,
-   Central Africa) added 360 traditions; see [`geographic-gap-fill.md`](geographic-gap-fill.md). <!-- check_docs:ignore -->
+   ethnomusicology, not streaming taxonomies. North Korea has no entries at all. Done:
+   batch 1 (China, Maritime and Mainland Southeast Asia, the rest of South Asia,
+   Central Africa) added 360 traditions and batch 2 (every other region) added 922; see <!-- check_docs:ignore -->
+   [`geographic-gap-fill.md`](geographic-gap-fill.md).
 6. **Gate future imports on scope.** A nationality × global-genre slice should not get its
    own map pin.
 

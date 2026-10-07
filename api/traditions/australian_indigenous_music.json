@@ -5,7 +5,7 @@
   "lineage": "Ceremonial song traditions of Aboriginal Australia, most fully documented in Arnhem Land manikay and Central Desert inma from the mid-20th century through recordings by A.P. Elkin, Alice Moyle and later community song-men such as Djalu Gurruwiwi — paired singer and clapstick beat in strict fast isochronous pulse against a continuously circular-breathed yidaki drone, with descending terraced melodic contours, texted ancestral songlines in clan languages, and short repeated song items separated by spoken cueing.",
   "recipe": "classic Oceanian early-1940s australian aboriginal clan song and manikay, ritual Devotional, indigenous branch, indigenous hunting song, overtone drone modal didgeridoo drone practice siberian folk music. sygyt, breath veiled tone, breath pulsed, interlocked note trading. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, arnhem land song cycle clapsticks bilma, narrow blade ancient ritual slow whirl ritual summoning hardwood slat bullroarer, foot stomp. arctic arnhem indigenous outdoor. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 610,
-  "score": 227.808,
+  "score": 226.068,
   "config": {
     "traditions": [
       "australian_indigenous_music",
@@ -41,7 +41,7 @@
           "voice_vibrato": 7.085,
           "voice_articulation": 16.705,
           "voice_microtone": 19.824999999999996,
-          "voice_tradition": 16.3,
+          "voice_tradition": 15.955000000000002,
           "voice_mechanism_compound": 10.87,
           "voice_estill_quality": 5.46,
           "voice_speech_song": 25.089999999999996,
@@ -62,8 +62,8 @@
         },
         "scores": {
           "wind_articulation": 10.692499999999999,
-          "didj_material": 11.044999999999998,
-          "didj_mouthpiece": 9.485,
+          "didj_material": 10.549999999999999,
+          "didj_mouthpiece": 9.29,
           "didj_technique": 2.34
         }
       },
@@ -75,9 +75,9 @@
           "clapsticks_bilma_wood": "clapsticks_bilma_eucalypt"
         },
         "scores": {
-          "clapsticks_bilma_form": 11.51,
-          "clapsticks_bilma_context": 14.17,
-          "clapsticks_bilma_wood": 0.585
+          "clapsticks_bilma_form": 10.865,
+          "clapsticks_bilma_context": 14.245,
+          "clapsticks_bilma_wood": 0.45
         }
       },
       {

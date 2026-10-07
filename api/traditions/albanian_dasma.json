@@ -3,14 +3,14 @@
   "name": "Albanian dasma (wedding music)",
   "family": "global",
   "lineage": "Albanian wedding-music tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones, Southern Albanian iso-polyphonic zones, Kosovo, and Arbëresh-Italian diaspora",
-  "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, breath veiled tone, slow rate, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 610,
-  "score": 162.934,
+  "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal persian aroosi lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 629,
+  "score": 207.653,
   "config": {
     "traditions": [
       "albanian_dasma",
-      "bulgarian_womens_choir",
-      "persian_aroosi"
+      "persian_aroosi",
+      "lebanese_arab_takht_wedding"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,42 +31,42 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.095,
-          "voice_quality": 3.3150000000000013,
+          "voice_register": 2.6445,
+          "voice_quality": 3.3800000000000012,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 9.685,
-          "voice_microtone": 15.729999999999993,
-          "voice_tradition": 17.81,
-          "voice_mechanism_compound": 9.575,
-          "voice_estill_quality": 6.729,
-          "voice_speech_song": 11.959999999999997,
-          "voice_ensemble_config": 11.114999999999997,
-          "voice_ornament_system": 10.4225,
-          "voice_pitch_organization": 10.7075,
-          "voice_processing_chain": 3.9650000000000003,
-          "voice_multitrack_stack": 4.6545
+          "voice_vibrato": 7.01,
+          "voice_articulation": 9.165,
+          "voice_microtone": 20.669999999999995,
+          "voice_tradition": 20.147,
+          "voice_mechanism_compound": 16.599999999999998,
+          "voice_estill_quality": 10.639,
+          "voice_speech_song": 11.667499999999997,
+          "voice_ensemble_config": 9.295,
+          "voice_ornament_system": 17.447499999999998,
+          "voice_pitch_organization": 17.8825,
+          "voice_processing_chain": 2.4995000000000003,
+          "voice_multitrack_stack": 3.1845
         }
       },
       {
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "ebonite_clarinet",
-          "clarinet_size": "e_flat_clarinet",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
-          "clarinet_articulation": "doina_clarinet"
+          "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 5.494,
-          "clarinet_body": 4.030000000000001,
-          "clarinet_size": 1.175,
+          "wind_articulation": 10.599,
+          "clarinet_body": 8.345,
+          "clarinet_size": 2.9899999999999998,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.045
+          "clarinet_articulation": 0
         }
       },
       {
@@ -74,20 +74,20 @@
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "italian_tuning",
+          "musette_offset": "american_swing",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.0995,
-          "accordion_reed_material": 0.21,
-          "musette_offset": 0.195,
-          "reed_config": 0.195,
-          "bellows": 0.15,
-          "voicing_chamber": 0.105,
-          "accordion_maker_school": 9.035
+          "free_reed_technique": 8.404499999999999,
+          "accordion_reed_material": 0.255,
+          "musette_offset": 0.045,
+          "reed_config": 0.15,
+          "bellows": 0,
+          "voicing_chamber": 0.42,
+          "accordion_maker_school": 10.703
         }
       },
       {
@@ -95,14 +95,14 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_clay_traditional",
-          "darbuka_skin": "darbuka_goat_skin",
-          "darbuka_regional_style": "darbuka_turkish_split"
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 0.6499999999999999,
+          "percussion_technique": 0.26,
           "darbuka_material": 1.04,
           "darbuka_skin": 1.4300000000000002,
-          "darbuka_regional_style": 0.57
+          "darbuka_regional_style": 0.585
         }
       },
       {
@@ -111,16 +111,16 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "arco",
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 9.855,
+          "bowed_technique": 6.065000000000001,
           "fiddle_strings": 0.845,
-          "fiddle_bow": 2.1125,
-          "fiddle_mute": 0.24,
-          "fiddle_articulation": 0.26999999999999996,
+          "fiddle_bow": 2.0795,
+          "fiddle_mute": 0.045,
+          "fiddle_articulation": 0.135,
           "fiddle_string_configuration": 0
         }
       }

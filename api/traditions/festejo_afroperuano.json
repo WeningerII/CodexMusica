@@ -3,14 +3,14 @@
   "name": "Festejo (Afro-Peruvian celebration)",
   "family": "global",
   "lineage": "Afro-Peruvian folk-popular dance-and-song tradition of coastal Peru (Lima, Chincha, El Carmen, Ica regions), descended from West-African-enslaved-population cultural memory through colonial-Peruvian slavery period. Fast 6/8 meter, virtuoso cajón lead, quijada jawbone-rattle, acoustic-guitar. Nicomedes Santa Cruz (1925-1992) and Victoria Santa Cruz (1922-2014) consolidated twentieth-century cultural revival. Susana Baca, Eva Ayllón anchor contemporary scene.",
-  "recipe": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion bloco pagode. thick, breath veiled tone, straight note core, interlocked note trading. lead open slap hand drum congas, sitka spruce spruce fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion pagode bumba-meu-boi do maranhão. thick, breath veiled tone, straight note core, interlocked note trading. lead open slap hand drum congas, fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 514,
-  "score": 201.525,
+  "score": 161.337,
   "config": {
     "traditions": [
       "festejo_afroperuano",
-      "bloco",
-      "pagode"
+      "pagode",
+      "bumba_meu_boi_maranhao"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.4,
-          "voice_quality": 25.86999999999999,
+          "voice_quality": 19.109999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.415000000000001,
-          "voice_articulation": 17.095,
-          "voice_microtone": 15.664999999999992,
-          "voice_tradition": 11.634999999999998,
-          "voice_mechanism_compound": 5.5,
-          "voice_estill_quality": 3.7375,
-          "voice_speech_song": 24.375,
-          "voice_ensemble_config": 16.834999999999994,
-          "voice_ornament_system": 2.7499999999999996,
+          "voice_vibrato": 3.7649999999999997,
+          "voice_articulation": 14.039999999999996,
+          "voice_microtone": 13.454999999999993,
+          "voice_tradition": 10.465,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 16.249999999999996,
+          "voice_ensemble_config": 13.779999999999994,
+          "voice_ornament_system": 0.35749999999999993,
           "voice_pitch_organization": 2.3075,
-          "voice_processing_chain": 6.17,
-          "voice_multitrack_stack": 6.37
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 5.329999999999999
         }
       },
       {
@@ -61,7 +61,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 11.424999999999999,
+          "percussion_technique": 10.899999999999999,
           "conga_set": 2.02,
           "conga_skin": 0.705,
           "conga_shell_wood": 0.705
@@ -71,17 +71,17 @@
         "id": "acoustic_guitar_parlor",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "d_standard",
           "top_wood_parlor": "sitka_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "silk_steel_p"
+          "string_acoustic_parlor": "eighty_twenty_p"
         },
         "scores": {
           "acoustic_technique": 5.050000000000001,
-          "string_tuning": 0,
-          "top_wood_parlor": 1.8599999999999999,
+          "string_tuning": 0.06499999999999999,
+          "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.9950000000000001
+          "string_acoustic_parlor": 0.24
         }
       },
       {
@@ -91,7 +91,7 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 11.05,
+          "cajon_peruano_construction": 10.855,
           "cajon_peruano_role": 4.875
         }
       },
@@ -100,12 +100,12 @@
         "slots": {
           "quijada_form": "quijada_burro_peruano",
           "quijada_context": "quijada_lando_raspado",
-          "quijada_preparation": "quijada_boiled_sundried"
+          "quijada_preparation": "quijada_varnished_festival"
         },
         "scores": {
-          "quijada_form": 11.439999999999998,
-          "quijada_context": 7.475,
-          "quijada_preparation": 0.6
+          "quijada_form": 11.244999999999997,
+          "quijada_context": 6.630000000000001,
+          "quijada_preparation": 0.845
         }
       }
     ],

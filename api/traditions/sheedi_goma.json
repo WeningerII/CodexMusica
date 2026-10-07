@@ -5,7 +5,7 @@
   "lineage": "Music of the Sheedi, Pakistanis of East African descent concentrated in Karachi's Lyari and in coastal Sindh and Makran, heard above all at the annual Sheedi Mela at the shrine of Pir Mangho in Manghopir. Songs are sung over drums of African lineage such as the mugarman and musindo; lewa is a related Afro-Baloch dance of the Makran coast. The drum cards stand in for the mugarman and musindo.",
   "recipe": "classic modern sheedi goma, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional. membrane drum pulse resonant acoustic membrane drum, hand drum source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 256,
-  "score": 5.155,
+  "score": 5.575,
   "config": {
     "traditions": [
       "sheedi_goma"
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.39,
-          "acoustic_membrane_drum_gesture": 2.39
+          "acoustic_membrane_drum_form": 2.6,
+          "acoustic_membrane_drum_gesture": 2.6
         }
       },
       {

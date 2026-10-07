@@ -3,20 +3,20 @@
   "name": "Bebop",
   "family": "jazz",
   "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
-  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 673,
-  "score": 240.058,
+  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early bombay jazz trad. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 619,
+  "score": 218.672,
   "config": {
     "traditions": [
       "bebop",
-      "big_band",
-      "new_orleans"
+      "bombay_jazz_age",
+      "british_trad_jazz"
     ],
     "instruments": [
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_bebop_runs",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
@@ -25,34 +25,34 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 4.2250000000000005,
+          "wind_articulation": 4,
           "sax_size": 4.345,
           "sax_reed": 0.38999999999999996,
-          "sax_body_alloy": 22.175,
+          "sax_body_alloy": 20.174999999999997,
           "sax_mouthpiece": 0.345,
-          "sax_technique": 21.875,
-          "sax_maker_school": 28.3725
+          "sax_technique": 19.875,
+          "sax_maker_school": 25.7725
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_dixieland_lead",
+          "wind_articulation": "wind_bebop_runs",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_out",
-          "trumpet_technique": "trumpet_dixieland_lead",
-          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.395,
+          "wind_articulation": 4,
           "brass_size": 0.345,
-          "trumpet_mouthpiece": 28.4375,
+          "trumpet_mouthpiece": 25.8375,
           "brass_mute": 0.39,
-          "trumpet_technique": 4.395,
-          "trumpet_bell_metal": 1.04,
-          "trumpet_maker_school": 7.15
+          "trumpet_technique": 4,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 5.46
         }
       },
       {
@@ -63,21 +63,21 @@
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.5,
+          "keyboard_technique": 3.1750000000000003,
           "grand_piano_size": 0.675,
           "grand_piano_brand": 0.675,
-          "piano_hammer": 6.89,
-          "piano_rim": 8.385,
-          "piano_soundboard": 1.4299999999999997,
+          "piano_hammer": 5.3950000000000005,
+          "piano_rim": 5.3950000000000005,
+          "piano_soundboard": 1.5750000000000002,
           "piano_pinblock": -0.035,
           "piano_plate": 0.325,
-          "piano_pitch_standard": 0.9099999999999999
+          "piano_pitch_standard": 1.95
         }
       },
       {
@@ -87,20 +87,20 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 21.875,
-          "upright_play": 21.875
+          "upright_strings": 19.875,
+          "upright_play": 19.875
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_jazz",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.875,
-          "drumhead": 28.3725,
+          "drum_technique": 20.214999999999996,
+          "drumhead": 25.7725,
           "drum_kit_kick_pedal": 0
         }
       }

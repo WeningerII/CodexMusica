@@ -5,7 +5,7 @@
   "lineage": "Dance brought to São Tomé and Príncipe by Angolan contract workers, which became one of the most popular dances on the plantations (roças) in the colonial period and a national genre after independence; the conjunto Os Úntués later carried its rhythm into electric dance-band music. Generic drum and shaker cards stand in for its percussion.",
   "recipe": "classic modern puíta, groove Percussion, central east south African branch. membrane drum pulse resonant acoustic membrane drum, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 235,
-  "score": 3.724,
+  "score": 3.593,
   "config": {
     "traditions": [
       "puita_sao_tome"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.40950000000000003,
+          "voice_multitrack_stack": 0.279,
           "voice_tessitura": 0
         }
       },

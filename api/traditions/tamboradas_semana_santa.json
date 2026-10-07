@@ -1,0 +1,88 @@
+{
+  "id": "tamboradas_semana_santa",
+  "name": "Tamboradas (Spanish Holy Week drum rituals)",
+  "family": "global",
+  "lineage": "Tamboradas are the Holy Week drum-playing rituals of towns in Aragon, Murcia, Castilla-La Mancha, Andalusia and the Valencian Community, in which crowds of townspeople beat drums and bass drums together for hours on end, inscribed on UNESCO's Representative List of the Intangible Cultural Heritage of Humanity. In Calanda and the other towns of the Bajo Aragón Ruta del Tambor y Bombo the playing opens with the Rompida de la Hora at noon on Good Friday, while towns such as Hellín, Moratalla and Baena keep their own toques. The tenor-drum card stands for the rope-tensioned tambor and the membrane-drum card for the bombo.",
+  "recipe": "classic modern tamboradas, ritual Devotional. natural material resonance rope tensioned historical tenor membrane drum pulse resonant acoustic membrane drum. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 237,
+  "score": 11.447,
+  "config": {
+    "traditions": [
+      "tamboradas_semana_santa"
+    ],
+    "instruments": [
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_military_field",
+          "tenor_drum_head": "tenor_drum_calfskin",
+          "tenor_drum_beater": "tenor_drum_wood_sticks",
+          "tenor_drum_shell": "tenor_drum_rope_stave"
+        },
+        "scores": {
+          "tenor_drum_form": -0.07,
+          "tenor_drum_head": -0.07,
+          "tenor_drum_beater": -0.05,
+          "tenor_drum_shell": 2.0364999999999998
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.3,
+          "acoustic_membrane_drum_gesture": 4.3
+        }
+      }
+    ],
+    "pinned": {
+      "tenor_drum": [
+        "tenor_drum_form",
+        "tenor_drum_head",
+        "tenor_drum_beater",
+        "tenor_drum_shell"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "urban_courtyard",
+    "parts": {
+      "tenor_drum_form": "tenor_drum_military_field",
+      "tenor_drum_head": "tenor_drum_calfskin",
+      "tenor_drum_beater": "tenor_drum_wood_sticks",
+      "tenor_drum_shell": "tenor_drum_rope_stave",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

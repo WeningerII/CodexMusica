@@ -1,0 +1,80 @@
+{
+  "id": "zaqq_u_tanbur",
+  "name": "Żaqq u tanbur (Maltese bagpipe and drum music)",
+  "family": "global",
+  "lineage": "The żaqq is the Maltese bagpipe: a whole animal skin fitted with a double chanter of two parallel cane pipes ending in a horn bell, without separate drones. It was played with the tanbur, a large frame drum with jingles, for dancing and festive occasions, but by the later twentieth century only a few elderly players remained, recorded by fieldworkers in their last years of playing; the revival group Etnika later brought the żaqq and tanbur back on record.",
+  "recipe": "classic modern żaqq u tanbur, drone Modal, wind pipe branch. paired reeds cane pipes horn bell melody continuous drone zaqq, single head frame drum jingles tanbur maltese. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 12.765,
+  "config": {
+    "traditions": [
+      "zaqq_u_tanbur"
+    ],
+    "instruments": [
+      {
+        "id": "zaqq",
+        "slots": {
+          "zaqq_build": "zaqq_build_paired",
+          "zaqq_texture": "zaqq_texture_drone"
+        },
+        "scores": {
+          "zaqq_build": 4.6825,
+          "zaqq_texture": 2.73
+        }
+      },
+      {
+        "id": "tanbur_maltese",
+        "slots": {
+          "tanbur_maltese_build": "tanbur_maltese_build_jingle",
+          "tanbur_maltese_stroke": "tanbur_maltese_stroke_open"
+        },
+        "scores": {
+          "tanbur_maltese_build": 5.366499999999999,
+          "tanbur_maltese_stroke": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "zaqq": [
+        "zaqq_build",
+        "zaqq_texture"
+      ],
+      "tanbur_maltese": [
+        "tanbur_maltese_build",
+        "tanbur_maltese_stroke"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "zaqq_build": "zaqq_build_paired",
+      "zaqq_texture": "zaqq_texture_drone",
+      "tanbur_maltese_build": "tanbur_maltese_build_jingle",
+      "tanbur_maltese_stroke": "tanbur_maltese_stroke_open"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

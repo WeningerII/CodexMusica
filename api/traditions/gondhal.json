@@ -1,0 +1,178 @@
+{
+  "id": "gondhal",
+  "name": "Gondhal (Marathi goddess ritual song)",
+  "family": "global",
+  "lineage": "Gondhal is a Marathi ritual performance in which Gondhali singers invoke the goddess, above all Tulja Bhavani of Tuljapur and Renuka of Mahur, through the night at family ceremonies such as weddings, singing invocations and narrative songs. The lead singer plays the tuntuna, a one-string plucked drone, while a companion beats the sambal, a pair of drums played with sticks, and others answer on cymbals and in chorus. The gopichand card, a one-string plucked drum, stands in for the tuntuna.",
+  "recipe": "classic modern gondhal, ritual Devotional, hindu branch. single lead single track no stacking. gopichand, sambal drum, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 6.306,
+  "config": {
+    "traditions": [
+      "gondhal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.1365,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.6045,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "gopichand",
+        "slots": {
+          "gopichand_size": "gopichand_std",
+          "gopichand_style": "gopichand_pulse"
+        },
+        "scores": {
+          "gopichand_size": 0,
+          "gopichand_style": 0.0315
+        }
+      },
+      {
+        "id": "sambal_drum",
+        "slots": {
+          "sambal_form": "sambal_wood",
+          "sambal_context": "sambal_gondhal"
+        },
+        "scores": {
+          "sambal_form": 0.3,
+          "sambal_context": 0
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 3.9730000000000003,
+          "manjira_stroke": -0.1,
+          "manjira_metal": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "gopichand": [
+        "gopichand_size",
+        "gopichand_style"
+      ],
+      "sambal_drum": [
+        "sambal_form",
+        "sambal_context"
+      ],
+      "manjira": [
+        "manjira_form",
+        "manjira_stroke",
+        "manjira_metal"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "gopichand_size": "gopichand_std",
+      "gopichand_style": "gopichand_pulse",
+      "sambal_form": "sambal_wood",
+      "sambal_context": "sambal_gondhal",
+      "manjira_form": "manjira_taal_small",
+      "manjira_stroke": "manjira_tala_ostinato",
+      "manjira_metal": "manjira_brass"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

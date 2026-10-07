@@ -5,7 +5,7 @@
   "lineage": "Solo blues piano of the barrelhouse, rent party and lumber camp circuit, recorded from 1923 and codified by Leroy Carr, Roosevelt Sykes, Little Brother Montgomery, Memphis Slim and Otis Spann — twelve-bar forms from 60 to 200 BPM, a walking or rolling ostinato left hand against right-hand blue-note tremolos and crushed grace notes, on hard-struck upright pianos left deliberately unrepaired.",
   "recipe": "classic North American early-1920s piano blues, functional Song, blues acoustic branch, American jazz boogie woogie, American jazz stride piano, blues electric functional song barrelhouse piano boogie-woogie. thick, blues-shouter, wide pitch sway, interlocked note trading. stride upright stride tack piano, parlor acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 633,
-  "score": 315.205,
+  "score": 315.347,
   "config": {
     "traditions": [
       "piano_blues",
@@ -75,8 +75,8 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 0.8775,
-          "string_tuning": 0.8999999999999999,
+          "acoustic_technique": 0.7799999999999999,
+          "string_tuning": 1.14,
           "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.41374999999999995

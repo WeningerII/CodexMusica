@@ -1,0 +1,240 @@
+{
+  "id": "punto_guajiro_cubano",
+  "name": "Punto guajiro (Cuban improvised décima song)",
+  "family": "global",
+  "lineage": "Sung poetry of the Cuban countryside, in which singers, often improvising, set ten-line décimas to traditional melodies (tonadas) accompanied by laúd, tres, guitar and light percussion such as güiro and claves; UNESCO inscribed Punto on its Representative List of the Intangible Cultural Heritage of Humanity. Punto libre, where the accompaniment drops out under the free-rhythm vocal line, is tied to the west of the island and punto fijo, in strict time, to the centre; the controversia is a sung duel of improvised décimas between two poets.",
+  "recipe": "classic modern punto guajiro, ballad Poetry, Latin am troubadour branch. solo with instrumental accompaniment. laud cedar canonical Cuban octave doubled bronze steel rural traditional tres cubano, classical nylon-string guitar, claves, gourd wood guiro. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 333,
+  "score": 16.694,
+  "config": {
+    "traditions": [
+      "punto_guajiro_cubano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.441,
+          "voice_multitrack_stack": 0.0315,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "laud_cubano",
+        "slots": {
+          "laud_cubano_form": "laud_cubano_standard",
+          "laud_cubano_style": "laud_cubano_punto",
+          "laud_cubano_pick": "laud_cubano_horn"
+        },
+        "scores": {
+          "laud_cubano_form": 0.3,
+          "laud_cubano_style": 0.78,
+          "laud_cubano_pick": 0
+        }
+      },
+      {
+        "id": "tres_cubano",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "tres_courses": "tres_3x3",
+          "tres_cubano_context": "tres_cubano_son",
+          "tres_cubano_body_wood": "tres_cubano_cedar",
+          "tres_cubano_strings": "tres_cubano_octave_doubled"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.625,
+          "tres_courses": 2.3045,
+          "tres_cubano_context": 1.2730000000000001,
+          "tres_cubano_body_wood": 2.6,
+          "tres_cubano_strings": 1.3
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "rasgueado_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "string_tuning": 0,
+          "top_wood_classical": 0.168,
+          "bracing_classical": 1.2730000000000001,
+          "string_classical": 0,
+          "attack_technique_cl": -0.035
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_son_3_2",
+          "claves_wood": "claves_cuban_hardwood"
+        },
+        "scores": {
+          "claves_pattern": 0.105,
+          "claves_wood": 0.3045
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 1.1365,
+          "guiro_striker": 1.1365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "laud_cubano": [
+        "laud_cubano_form",
+        "laud_cubano_style",
+        "laud_cubano_pick"
+      ],
+      "tres_cubano": [
+        "plucked_traditional_technique",
+        "tres_courses",
+        "tres_cubano_context",
+        "tres_cubano_body_wood",
+        "tres_cubano_strings"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "claves": [
+        "claves_pattern",
+        "claves_wood"
+      ],
+      "guiro": [
+        "guiro_origin",
+        "guiro_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "laud_cubano_form": "laud_cubano_standard",
+      "laud_cubano_style": "laud_cubano_punto",
+      "laud_cubano_pick": "laud_cubano_horn",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "tres_courses": "tres_3x3",
+      "tres_cubano_context": "tres_cubano_son",
+      "tres_cubano_body_wood": "tres_cubano_cedar",
+      "tres_cubano_strings": "tres_cubano_octave_doubled",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_high_cl",
+      "attack_technique_cl": "rasgueado_cl",
+      "claves_pattern": "claves_son_3_2",
+      "claves_wood": "claves_cuban_hardwood",
+      "guiro_origin": "guiro_cuban",
+      "guiro_striker": "guiro_wood"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,21 +3,21 @@
   "name": "Byzantine ecclesiastical music (papadic and sticheraric styles)",
   "family": "classical",
   "lineage": "Liturgical monody of the Eastern Roman church, notated from the tenth century in neumatic systems and reformed in 1814 by Chrysanthos, Chourmouzios and Gregorios into the New Method still taught in Constantinople, Athens and Athos — a solo protopsaltis chanting in the eight-mode Oktoechos over a sustained ison drone, unmetered and text-governed in the syllabic heirmologic style, expansively melismatic in the slow papadic style, with microtonal intervals and prescribed ornamental formulas.",
-  "recipe": "classic Southern European mid-1810s byzantine ecclesiastical music, art Music, western early branch, christian gospel ritual devotional, vocal drone modal latin rituale romanum exorcism recitation sacred steel. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 555,
-  "score": 196.285,
+  "recipe": "classic Southern European mid-1810s byzantine ecclesiastical music, art Music, western early branch, christian gospel ritual devotional, vocal drone modal sacred steel jubilee quartet. thick, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 520,
+  "score": 209.627,
   "config": {
     "traditions": [
       "byzantine_ecclesiastical",
-      "latin_exorcism_rite",
-      "sacred_steel"
+      "sacred_steel",
+      "jubilee_quartet"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 15.314999999999996,
-          "voice_quality": 24.635000000000005,
+          "voice_register": 21.314999999999998,
+          "voice_quality": 27.709999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.535,
-          "voice_articulation": 19.304999999999993,
-          "voice_microtone": 20.01999999999999,
-          "voice_tradition": 21.124999999999996,
-          "voice_mechanism_compound": 3.835,
-          "voice_estill_quality": 11.799999999999995,
-          "voice_speech_song": 22.489999999999995,
-          "voice_ensemble_config": 19.629999999999992,
-          "voice_ornament_system": 7.15,
+          "voice_vibrato": 4.835,
+          "voice_articulation": 18.069999999999993,
+          "voice_microtone": 18.78499999999999,
+          "voice_tradition": 27.7875,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 16.474999999999998,
+          "voice_speech_song": 21.059999999999995,
+          "voice_ensemble_config": 20.14999999999999,
+          "voice_ornament_system": 8.025,
           "voice_pitch_organization": 3.7,
-          "voice_processing_chain": 4.680000000000001,
-          "voice_multitrack_stack": 2.7300000000000004
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 5.135000000000002
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 7.734999999999998,
-          "choir_polyphonic_configuration": 6.294999999999999,
-          "choir_regional_canonical_configuration": 5.52,
-          "choir_ensemble_repertoire": 4.16
+          "choir_size": 5.004999999999999,
+          "choir_polyphonic_configuration": 6.444999999999999,
+          "choir_regional_canonical_configuration": 4.159999999999999,
+          "choir_ensemble_repertoire": 3.5100000000000002
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Halva Mänskligheten — current nyprogg/punk quartet documented by Rosa Visor & Rock. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic svensk progg, protest Song, European branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 12.139,
+  "score": 12.207,
   "config": {
     "traditions": [
       "svensk_progg"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.5145,
+          "voice_speech_song": 0.6509999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -77,10 +77,10 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.0735,
-          "string_material": 0,
+          "string_material": 0.0315,
           "bridge": 0.0735,
           "scale_length": 0.063,
-          "string_gauge": 1.5685,
+          "string_gauge": 1.3735,
           "finish": 0.0735,
           "string_tuning": 0
         }
@@ -130,10 +130,10 @@
           "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
-          "snare_wires": 0,
+          "snare_wires": 0.063,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.2,
-          "cymbal_lathing": 3.2315,
+          "cymbal_lathing": 3.2630000000000003,
           "cymbal_finish": 0
         }
       }

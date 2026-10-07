@@ -5,7 +5,7 @@
   "lineage": "Funeral chant of the Mường people of Hòa Bình and neighbouring provinces, sung by a mo priest (thầy mo) over the nights of a funeral to guide the soul of the dead. Its central narrative, Đẻ đất đẻ nước (Birth of the Earth and the Water), recounts the creation of the world and the origins of the Mường; Mo Mường is recognised as national intangible cultural heritage in Vietnam.",
   "recipe": "classic modern mo mường, funeral Lament, east Asian branch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 139,
-  "score": 0.399,
+  "score": 0.384,
   "config": {
     "traditions": [
       "mo_muong"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.329625,
+          "voice_ensemble_config": 0.32325,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.06500000000000002,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 0.0495,
+          "voice_multitrack_stack": 0.0405,
           "voice_tessitura": 0
         }
       }

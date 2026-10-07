@@ -5,7 +5,7 @@
   "lineage": "Ritual music of the Daoist temples of the Wudang Mountains in north-western Hubei, now chiefly of the Quanzhen order, listed as national intangible heritage in 2006. Priests chant and sing scriptures and hymns (jingyun) solo and in unison, paced by ritual percussion such as wooden fish, drum, cymbals and gong, with wind melody in larger rites.",
   "recipe": "classic mid-2000s wudang daoyue, ritual Devotional. metrical pitched chant fixed rhythm. muyu, chazi, membrane drum pulse resonant acoustic membrane drum, gong chau gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 257,
-  "score": 5.697,
+  "score": 5.27,
   "config": {
     "traditions": [
       "wudang_daoist_music"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.2314285714285713,
+          "voice_speech_song": 1.0315,
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.24492857142857138,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "muyu_beater": "muyu_wood_beater"
         },
         "scores": {
-          "muyu_size": 0.36942857142857144,
-          "muyu_beater": 0.03471428571428571
+          "muyu_size": 0.3,
+          "muyu_beater": 0
         }
       },
       {
@@ -93,7 +93,7 @@
         },
         "scores": {
           "gong_type": 1.3,
-          "gong_striker": 0.03471428571428571
+          "gong_striker": 0
         }
       }
     ],

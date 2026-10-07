@@ -3,24 +3,24 @@
   "name": "Coupé-décalé (Ivorian dance music)",
   "family": "global",
   "lineage": "Coupé-décalé Ivorian dance-pop genre emerging in early-2000s Paris among the Ivorian diaspora club scene and rapidly transferred back to Abidjan. The name derives from Nouchi street-slang (\"couper\" to grab money, \"décaler\" to slip away) describing the get-rich-and-flee aspirational lifestyle. Production centers on hard four-on-the-floor digital kick with Nouchi-French lyrical content, simple call-and-response chorus, and electronic synth-bass. The death of founding figure Stéphane Hamidou Doukouré (Douk Saga) in 2006 mythologized the Paris-Abidjan founder-generation.",
-  "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen merenrap. extended whistle, breath veiled tone, breath pulsed, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 582,
-  "score": 123.77,
+  "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm hip hop galsen street-pop. thick, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, plucked short envelope analog synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 578,
+  "score": 131.06,
   "config": {
     "traditions": [
       "coupe_decale_ivorian",
       "hip_hop_galsen",
-      "merenrap"
+      "lagos_street_pop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -29,25 +29,25 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_16_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.5,
-          "voice_quality": 12.544999999999993,
+          "voice_register": 3.685000000000002,
+          "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0549999999999997,
-          "voice_articulation": 11.309999999999997,
-          "voice_microtone": 10.659999999999995,
-          "voice_tradition": 8.32,
-          "voice_mechanism_compound": 3.575,
+          "voice_vibrato": 2.645,
+          "voice_articulation": 12.219999999999995,
+          "voice_microtone": 12.024999999999993,
+          "voice_tradition": 10.055,
+          "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 4.47,
-          "voice_speech_song": 11.569999999999997,
-          "voice_ensemble_config": 12.869999999999996,
-          "voice_ornament_system": 3.1200000000000014,
-          "voice_pitch_organization": 1.8249999999999997,
+          "voice_speech_song": 12.219999999999995,
+          "voice_ensemble_config": 14.429999999999994,
+          "voice_ornament_system": 2.470000000000001,
+          "voice_pitch_organization": 2.12,
           "voice_processing_chain": 7.6499999999999995,
           "voice_multitrack_stack": 3.4300000000000006
         }
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.8600000000000003,
+          "tr808_voice": 3.25,
           "drum_machine_808_context": 2.79,
-          "tr808_production_origin": 1.54
+          "tr808_production_origin": 1.3900000000000001
         }
       },
       {
@@ -72,14 +72,14 @@
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "sustain_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": 3.545,
-          "oscillator": 1.885,
-          "filter_topology": 1.885,
+          "oscillator": 2.2749999999999995,
+          "filter_topology": 2.0799999999999996,
           "envelope": 0.45499999999999996,
-          "modulation": 0.65
+          "modulation": 0.45499999999999996
         }
       },
       {
@@ -87,7 +87,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -95,13 +95,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.8199999999999998,
+          "amp_make": 2.0149999999999997,
           "body_wood": 1.69,
-          "pickup_config": 0.195,
-          "string_type": 2.6000000000000005,
+          "pickup_config": 0.135,
+          "string_type": 2.5999999999999996,
           "scale_length_b": 0.26999999999999996,
           "fretted_or_not": 0.195,
-          "bass_technique": -0.035,
+          "bass_technique": 0.12999999999999998,
           "electric_bass_string_configuration": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Balinese ensemble of genggong, string-pulled jaw harps made from sugar palm (here the angkuoch card), played together with suling (here the generic bamboo-flute card), kendang and small gongs and cymbals. It is played for entertainment and dance and is closely associated with the village of Batuan.",
   "recipe": "classic modern genggong, art Music, southeast Asian branch. angkuoch, bamboo credited bamboo flute unspecified, gamelan balinese paired male female kendang indonesian, ceng ceng. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 6.546,
+  "score": 6.495,
   "config": {
     "traditions": [
       "genggong_bali"
@@ -44,7 +44,7 @@
           "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
         },
         "scores": {
-          "kendang_size": 1.7955,
+          "kendang_size": 1.6755,
           "kendang_context": 2.6,
           "kendang_shell_wood": 0,
           "kendang_head": 0
@@ -58,8 +58,8 @@
           "ceng_ceng_alloy": "ceng_ceng_perunggu"
         },
         "scores": {
-          "ceng_ceng_form": 0.03599999999999999,
-          "ceng_ceng_technique": 0.36487499999999995,
+          "ceng_ceng_form": 0.141,
+          "ceng_ceng_technique": 0.32887500000000003,
           "ceng_ceng_alloy": 0
         }
       }

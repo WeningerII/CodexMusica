@@ -3,9 +3,9 @@
   "name": "Budima (Valley Tonga ceremonial dance)",
   "family": "global",
   "lineage": "Valley Tonga ceremonial performance associated with the Gwembe Valley. The ensemble combines nyele horn-flutes, differently sized drums and singers.",
-  "recipe": "classic modern budima, ritual Devotional, indigenous branch. valley tonga, group vocals, live take. ensemble edge blown horn flutes nyele ensemble, budima drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 241,
-  "score": 16.105,
+  "recipe": "classic modern budima, ritual Devotional, indigenous branch. valley tonga, group vocals, live take. ensemble edge blown horn flutes nyele ensemble, resonant budima drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 250,
+  "score": 17.411,
   "config": {
     "traditions": [
       "budima"
@@ -18,7 +18,7 @@
           "nyele_texture": "nyele_texture_interlock"
         },
         "scores": {
-          "nyele_excitation": 4.2465,
+          "nyele_excitation": 4.85925,
           "nyele_texture": 0.273
         }
       },
@@ -30,7 +30,7 @@
         },
         "scores": {
           "budima_drums_form": 0,
-          "budima_drums_gesture": 0.9239999999999999
+          "budima_drums_gesture": 1.4369999999999998
         }
       },
       {
@@ -69,7 +69,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 1.51
+          "voice_multitrack_stack": 1.69
         }
       }
     ],

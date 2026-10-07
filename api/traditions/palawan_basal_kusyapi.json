@@ -5,7 +5,7 @@
   "lineage": "Music of the Pala'wan of the southern Palawan highlands: the basal ensemble of hanging bossed gongs with a drum, played at rice-wine feasts and rituals; the two-string kusyapi boat lute, played solo; and the tultul epic, chanted through the night by a bard. The kutiyapi card stands in for the kusyapi, and the gong card (bossed) for the basal gongs.",
   "recipe": "classic modern pala'wan basal and kusyapi, ritual Devotional, indigenous branch. solo with instrumental accompaniment, single lead single track no stacking. kutiyapi, gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 312,
-  "score": 7.889,
+  "score": 7.616,
   "config": {
     "traditions": [
       "palawan_basal_kusyapi"
@@ -72,7 +72,7 @@
           "gong_striker": "gong_soft_mallet"
         },
         "scores": {
-          "gong_type": 0.4095,
+          "gong_type": 0.1365,
           "gong_striker": 0.1365
         }
       },

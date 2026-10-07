@@ -1,0 +1,101 @@
+{
+  "id": "kittitian_big_drum_fife_masquerade",
+  "name": "Big drum and fife (St Kitts and Nevis Christmas Sports masquerade)",
+  "family": "global",
+  "lineage": "Music of the Christmas Sports of St Kitts and Nevis, the street plays and dances of the Christmas and New Year season. Masquerade troupes in ribboned costumes and masks dance to a big-drum band of fife, big (bass) drum and kettle (snare) drum, while other Sports such as the Mummies and the Bull have their own plays, and moko jumbie stilt dancers join the street festivities. Tea meetings, mock-formal contests of speeches and songs, and string bands belong to the same body of island folk performance.",
+  "recipe": "classic modern big drum and fife, carnival Processional, Caribbean branch. fife, bass snare drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 177,
+  "score": 4.118,
+  "config": {
+    "traditions": [
+      "kittitian_big_drum_fife_masquerade"
+    ],
+    "instruments": [
+      {
+        "id": "fife",
+        "slots": {
+          "fife_tradition": "fife_tradition_basel",
+          "fife_build": "fife_build_grenadilla",
+          "fife_pitch": "fife_pitch_bflat",
+          "fife_role": "fife_role_corps_unison"
+        },
+        "scores": {
+          "fife_tradition": 3.7700000000000005,
+          "fife_build": -0.07,
+          "fife_pitch": 0.254,
+          "fife_role": 0.26
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_24_26_big",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 0.054
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fife": [
+        "fife_tradition",
+        "fife_build",
+        "fife_pitch",
+        "fife_role"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "fife_tradition": "fife_tradition_basel",
+      "fife_build": "fife_build_grenadilla",
+      "fife_pitch": "fife_pitch_bflat",
+      "fife_role": "fife_role_corps_unison",
+      "bass_drum_size": "bass_drum_24_26_big",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

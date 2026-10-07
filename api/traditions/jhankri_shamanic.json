@@ -5,7 +5,7 @@
   "lineage": "Healing and divination rites of the jhankri shamans (with the related dhami) of Nepal's hill peoples, among them the Tamang, Magar, Gurung, Rai and Limbu. In night-long seances the shaman beats the dhyangro, a two-sided frame drum with a carved wooden handle, while chanting invocations, origin stories and dialogues with spirits on the way into trance. The frame-drum card stands in for the dhyangro. Larry Peters and Michael Oppitz are among the anthropologists who documented the practice.",
   "recipe": "classic modern jhankri, ritual Devotional, indigenous branch. metrical pitched chant fixed rhythm, solo with instrumental accompaniment, single lead single track no stacking. credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 276,
-  "score": 6.174,
+  "score": 6.211,
   "config": {
     "traditions": [
       "jhankri_shamanic"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 1.0185,
+          "voice_multitrack_stack": 1.055625,
           "voice_tessitura": 0
         }
       },

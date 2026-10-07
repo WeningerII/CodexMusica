@@ -1,0 +1,98 @@
+{
+  "id": "swedish_sackpipa_music",
+  "name": "Säckpipa (Swedish bagpipe music of Dalarna)",
+  "family": "global",
+  "lineage": "Music of the Swedish bagpipe, a mouth-blown pipe with a cylindrical chanter and a single drone, which survived in western Dalarna into the twentieth century. Per Gudmundson's Caprice album Säckpipa, recorded in 1982-83, carried it into the folk-music revival, where polskas, marches and walking tunes are often played together with fiddle.",
+  "recipe": "classic early-1980s säckpipa, drone Modal, wind pipe branch. sackpipa, fiddle. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 170,
+  "score": 18.92,
+  "config": {
+    "traditions": [
+      "swedish_sackpipa_music"
+    ],
+    "instruments": [
+      {
+        "id": "sackpipa",
+        "slots": {
+          "sackpipa_pitch_form": "sackpipa_e",
+          "sackpipa_repertoire": "sackpipa_polska_dance",
+          "sackpipa_reeds": "sackpipa_cane_reeds"
+        },
+        "scores": {
+          "sackpipa_pitch_form": 17.489500000000003,
+          "sackpipa_repertoire": 0.9099999999999999,
+          "sackpipa_reeds": 0.2815
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.507375,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.105,
+          "fiddle_mute": 0.24150000000000002,
+          "fiddle_articulation": 0.21,
+          "fiddle_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "sackpipa": [
+        "sackpipa_pitch_form",
+        "sackpipa_repertoire",
+        "sackpipa_reeds"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "sackpipa_pitch_form": "sackpipa_e",
+      "sackpipa_repertoire": "sackpipa_polska_dance",
+      "sackpipa_reeds": "sackpipa_cane_reeds",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

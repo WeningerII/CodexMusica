@@ -1,0 +1,202 @@
+{
+  "id": "afrocubanismo_concert",
+  "name": "Afrocubanismo (Cuban concert music)",
+  "family": "classical",
+  "lineage": "Cuban art-music movement of the 1920s and 1930s, led by Amadeo Roldán and Alejandro García Caturla, that brought Afro-Cuban rhythms, instruments and song forms into orchestral, chamber and piano writing; Roldán's Rítmicas V and VI (1930), scored for Cuban percussion, are among the earliest concert works for percussion ensemble. Roldán's Rítmicas I to IV, for piano and wind quintet, are the model for the piano and woodwind cards; the orchestral works of the movement add strings and brass. Ernesto Lecuona's piano danzas and suites carried Cuban dance rhythms into the salon and concert repertoire of the same years.",
+  "recipe": "classic tropical mid-1920s afrocubanismo, art Music, western modern branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, silver powell boston canonical American orchestral flute, grenadilla African blackwood traditional clarinet, claves, guiro, timbales. shoebox concert hall. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 415,
+  "score": 59.409,
+  "config": {
+    "traditions": [
+      "afrocubanismo_concert"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.393,
+          "grand_piano_brand": 0.657,
+          "piano_hammer": 6.25,
+          "piano_rim": 6.25,
+          "piano_soundboard": 6.286,
+          "piano_pinblock": 6.25,
+          "piano_plate": 6.287125,
+          "piano_pitch_standard": 4.225
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "flute_size": 0,
+          "flute_material": 1.7936249999999998,
+          "flute_technique": 0.1365,
+          "flute_maker_school": 2.6
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 2.6365,
+          "clarinet_body": 6.2,
+          "clarinet_size": 0,
+          "clarinet_reed": 0.9099999999999999,
+          "clarinet_articulation": 0.1365
+        }
+      },
+      {
+        "id": "claves",
+        "slots": {
+          "claves_pattern": "claves_son_3_2",
+          "claves_wood": "claves_rosewood"
+        },
+        "scores": {
+          "claves_pattern": 0.1365,
+          "claves_wood": -0.05
+        }
+      },
+      {
+        "id": "guiro",
+        "slots": {
+          "guiro_origin": "guiro_cuban",
+          "guiro_striker": "guiro_wood"
+        },
+        "scores": {
+          "guiro_origin": 0,
+          "guiro_striker": 0
+        }
+      },
+      {
+        "id": "timbales",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "timbales_shell": "timbales_steel",
+          "timbales_context": "timbales_son"
+        },
+        "scores": {
+          "percussion_technique": 2.75,
+          "timbales_shell": 0,
+          "timbales_context": 0
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "claves": [
+        "claves_pattern",
+        "claves_wood"
+      ],
+      "guiro": [
+        "guiro_origin",
+        "guiro_striker"
+      ],
+      "timbales": [
+        "percussion_technique",
+        "timbales_shell",
+        "timbales_context"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_early_tape_havana",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_7_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "wind_articulation": "wind_classical_legato",
+      "flute_size": "concert_flute",
+      "flute_material": "silver_flute",
+      "flute_technique": "classical_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "claves_pattern": "claves_son_3_2",
+      "claves_wood": "claves_rosewood",
+      "guiro_origin": "guiro_cuban",
+      "guiro_striker": "guiro_wood",
+      "percussion_technique": "percussion_hands_layered",
+      "timbales_shell": "timbales_steel",
+      "timbales_context": "timbales_son"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "khakas_khai_chatkhan",
+  "name": "Khai and chatkhan (Khakas throat-sung epic and zither)",
+  "family": "global",
+  "lineage": "Khakas tradition of Khakassia in southern Siberia, in which the khaiji sings heroic epics (alyptyg nymakh) in khai, a guttural throat-singing voice, to the chatkhan long box zither or the two-string khomys lute; this default pairs the voice with the chatkhan. The chatkhan is also played solo and to accompany song, and the tradition has been recorded on Melodiya Khakas LPs and by the Sabjilar ensemble.",
+  "recipe": "classic modern khai and chatkhan, ballad Poetry. ventricular co oscillation subharmonic f0 70 to 100 HZ pitched octave down throat singing voice, chatkhan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 2.247,
+  "config": {
+    "traditions": [
+      "khakas_khai_chatkhan"
+    ],
+    "instruments": [
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+          "throat_overtone_target_region": "throat_overtone_target_none",
+          "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe"
+        },
+        "scores": {
+          "throat_mechanism_root": 2.208,
+          "throat_overtone_target_region": 0,
+          "throat_singing_voice_region": 0
+        }
+      },
+      {
+        "id": "chatkhan",
+        "slots": {
+          "chatkhan_strings": "chatkhan_six",
+          "chatkhan_role": "chatkhan_epic"
+        },
+        "scores": {
+          "chatkhan_strings": 0,
+          "chatkhan_role": 0.03899999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "throat_singing_voice": [
+        "throat_mechanism_root",
+        "throat_overtone_target_region",
+        "throat_singing_voice_region"
+      ],
+      "chatkhan": [
+        "chatkhan_strings",
+        "chatkhan_role"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "throat_mechanism_root": "throat_mechanism_ventricular_subharmonic_70_100Hz",
+      "throat_overtone_target_region": "throat_overtone_target_none",
+      "throat_singing_voice_region": "throat_singing_voice_central_asian_steppe",
+      "chatkhan_strings": "chatkhan_six",
+      "chatkhan_role": "chatkhan_epic"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

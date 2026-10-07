@@ -5,7 +5,7 @@
   "lineage": "Sundanese oral epic in which a specialist juru pantun narrates, voices dialogue and sings tales of the Pajajaran kingdom, such as Lutung Kasarung and Mundinglaya, through the night while accompanying himself on the boat-shaped kacapi zither. Performances also carry a ritual protective role.",
   "recipe": "classic modern pantun sunda, ballad Poetry. solo with instrumental accompaniment. boat shaped kacapi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 13.25,
+  "score": 13.293,
   "config": {
     "traditions": [
       "pantun_sunda"
@@ -62,7 +62,7 @@
         },
         "scores": {
           "kacapi_form": 6.9,
-          "kacapi_repertoire": 4.95,
+          "kacapi_repertoire": 4.99275,
           "kacapi_laras": 0,
           "kacapi_construction": 0
         }

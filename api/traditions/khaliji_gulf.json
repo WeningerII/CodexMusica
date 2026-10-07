@@ -3,14 +3,14 @@
   "name": "Khaliji (Arabian Gulf music)",
   "family": "global",
   "lineage": "Khaliji (\"Gulf\") urban popular music of the Arabian Peninsula Gulf states — Kuwait, Bahrain, Saudi Arabia, Qatar, UAE, Oman — characterized by mid-tempo 2/4 or 4/4 metric base with syncopated 2-and-4 backbeat and distinctive Khaliji-modal vocabulary between maqam-Arabic and Persian-dastgah. The genre developed from the older sawt classical urban-chamber Bahraini-and-Kuwaiti tradition into contemporary Khaliji-pop through the post-1970s petroleum-era recording industry centered in Bahrain, Kuwait, and Riyadh.",
-  "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music andalusian classical türk sanat müziği. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean oud, synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music andalusian classical al-qudūd al-ḥalabiyya. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 518,
-  "score": 307.087,
+  "score": 270.955,
   "config": {
     "traditions": [
       "khaliji_gulf",
       "andalusian_classical",
-      "turk_sanat_muzigi"
+      "qudud_halabiyya"
     ],
     "instruments": [
       {
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 7.715,
-          "voice_quality": 10.724999999999993,
+          "voice_register": 7.864999999999998,
+          "voice_quality": 9.1,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.685,
-          "voice_articulation": 18.005,
-          "voice_microtone": 34.515,
-          "voice_tradition": 32.2725,
-          "voice_mechanism_compound": 22.165,
-          "voice_estill_quality": 17.529999999999998,
-          "voice_speech_song": 20.345,
-          "voice_ensemble_config": 15.599999999999998,
-          "voice_ornament_system": 24.44,
-          "voice_pitch_organization": 26.165,
-          "voice_processing_chain": 5.265,
+          "voice_vibrato": 18.7525,
+          "voice_articulation": 16.119999999999997,
+          "voice_microtone": 31.199999999999996,
+          "voice_tradition": 27.007500000000004,
+          "voice_mechanism_compound": 18.415000000000003,
+          "voice_estill_quality": 14.855,
+          "voice_speech_song": 18.71999999999999,
+          "voice_ensemble_config": 14.754999999999995,
+          "voice_ornament_system": 21.565,
+          "voice_pitch_organization": 22.265,
+          "voice_processing_chain": 4.225,
           "voice_multitrack_stack": 3.440000000000001
         }
       },
@@ -61,16 +61,16 @@
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_lebanese_cedar_face",
-          "oud_string_material": "oud_la_bella_nylon"
+          "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 15,
+          "plucked_traditional_technique": 11.625,
           "oud_school": 3.9099999999999997,
-          "oud_strings": 7.54,
+          "oud_strings": 6.045,
           "oud_pick": 2.8449999999999998,
           "oud_body_wood": 3.58,
           "oud_soundboard_wood": 2.8600000000000003,
-          "oud_string_material": 0.845
+          "oud_string_material": 1.8900000000000001
         }
       },
       {
@@ -78,13 +78,13 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_aluminum_sombaty",
-          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_skin": "darbuka_goat_skin",
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": -0.07,
+          "percussion_technique": 0.06499999999999999,
           "darbuka_material": 0.825,
-          "darbuka_skin": 1.47,
+          "darbuka_skin": 1.4849999999999999,
           "darbuka_regional_style": 5.59
         }
       }

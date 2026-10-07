@@ -5,7 +5,7 @@
   "lineage": "Australia’s established country-recording repertoire represented by Slim Dusty, whose 1957 A Pub with No Beer joined rural storytelling to a nationally recognizable singing style. This model selects its compact guitar-and-bass branch.",
   "recipe": "classic late-1950s classic australian country, functional Song, pre commercial branch. thick, narrative, neutral third half flat, m1 with m0 pulse borrowing. dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 426,
-  "score": 66.227,
+  "score": 66.618,
   "config": {
     "traditions": [
       "classic_australian_country"
@@ -36,17 +36,17 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.08025,
+          "voice_vibrato": 0.069,
           "voice_articulation": 1.4299999999999997,
           "voice_microtone": 1.2999999999999998,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 11.478499999999999,
+          "voice_estill_quality": 11.572249999999999,
           "voice_speech_song": 3.835000000000001,
           "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 1.3,
           "voice_pitch_organization": 0.105,
-          "voice_processing_chain": 6.019,
+          "voice_processing_chain": 6.328,
           "voice_multitrack_stack": 1.3
         }
       },

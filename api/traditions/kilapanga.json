@@ -5,7 +5,7 @@
   "lineage": "Angolan dance rhythm played, alongside semba, by Luanda's electric conjuntos of the 1960s-70s and still presented as one of the country's signature rhythms. The reco-reco card in bamboo stands in for the dikanza, and a generic hand-drum card carries the hand percussion.",
   "recipe": "classic mid-1960s kilapanga, functional Song, African pop branch. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, hand drum source unspecified, bamboo reco reco. live tracking. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 337,
-  "score": 7.839,
+  "score": 7.778,
   "config": {
     "traditions": [
       "kilapanga"
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.11100000000000003,
+          "electric_technique": -0.15000000000000002,
           "amp_make": 0,
           "body_wood": 0.1365,
           "neck_wood": 0,
@@ -127,13 +127,13 @@
           "drum_technique": -0.05,
           "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.403,
+          "shell_wood": 0.273,
           "shell_thickness": 0,
           "bearing_edges": -1.164,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 3.704,
-          "cymbal_lathing": 3.8405000000000005,
+          "cymbal_hammering": 3.7580000000000005,
+          "cymbal_lathing": 3.8945000000000003,
           "cymbal_finish": 0.105
         }
       },

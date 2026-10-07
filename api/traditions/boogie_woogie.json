@@ -5,7 +5,7 @@
   "lineage": "1920s through 1940s African-American piano-blues idiom built on left-hand ostinato bass figures (walking-eighths or rolling-octaves) under right-hand blues melody — codified through Pinetop Smith’s \"Pinetop’s Boogie Woogie\" (1928), the Carnegie Hall From Spirituals to Swing concert (1938) bringing Albert Ammons, Meade Lux Lewis, and Pete Johnson to white audiences, and the wartime crossover into jump blues",
   "recipe": "classic mid-1920s boogie-woogie, improv On Frame, boogie woogie branch, American jazz pre jazz ragtime, blues acoustic functional song piedmont blues. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright stride tack piano. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 467,
-  "score": 303.86,
+  "score": 305.397,
   "config": {
     "traditions": [
       "boogie_woogie",
@@ -30,10 +30,10 @@
           "keyboard_technique": 15.385,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.39,
-          "piano_hammer": 8.735,
-          "piano_rim": 11.66,
+          "piano_hammer": 8.7425,
+          "piano_rim": 11.885,
           "piano_soundboard": 3.43,
-          "piano_pinblock": 1.665,
+          "piano_pinblock": 1.71,
           "piano_plate": 0.325,
           "piano_pitch_standard": 1.6575000000000002
         }
@@ -76,10 +76,10 @@
           "voice_quality": 17.74499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.67,
+          "voice_vibrato": 26.865,
           "voice_articulation": 20.14999999999999,
-          "voice_microtone": 26.384999999999998,
-          "voice_tradition": 19.254999999999995,
+          "voice_microtone": 26.43,
+          "voice_tradition": 19.659999999999997,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 4.842500000000001,
           "voice_speech_song": 21.44999999999999,
@@ -99,8 +99,8 @@
         },
         "scores": {
           "keyboard_technique": 15.385,
-          "tack_density": 7.939999999999998,
-          "tack_piano_context": 7.625
+          "tack_density": 8.329999999999998,
+          "tack_piano_context": 7.85
         }
       }
     ],

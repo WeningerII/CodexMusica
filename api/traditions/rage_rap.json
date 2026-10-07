@@ -3,14 +3,14 @@
   "name": "Rage (rap)",
   "family": "global",
   "lineage": "Late-2010s onward Atlanta-and-Memphis trap-derived hip-hop subgenre characterized by aggressive 808-bass-driven instrumentals, screamed-and-rasping vocal delivery, mosh-pit-targeted live-show energy, and explicit punk-and-metal cross-pollination — codified through Trippie Redd, Lil Uzi Vert, Playboi Carti (Whole Lotta Red 2020, the genre's definitive statement), Ken Carson, Destroy Lonely",
-  "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock atlanta punk south african punk. thick, rap, straight onset, interlocked note trading. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
-  "recipe_chars": 403,
-  "score": 152.595,
+  "recipe": "classic Southern American 2017-2019 rage, mc Rhythm, experimental branch, punk distorted rock atlanta punk sibirsky pank. thick, rap, straight onset, interlocked note trading. sub bass digital subtractive, TR-808, field textural sampler. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay eventide harmonizer.",
+  "recipe_chars": 398,
+  "score": 175.115,
   "config": {
     "traditions": [
       "rage_rap",
       "atlanta_punk",
-      "south_african_punk"
+      "siberian_punk"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.615000000000002,
+          "voice_register": 6.665000000000003,
           "voice_quality": 8.950000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.56,
-          "voice_articulation": 9.879999999999999,
-          "voice_microtone": 9.685,
-          "voice_tradition": 4.745000000000001,
-          "voice_mechanism_compound": 8.45,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 9.879999999999999,
-          "voice_ensemble_config": 14.78,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 13.649999999999993,
+          "voice_tradition": 5.085,
+          "voice_mechanism_compound": 9.295,
+          "voice_estill_quality": 1.69,
+          "voice_speech_song": 13.844999999999995,
+          "voice_ensemble_config": 14.180000000000001,
           "voice_ornament_system": 1.7399999999999998,
           "voice_pitch_organization": 0.645,
           "voice_processing_chain": 6.995,
-          "voice_multitrack_stack": 9.685
+          "voice_multitrack_stack": 9.945
         }
       },
       {
@@ -62,19 +62,19 @@
         "scores": {
           "electronic_technique": 9.03,
           "va_archetypes": 0.645,
-          "digital_subtractive_context": 10.659999999999998
+          "digital_subtractive_context": 14.43
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
           "tr808_voice": 4.33,
-          "drum_machine_808_context": 2.8599999999999994,
+          "drum_machine_808_context": 3.57,
           "tr808_production_origin": 0.195
         }
       },
@@ -89,10 +89,10 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sampler_archetypes": 3.25,
+          "sampler_archetypes": 2.875,
           "sampler_bit_depth": 0.39,
           "sampler_workflow": 3.895,
-          "sampler_classic_context": 18.134999999999998
+          "sampler_classic_context": 22.294999999999995
         }
       }
     ],

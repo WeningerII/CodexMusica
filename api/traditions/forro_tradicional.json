@@ -3,14 +3,14 @@
   "name": "Forró Tradicional (trio nordestino forró)",
   "family": "vernacular",
   "lineage": "Northeastern Brazilian dance music codified nationally by Luiz Gonzaga and Humberto Teixeira from 1946 onward around the baião, xote and xaxado, played by the classic trio of eight-bass sanfona, zabumba struck with mallet and bacalhau, and steel triângulo at 100-140 BPM, with declamatory sertanejo vocal delivery over harmonically plain, mixolydian-inflected melodies.",
-  "recipe": "classic South American mid-1940s forró tradicional, functional Song, Brazilian song branch, Brazilian carnival processional, tropical song functional song música costeña samba-enredo. vocal fry, breath veiled tone, slow rate, interlocked note trading. steel castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, steel Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, sustaining steel upright bass. recife brazilian northeast forro house. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 626,
-  "score": 148.418,
+  "recipe": "classic South American mid-1940s forró tradicional, functional Song, Brazilian song branch, Brazilian carnival processional, tropical song functional song música costeña marchinha. vocal fry, breath veiled tone, slow rate, interlocked note trading. castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, steel Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, sustaining steel upright bass. recife brazilian northeast forro house. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 617,
+  "score": 142.307,
   "config": {
     "traditions": [
       "forro_tradicional",
       "musica_costena",
-      "samba_enredo"
+      "marchinha_carnaval"
     ],
     "instruments": [
       {
@@ -29,35 +29,35 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 17.972499999999993,
+          "voice_register": 1.6300000000000001,
+          "voice_quality": 13.064999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 17.679999999999993,
-          "voice_microtone": 16.249999999999993,
-          "voice_tradition": 5.85,
-          "voice_mechanism_compound": 4.745,
-          "voice_estill_quality": 3.9000000000000004,
-          "voice_speech_song": 25.935,
-          "voice_ensemble_config": 15.924999999999995,
-          "voice_ornament_system": 1.6549999999999998,
-          "voice_pitch_organization": 0.8499999999999998,
-          "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 3.380000000000001
+          "voice_vibrato": 1.56,
+          "voice_articulation": 18.134999999999994,
+          "voice_microtone": 17.354999999999993,
+          "voice_tradition": 5.3950000000000005,
+          "voice_mechanism_compound": 4.9399999999999995,
+          "voice_estill_quality": 4.550000000000001,
+          "voice_speech_song": 26.84499999999999,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 1.1549999999999998,
+          "voice_pitch_organization": 0.39499999999999996,
+          "voice_processing_chain": 3.9050000000000002,
+          "voice_multitrack_stack": 1.9174999999999998
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_overblow_modern",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "dry_tuning",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
           "reed_config": "lmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
@@ -65,11 +65,11 @@
         },
         "scores": {
           "free_reed_technique": 0,
-          "accordion_reed_material": 1.4949999999999999,
-          "musette_offset": 0.9950000000000001,
+          "accordion_reed_material": 1.0999999999999999,
+          "musette_offset": 0.585,
           "reed_config": 1,
-          "bellows": 0.78,
-          "voicing_chamber": 0.435,
+          "bellows": 0.585,
+          "voicing_chamber": 0.255,
           "accordion_maker_school": 1.69
         }
       },
@@ -80,8 +80,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 1.2349999999999999,
-          "zabumba_technique": 6.5649999999999995
+          "zabumba_shell": 1.04,
+          "zabumba_technique": 7.215
         }
       },
       {
@@ -91,8 +91,8 @@
           "triangulo_pattern": "triangulo_forro_pattern"
         },
         "scores": {
-          "triangulo_size": 0.8400000000000001,
-          "triangulo_pattern": 0.69
+          "triangulo_size": 0.9450000000000001,
+          "triangulo_pattern": 0.795
         }
       },
       {
@@ -105,11 +105,11 @@
           "violao_7_role": "violao_7_bordao_counter"
         },
         "scores": {
-          "violao_7_string7": 2.535,
+          "violao_7_string7": 2.73,
           "violao_7_strings": 1.3,
-          "violao_7_body_wood": 3.315000000000001,
+          "violao_7_body_wood": 2.4050000000000002,
           "violao_7_top_wood": 0.9749999999999999,
-          "violao_7_role": 2.535
+          "violao_7_role": 2.73
         }
       },
       {
@@ -119,8 +119,8 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 1.3,
-          "upright_play": 0.6299999999999999
+          "upright_strings": 1.045,
+          "upright_play": 0.43499999999999994
         }
       }
     ],

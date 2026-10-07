@@ -3,14 +3,14 @@
   "name": "Zampogna",
   "family": "vernacular",
   "lineage": "Southern Italian double-chantered mouth-blown bagpipe tradition of Molise, Abruzzo, Campania, Calabria and Sicily, documented from the 17th century and carried by shepherd-pipers (zampognari) who descend to towns for the Christmas novena, playing paired-chanter harmony with two drones against the ciaramella shawm at brisk 6/8 pastorale tempi, with untempered scales and heavy nasal reed-driven ornamentation.",
-  "recipe": "classic early-1940s zampogna, drone Modal, wind pipe branch, European carnival processional, christian gospel ritual devotional organetto horo. kargyraa, breath veiled tone, fast rate, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral zampogna, dance driving ciaramella, piffero appenninico, tambourine orch. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 501,
-  "score": 137.247,
+  "recipe": "classic early-1940s zampogna, drone Modal, wind pipe branch, European carnival processional, christian gospel ritual devotional organetto ring shout. thick, breath veiled tone, fast rate, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral zampogna, dance driving ciaramella, piffero appenninico, tambourine orch. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 504,
+  "score": 143.875,
   "config": {
     "traditions": [
       "zampogna",
       "organetto_italiano",
-      "horo"
+      "ring_shout_mcintosh"
     ],
     "instruments": [
       {
@@ -24,9 +24,9 @@
           "zampogna_bag": "zampogna_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 0.325,
+          "wind_articulation": -0.1,
           "zampogna_region": 4.425,
-          "zampogna_context": 2.93,
+          "zampogna_context": 3.43,
           "zampogna_chanter_wood": 4.485,
           "zampogna_reed": 2.145,
           "zampogna_bag": 4.485
@@ -39,7 +39,7 @@
           "ciaramella_use": "ciaramella_tarantella"
         },
         "scores": {
-          "wind_articulation": -9.714451465470119e-18,
+          "wind_articulation": -0.10500000000000002,
           "ciaramella_use": 9.11
         }
       },
@@ -57,14 +57,14 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -75,21 +75,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.8399999999999999,
-          "voice_quality": 9.36,
+          "voice_register": 3.125000000000001,
+          "voice_quality": 17.159999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 15.405,
-          "voice_microtone": 17.224999999999994,
-          "voice_tradition": 5.8825,
-          "voice_mechanism_compound": 6.434999999999999,
-          "voice_estill_quality": 6.1499999999999995,
-          "voice_speech_song": 17.16,
-          "voice_ensemble_config": 15.729999999999997,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 14.234999999999996,
+          "voice_microtone": 15.794999999999993,
+          "voice_tradition": 8.125,
+          "voice_mechanism_compound": 7.084999999999999,
+          "voice_estill_quality": 6.8,
+          "voice_speech_song": 17.484999999999992,
+          "voice_ensemble_config": 14.754999999999995,
           "voice_ornament_system": 4.175,
-          "voice_pitch_organization": 3.400000000000001,
-          "voice_processing_chain": 3.0550000000000006,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 3.445,
           "voice_multitrack_stack": 3.9000000000000012
         }
       },
@@ -100,7 +100,7 @@
           "tambourine_orch_context": "tambourine_orch_film"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.045,
+          "tambourine_orch_jingle": 0.195,
           "tambourine_orch_context": 0.345
         }
       }

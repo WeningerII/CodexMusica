@@ -5,7 +5,7 @@
   "lineage": "Masked satirical dance-drama of the Yauyos valley and Jauja in Junín, Peru, performed at the Fiesta de San Sebastián y San Fabián each January since at least the nineteenth century, in which costumed characters representing colonial types parade to an orquesta típica of clarinets, saxophones, violin and Andean harp playing a stately triple-feel 3/4 or slow 6/8 at walking pace, with the clarinet's wide vibrato carrying the melody and no singing at all in the core repertoire.",
   "recipe": "classic Andean modern tunantada, carnival Processional, andean branch, andean field work, americas wedding andean matrimonio huayno música andina. vocal fry, forward-resonance, straight note core, interlocked note trading. grenadilla African blackwood traditional clarinet, yellow brass modern standard continuous-airflow legato saxophone, silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, harpa. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 525,
-  "score": 230.513,
+  "score": 230.217,
   "config": {
     "traditions": [
       "tunantada_jauja",
@@ -24,8 +24,8 @@
         },
         "scores": {
           "wind_articulation": 1.5599999999999996,
-          "clarinet_body": 1.8250000000000002,
-          "clarinet_size": 0.063,
+          "clarinet_body": 1.87,
+          "clarinet_size": 0.0765,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.105
         }
@@ -34,7 +34,7 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "sax_size": "soprano_sax",
+          "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
@@ -43,7 +43,7 @@
         },
         "scores": {
           "wind_articulation": 1.5599999999999996,
-          "sax_size": 0.25875,
+          "sax_size": 0.25,
           "sax_reed": 0,
           "sax_body_alloy": 2.0475,
           "sax_mouthpiece": 0.195,
@@ -62,19 +62,19 @@
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "sul_pont_orch",
+          "orch_articulation": "pizz_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.2,
+          "bowed_technique": 0.239,
           "orch_strings": 1.2665,
-          "orch_top_wood": 3.819,
-          "orch_back_wood": 1.85525,
-          "orch_varnish": 2.2880000000000003,
-          "orch_setup_period": 2.875,
+          "orch_top_wood": 3.9975,
+          "orch_back_wood": 1.82,
+          "orch_varnish": 2.1965000000000003,
+          "orch_setup_period": 2.665,
           "orch_bow": 4.159999999999999,
           "orch_bow_stick": 2.1125,
-          "orch_articulation": 0.1215,
+          "orch_articulation": 0.15,
           "orch_rosin": 2.1125
         }
       },
@@ -85,8 +85,8 @@
           "harpa_strings": "harpa_brass_wire"
         },
         "scores": {
-          "harpa_size": 1.15,
-          "harpa_strings": 0.39
+          "harpa_size": 1.189,
+          "harpa_strings": 0.345
         }
       },
       {
@@ -111,19 +111,19 @@
         },
         "scores": {
           "voice_register": 0.845,
-          "voice_quality": 24.437499999999996,
+          "voice_quality": 24.324999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0515,
+          "voice_vibrato": 3.11,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 14.819999999999991,
           "voice_tradition": 41.535000000000004,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 20.5945,
+          "voice_estill_quality": 20.503,
           "voice_speech_song": 16.444999999999993,
-          "voice_ensemble_config": 21.9015,
+          "voice_ensemble_config": 21.81,
           "voice_ornament_system": 30.679999999999996,
-          "voice_pitch_organization": 2.2590000000000003,
+          "voice_pitch_organization": 2.2465,
           "voice_processing_chain": 4.68,
           "voice_multitrack_stack": 2.0149999999999997
         }

@@ -5,7 +5,7 @@
   "lineage": "Drum-and-shawm music of Liaoning in north-east China, strongest around Liaoyang, where Han-Wei tomb murals depict drum-and-wind players, and listed in 2006 in the first batch of national intangible heritage as Liaoning guyue. Family bands led by suona and guanzi, with drums, gongs and cymbals, play qupai suites and lighter tunes for weddings, funerals and festivals (the acoustic drum card stands in for the band drum).",
   "recipe": "classic mid-2000s liaoning guyue, carnival Processional, east Asian branch. rosewood bodied copper belled suona, guanzi, membrane drum pulse resonant acoustic membrane drum, naobo, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 273,
-  "score": 25.074,
+  "score": 25.035,
   "config": {
     "traditions": [
       "liaoning_guyue"
@@ -45,7 +45,7 @@
         },
         "scores": {
           "acoustic_membrane_drum_form": 6.89,
-          "acoustic_membrane_drum_gesture": 6.7415
+          "acoustic_membrane_drum_gesture": 6.707
         }
       },
       {
@@ -66,7 +66,7 @@
           "gong_striker": "gong_soft_mallet"
         },
         "scores": {
-          "gong_type": 0.582,
+          "gong_type": 0.5775,
           "gong_striker": 0.0315
         }
       }

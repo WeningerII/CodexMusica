@@ -5,7 +5,7 @@
   "lineage": "Song of the Amdo Tibetan herding and farming communities of Qinghai and southern Gansu. Layi (la gzhas) are love songs sung only out in the hills, away from the village and from relatives, while lu (glu) are songs for weddings, drinking and community gatherings; both circulate through field recordings and through the Tibetan-language VCD and CD industry of Xining.",
   "recipe": "classic modern layi and lu, ballad Poetry. many notes per syllable. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 147,
-  "score": 1.82,
+  "score": 1.928,
   "config": {
     "traditions": [
       "amdo_layi_lu"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.108,
           "voice_tessitura": 0
         }
       }

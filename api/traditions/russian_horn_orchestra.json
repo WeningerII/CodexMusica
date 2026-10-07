@@ -1,0 +1,67 @@
+{
+  "id": "russian_horn_orchestra",
+  "name": "Rogovaya muzyka (Russian one-note horn orchestra)",
+  "family": "classical",
+  "lineage": "Music for an ensemble of valveless horns in which each horn sounds a single note, devised in 1751 by the Bohemian horn player J. A. Maresch for the Russian aristocracy in St Petersburg. Horns graded from a few centimetres to several metres long combine like the pipes of an organ, each player entering only on his own note, to play chords, melodies and arrangements. The practice faded in the 19th century and was revived in St Petersburg by Sergei Polianichko's Russian Horn Orchestra on reconstructed instruments. The natural-horn card stands in for the straight one-note horns.",
+  "recipe": "classic early-1750s rogovaya muzyka, art Music, western common practice branch, wind pipe drone modal. natural horn. shoebox concert hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 4.51,
+  "config": {
+    "traditions": [
+      "russian_horn_orchestra"
+    ],
+    "instruments": [
+      {
+        "id": "natural_horn",
+        "slots": {
+          "natural_horn_form": "natural_horn_baroque_waldhorn",
+          "natural_horn_context": "natural_horn_hunting_fanfare",
+          "natural_horn_crook_system": "natural_horn_fixed_d_coil"
+        },
+        "scores": {
+          "natural_horn_form": 1.005,
+          "natural_horn_context": 1.885,
+          "natural_horn_crook_system": 0.495
+        }
+      }
+    ],
+    "pinned": {
+      "natural_horn": [
+        "natural_horn_form",
+        "natural_horn_context",
+        "natural_horn_crook_system"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "natural_horn_form": "natural_horn_baroque_waldhorn",
+      "natural_horn_context": "natural_horn_hunting_fanfare",
+      "natural_horn_crook_system": "natural_horn_fixed_d_coil"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

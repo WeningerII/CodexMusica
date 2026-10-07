@@ -3,14 +3,14 @@
   "name": "Saltarello (central Italian leaping dance)",
   "family": "global",
   "lineage": "Saltarello central-and-southern Italian folk-dance-and-music tradition of Lazio, Abruzzo, Marche, and Molise regions, characterized by fast triple-meter or 6/8 leaping-dance with characteristic accelerating tempo. Origin documented in fourteenth-century Italian musical manuscripts (the Saltarello primo and secondo in the Add MS 29987 British Library manuscript) and preserved in continuous folk-tradition through the medieval-Renaissance-modern transition. Performance: tambourine-led ensemble with accordion, fiddle, organetto button-accordion, and chorus. Distinguished from tarantella by saltarello's central-Italian regional base and characteristic standing-leap (vs spinning) choreographic register. The post-1970s Italian-folk-revival reactivated the genre in the original regional contexts.",
-  "recipe": "classic Southern European mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, fast rate, interlocked note trading. central Italian healing rite synthetic head tammorra, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 520,
-  "score": 335.18,
+  "recipe": "classic Southern European mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional mapuche tayil genealogical chant yaqui pascola and matachín. thick, breath veiled tone, fast rate, interlocked note trading. central Italian healing rite synthetic head tammorra, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 511,
+  "score": 313.93,
   "config": {
     "traditions": [
       "saltarello_italian_central",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "yaqui_pascola_matachin"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 11.25,
-          "voice_quality": 38.61,
+          "voice_quality": 30.615000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 24.765,
-          "voice_microtone": 24.375,
-          "voice_tradition": 32.37,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 22.835,
-          "voice_speech_song": 26.260000000000005,
-          "voice_ensemble_config": 25.35,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 23.79,
+          "voice_microtone": 23.4,
+          "voice_tradition": 27.885000000000005,
+          "voice_mechanism_compound": 8.904999999999998,
+          "voice_estill_quality": 21.185,
+          "voice_speech_song": 24.44,
+          "voice_ensemble_config": 23.725,
           "voice_ornament_system": 15.399999999999999,
-          "voice_pitch_organization": 6.5,
-          "voice_processing_chain": 13.844999999999999,
-          "voice_multitrack_stack": 7.410000000000001
+          "voice_pitch_organization": 4.8100000000000005,
+          "voice_processing_chain": 10.399999999999997,
+          "voice_multitrack_stack": 5.265000000000001
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tammorra_form": 18.98,
-          "tammorra_context": 26.555,
+          "tammorra_context": 31.754999999999995,
           "tammorra_head": 4.095000000000001
         }
       },
@@ -70,20 +70,20 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "dry_tuning",
+          "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 12.314999999999998,
+          "free_reed_technique": 11.814999999999998,
           "accordion_reed_material": 0.255,
-          "musette_offset": 0.845,
+          "musette_offset": 1.2149999999999996,
           "reed_config": 0.195,
-          "bellows": 0.65,
+          "bellows": 0.375,
           "voicing_chamber": 0,
-          "accordion_maker_school": 13.839999999999998
+          "accordion_maker_school": 14.639999999999997
         }
       }
     ],

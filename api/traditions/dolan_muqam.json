@@ -5,7 +5,7 @@
   "lineage": "Muqam suites of the Dolan Uyghurs of Merkit, Maralbeshi and Awat along the Yarkand River on the edge of the Taklamakan, performed by a group of male singers with the Dolan rawap and Dolan ghijek (both with sympathetic strings), the qalun zither and several dap frame drums; the rawap_kashgar, ghijek_uyghur and kalun_uyghur_zither cards stand in for the Dolan instruments. Each muqam opens with an unmetred section sung at full voice and moves through faster metred sections that draw dancers into the gathering; Dolan muqam is part of UNESCO's inscription of the Uyghur Muqam of Xinjiang and is distinct in repertoire and style from the Twelve Muqam.",
   "recipe": "classic modern dolan muqam, drone Modal, heterophonic branch. same melody all voices. rawap kashgar, ghijek dap uyghur, kalun uyghur zither. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 4.569,
+  "score": 4.597,
   "config": {
     "traditions": [
       "dolan_muqam"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.3400000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0465,
-          "voice_multitrack_stack": 0.15600000000000003,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }
       },

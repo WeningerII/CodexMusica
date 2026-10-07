@@ -1,0 +1,92 @@
+{
+  "id": "basler_fasnacht_pfeifen_trommeln",
+  "name": "Basler Trommeln und Pfeifen (Basel Fasnacht piccolo-and-drum music)",
+  "family": "global",
+  "lineage": "Street music of the Basel carnival, played by cliques of piccolo players and drummers from the Morgenstreich at four in the morning on the Monday after Ash Wednesday through three days of processions. Its marches combine piccolos in several parts with the Basel drum, a deep rope-tensioned side drum played in a distinctive local rudimental style, for which the tenor-drum card stands in; Basel Carnival is inscribed on the UNESCO Representative List of the Intangible Cultural Heritage of Humanity.",
+  "recipe": "classic modern basler trommeln und pfeifen, carnival Processional, European branch. piccolo, military tight historical rope tensioned tenor drum. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 7.935,
+  "config": {
+    "traditions": [
+      "basler_fasnacht_pfeifen_trommeln"
+    ],
+    "instruments": [
+      {
+        "id": "piccolo",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "piccolo_material": "piccolo_wood",
+          "piccolo_context": "piccolo_marching"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "piccolo_material": -0.035,
+          "piccolo_context": 1.3
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_military_field",
+          "tenor_drum_head": "tenor_drum_calfskin",
+          "tenor_drum_beater": "tenor_drum_wood_sticks",
+          "tenor_drum_shell": "tenor_drum_rope_stave"
+        },
+        "scores": {
+          "tenor_drum_form": 4.8100000000000005,
+          "tenor_drum_head": -0.07,
+          "tenor_drum_beater": -0.05,
+          "tenor_drum_shell": 2.2
+        }
+      }
+    ],
+    "pinned": {
+      "piccolo": [
+        "wind_articulation",
+        "piccolo_material",
+        "piccolo_context"
+      ],
+      "tenor_drum": [
+        "tenor_drum_form",
+        "tenor_drum_head",
+        "tenor_drum_beater",
+        "tenor_drum_shell"
+      ]
+    },
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "urban_courtyard",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "piccolo_material": "piccolo_wood",
+      "piccolo_context": "piccolo_marching",
+      "tenor_drum_form": "tenor_drum_military_field",
+      "tenor_drum_head": "tenor_drum_calfskin",
+      "tenor_drum_beater": "tenor_drum_wood_sticks",
+      "tenor_drum_shell": "tenor_drum_rope_stave"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

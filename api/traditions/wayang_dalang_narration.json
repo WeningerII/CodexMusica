@@ -5,7 +5,7 @@
   "lineage": "In Javanese wayang kulit shadow-puppet theatre, the dalang (puppeteer-narrator) delivers the story through janturan and carita narration, heightened descriptive speech intoned over the soft grimingan shimmer of the gamelan, alternating with sulukan mood-songs and character dialogue across an all-night performance. The dalang is simultaneously narrator, voice of every character, conductor of the gamelan, and manipulator of the puppets, working within the court traditions of Surakarta and Yogyakarta in central Java. Ki Nartosabdho (1925-1985) is among the most celebrated 20th-century dalang. It is documented under UNESCO's Wayang intangible-heritage inscription (2003/2008).",
   "recipe": "classic Southeast Asian early-1920s wayang kulit dalang narration, art Music, southeast Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 294,
-  "score": 243.12,
+  "score": 243.356,
   "config": {
     "traditions": [
       "wayang_dalang_narration",
@@ -43,7 +43,7 @@
           "voice_microtone": 21.059999999999995,
           "voice_tradition": 30.3875,
           "voice_mechanism_compound": 9.549999999999999,
-          "voice_estill_quality": 22.687249999999995,
+          "voice_estill_quality": 22.923499999999994,
           "voice_speech_song": 23.4,
           "voice_ensemble_config": 25.154999999999998,
           "voice_ornament_system": 15.949999999999998,

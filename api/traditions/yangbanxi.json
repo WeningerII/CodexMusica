@@ -5,7 +5,7 @@
   "lineage": "The model works promoted during the Cultural Revolution (1966-1976), led by revolutionary modern Peking operas such as The Red Lantern, Shajiabang and Taking Tiger Mountain by Strategy, alongside the ballets The Red Detachment of Women and The White-Haired Girl. Jingju singing and gong-and-drum percussion were set against a combined orchestra in which the jinghu, jing erhu and yueqin played beside Western strings, horns and timpani.",
   "recipe": "classic Asian mid-1970s yangbanxi, art Music, beijing opera branch. Chinese classical vocal, jingju da sang xiao sang larynx elevated singer formant absent. bamboo body beijing opera jinghu, snake skin jing erhu, yueqin, percussion section ban clapper luogu, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, french horn, timpani. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 509,
-  "score": 82.638,
+  "score": 82.624,
   "config": {
     "traditions": [
       "yangbanxi"
@@ -36,7 +36,7 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.3315,
+          "voice_effort": 0.3347142857142857,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 5.723,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2045,
+          "voice_multitrack_stack": 0.19949999999999998,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
         "scores": {
           "bowed_technique": 2.5,
           "jinghu_mode": 2.5315,
-          "jinghu_articulation": 0.24966666666666668,
+          "jinghu_articulation": 0.2205,
           "jinghu_body_wood": 5.59,
           "jinghu_strings": 0
         }
@@ -80,7 +80,7 @@
         "scores": {
           "bowed_technique": 2.5,
           "jing_erhu_skin": 2.45,
-          "jing_erhu_role_type": 5.0105,
+          "jing_erhu_role_type": 4.9733125,
           "jing_erhu_texture": 2.75
         }
       },
@@ -106,7 +106,7 @@
           "luogu_sections": "luogu_full_jingju"
         },
         "scores": {
-          "luogu_use": 5.9351875,
+          "luogu_use": 5.9395625,
           "luogu_sections": 2.668
         }
       },
@@ -127,14 +127,14 @@
         "scores": {
           "bowed_technique": 2.5,
           "orch_strings": 0,
-          "orch_top_wood": 2.465625,
-          "orch_back_wood": 5.015625,
+          "orch_top_wood": 2.4631250000000002,
+          "orch_back_wood": 5.013125,
           "orch_varnish": 5,
-          "orch_setup_period": 5.217520833333333,
-          "orch_bow": 0.0025,
-          "orch_bow_stick": 5.257,
+          "orch_setup_period": 5.22575,
+          "orch_bow": 0.0028125,
+          "orch_bow_stick": 5.283964285714286,
           "orch_articulation": 0.9099999999999999,
-          "orch_rosin": 5.0751875
+          "orch_rosin": 5.08925
         }
       },
       {
@@ -145,9 +145,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 2.476875,
-          "french_horn_bore": 0,
-          "french_horn_metal": 0.042645833333333334
+          "wind_articulation": 2.474375,
+          "french_horn_bore": 0.015401785714285715,
+          "french_horn_metal": 0.0343125
         }
       },
       {

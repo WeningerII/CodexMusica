@@ -3,14 +3,14 @@
   "name": "Finno-Karelian itkuvirsi (lament-song)",
   "family": "global",
   "lineage": "Finno-Karelian mourning-song tradition continuous from pre-Christian Finnic-Baltic ritual-poetry practice through 19th-century documented performance by itkijä (Finno-Karelian professional women keeners) into Karelian-folk-revival; the itkuvirsi tradition is the most-preserved continuous-living lament tradition in northern Europe",
-  "recipe": "classic modern finno-karelian itkuvirsi, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, straight note core, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 363,
-  "score": 171.83,
+  "recipe": "classic modern finno-karelian itkuvirsi, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, indigenous ritual devotional mapuche tayil genealogical chant sami yoik. thick, breath veiled tone, straight note core, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 337,
+  "score": 135.002,
   "config": {
     "traditions": [
       "finnish_itkuvirsi",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "sami_yoik_tradition"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.8400000000000007,
-          "voice_quality": 34.19,
+          "voice_register": 3.215,
+          "voice_quality": 20.474999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4300000000000006,
-          "voice_articulation": 14.495000000000001,
-          "voice_microtone": 15.404999999999998,
-          "voice_tradition": 28.21,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 6.175,
-          "voice_speech_song": 19.759999999999998,
-          "voice_ensemble_config": 15.469999999999999,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 3.0550000000000015,
-          "voice_processing_chain": 12.544999999999998,
-          "voice_multitrack_stack": 6.110000000000001
+          "voice_vibrato": 2.7300000000000004,
+          "voice_articulation": 11.634999999999996,
+          "voice_microtone": 12.999999999999993,
+          "voice_tradition": 26.0975,
+          "voice_mechanism_compound": 10.595,
+          "voice_estill_quality": 3.835,
+          "voice_speech_song": 16.705,
+          "voice_ensemble_config": 12.609999999999994,
+          "voice_ornament_system": 5.4,
+          "voice_pitch_organization": 3.0199999999999996,
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 5.135
         }
       }
     ],

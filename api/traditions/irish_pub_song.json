@@ -5,7 +5,7 @@
   "lineage": "Irish pub-song / drinking-song tradition continuous from 18th-19th century pub-and-shebeen drinking-song tradition through 20th-century Dubliners-and-Clancy-Brothers-era folk-revival into modern Irish-pub-session continuous practice; foundational repertoire includes \"Whiskey in the Jar,\" \"The Wild Rover,\" \"All for Me Grog,\" \"Whiskey, You're the Devil,\" \"The Parting Glass\"",
   "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry anti-folk new weird america. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, aluminum anodized modern burke goldie premium melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 565,
-  "score": 251.895,
+  "score": 249.75,
   "config": {
     "traditions": [
       "irish_pub_song",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 13.345,
+          "voice_register": 13.15,
           "voice_quality": 15.014999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.21,
           "voice_articulation": 13.584999999999994,
           "voice_microtone": 14.884999999999993,
-          "voice_tradition": 23.419375,
+          "voice_tradition": 23.959375,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 3.1200000000000006,
           "voice_speech_song": 28.729999999999997,
           "voice_ensemble_config": 13.909999999999995,
           "voice_ornament_system": 13.994999999999996,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 4.4156249999999995,
+          "voice_processing_chain": 4.280625,
           "voice_multitrack_stack": 2.4049999999999994
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 1.0499999999999998,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
-          "string_acoustic": 0.765,
+          "string_acoustic": 0.525,
           "acoustic_om_technique": 22.2
         }
       },
@@ -82,7 +82,7 @@
         "scores": {
           "bowed_technique": 14.450000000000001,
           "fiddle_strings": 1.69,
-          "fiddle_bow": 4.225,
+          "fiddle_bow": 3.904375,
           "fiddle_mute": 0.9099999999999999,
           "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
@@ -97,9 +97,9 @@
           "whistle_body_material": "whistle_aluminum_anodized"
         },
         "scores": {
-          "wind_articulation": 13.975,
+          "wind_articulation": 13.885,
           "whistle_key": 12.749999999999996,
-          "whistle_ornament": 5.865,
+          "whistle_ornament": 5.970000000000001,
           "whistle_body_material": 1.69
         }
       },
@@ -112,8 +112,8 @@
         },
         "scores": {
           "bodhran_play": 1.69,
-          "bodhran_skin": 8.189999999999998,
-          "bodhran_shell_wood": 9.879999999999999
+          "bodhran_skin": 7.175624999999998,
+          "bodhran_shell_wood": 9.084999999999999
         }
       }
     ],

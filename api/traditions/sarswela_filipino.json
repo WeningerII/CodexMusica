@@ -3,12 +3,13 @@
   "name": "Sarswela (Filipino zarzuela)",
   "family": "global",
   "lineage": "Filipino vernacular musical theatre adapted from the Spanish zarzuela in the late 19th century and flourishing in Tagalog, Ilocano, Cebuano and other languages in the early 20th century, alternating spoken dialogue with songs, duets and choruses accompanied by a small orchestra, often on domestic, social and patriotic themes. The fiddle card stands in for the orchestra's violins.",
-  "recipe": "classic mid-1930s sarswela, functional Song, iberian branch, stage performance spoken word. solo with instrumental accompaniment, single lead single track no stacking. fiddle, upright piano, clarinet. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 338,
-  "score": 6.025,
+  "recipe": "classic mid-1930s sarswela, functional Song, iberian branch, stage performance spoken word yiddish theatre song. solo with instrumental accompaniment. melodic bowed song accompaniment fiddle, upright piano, clarinet. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 354,
+  "score": 7.385,
   "config": {
     "traditions": [
-      "sarswela_filipino"
+      "sarswela_filipino",
+      "yiddish_theatre_second_avenue"
     ],
     "instruments": [
       {
@@ -44,11 +45,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
+          "voice_ensemble_config": 2.73,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.345,
-          "voice_multitrack_stack": 0.615,
+          "voice_multitrack_stack": 0.195,
           "voice_tessitura": 0
         }
       },
@@ -63,7 +64,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.95,
+          "bowed_technique": 3.205,
           "fiddle_strings": 0,
           "fiddle_bow": 0.195,
           "fiddle_mute": 0.6,
@@ -79,7 +80,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": 1.2,
           "upright_use": 0.24,
           "upright_piano_size": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Haryanvi commercial song emerged from ragini and saang folk theatre of Haryana and western UP, went cassette-commercial in the 1990s, and became a national YouTube phenomenon after 2015 through Sapna Choudhary's stage-dance videos and the songwriting of Raju Punjabi, Vicky Kajla and MD-KD — the sound is a 120-150 BPM dholak-and-nagara pattern reinforced by programmed kick and clap, a blunt harmonium or square-synth riff, tumbi or shehnai colour, and a loud declamatory chest-voice delivery in Haryanvi over almost static harmony.",
   "recipe": "classic mid-1990s haryanvi pop, functional Song, south Asian pop branch, south Asian wedding dhamail indian sangeet. thick, breath veiled tone, slow rate, interlocked note trading. dholak, nagara melodic straight harmonium indian, singing lead analog poly synth, dhol, TR-808, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 564,
-  "score": 232.174,
+  "score": 230.758,
   "config": {
     "traditions": [
       "haryanvi_pop",
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.896499999999993,
+          "voice_register": 14.791499999999992,
           "voice_quality": 7.540000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2175000000000002,
+          "voice_vibrato": 3.0637499999999998,
           "voice_articulation": 18.525000000000002,
           "voice_microtone": 19.2725,
-          "voice_tradition": 18.5575,
+          "voice_tradition": 18.53425,
           "voice_mechanism_compound": 1.4300000000000002,
-          "voice_estill_quality": 2.0407499999999996,
+          "voice_estill_quality": 2.0474999999999994,
           "voice_speech_song": 25.8375,
           "voice_ensemble_config": 19.955000000000002,
-          "voice_ornament_system": 8.744000000000002,
-          "voice_pitch_organization": 8.011500000000002,
-          "voice_processing_chain": 7.635750000000001,
+          "voice_ornament_system": 8.495000000000001,
+          "voice_pitch_organization": 7.875000000000001,
+          "voice_processing_chain": 7.589250000000001,
           "voice_multitrack_stack": 6.3375
         }
       },
@@ -89,7 +89,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.7050000000000005,
+          "free_reed_technique": 3.3712500000000007,
           "harmonium_action": 0.975,
           "harmonium_voicing": 0.975,
           "harmonium_use": 1.0399999999999998
@@ -101,13 +101,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 11.075125,
-          "poly_archetypes": 0.16799999999999998,
+          "electronic_technique": 11.193624999999999,
+          "poly_archetypes": 0.063,
           "poly_voices": 0,
-          "poly_maker_lineage": -1.435
+          "poly_maker_lineage": -1.5639999999999998
         }
       },
       {
@@ -119,7 +119,7 @@
         },
         "scores": {
           "dhol_form": 19.890000000000004,
-          "dhol_repertoire": 11.194999999999999,
+          "dhol_repertoire": 11.344999999999999,
           "dhol_shell": 0.7149999999999999
         }
       },
@@ -149,7 +149,7 @@
           "shehnai_register": 3.38,
           "shehnai_use": 5.59,
           "shehnai_body_wood": 2.2749999999999995,
-          "shehnai_reed": 0.5594999999999999,
+          "shehnai_reed": 0.15,
           "shehnai_lineage": 0.195
         }
       }

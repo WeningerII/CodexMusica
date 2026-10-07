@@ -5,7 +5,7 @@
   "lineage": "The Ottoman-military-band inheritance of the southern Balkans as remade by Roma musicians in Serbia, North Macedonia and southern Romania from the mid-nineteenth century, focused since 1961 on the Guča trumpet festival and the Vranje and Leskovac orkestars of Boban Marković and the Bakić and Mladenović lineages, and paralleled by Romanian Muntenian fanfare such as Fanfare Ciocărlia; ornamented trumpet and flugelhorn leads over an off-beat tuba-and-horn accompaniment, driven by tapan and snare in fast čoček 2/4 or aksak 7/8, 9/8 and 11/8, at tempos that in the Romanian branch exceed 200 beats per minute.",
   "recipe": "classic Southern European early-1960s balkan brass band, carnival Processional, European branch, European wedding, west African groove percussion roma balkan svatba indonesian jaipongan. yellow brass canonical 70 30 bach stradivarius ensemble shallow cup lead trumpet trumpet, brass yellow brass flugelhorn, compact tuba brass gold brass warmer alternative besson sovereign British brass band tuba, yellow brass modern standard ensemble saxophone, dense hardwood grenadilla African blackwood traditional clarinet, donkey skin bass thin treble tapan, tupan, bass drum. balkan sevdalinka kafana tavern. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
   "recipe_chars": 746,
-  "score": 88.602,
+  "score": 84.455,
   "config": {
     "traditions": [
       "balkan_brass",
@@ -17,7 +17,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
@@ -26,12 +26,12 @@
         },
         "scores": {
           "wind_articulation": 3.7375000000000007,
-          "brass_size": 0.435,
-          "trumpet_mouthpiece": 3.3649999999999998,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 3.23,
           "brass_mute": 0.09,
           "trumpet_technique": 3.7375000000000007,
-          "trumpet_bell_metal": 3.3600000000000003,
-          "trumpet_maker_school": 0.675
+          "trumpet_bell_metal": 3.225,
+          "trumpet_maker_school": 0.63
         }
       },
       {
@@ -41,14 +41,14 @@
           "flugel_use": "flugel_brass_band",
           "flugelhorn_pitch": "flugelhorn_c",
           "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
-          "flugelhorn_maker_school": "flugelhorn_kanstul"
+          "flugelhorn_maker_school": "flugelhorn_yamaha"
         },
         "scores": {
           "wind_articulation": 0.7149999999999999,
-          "flugel_use": 3.87,
+          "flugel_use": 3.75,
           "flugelhorn_pitch": 0.195,
-          "flugelhorn_bell_metal": 3.3600000000000003,
-          "flugelhorn_maker_school": 0.24
+          "flugelhorn_bell_metal": 3.225,
+          "flugelhorn_maker_school": 0.195
         }
       },
       {
@@ -63,11 +63,11 @@
         },
         "scores": {
           "wind_articulation": 0.7149999999999999,
-          "tuba_pitch": 5.09,
+          "tuba_pitch": 4.445,
           "tuba_context": 5.785,
-          "tuba_bell_metal": 3.725,
+          "tuba_bell_metal": 3.59,
           "tuba_valve_system": 0.28500000000000003,
-          "tuba_maker_school": 7.15
+          "tuba_maker_school": 6.37
         }
       },
       {
@@ -83,10 +83,10 @@
         },
         "scores": {
           "wind_articulation": 3.7375000000000007,
-          "sax_size": 1.6949999999999998,
+          "sax_size": 1.65,
           "sax_reed": 1,
-          "sax_body_alloy": 3.7300000000000004,
-          "sax_mouthpiece": 0.6950000000000001,
+          "sax_body_alloy": 3.5500000000000003,
+          "sax_mouthpiece": 0.65,
           "sax_technique": 0.78,
           "sax_maker_school": 0.7149999999999999
         }
@@ -102,8 +102,8 @@
         },
         "scores": {
           "wind_articulation": 0.7149999999999999,
-          "clarinet_body": 3.2825000000000006,
-          "clarinet_size": 0.845,
+          "clarinet_body": 2.615,
+          "clarinet_size": 0.74,
           "clarinet_reed": 1,
           "clarinet_articulation": 0.5849999999999999
         }
@@ -116,7 +116,7 @@
           "tapan_build": "tapan_asymmetric_skins"
         },
         "scores": {
-          "tapan_form": 13.089999999999996,
+          "tapan_form": 12.549999999999997,
           "tapan_role": 9.739999999999998,
           "tapan_build": 2.1125
         }
@@ -135,11 +135,11 @@
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_size": "bass_drum_18_jazz",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.195,
+          "bass_drum_size": 0.045,
           "bass_drum_beater": 0.39
         }
       }

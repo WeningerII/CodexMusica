@@ -5,7 +5,7 @@
   "lineage": "Catalan-language song movement launched in Barcelona in 1961 by the Els Setze Jutges collective around Miquel Porter, Josep Maria Espinàs and Delfí Abella, modelled on French chanson rive gauche and radicalized by Raimon's 'Al vent' (1963) — solo voice with nylon-string guitar or piano, later widened to string and wind arrangements, setting Catalan and Valencian poetry (Espriu, Estellés) in strophic through-built forms with declamatory, non-vibrato delivery and slow crescendo builds toward anthemic refrains.",
   "recipe": "classic Western European nova cançó, protest Song, iberian Latin branch, European protest song, chanson fado classic chanson, iberian functional song canción melódica. thick, breath veiled tone, slow rate, interlocked note trading. phosphor bronze bronze fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, French renaissance lyon twisted plain double bass, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, powell boston canonical American orchestral flute. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 704,
-  "score": 217.09,
+  "score": 216.25,
   "config": {
     "traditions": [
       "nova_canco",
@@ -38,12 +38,12 @@
           "voice_quality": 11.634999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0749999999999997,
+          "voice_vibrato": 2.6849999999999996,
           "voice_articulation": 22.294999999999995,
           "voice_microtone": 22.74999999999999,
           "voice_tradition": 7.325000000000001,
-          "voice_mechanism_compound": 5.619999999999999,
-          "voice_estill_quality": 5.595,
+          "voice_mechanism_compound": 5.77,
+          "voice_estill_quality": 5.745,
           "voice_speech_song": 30.679999999999996,
           "voice_ensemble_config": 24.179999999999993,
           "voice_ornament_system": 7.325000000000001,
@@ -65,8 +65,8 @@
           "string_tuning": 0,
           "top_wood": 0.195,
           "back_sides": 0.195,
-          "string_acoustic": 1.5399999999999998,
-          "acoustic_om_technique": 7.490000000000001
+          "string_acoustic": 1.3449999999999998,
+          "acoustic_om_technique": 7.445000000000001
         }
       },
       {
@@ -111,13 +111,13 @@
         "scores": {
           "bowed_technique": 2.3249999999999997,
           "bass_size": 1.2999999999999998,
-          "bass_strings": 2.0799999999999996,
+          "bass_strings": 1.8399999999999999,
           "bass_top_wood": 0.8449999999999999,
           "bass_back_wood": 0.7799999999999998,
           "bass_varnish": -0.05,
           "bass_setup_period": 0.52,
           "bass_play": 0.995,
-          "bass_rosin": 0.585,
+          "bass_rosin": 0.495,
           "bass_bow_stick": -0.035
         }
       },
@@ -144,8 +144,8 @@
           "orch_setup_period": 0.52,
           "orch_bow": 0.8,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 1.92,
-          "orch_rosin": 2.0799999999999996
+          "orch_articulation": 1.875,
+          "orch_rosin": 1.9449999999999998
         }
       },
       {

@@ -3,14 +3,14 @@
   "name": "Turbo-folk",
   "family": "global",
   "lineage": "Serbian commercial style consolidated 1990-1999 on Belgrade's TV Pink and PGP-RTS/ZaM labels — Ceca, Dragana Mirković, Šaban Šaulić's successors — setting Balkan and Romani novokomponovana melody, melismatic Eastern ornament and clarinet/accordion lines over four-on-the-floor Eurodance drum machines, synth-bass, and mid-tempo 110-135 BPM digital arrangements sung in a chest-heavy, wide-vibrato belt.",
-  "recipe": "classic Eastern European mid-1990s turbo-folk, functional Song, europop branch, balkan drinking song, eurodance electronic dance macedonian-serbian kafana drinking song super eurobeat. thick, chest mix belt, slow rate, interlocked note trading. digital subtractive, sampler drum machine, castagnari Italian premium folk music straight accordion, ebonite hard rubber klezmer tradition clarinet, alder pyramid pure nickel bass British mid 60s era sub heavy electric bass, bolt tuned tapan, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral. treated studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
-  "recipe_chars": 743,
-  "score": 244.332,
+  "recipe": "classic Eastern European mid-1990s turbo-folk, functional Song, europop branch, balkan drinking song, eurodance electronic dance super eurobeat christian dance. thick, chest mix belt, slow rate, interlocked note trading. singing lead digital subtractive, sampler drum machine, castagnari Italian premium folk music straight accordion, clarinet, alder la bella flats Detroit soul bass canon sub heavy electric bass, donkey skin bass thin treble tapan, Italian alpine spruce val di fiemme synthetic varnish polyurethane modern setup violin orchestral. treated studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 711,
+  "score": 212.26,
   "config": {
     "traditions": [
       "turbo_folk",
-      "macedonian_kafana_drinking",
-      "super_eurobeat"
+      "super_eurobeat",
+      "christian_dance"
     ],
     "instruments": [
       {
@@ -23,46 +23,46 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.170000000000001,
-          "voice_quality": 10.335,
+          "voice_register": 8.025000000000002,
+          "voice_quality": 13.64,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.91,
-          "voice_articulation": 15.274999999999993,
-          "voice_microtone": 13.909999999999993,
-          "voice_tradition": 23.59,
-          "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 4.035,
-          "voice_speech_song": 22.099999999999994,
-          "voice_ensemble_config": 17.289999999999992,
+          "voice_vibrato": 2.9700000000000006,
+          "voice_articulation": 14.104999999999997,
+          "voice_microtone": 12.349999999999994,
+          "voice_tradition": 12.755,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 4.3875,
+          "voice_speech_song": 17.159999999999997,
+          "voice_ensemble_config": 16.119999999999997,
           "voice_ornament_system": 2.9699999999999998,
-          "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 6.97,
-          "voice_multitrack_stack": 1.9499999999999997
+          "voice_pitch_organization": 1.6749999999999998,
+          "voice_processing_chain": 11.825,
+          "voice_multitrack_stack": 1.365
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_lead_line",
           "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.1449999999999996,
-          "va_archetypes": 1.04,
-          "digital_subtractive_context": 13.519999999999996
+          "electronic_technique": 3.6725000000000003,
+          "va_archetypes": 0.935,
+          "digital_subtractive_context": 12.35
         }
       },
       {
@@ -74,10 +74,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 0.245,
-          "sample_bitdepth": 0.845,
-          "sample_swing": 6.05,
-          "sample_processing": 1.3
+          "electronic_technique": 0.2,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 10.799999999999999,
+          "sample_processing": 1.24
         }
       },
       {
@@ -86,35 +86,35 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lmm",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.695000000000001,
-          "accordion_reed_material": 1.3,
+          "free_reed_technique": 4.455,
+          "accordion_reed_material": 1.24,
           "musette_offset": 1,
-          "reed_config": 0.15,
+          "reed_config": 0.045,
           "bellows": 0,
-          "voicing_chamber": 0.845,
-          "accordion_maker_school": 4.165
+          "voicing_chamber": 0.6900000000000001,
+          "accordion_maker_school": 4.515
         }
       },
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_dixieland_lead",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.5599999999999996,
-          "clarinet_body": 2.2099999999999995,
-          "clarinet_size": 2.73,
-          "clarinet_reed": 0.845,
+          "wind_articulation": 0.26,
+          "clarinet_body": 0.52,
+          "clarinet_size": 2.035,
+          "clarinet_reed": 0.435,
           "clarinet_articulation": 0
         }
       },
@@ -124,7 +124,7 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend",
@@ -133,11 +133,11 @@
         "scores": {
           "amp_make": 2.73,
           "body_wood": 1.3,
-          "pickup_config": 1.2349999999999999,
-          "string_type": 4.16,
-          "scale_length_b": 1.3,
-          "fretted_or_not": 0.285,
-          "bass_technique": 3.165,
+          "pickup_config": 0.39,
+          "string_type": 3.3150000000000004,
+          "scale_length_b": 1.24,
+          "fretted_or_not": 0.435,
+          "bass_technique": 1.145,
           "electric_bass_string_configuration": 0
         }
       },
@@ -146,12 +146,12 @@
         "slots": {
           "tapan_form": "tapan_balkan",
           "tapan_role": "tapan_zurna_pair",
-          "tapan_build": "tapan_modern_tensioned"
+          "tapan_build": "tapan_asymmetric_skins"
         },
         "scores": {
-          "tapan_form": 23.544999999999998,
-          "tapan_role": 6.075,
-          "tapan_build": 2.09
+          "tapan_form": 11.294999999999998,
+          "tapan_role": 11.065,
+          "tapan_build": 2.0799999999999996
         }
       },
       {
@@ -159,7 +159,7 @@
         "slots": {
           "bowed_technique": "bowed_klezmer_ornamented",
           "orch_strings": "steel_orch",
-          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_top_wood": "italian_alpine_spruce_violin",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
@@ -169,16 +169,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.2999999999999998,
-          "orch_strings": 0.845,
-          "orch_top_wood": 3.2350000000000003,
-          "orch_back_wood": 3.8675,
-          "orch_varnish": 2.6,
-          "orch_setup_period": 4.1925,
-          "orch_bow": 3.575,
-          "orch_bow_stick": 3.3449999999999998,
-          "orch_articulation": 0.195,
-          "orch_rosin": 2.1125
+          "bowed_technique": 0.245,
+          "orch_strings": 0.435,
+          "orch_top_wood": 1.3649999999999998,
+          "orch_back_wood": 0.78,
+          "orch_varnish": 1.365,
+          "orch_setup_period": 2.0149999999999997,
+          "orch_bow": 6.044999999999999,
+          "orch_bow_stick": 1.2349999999999999,
+          "orch_articulation": 0.46499999999999997,
+          "orch_rosin": -0.035
         }
       }
     ],

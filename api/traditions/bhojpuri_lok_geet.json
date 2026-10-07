@@ -5,7 +5,7 @@
   "lineage": "Village song repertoire of the Bhojpuri-speaking belt of eastern Uttar Pradesh and western Bihar, documented from the nineteenth century and carried into print and recording by Bhikhari Thakur's Launda Nach theatre from the 1920s — seasonal and life-cycle cycles (kajri, chaita, sohar, vivah geet, birha, purbi) sung mostly by women in unison or by a male birha soloist, over dholak and naal with harmonium drone and manjira, in short strophic cycles at moderate walking tempo with nasal, high-tessitura, heavily portamento-laden delivery.",
   "recipe": "classic mid-1920s bhojpuri lok geet, domestic Rhythm, south Asian branch, south Asian field work, south Asian wedding, south Asian pop functional song punjabi folk indian folk. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium indian, naal drum, indian rosewood rosewood clay tabla. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 426,
-  "score": 216.339,
+  "score": 216.449,
   "config": {
     "traditions": [
       "bhojpuri_lok_geet",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 13.640000000000002,
           "voice_pitch_organization": 13.100625,
           "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 2.62
+          "voice_multitrack_stack": 2.73
         }
       },
       {

@@ -3,14 +3,14 @@
   "name": "Drone rock",
   "family": "rock",
   "lineage": "A rock practice that builds extended passages from repetitive accompaniment and sustained guitar feedback. Spacemen 3’s live Geneva album is explicitly described as drone rock by its label; Sonic Boom’s firsthand notes describe sustained keys and feedback guitars. The modern recording chain and instrument build choices are representative, not a reconstruction of the 1989 stage rig.",
-  "recipe": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
-  "recipe_chars": 634,
-  "score": 109.525,
+  "recipe": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave xpressway noise underground. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
+  "recipe_chars": 651,
+  "score": 111.345,
   "config": {
     "traditions": [
       "drone_rock",
       "no_wave",
-      "trash_rock"
+      "xpressway_noise_underground"
     ],
     "instruments": [
       {
@@ -31,7 +31,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 12.954999999999998,
+          "electric_technique": 13.979999999999999,
           "amp_make": 0,
           "body_wood": 0.48000000000000004,
           "neck_wood": 1.54,
@@ -41,7 +41,7 @@
           "string_gauge": 0.48000000000000004,
           "bridge": 1.09,
           "scale_length": 0.9600000000000002,
-          "finish": 0.845,
+          "finish": 0.195,
           "string_tuning": 17.29,
           "single_coil_pickup_construction": 0
         }
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.885,
+          "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 3.315000000000001,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 2.08
+          "voice_multitrack_stack": 2.73
         }
       }
     ],

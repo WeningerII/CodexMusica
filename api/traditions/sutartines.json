@@ -5,7 +5,7 @@
   "lineage": "Northeast Lithuanian (Aukštaitija) multipart singing documented from the 17th century and recorded intensively from the 1900s by Jonas Basanavičius and later Zenonas Slaviūnas — two, three or four women singing canonically offset lines that collide in sustained major seconds, in syncopated duple meter over nonsense refrain syllables (sodauto, lylio, tititi), often doubled by skudučiai panpipe sets, birbynė reeds or wooden trumpets where each player sounds a single pitch in interlocking hocket.",
   "recipe": "classic Northern European mid-1900s sutartinės, drone Modal, vocal branch, Slavic baltic domestic rhythm, Slavic balkan field work, wind pipe drone modal latvian folk music estonian folk music. vocal fry, breath veiled tone, straight note core, interlocked note trading. multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai, board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, birbyne. baltic outdoor village. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 596,
-  "score": 142.057,
+  "score": 141.62,
   "config": {
     "traditions": [
       "sutartines",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.4050000000000002,
+          "voice_register": 2.208125,
           "voice_quality": 15.079999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 18.914999999999992,
           "voice_tradition": 13.389999999999997,
           "voice_mechanism_compound": 6.045,
-          "voice_estill_quality": 3.9631250000000002,
+          "voice_estill_quality": 3.7681250000000004,
           "voice_speech_song": 18.069999999999997,
           "voice_ensemble_config": 18.784999999999997,
           "voice_ornament_system": 3.5100000000000016,
-          "voice_pitch_organization": 5.03875,
+          "voice_pitch_organization": 4.99375,
           "voice_processing_chain": 5.525,
           "voice_multitrack_stack": 3.1200000000000006
         }

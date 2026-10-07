@@ -3,14 +3,14 @@
   "name": "Raï",
   "family": "global",
   "lineage": "Algerian popular-music genre that emerged in Oran in the 1970s as modernization of older raï bedoui (rural bedouin praise-poetry) — codified through the Cheb generation of the 1980s: Cheb Khaled (the king of raï, his 1992 Didi the international breakthrough), Cheb Mami, Cheb Hasni (assassinated 1994 during the Algerian civil war), Chaba Fadela, Cheb Hamid",
-  "recipe": "classic West African mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
-  "recipe_chars": 671,
-  "score": 236.462,
+  "recipe": "classic West African mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry chaoui song rrways. extended whistle, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 557,
+  "score": 148.31,
   "config": {
     "traditions": [
       "rai",
-      "azmari_ethiopian",
-      "pontic_greek"
+      "chaoui_aures",
+      "rways_souss"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 9.795,
-          "voice_quality": 20.41,
+          "voice_quality": 16.964999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.365,
-          "voice_articulation": 17.615000000000002,
-          "voice_microtone": 21.8725,
-          "voice_tradition": 23.139999999999997,
-          "voice_mechanism_compound": 5.004999999999999,
-          "voice_estill_quality": 4.625,
-          "voice_speech_song": 20.8,
-          "voice_ensemble_config": 17.55,
+          "voice_vibrato": 3.9,
+          "voice_articulation": 11.439999999999996,
+          "voice_microtone": 12.674999999999995,
+          "voice_tradition": 8.97,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 4.4750000000000005,
+          "voice_speech_song": 15.079999999999997,
+          "voice_ensemble_config": 11.569999999999997,
           "voice_ornament_system": 2.3949999999999996,
-          "voice_pitch_organization": 30.409999999999997,
-          "voice_processing_chain": 11.35,
-          "voice_multitrack_stack": 6.23
+          "voice_pitch_organization": 3.315000000000001,
+          "voice_processing_chain": 8.1,
+          "voice_multitrack_stack": 5.580000000000001
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "scottish_musette",
+          "musette_offset": "dry_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
@@ -66,10 +66,10 @@
         "scores": {
           "free_reed_technique": 1.8449999999999998,
           "accordion_reed_material": 1.5,
-          "musette_offset": 0.585,
+          "musette_offset": 0.8,
           "reed_config": 0.3,
           "bellows": 0.3,
-          "voicing_chamber": 0.585,
+          "voicing_chamber": 0.9099999999999999,
           "accordion_maker_school": 6.76
         }
       },
@@ -78,14 +78,14 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_aluminum_sombaty",
-          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_skin": "darbuka_synthetic_mylar",
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 2.19,
-          "darbuka_material": 0.845,
-          "darbuka_skin": 2.08,
-          "darbuka_regional_style": 7.6049999999999995
+          "percussion_technique": 1.4949999999999999,
+          "darbuka_material": 0.585,
+          "darbuka_skin": 0.585,
+          "darbuka_regional_style": 6.76
         }
       },
       {
@@ -97,10 +97,10 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.7,
-          "poly_archetypes": 0.845,
+          "electronic_technique": 6.85,
+          "poly_archetypes": 0.39,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 2.015
+          "poly_maker_lineage": 0.325
         }
       }
     ],

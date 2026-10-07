@@ -5,7 +5,7 @@
   "lineage": "Civic brass bands of Philippine towns, rooted in Spanish-era and American-period military and parish bands, that play at fiestas, processions, funerals and band contests, with marches, pasodobles and arrangements of kundiman and popular songs; Bulacan, Malabon and Batangas towns keep long-standing bands. Bamboo bands (musikong bumbong), whose bamboo instruments imitate the brass band's, belong to the same town tradition.",
   "recipe": "classic modern banda, carnival Processional. projecting brass trumpet, clarinet, projecting brass trombone, balanced bright yellow brass modern standard saxophone, sousaphone, snare bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 272,
-  "score": 10.467,
+  "score": 11.619,
   "config": {
     "traditions": [
       "bandang_pilipino"
@@ -26,9 +26,9 @@
           "wind_articulation": -0.1,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0.3,
+          "brass_mute": 0.33599999999999997,
           "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 3.231,
+          "trumpet_bell_metal": 3.42675,
           "trumpet_maker_school": 0
         }
       },
@@ -43,8 +43,8 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "clarinet_body": -0.11850000000000002,
-          "clarinet_size": 0.063,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 0.09899999999999999,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.147
         }
@@ -64,9 +64,9 @@
           "wind_articulation": -0.1,
           "trombone_type": -0.05,
           "trombone_mouthpiece": -0.1,
-          "trombone_mute": 0.3,
+          "trombone_mute": 0.33599999999999997,
           "trombone_technique": 0.147,
-          "trombone_bell_metal": 3.231,
+          "trombone_bell_metal": 3.42675,
           "trombone_maker_school": 0
         }
       },
@@ -85,8 +85,8 @@
           "wind_articulation": -0.1,
           "sax_size": -0.05,
           "sax_reed": 0,
-          "sax_body_alloy": 3.3995,
-          "sax_mouthpiece": 0.063,
+          "sax_body_alloy": 3.59525,
+          "sax_mouthpiece": 0.09899999999999999,
           "sax_technique": -0.05,
           "sax_maker_school": 0
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "sousaphone_bore": 0,
-          "sousaphone_context": 0.063
+          "sousaphone_context": 0.4338749999999999
         }
       },
       {
@@ -118,7 +118,7 @@
           "bass_drum_beater": "bass_drum_felt_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.0945,
+          "bass_drum_size": 0.1305,
           "bass_drum_beater": 0.0315
         }
       }

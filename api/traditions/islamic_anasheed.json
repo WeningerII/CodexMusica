@@ -3,14 +3,14 @@
   "name": "Anāshīd (Islamic vocal-only devotional)",
   "family": "global",
   "lineage": "Islamic instrument-free devotional vocal tradition (nashīd plural anāshīd: \"hymns\") characterized by male-chorus a cappella or daff frame-drum accompaniment — codified through Sami Yusuf’s 2003 Al-Mu’allim record, Maher Zain, and Mesut Kurtis as canonical late-twentieth-century English-Arabic-bilingual exponents",
-  "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional murshidi and marfati gan maijbhandari gan. vocal fry, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
-  "score": 141.11,
+  "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional murshidi and marfati gan xassida. vocal fry, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 599,
+  "score": 137.027,
   "config": {
     "traditions": [
       "islamic_anasheed",
       "murshidi_marfati_gan",
-      "maijbhandari_gan"
+      "mouride_xassida"
     ],
     "instruments": [
       {
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 2.405,
-          "voice_quality": 17.23,
+          "voice_quality": 17.005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.795,
-          "voice_articulation": 8.32,
-          "voice_microtone": 12.414999999999996,
-          "voice_tradition": 19.175,
-          "voice_mechanism_compound": 0.845,
+          "voice_articulation": 7.020000000000001,
+          "voice_microtone": 13.032499999999995,
+          "voice_tradition": 19.175000000000004,
+          "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 10.01,
-          "voice_ensemble_config": 8.84,
-          "voice_ornament_system": 20.200000000000003,
-          "voice_pitch_organization": 3.8400000000000003,
-          "voice_processing_chain": 3.25,
+          "voice_speech_song": 7.865000000000001,
+          "voice_ensemble_config": 7.3450000000000015,
+          "voice_ornament_system": 21.450000000000003,
+          "voice_pitch_organization": 5.465,
+          "voice_processing_chain": 5.395000000000001,
           "voice_multitrack_stack": 3.05
         }
       },
@@ -61,9 +61,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 7.54,
+          "choir_size": 5.004999999999999,
           "choir_polyphonic_configuration": 2.6,
-          "choir_regional_canonical_configuration": 3.9,
+          "choir_regional_canonical_configuration": 2.21,
           "choir_ensemble_repertoire": 3.9
         }
       },

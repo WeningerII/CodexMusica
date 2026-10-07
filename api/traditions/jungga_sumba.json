@@ -5,7 +5,7 @@
   "lineage": "Song of the island of Sumba in East Nusa Tenggara accompanied by the jungga, a small plucked lute with few strings, played by the singer or by a partner (a two-string boat-lute card stands in).",
   "recipe": "classic modern jungga songs, ballad Poetry. solo with instrumental accompaniment. kutiyapi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 171,
-  "score": 1.614,
+  "score": 1.577,
   "config": {
     "traditions": [
       "jungga_sumba"
@@ -60,7 +60,7 @@
           "kutiyapi_technique": "kutiyapi_drone_melody"
         },
         "scores": {
-          "kutiyapi_form": 0.03712499999999999,
+          "kutiyapi_form": 0,
           "kutiyapi_strings": 0,
           "kutiyapi_technique": 0
         }

@@ -3,12 +3,14 @@
   "name": "Shaker singing (Shaker hymnody)",
   "family": "classical",
   "lineage": "American Shaker (United Society of Believers in Christ's Second Appearing) song tradition, comprising over 10,000 documented hymns composed by Shaker community members in the eighteenth-and-nineteenth-century Shaker communities of New England, New York, Ohio, and Kentucky. Performance: unison-and-octave congregational singing in characteristic strophic-narrative-or-praise form, often associated with the canonical Shaker \"labor\" of synchronized-rhythmic-walking-and-clapping worship-practice. The 1848 \"Simple Gifts\" composed by Joseph Brackett at Alfred, Maine became internationally famous after Aaron Copland's 1944 Appalachian Spring incorporation.",
-  "recipe": "classic North American late-1840s shaker singing, ritual Devotional, christian gospel branch, American sacred ritual devotional. thick, declaimed, slow rate, interlocked note trading. mountain valley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 295,
-  "score": 69.691,
+  "recipe": "classic North American late-1840s shaker singing, ritual Devotional, christian gospel branch, American sacred ritual devotional old regular baptist lined hymnody dr. watts hymnody. thick, declaimed, slow rate, interlocked note trading. mountain valley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 347,
+  "score": 111.222,
   "config": {
     "traditions": [
-      "shakers_singing"
+      "shakers_singing",
+      "old_regular_baptist_lined_hymnody",
+      "dr_watts_lined_hymnody"
     ],
     "instruments": [
       {
@@ -21,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 3.250000000000001,
-          "voice_quality": 12.2,
+          "voice_register": 3.4450000000000007,
+          "voice_quality": 17.849999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.25,
-          "voice_articulation": 6.5649999999999995,
-          "voice_microtone": 6.37,
-          "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 3.5500000000000007,
-          "voice_speech_song": 8.254999999999999,
-          "voice_ensemble_config": 6.5,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 2.4000000000000004,
-          "voice_processing_chain": 3.3799999999999994,
-          "voice_multitrack_stack": 1.4365
+          "voice_vibrato": 4.305,
+          "voice_articulation": 13.194999999999997,
+          "voice_microtone": 12.804999999999993,
+          "voice_tradition": 7.54,
+          "voice_mechanism_compound": 2.6129999999999995,
+          "voice_estill_quality": 3.8045,
+          "voice_speech_song": 14.689999999999996,
+          "voice_ensemble_config": 12.479999999999995,
+          "voice_ornament_system": 10.400000000000002,
+          "voice_pitch_organization": 2.5500000000000003,
+          "voice_processing_chain": 7.02,
+          "voice_multitrack_stack": 2.625
         }
       }
     ],

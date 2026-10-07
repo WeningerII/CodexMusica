@@ -3,30 +3,30 @@
   "name": "Rumeli Türküleri",
   "family": "global",
   "lineage": "Turkish-language folk repertoire of the Balkan Ottoman lands — Thrace, Macedonia, Kosovo, Bulgaria — carried into Turkey by muhacir populations after 1878 and 1923 and codified in the TRT repertoire by collectors such as Muzaffer Sarısözen, marked by 9/8 karşılama and 7/8 meters, clarinet and accordion lead over davul and darbuka, major-leaning makams like hicaz and rast, and lyrical march-tempo strophic songs.",
-  "recipe": "classic Southern European late-1870s rumeli türküleri, ballad Poetry, med east poetic branch, middle eastern wedding, balkan drinking song macedonian-serbian kafana drinking song dabke. thick, breath veiled tone, fast rate, interlocked note trading. grenadilla African blackwood traditional clarinet, weltmeister east German mid tier vintage volk accordion, davul, clay pre modern traditional goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, kanun drone like modal synthetic kanun, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, saz loud aluminum rim skin head modern banjo like synthetic modern stable steel modern cumbus. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 826,
-  "score": 260.915,
+  "recipe": "classic Southern European late-1870s rumeli türküleri, ballad Poetry, med east poetic branch, middle eastern wedding, balkan drinking song dabke bandari. thick, breath veiled tone, straight onset, interlocked note trading. grenadilla African blackwood traditional clarinet, weltmeister east German mid tier vintage volk accordion, davul, clay pre modern traditional goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, kanun ornamented tortoiseshell traditional kanun, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, saz loud aluminum rim skin head modern banjo like strummed cumbus. balkan sevdalinka kafana tavern. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 781,
+  "score": 266.072,
   "config": {
     "traditions": [
       "rumeli_turkuleri",
-      "macedonian_kafana_drinking",
-      "dabke"
+      "dabke",
+      "bandari_hormozgan"
     ],
     "instruments": [
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_dixieland_lead",
           "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 1.5599999999999996,
-          "clarinet_body": 2.925,
-          "clarinet_size": 2.085,
-          "clarinet_reed": 0.845,
+          "wind_articulation": 0.7149999999999999,
+          "clarinet_body": 3.0875,
+          "clarinet_size": 1.045,
+          "clarinet_reed": 0,
           "clarinet_articulation": 0
         }
       },
@@ -34,7 +34,7 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "steel_reeds",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "italian_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
@@ -42,13 +42,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 2.6850000000000005,
-          "accordion_reed_material": 0.845,
-          "musette_offset": 1,
-          "reed_config": 0.3,
-          "bellows": 0,
-          "voicing_chamber": 0.845,
-          "accordion_maker_school": 2.8600000000000003
+          "free_reed_technique": 2.4450000000000003,
+          "accordion_reed_material": 0.45499999999999996,
+          "musette_offset": 1.045,
+          "reed_config": 0.585,
+          "bellows": 0.5,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 3.33
         }
       },
       {
@@ -60,8 +60,8 @@
         },
         "scores": {
           "davul_form": 4.39,
-          "davul_context": 30.9725,
-          "davul_head_material": 2
+          "davul_context": 37.894999999999996,
+          "davul_head_material": 1.7750000000000001
         }
       },
       {
@@ -74,22 +74,22 @@
         },
         "scores": {
           "percussion_technique": 0.06499999999999999,
-          "darbuka_material": 1.04,
-          "darbuka_skin": 2.93,
-          "darbuka_regional_style": 3.055
+          "darbuka_material": 1.4949999999999999,
+          "darbuka_skin": 2.9899999999999998,
+          "darbuka_regional_style": 3.66
         }
       },
       {
         "id": "kanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
           "kanun_school": "kanun_turkish",
-          "kanun_articulation": "kanun_synthetic_pick"
+          "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 4.16,
+          "plucked_traditional_technique": 3.6800000000000006,
           "kanun_school": 3.245,
-          "kanun_articulation": 1.04
+          "kanun_articulation": 1.0399999999999998
         }
       },
       {
@@ -99,63 +99,63 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.12,
-          "voice_quality": 6.890000000000001,
+          "voice_register": 4.895,
+          "voice_quality": 8.255,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 19.434999999999995,
-          "voice_microtone": 29.574999999999996,
-          "voice_tradition": 22.494999999999997,
-          "voice_mechanism_compound": 2.075,
-          "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 26.974999999999994,
-          "voice_ensemble_config": 20.149999999999995,
-          "voice_ornament_system": 3.3475,
-          "voice_pitch_organization": 5.95,
-          "voice_processing_chain": 5.329999999999999,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 21.514999999999993,
+          "voice_microtone": 32.72749999999999,
+          "voice_tradition": 10.075,
+          "voice_mechanism_compound": 4.500000000000001,
+          "voice_estill_quality": 1.4949999999999997,
+          "voice_speech_song": 25.934999999999995,
+          "voice_ensemble_config": 22.229999999999993,
+          "voice_ornament_system": 5.280000000000001,
+          "voice_pitch_organization": 7.030000000000001,
+          "voice_processing_chain": 6.875,
+          "voice_multitrack_stack": 4.257499999999999
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_klezmer_ornamented",
-          "orch_strings": "steel_orch",
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_beef_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "arco_orch",
+          "orch_articulation": "sul_pont_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.885,
-          "orch_strings": 0.845,
-          "orch_top_wood": 3.5100000000000002,
-          "orch_back_wood": 4.875,
-          "orch_varnish": 2.24,
-          "orch_setup_period": 2.535,
-          "orch_bow": 2.73,
-          "orch_bow_stick": 2.6,
+          "bowed_technique": 0.7,
+          "orch_strings": 0.325,
+          "orch_top_wood": 3.185,
+          "orch_back_wood": 3.305,
+          "orch_varnish": 1.91,
+          "orch_setup_period": 2.0475000000000003,
+          "orch_bow": 4.225,
+          "orch_bow_stick": 2.06,
           "orch_articulation": 0.195,
-          "orch_rosin": 2.6
+          "orch_rosin": 2.1125
         }
       },
       {
@@ -169,12 +169,12 @@
           "cumbus_strings": "cumbus_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.68,
+          "plucked_traditional_technique": 6.825,
           "cumbus_neck": 1.345,
-          "cumbus_context": 1.69,
-          "cumbus_body": 2.34,
-          "cumbus_head_skin": 1.04,
-          "cumbus_strings": 1.04
+          "cumbus_context": 1.4949999999999999,
+          "cumbus_body": 2.145,
+          "cumbus_head_skin": 0.845,
+          "cumbus_strings": 0.845
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Cumbia boliviana",
   "family": "global",
   "lineage": "Bolivian cumbia of Cochabamba, Santa Cruz and La Paz from the late 1970s, codified by Maroyu, Grupo Néctar's Bolivian antecedents and Los Ronisch — minor-key 90–100 BPM cumbia with charango and zampoña or synth-panpipe leads, huayno-derived melodic cells and a plaintive high male vocal.",
-  "recipe": "classic Andean 1977-1979 cumbia boliviana, groove Percussion, Latin am branch, andean field work, andean carnival processional huayno peruano folclore jujeño. sygyt, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, andean tradition paired rows interlocking siku panpipes, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, la bella flats Detroit soul bass canon electric bass, guiro, open slap hand drum timbales, bombo andino. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 717,
-  "score": 217.03,
+  "recipe": "classic Andean 1977-1979 cumbia boliviana, groove Percussion, Latin am branch, andean field work, andean carnival processional huayno peruano folklore ecuatoriano. sygyt, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, paired rows interlocking standard register siku panpipes, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, la bella flats Detroit soul bass canon electric bass, guiro, open slap hand drum timbales, bombo andino. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 723,
+  "score": 212.81,
   "config": {
     "traditions": [
       "cumbia_boliviana",
       "huayno_peruano",
-      "folclore_jujeno"
+      "folklore_ecuatoriano"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 0.7149999999999999,
-          "charango_back": 6.76,
-          "charango_top_wood": 6.76,
-          "charango_strings": 6.76,
-          "charango_string_material": 4.745
+          "plucked_traditional_technique": 1.56,
+          "charango_back": 5.915000000000001,
+          "charango_top_wood": 5.915000000000001,
+          "charango_strings": 5.915000000000001,
+          "charango_string_material": 3.9000000000000012
         }
       },
       {
@@ -37,8 +37,8 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 6.955000000000001,
-          "siku_size": 0.39
+          "siku_construction": 6.110000000000001,
+          "siku_size": 1.04
         }
       },
       {
@@ -69,13 +69,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.2749999999999995,
-          "body_wood": 0.65,
-          "pickup_config": 1.3,
+          "amp_make": 2.73,
+          "body_wood": 0.195,
+          "pickup_config": 0.54,
           "string_type": 1.17,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.44999999999999996,
-          "bass_technique": 2.2099999999999995,
+          "fretted_or_not": 0.65,
+          "bass_technique": 2.6650000000000005,
           "electric_bass_string_configuration": 0
         }
       },
@@ -83,11 +83,11 @@
         "id": "guiro",
         "slots": {
           "guiro_origin": "guiro_cuban",
-          "guiro_striker": "guiro_comb"
+          "guiro_striker": "guiro_wood"
         },
         "scores": {
-          "guiro_origin": 0.195,
-          "guiro_striker": 0.345
+          "guiro_origin": 0.845,
+          "guiro_striker": 0.845
         }
       },
       {
@@ -98,8 +98,8 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 5.465000000000001,
-          "timbales_shell": 0.03712499999999999,
+          "percussion_technique": 5.690000000000001,
+          "timbales_shell": 0,
           "timbales_context": 0.39
         }
       },
@@ -124,35 +124,35 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.1449999999999996,
-          "voice_quality": 18.849999999999998,
+          "voice_register": 2.6000000000000005,
+          "voice_quality": 17.224999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 18.719999999999995,
-          "voice_microtone": 17.939999999999994,
-          "voice_tradition": 24.115000000000002,
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 18.654999999999998,
+          "voice_microtone": 19.174999999999994,
+          "voice_tradition": 22.0025,
           "voice_mechanism_compound": 4.42,
-          "voice_estill_quality": 15.60375,
-          "voice_speech_song": 18.069999999999997,
-          "voice_ensemble_config": 17.614999999999995,
-          "voice_ornament_system": 18.330000000000002,
+          "voice_estill_quality": 14.100000000000001,
+          "voice_speech_song": 19.044999999999995,
+          "voice_ensemble_config": 18.004999999999995,
+          "voice_ornament_system": 16.8675,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 4.863750000000001
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 4.740000000000001
         }
       },
       {
         "id": "bombo_andino",
         "slots": {
           "bombo_andino_construction": "bombo_andino_leguero",
-          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_skin": "bombo_andino_cow",
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
           "bombo_andino_construction": 1.04,
-          "bombo_andino_skin": 0.39,
-          "bombo_andino_shell_wood": 0.845
+          "bombo_andino_skin": 1.625,
+          "bombo_andino_shell_wood": 0.24
         }
       }
     ],

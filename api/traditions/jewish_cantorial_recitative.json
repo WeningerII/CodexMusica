@@ -5,7 +5,7 @@
   "lineage": "Synagogue solo-prayer art of Eastern and Central Europe, professionalized in the 19th century and reaching its recorded golden age in 1900-1940 Warsaw, Vilna and New York through Yossele Rosenblatt, Zavel Kwartin and Gershon Sirota — unmetered recitative on liturgical Hebrew set in the nusach prayer modes (Ahava Raba, Magen Avot, Adonai Malach), with extended melismatic coloratura, deliberate krekhts sobs and falsetto breaks, and either unaccompanied delivery or a male choir supplying sustained chordal support.",
   "recipe": "classic Middle Eastern early-1900s jewish cantorial recitative, ritual Devotional, Jewish branch, middle eastern funeral lament arabic nāḥa persian rowzeh-khwāni. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ, call ritual shofar. mediterranean sephardi synagogue. acoustic horn. 78rpm shellac.",
   "recipe_chars": 749,
-  "score": 190.382,
+  "score": 189.516,
   "config": {
     "traditions": [
       "jewish_cantorial_recitative",
@@ -41,13 +41,13 @@
           "voice_vibrato": 3.575,
           "voice_articulation": 14.234999999999994,
           "voice_microtone": 26.877499999999998,
-          "voice_tradition": 12.116,
+          "voice_tradition": 12.0875,
           "voice_mechanism_compound": 8.77,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 16.412499999999994,
           "voice_ensemble_config": 15.469999999999994,
           "voice_ornament_system": 12.825,
-          "voice_pitch_organization": 11.6505,
+          "voice_pitch_organization": 11.545499999999999,
           "voice_processing_chain": 2.21,
           "voice_multitrack_stack": 1.69
         }
@@ -82,10 +82,10 @@
           "keyboard_technique": 1.625,
           "pipe_organ_class": 0.1365,
           "pipe_organ_context": 4.68,
-          "pipe_organ_voicing_school": 6.045,
-          "pipe_organ_pipe_alloy": 5.044499999999999,
-          "pipe_organ_temperament": 1.365,
-          "pipe_organ_action": 5.044499999999999
+          "pipe_organ_voicing_school": 5.871,
+          "pipe_organ_pipe_alloy": 4.7715,
+          "pipe_organ_temperament": 1.353,
+          "pipe_organ_action": 4.7715
         }
       },
       {

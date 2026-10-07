@@ -3,14 +3,14 @@
   "name": "Hindustani classical (sarod-led)",
   "family": "classical",
   "lineage": "North Indian sarod tradition centered on the Maihar gharana of Allauddin Khan (1862-1972, the patriarch who taught both his son Ali Akbar Khan and his son-in-law Ravi Shankar) and the Senia Bangash gharana of the Bangash family (Hafiz Ali Khan, Amjad Ali Khan) — the sarod is the fretless metal-fingerboard plucked-lute derivation of the Afghan rabab brought to Hindustani classical from the 18th-19th centuries",
-  "recipe": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. steel coconut shell shell tun indian cedar sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, maihar gharana instrumental concert lineage classical trained lineage sitar. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 499,
-  "score": 179.85,
+  "recipe": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal maand tan singing. steel coconut shell shell tun indian cedar sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, maihar gharana instrumental concert lineage classical trained lineage sitar. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 469,
+  "score": 163.485,
   "config": {
     "traditions": [
       "hindustani_sarod",
-      "kutiyattam_recitation",
-      "hindustani_vocal"
+      "maand_rajasthani",
+      "tan_singing"
     ],
     "instruments": [
       {
@@ -26,14 +26,14 @@
           "sarod_gharana": "sarod_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 18.97,
-          "sarod_fingerboard": 1.625,
+          "plucked_traditional_technique": 18.745,
+          "sarod_fingerboard": 1.4300000000000002,
           "sarod_belly": 0.09,
-          "sarod_pluck": 10.075,
-          "sarod_taraf": 10.075,
-          "sarod_body_wood": 4.55,
-          "sarod_strings": 0.045,
-          "sarod_gharana": 11.985
+          "sarod_pluck": 9.879999999999999,
+          "sarod_taraf": 9.879999999999999,
+          "sarod_body_wood": 3.9,
+          "sarod_strings": 0.545,
+          "sarod_gharana": 7.799999999999997
         }
       },
       {
@@ -44,9 +44,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 14.169999999999998,
-          "tabla_bayan": 10.53,
-          "tabla_syahi": 5.525
+          "tabla_dayan": 13.325,
+          "tabla_bayan": 9.49,
+          "tabla_syahi": 3.6399999999999997
         }
       },
       {
@@ -60,11 +60,11 @@
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": 18.97,
-          "tanpura_size": 4.55,
-          "tanpura_jawari": 18.625,
-          "tanpura_strings": 3.835,
-          "tanpura_string_material": 0.585,
+          "plucked_traditional_technique": 18.745,
+          "tanpura_size": 2.21,
+          "tanpura_jawari": 18.25,
+          "tanpura_strings": 2.34,
+          "tanpura_string_material": 0.65,
           "tanpura_body_wood": 0.63
         }
       },
@@ -78,21 +78,21 @@
           "sitar_taraf": "taraf_13",
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
-          "sitar_main_strings": "sitar_phosphor_bronze",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
           "sitar_jawari_style": "sitar_jawari_open",
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 18.97,
+          "plucked_traditional_technique": 18.745,
           "sitar_neck": 0.045,
           "sitar_resonator": 0.39,
           "sitar_jawari": 0.09,
-          "sitar_taraf": 0.39,
+          "sitar_taraf": 0.51,
           "sitar_frets": 0.045,
-          "sitar_pluck": 9.684999999999999,
-          "sitar_main_strings": 0.09,
+          "sitar_pluck": 9.49,
+          "sitar_main_strings": 0.545,
           "sitar_jawari_style": 0.49499999999999994,
-          "sitar_gharana": 17.614999999999995
+          "sitar_gharana": 15.729999999999997
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Village and pastoral repertory across Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan and Turkmenistan documented by Soviet ethnographic expeditions from the 1920s onward — wedding and lament song, work and cradle song, and dance tunes carried on dutar, komuz, dombyra, ghijak and doira, mostly solo or in unison duo, in short strophic forms with free-rhythm openings and pentatonic or narrow-range modal melodies over an unstopped drone string.",
   "recipe": "classic mid-1920s central asian folk, hunting Song, central Asian branch, middle eastern wedding, string drone modal, middle eastern funeral lament arabic nāḥa bağlama. thick, breath veiled tone, straight note core, interlocked note trading. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, long necked teardrop bodied dombyra, song accompaniment secondary epic tellers komuz, ghijak pamiri, doira frame drum, sybyzgy. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 561,
-  "score": 180.89,
+  "score": 179.525,
   "config": {
     "traditions": [
       "central_asian_folk",
@@ -34,7 +34,7 @@
           "dombyra_strings": "dombyra_gut"
         },
         "scores": {
-          "dombyra_form": 2.385,
+          "dombyra_form": 2.5349999999999997,
           "dombyra_style": 0.8449999999999999,
           "dombyra_strings": -0.05
         }
@@ -47,7 +47,7 @@
         },
         "scores": {
           "komuz_body": 0.585,
-          "komuz_tradition": 4.825000000000001
+          "komuz_tradition": 4.735
         }
       },
       {
@@ -60,7 +60,7 @@
         "scores": {
           "bowed_technique": 0.375,
           "ghijak_pamiri_body": 0,
-          "ghijak_pamiri_style": 0.585
+          "ghijak_pamiri_style": 0.44999999999999996
         }
       },
       {
@@ -101,11 +101,11 @@
           "voice_quality": 9.035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.565,
+          "voice_vibrato": 2.34,
           "voice_articulation": 16.705,
           "voice_microtone": 33.31249999999999,
           "voice_tradition": 15.892499999999997,
-          "voice_mechanism_compound": 7.6049999999999995,
+          "voice_mechanism_compound": 7.29,
           "voice_estill_quality": 4.2250000000000005,
           "voice_speech_song": 23.952499999999997,
           "voice_ensemble_config": 15.794999999999993,
@@ -122,8 +122,8 @@
           "sybyzgy_technique": "sybyzgy_plain"
         },
         "scores": {
-          "sybyzgy_material": 0.21,
-          "sybyzgy_technique": 4.03
+          "sybyzgy_material": 0,
+          "sybyzgy_technique": 3.49
         }
       }
     ],

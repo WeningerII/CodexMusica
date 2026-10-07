@@ -43,7 +43,7 @@
           "voice_microtone": 22.294999999999987,
           "voice_tradition": 7.150000000000001,
           "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 5.245,
+          "voice_estill_quality": 5.29,
           "voice_speech_song": 23.269999999999992,
           "voice_ensemble_config": 20.929999999999993,
           "voice_ornament_system": 6.4350000000000005,
@@ -104,7 +104,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 14.934999999999999,
+          "percussion_technique": 14.785,
           "conga_set": 1.2349999999999999,
           "conga_skin": 1.145,
           "conga_shell_wood": 0.9099999999999999
@@ -117,7 +117,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 0.72,
+          "clap_technique": 0.8250000000000001,
           "clap_capture": 0.195
         }
       }

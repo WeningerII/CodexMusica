@@ -3,14 +3,14 @@
   "name": "Hardingfele slått (Hardanger-fiddle dance-tunes)",
   "family": "global",
   "lineage": "Norwegian Hardanger-fiddle slått dance-tune tradition of western-Norwegian mountain valleys (Hardanger, Voss, Telemark, Setesdal, Numedal regions). The hardingfele Hardanger-fiddle has four bowed melody strings plus four-or-five sympathetic resonant strings beneath the fingerboard, producing characteristic shimmering-overtone resonance. Slått (singular slått, plural slåttar) are solo virtuoso dance-tunes with strict regional-stylistic-conventions: springar three-beat asymmetric dance-tune, gangar two-beat walking-dance, halling acrobatic-male-display-dance, and rull rolling-tune. Performance: solo Hardanger-fiddle, with each regional sub-tradition (Setesdal, Hallingdal, Numedal, Valdres, Telemark) maintaining distinctive playing-conventions and ornamental-vocabulary.",
-  "recipe": "classic modern hardingfele slått, ballad Poetry, Celtic balladic branch, string drone modal hardanger fiddle polish village fiddle. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 325,
-  "score": 14.56,
+  "recipe": "classic modern hardingfele slått, ballad Poetry, Celtic balladic branch, string drone modal hardanger fiddle jouhikko. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 14.66,
   "config": {
     "traditions": [
       "hardingfele_slatt",
       "hardanger_fiddle",
-      "polish_village_fiddle"
+      "jouhikko_bowed_lyre"
     ],
     "instruments": [
       {
@@ -25,10 +25,10 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hardingfele_strings": 5.3950000000000005,
+          "hardingfele_strings": 4.355,
           "hardingfele_tuning": 1.3,
-          "hardingfele_strings_material": 0.195,
-          "hardingfele_inlay": 7.54,
+          "hardingfele_strings_material": 0.435,
+          "hardingfele_inlay": 8.84,
           "hardingfele_body_wood": 4.63
         }
       }

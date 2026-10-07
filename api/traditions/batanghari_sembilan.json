@@ -5,7 +5,7 @@
   "lineage": "Solo guitar-and-voice song of South Sumatra, named after the nine rivers (batanghari sembilan) that drain the Palembang hinterland, a region extending into northern Lampung, and sung in local languages with rhymed verses of longing and love. Smithsonian Folkways' Music of Indonesia vol. 20, Indonesian Guitars, presents it as lagu Batang Hari Sembilan.",
   "recipe": "classic modern batanghari sembilan, ballad Poetry. solo with instrumental accompaniment. dreadnought acoustic guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 197,
-  "score": 5.294,
+  "score": 5.174,
   "config": {
     "traditions": [
       "batanghari_sembilan"
@@ -62,7 +62,7 @@
           "string_acoustic": "dutar_strings_unspecified"
         },
         "scores": {
-          "acoustic_technique": 2.47,
+          "acoustic_technique": 2.35,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,

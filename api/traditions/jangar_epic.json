@@ -5,7 +5,7 @@
   "lineage": "Heroic epic of the Oirat Mongols about the khan Jangar and his warriors of the land of Bumba, sung by specialist jangarchi among the Oirat of Xinjiang (Hoboksar, Bortala, Ili) and the Kalmyks of Russia, and listed as Chinese national intangible cultural heritage in 2006. Singers chant long alliterative verse to a recurring melody, sometimes accompanied by the two-string tovshuur lute.",
   "recipe": "classic mid-2000s jangar, ballad Poetry. tovshuur. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 130,
-  "score": 0.448,
+  "score": 0.72,
   "config": {
     "traditions": [
       "jangar_epic"
@@ -59,7 +59,7 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 0.12999999999999998,
+          "tovshuur_strings": 0.40249999999999997,
           "tovshuur_body": 0
         }
       }

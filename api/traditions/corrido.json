@@ -3,9 +3,9 @@
   "name": "Corrido",
   "family": "vernacular",
   "lineage": "Mexican narrative-ballad song-form documented mid-19th-century onward, descended from Spanish-romance medieval narrative-poetic-tradition and re-rooted in the Mexican-revolutionary-era (1910-1920) as the canonical journalistic-historical-record song-form of Mexican rural-popular consciousness. The canonical corrido structure: 4-line octosyllabic-rhyming verses, typically 8-15 verses long, narrating a single historical-event (battles, bandit-exploits, assassinations, romantic-tragedies, social-injustice). Performed solo (guitar-and-voice) or with mariachi-conjunto, the corrido emphasizes textual-narrative-clarity over musical-elaboration (simple I-IV-V harmonic-progression, often unchanged across all verses). The modern narco-corrido subgenre 1970s-onward chronicles drug-trafficking-figures, replacing the revolutionary-era revolutionary-hero subject-matter with contemporary cartel-leadership.",
-  "recipe": "classic Southwestern American mid-1910s corrido, functional Song, corrido branch, tejano border ranchera, Latin am troubadour ballad poetry milonga. thick, full chest belt, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, cedar caoba paracho nylon treble steel bass guitarron mexicano, accordion and bajo duo corrido narrative sinaloa durango style corridos belicos edge conjunto norteno. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 760,
-  "score": 376.744,
+  "recipe": "classic Southwestern American mid-1910s corrido, functional Song, corrido branch, tejano border ranchera, Latin am troubadour ballad poetry milonga. thick, full chest belt, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, accordion and bajo duo corrido narrative sinaloa durango style corridos belicos edge conjunto norteno. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 777,
+  "score": 377.522,
   "config": {
     "traditions": [
       "corrido",
@@ -43,12 +43,12 @@
           "voice_microtone": 18.264999999999986,
           "voice_tradition": 14.3325,
           "voice_mechanism_compound": 7.344999999999999,
-          "voice_estill_quality": 13.614999999999998,
+          "voice_estill_quality": 13.952499999999997,
           "voice_speech_song": 30.67999999999999,
           "voice_ensemble_config": 20.08499999999999,
           "voice_ornament_system": 1.6249999999999998,
           "voice_pitch_organization": 3.2500000000000004,
-          "voice_processing_chain": 6.774375,
+          "voice_processing_chain": 6.943125,
           "voice_multitrack_stack": 5.135
         }
       },
@@ -102,7 +102,7 @@
           "bajo_back_wood": "bajo_mahogany_back"
         },
         "scores": {
-          "plucked_traditional_technique": 9.470624999999998,
+          "plucked_traditional_technique": 9.689999999999998,
           "bajo_courses": 9.940625,
           "bajo_top": 2.47,
           "bajo_strings": 5.03,
@@ -120,8 +120,8 @@
         },
         "scores": {
           "guitarron_body": 1.235,
-          "guitarron_body_wood": 7.994999999999999,
-          "guitarron_strings": 0.8700000000000001,
+          "guitarron_body_wood": 7.8,
+          "guitarron_strings": 1.03875,
           "guitarron_string_material": 4.68,
           "guitarron_technique": 11.245000000000001
         }
@@ -135,7 +135,7 @@
         },
         "scores": {
           "conjunto_norteno_lineup": 23.529999999999987,
-          "conjunto_norteno_repertoire": 42.028749999999995,
+          "conjunto_norteno_repertoire": 42.107499999999995,
           "conjunto_norteno_substyle": 23.26
         }
       }

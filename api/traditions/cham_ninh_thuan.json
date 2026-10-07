@@ -5,7 +5,7 @@
   "lineage": "Music of the Cham of Ninh Thuận and Bình Thuận on Vietnam's south-central coast, heard at the Katê festival at the Po Klong Garai and Po Rome towers and at life-cycle rites. Its core ensemble pairs the saranai shawm with the double-headed ginăng drum and the single-headed baranưng frame drum, accompanying ritual dance. The serunai card stands in for the saranai, and generic membrane-drum and frame-drum cards for the ginăng and baranưng.",
   "recipe": "classic modern cham music of ninh thuận, ritual Devotional, indigenous branch. serunai shawm, membrane drum pulse resonant acoustic membrane drum, credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 11.761,
+  "score": 12.64,
   "config": {
     "traditions": [
       "cham_ninh_thuan"
@@ -18,7 +18,7 @@
           "serunai_bell": "serunai_bell_wood"
         },
         "scores": {
-          "serunai_form": 0.6,
+          "serunai_form": 0.6855,
           "serunai_bell": 0
         }
       },
@@ -29,8 +29,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 6.0874999999999995,
-          "acoustic_membrane_drum_gesture": 5.224
+          "acoustic_membrane_drum_form": 6.515,
+          "acoustic_membrane_drum_gesture": 5.59
         }
       },
       {

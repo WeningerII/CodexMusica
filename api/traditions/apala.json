@@ -3,14 +3,14 @@
   "name": "Apala",
   "family": "global",
   "lineage": "Yoruba Muslim percussion-and-praise genre of southwestern Nigeria, developed in the 1930s-40s to rouse the faithful after Ramadan fasting and codified commercially by Haruna Ishola and Ayinla Omowura from the 1950s onward — a talking-drum ensemble of omele and sakara frame drums with agidigbo thumb-piano bass, agogo bell and shekere, moving in fast Yoruba dance metre under a lead praise-singer and chorus trading proverb-laden call-and-response in tonal Yoruba.",
-  "recipe": "classic West African mid-1930s apala, praise Song, sub saharan African branch, middle east n African praise song, west African groove percussion balafon music shailat. thick, declaimed, fast rate, interlocked note trading. deep toned lead voice pitch bending talking bent pitch sakara dundun talking drum, deep box apala foundation responsorial melodic bass found metal agidigbo, foundational gourd bass rhythm calabash shekere, agogo, goje. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
-  "recipe_chars": 572,
-  "score": 311.335,
+  "recipe": "classic West African mid-1930s apala, praise Song, sub saharan African branch, middle east n African praise song, west African groove percussion balafon music agbadza. vocal fry, declaimed, fast rate, interlocked note trading. deep toned lead voice pitch bending talking bent pitch sakara dundun talking drum, deep box apala foundation responsorial melodic bass found metal agidigbo, foundational gourd bass rhythm calabash shekere, agogo, goje. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 576,
+  "score": 303.305,
   "config": {
     "traditions": [
       "apala",
       "balafon_mande",
-      "shailat"
+      "agbadza_ewe"
     ],
     "instruments": [
       {
@@ -18,12 +18,12 @@
         "slots": {
           "sakara_form": "sakara_form_lead",
           "sakara_stroke": "sakara_stroke_talking",
-          "sakara_frame": "sakara_frame_clay"
+          "sakara_frame": "sakara_frame_wood"
         },
         "scores": {
-          "sakara_form": 15.25,
-          "sakara_stroke": 11.459999999999999,
-          "sakara_frame": 8.625
+          "sakara_form": 15.174999999999999,
+          "sakara_stroke": 10.105,
+          "sakara_frame": 8.25
         }
       },
       {
@@ -34,8 +34,8 @@
           "agidigbo_lamella": "agidigbo_recycled_metal"
         },
         "scores": {
-          "agidigbo_tradition": 12.485,
-          "agidigbo_playing": 11.145,
+          "agidigbo_tradition": 12.395,
+          "agidigbo_playing": 10.27,
           "agidigbo_lamella": 8.399999999999999
         }
       },
@@ -46,8 +46,8 @@
           "dundun_technique": "dundun_squeeze"
         },
         "scores": {
-          "dundun_role": 0.345,
-          "dundun_technique": 0.845
+          "dundun_role": 0.3,
+          "dundun_technique": 0.8550000000000001
         }
       },
       {
@@ -57,8 +57,8 @@
           "shekere_beads": "shekere_cowrie"
         },
         "scores": {
-          "shekere_size": 3.125,
-          "shekere_beads": 8.489999999999998
+          "shekere_size": 3.08,
+          "shekere_beads": 8.295
         }
       },
       {
@@ -68,8 +68,8 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 1.69,
-          "agogo_context": 2.795
+          "agogo_bell": 1.04,
+          "agogo_context": 3.48
         }
       },
       {
@@ -82,15 +82,15 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "goje_form": 9.739999999999998,
-          "goje_repertoire": 15.135000000000002,
+          "goje_form": 9.694999999999999,
+          "goje_repertoire": 12.465,
           "goje_material": 0.6
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -99,31 +99,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 2.3599999999999994,
-          "voice_quality": 15.049999999999997,
+          "voice_register": 0.75,
+          "voice_quality": 12.799999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.95,
-          "voice_articulation": 25.025,
-          "voice_microtone": 22.685,
-          "voice_tradition": 47.8075,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 4.110000000000001,
-          "voice_speech_song": 28.665,
-          "voice_ensemble_config": 24.635000000000005,
-          "voice_ornament_system": 10.559999999999999,
-          "voice_pitch_organization": 9.814999999999998,
-          "voice_processing_chain": 5.07,
-          "voice_multitrack_stack": 3.932500000000002
+          "voice_articulation": 26.39,
+          "voice_microtone": 25.09,
+          "voice_tradition": 49.4,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 3.6400000000000006,
+          "voice_speech_song": 27.69,
+          "voice_ensemble_config": 25.350000000000005,
+          "voice_ornament_system": 9.27,
+          "voice_pitch_organization": 10.439999999999998,
+          "voice_processing_chain": 3.1200000000000006,
+          "voice_multitrack_stack": 2.8749999999999996
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Song of the Teke (Batéké) of the plateaux straddling south-eastern Gabon and the Republic of Congo, accompanied by the ngwomi (ngomi), a many-stringed plucked instrument, and by sanza lamellophones; Pierre Sallée recorded the ngwomi among the Gabonese Teke in 1966-68, and his Ocora LP of Gabonese music gives a side to the Batéké. The adungu arched-harp and Congolese lukembi cards stand in for the ngwomi and sanza.",
   "recipe": "classic mid-1960s teke ngwomi and sanza song, ballad Poetry. solo with instrumental accompaniment. adungu, lukembi congolese. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 217,
-  "score": 1.787,
+  "score": 1.793,
   "config": {
     "traditions": [
       "teke_harp_sanza_song"
@@ -60,7 +60,7 @@
           "adungu_stringing": "dutar_strings_unspecified"
         },
         "scores": {
-          "adungu_size": 1.437125,
+          "adungu_size": 1.44275,
           "adungu_setting": -0.10500000000000001,
           "adungu_stringing": 0
         }

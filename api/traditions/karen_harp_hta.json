@@ -5,7 +5,7 @@
   "lineage": "Traditional music of the Karen (Sgaw and Pwo) peoples of Kayin State and the Myanmar-Thailand borderlands. Its best-known instrument is the Karen arched harp, which accompanies song, and its oral literature lives in hta, sung poetry that carries history, moral teaching and courtship. The Burmese saung gauk card stands in for the smaller Karen harp.",
   "recipe": "classic modern karen harp song and hta poetry, ballad Poetry. concert standard saung gauk. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 170,
-  "score": 6.214,
+  "score": 6.14,
   "config": {
     "traditions": [
       "karen_harp_hta"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.07424999999999998,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },

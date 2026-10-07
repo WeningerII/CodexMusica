@@ -5,7 +5,7 @@
   "lineage": "Music of the Kelantanese shadow play (wayang kulit Kelantan, formerly called wayang Siam), in which a single tok dalang voices every puppet and narrates the Hikayat Maharaja Wana (Ramayana) repertoire while directing the ensemble. The troupe plays serunai shawm, a pair of gedombak goblet drums (the generic membrane-drum card stands in), paired gendang and geduk barrel drums, a pair of canang kettle gongs, kesi cymbals and a pair of hanging tetawak gongs.",
   "recipe": "classic modern wayang kulit kelantan, art Music, southeast Asian branch. solo with instrumental accompaniment, single lead single track no stacking. serunai shawm, membrane drum pulse resonant acoustic membrane geduk drum, gendang melayu, canang kettle gong, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 351,
-  "score": 11.507,
+  "score": 11.694,
   "config": {
     "traditions": [
       "wayang_kulit_kelantan"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.0622499999999997,
+          "voice_ensemble_config": 3.1499999999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -59,7 +59,7 @@
           "serunai_bell": "serunai_bell_wood"
         },
         "scores": {
-          "serunai_form": 0.6371249999999999,
+          "serunai_form": 0.6,
           "serunai_bell": 0
         }
       },
@@ -95,7 +95,7 @@
         },
         "scores": {
           "geduk_pair": 0.39,
-          "geduk_context": 0.0315
+          "geduk_context": 0.168
         }
       },
       {

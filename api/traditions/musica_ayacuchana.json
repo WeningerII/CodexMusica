@@ -5,7 +5,7 @@
   "lineage": "Manuel Silva — El Hombre, complete Huayno Music of Peru Vol.1 track21. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic música ayacuchana, protest Song. one note per syllable, single lead single track no stacking. classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 231,
-  "score": 5.371,
+  "score": 5.476,
   "config": {
     "traditions": [
       "musica_ayacuchana"
@@ -66,7 +66,7 @@
           "acoustic_technique": -0.25,
           "string_tuning": 0,
           "top_wood_classical": 0.78,
-          "bracing_classical": 0.609,
+          "bracing_classical": 0.714,
           "string_classical": 0,
           "attack_technique_cl": 0
         }

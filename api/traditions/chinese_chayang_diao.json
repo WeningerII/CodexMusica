@@ -5,7 +5,7 @@
   "lineage": "Chinese rice-planting song (chayang-diao, 插秧调) tradition continuous from premodern Chinese-agricultural village-labor practice across rice-growing Southern China (Hunan, Jiangsu, Fujian, Jiangxi, Sichuan, Yunnan) through 20th-century Chinese-folklorist documentation into modern Chinese-rural-and-folk-revival practice; foundational repertoire integrates rice-paddy planting and weeding and harvest-song coordination",
   "recipe": "classic modern chinese chayang-diao, field Work, east Asian branch, south Asian field work, east Asian lullaby, east Asian wedding japanese komoriuta korean jajanga. thick, breath veiled tone, straight onset, interlocked note trading. qudi southern jiangnan kunqu canonical lyrical melodic dizi, bamboo pipes copper brass free reeds canonical Chinese straight sheng. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 446,
-  "score": 156.455,
+  "score": 155.405,
   "config": {
     "traditions": [
       "chinese_chayang_diao",
@@ -38,12 +38,12 @@
           "voice_quality": 3.315000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6300000000000003,
+          "voice_vibrato": 2.4350000000000005,
           "voice_articulation": 10.464999999999996,
           "voice_microtone": 11.699999999999992,
-          "voice_tradition": 35.870000000000005,
+          "voice_tradition": 35.195,
           "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 1.235,
+          "voice_estill_quality": 1.145,
           "voice_speech_song": 16.639999999999997,
           "voice_ensemble_config": 10.399999999999997,
           "voice_ornament_system": 16.770000000000003,
@@ -66,7 +66,7 @@
           "dizi_membrane": 0.435,
           "dizi_pitch": 0.585,
           "dizi_body_material": 0.585,
-          "dizi_regional_style": 1.99
+          "dizi_regional_style": 1.945
         }
       },
       {
@@ -81,7 +81,7 @@
           "free_reed_technique": 4.9799999999999995,
           "sheng_size": 0.195,
           "sheng_context": 8.515,
-          "sheng_pipe_material": 8.704999999999998
+          "sheng_pipe_material": 8.659999999999998
         }
       }
     ],

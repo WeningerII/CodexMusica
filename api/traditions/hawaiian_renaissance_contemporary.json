@@ -1,0 +1,210 @@
+{
+  "id": "hawaiian_renaissance_contemporary",
+  "name": "Contemporary Hawaiian music (1970s Hawaiian Renaissance)",
+  "family": "global",
+  "lineage": "Hawaiian popular music of the 1970s Hawaiian Renaissance, when young musicians revived Hawaiian-language songs, slack-key guitar and falsetto and joined them to folk-rock and acoustic-band arrangements. Sunday Mānoa's Guava Jam (1969) is often treated as its starting point, followed by the Sons of Hawaii, Olomana, the Gabby Pahinui Hawaiian Band and releases on Panini Records.",
+  "recipe": "classic North American contemporary hawaiian music, functional Song, tropical song branch. unprocessed natural acoustic. traditional koa ukulele, acoustic guitar 12 string, dreadnought acoustic guitar, upright bass. honolulu hawaiian slack key lanai. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 345,
+  "score": 51.427,
+  "config": {
+    "traditions": [
+      "hawaiian_renaissance_contemporary"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_duet_quartet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.685875,
+          "voice_multitrack_stack": 0.37312500000000004,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_soprano",
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 15.735999999999999,
+          "ukulele_style": 16.461,
+          "ukulele_wood": 16.333125
+        }
+      },
+      {
+        "id": "acoustic_guitar_12_string",
+        "slots": {
+          "twelve_string_body": "twelve_string_jumbo_steel",
+          "twelve_string_tuning": "twelve_string_standard_pairs",
+          "twelve_string_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "twelve_string_body": 0,
+          "twelve_string_tuning": 0.1725,
+          "twelve_string_strings": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "dutar_strings_unspecified",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "ukulele": [
+        "ukulele_size",
+        "ukulele_style",
+        "ukulele_wood"
+      ],
+      "acoustic_guitar_12_string": [
+        "twelve_string_body",
+        "twelve_string_tuning",
+        "twelve_string_strings"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ]
+    },
+    "room": "honolulu_hawaiian_slack_key_lanai",
+    "archetype": "arch_early_tape_us_commercial",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_ua_610_tube",
+      "console": "clean",
+      "comp": "comp_la2a_optical",
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "honolulu_hawaiian_slack_key_lanai",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_duet_quartet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "ukulele_size": "ukulele_soprano",
+      "ukulele_style": "ukulele_strum",
+      "ukulele_wood": "ukulele_koa",
+      "acoustic_technique": "acoustic_flatpicked",
+      "twelve_string_body": "twelve_string_jumbo_steel",
+      "twelve_string_tuning": "twelve_string_standard_pairs",
+      "twelve_string_strings": "dutar_strings_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "dutar_strings_unspecified",
+      "upright_strings": "dutar_strings_unspecified",
+      "upright_play": "pizz_upright"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_ua_610_tube",
+    "chain_comp": "comp_la2a_optical",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Taiwanese Hokkien folk song of the Hengchun peninsula in southern Pingtung, sung to a small set of named tunes such as Sixiangqi and Pingpudiao, with the singer accompanying himself on the long-necked two-string moon lute (the yueqin card stands in). The tradition reached national attention through the 1967 folk-song collecting campaign of Hsu Tsang-houei and Shih Wei-liang.",
   "recipe": "classic late-1960s hengchun minyao, ballad Poetry. solo with instrumental accompaniment. yueqin. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 5.364,
+  "score": 5.208,
   "config": {
     "traditions": [
       "hengchun_minyao"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.28049999999999997,
+          "voice_multitrack_stack": 0.16349999999999998,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.325,
-          "yueqin_use": 3.21825,
+          "yueqin_use": 3.17925,
           "yueqin_construction": 0,
           "yueqin_strings": 0
         }

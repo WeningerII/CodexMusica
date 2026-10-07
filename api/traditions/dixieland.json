@@ -3,14 +3,14 @@
   "name": "Dixieland",
   "family": "jazz",
   "lineage": "New Orleans-derived collective-improvisation jazz recorded from 1917 by the Original Dixieland Jass Band and revived nationally from the late 1930s by Lu Watters, Turk Murphy and Eddie Condon — brisk 2/4 and 4/4 at 180-240 BPM, a cornet lead ornamented simultaneously by clarinet obbligato above and trombone tailgate below, banjo and tuba or string bass rhythm, and multi-strain march-and-rag forms ending in stop-time breaks.",
-  "recipe": "classic North American 1937-1939 dixieland, improv On Frame, early branch, American jazz pre jazz ragtime, blues narrative jug band. yellow brass canonical brass band conn vintage early jazz canon front line cornet, bach 42 canonical American orchestral tenor front line student commercial trombone, ebonite hard rubber klezmer tradition front line clarinet, wood walnut warmer than maple scruggs stelling bluegrass setup banjo 5 string, compact tuba brass piston valves American school besson sovereign British brass band tuba, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 831,
-  "score": 313.964,
+  "recipe": "classic North American 1937-1939 dixieland, improv On Frame, early branch, American jazz pre jazz ragtime, blues narrative jug band novelty piano. yellow brass canonical brass band conn vintage early jazz canon front line cornet, bach 42 canonical American orchestral tenor front line student commercial trombone, ebonite hard rubber klezmer tradition front line clarinet, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, compact tuba brass piston valves American school besson sovereign British brass band tuba, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 860,
+  "score": 261.435,
   "config": {
     "traditions": [
       "dixieland",
-      "ragtime",
-      "jug_band"
+      "jug_band",
+      "novelty_piano"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 10.545357142857142,
-          "cornet_pitch": 15.954999999999997,
-          "cornet_context": 5.3085,
-          "cornet_bell_metal": 8.579999999999998,
-          "cornet_maker_school": 15.925
+          "wind_articulation": 10.477,
+          "cornet_pitch": 14.426249999999998,
+          "cornet_context": 4.918750000000001,
+          "cornet_bell_metal": 7.994999999999998,
+          "cornet_maker_school": 12.35
         }
       },
       {
@@ -36,19 +36,19 @@
           "wind_articulation": "wind_dixieland_lead",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
-          "trombone_mute": "straight_mute_trb",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 10.545357142857142,
-          "trombone_type": 23.625,
-          "trombone_mouthpiece": 24.534714285714287,
-          "trombone_mute": 0.195,
-          "trombone_technique": 0.78,
-          "trombone_bell_metal": 0.585,
-          "trombone_maker_school": 7.41
+          "wind_articulation": 10.477,
+          "trombone_type": 18.75,
+          "trombone_mouthpiece": 19.625,
+          "trombone_mute": 0.11999999999999998,
+          "trombone_technique": 0.39,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 5.07
         }
       },
       {
@@ -61,11 +61,11 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 10.545357142857142,
-          "clarinet_body": 2.7300000000000004,
+          "wind_articulation": 10.477,
+          "clarinet_body": 1.7550000000000001,
           "clarinet_size": 0.45499999999999996,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0
+          "clarinet_articulation": 0.195
         }
       },
       {
@@ -77,22 +77,22 @@
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
           "banjo_rim_wood": "banjo_walnut_rim",
-          "banjo_neck_wood": "banjo_maple_neck",
-          "banjo_strings": "banjo_gut_minstrel",
-          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_strings": "banjo_light_clawhammer",
+          "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
           "banjo_back": 0.65,
-          "tone_ring": 1.8944999999999999,
-          "banjo_head": 24.115000000000006,
+          "tone_ring": 1.863,
+          "banjo_head": 22.620000000000005,
           "banjo_pot": 0,
           "banjo_play": 1.15,
-          "banjo_rim_wood": 1.2349999999999999,
-          "banjo_neck_wood": 0.78,
-          "banjo_strings": 0.25999999999999945,
-          "banjo_bridge": 0.78,
-          "banjo_setup_period": 23.595000000000002
+          "banjo_rim_wood": 0.195,
+          "banjo_neck_wood": 0.39,
+          "banjo_strings": 0.16799999999999998,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 22.1
         }
       },
       {
@@ -106,37 +106,37 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": 0.375,
-          "tuba_pitch": 9.294999999999998,
-          "tuba_context": 6.37,
-          "tuba_bell_metal": 0.585,
-          "tuba_valve_system": 7.41,
-          "tuba_maker_school": 8.579999999999998
+          "wind_articulation": -0.05,
+          "tuba_pitch": 8.904999999999998,
+          "tuba_context": 4.355,
+          "tuba_bell_metal": 0.39,
+          "tuba_valve_system": 5.07,
+          "tuba_maker_school": 7.994999999999998
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_stride_left_hand",
+          "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.9190000000000003,
+          "keyboard_technique": 0.8699999999999999,
           "grand_piano_size": 0.585,
           "grand_piano_brand": 0.585,
-          "piano_hammer": 7.8975,
-          "piano_rim": 11.602500000000001,
-          "piano_soundboard": 3.5425,
-          "piano_pinblock": 2.365,
-          "piano_plate": 0.325,
-          "piano_pitch_standard": 3.8675
+          "piano_hammer": 5.005000000000001,
+          "piano_rim": 6.240000000000001,
+          "piano_soundboard": 1.17,
+          "piano_pinblock": 1.3349999999999997,
+          "piano_plate": 0.12999999999999998,
+          "piano_pitch_standard": 3.185
         }
       },
       {
@@ -147,8 +147,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.815,
-          "drumhead": 28.190928571428568,
+          "drum_technique": 31.784999999999997,
+          "drumhead": 23.37275,
           "drum_kit_kick_pedal": 0
         }
       }

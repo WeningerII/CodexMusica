@@ -5,7 +5,7 @@
   "lineage": "New York City style codified by Gogol Bordello (Eugene Hutz, from 1999) and paralleled by Balkan Beat Box and Golem — Romani and Balkan wedding-band material with accordion and violin leads over aksak and fast duple frameworks, accelerating from 120 to 200 BPM within a song, fused with punk distorted guitar, driving eighth-note bass and shouted, heavily accented vocals.",
   "recipe": "classic North American late-1990s gypsy punk, distorted Rock, punk branch, balkan drinking song, European carnival processional balkan brass band macedonian-serbian kafana drinking song. thick, breath veiled tone, fast rate, interlocked note trading. accordion, magic rosin modern acrylic base fiddle, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 736,
-  "score": 275.757,
+  "score": 274.272,
   "config": {
     "traditions": [
       "gypsy_punk",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.775,
+          "voice_register": 5.925000000000001,
           "voice_quality": 9.685000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.795,
+          "voice_vibrato": 2.78,
           "voice_articulation": 22.36,
           "voice_microtone": 21.644999999999996,
-          "voice_tradition": 22.345,
+          "voice_tradition": 21.805,
           "voice_mechanism_compound": 3.769999999999999,
           "voice_estill_quality": 2.99,
           "voice_speech_song": 27.43,
           "voice_ensemble_config": 21.384999999999998,
-          "voice_ornament_system": 1.9149999999999996,
+          "voice_ornament_system": 2.0799999999999996,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 6.254999999999999,
+          "voice_processing_chain": 6.164999999999999,
           "voice_multitrack_stack": 6.175
         }
       },
@@ -68,7 +68,7 @@
           "accordion_reed_material": 0.975,
           "musette_offset": 1.69,
           "reed_config": 0.5,
-          "bellows": 0.15,
+          "bellows": 0,
           "voicing_chamber": 0.845,
           "accordion_maker_school": 0.65
         }
@@ -84,7 +84,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.95,
+          "bowed_technique": 1.9949999999999999,
           "fiddle_strings": 0.845,
           "fiddle_bow": 2.1125,
           "fiddle_mute": 0.45499999999999996,
@@ -105,7 +105,7 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
@@ -114,13 +114,13 @@
           "amp_make": 13.745,
           "body_wood": 1.4949999999999999,
           "neck_wood": 1.105,
-          "fretboard": 1.95,
+          "fretboard": 1.74,
           "pickup_magnet": 2.795,
           "pickup_winding": 0.845,
           "string_material": 0.845,
-          "bridge": 2.585,
+          "bridge": 2.24,
           "scale_length": 1.69,
-          "string_gauge": 0.545,
+          "string_gauge": 0.65,
           "finish": 0.45499999999999996,
           "string_tuning": 3.965
         }
@@ -139,11 +139,11 @@
         },
         "scores": {
           "amp_make": 3.98,
-          "body_wood": 2.54,
-          "pickup_config": 2.6,
+          "body_wood": 2.3449999999999998,
+          "pickup_config": 2.24,
           "string_type": 6.045,
           "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0.43499999999999994,
+          "fretted_or_not": 0.435,
           "bass_technique": 17,
           "electric_bass_string_configuration": 0
         }
@@ -157,7 +157,7 @@
         },
         "scores": {
           "drum_technique": 21.580000000000002,
-          "drumhead": 1.71,
+          "drumhead": 1.665,
           "drum_kit_kick_pedal": 0
         }
       },

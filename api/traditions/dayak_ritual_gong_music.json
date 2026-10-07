@@ -5,7 +5,7 @@
   "lineage": "Gong-and-drum music of the Dayak peoples of Central and East Kalimantan that accompanies the chants and dances of ritual specialists in two major rites: the tiwah, the Ngaju secondary funeral that sends the souls of the dead to the upper world, and the belian healing ceremonies of the Benuaq, led by a shaman. Ensembles combine large hanging bossed gongs (the tawak card stands in), a row of small kettle gongs such as the Benuaq kelentangan (the canang card stands in) and drums (the generic membrane-drum card stands in).",
   "recipe": "classic modern dayak ritual gong music, ritual Devotional, indigenous branch. single lead single track no stacking. tawak canang kettle gong, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 8.758,
+  "score": 8.748,
   "config": {
     "traditions": [
       "dayak_ritual_gong_music"
@@ -59,7 +59,7 @@
           "tawak_beater": "tawak_padded"
         },
         "scores": {
-          "tawak_size": 0.39675,
+          "tawak_size": 0.273,
           "tawak_beater": 0.1365
         }
       },
@@ -70,7 +70,7 @@
           "canang_beater": "canang_padded"
         },
         "scores": {
-          "canang_form": 0.3,
+          "canang_form": 0.33899999999999997,
           "canang_beater": 0.1365
         }
       },
@@ -81,7 +81,7 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.824625,
+          "acoustic_membrane_drum_form": 3.9,
           "acoustic_membrane_drum_gesture": 2.6
         }
       }

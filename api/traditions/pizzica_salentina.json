@@ -3,14 +3,14 @@
   "name": "Pizzica salentina (Salento spider-dance)",
   "family": "global",
   "lineage": "Pizzica salentina Southern Italian folk-dance-and-music tradition of the Salento peninsula (southern Puglia), historically tied to the tarantismo ritual-healing tradition where the pizzica dance ostensibly cured tarantism. Characterized by fast 12/8 or 6/8 meter, virtuoso tamburello frame-drum lead, and characteristic call-and-response courtship-and-warrior-dance choreography. Performance contexts include the annual Notte della Taranta festival in Melpignano (founded 1998, now drawing 200,000+ attendees), the canonical Salento-village wedding-and-festival cycle, and (post-2000) the international neo-folk revival circuit. Distinguished from Neapolitan tarantella by pizzica's Salentine regional dialect register and slower tempo-of-instrumental-acceleration arc.",
-  "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, fast rate, interlocked note trading. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 622,
-  "score": 282.145,
+  "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion mapuche tayil genealogical chant pagode. thick, breath veiled tone, fast rate, interlocked note trading. tambourine orch, bowl back Italian Italian alpine spruce brescian calace Brazilian rosewood pre 1992 vintage mandolin, sitka spruce spirit varnish shellac alcohol ipe Brazilian walnut violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 619,
+  "score": 250.195,
   "config": {
     "traditions": [
       "pizzica_salentina",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "pagode"
     ],
     "instruments": [
       {
@@ -24,43 +24,43 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6,
-          "voice_quality": 38.61,
+          "voice_register": 7.6499999999999995,
+          "voice_quality": 33.474999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 24.765,
-          "voice_microtone": 24.375,
-          "voice_tradition": 28.144999999999996,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 11.765,
-          "voice_speech_song": 26.260000000000005,
-          "voice_ensemble_config": 25.35,
-          "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 7.410000000000001
+          "voice_vibrato": 2.535,
+          "voice_articulation": 23.789999999999992,
+          "voice_microtone": 23.009999999999994,
+          "voice_tradition": 23.595,
+          "voice_mechanism_compound": 5.459999999999999,
+          "voice_estill_quality": 10.1725,
+          "voice_speech_song": 24.96,
+          "voice_ensemble_config": 23.529999999999998,
+          "voice_ornament_system": 3.575,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 8.645,
+          "voice_multitrack_stack": 9.165000000000001
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
           "tambourine_orch_jingle": "tambourine_orch_brass",
-          "tambourine_orch_context": "tambourine_orch_orch"
+          "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.585,
-          "tambourine_orch_context": 0
+          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_context": 0.5199999999999999
         }
       },
       {
@@ -70,29 +70,29 @@
           "mandolin_shape": "flat_back",
           "mandolin_top": "italian_alpine_spruce_m",
           "mandolin_back": "big_leaf_maple",
-          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_bracing": "mandolin_gilchrist_graduation",
           "mandolin_strings": "martin_m_mandolin",
           "mandolin_fingerboard": "mandolin_brazilian_rosewood_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 2.0500000000000003,
-          "mandolin_shape": 4.97,
+          "acoustic_technique": 3.0749999999999997,
+          "mandolin_shape": 4.62,
           "mandolin_top": 1.45,
-          "mandolin_back": 1.3,
-          "mandolin_bracing": 0.585,
-          "mandolin_strings": 0.54,
-          "mandolin_fingerboard": 1.69,
-          "mandolin_pickup": 25.610000000000003
+          "mandolin_back": 0.65,
+          "mandolin_bracing": 0.54,
+          "mandolin_strings": 0.65,
+          "mandolin_fingerboard": 2.275,
+          "mandolin_pickup": 24.634999999999994
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "synthetic_orch",
+          "orch_strings": "silver_wound_lamb_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
@@ -101,16 +101,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0,
-          "orch_top_wood": 4.615,
-          "orch_back_wood": 0.585,
-          "orch_varnish": 5.265,
-          "orch_setup_period": -0.07,
+          "bowed_technique": 0.4875,
+          "orch_strings": 0.325,
+          "orch_top_wood": 3.12,
+          "orch_back_wood": 0.4225,
+          "orch_varnish": 2.925,
+          "orch_setup_period": 0.6174999999999999,
           "orch_bow": 6.069999999999999,
-          "orch_bow_stick": 0.8449999999999999,
-          "orch_articulation": 1.4949999999999999,
-          "orch_rosin": 0.585
+          "orch_bow_stick": 1.945,
+          "orch_articulation": 1.04,
+          "orch_rosin": 0.6824999999999999
         }
       }
     ],

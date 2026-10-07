@@ -5,7 +5,7 @@
   "lineage": "Long heroic epics of the Central Highlands, among them the Ê Đê khan, such as the epic of Đam San, and the Bahnar hơmon, recited by a single narrator through one or several nights in the communal longhouse, alternating speech-like narration with sung passages. Between 2001 and 2007 a Vietnam Academy of Social Sciences project recorded and transcribed a large body of epics from living narrators.",
   "recipe": "classic early-2000s khan and hơmon, ballad Poetry. recitative rhythmically free pitched speech, solo unaccompanied, single lead single track no stacking. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 233,
-  "score": 3.226,
+  "score": 3.388,
   "config": {
     "traditions": [
       "tay_nguyen_epic_recitation"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.15,
-          "voice_ensemble_config": 1.1407500000000004,
+          "voice_ensemble_config": 1.1947500000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.0855,
+          "voice_multitrack_stack": 1.1935,
           "voice_tessitura": 0
         }
       }

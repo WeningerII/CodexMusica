@@ -5,7 +5,7 @@
   "lineage": "Sung poetry of the Nzakara and Zande of south-eastern Central African Republic, carried by a five-string arched harp (kundi) whose short repeating formulas underlie the singer's verses; harpists were attached to the courts of the Bandia rulers. Recordings by Eric de Dampierre and Marc Chemillier span 1965 to 1993, and Chemillier analysed the canonic structure of the harp formulas. The adungu arched-harp card stands in for the Nzakara-Zande harp.",
   "recipe": "classic mid-1960s nzakara and zande harp poetry, ballad Poetry. adungu. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 163,
-  "score": 4.927,
+  "score": 4.933,
   "config": {
     "traditions": [
       "nzakara_zande_harp_poetry"
@@ -60,7 +60,7 @@
           "adungu_stringing": "dutar_strings_unspecified"
         },
         "scores": {
-          "adungu_size": 2.9371250000000004,
+          "adungu_size": 2.94275,
           "adungu_setting": 0.15000000000000002,
           "adungu_stringing": 0
         }

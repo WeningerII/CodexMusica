@@ -6,6 +6,32 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added — Geographic gap fill, batch 2: 922 traditions from the remaining 21 regions
+
+Batch 2 adds the rest of the audit's verified gap list. It covers:
+
+- the 13 remaining regional sweeps;
+- Western, Nordic and Southern Europe, and Japan and Korea;
+- the two control regions;
+- the Jewish/Roma and settler/diaspora sweeps.
+
+The largest additions are the Caribbean, Mexico, Colombia and Venezuela (85), India (71),
+West Africa (67), Russia's peoples and Siberia (61), and Brazil and the Southern Cone (57).
+The new entries are pinned in 146 countries and territories.
+
+The method is the same as batch 1: author, independent review, pinned
+source-unspecified parts, sound-word signatures, and a render sweep that retuned 33
+entries.
+
+Nine candidates were not added. Four were duplicates, three lacked documentation, and
+two islands, Rodrigues and San Andrés, are missing from the basemap.
+
+Through neighbour adjacency, 659 existing static recipes move. No instrument, room,
+tuning or chain changed, and 217 regression fixtures are re-recorded. Every pair is in
+`docs/geographic-gap-fill/batch2-existing-recipe-changes.csv`.
+
+Catalog totals: 8360 traditions and 1667 instruments. <!-- check_docs:ignore -->
+
 ### Added — Geographic gap fill, batch 1: 360 traditions from the five worst-covered regions
 
 The geographic attribution audit's verified gap list is being added region by region,

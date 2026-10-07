@@ -3,14 +3,14 @@
   "name": "Balkan Pop",
   "family": "pop",
   "lineage": "Southeast European commercial popular song that consolidated in Belgrade, Zagreb, Sofia and Skopje from the 1960s Jugoton/PGP-RTB era and mutated after 1990 into the pop-folk mainstream — 4/4 dance-pop tempos of 100-140 BPM with occasional 7/8 and 9/8 quotation, melodic lines built on augmented-second Balkan and Ottoman-derived modes, heavily ornamented melismatic female lead vocals, and arrangements pairing synthesizers and drum machines with amplified accordion, clarinet and tapan.",
-  "recipe": "classic Central European mid-1960s balkan pop, functional Song, europop branch, European wedding roma balkan svatba greek gamílio glendí. thick, breath veiled tone, straight note core, interlocked note trading. brass castagnari Italian premium folk music straight accordion, dense hardwood grenadilla African blackwood traditional clarinet, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, pyramid pure nickel bass British mid 60s era sub heavy electric bass, bolt tuned tapan, tamburica prim. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
-  "recipe_chars": 805,
-  "score": 253.131,
+  "recipe": "classic Central European mid-1960s balkan pop, functional Song, europop branch, European wedding qırımtatar musiqisi roma balkan svatba. thick, breath veiled tone, straight note core, interlocked note trading. brass castagnari Italian premium folk music straight accordion, ebonite hard rubber klezmer tradition clarinet, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, behringer rd 8 modern clone analog circuit reproduction TR-808, pyramid pure nickel bass British mid 60s era electric bass, bolt tuned tapan, tamburica prim. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 776,
+  "score": 257.237,
   "config": {
     "traditions": [
       "balkan_pop",
-      "roma_svatba_balkan",
-      "greek_gamilio_glendi"
+      "crimean_tatar_music",
+      "roma_svatba_balkan"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 18.20649999999999,
-          "voice_quality": 8.384999999999998,
+          "voice_register": 17.199999999999992,
+          "voice_quality": 17.93999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9355,
-          "voice_articulation": 18.135,
-          "voice_microtone": 20.8,
-          "voice_tradition": 30.91599999999999,
-          "voice_mechanism_compound": 5.46,
-          "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 22.165,
-          "voice_ensemble_config": 20.15,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 2.7299999999999995,
-          "voice_processing_chain": 4.985,
-          "voice_multitrack_stack": 6.825000000000001
+          "voice_vibrato": 2.7100000000000004,
+          "voice_articulation": 20.605,
+          "voice_microtone": 23.822499999999998,
+          "voice_tradition": 24.325000000000003,
+          "voice_mechanism_compound": 6.305,
+          "voice_estill_quality": 4.68,
+          "voice_speech_song": 25.285,
+          "voice_ensemble_config": 21.970000000000002,
+          "voice_ornament_system": 1.6899999999999995,
+          "voice_pitch_organization": 1.8849999999999996,
+          "voice_processing_chain": 4.925,
+          "voice_multitrack_stack": 5.98
         }
       },
       {
@@ -57,35 +57,35 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
+          "musette_offset": "italian_tuning",
+          "reed_config": "lmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 5.5955,
-          "accordion_reed_material": 1.3715000000000002,
-          "musette_offset": 0.195,
-          "reed_config": 0.3075,
+          "free_reed_technique": 5.245000000000001,
+          "accordion_reed_material": 1.34,
+          "musette_offset": 0.65,
+          "reed_config": 0.15,
           "bellows": 0,
           "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 4.16
+          "accordion_maker_school": 4.225
         }
       },
       {
         "id": "clarinet",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.4049999999999994,
-          "clarinet_body": 2.44,
-          "clarinet_size": 1.645,
+          "wind_articulation": 0.7149999999999999,
+          "clarinet_body": 1.3649999999999998,
+          "clarinet_size": 1.6900000000000002,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.5849999999999999
         }
@@ -94,15 +94,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.139499999999998,
-          "poly_archetypes": 0.255,
+          "electronic_technique": 12.944999999999999,
+          "poly_archetypes": 0.195,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 3.42
+          "poly_maker_lineage": 3.0150000000000006
         }
       },
       {
@@ -114,16 +114,16 @@
         },
         "scores": {
           "tr808_voice": 0.325,
-          "drum_machine_808_context": 3.7700000000000005,
-          "tr808_production_origin": 4.225
+          "drum_machine_808_context": 2.925,
+          "tr808_production_origin": 3.17
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
@@ -131,13 +131,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.9099999999999999,
+          "amp_make": 1.3324999999999998,
           "body_wood": 0.39,
-          "pickup_config": 1.04,
-          "string_type": 3.055,
-          "scale_length_b": 1.04,
-          "fretted_or_not": 0.1815,
-          "bass_technique": 2.189,
+          "pickup_config": 0.39,
+          "string_type": 2.21,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.4875,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,9 +149,9 @@
           "tapan_build": "tapan_modern_tensioned"
         },
         "scores": {
-          "tapan_form": 15.253999999999996,
-          "tapan_role": 15.314999999999998,
-          "tapan_build": 3.545
+          "tapan_form": 17.599999999999994,
+          "tapan_role": 11.314999999999998,
+          "tapan_build": 2.42
         }
       },
       {
@@ -161,8 +161,8 @@
           "tamburica_prim_technique": "tamburica_prim_single_strokes"
         },
         "scores": {
-          "tamburica_prim_system": 1.735,
-          "tamburica_prim_technique": 2.6649999999999996
+          "tamburica_prim_system": 1.8250000000000002,
+          "tamburica_prim_technique": 3.965
         }
       }
     ],

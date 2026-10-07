@@ -5,7 +5,7 @@
   "lineage": "Narrative singing of the Bai of the Dali basin around Erhai Lake, sung in the Bai language by one singer accompanied by a sanxian player, from long 'big book' scripts of historical tales, legends and local stories. Southern, northern and Haidong schools of tune are distinguished, and dabenqu is listed on China's national intangible-heritage register.",
   "recipe": "classic modern dabenqu, ballad Poetry. narrative, solo with instrumental accompaniment. sanxian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 4.455,
+  "score": 4.294,
   "config": {
     "traditions": [
       "bai_dabenqu"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8310000000000002,
+          "voice_ensemble_config": 0.7938750000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -65,7 +65,7 @@
         "scores": {
           "plucked_traditional_technique": -0.05,
           "sanxian_size": 2,
-          "sanxian_context": 0.12374999999999999,
+          "sanxian_context": 0,
           "sanxian_head": -0.05,
           "sanxian_strings": 0,
           "sanxian_body_wood": -0.05

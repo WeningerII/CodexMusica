@@ -5,7 +5,7 @@
   "lineage": "Urdu-language guitar-and-synth pop that began with Nazia and Zoheb Hassan's Biddu-produced Disco Deewane (1980) and was codified by Vital Signs' Dil Dil Pakistan (1987) and Junoon's Sufi rock of the 1990s, recorded at EMI Pakistan Karachi and Lahore: 100-130 BPM backbeat kits, chorused clean guitar and Juno-class pads, tabla or dholak doubling the snare, and Urdu vocals that sit between ghazal phrasing and Western pop melody.",
   "recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu naat. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, late 1970s thirds fifths octaves 16 24 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 642,
-  "score": 250.378,
+  "score": 249.667,
   "config": {
     "traditions": [
       "pakistani_pop",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 17.638999999999992,
+          "voice_register": 17.391499999999994,
           "voice_quality": 13.176499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.9499999999999997,
           "voice_articulation": 26.065,
           "voice_microtone": 30.355,
-          "voice_tradition": 15.121874999999998,
+          "voice_tradition": 14.936249999999998,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 31.720000000000002,
           "voice_ensemble_config": 23.855,
           "voice_ornament_system": 7.45,
-          "voice_pitch_organization": 4.488625,
+          "voice_pitch_organization": 4.204000000000001,
           "voice_processing_chain": 4.225,
           "voice_multitrack_stack": 3.97425
         }
@@ -59,7 +59,7 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "hard_ash",
           "neck_wood": "mahogany_neck",
-          "fretboard": "pau_ferro_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
@@ -74,7 +74,7 @@
           "amp_make": 1.5,
           "body_wood": 0.195,
           "neck_wood": 0.13599999999999998,
-          "fretboard": 0.105,
+          "fretboard": 0.195,
           "pickup_magnet": 0.045,
           "string_material": 0.105,
           "string_gauge": 0.286,
@@ -89,7 +89,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 1.589,
-          "body_wood": 0.27199999999999996,
+          "body_wood": 0.346,
           "pickup_config": 0.84,
           "string_type": 4.105,
-          "scale_length_b": 0.9937500000000001,
+          "scale_length_b": 0.8700000000000001,
           "fretted_or_not": 0.65,
           "bass_technique": 3.9890000000000003,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 13.719,
+          "electronic_technique": 13.764,
           "poly_archetypes": 1.885,
           "poly_voices": 0.39,
           "poly_maker_lineage": 1.04
@@ -148,7 +148,7 @@
           "dholak_use": 0.845,
           "dholak_construction": 1.95,
           "dholak_head": 0.735,
-          "dholak_tensioning": 0.85875
+          "dholak_tensioning": 0.735
         }
       },
       {
@@ -174,7 +174,7 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 0.129,
+          "multitrack_stack_density": 0.174,
           "multitrack_stack_era_aesthetic": 1.53525,
           "multitrack_stack_processing": 0.195
         }

@@ -5,7 +5,7 @@
   "lineage": "Group dance-song of the Minahasa of North Sulawesi in which lines of men and women sing and dance under a leader, accompanied by a tambur drum (the generic membrane-drum card stands in). It is performed in three parts: maowey kamberu, thanksgiving for the rice harvest; marambak, the consecration of a new house; and lalayaan, a dance of young people's courtship.",
   "recipe": "classic modern maengket, ritual Devotional, indigenous branch. single leader group response, single lead single track no stacking. call response single leader group response global traditional polyphonic choir ensemble, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 352,
-  "score": 16.377,
+  "score": 16.255,
   "config": {
     "traditions": [
       "maengket_minahasa"
@@ -74,7 +74,7 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.248374999999999,
+          "acoustic_membrane_drum_form": 4.1265,
           "acoustic_membrane_drum_gesture": 2.9899999999999998
         }
       }

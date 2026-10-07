@@ -5,7 +5,7 @@
   "lineage": "Song accompanied by the kacaping, a two-string plucked boat lute of the Bugis, Makassar and Mandar peoples of South and West Sulawesi, played by the singer or alongside singers for entertainment. A two-string boat-lute card stands in for the kacaping.",
   "recipe": "classic modern kacaping, ballad Poetry. solo with instrumental accompaniment. kutiyapi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 167,
-  "score": 0.963,
+  "score": 1.002,
   "config": {
     "traditions": [
       "kacaping_sulawesi"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8125,
+          "voice_ensemble_config": 0.8515000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

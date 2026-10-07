@@ -1,0 +1,192 @@
+{
+  "id": "gugak_gwanhyeonak",
+  "name": "Gugak gwanhyeonak (Korean traditional-instrument orchestra)",
+  "family": "classical",
+  "lineage": "Gugak gwanhyeonak is the large conducted orchestra of Korean traditional instruments, arranged in sections like a Western orchestra and playing newly composed works (changjak gugak) and arrangements. The Seoul Metropolitan Traditional Music Orchestra was the first, followed by the KBS Korean Traditional Music Orchestra and the National Orchestra of Korea, which use enlarged and reformed instruments such as the 25-string gayageum.",
+  "recipe": "classic modern gugak gwanhyeonak, art Music, east Asian branch. paulownia Korean gayageum, court paulownia canonical Korean bamboo geomungo, paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, bamboo canonical Korean arundo donax large canonical Korean gugak piri, paulownia canonical Korean horse dog asymmetric canonical Korean janggu concert accompaniment. shoebox concert hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 470,
+  "score": 62.959,
+  "config": {
+    "traditions": [
+      "gugak_gwanhyeonak"
+    ],
+    "instruments": [
+      {
+        "id": "gayageum",
+        "slots": {
+          "gayageum_type": "modern_25_gayageum",
+          "gayageum_technique": "gayageum_bare",
+          "gayageum_top_wood": "gayageum_paulownia_korean",
+          "gayageum_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "gayageum_type": 0.8085,
+          "gayageum_technique": 4.3675,
+          "gayageum_top_wood": 3.9,
+          "gayageum_strings": 0
+        }
+      },
+      {
+        "id": "geomungo",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "geomungo_use": "geomungo_classical",
+          "geomungo_technique": "geomungo_suldae",
+          "geomungo_strings": "dutar_strings_unspecified",
+          "geomungo_top_wood": "geomungo_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.563,
+          "geomungo_use": 1.0185,
+          "geomungo_technique": 4.8505,
+          "geomungo_strings": 0,
+          "geomungo_top_wood": 3.9
+        }
+      },
+      {
+        "id": "haegeum",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "haegeum_use": "haegeum_court",
+          "haegeum_strings": "dutar_strings_unspecified",
+          "haegeum_body_wood": "haegeum_paulownia_body"
+        },
+        "scores": {
+          "bowed_technique": 2.563,
+          "haegeum_use": 1.3,
+          "haegeum_strings": 0,
+          "haegeum_body_wood": 3.9
+        }
+      },
+      {
+        "id": "daegeum",
+        "slots": {
+          "daegeum_body": "daegeum_bamboo_cheongong",
+          "daegeum_context": "daegeum_minsogak"
+        },
+        "scores": {
+          "daegeum_body": 4.987,
+          "daegeum_context": 0
+        }
+      },
+      {
+        "id": "piri",
+        "slots": {
+          "piri_size": "piri_hyangpiri",
+          "piri_body_wood": "piri_bamboo_canonical",
+          "piri_reed": "piri_arundo_large_canonical"
+        },
+        "scores": {
+          "piri_size": 0.0315,
+          "piri_body_wood": 3.9,
+          "piri_reed": 9.1
+        }
+      },
+      {
+        "id": "janggu_concert_accompaniment",
+        "slots": {
+          "janggu_use": "janggu_pansori",
+          "janggu_construction": "janggu_wood",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_concert_lineage": "janggu_concert_lineage_source_unspecified"
+        },
+        "scores": {
+          "janggu_use": 1.3,
+          "janggu_construction": 4.0945,
+          "janggu_shell_wood": 3.9,
+          "janggu_head": 3.9,
+          "janggu_concert_lineage": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "gayageum": [
+        "gayageum_type",
+        "gayageum_technique",
+        "gayageum_top_wood",
+        "gayageum_strings"
+      ],
+      "geomungo": [
+        "plucked_traditional_technique",
+        "geomungo_use",
+        "geomungo_technique",
+        "geomungo_strings",
+        "geomungo_top_wood"
+      ],
+      "haegeum": [
+        "bowed_technique",
+        "haegeum_use",
+        "haegeum_strings",
+        "haegeum_body_wood"
+      ],
+      "daegeum": [
+        "daegeum_body",
+        "daegeum_context"
+      ],
+      "piri": [
+        "piri_size",
+        "piri_body_wood",
+        "piri_reed"
+      ],
+      "janggu_concert_accompaniment": [
+        "janggu_use",
+        "janggu_construction",
+        "janggu_shell_wood",
+        "janggu_head",
+        "janggu_concert_lineage"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "gayageum_type": "modern_25_gayageum",
+      "gayageum_technique": "gayageum_bare",
+      "gayageum_top_wood": "gayageum_paulownia_korean",
+      "gayageum_strings": "dutar_strings_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "geomungo_use": "geomungo_classical",
+      "geomungo_technique": "geomungo_suldae",
+      "geomungo_strings": "dutar_strings_unspecified",
+      "geomungo_top_wood": "geomungo_paulownia",
+      "bowed_technique": "bowed_legato_classical",
+      "haegeum_use": "haegeum_court",
+      "haegeum_strings": "dutar_strings_unspecified",
+      "haegeum_body_wood": "haegeum_paulownia_body",
+      "daegeum_body": "daegeum_bamboo_cheongong",
+      "daegeum_context": "daegeum_minsogak",
+      "piri_size": "piri_hyangpiri",
+      "piri_body_wood": "piri_bamboo_canonical",
+      "piri_reed": "piri_arundo_large_canonical",
+      "janggu_use": "janggu_pansori",
+      "janggu_construction": "janggu_wood",
+      "janggu_shell_wood": "janggu_paulownia_canonical",
+      "janggu_head": "janggu_horse_dog_asymmetric",
+      "janggu_concert_lineage": "janggu_concert_lineage_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

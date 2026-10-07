@@ -3,12 +3,14 @@
   "name": "Paiwan nose flute and drone song (Pingtung)",
   "family": "global",
   "lineage": "The Paiwan of the Pingtung and Taitung hills sing songs in which a leader's melody runs over a drone held by the group, and play the double nose flute (lalingedan), usually with one pipe fingered for the melody over a second pipe that sounds mainly a drone; the nose flute, a man's instrument associated with courtship and mourning, and the double mouth flute are registered in Taiwan as an Important Traditional Performing Art. The tongali card stands in for the Paiwan nose flute.",
-  "recipe": "classic modern paiwan nose flute and drone song, drone Modal, vocal branch, wind pipe drone modal. solo over vocal choral drone, single lead single track no stacking. tongali. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 255,
-  "score": 14.765,
+  "recipe": "classic modern paiwan nose flute and drone song, drone Modal, vocal branch, wind pipe drone modal tsuur bashkir kurai and uzun-kyuy. solo over vocal choral drone, single lead single track no stacking. tongali. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 289,
+  "score": 16.32,
   "config": {
     "traditions": [
-      "paiwan_nose_flute_song"
+      "paiwan_nose_flute_song",
+      "altai_uriankhai_tsuur",
+      "bashkir_kurai_uzun_kyuy"
     ],
     "instruments": [
       {
@@ -44,7 +46,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 12.739999999999997,
+          "voice_ensemble_config": 16.769999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -59,8 +61,8 @@
           "tongali_context": "tongali_courtship"
         },
         "scores": {
-          "tongali_size": 0.735,
-          "tongali_context": 0.39
+          "tongali_size": 1.035,
+          "tongali_context": 1.1900000000000002
         }
       }
     ],

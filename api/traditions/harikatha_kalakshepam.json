@@ -1,0 +1,194 @@
+{
+  "id": "harikatha_kalakshepam",
+  "name": "Harikatha kalakshepam (Tamil sung religious discourse)",
+  "family": "global",
+  "lineage": "Harikatha, or kathakalakshepam, is a solo religious discourse in which the performer (bhagavatar) tells a story from the epics or the lives of saints, moving between spoken exposition and songs in Carnatic ragas while keeping time on a pair of wooden clappers (chipla). It took shape in Thanjavur in the nineteenth century out of the Marathi Naradiya kirtan brought south under the Maratha rulers, with Thanjavur Krishna Bhagavatar as its founding exponent, and is accompanied by harmonium or violin and mridangam. The jingled chapri card stands in for the chipla.",
+  "recipe": "classic modern harikatha kalakshepam, ritual Devotional, hindu branch. carnatic, solo with instrumental accompaniment, carnatic gamaka kampita nokku jaaru sphurita. jackwood barrel canonical carnatic thanjavur lineage mridangam, harmonium indian, chapri. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 17.535,
+  "config": {
+    "traditions": [
+      "harikatha_kalakshepam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.1685,
+          "voice_microtone": 0,
+          "voice_tradition": 2.4699999999999998,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 3.12,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "mridangam",
+        "slots": {
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_thanjavur"
+        },
+        "scores": {
+          "mridangam_heads": 1.0815000000000001,
+          "mridangam_use": 0,
+          "mridangam_shell_wood": 1.69,
+          "mridangam_heads_material": 0.546,
+          "mridangam_lineage": 2.1365
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "harmonium_action": 0.714,
+          "harmonium_voicing": 0.6194999999999999,
+          "harmonium_use": 1.701
+        }
+      },
+      {
+        "id": "chapri",
+        "slots": {
+          "chapri_form": "chapri_jingled",
+          "chapri_technique": "chapri_single"
+        },
+        "scores": {
+          "chapri_form": 0,
+          "chapri_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "mridangam": [
+        "mridangam_heads",
+        "mridangam_use",
+        "mridangam_shell_wood",
+        "mridangam_heads_material",
+        "mridangam_lineage"
+      ],
+      "harmonium_indian": [
+        "free_reed_technique",
+        "harmonium_action",
+        "harmonium_voicing",
+        "harmonium_use"
+      ],
+      "chapri": [
+        "chapri_form",
+        "chapri_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "carnatic_classical_tradition",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "mridangam_heads": "mridangam_standard",
+      "mridangam_use": "mridangam_carnatic",
+      "mridangam_shell_wood": "mridangam_jackwood_canonical",
+      "mridangam_heads_material": "mridangam_goat_buffalo",
+      "mridangam_lineage": "mridangam_thanjavur",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "harmonium_action": "harmonium_hand_pump",
+      "harmonium_voicing": "harmonium_male",
+      "harmonium_use": "harmonium_classical",
+      "chapri_form": "chapri_jingled",
+      "chapri_technique": "chapri_single"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Hasidic niggun",
   "family": "global",
   "lineage": "Hasidic Jewish wordless-melody (niggun, plural niggunim) tradition sung at farbrengen celebratory gatherings, weddings, the Rebbes tisch (table), the third Shabbat meal (seudah shlishit), and post-prayer celebratory contexts across the major Hasidic dynastic courts — Lubavitch (Chabad), Breslov, Bobov, Modzitz (founded 1898, particularly known for its musical-niggun creativity), Vizhnitz, Ger, Satmar; sung communally with the inherited dynasty-specific niggun repertoire, often slow-contemplative accelerating to fast-ecstatic, accompanied by hand-clapping and table-thumping but without instruments on Shabbat or Yom Tov",
-  "recipe": "classic Eastern European late-1890s hasidic niggun, ritual Devotional, Jewish branch, Sufi ritual devotional maijbhandari gan mevlevi ayin. breath veiled tone, slow rate, interlocked note trading, neutral third half flat. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. eastern european chassidic farbrengen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 471,
-  "score": 124.252,
+  "recipe": "classic Eastern European late-1890s hasidic niggun, ritual Devotional, Jewish branch, Sufi ritual devotional xassida. breath veiled tone, slow rate, interlocked note trading, neutral third half flat. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. eastern european chassidic farbrengen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 474,
+  "score": 106.44,
   "config": {
     "traditions": [
       "hasidic_niggun",
-      "maijbhandari_gan",
-      "mevlevi_ayin"
+      "mouride_xassida",
+      "alevi_bektasi_cem"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "qawwali_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 0.39,
-          "voice_quality": 13.064999999999994,
+          "voice_quality": 13.844999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.0625,
-          "voice_articulation": 10.854999999999997,
-          "voice_microtone": 14.852499999999996,
-          "voice_tradition": 17.5175,
-          "voice_mechanism_compound": 4.095,
-          "voice_estill_quality": 4.3225,
-          "voice_speech_song": 11.699999999999996,
-          "voice_ensemble_config": 9.945,
-          "voice_ornament_system": 12.100000000000001,
-          "voice_pitch_organization": 4.8950000000000005,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 4.030000000000001
+          "voice_vibrato": 2.0799999999999996,
+          "voice_articulation": 9.425,
+          "voice_microtone": 12.512499999999996,
+          "voice_tradition": 14.95,
+          "voice_mechanism_compound": 2.0799999999999996,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 9.23,
+          "voice_ensemble_config": 7.67,
+          "voice_ornament_system": 13.200000000000001,
+          "voice_pitch_organization": 1.9825,
+          "voice_processing_chain": 6.435000000000001,
+          "voice_multitrack_stack": 2.990000000000001
         }
       },
       {
@@ -58,13 +58,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 6.109999999999999,
-          "choir_polyphonic_configuration": 2.145,
-          "choir_regional_canonical_configuration": 3.055,
-          "choir_ensemble_repertoire": 2.5349999999999997
+          "choir_size": 4.614999999999999,
+          "choir_polyphonic_configuration": 2.08,
+          "choir_regional_canonical_configuration": 2.209999999999999,
+          "choir_ensemble_repertoire": 3.25
         }
       }
     ],

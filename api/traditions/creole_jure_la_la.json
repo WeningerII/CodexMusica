@@ -1,0 +1,222 @@
+{
+  "id": "creole_jure_la_la",
+  "name": "Juré and la-la (Louisiana Creole pre-zydeco music)",
+  "family": "global",
+  "lineage": "Older layers of the Black Creole French music of the prairies of southwest Louisiana, before zydeco took its name. Juré was unaccompanied singing for dancing, a leader answered by a group over handclaps and stamping feet, recorded by John and Alan Lomax in 1934 around Jennings; la-la was the Creole house-dance music in which a single-row diatonic accordion and fiddle played two-steps, waltzes and bluesy reels over a scraped rubboard, kept up into the late 20th century by the accordionist Alphonse 'Bois Sec' Ardoin and the fiddler Canray Fontenot. The Cajun-accordion card stands for this single-row diatonic button accordion, an instrument Creole and Cajun musicians share.",
+  "recipe": "classic mid-1930s juré and la-la, drone Modal, string branch. single leader group response, single lead single track no stacking. hand clap, foot stomp, single row diatonic Cajun tradition bellows chop drone foot cajun accordion, fiddle, frottoir. hardwood living. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 339,
+  "score": 28.766,
+  "config": {
+    "traditions": [
+      "creole_jure_la_la"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 4.549,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.189,
+          "voice_multitrack_stack": 2.6,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0,
+          "clap_capture": 0.063
+        }
+      },
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_boot",
+          "stomp_surface": "stomp_floorboard_porch"
+        },
+        "scores": {
+          "stomp_footwear": 0,
+          "stomp_surface": 0
+        }
+      },
+      {
+        "id": "cajun_accordion",
+        "slots": {
+          "cajun_accordion_make": "cajun_single_row_c_or_d",
+          "cajun_accordion_style": "cajun_bellows_chop_drone"
+        },
+        "scores": {
+          "cajun_accordion_make": 10.4,
+          "cajun_accordion_style": 4.55
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 1.8199999999999998,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.063,
+          "fiddle_articulation": 0.29400000000000004,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "frottoir",
+        "slots": {
+          "frottoir_construction": "frottoir_vest",
+          "frottoir_striker": "frottoir_thimbles"
+        },
+        "scores": {
+          "frottoir_construction": 5.0315,
+          "frottoir_striker": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "hand_clap": [
+        "clap_technique",
+        "clap_capture"
+      ],
+      "foot_stomp": [
+        "stomp_footwear",
+        "stomp_surface"
+      ],
+      "cajun_accordion": [
+        "cajun_accordion_make",
+        "cajun_accordion_style"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "frottoir": [
+        "frottoir_construction",
+        "frottoir_striker"
+      ]
+    },
+    "room": "hardwood_living",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "hardwood_living",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "clap_technique": "clap_flat_sharp",
+      "clap_capture": "clap_room_natural",
+      "stomp_footwear": "stomp_boot",
+      "stomp_surface": "stomp_floorboard_porch",
+      "cajun_accordion_make": "cajun_single_row_c_or_d",
+      "cajun_accordion_style": "cajun_bellows_chop_drone",
+      "bowed_technique": "bowed_rough_drone",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "frottoir_construction": "frottoir_vest",
+      "frottoir_striker": "frottoir_thimbles"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

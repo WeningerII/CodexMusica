@@ -5,7 +5,7 @@
   "lineage": "Polish góralski Tatra-Mountain highlander music-and-dance tradition of the Podhale region in southern Poland, performed by the Polish góral mountain-folk community. The kapela góralska ensemble centers on the prymista (lead violinist) accompanied by sekund (second-violin) and basy (three-string Tatra-style upright-bass), with characteristic open-string drone-and-shifted-tonal-center modal vocabulary distinct from broader Polish lowland folk-music. Performance contexts span village-festival celebrations, wedding ceremonies, and (since 1968) the international Folk-Music Festival in Zakopane. The post-1980 Tatra-cultural-revival under the local Highlander Union has consolidated institutional preservation. Distinguished from Slovak fujara solo and Czech moravian folk by Polish góralski Podhale-Tatra specific stylistic-conventions.",
   "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing sean-nós singing. thick, breath veiled tone, straight note core, interlocked note trading. half rectified French Polish shellac pad Baroque setup short neck violin orchestral. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 376,
-  "score": 223.694,
+  "score": 223.677,
   "config": {
     "traditions": [
       "polish_goralski",
@@ -46,7 +46,7 @@
           "voice_estill_quality": 5.495,
           "voice_speech_song": 20.604999999999993,
           "voice_ensemble_config": 16.70499999999999,
-          "voice_ornament_system": 30.71625,
+          "voice_ornament_system": 30.7,
           "voice_pitch_organization": 3.445000000000001,
           "voice_processing_chain": 6.499999999999999,
           "voice_multitrack_stack": 6.825

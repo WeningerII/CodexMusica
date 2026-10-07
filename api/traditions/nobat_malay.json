@@ -5,7 +5,7 @@
   "lineage": "Royal ceremonial ensemble of the Malay sultanates, held as regalia and played only for coronations, installations and other court rites; it survives in Kedah, Terengganu, Perak and Selangor and in Brunei. The core ensemble is the nehara kettledrum (a Persian-Indian naqareh card stands in), a pair of gendang nobat barrel drums, the serunai shawm and the long silver nafiri trumpet, with a gong in the Kedah ensemble.",
   "recipe": "classic modern nobat, art Music, southeast Asian branch. nafiri trumpet, serunai shawm, gendang melayu, naqareh, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 4.884,
+  "score": 4.731,
   "config": {
     "traditions": [
       "nobat_malay"
@@ -29,7 +29,7 @@
           "serunai_bell": "serunai_bell_wood"
         },
         "scores": {
-          "serunai_form": 0.33525,
+          "serunai_form": 0.3,
           "serunai_bell": 0
         }
       },
@@ -42,7 +42,7 @@
         },
         "scores": {
           "gendang_melayu_role": 0.105,
-          "gendang_melayu_stroke": 0.1175,
+          "gendang_melayu_stroke": 0,
           "gendang_melayu_head": 0
         }
       },

@@ -3,25 +3,25 @@
   "name": "Steelpan (Trinidad steel orchestra)",
   "family": "global",
   "lineage": "Trinidadian idiom born in 1930s-40s Laventille and Port of Spain when tamboo bamboo bands were replaced by tuned oil-drum idiophones, codified by Ellie Mannette, Winston 'Spree' Simon, and Bertie Marshall into the modern steel orchestra of tenor, double-second, guitar, cello and bass pans backed by an engine-room of iron, scratcher and drum kit, playing calypso and arranged concert works at Panorama.",
-  "recipe": "classic Caribbean mid-1930s steelpan, groove Percussion, Caribbean branch, Caribbean carnival processional, Latin am groove percussion trinidadian panorama steelpan competition cumbia colombiana. arranged concert stage steel steelpan, steel orchestra, pre muffled edge muffled brushes-and-sticks drum kit, lead synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas, agogo, pvc guiro, ampeg b15 amp American 60s bass amp flip top character mahogany stainless steel electric bass. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 708,
-  "score": 102.508,
+  "recipe": "classic Caribbean mid-1930s steelpan, groove Percussion, Caribbean branch, Caribbean carnival processional, Latin am groove percussion son de los diablos cumbia colombiana. arranged concert stage steel steelpan, steel orchestra, kevlar aramid extreme tension brushes-and-sticks drum kit, lead synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas, agogo, pvc guiro, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 682,
+  "score": 85.257,
   "config": {
     "traditions": [
       "steelpan",
-      "caribbean_carnival_steelpan_panorama",
+      "son_de_los_diablos",
       "cumbia_colombiana"
     ],
     "instruments": [
       {
         "id": "steelpan",
         "slots": {
-          "steelpan_voice": "double_seconds",
+          "steelpan_voice": "cello_pan",
           "steelpan_context": "steelpan_orchestra"
         },
         "scores": {
-          "steelpan_voice": 1.13,
-          "steelpan_context": 9.004999999999999
+          "steelpan_voice": 1.18,
+          "steelpan_context": 7.255
         }
       },
       {
@@ -33,20 +33,20 @@
         },
         "scores": {
           "steel_orchestra_sections": 0.845,
-          "steel_orchestra_context": 9.885,
-          "steel_orchestra_size": 2.1900000000000004
+          "steel_orchestra_context": 3.385,
+          "steel_orchestra_size": 1.54
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.965,
-          "drumhead": 4.27,
+          "drum_technique": 16.379999999999995,
+          "drumhead": 2.545,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -59,10 +59,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 9.44,
-          "conga_set": 1.885,
-          "conga_skin": 2.145,
-          "conga_shell_wood": 2.795
+          "percussion_technique": 13.815,
+          "conga_set": 1.4949999999999999,
+          "conga_skin": 1.3,
+          "conga_shell_wood": 2.6
         }
       },
       {
@@ -72,8 +72,8 @@
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 2.145,
-          "agogo_context": 4.42
+          "agogo_bell": 1.3,
+          "agogo_context": 2.145
         }
       },
       {
@@ -83,8 +83,8 @@
           "guiro_striker": "guiro_metal"
         },
         "scores": {
-          "guiro_origin": 2.145,
-          "guiro_striker": 2.145
+          "guiro_origin": 1.3,
+          "guiro_striker": 1.3
         }
       },
       {
@@ -93,20 +93,20 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.9650000000000007,
-          "body_wood": 1.87,
-          "pickup_config": 2.535,
-          "string_type": 4.97,
-          "scale_length_b": 3.08,
+          "amp_make": 3.315000000000001,
+          "body_wood": 2.37,
+          "pickup_config": 1.69,
+          "string_type": 4.355,
+          "scale_length_b": 2.34,
           "fretted_or_not": 0,
-          "bass_technique": 4.365,
+          "bass_technique": 2.74,
           "electric_bass_string_configuration": 0
         }
       }

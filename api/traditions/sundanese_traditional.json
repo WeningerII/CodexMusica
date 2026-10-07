@@ -3,14 +3,14 @@
   "name": "Sundanese Traditional",
   "family": "global",
   "lineage": "West Javanese Sundanese repertoire complex — tembang Sunda cianjuran vocal poetry codified in mid-19th-century Cianjur under Bupati R.A.A. Kusumahningrat, gamelan degung, and kacapi-suling chamber music — marked by free-rhythm mamaos vocal lines over zither ostinato, breathy end-blown suling ornament, and pentatonic laras pelog/degung and salendro tunings, with kendang-driven jaipongan and bamboo angklung as its rural and popular offshoots.",
-  "recipe": "classic Southeast Asian modern sundanese traditional, art Music, southeast Asian branch, string drone modal, med east poetic ballad poetry ghazal balochi folk. vocal fry, breath veiled tone, slow rate, interlocked note trading. flat bodied pentatonic kacapi, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan legato rebab, gamelan sundanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bonang, pentatonic black bamboo angklung. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 729,
-  "score": 212.89,
+  "recipe": "classic Southeast Asian modern sundanese traditional, art Music, southeast Asian branch, string drone modal, med east poetic ballad poetry balochi folk kazakh traditional music. vocal fry, breath veiled tone, slow rate, interlocked note trading. flat bodied pentatonic kacapi, bamboo rattan band fipple canonical javanese balinese suling, gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan drone like rebab, gamelan sundanese jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, bonang, pentatonic pale bamboo angklung. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 724,
+  "score": 208.99,
   "config": {
     "traditions": [
       "sundanese_traditional",
-      "ghazal",
-      "balochi_folk"
+      "balochi_folk",
+      "kazakh_traditional"
     ],
     "instruments": [
       {
@@ -37,8 +37,8 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 3.2550000000000003,
-          "suling_use": 6.045,
+          "wind_articulation": 1.6549999999999998,
+          "suling_use": 4.745,
           "suling_tuning": 2.34,
           "suling_body_material": 2.9899999999999998
         }
@@ -46,17 +46,17 @@
       {
         "id": "rebab",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
+          "bowed_technique": "bowed_rough_drone",
           "rebab_region": "rebab_javanese",
-          "rebab_context": "rebab_wayang",
+          "rebab_context": "rebab_solo",
           "rebab_body": "rebab_wood_carved",
           "rebab_skin": "rebab_goat_skin",
           "rebab_strings": "rebab_silk_historical"
         },
         "scores": {
-          "bowed_technique": 3.125,
+          "bowed_technique": 4.1275,
           "rebab_region": 1.45,
-          "rebab_context": 2.34,
+          "rebab_context": 2.54,
           "rebab_body": 1.69,
           "rebab_skin": 1.69,
           "rebab_strings": 1.69
@@ -85,20 +85,20 @@
         },
         "scores": {
           "bonang_tuning": 1.885,
-          "bonang_register": 0.39
+          "bonang_register": 0.845
         }
       },
       {
         "id": "angklung",
         "slots": {
           "angklung_form": "angklung_buncis",
-          "angklung_playing": "angklung_interlock",
-          "angklung_bamboo": "angklung_awi_wulung"
+          "angklung_playing": "angklung_goyang",
+          "angklung_bamboo": "angklung_awi_temen"
         },
         "scores": {
           "angklung_form": 9.069999999999999,
-          "angklung_playing": 0.4875,
-          "angklung_bamboo": 1.085
+          "angklung_playing": 0.12999999999999998,
+          "angklung_bamboo": 1.0999999999999999
         }
       },
       {
@@ -111,33 +111,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "persian_dastgah_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.415,
-          "voice_quality": 8.255,
+          "voice_register": 2.795,
+          "voice_quality": 10.789999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.25,
-          "voice_articulation": 17.224999999999998,
-          "voice_microtone": 22.197499999999994,
-          "voice_tradition": 13.04,
-          "voice_mechanism_compound": 8.3,
-          "voice_estill_quality": 4.517500000000001,
-          "voice_speech_song": 18.069999999999997,
-          "voice_ensemble_config": 20.085,
-          "voice_ornament_system": 8.15,
-          "voice_pitch_organization": 8.344999999999999,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 5.005000000000001
+          "voice_vibrato": 3.2824999999999998,
+          "voice_articulation": 18.784999999999997,
+          "voice_microtone": 23.334999999999994,
+          "voice_tradition": 12.902499999999996,
+          "voice_mechanism_compound": 6.629999999999999,
+          "voice_estill_quality": 3.5100000000000002,
+          "voice_speech_song": 20.279999999999998,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 3.175,
+          "voice_pitch_organization": 8.709999999999999,
+          "voice_processing_chain": 5.069999999999999,
+          "voice_multitrack_stack": 5.46
         }
       }
     ],

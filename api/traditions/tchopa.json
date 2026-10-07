@@ -5,7 +5,7 @@
   "lineage": "Lhomwe ceremonial dance of southern Malawi, accompanied by singing and three drums of different sizes.",
   "recipe": "classic modern tchopa, ritual Devotional, indigenous branch. malawi, group vocals. three drums contrasting registers tchopa drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 210,
-  "score": 6.65,
+  "score": 6.586,
   "config": {
     "traditions": [
       "tchopa"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.588,
+          "voice_ensemble_config": 0.693,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
@@ -57,7 +57,7 @@
           "tchopa_drums_gesture": "tchopa_drums_gesture_resonant"
         },
         "scores": {
-          "tchopa_drums_setup": 3.2835,
+          "tchopa_drums_setup": 3.1145,
           "tchopa_drums_gesture": 0.9239999999999999
         }
       }

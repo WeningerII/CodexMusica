@@ -5,7 +5,7 @@
   "lineage": "Folk-metal novelty branch established by Running Wild's Under Jolly Roger (1987) and codified as a distinct style by Alestorm from 2008 — mid-to-fast 4/4 and 6/8 power-metal riffing with galloping double-kick, accordion, tin whistle and fiddle carrying diatonic major-key sea-shanty and jig melodies doubled by keyboard, singalong gang choruses on the refrain, and a hoarse shouted lead over nautical narrative lyrics.",
   "recipe": "classic Northern European late-1980s pirate metal, distorted Rock, folk metal branch, atlantic Southeast Asian shanty, power metal, Celtic traditional improv on frame. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base drone like fiddle, melodic tin whistle, ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 878,
-  "score": 419.73,
+  "score": 417.51,
   "config": {
     "traditions": [
       "pirate_metal",
@@ -31,9 +31,9 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 36.879999999999995,
+          "electric_technique": 36.19,
           "amp_make": 16.249999999999996,
-          "body_wood": 15.6,
+          "body_wood": 15.495,
           "neck_wood": 1.105,
           "fretboard": 1.45,
           "pickup_magnet": 2.08,
@@ -43,7 +43,7 @@
           "scale_length": 14.3,
           "string_gauge": 1,
           "finish": 0.195,
-          "string_tuning": 24.505000000000003
+          "string_tuning": 24.205000000000002
         }
       },
       {
@@ -62,10 +62,10 @@
           "amp_make": 6.565000000000002,
           "body_wood": 2.4499999999999997,
           "pickup_config": 1.45,
-          "string_type": 12.115000000000002,
+          "string_type": 11.890000000000002,
           "scale_length_b": 1,
           "fretted_or_not": 0.195,
-          "bass_technique": 11.785000000000002,
+          "bass_technique": 11.740000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -110,12 +110,12 @@
           "voice_vibrato": 2.015,
           "voice_articulation": 17.549999999999997,
           "voice_microtone": 20.474999999999994,
-          "voice_tradition": 19.519999999999996,
-          "voice_mechanism_compound": 31.209999999999997,
+          "voice_tradition": 19.324999999999996,
+          "voice_mechanism_compound": 30.984999999999996,
           "voice_estill_quality": 3.73,
           "voice_speech_song": 19.239999999999995,
           "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 3.0500000000000003,
+          "voice_ornament_system": 2.99,
           "voice_pitch_organization": 5.46,
           "voice_processing_chain": 8.84,
           "voice_multitrack_stack": 9.620000000000001
@@ -129,16 +129,16 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 12.054999999999998,
+          "free_reed_technique": 11.814999999999998,
           "accordion_reed_material": 1,
           "musette_offset": 1.105,
           "reed_config": 0.195,
           "bellows": 0.7,
-          "voicing_chamber": 0.105,
+          "voicing_chamber": 0.21,
           "accordion_maker_school": 6.305
         }
       },
@@ -170,7 +170,7 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 14.479999999999999,
+          "wind_articulation": 14.239999999999998,
           "whistle_key": 0.12999999999999998,
           "whistle_ornament": 5.01,
           "whistle_body_material": 0.9299999999999999

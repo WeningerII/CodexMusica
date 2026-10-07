@@ -5,7 +5,7 @@
   "lineage": "The Polish sailor-song movement that emerged from Baltic yacht clubs and student sailing culture in the 1970s-80s, institutionalised by the Shanties festival in Krakow (from 1981) and by groups such as Stare Dzwony, Mechanicy Shanty, Perły i Łotry and Ryczące Dwudziestki; sung in Polish - part translated Anglo-American repertoire, part newly composed - at driving 4/4 or 6/8 tempos with strummed acoustic guitars, accordion, fiddle and a shouted unison male chorus, closer to campfire student song (piosenka turystyczna) than to shipboard labour practice.",
   "recipe": "classic Central European mid-1970s szanty, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic bard ballad poetry russian chanson. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, narrative fingerpicked dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, double stops fiddle, half rectified brazilwood student tier double bass. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 754,
-  "score": 189.762,
+  "score": 189.747,
   "config": {
     "traditions": [
       "szanty",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.0074999999999996,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 5.610000000000001
+          "voice_multitrack_stack": 5.565000000000001
         }
       },
       {
@@ -61,8 +61,8 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 10.6145,
-          "choir_polyphonic_configuration": 1.8599999999999999,
+          "choir_size": 10.704500000000001,
+          "choir_polyphonic_configuration": 1.71,
           "choir_regional_canonical_configuration": 3.9,
           "choir_ensemble_repertoire": 1.4949999999999999
         }
@@ -96,12 +96,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.29,
-          "accordion_reed_material": 0.345,
-          "musette_offset": 2.61,
-          "reed_config": 0.15,
-          "bellows": 0.045,
-          "voicing_chamber": 0.15,
+          "free_reed_technique": 4.245,
+          "accordion_reed_material": 0.3,
+          "musette_offset": 2.715,
+          "reed_config": 0.3,
+          "bellows": 0,
+          "voicing_chamber": 0.21,
           "accordion_maker_school": 1.4949999999999999
         }
       },
@@ -118,8 +118,8 @@
         "scores": {
           "bowed_technique": 5.6000000000000005,
           "fiddle_strings": 0.24,
-          "fiddle_bow": 0.045,
-          "fiddle_mute": 0.255,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.21,
           "fiddle_articulation": 0.6,
           "fiddle_string_configuration": 0
         }

@@ -3,12 +3,13 @@
   "name": "Jari gan (Bengali Karbala narrative song)",
   "family": "global",
   "lineage": "Bengali Muslim narrative song recounting the martyrdom of Husayn at Karbala and related episodes, performed especially around Muharram in Manikganj, Mymensingh, Dhaka and other districts of Bangladesh. A lead singer (bayati) narrates and sings while a chorus (dohar) answers and dances in a circle wearing ankle bells; commercial jari pala cassettes and the Bangla Academy folklore archive document it. The shaker card stands in for the ankle bells.",
-  "recipe": "classic modern jari gan, funeral Lament, south Asian branch, indian bard ballad poetry. live take. acoustic membrane drum, credited cymbals, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 247,
-  "score": 1.98,
+  "recipe": "classic modern jari gan, funeral Lament, south Asian branch, indian bard ballad poetry burrakatha. live take. membrane drum pulse resonant acoustic membrane drum, credited cymbals, shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 2.055,
   "config": {
     "traditions": [
-      "jari_gan"
+      "jari_gan",
+      "burrakatha"
     ],
     "instruments": [
       {
@@ -48,7 +49,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 0.9299999999999999,
+          "voice_multitrack_stack": 0.65,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +60,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 0.39,
-          "acoustic_membrane_drum_gesture": 0.39
+          "acoustic_membrane_drum_form": 1.04,
+          "acoustic_membrane_drum_gesture": 1.04
         }
       },
       {
@@ -78,7 +79,7 @@
           "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
         },
         "scores": {
-          "shaker_source_unspecified_identity": 0.24
+          "shaker_source_unspecified_identity": 0.195
         }
       }
     ],

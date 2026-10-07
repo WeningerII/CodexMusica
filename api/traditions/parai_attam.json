@@ -1,0 +1,71 @@
+{
+  "id": "parai_attam",
+  "name": "Parai attam (Tamil frame-drum ensemble and dance)",
+  "family": "global",
+  "lineage": "The parai is the Tamil frame drum, its head tightened over a fire and beaten with two sticks, a thin one and a heavier one, played in groups at funerals, temple festivals and processions; parai attam is the dance the drummers perform while playing. Long the hereditary duty of Dalit drummers, in recent decades it has been taken up as an art of pride and protest by troupes such as Buddhar Kalai Kuzhu.",
+  "recipe": "classic modern parai attam, carnival Processional, south Asian branch. staged massed taut hide parai. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 15.493,
+  "config": {
+    "traditions": [
+      "parai_attam"
+    ],
+    "instruments": [
+      {
+        "id": "parai",
+        "slots": {
+          "parai_context": "parai_context_attam",
+          "parai_ensemble": "parai_ensemble_troupe",
+          "parai_beaters": "parai_beaters_interlocked",
+          "parai_head": "parai_head_neem_cowhide"
+        },
+        "scores": {
+          "parai_context": 5.65,
+          "parai_ensemble": 4.924,
+          "parai_beaters": 2.6872499999999997,
+          "parai_head": 2.2315
+        }
+      }
+    ],
+    "pinned": {
+      "parai": [
+        "parai_context",
+        "parai_ensemble",
+        "parai_beaters",
+        "parai_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "parai_context": "parai_context_attam",
+      "parai_ensemble": "parai_ensemble_troupe",
+      "parai_beaters": "parai_beaters_interlocked",
+      "parai_head": "parai_head_neem_cowhide"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

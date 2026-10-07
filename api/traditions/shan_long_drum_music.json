@@ -5,7 +5,7 @@
   "lineage": "Festival and dance music of the Shan (Tai Yai), the Tai-speaking people of Shan State in Myanmar and of Mae Hong Son and other districts of northern Thailand. The kong kon yao long drum leads an ensemble of cymbals of several sizes and a set of small gongs for processions, the Poi Sang Long novice ordinations and the bird and toh dances, and the related mong seng ensemble pairs its drum with large cymbals and small gongs. The Burmese ozi card stands in for the Shan long drum, with generic gong and cymbal cards.",
   "recipe": "classic modern shan (tai yai) long-drum and gong music, carnival Processional, east Asian branch, east Asian groove percussion. ozi drum, gong tamtam, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 2.285,
+  "score": 2.26,
   "config": {
     "traditions": [
       "shan_long_drum_music"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "gong_type": 0.825,
-          "gong_striker": 0.17500000000000002
+          "gong_striker": 0.15
         }
       },
       {

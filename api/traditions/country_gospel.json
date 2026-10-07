@@ -5,7 +5,7 @@
   "lineage": "Sacred repertoire of white rural America as recorded commercially from the 1927 Bristol sessions onward — shape-note and Stamps-Baxter hymn tunes reset for guitar, autoharp, fiddle and later steel, sung in family-group harmony or solo at 70-110 BPM with plain diatonic delivery and testimony lyrics, later institutionalized through the sacred albums of Nashville stars.",
   "recipe": "classic tropical late-1920s country gospel, ritual Devotional, southern gospel branch, pre commercial country, christian gospel sacred harp australian bush ballad close harmony. thick, declaimed, straight note core, multi note runs per syllable. martin lifespan sealed travis picked dreadnought acoustic guitar, plain gut sheep gut double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, american reed organ, sustaining steel upright bass, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin. country church. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 703,
-  "score": 412.416,
+  "score": 411.846,
   "config": {
     "traditions": [
       "country_gospel",
@@ -39,11 +39,11 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 19.99,
-          "voice_articulation": 19.214499999999997,
+          "voice_articulation": 18.914499999999997,
           "voice_microtone": 17.09499999999999,
-          "voice_tradition": 18.43,
+          "voice_tradition": 17.904999999999998,
           "voice_mechanism_compound": 4.55,
-          "voice_estill_quality": 23.9685,
+          "voice_estill_quality": 23.428499999999996,
           "voice_speech_song": 21.254999999999992,
           "voice_ensemble_config": 17.714999999999996,
           "voice_ornament_system": 6.275,
@@ -82,8 +82,8 @@
         "scores": {
           "bowed_technique": 24.15,
           "fiddle_strings": 2.145,
-          "fiddle_bow": 0.195,
-          "fiddle_mute": 0.18,
+          "fiddle_bow": 0.39,
+          "fiddle_mute": 0.135,
           "fiddle_articulation": 0.45499999999999996,
           "fiddle_string_configuration": 0
         }
@@ -102,13 +102,13 @@
         },
         "scores": {
           "electric_technique": 19.394499999999994,
-          "amp_make": 19.569499999999994,
+          "amp_make": 19.464499999999994,
           "pickup_steel": 0.195,
           "string_setup": 9.23,
           "bar_material": 2.4495,
-          "pedal_steel_brand": 19.947499999999998,
-          "pedal_steel_neck_config": 22.148,
-          "pedal_steel_strings": 19.505
+          "pedal_steel_brand": 20.1725,
+          "pedal_steel_neck_config": 22.523,
+          "pedal_steel_strings": 19.655
         }
       },
       {

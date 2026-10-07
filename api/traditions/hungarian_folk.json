@@ -5,7 +5,7 @@
   "lineage": "The Magyar peasant repertory systematically recorded on wax cylinder by Béla Bartók and Zoltán Kodály from 1905 and revived by the Budapest táncház movement after 1972, divided between the old-style pentatonic parlando-rubato long songs with descending fifth-shift structure and the new-style tempo giusto strophic songs, and performed instrumentally by a Transylvanian string band of prímás violin, chordal three-string kontra viola and gardon or double bass, with cimbalom and clarinet in lowland bands.",
   "recipe": "classic Central European mid-1900s hungarian folk, field Work, Slavic balkan branch, European wedding, Slavic bard ballad poetry, European drinking song hungarian bordal irish pub song / drinking song. thick, breath veiled tone, interlocked note trading, neutral third half flat. drone like fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, venice catlin high twist renaissance bass carpathian spruce European maple double bass, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, traditional tarogato. budapest carpathian csarda tavern. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 693,
-  "score": 256.687,
+  "score": 256.387,
   "config": {
     "traditions": [
       "hungarian_folk",
@@ -24,7 +24,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 8.305,
+          "bowed_technique": 8.155,
           "fiddle_strings": 0.195,
           "fiddle_bow": 0.16250000000000014,
           "fiddle_mute": 0.9099999999999999,
@@ -115,12 +115,12 @@
           "voice_vibrato": 0.39,
           "voice_articulation": 16.639999999999993,
           "voice_microtone": 16.639999999999993,
-          "voice_tradition": 18.964000000000002,
+          "voice_tradition": 18.769000000000002,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 2.99,
           "voice_speech_song": 27.624999999999996,
           "voice_ensemble_config": 15.664999999999994,
-          "voice_ornament_system": 6.0394999999999985,
+          "voice_ornament_system": 6.084499999999999,
           "voice_pitch_organization": 4.225,
           "voice_processing_chain": 5.069999999999999,
           "voice_multitrack_stack": 3.282500000000001

@@ -3,9 +3,9 @@
   "name": "Baroque period-instrument",
   "family": "classical",
   "lineage": "1600-1750 European art-music period encompassing the development of opera (Monteverdi Orfeo 1607), the concerto grosso (Corelli), the cantata and fugue (Bach), the oratorio (Handel), and the harpsichord and early-fortepiano keyboard repertoire — characterized by figured-bass continuo practice, contrapuntal compositional technique, ornamental melodic style, and the moderate-pitch (A=415 Hz typical) tuning convention",
-  "recipe": "classic European early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican liturgy anglican choral evensong. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, flemish ruckers antwerp canonical late 16th 17th century quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon, bass quartposaune consort blend thin hammered brass sackbut.",
-  "recipe_chars": 949,
-  "score": 376.632,
+  "recipe": "classic European early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican liturgy anglican choral evensong. norway spruce European alpine European maple bosnian source flamed figure violin orchestral, flemish ruckers antwerp canonical late 16th 17th century quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon, bass quartposaune consort blend thin hammered brass sackbut.",
+  "recipe_chars": 965,
+  "score": 374.44,
   "config": {
     "traditions": [
       "baroque_period",
@@ -32,12 +32,12 @@
           "orch_strings": 0.975,
           "orch_top_wood": 11.2595,
           "orch_back_wood": 12.0775,
-          "orch_varnish": 9.668999999999999,
-          "orch_setup_period": 15.532499999999999,
-          "orch_bow": 3.6094999999999993,
+          "orch_varnish": 9.7865,
+          "orch_setup_period": 15.4475,
+          "orch_bow": 3.6799999999999993,
           "orch_bow_stick": 10.105,
           "orch_articulation": 3.9,
-          "orch_rosin": 12.0565
+          "orch_rosin": 11.7645
         }
       },
       {
@@ -54,8 +54,8 @@
           "keyboard_technique": 4.695,
           "harpsichord_register": 2.34,
           "harpsichord_context": 10.269999999999998,
-          "harpsichord_maker_school": 2.9399999999999995,
-          "harpsichord_plectrum": 0.819,
+          "harpsichord_maker_school": 2.8034999999999997,
+          "harpsichord_plectrum": 0.5459999999999999,
           "harpsichord_temperament": 6.955000000000001
         }
       },
@@ -77,10 +77,10 @@
           "cello_strings": 3.6094999999999993,
           "cello_top_wood": 11.2595,
           "cello_back_wood": 12.0775,
-          "cello_varnish": 9.668999999999999,
-          "cello_setup_period": 15.3375,
+          "cello_varnish": 9.7865,
+          "cello_setup_period": 15.252500000000001,
           "cello_bow_grip": 2.535,
-          "cello_rosin": 11.2105,
+          "cello_rosin": 10.9375,
           "cello_bow_stick": 12
         }
       },
@@ -96,11 +96,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 4.800000000000001,
-          "theorbo_config": 2.47,
-          "theorbo_context": 2.5500000000000003,
+          "theorbo_config": 2.278,
+          "theorbo_context": 2.5852500000000003,
           "theorbo_ribs": 2.8600000000000003,
           "theorbo_soundboard": 0.39,
-          "theorbo_strings": 6.955000000000001
+          "theorbo_strings": 6.60925
         }
       },
       {
@@ -109,7 +109,7 @@
           "bowed_technique": "bowed_legato_classical",
           "gamba_size": "gamba_bass",
           "viola_da_gamba_context": "viola_da_gamba_basse",
-          "gamba_strings": "gamba_pistoy_silver_wound",
+          "gamba_strings": "gamba_plain_lamb_gut",
           "gamba_frets": "gamba_gut_tied_frets",
           "gamba_bow_stick": "gamba_snakewood_underhand",
           "gamba_lineage": "gamba_marais_french_baroque"
@@ -118,9 +118,9 @@
           "bowed_technique": 4.5,
           "gamba_size": 2.0365,
           "viola_da_gamba_context": 11.894999999999998,
-          "gamba_strings": 4.7325,
+          "gamba_strings": 4.68,
           "gamba_frets": 0.7149999999999999,
-          "gamba_bow_stick": 13.633500000000002,
+          "gamba_bow_stick": 13.259250000000002,
           "gamba_lineage": 2.8600000000000003
         }
       },
@@ -138,7 +138,7 @@
           "oboe_reed": 0.39,
           "oboe_class": 0.39,
           "oboe_body_wood": 2.21,
-          "oboe_maker_school": 1.6380000000000001
+          "oboe_maker_school": 1.5015
         }
       },
       {
@@ -153,11 +153,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 4.800000000000001,
-          "lute_courses": 2.5500000000000003,
+          "lute_courses": 2.5852500000000003,
           "lute_renaissance_context": 15.339999999999996,
           "lute_renaissance_ribs": 0.39,
           "lute_renaissance_soundboard": 0.39,
-          "lute_renaissance_strings": 4.485
+          "lute_renaissance_strings": 4.33125
         }
       },
       {
@@ -172,7 +172,7 @@
         "scores": {
           "wind_articulation": 0.15000000000000002,
           "shawm_pitch": 0.39,
-          "shawm_context": 2.47,
+          "shawm_context": 2.383,
           "shawm_body_wood": 2.47,
           "shawm_reed": 0.39
         }
@@ -189,9 +189,9 @@
         "scores": {
           "wind_articulation": 4.6365,
           "bassoon_school": 1.3,
-          "bassoon_body_wood": 0.6824999999999999,
+          "bassoon_body_wood": 0.5459999999999999,
           "bassoon_reed": 0.39,
-          "bassoon_context": 2.6550000000000002
+          "bassoon_context": 2.6902500000000003
         }
       },
       {
@@ -202,8 +202,8 @@
           "sackbut_build": "sackbut_nuremberg_copy"
         },
         "scores": {
-          "sackbut_size": 8.05,
-          "sackbut_repertoire": 5.5,
+          "sackbut_size": 8.08525,
+          "sackbut_repertoire": 5.6175,
           "sackbut_build": 5.800000000000001
         }
       },
@@ -216,7 +216,7 @@
         },
         "scores": {
           "baroque_guitar_form": 0.39,
-          "baroque_guitar_style": 0.8999999999999999,
+          "baroque_guitar_style": 1.0174999999999998,
           "baroque_guitar_stringing": 7.41
         }
       },
@@ -230,9 +230,9 @@
         },
         "scores": {
           "bowed_technique": 4.5,
-          "viola_damore_form": 12.25,
-          "viola_damore_repertoire": 7.940500000000002,
-          "viola_damore_stringing": 13.119
+          "viola_damore_form": 12.3675,
+          "viola_damore_repertoire": 7.804000000000001,
+          "viola_damore_stringing": 13.017750000000001
         }
       },
       {
@@ -240,12 +240,12 @@
         "slots": {
           "natural_horn_form": "natural_horn_baroque_waldhorn",
           "natural_horn_context": "natural_horn_hunting_fanfare",
-          "natural_horn_crook_system": "natural_horn_master_crook_couplers"
+          "natural_horn_crook_system": "natural_horn_inventionshorn_crooks"
         },
         "scores": {
           "natural_horn_form": 5.9245,
           "natural_horn_context": 0.65,
-          "natural_horn_crook_system": 2.47
+          "natural_horn_crook_system": 2.34
         }
       }
     ],

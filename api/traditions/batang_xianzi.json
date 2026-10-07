@@ -5,7 +5,7 @@
   "lineage": "Dance-song of the Tibetans of Batang county in western Garze, Sichuan, in which men playing the two-string bowed fiddle (piwang; xianzi, 'strings', in Chinese) lead a circle of singing dancers, the women swinging long sleeves, through slow and lively songs at festivals and gatherings. Batang xianzi is listed on China's national intangible-heritage register.",
   "recipe": "classic modern batang xianzi, functional Song. song shadowing bowed song accompaniment piwang tibet. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 180,
-  "score": 11.504,
+  "score": 11.466,
   "config": {
     "traditions": [
       "batang_xianzi"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.337125,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

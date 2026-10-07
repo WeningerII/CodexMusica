@@ -5,7 +5,7 @@
   "lineage": "Shadow-puppet theatre singing of Huaxian (now Huazhou, Weinan) and Huayin at the northern foot of Mount Hua in eastern Shaanxi, also called dengwanqiang or ruanerqiang, named for the small brass bowl (wanwan) struck to mark the beat; it was on the first national intangible cultural heritage list in 2006, and Shaanxi shadow puppetry is part of the Chinese shadow puppetry inscribed by UNESCO in 2011. The lead singer voices every role, the yueqin and the brass bowl lead the accompaniment and banhu and other fiddles support it (the chazi card stands in for the struck brass bowl).",
   "recipe": "classic mid-2000s wanwanqiang, art Music, east Asian branch. solo with instrumental accompaniment, single lead single track no stacking. yueqin, gutty bowl resonator banhu, chazi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 259,
-  "score": 10.071,
+  "score": 10.188,
   "config": {
     "traditions": [
       "wanwanqiang"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 2.588,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 2.6,
           "voice_tessitura": 0
         }
       },

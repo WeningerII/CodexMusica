@@ -5,7 +5,7 @@
   "lineage": "Multipart folk song of the Hani of Honghe prefecture in southern Yunnan, whose villages farm the Honghe rice terraces; groups of singers perform songs in several simultaneous parts, including songs for transplanting rice, and Hani multipart folk song is listed on China's national intangible-heritage register.",
   "recipe": "classic modern hani multipart song, drone Modal, heterophonic branch. four plus independent lines. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 2.143,
+  "score": 2.174,
   "config": {
     "traditions": [
       "hani_multipart_song"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.441,
           "voice_tessitura": 0
         }

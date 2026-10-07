@@ -5,7 +5,7 @@
   "lineage": "Traditional music of Cornwall documented from the 1820s Sandys and Gilbert carol collections and revived from the 1970s alongside the Cornish-language movement — four-part west-gallery Christmas carols sung by male-heavy village choirs, harbour shanties from the Port Isaac and Padstow coast, the Furry Dance and Obby Oss processional tunes on melodeon and accordion, and Kernewek-language song set to modal fiddle and pipe accompaniment.",
   "recipe": "classic mid-1820s cornish folk, ballad Poetry, Celtic balladic branch, atlantic Southeast Asian shanty, European carnival processional newfoundland outport sea-shanty and work-song american clipper-ship shanty. thick, breath veiled tone, straight onset, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional aka four part motangole ngue osese diyei global traditional polyphonic choir ensemble, Celtic straight melodeon diatonic, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, bass drum. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 684,
-  "score": 220.064,
+  "score": 219.434,
   "config": {
     "traditions": [
       "cornish_folk",
@@ -41,14 +41,14 @@
           "voice_vibrato": 1.56,
           "voice_articulation": 17.16,
           "voice_microtone": 18.265,
-          "voice_tradition": 20.1895,
+          "voice_tradition": 19.9195,
           "voice_mechanism_compound": 2.8599999999999994,
           "voice_estill_quality": 3.0550000000000006,
           "voice_speech_song": 23.4,
           "voice_ensemble_config": 18.525,
-          "voice_ornament_system": 7.775000000000002,
+          "voice_ornament_system": 7.865000000000002,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.5850000000000004,
+          "voice_processing_chain": 3.4350000000000005,
           "voice_multitrack_stack": 3.0550000000000006
         }
       },
@@ -94,9 +94,9 @@
         "scores": {
           "free_reed_technique": 9.194999999999999,
           "accordion_reed_material": 0.375,
-          "musette_offset": 2.1045,
-          "reed_config": 0.7,
-          "bellows": 1.15,
+          "musette_offset": 1.9095,
+          "reed_config": 0.85,
+          "bellows": 1,
           "voicing_chamber": 0.45499999999999996,
           "accordion_maker_school": 9.1
         }
@@ -112,7 +112,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 9.305,
+          "bowed_technique": 9.2,
           "fiddle_strings": 1.69,
           "fiddle_bow": 4.225,
           "fiddle_mute": 0.7,

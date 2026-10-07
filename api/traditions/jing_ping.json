@@ -1,0 +1,142 @@
+{
+  "id": "jing_ping",
+  "name": "Jing ping (Dominica accordion band music)",
+  "family": "global",
+  "lineage": "Village dance-band music of Dominica played on accordion, a tambal (frame drum), a gwaj (metal scraper) and the boumboum, a length of bamboo blown as a bass. Jing ping bands play the island's European-derived Creole dances, among them the quadrille, mazouk, polka, waltz and heel-and-toe, and the style later fed into bouyon; the vaksin card (a blown bamboo trumpet) stands in for the boumboum, the hand-drum card for the tambal and the scraper card for the gwaj.",
+  "recipe": "classic modern jing ping, groove Percussion, Caribbean branch, tropical song functional song. accordion, hand drum source guayo source unspecified, vaksin. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 1.805,
+  "config": {
+    "traditions": [
+      "jing_ping"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "machine_reeds",
+          "musette_offset": "demi_swing",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": -0.1,
+          "accordion_reed_material": 0,
+          "musette_offset": 0,
+          "reed_config": 0,
+          "bellows": 0.78,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      },
+      {
+        "id": "vaksin",
+        "slots": {
+          "vaksin_material": "vaksin_bamboo",
+          "vaksin_role": "vaksin_bas"
+        },
+        "scores": {
+          "vaksin_material": 0.3,
+          "vaksin_role": 0.15
+        }
+      },
+      {
+        "id": "guayo_source_unspecified",
+        "slots": {
+          "guayo_source_unspecified_identity": "guayo_source_unspecified_named_role"
+        },
+        "scores": {
+          "guayo_source_unspecified_identity": 0.825
+        }
+      }
+    ],
+    "pinned": {
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ],
+      "vaksin": [
+        "vaksin_material",
+        "vaksin_role"
+      ],
+      "guayo_source_unspecified": [
+        "guayo_source_unspecified_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "machine_reeds",
+      "musette_offset": "demi_swing",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified",
+      "vaksin_material": "vaksin_bamboo",
+      "vaksin_role": "vaksin_bas",
+      "guayo_source_unspecified_identity": "guayo_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

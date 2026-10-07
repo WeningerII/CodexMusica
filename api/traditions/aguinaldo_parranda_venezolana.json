@@ -1,0 +1,212 @@
+{
+  "id": "aguinaldo_parranda_venezolana",
+  "name": "Aguinaldo venezolano (Venezuelan Christmas parranda)",
+  "family": "global",
+  "lineage": "Venezuelan aguinaldos are the Christmas songs carried from house to house by parrandas around Christmas, the religious aguinaldo telling of the Nativity and the secular parranda asking for food, drink and good cheer. The parranda plays cuatro, maracas, the furruco friction drum, a charrasca scraper and a small tambora drum, sometimes with guitar and mandolin, under a soloist answered by the group. The guayo card stands in for the charrasca and the membrane-drum card for the tambora.",
+  "recipe": "classic modern aguinaldo venezolano, ritual Devotional. single leader group response. cedar canonical Venezuelan cuatro venezolano, furruco, maracas, guayo source unspecified, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 11.949,
+  "config": {
+    "traditions": [
+      "aguinaldo_parranda_venezolana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.1049999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.1575,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "cuatro_venezolano",
+        "slots": {
+          "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+          "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+          "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
+          "cuatro_venezolano_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "cuatro_venezolano_tuning": 0,
+          "cuatro_venezolano_technique": 0,
+          "cuatro_venezolano_body_wood": 2,
+          "cuatro_venezolano_strings": 0
+        }
+      },
+      {
+        "id": "furruco",
+        "slots": {
+          "furruco_role": "furruco_aguinaldo",
+          "furruco_build": "furruco_barrel"
+        },
+        "scores": {
+          "furruco_role": 0.063,
+          "furruco_build": 0.3
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.105,
+          "maracas_filling": 0
+        }
+      },
+      {
+        "id": "guayo_source_unspecified",
+        "slots": {
+          "guayo_source_unspecified_identity": "guayo_source_unspecified_named_role"
+        },
+        "scores": {
+          "guayo_source_unspecified_identity": 0.3315
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.3,
+          "acoustic_membrane_drum_gesture": 3.3
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "cuatro_venezolano": [
+        "cuatro_venezolano_tuning",
+        "cuatro_venezolano_technique",
+        "cuatro_venezolano_body_wood",
+        "cuatro_venezolano_strings"
+      ],
+      "furruco": [
+        "furruco_role",
+        "furruco_build"
+      ],
+      "maracas": [
+        "maracas_construction",
+        "maracas_filling"
+      ],
+      "guayo_source_unspecified": [
+        "guayo_source_unspecified_identity"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+      "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+      "cuatro_venezolano_body_wood": "cuatro_venezolano_cedar",
+      "cuatro_venezolano_strings": "dutar_strings_unspecified",
+      "furruco_role": "furruco_aguinaldo",
+      "furruco_build": "furruco_barrel",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds",
+      "guayo_source_unspecified_identity": "guayo_source_unspecified_named_role",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

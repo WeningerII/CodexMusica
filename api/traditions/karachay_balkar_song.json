@@ -1,0 +1,173 @@
+{
+  "id": "karachay_balkar_song",
+  "name": "Karachay-Balkar song (north-central Caucasus)",
+  "family": "global",
+  "lineage": "Song tradition of the Turkic-speaking Karachay and Balkar peoples of Karachay-Cherkessia and Kabardino-Balkaria. Many songs set a soloist against a male chorus singing a sustained lower part, with the refrain word orayda giving its name to a class of songs, and instruments include the bowed kyl-kobuz, represented here by the neighbouring Circassian bowed-fiddle card, and the diatonic accordion. The repertoire is documented in Melodiya's North Caucasus folk series.",
+  "recipe": "classic modern karachay-balkar song, drone Modal, vocal branch. solo over vocal choral drone. melodic bowed song accompaniment shichepshin, reedy mountain toned garmon. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 20.003,
+  "config": {
+    "traditions": [
+      "karachay_balkar_song"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 5.330000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.441,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "shichepshin",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "shichepshin_form": "shichepshin_two",
+          "shichepshin_style": "shichepshin_epic",
+          "shichepshin_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 5.4745,
+          "shichepshin_form": 0.168,
+          "shichepshin_style": 2.34,
+          "shichepshin_strings": 0
+        }
+      },
+      {
+        "id": "garmon",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "garmon_regional_form": "garmon_regional_form_ossetian_pshine",
+          "garmon_performance_setting": "garmon_performance_setting_folk_song",
+          "garmon_reed_voicing": "garmon_reed_voicing_dry_steel"
+        },
+        "scores": {
+          "free_reed_technique": 2.4630000000000005,
+          "garmon_regional_form": 2.555,
+          "garmon_performance_setting": 1.45,
+          "garmon_reed_voicing": -0.1
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "shichepshin": [
+        "bowed_technique",
+        "shichepshin_form",
+        "shichepshin_style",
+        "shichepshin_strings"
+      ],
+      "garmon": [
+        "free_reed_technique",
+        "garmon_regional_form",
+        "garmon_performance_setting",
+        "garmon_reed_voicing"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "shichepshin_form": "shichepshin_two",
+      "shichepshin_style": "shichepshin_epic",
+      "shichepshin_strings": "dutar_strings_unspecified",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "garmon_regional_form": "garmon_regional_form_ossetian_pshine",
+      "garmon_performance_setting": "garmon_performance_setting_folk_song",
+      "garmon_reed_voicing": "garmon_reed_voicing_dry_steel"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

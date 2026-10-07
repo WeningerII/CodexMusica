@@ -5,7 +5,7 @@
   "lineage": "French-language country music of Québec and Acadian New Brunswick, established from the late 1940s by Willie Lamothe and Paul Brunelle — American honky-tonk and cowboy-song templates with yodel, steel guitar, fiddle and 2/4 shuffle or waltz at 90-130 BPM, sung in Québécois French with a nasal front-placed delivery and strong turlutte and reel inflections.",
   "recipe": "classic tropical 1947-1949 franco-country, functional Song, honky tonk era branch, pre commercial country, anglo singer song country folk story texas country-folk storyteller string band. thick, breath veiled tone, wide pitch sway, interlocked note trading. martin lifespan sealed travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, sustaining steel upright bass, pre muffled edge muffled brushes-and-sticks drum kit, steel castagnari Italian premium folk music straight accordion. honky tonk dance hall. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 726,
-  "score": 486.587,
+  "score": 486.747,
   "config": {
     "traditions": [
       "franco_country",
@@ -38,16 +38,16 @@
           "voice_quality": 8.385000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.3315,
+          "voice_vibrato": 24.195,
           "voice_articulation": 20.279999999999998,
           "voice_microtone": 19.434999999999995,
           "voice_tradition": 13.52,
           "voice_mechanism_compound": 4.874999999999999,
-          "voice_estill_quality": 29.5015,
+          "voice_estill_quality": 29.619999999999997,
           "voice_speech_song": 28.339999999999996,
           "voice_ensemble_config": 19.369999999999997,
           "voice_ornament_system": 1.7549999999999994,
-          "voice_pitch_organization": 1.6999999999999997,
+          "voice_pitch_organization": 1.8499999999999999,
           "voice_processing_chain": 4.275,
           "voice_multitrack_stack": 2.0799999999999996
         }
@@ -65,7 +65,7 @@
           "acoustic_technique": 31.060000000000002,
           "string_tuning": 0.6174999999999999,
           "top_wood": 0.9099999999999999,
-          "back_sides": 0.315,
+          "back_sides": 0.42,
           "string_acoustic": 1.885
         }
       },
@@ -82,14 +82,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 24.7065,
-          "amp_make": 26.665,
+          "electric_technique": 24.57,
+          "amp_make": 26.86,
           "pickup_steel": 0.195,
           "string_setup": 12.025,
-          "bar_material": 1.69,
-          "pedal_steel_brand": 24.549999999999997,
-          "pedal_steel_neck_config": 28.4455,
-          "pedal_steel_strings": 24.573
+          "bar_material": 1.645,
+          "pedal_steel_brand": 24.775,
+          "pedal_steel_neck_config": 28.389999999999997,
+          "pedal_steel_strings": 24.66
         }
       },
       {
@@ -104,8 +104,8 @@
         },
         "scores": {
           "bowed_technique": 30.925,
-          "fiddle_strings": 2.4050000000000002,
-          "fiddle_bow": 0.045,
+          "fiddle_strings": 2.195,
+          "fiddle_bow": 0.24,
           "fiddle_mute": 0.39,
           "fiddle_articulation": 0.21,
           "fiddle_string_configuration": 0
@@ -118,7 +118,7 @@
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 1.6315,
+          "upright_strings": 1.495,
           "upright_play": 0.675
         }
       },
@@ -143,16 +143,16 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
           "free_reed_technique": 32.47,
-          "accordion_reed_material": 2.4050000000000002,
+          "accordion_reed_material": 2.195,
           "musette_offset": 0.285,
           "reed_config": 2.3449999999999998,
           "bellows": 0,
-          "voicing_chamber": 0.195,
+          "voicing_chamber": 0.21,
           "accordion_maker_school": 5.785
         }
       }

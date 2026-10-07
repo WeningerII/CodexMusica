@@ -3,20 +3,20 @@
   "name": "Greek éntechno politicized (Theodorakis era)",
   "family": "global",
   "lineage": "Greek politicized éntechno (\"artistic music\") protest-song tradition centered on Mikis Theodorakis (1925-2021, the foundational figure whose Communist-Party-aligned political-songwriter career spanned the 1944-1945 Civil-War partisan era through the 1967-1974 Greek Junta exile-and-imprisonment era and continuous through post-Metapolitefsi democratic-era continuous performance) and continuous through the broader 1960s-1990s Greek éntechno politicized songwriter scene including Manos Loizos and Yannis Markopoulos",
-  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song algerian raï egyptian political-vocal lineage. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko bouzouki, cedar pre 1940 period gut classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 599,
-  "score": 184.243,
+  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song özgün müzik algerian raï. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar pre 1940 period gut fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 596,
+  "score": 177.767,
   "config": {
     "traditions": [
       "greek_entechno_politicized",
-      "algerian_rai_political",
-      "egyptian_sayyed_darwish_sheikh_imam"
+      "ozgun_muzik",
+      "algerian_rai_political"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -24,48 +24,48 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.625,
-          "voice_quality": 14.624999999999991,
+          "voice_register": 4.22,
+          "voice_quality": 13.714999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.055,
-          "voice_articulation": 15.079999999999993,
-          "voice_microtone": 28.404999999999987,
-          "voice_tradition": 26.942499999999992,
-          "voice_mechanism_compound": 3.8499999999999996,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 24.699999999999996,
-          "voice_ensemble_config": 15.794999999999991,
-          "voice_ornament_system": 6.924999999999999,
-          "voice_pitch_organization": 6.924999999999999,
-          "voice_processing_chain": 5.459999999999999,
-          "voice_multitrack_stack": 11.494999999999997
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 21.514999999999997,
+          "voice_tradition": 27.917499999999997,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 26.324999999999996,
+          "voice_ensemble_config": 17.029999999999994,
+          "voice_ornament_system": 3.35,
+          "voice_pitch_organization": 4.455,
+          "voice_processing_chain": 5.114999999999998,
+          "voice_multitrack_stack": 9.869999999999997
         }
       },
       {
         "id": "bouzouki",
         "slots": {
-          "plucked_traditional_technique": "plucked_tremolo",
+          "plucked_traditional_technique": "plucked_folk_strummed",
           "bouzouki_courses": "trichordo",
           "bouzouki_pick": "bouzouki_thin",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
           "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 1.6999999999999997,
+          "plucked_traditional_technique": 3.6549999999999994,
           "bouzouki_courses": 1.17,
           "bouzouki_pick": 0.3,
-          "bouzouki_body_wood": 7.1049999999999995,
+          "bouzouki_body_wood": 6.759999999999999,
           "bouzouki_strings": 2.4049999999999994
         }
       },
@@ -75,17 +75,17 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "double_top_cl",
+          "bracing_classical": "fan_torres_cl",
           "string_classical": "gut_cl",
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.0749999999999997,
+          "acoustic_technique": 4.525,
           "string_tuning": 0,
-          "top_wood_classical": 1.8850000000000002,
-          "bracing_classical": 1.04,
+          "top_wood_classical": 1.2349999999999999,
+          "bracing_classical": 0.65,
           "string_classical": 2.4699999999999998,
-          "attack_technique_cl": 2.045
+          "attack_technique_cl": 0.795
         }
       }
     ],

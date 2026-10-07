@@ -3,14 +3,14 @@
   "name": "Fijian meke (chant-and-dance)",
   "family": "global",
   "lineage": "Fijian meke collective chant-and-dance tradition of the Fijian iTaukei (indigenous Fijian) population. The meke comprises several sub-forms: meke wesi (spear-dance, male-warriors), meke iri (fan-dance, women), meke ni vakatara (sitting-dance), and seasea (women's standing-dance), each with distinct choreographic vocabulary and song-accompaniment. Performance involves a vakatara dance-troupe with parallel singing chorus and slit-drum-and-bamboo-stamping-tube percussion. The canonical post-independence Fiji-1970 cultural-revival under the Fiji Museum and the Pacific Theatre formed institutional preservation infrastructure. Distinguished from neighboring Tongan lakalaka by Fijian meke's warrior-and-women parallel-track choreographic structure and Fijian-language repertoire.",
-  "recipe": "classic Southeast Asian early-1970s fijian meke, ritual Devotional, indigenous branch, west African groove percussion, vocal drone modal georgian three-voice polyphony indonesian jaipongan. vocal fry, breath veiled tone, straight note core, interlocked note trading. high pitched fast dance interlocking pacific slit gong. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 480,
-  "score": 237.855,
+  "recipe": "classic Southeast Asian early-1970s fijian meke, ritual Devotional, indigenous branch, west African groove percussion, vocal drone modal apsua song georgian three-voice polyphony. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. high pitched fast dance interlocking pacific slit gong. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 465,
+  "score": 229.495,
   "config": {
     "traditions": [
       "fijian_meke",
-      "georgian_three_voice_polyphony",
-      "indonesian_jaipongan"
+      "abkhaz_polyphonic_song",
+      "georgian_three_voice_polyphony"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.77,
-          "voice_quality": 21.514999999999997,
+          "voice_register": 3.705,
+          "voice_quality": 19.24,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9825,
-          "voice_articulation": 25.252500000000005,
-          "voice_microtone": 26.2925,
-          "voice_tradition": 19.240000000000002,
-          "voice_mechanism_compound": 10.055,
-          "voice_estill_quality": 7.0200000000000005,
-          "voice_speech_song": 27.625000000000004,
-          "voice_ensemble_config": 33.767500000000005,
-          "voice_ornament_system": 4.800000000000001,
-          "voice_pitch_organization": 7.719999999999999,
-          "voice_processing_chain": 7.410000000000001,
-          "voice_multitrack_stack": 4.940000000000001
+          "voice_vibrato": 1.7950000000000002,
+          "voice_articulation": 25.96750000000001,
+          "voice_microtone": 27.137500000000003,
+          "voice_tradition": 16.087499999999995,
+          "voice_mechanism_compound": 10.004999999999999,
+          "voice_estill_quality": 6.825,
+          "voice_speech_song": 28.990000000000006,
+          "voice_ensemble_config": 33.83250000000001,
+          "voice_ornament_system": 4.745000000000002,
+          "voice_pitch_organization": 5.25,
+          "voice_processing_chain": 7.215,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -60,8 +60,8 @@
           "pacific_slit_gong_wood": "pacific_slit_gong_toa"
         },
         "scores": {
-          "pacific_slit_gong_form": 12.045,
-          "pacific_slit_gong_role": 25.580000000000002,
+          "pacific_slit_gong_form": 11.245,
+          "pacific_slit_gong_role": 23.58,
           "pacific_slit_gong_wood": -0.035
         }
       }

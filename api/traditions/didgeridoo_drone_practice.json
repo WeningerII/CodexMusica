@@ -3,14 +3,14 @@
   "name": "Didgeridoo drone practice (yidaki and mago technique)",
   "family": "global",
   "lineage": "Northern Australian aerophone tradition of Arnhem Land (yidaki) and western Arnhem (mago), documented from the 1930s and internationally disseminated from the 1980s — a termite-hollowed eucalypt tube sounded by lip buzz with continuous circular breathing, producing a fixed fundamental around D-to-F, a superimposed second overtone 'toot', and rhythm generated entirely by tongue, cheek, diaphragm and vocalized calls layered into the drone at fast isochronous cycle lengths.",
-  "recipe": "classic mid-1930s didgeridoo drone practice, drone Modal, overtone branch, indigenous ritual devotional, wind pipe drone modal shipibo-conibo icaros healing songs yidaki solo. sygyt, breath veiled tone, breath pulsed, interlocked note trading. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, arnhem land song cycle clapsticks bilma. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 458,
-  "score": 249.993,
+  "recipe": "classic mid-1930s didgeridoo drone practice, drone Modal, overtone branch, indigenous ritual devotional, wind pipe drone modal yidaki solo música mapuche. sygyt, breath veiled tone, breath pulsed, interlocked note trading. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo, arnhem land song cycle clapsticks bilma. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 437,
+  "score": 220.396,
   "config": {
     "traditions": [
       "didgeridoo_drone_practice",
-      "shipibo_icaros",
-      "didgeridoo_yidaki_solo"
+      "didgeridoo_yidaki_solo",
+      "musica_mapuche"
     ],
     "instruments": [
       {
@@ -23,9 +23,9 @@
         },
         "scores": {
           "wind_articulation": 15.635357142857142,
-          "didj_material": 12.098214285714285,
-          "didj_mouthpiece": 8.800357142857141,
-          "didj_technique": 6.294374999999999
+          "didj_material": 10.798214285714284,
+          "didj_mouthpiece": 7.500357142857142,
+          "didj_technique": 5.59
         }
       },
       {
@@ -37,7 +37,7 @@
         },
         "scores": {
           "clapsticks_bilma_form": 13.368214285714284,
-          "clapsticks_bilma_context": 16.733124999999998,
+          "clapsticks_bilma_context": 15.34,
           "clapsticks_bilma_wood": 0.95
         }
       },
@@ -53,7 +53,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -62,22 +62,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.4878125,
-          "voice_quality": 28.404999999999994,
+          "voice_register": 7.637812500000001,
+          "voice_quality": 16.834999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.835,
-          "voice_articulation": 17.095,
-          "voice_microtone": 20.734999999999992,
-          "voice_tradition": 17.484999999999992,
+          "voice_vibrato": 4.485,
+          "voice_articulation": 15.664999999999996,
+          "voice_microtone": 19.304999999999993,
+          "voice_tradition": 14.494999999999997,
           "voice_mechanism_compound": 9.765714285714285,
-          "voice_estill_quality": 4.94,
-          "voice_speech_song": 18.979999999999997,
-          "voice_ensemble_config": 17.679999999999996,
-          "voice_ornament_system": 6.150000000000001,
-          "voice_pitch_organization": 13.570312499999996,
-          "voice_processing_chain": 10.465,
-          "voice_multitrack_stack": 6.045
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 17.744999999999997,
+          "voice_ensemble_config": 15.599999999999994,
+          "voice_ornament_system": 5.2749999999999995,
+          "voice_pitch_organization": 13.720312499999999,
+          "voice_processing_chain": 5.330000000000001,
+          "voice_multitrack_stack": 4.55
         }
       }
     ],

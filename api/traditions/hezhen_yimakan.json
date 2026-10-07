@@ -5,7 +5,7 @@
   "lineage": "Narrative tradition of the Hezhen (Nanai) of north-east Heilongjiang along the Songhua, Heilong and Wusuli rivers, performed in the Hezhen language by a solo storyteller who alternates sung verse with spoken prose, without instrumental accompaniment. Episodes recount tribal alliances and battles, the deeds of mergen heroes, shamanic ritual, fishing and hunting; the tradition is inscribed on UNESCO's List of Intangible Cultural Heritage in Need of Urgent Safeguarding.",
   "recipe": "classic modern yimakan, ballad Poetry. narrative, solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 149,
-  "score": 3.625,
+  "score": 3.668,
   "config": {
     "traditions": [
       "hezhen_yimakan"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.7999999999999998,
+          "voice_articulation": 1.8427499999999999,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

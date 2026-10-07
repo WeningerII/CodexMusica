@@ -5,7 +5,7 @@
   "lineage": "Garifuna wake-and-celebration dance of the Honduran and Belizean coast, sung in Garifuna at a brisk 2/4 with the segunda drum holding a steady low pulse against the primero's improvised high strokes, sisira shakers, hand-clapping and a woman lead singer answered by chorus, the fertility-themed hip-driven dance performed at beluria wakes and at community festivals.",
   "recipe": "classic early-1940s punta, groove Percussion, Caribbean branch, African diasporic funeral lament, Afro-diasporic ritual devotional maloya candomblé ritual music. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, brisk ka drum, boula, traditional gourd calabash maracas, call ritual conch shell horn, foot stomp. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 595,
-  "score": 178.477,
+  "score": 177.683,
   "config": {
     "traditions": [
       "punta",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.5095,
+          "voice_register": 2.3145,
           "voice_quality": 11.764999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.68,
+          "voice_vibrato": 4.3545,
           "voice_articulation": 16.119999999999997,
           "voice_microtone": 15.729999999999993,
           "voice_tradition": 14.754999999999999,
           "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 3.9000000000000004,
+          "voice_estill_quality": 3.8445000000000005,
           "voice_speech_song": 16.379999999999995,
           "voice_ensemble_config": 16.834999999999994,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 3.4400000000000004,
+          "voice_pitch_organization": 3.29,
           "voice_processing_chain": 5.85,
           "voice_multitrack_stack": 2.535
         }
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 9.879999999999999,
           "choir_polyphonic_configuration": 2.145,
-          "choir_regional_canonical_configuration": 8.027499999999998,
+          "choir_regional_canonical_configuration": 8.319999999999999,
           "choir_ensemble_repertoire": 3.9
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "ka_voice": 0.195,
-          "ka_rhythm": 1.3,
+          "ka_rhythm": 1.09,
           "ka_build": 0.15
         }
       },
@@ -98,8 +98,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 1.24,
-          "maracas_filling": 1.045
+          "maracas_construction": 1.09,
+          "maracas_filling": 1
         }
       },
       {
@@ -111,7 +111,7 @@
         },
         "scores": {
           "wind_articulation": 6.825,
-          "conch_use": 1.15,
+          "conch_use": 1.345,
           "conch_shell_horn_region": 16.314999999999998
         }
       },
@@ -123,7 +123,7 @@
         },
         "scores": {
           "stomp_footwear": 0,
-          "stomp_surface": 0.15
+          "stomp_surface": 0
         }
       }
     ],

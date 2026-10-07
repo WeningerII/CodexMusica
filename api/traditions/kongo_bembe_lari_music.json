@@ -5,7 +5,7 @@
   "lineage": "Village music of the Kongo-group peoples of the southern Republic of Congo - Bembe, Lari and Kongo of the Pool and Bouenza regions - including dance songs and matanga wake songs, documented in Charles Duvelle's 1966 recordings for Ocora's 'Musique Kongo'. Generic drum and shaker cards stand in for the drums and rattles.",
   "recipe": "classic mid-1960s kongo village music, groove Percussion, central east south African branch. single leader group response. membrane drum pulse resonant acoustic membrane drum, shaker source unspecified. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 294,
-  "score": 3.826,
+  "score": 3.964,
   "config": {
     "traditions": [
       "kongo_bembe_lari_music"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4934999999999998,
+          "voice_ensemble_config": 1.4949999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.1365,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },

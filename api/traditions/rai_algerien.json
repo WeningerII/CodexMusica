@@ -3,14 +3,14 @@
   "name": "Raï algérien (Oran pop-raï)",
   "family": "global",
   "lineage": "Oran-region genre that moved from the cheikha and bedoui tradition of gasba flute and guellal drum into the electrified pop-raï of the late 1970s-80s cassette studios under producers like Rachid Baba Ahmed, with Cheb Khaled, Cheb Mami and Chaba Fadela as its stars — synthesizer and trumpet riffs, drum machine or fast 6/8 derbouka over a 4/4 shuffle at roughly 100-130 BPM, and raw first-person Darija lyrics about drink, love and exile delivered in a nasal, melismatic upper-register chest voice.",
-  "recipe": "classic West African 1977-1979 raï algérien, functional Song, mid east n African pop branch, African dance electronic dance, middle east n African protest song algerian raï coupé-décalé. extended whistle, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, shallow cup lead trumpet ensemble trumpet, alder pyramid pure nickel bass British mid 60s era electric bass, festive gasba, oranais processional heavy beat festive metal body guellal, TR-909. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
-  "recipe_chars": 835,
-  "score": 269.382,
+  "recipe": "classic West African 1977-1979 raï algérien, functional Song, mid east n African pop branch, African dance electronic dance, middle east n African protest song özgün müzik algerian raï. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, shallow cup lead trumpet ensemble trumpet, alder pyramid pure nickel bass British mid 60s era electric bass, gasba, oranais processional heavy beat festive metal body guellal, TR-909. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 795,
+  "score": 267.058,
   "config": {
     "traditions": [
       "rai_algerien",
-      "algerian_rai_political",
-      "coupe_decale_ivorian"
+      "ozgun_muzik",
+      "algerian_rai_political"
     ],
     "instruments": [
       {
@@ -22,9 +22,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.764999999999999,
-          "poly_archetypes": 0.845,
-          "poly_voices": 0.845,
+          "electronic_technique": 12.79,
+          "poly_archetypes": 0.54,
+          "poly_voices": 0.54,
           "poly_maker_lineage": 0.995
         }
       },
@@ -37,10 +37,10 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 4.0625,
+          "percussion_technique": 2.8600000000000003,
           "darbuka_material": 1.8849999999999996,
           "darbuka_skin": 1.8849999999999996,
-          "darbuka_regional_style": 5.495
+          "darbuka_regional_style": 6.245
         }
       },
       {
@@ -56,12 +56,12 @@
         },
         "scores": {
           "wind_articulation": 1.6899999999999997,
-          "brass_size": 0.345,
-          "trumpet_mouthpiece": 3.855,
+          "brass_size": 0.8450000000000001,
+          "trumpet_mouthpiece": 4.005,
           "brass_mute": 1,
           "trumpet_technique": 1.6899999999999997,
           "trumpet_bell_metal": 0,
-          "trumpet_maker_school": 0.78
+          "trumpet_maker_school": 0.975
         }
       },
       {
@@ -78,11 +78,11 @@
         },
         "scores": {
           "amp_make": 1.875,
-          "body_wood": 4.67,
+          "body_wood": 4.0200000000000005,
           "pickup_config": 1.69,
           "string_type": 3.9650000000000003,
           "scale_length_b": 2.075,
-          "fretted_or_not": 0.345,
+          "fretted_or_not": 0.8450000000000001,
           "bass_technique": -0.035,
           "electric_bass_string_configuration": 0
         }
@@ -90,7 +90,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -105,37 +105,37 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 15.93,
-          "voice_quality": 11.43999999999999,
+          "voice_register": 14.359999999999994,
+          "voice_quality": 10.464999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.0700000000000003,
-          "voice_articulation": 17.614999999999995,
-          "voice_microtone": 19.694999999999993,
-          "voice_tradition": 20.377499999999998,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 3.640000000000001,
-          "voice_speech_song": 22.749999999999996,
-          "voice_ensemble_config": 20.86499999999999,
-          "voice_ornament_system": 3.250000000000001,
-          "voice_pitch_organization": 4.800000000000001,
-          "voice_processing_chain": 13.5,
-          "voice_multitrack_stack": 4.9725
+          "voice_articulation": 19.824999999999996,
+          "voice_microtone": 22.294999999999998,
+          "voice_tradition": 19.5325,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 3.835000000000001,
+          "voice_speech_song": 25.934999999999995,
+          "voice_ensemble_config": 20.929999999999993,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 5.925000000000002,
+          "voice_processing_chain": 11.25,
+          "voice_multitrack_stack": 6.475000000000001
         }
       },
       {
         "id": "gasba",
         "slots": {
           "gasba_form": "gasba_form_naili",
-          "gasba_style": "gasba_style_mezoued",
+          "gasba_style": "gasba_style_bedoui_trab",
           "gasba_material": "gasba_material_metal"
         },
         "scores": {
           "gasba_form": 5.464999999999998,
-          "gasba_style": 9.575,
+          "gasba_style": 6.1850000000000005,
           "gasba_material": 0.325
         }
       },
@@ -156,13 +156,13 @@
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_techno",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
           "tr909_voice": 1.625,
-          "drum_machine_909_context": 2.0799999999999996,
-          "tr909_production_origin": 0.845
+          "drum_machine_909_context": 1.69,
+          "tr909_production_origin": 0.24
         }
       }
     ],

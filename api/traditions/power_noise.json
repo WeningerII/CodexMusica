@@ -5,7 +5,7 @@
   "lineage": "Rhythmic-noise style codified in Germany from 1994 onward by Ant-Zen, Hymen and acts such as Converter and Winterkälte, applying distorted 4/4 kick-drum sequencing and clipped percussive loops at 130-160 BPM to noise source material, with layered granular texture, no vocals, and hardware-plus-DAW production aimed at industrial dancefloors.",
   "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding glitchbreak. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 585,
-  "score": 78.67,
+  "score": 78.279,
   "config": {
     "traditions": [
       "power_noise",
@@ -17,12 +17,12 @@
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_clap",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
           "tr909_voice": 1.25,
-          "drum_machine_909_context": 0.65,
+          "drum_machine_909_context": 0.89375,
           "tr909_production_origin": 0.65
         }
       },
@@ -35,8 +35,8 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "sample_bitdepth": 0.45499999999999996,
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.45125,
           "sample_swing": 11.780000000000001,
           "sample_processing": 0.39
         }
@@ -54,7 +54,7 @@
           "electronic_technique": 0.45500000000000007,
           "oscillator": 1,
           "filter_topology": 1.04,
-          "envelope": 2.19375,
+          "envelope": 2.145,
           "modulation": 0.35
         }
       },
@@ -68,22 +68,22 @@
         },
         "scores": {
           "electronic_technique": 15.05,
-          "mod_voltage_source": 2.34375,
-          "mod_patch_density": 2.211875,
-          "mod_lineage": 0.7987500000000001
+          "mod_voltage_source": 2.295,
+          "mod_patch_density": 2.0006250000000003,
+          "mod_lineage": 0.9937500000000001
         }
       },
       {
         "id": "granular_synth",
         "slots": {
           "electronic_technique": "electronic_modular_patch",
-          "granular_use": "granular_idm",
+          "granular_use": "granular_ambient",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
           "electronic_technique": 15.05,
-          "granular_use": 0.16249999999999998,
-          "granular_synth_source": 6.68975
+          "granular_use": 0,
+          "granular_synth_source": 6.364750000000001
         }
       },
       {

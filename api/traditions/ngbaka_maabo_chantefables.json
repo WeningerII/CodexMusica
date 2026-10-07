@@ -5,7 +5,7 @@
   "lineage": "Music of the Ngbaka-Ma'bo of the Lobaye forest region of Central African Republic, documented in Simha Arom and Geneviève Dournon's 1964-67 recordings and on Arom's 1970 SELAF disc of tales and chantefables: spoken tales are broken by sung refrains that the narrator leads and listeners answer, and a separate song strand is accompanied by the sanza lamellophone. The Congolese lukembi card stands in for the sanza.",
   "recipe": "classic mid-1960s ngbaka-ma'bo chantefables and sanza song, ballad Poetry. lukembi congolese. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 185,
-  "score": -0.336,
+  "score": -0.375,
   "config": {
     "traditions": [
       "ngbaka_maabo_chantefables"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.48899999999999993,
+          "voice_ensemble_config": 0.44999999999999996,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -5,7 +5,7 @@
   "lineage": "Funeral song-dance of the Toraja of the South Sulawesi highlands, performed during the rambu solo' funeral feast. Mourners link arms or little fingers in a large circle and step and sway slowly while chanting badong verses that recount the life of the deceased and accompany the soul's departure; the chant is unaccompanied.",
   "recipe": "classic modern ma'badong, funeral Lament. metrical pitched chant fixed rhythm. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 158,
-  "score": 1.963,
+  "score": 2.478,
   "config": {
     "traditions": [
       "toraja_mabadong"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.113,
-          "voice_ensemble_config": 0,
+          "voice_speech_song": 2.323,
+          "voice_ensemble_config": 0.168,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       }

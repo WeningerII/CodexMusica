@@ -1,0 +1,109 @@
+{
+  "id": "chirimia_tun_guatemala",
+  "name": "Chirimía y tun (Guatemalan highland Maya shawm and drum)",
+  "family": "global",
+  "lineage": "Shawm-and-drum music of the K'iche' and other highland Maya of Guatemala, played for cofradía processions, saints' feasts and masked dance-dramas, notably at Chichicastenango. The chirimía, a double-reed shawm brought in the colonial period, plays long modal melodies over a large drum and the tun slit drum. The dulzaina card stands in for the chirimía and the maguaré card for the tun.",
+  "recipe": "classic modern chirimía y tun, ritual Devotional, indigenous branch. piercing cane double reed canonical arundo donax raw outdoor dulzaina, membrane drum pulse resonant acoustic membrane drum, maguare. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 15.642,
+  "config": {
+    "traditions": [
+      "chirimia_tun_guatemala"
+    ],
+    "instruments": [
+      {
+        "id": "dulzaina",
+        "slots": {
+          "dulzaina_form": "dulzaina_castellana",
+          "dulzaina_context": "dulzaina_tabalet_duo",
+          "dulzaina_reed": "dulzaina_hard_scrape",
+          "dulzaina_body_wood": "dulzaina_boj_boxwood"
+        },
+        "scores": {
+          "dulzaina_form": -0.07,
+          "dulzaina_context": -0.07,
+          "dulzaina_reed": 3.77,
+          "dulzaina_body_wood": -0.07
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 5.758749999999999,
+          "acoustic_membrane_drum_gesture": 5.89525
+        }
+      },
+      {
+        "id": "maguare",
+        "slots": {
+          "maguare_pair": "maguare_female",
+          "maguare_function": "maguare_ritual",
+          "maguare_beater": "maguare_rubber"
+        },
+        "scores": {
+          "maguare_pair": 0.4095,
+          "maguare_function": 0.16799999999999998,
+          "maguare_beater": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dulzaina": [
+        "dulzaina_form",
+        "dulzaina_context",
+        "dulzaina_reed",
+        "dulzaina_body_wood"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "maguare": [
+        "maguare_pair",
+        "maguare_function",
+        "maguare_beater"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "dulzaina_form": "dulzaina_castellana",
+      "dulzaina_context": "dulzaina_tabalet_duo",
+      "dulzaina_reed": "dulzaina_hard_scrape",
+      "dulzaina_body_wood": "dulzaina_boj_boxwood",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "maguare_pair": "maguare_female",
+      "maguare_function": "maguare_ritual",
+      "maguare_beater": "maguare_rubber"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

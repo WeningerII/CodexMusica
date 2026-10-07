@@ -5,7 +5,7 @@
   "lineage": "Revolutionary and patriotic song repertoire composed from the 1940s in the Việt Minh resistance and in North Vietnam, and nationwide after 1975, by composers such as Văn Cao, Đỗ Nhuận, Hoàng Hiệp and Phạm Tuyên. Marches and lyrical mass songs for soloists, choirs and group singing were broadcast by the Voice of Vietnam and performed by army and state song-and-dance troupes with Western orchestral and band instruments. Generic string and horn cards stand in for the orchestral and band instruments.",
   "recipe": "classic Asian mid-1940s nhạc đỏ, protest Song, east Asian branch. credited strings credited horns unspecified. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 248,
-  "score": 3.198,
+  "score": 3.535,
   "config": {
     "traditions": [
       "nhac_do"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.126,
-          "voice_multitrack_stack": 0.23083333333333333,
+          "voice_processing_chain": 0.1575,
+          "voice_multitrack_stack": 0.315,
           "voice_tessitura": 0
         }
       },
@@ -67,7 +67,7 @@
           "credited_horns_identity": "credited_horns_source_unspecified"
         },
         "scores": {
-          "credited_horns_identity": 1.0133333333333334
+          "credited_horns_identity": 1.2349999999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Argentine folk-renewal movement running from the late 1960s Nuevo Cancionero manifesto (Mendoza, Armando Tejada Gómez and Oscar Matus, with Mercedes Sosa as its voice) through the 1970s Cuchi Leguizamón and Gustavo 'Cuchi' circle and the 1990s-2010s revisionists Dino Saluzzi, Juan Falú, Liliana Herrero and Carlos Aguirre — retaining chacarera hemiola and zamba 6/8 but opening them to jazz-derived extended chords, through-composed forms, bandoneón and piano colour, rubato vocal declamation and chamber-quiet dynamics rather than peña ensemble drive.",
   "recipe": "classic South American 1967-1969 nuevo folklore argentino, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, string improv improv on frame nueva canción cimbálová muzika. thick, breath veiled tone, straight onset, interlocked note trading. sitka spruce spruce maple bronze fingerpicked dreadnought acoustic guitar, tango virtuoso modern Argentine post 1990 revival straight bandoneon, modern bright beech laminated maple laminated European tradition sitka spruce grand piano, swaying bombo leguero, steel plywood laminate European maple sycamore maple double bass, naranjillo andean premium wood cedar andean andean classical charango. large tracking room 1920-1965 mid tier odeon rca buenos aires. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 827,
-  "score": 249.07,
+  "score": 247.705,
   "config": {
     "traditions": [
       "nuevo_folklore_argentino",
@@ -38,12 +38,12 @@
           "voice_quality": 11.114999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.38,
+          "voice_vibrato": 5.485,
           "voice_articulation": 25.09,
           "voice_microtone": 25.48,
-          "voice_tradition": 11.27,
+          "voice_tradition": 10.835,
           "voice_mechanism_compound": 4.3549999999999995,
-          "voice_estill_quality": 2.775,
+          "voice_estill_quality": 2.82,
           "voice_speech_song": 29.510000000000005,
           "voice_ensemble_config": 25.025000000000006,
           "voice_ornament_system": 5.3625,
@@ -63,7 +63,7 @@
         },
         "scores": {
           "acoustic_technique": 6.760000000000001,
-          "string_tuning": 0.9399999999999998,
+          "string_tuning": 0.9849999999999999,
           "top_wood": 1.645,
           "back_sides": 1.645,
           "string_acoustic": 1.645
@@ -79,9 +79,9 @@
           "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
         },
         "scores": {
-          "free_reed_technique": 4.1850000000000005,
+          "free_reed_technique": 3.9450000000000003,
           "bandoneon_action": 0.6,
-          "bandoneon_use": 2.275,
+          "bandoneon_use": 2.23,
           "bandoneon_maker_school": 2.9899999999999998,
           "bandoneon_reed_material": -1.91
         }
@@ -145,9 +145,9 @@
           "bass_top_wood": 1.25,
           "bass_back_wood": 2.015,
           "bass_varnish": 1.25,
-          "bass_setup_period": 2.135,
-          "bass_play": 2.59,
-          "bass_rosin": 3.9449999999999994,
+          "bass_setup_period": 2.09,
+          "bass_play": 2.545,
+          "bass_rosin": 3.2399999999999998,
           "bass_bow_stick": 1.25
         }
       },
@@ -161,7 +161,7 @@
           "charango_string_material": "charango_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 4.285,
+          "plucked_traditional_technique": 4.24,
           "charango_back": 1.4949999999999999,
           "charango_top_wood": 1.4949999999999999,
           "charango_strings": 1.4949999999999999,

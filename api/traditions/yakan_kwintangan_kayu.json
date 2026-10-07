@@ -5,7 +5,7 @@
   "lineage": "Music of the kwintangan kayu of the Yakan of Basilan: five wooden beams hung horizontally one above another in order of pitch and struck at the edge with beaters. It is played only during the rice-growing season and is said to make the rice happy. The gabbang card (Yakan form, small five-to-nine-key size) stands in for the hanging logs.",
   "recipe": "classic modern kwintangan kayu, field Work, indigenous ritual devotional. gabbang. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 162,
-  "score": 3,
+  "score": 3.215,
   "config": {
     "traditions": [
       "yakan_kwintangan_kayu"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "gabbang_form": 0.39,
-          "gabbang_keys": 1.8599999999999999,
+          "gabbang_keys": 2.0745,
           "gabbang_mallets": 0
         }
       }

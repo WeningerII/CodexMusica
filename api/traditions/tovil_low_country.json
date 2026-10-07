@@ -5,7 +5,7 @@
   "lineage": "Exorcism and healing rites of the Sinhala low country around Galle and Matara, among them the sanni yakuma, performed through the night by ritual specialists for a patient's household. Drummers on the double-headed yak bera drive chanted and sung verses, masked and costumed dance and comic dialogue with the demons, with talampata hand cymbals. A generic membrane-drum card stands in for the yak bera and the manjira card for the talampata. Bruce Kapferer's A Celebration of Demons is the classic study.",
   "recipe": "classic modern tovil, ritual Devotional, indigenous branch. metrical pitched chant fixed rhythm, solo with instrumental accompaniment, single lead single track no stacking. membrane drum pulse resonant acoustic membrane drum, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 320,
-  "score": 15.214,
+  "score": 14.954,
   "config": {
     "traditions": [
       "tovil_low_country"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.8719999999999997,
+          "voice_speech_song": 1.821,
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 1.14225,
+          "voice_multitrack_stack": 1.0574999999999999,
           "voice_tessitura": 0
         }
       },
@@ -71,7 +71,7 @@
           "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 4.47475,
+          "manjira_form": 4.351,
           "manjira_stroke": -0.07,
           "manjira_metal": -0.05
         }

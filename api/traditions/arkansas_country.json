@@ -5,7 +5,7 @@
   "lineage": "Arkansas country formed along the Delta cotton belt and the Ozark foothills and reached record in the 1950s through the Memphis studios two hours east, codified by Johnny Cash, Sonny Burgess, Charlie Rich and Conway Twitty — 120–180 BPM slapped-upright-bass boom-chicka rhythm, single-coil tremolo-and-slapback electric lead, no drums or minimal brushed snare, and a low, flat, hymn-inflected vocal delivering Delta hardship and Pentecostal imagery in plain first-person narrative.",
   "recipe": "classic Southern American mid-1950s arkansas country, functional Song, honky tonk era branch, pre commercial country, blues acoustic functional song malian blues st. louis blues. thick, worn fold, wide pitch sway, interlocked note trading. open d tuning cedar flatwound thomastik slide dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, growly gut upright bass, plain gut lamb gut whole lamb method double stops fiddle, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, pre muffled edge muffled brushes-and-sticks drum kit. sun studios memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 833,
-  "score": 433.077,
+  "score": 431.742,
   "config": {
     "traditions": [
       "arkansas_country",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 28.384999999999994,
+          "voice_register": 28.234999999999996,
           "voice_quality": 17.599999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -62,11 +62,11 @@
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 16.139999999999997,
+          "acoustic_technique": 15.944999999999999,
           "string_tuning": 9.02,
-          "top_wood": 3.135,
+          "top_wood": 3.09,
           "back_sides": 0.95,
-          "string_acoustic": 2
+          "string_acoustic": 2.045
         }
       },
       {
@@ -87,18 +87,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 18.919999999999998,
-          "amp_make": 19.009999999999998,
-          "body_wood": 3.195,
-          "neck_wood": 3.195,
-          "fretboard": 3.04,
+          "electric_technique": 18.5,
+          "amp_make": 19.16,
+          "body_wood": 3.255,
+          "neck_wood": 3.255,
+          "fretboard": 2.995,
           "pickup_magnet": 1.5,
           "string_material": 0.65,
-          "string_gauge": 2.24,
+          "string_gauge": 2.195,
           "bridge": 1.5,
-          "scale_length": 3.18,
-          "finish": 0.195,
-          "string_tuning": 9.23,
+          "scale_length": 3.09,
+          "finish": 0.3,
+          "string_tuning": 8.855,
           "single_coil_pickup_construction": 0
         }
       },
@@ -126,7 +126,7 @@
         "scores": {
           "bowed_technique": 17.525,
           "fiddle_strings": 1.2349999999999999,
-          "fiddle_bow": 1.09,
+          "fiddle_bow": 1.285,
           "fiddle_mute": 1.5,
           "fiddle_articulation": 1.605,
           "fiddle_string_configuration": 0
@@ -144,11 +144,11 @@
         },
         "scores": {
           "harmonica_type": 0.45499999999999996,
-          "harmonica_comb": 15.694999999999999,
-          "harmonica_reed": 15.414999999999997,
+          "harmonica_comb": 15.994999999999997,
+          "harmonica_reed": 15.369999999999997,
           "harmonica_technique": 19.899999999999995,
-          "harmonica_maker_school": 12.454999999999998,
-          "harmonica_tuning": 6.434999999999999
+          "harmonica_maker_school": 12.034999999999998,
+          "harmonica_tuning": 6.014999999999999
         }
       },
       {

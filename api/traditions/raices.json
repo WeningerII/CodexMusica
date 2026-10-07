@@ -3,14 +3,14 @@
   "name": "Raíces",
   "family": "global",
   "lineage": "Pan-Latin-American folkloric roots revival crystallizing in the Andes and Southern Cone from the late 1960s through groups such as Inti-Illimani, Quilapayún, Los Jaivas and Bolivia's Los Kjarkas, who took village huayno, carnavalito and bailecito repertoire onto the concert stage — charango and ronroco strumming in fast 2/4 or lilting 6/8, quena and siku panpipe pairs trading interlocking halves of the melody, bombo leguero on a heavy dotted pulse, and unforced chest-voice unison or parallel-third choruses in Spanish and Quechua.",
-  "recipe": "classic Andean 1967-1969 raíces, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, andean carnival processional, andean field work bolivian diablada de oruro folclore jujeño. forward-resonance, slow rate, interlocked note trading, neutral third half flat. naranjillo andean premium wood cedar andean andean classical charango, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, pre hispanic bone quena, andean tradition paired rows interlocking siku panpipes, lilting swaying bombo leguero, low mid rich spectrum broken in fast cedar classical nylon-string guitar, cuatro venezolano. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 800,
-  "score": 259.012,
+  "recipe": "classic Andean 1967-1969 raíces, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, andean carnival processional, andean field work bolivian diablada de oruro folklore ecuatoriano. thick, forward-resonance, slow rate, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, pre hispanic bone quena, andean tradition paired rows interlocking siku panpipes, bombo leguero, low mid rich spectrum broken in fast cedar classical nylon-string guitar, cuatro venezolano. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 771,
+  "score": 256.776,
   "config": {
     "traditions": [
       "raices",
       "bolivian_diablada_oruro",
-      "folclore_jujeno"
+      "folklore_ecuatoriano"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.0549999999999997,
-          "charango_back": 6.74125,
-          "charango_top_wood": 7.345000000000001,
-          "charango_strings": 7.08625,
-          "charango_string_material": 5.330000000000001
+          "plucked_traditional_technique": 3.9,
+          "charango_back": 6.09125,
+          "charango_top_wood": 6.5,
+          "charango_strings": 6.305,
+          "charango_string_material": 4.485
         }
       },
       {
@@ -40,11 +40,11 @@
           "ronroco_strings": "ronroco_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.0549999999999997,
+          "plucked_traditional_technique": 3.9,
           "ronroco_config": 0.39,
-          "ronroco_context": 10.855,
-          "ronroco_body_wood": 1.235,
-          "ronroco_strings": 6.825
+          "ronroco_context": 10.009999999999998,
+          "ronroco_body_wood": 1.4300000000000002,
+          "ronroco_strings": 5.9799999999999995
         }
       },
       {
@@ -67,8 +67,8 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 9.49,
-          "siku_size": 0.195
+          "siku_construction": 8.645,
+          "siku_size": 0.845
         }
       },
       {
@@ -76,12 +76,12 @@
         "slots": {
           "bombo_leguero_form": "bombo_leguero_grande",
           "bombo_leguero_style": "bombo_leguero_zamba",
-          "bombo_leguero_head": "bombo_leguero_vacuno"
+          "bombo_leguero_head": "bombo_leguero_cabra"
         },
         "scores": {
           "bombo_leguero_form": 4.25,
-          "bombo_leguero_style": 1.375,
-          "bombo_leguero_head": 0.09999999999999999
+          "bombo_leguero_style": 0.95,
+          "bombo_leguero_head": -0.05
         }
       },
       {
@@ -90,23 +90,23 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "lattice_cl",
+          "bracing_classical": "fan_torres_cl",
           "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.5449999999999997,
+          "acoustic_technique": 2.0699999999999994,
           "string_tuning": 0,
-          "top_wood_classical": 8.124999999999998,
-          "bracing_classical": 0.5850000000000002,
-          "string_classical": 0.325,
-          "attack_technique_cl": 0.39
+          "top_wood_classical": 7.669999999999999,
+          "bracing_classical": 1.8850000000000002,
+          "string_classical": 0.5199999999999999,
+          "attack_technique_cl": 0.585
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -119,27 +119,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.440625,
-          "voice_quality": 16.77,
+          "voice_register": 0.8125000000000001,
+          "voice_quality": 15.144999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
-          "voice_articulation": 21.71,
-          "voice_microtone": 19.369999999999997,
-          "voice_tradition": 24.401250000000005,
+          "voice_vibrato": 3.3149999999999995,
+          "voice_articulation": 21.644999999999992,
+          "voice_microtone": 20.604999999999993,
+          "voice_tradition": 22.776250000000005,
           "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 14.118749999999999,
-          "voice_speech_song": 21.970000000000002,
-          "voice_ensemble_config": 19.5,
-          "voice_ornament_system": 19.82,
-          "voice_pitch_organization": 1.545,
-          "voice_processing_chain": 2.275,
-          "voice_multitrack_stack": 6.696250000000001
+          "voice_estill_quality": 12.693749999999998,
+          "voice_speech_song": 22.944999999999997,
+          "voice_ensemble_config": 19.89,
+          "voice_ornament_system": 18.695,
+          "voice_pitch_organization": 1.71375,
+          "voice_processing_chain": 2.8599999999999994,
+          "voice_multitrack_stack": 6.996250000000002
         }
       },
       {

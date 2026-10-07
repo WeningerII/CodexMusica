@@ -3,14 +3,14 @@
   "name": "American political stump oratory",
   "family": "vernacular",
   "lineage": "The campaign stump speech of United States electoral politics, from 19th-century torchlight-rally and Chautauqua oratory through populist and civil-rights platform styles to the modern televised rally. The name derives from candidates literally standing on tree stumps to address frontier gatherings. It is characterized by projected, persuasive delivery, memorable refrains and applause-lines, escalating cadence, and call-and-response engagement with the crowd. The genre spans a rhetorical continuum from plain conversational address to near-chanted, revival-inflected peroration.",
-  "recipe": "classic North American modern american political stump oratory, protest Song, European branch egyptian political-vocal lineage south african freedom song. thick, breath veiled tone, straight onset, interlocked note trading. us uk civic amateur band hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 317,
-  "score": 146.849,
+  "recipe": "classic North American modern american political stump oratory, protest Song, European branch egyptian political-vocal lineage özgün müzik. thick, breath veiled tone, straight onset, interlocked note trading. us uk civic amateur band hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 302,
+  "score": 143.855,
   "config": {
     "traditions": [
       "american_political_stump_oratory",
       "egyptian_sayyed_darwish_sheikh_imam",
-      "south_african_freedom_song"
+      "ozgun_muzik"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.750000000000001,
-          "voice_quality": 15.534999999999993,
+          "voice_register": 5.424999999999999,
+          "voice_quality": 17.159999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 15.079999999999995,
-          "voice_microtone": 25.479999999999997,
-          "voice_tradition": 19.369999999999997,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 6.734500000000001,
-          "voice_speech_song": 25.674999999999997,
-          "voice_ensemble_config": 17.094999999999995,
+          "voice_vibrato": 2.21,
+          "voice_articulation": 16.509999999999998,
+          "voice_microtone": 27.104999999999997,
+          "voice_tradition": 11.05,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 7.1945,
+          "voice_speech_song": 25.35,
+          "voice_ensemble_config": 17.224999999999994,
           "voice_ornament_system": 3.5749999999999997,
-          "voice_pitch_organization": 3.5749999999999997,
-          "voice_processing_chain": 5.1675,
-          "voice_multitrack_stack": 5.4925000000000015
+          "voice_pitch_organization": 3.8299999999999996,
+          "voice_processing_chain": 5.590000000000001,
+          "voice_multitrack_stack": 3.770000000000001
         }
       }
     ],

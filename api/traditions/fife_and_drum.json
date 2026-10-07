@@ -3,14 +3,14 @@
   "name": "Fife and Drum Corps",
   "family": "vernacular",
   "lineage": "The martial signalling ensemble of eighteenth-century European and colonial American armies, preserved after its battlefield obsolescence by New England ancient corps from the 1880s onward and by the Company of Fifers and Drummers founded in Ivoryton, Connecticut in 1965; a section of six-hole keyless B-flat fifes plays two-part duty tunes and quicksteps in D and G over rope-tension snare drums beating rudimental long rolls, flams and drags with a bass drum on the march beat, all outdoors, unamplified and at roughly 110-120 steps per minute.",
-  "recipe": "classic mid-1880s fife and drum corps, groove Percussion, American marching branch, European carnival processional, American south field work kolo pasodoble. martial driving unison doubled fife, piercing marching nickel silver nickel silver piccolo, five drum arc kevlar aramid extreme tension nylon tenor double bass rapid double strokes bass drum, drumline school marching, low tension calfskin warm tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 488,
-  "score": 75.453,
+  "recipe": "classic mid-1880s fife and drum corps, groove Percussion, American marching branch, European carnival processional, American south field work galoubet-tambourin kolo. martial driving unison doubled fife, piercing marching nickel silver nickel silver piccolo, five drum arc kevlar aramid extreme tension nylon tenor double bass rapid double strokes bass drum, drumline school marching, deep boom sustained goatskin head bright tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 512,
+  "score": 81.488,
   "config": {
     "traditions": [
       "fife_and_drum",
-      "kolo",
-      "pasodoble"
+      "provencal_galoubet_tambourin",
+      "kolo"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "fife_role": "fife_role_corps_unison"
         },
         "scores": {
-          "fife_tradition": 11.505000000000003,
+          "fife_tradition": 12.35,
           "fife_build": -0.1,
           "fife_pitch": 4.99,
-          "fife_role": 9.34
+          "fife_role": 9.489999999999998
         }
       },
       {
@@ -37,8 +37,8 @@
         },
         "scores": {
           "wind_articulation": 0.52,
-          "piccolo_material": 2.685,
-          "piccolo_context": 0.975
+          "piccolo_material": 2.535,
+          "piccolo_context": 2.275
         }
       },
       {
@@ -50,21 +50,21 @@
           "tenor_drum_shell": "tenor_drum_muffled_cloth"
         },
         "scores": {
-          "tenor_drum_form": 9.775,
+          "tenor_drum_form": 9.275,
           "tenor_drum_head": 5.75,
           "tenor_drum_beater": 4.735,
-          "tenor_drum_shell": 6.07
+          "tenor_drum_shell": 7.119999999999999
         }
       },
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_18_jazz",
+          "bass_drum_size": "bass_drum_24_26_big",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.195,
-          "bass_drum_beater": 3.38
+          "bass_drum_size": 0.65,
+          "bass_drum_beater": 2.535
         }
       },
       {
@@ -81,16 +81,16 @@
       {
         "id": "tabor",
         "slots": {
-          "tabor_form": "tabor_tamboril_iberian",
+          "tabor_form": "tabor_tambourin_provencal",
           "tabor_context": "tabor_farandole",
           "tabor_snare": "tabor_snare_batter",
-          "tabor_heads": "tabor_calfskin_slack"
+          "tabor_heads": "tabor_goatskin_tight"
         },
         "scores": {
-          "tabor_form": 3.9975,
-          "tabor_context": 7.280000000000001,
+          "tabor_form": 4.484999999999999,
+          "tabor_context": 9.3925,
           "tabor_snare": 0.7,
-          "tabor_heads": 1.4449999999999998
+          "tabor_heads": 1.4999999999999998
         }
       }
     ],

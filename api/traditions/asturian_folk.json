@@ -3,14 +3,14 @@
   "name": "Asturian folk",
   "family": "global",
   "lineage": "Traditional music of Asturias in northern Spain, documented by Eduardo Martínez Torner's 1920 Cancionero musical and revived from the 1980s by Llan de Cubel and the Xixón folk scene — the single-drone gaita asturiana in B-flat playing giraldillas and muñeiras against snare-and-bass-drum tamboriteru, and the tonada or asturianada, a solo unmetred song delivered at full chest voice with long melismatic ornaments and heavy portamento.",
-  "recipe": "classic Northern European mid-1980s asturian folk, functional Song, iberian branch, wind pipe drone modal, Mediterranean ballad ballad poetry greek clarinet greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. thick drone rubato gaita asturiana, double bass rapid double strokes bass drum, pandeiro, cedar phosphor bronze bronze fingerpicked acoustic guitar, drone like fiddle. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 502,
-  "score": 209.665,
+  "recipe": "classic Northern European mid-1980s asturian folk, functional Song, iberian branch, wind pipe drone modal, Mediterranean ballad ballad poetry greek clarinet këngë qytetare. thick, breath veiled tone, slow rate, interlocked note trading. thick drone rubato gaita asturiana, double bass rapid double strokes bass drum, pandeiro, phosphor bronze bronze fingerpicked acoustic guitar, drone like fiddle. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 495,
+  "score": 197.707,
   "config": {
     "traditions": [
       "asturian_folk",
       "greek_clarinet",
-      "greek_nisiotika"
+      "albanian_kenge_qytetare"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
         "scores": {
           "gaita_ast_tuning": 0,
           "gaita_ast_drone": 4.875,
-          "gaita_ast_style": 1.45
+          "gaita_ast_style": 2.1
         }
       },
       {
@@ -43,26 +43,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.375,
-          "voice_quality": 14.68999999999999,
+          "voice_register": 5.75,
+          "voice_quality": 14.364999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 18.589999999999996,
-          "voice_microtone": 23.432499999999994,
-          "voice_tradition": 29.334999999999994,
+          "voice_vibrato": 2.0799999999999996,
+          "voice_articulation": 19.044999999999995,
+          "voice_microtone": 23.887499999999996,
+          "voice_tradition": 21.534999999999997,
           "voice_mechanism_compound": 5.07,
           "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 22.034999999999993,
-          "voice_ensemble_config": 21.124999999999996,
-          "voice_ornament_system": 4.225000000000001,
+          "voice_speech_song": 23.334999999999994,
+          "voice_ensemble_config": 21.77499999999999,
+          "voice_ornament_system": 4.615000000000002,
           "voice_pitch_organization": 4.680000000000001,
-          "voice_processing_chain": 4.9399999999999995,
-          "voice_multitrack_stack": 5.07
+          "voice_processing_chain": 6.370000000000002,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -82,17 +82,17 @@
           "percussion_technique": "percussion_hands_layered",
           "pandeiro_size": "pandeiro_pequeno",
           "pandeiro_context": "pandeiro_samba",
-          "pandeiro_head": "pandeiro_goatskin_canonical",
-          "pandeiro_shell_wood": "pandeiro_eucalyptus",
-          "pandeiro_jingles": "pandeiro_brass_platinelas"
+          "pandeiro_head": "pandeiro_synthetic_modern",
+          "pandeiro_shell_wood": "pandeiro_maple",
+          "pandeiro_jingles": "pandeiro_steel_platinelas"
         },
         "scores": {
           "percussion_technique": -0.1,
           "pandeiro_size": 0.135,
-          "pandeiro_context": 1.81,
-          "pandeiro_head": 0.65,
-          "pandeiro_shell_wood": 0.65,
-          "pandeiro_jingles": 0.65
+          "pandeiro_context": 1.235,
+          "pandeiro_head": 0.09,
+          "pandeiro_shell_wood": 0.09,
+          "pandeiro_jingles": 0.3
         }
       },
       {
@@ -106,10 +106,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 1.04,
-          "back_sides": 0.9950000000000001,
-          "string_acoustic": 2.295,
-          "acoustic_om_technique": 10.424999999999999
+          "top_wood": 0.845,
+          "back_sides": 0.845,
+          "string_acoustic": 2.1449999999999996,
+          "acoustic_om_technique": 8.8
         }
       },
       {
@@ -123,7 +123,7 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 15.0475,
+          "bowed_technique": 12.934999999999999,
           "fiddle_strings": 0.15,
           "fiddle_bow": 1.2999999999999998,
           "fiddle_mute": 1.4949999999999999,

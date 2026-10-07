@@ -3,14 +3,14 @@
   "name": "Sinhala vannama (Sri Lankan court dance-song)",
   "family": "classical",
   "lineage": "Sinhala vannama Sri Lankan classical court dance-song tradition, comprising eighteen canonical pieces composed in the seventeenth-eighteenth centuries at the Kandyan royal court for performance at state ceremonies. Each of the eighteen vannamas evokes a specific subject (gaja-vannama elephant, ashva-vannama horse, mayura-vannama peacock, sinha-vannama lion, etc.) through characteristic melodic-and-rhythmic gesture and stylized choreographic movement. Performance combines solo male voice with geta-bera double-headed barrel drum and elaborate choreography. The Sri Lankan Cultural Department and Royal Asiatic Society preserve the canonical transmission.",
-  "recipe": "classic Southeast Asian modern sinhala vannama, art Music, south Asian branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, slow rate, interlocked note trading. goat skin syahi rope laced steel ring dholak. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 366,
-  "score": 226.379,
+  "recipe": "classic Southeast Asian modern sinhala vannama, art Music, south Asian branch, indigenous ritual devotional ju|'hoansi healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, slow rate, interlocked note trading. goat skin syahi rope laced steel ring dholak. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 216.874,
   "config": {
     "traditions": [
       "sinhala_vannama",
       "juhoansi_healing_nom",
-      "shipibo_icaros"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "polynesian_oli_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.95,
-          "voice_quality": 31.72,
+          "voice_quality": 25.999999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.0093749999999995,
-          "voice_articulation": 22.815,
-          "voice_microtone": 22.035,
-          "voice_tradition": 15.665000000000001,
-          "voice_mechanism_compound": 9.520000000000001,
+          "voice_articulation": 22.165,
+          "voice_microtone": 21.189999999999998,
+          "voice_tradition": 19.435000000000002,
+          "voice_mechanism_compound": 6.845000000000001,
           "voice_estill_quality": 11.179999999999996,
-          "voice_speech_song": 26.455,
-          "voice_ensemble_config": 28.275,
+          "voice_speech_song": 25.61,
+          "voice_ensemble_config": 26.974999999999994,
           "voice_ornament_system": 7.95,
           "voice_pitch_organization": 8.88,
-          "voice_processing_chain": 10.855,
-          "voice_multitrack_stack": 5.135
+          "voice_processing_chain": 7.865,
+          "voice_multitrack_stack": 5.329999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 4.03,
+          "dholak_use": 4.225,
           "dholak_construction": 0.9299999999999998,
-          "dholak_head": 4.029999999999999,
-          "dholak_tensioning": 5.719999999999999
+          "dholak_head": 5.914999999999998,
+          "dholak_tensioning": 5.069999999999999
         }
       }
     ],

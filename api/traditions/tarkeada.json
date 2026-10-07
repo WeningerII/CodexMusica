@@ -1,0 +1,105 @@
+{
+  "id": "tarkeada",
+  "name": "Tarkeada (altiplano tarka carnival troupes)",
+  "family": "global",
+  "lineage": "Tarkeada is the carnival and rainy-season (anata) music of the Bolivian and southern Peruvian altiplano, played by large troupes of tarkas, hexagonal wooden duct flutes made in three sizes that sound in parallel octaves and fifths, over bombos and snare drums. The players blow hard for the tarka's deliberately hoarse, buzzing tone, and the troupe dances through fields and streets.",
+  "recipe": "classic Andean modern tarkeada, carnival Processional, andean branch, andean field work. altiplano tarka, bombo andino, snare drum. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 8.096,
+  "config": {
+    "traditions": [
+      "tarkeada"
+    ],
+    "instruments": [
+      {
+        "id": "tarka",
+        "slots": {
+          "tarka_form": "tarka_curahuara",
+          "tarka_context": "tarka_tara_voice",
+          "tarka_consort_voice": "tarka_malta",
+          "tarka_body_wood": "tarka_mara_wood"
+        },
+        "scores": {
+          "tarka_form": 7.0265,
+          "tarka_context": 0.045,
+          "tarka_consort_voice": 0.3165,
+          "tarka_body_wood": 0.0315
+        }
+      },
+      {
+        "id": "bombo_andino",
+        "slots": {
+          "bombo_andino_construction": "bombo_andino_stave",
+          "bombo_andino_skin": "bombo_andino_cow",
+          "bombo_andino_shell_wood": "bombo_andino_quebracho"
+        },
+        "scores": {
+          "bombo_andino_construction": 0.3315,
+          "bombo_andino_skin": -0.05,
+          "bombo_andino_shell_wood": 0.045
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "tarka": [
+        "tarka_form",
+        "tarka_context",
+        "tarka_consort_voice",
+        "tarka_body_wood"
+      ],
+      "bombo_andino": [
+        "bombo_andino_construction",
+        "bombo_andino_skin",
+        "bombo_andino_shell_wood"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ]
+    },
+    "room": "andean_altiplano_outdoor",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "andean_altiplano_outdoor",
+    "parts": {
+      "tarka_form": "tarka_curahuara",
+      "tarka_context": "tarka_tara_voice",
+      "tarka_consort_voice": "tarka_malta",
+      "tarka_body_wood": "tarka_mara_wood",
+      "bombo_andino_construction": "bombo_andino_stave",
+      "bombo_andino_skin": "bombo_andino_cow",
+      "bombo_andino_shell_wood": "bombo_andino_quebracho",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

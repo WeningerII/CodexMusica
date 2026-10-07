@@ -3,14 +3,14 @@
   "name": "Cantorial khazonus (chazzanut)",
   "family": "global",
   "lineage": "Ashkenazi Jewish synagogue cantorial tradition — the solo lead-singer (chazzan / khazn / cantor) liturgical practice of the Eastern European Yiddish-speaking world, codified through Yossele Rosenblatt (the golden-age chazzan, 1882-1933), Gershon Sirota, Mordechai Hershman, Moishe Oysher, Jan Peerce (the cantor-to-opera-tenor crossover), Moshe Koussevitzky",
-  "recipe": "classic Eastern European early-1880s cantorial khazonus, ritual Devotional, Jewish branch, vocal drone modal, European funeral lament armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 532,
-  "score": 174.577,
+  "recipe": "classic Eastern European early-1880s cantorial khazonus, ritual Devotional, Jewish branch, vocal drone modal, European funeral lament armenian duduk-accompanied chant toyuk. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 520,
+  "score": 165.083,
   "config": {
     "traditions": [
       "cantorial_khazonus",
       "armenian_duduk_chant",
-      "sami_skolt_leudd"
+      "sakha_toyuk"
     ],
     "instruments": [
       {
@@ -27,29 +27,29 @@
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.084999999999999,
+          "voice_register": 6.24,
           "voice_quality": 4.810000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.0625,
-          "voice_articulation": 11.18,
-          "voice_microtone": 20.0525,
-          "voice_tradition": 22.132499999999997,
-          "voice_mechanism_compound": 10.334999999999999,
-          "voice_estill_quality": 13.274999999999999,
-          "voice_speech_song": 12.48,
-          "voice_ensemble_config": 12.349999999999994,
-          "voice_ornament_system": 5.9750000000000005,
-          "voice_pitch_organization": 5.939999999999999,
-          "voice_processing_chain": 6.954999999999999,
-          "voice_multitrack_stack": 9.23
+          "voice_vibrato": 3.4125,
+          "voice_articulation": 12.025,
+          "voice_microtone": 21.5475,
+          "voice_tradition": 19.987499999999997,
+          "voice_mechanism_compound": 9.684999999999999,
+          "voice_estill_quality": 11.975,
+          "voice_speech_song": 12.675,
+          "voice_ensemble_config": 13.65,
+          "voice_ornament_system": 5.1000000000000005,
+          "voice_pitch_organization": 5.4399999999999995,
+          "voice_processing_chain": 6.11,
+          "voice_multitrack_stack": 7.735
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 10.075,
-          "choir_polyphonic_configuration": 8.774999999999999,
-          "choir_regional_canonical_configuration": 6.044999999999999,
-          "choir_ensemble_repertoire": 6.695
+          "choir_size": 8.125,
+          "choir_polyphonic_configuration": 7.93,
+          "choir_regional_canonical_configuration": 6.24,
+          "choir_ensemble_repertoire": 6.045
         }
       }
     ],

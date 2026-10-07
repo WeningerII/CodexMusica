@@ -5,7 +5,7 @@
   "lineage": "Bamboo band of the Lun Bawang of Lawas and Ba Kelalan in northern Sarawak, made up of bamboo flutes (ngiup suling) and large bamboo bass horns (ngiup bas) modelled on brass-band instruments, and played at church occasions and festivals such as Irau Aco Lun Bawang. The source-unspecified bamboo-flute card stands in for the flutes and the source-unspecified horns card for the bamboo bass horns.",
   "recipe": "classic modern ngiup suling and ngiup bas, carnival Processional, east Asian branch. bamboo credited bamboo flute credited horns unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 9.072,
+  "score": 8.998,
   "config": {
     "traditions": [
       "lun_bawang_bamboo_band"
@@ -19,7 +19,7 @@
           "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
         },
         "scores": {
-          "credited_bamboo_flute_unspecified_material": 7.84775,
+          "credited_bamboo_flute_unspecified_material": 7.786499999999999,
           "credited_bamboo_flute_unspecified_construction": 0,
           "credited_bamboo_flute_unspecified_playing": 0
         }
@@ -30,7 +30,7 @@
           "credited_horns_identity": "credited_horns_source_unspecified"
         },
         "scores": {
-          "credited_horns_identity": 0.374
+          "credited_horns_identity": 0.36149999999999993
         }
       }
     ],

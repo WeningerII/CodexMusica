@@ -5,7 +5,7 @@
   "lineage": "Tudor and early Stuart music c.1500-1620 — Taverner, Tallis, Byrd, Gibbons and Weelkes — built on a distinctly English taste for full sonority: broad florid melismatic Latin votive antiphons, then post-Reformation vernacular anthems and services in clear syllabic declamation, alongside consort songs, viol fantasias and lute ayres, using false relations, a rich thirds-and-sixths harmony and mean-tone keyboard temperament.",
   "recipe": "classic European early-1500s english renaissance, art Music, western early branch, christian gospel anglican choral anglican choral evensong anglican liturgy. thick, declaimed, slow rate, interlocked note trading. choir cathedral satb, pistoy silver wound gut treble canonical bass viol gut tied frets movable viola da gamba, mid renaissance English Spanish ayre and lieder pistoy bass gut plain gut treble lute renaissance, sustained legato division viol, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, boxwood canonical renaissance Baroque continuous-airflow legato recorder. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 880,
-  "score": 255.274,
+  "score": 255.088,
   "config": {
     "traditions": [
       "english_renaissance",
@@ -46,13 +46,13 @@
         },
         "scores": {
           "voice_register": 7.638,
-          "voice_quality": 12.202214285714286,
+          "voice_quality": 12.0865,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.654999999999999,
           "voice_articulation": 17.354999999999997,
           "voice_microtone": 17.549999999999994,
-          "voice_tradition": 7.837214285714286,
+          "voice_tradition": 7.795000000000001,
           "voice_mechanism_compound": 4.300000000000001,
           "voice_estill_quality": 6.175,
           "voice_speech_song": 19.467499999999994,
@@ -136,9 +136,9 @@
           "pipe_organ_class": 0.37124999999999997,
           "pipe_organ_context": 8.255,
           "pipe_organ_voicing_school": 3.705,
-          "pipe_organ_pipe_alloy": 1.9984285714285712,
+          "pipe_organ_pipe_alloy": 1.9845,
           "pipe_organ_temperament": 5.005,
-          "pipe_organ_action": 1.861928571428571
+          "pipe_organ_action": 1.8479999999999996
         }
       },
       {

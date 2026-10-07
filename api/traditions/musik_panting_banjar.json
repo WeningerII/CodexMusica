@@ -5,7 +5,7 @@
   "lineage": "Banjar folk ensemble of South Kalimantan named after the panting, a small plucked lute related to the gambus (the oud card stands in); it first accompanied a singer alone and grew into an ensemble with babun drum (the generic membrane-drum card stands in), gong and violin, playing Banjar-language songs for weddings and celebrations. It is represented on Smithsonian Folkways' Music of Indonesia vol. 13, Kalimantan Strings.",
   "recipe": "classic modern musik panting, functional Song. solo with instrumental accompaniment. oud, membrane drum pulse resonant acoustic membrane drum, gong tamtam, fiddle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 243,
-  "score": 10.531,
+  "score": 11.067,
   "config": {
     "traditions": [
       "musik_panting_banjar"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.11999999999999998,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -80,8 +80,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.0325,
-          "acoustic_membrane_drum_gesture": 2.9025
+          "acoustic_membrane_drum_form": 4.4254999999999995,
+          "acoustic_membrane_drum_gesture": 3.1654999999999998
         }
       },
       {

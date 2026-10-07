@@ -3,31 +3,31 @@
   "name": "Contra dance band music",
   "family": "vernacular",
   "lineage": "New England grange-hall dance music descended from English country dance and French contredanse, sustained in Vermont, New Hampshire and Massachusetts and reshaped from the 1970s by Rodney Miller, Bob McQuillen and Wild Asparagus — 112-124 BPM reels and jigs played in 64-bar tune medleys matched exactly to the caller's figures, fiddle lead with piano and guitar supplying a swung, syncopated chordal drive, and modulating tune sets escalating in energy across the dance.",
-  "recipe": "classic mid-1970s contra dance band music, improv On Frame, Celtic traditional branch, pre commercial country string band classic australian country. double stops fiddle, upright piano, dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, bowl back Italian adirondack red spruce European maple parallel tone bars mandolin, leather castagnari Italian premium folk music straight accordion, foot tap, African blackwood boxwood premium pre modern melodic tin whistle, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string. gymnasium. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
-  "recipe_chars": 685,
-  "score": 173.759,
+  "recipe": "classic mid-1970s contra dance band music, improv On Frame, Celtic traditional branch, pre commercial country string band down east old-time fiddling. double stops fiddle, upright piano, dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, bowl back Italian adirondack red spruce European maple parallel tone bars mandolin, leather castagnari Italian premium folk music straight accordion, foot tap, African blackwood boxwood premium pre modern melodic tin whistle, wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string. gymnasium. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 684,
+  "score": 186.668,
   "config": {
     "traditions": [
       "contra_dance",
       "string_band",
-      "classic_australian_country"
+      "down_east_old_time_fiddle"
     ],
     "instruments": [
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
-          "fiddle_strings": "steel_core",
-          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
           "fiddle_articulation": "pizz",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 17.125,
-          "fiddle_strings": 0.195,
-          "fiddle_bow": 0.4515,
-          "fiddle_mute": 0.39,
+          "bowed_technique": 17.375,
+          "fiddle_strings": 0.65,
+          "fiddle_bow": 0.845,
+          "fiddle_mute": 0.195,
           "fiddle_articulation": 0.366,
           "fiddle_string_configuration": 0
         }
@@ -40,8 +40,8 @@
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 9.95,
-          "upright_use": 0.5265,
+          "keyboard_technique": 8.325000000000001,
+          "upright_use": 0.49499999999999994,
           "upright_piano_size": 0.24
         }
       },
@@ -55,10 +55,10 @@
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 10.795,
-          "string_tuning": 5.773,
-          "top_wood": 0.585,
-          "back_sides": 0.315,
+          "acoustic_technique": 9.17,
+          "string_tuning": 5.5,
+          "top_wood": 0.576,
+          "back_sides": 0.45499999999999996,
           "string_acoustic": 2.8600000000000003
         }
       },
@@ -75,14 +75,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 4.165,
+          "acoustic_technique": 3.85,
           "mandolin_shape": 2.34,
           "mandolin_top": 1.8650000000000002,
           "mandolin_back": 1.625,
           "mandolin_bracing": 1.9609999999999999,
           "mandolin_strings": 0.975,
           "mandolin_fingerboard": 2.7950000000000004,
-          "mandolin_pickup": 18.395000000000003
+          "mandolin_pickup": 21.645000000000003
         }
       },
       {
@@ -93,27 +93,27 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.7,
-          "accordion_reed_material": 0.5265,
-          "musette_offset": 3.25,
-          "reed_config": 1.315,
-          "bellows": 1.95,
-          "voicing_chamber": 0.195,
+          "free_reed_technique": 9.075,
+          "accordion_reed_material": 0.49499999999999994,
+          "musette_offset": 2.965,
+          "reed_config": 1.165,
+          "bellows": 1.68,
+          "voicing_chamber": 0.45499999999999996,
           "accordion_maker_school": 3.5749999999999993
         }
       },
       {
         "id": "foot_tap",
         "slots": {
-          "tap_striker": "tap_soft_shoe",
+          "tap_striker": "tap_hard_shoe_leather",
           "tap_surface": "tap_board_plywood"
         },
         "scores": {
-          "tap_striker": 0.24,
+          "tap_striker": 0.45499999999999996,
           "tap_surface": 0.11999999999999998
         }
       },
@@ -127,16 +127,16 @@
         },
         "scores": {
           "wind_articulation": 4.5,
-          "whistle_key": 1.5315,
-          "whistle_ornament": 1.95,
-          "whistle_body_material": 2.99
+          "whistle_key": 2.15,
+          "whistle_ornament": 1.68,
+          "whistle_body_material": 2.7950000000000004
         }
       },
       {
         "id": "banjo_5_string",
         "slots": {
           "banjo_back": "open_back",
-          "tone_ring": "flathead",
+          "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
@@ -147,16 +147,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.168,
-          "tone_ring": 1.82,
-          "banjo_head": 18.590000000000003,
-          "banjo_pot": 1.95,
-          "banjo_play": 1.17,
+          "banjo_back": 0.45499999999999996,
+          "tone_ring": 4.225,
+          "banjo_head": 22.295,
+          "banjo_pot": 1.68,
+          "banjo_play": 3.77,
           "banjo_rim_wood": 2.165,
           "banjo_neck_wood": 2.1125,
           "banjo_strings": 2.1125,
           "banjo_bridge": 2.5025,
-          "banjo_setup_period": 20.507500000000004
+          "banjo_setup_period": 23.757500000000004
         }
       }
     ],

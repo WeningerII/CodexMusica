@@ -5,7 +5,7 @@
   "lineage": "Couple dance and music of Luanda, with the Ilha do Cabo as a stronghold, formed in the colonial period from European ballroom dances; couples move in a circle under a master of ceremonies, accompanied by accordion and harmonica with a dikanza scraper and drums. The reco-reco card in bamboo stands in for the dikanza.",
   "recipe": "classic modern rebita, functional Song, African pop branch. accordion, harmonica, bamboo reco reco, acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 3.067,
+  "score": 3.144,
   "config": {
     "traditions": [
       "rebita"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.315,
+          "voice_ensemble_config": 0.354,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.17175,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -69,7 +69,7 @@
           "musette_offset": 0.147,
           "reed_config": 0,
           "bellows": 0,
-          "voicing_chamber": 0.8365,
+          "voicing_chamber": 0.9099999999999999,
           "accordion_maker_school": 0
         }
       },

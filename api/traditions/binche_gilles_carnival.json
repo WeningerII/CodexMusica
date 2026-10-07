@@ -1,0 +1,146 @@
+{
+  "id": "binche_gilles_carnival",
+  "name": "Airs de Gilles (Binche carnival music)",
+  "family": "global",
+  "lineage": "Music of the Carnival of Binche in Hainaut, where the Gilles, costumed dancers in wooden clogs with belts of bells, dance through the streets on Shrove Tuesday to short airs beaten out by drummers and played on the viole, a barrel organ, with brass bands joining the processions. UNESCO proclaimed the carnival a Masterpiece of the Oral and Intangible Heritage of Humanity, and it is now on the Representative List; the tenor-drum card stands in for the carnival drums and the shaker card for the belts of bells.",
+  "recipe": "classic modern airs de gilles, carnival Processional, European branch. hand cranked small street organ carousel march brassy dance wooden flue pipes barrel organ, military tight historical tenor drum, yellow brass canonical 70 30 bach stradivarius trumpet, shaker source unspecified. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 12.422,
+  "config": {
+    "traditions": [
+      "binche_gilles_carnival"
+    ],
+    "instruments": [
+      {
+        "id": "barrel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "barrel_organ_form": "barrel_organ_form_barbarie",
+          "barrel_organ_programme": "barrel_organ_programme_fair",
+          "barrel_organ_pipework": "barrel_organ_pipework_flue_barrel"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "barrel_organ_form": 1.8195000000000001,
+          "barrel_organ_programme": 1.625,
+          "barrel_organ_pipework": 2.313
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_military_field",
+          "tenor_drum_head": "tenor_drum_mylar",
+          "tenor_drum_beater": "tenor_drum_wood_sticks",
+          "tenor_drum_shell": "tenor_drum_lug_ply"
+        },
+        "scores": {
+          "tenor_drum_form": 4.8100000000000005,
+          "tenor_drum_head": -0.035,
+          "tenor_drum_beater": -0.05,
+          "tenor_drum_shell": -0.1
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "brass_size": 0.0315,
+          "trumpet_mouthpiece": -0.07,
+          "brass_mute": 0,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 1.69,
+          "trumpet_maker_school": 0.42
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.363
+        }
+      }
+    ],
+    "pinned": {
+      "barrel_organ": [
+        "keyboard_technique",
+        "barrel_organ_form",
+        "barrel_organ_programme",
+        "barrel_organ_pipework"
+      ],
+      "tenor_drum": [
+        "tenor_drum_form",
+        "tenor_drum_head",
+        "tenor_drum_beater",
+        "tenor_drum_shell"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ]
+    },
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "urban_courtyard",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "barrel_organ_form": "barrel_organ_form_barbarie",
+      "barrel_organ_programme": "barrel_organ_programme_fair",
+      "barrel_organ_pipework": "barrel_organ_pipework_flue_barrel",
+      "tenor_drum_form": "tenor_drum_military_field",
+      "tenor_drum_head": "tenor_drum_mylar",
+      "tenor_drum_beater": "tenor_drum_wood_sticks",
+      "tenor_drum_shell": "tenor_drum_lug_ply",
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

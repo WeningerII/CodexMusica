@@ -5,7 +5,7 @@
   "lineage": "Music of the Mande skin-faced spike lute of Mali and Guinea, the jeli ngoni of the Kouyaté and Sissoko lineages and the hunters' donso ngoni of Wassoulou, documented since the fourteenth-century Mali empire and brought to modern prominence by Banzoumana Sissoko, Moriba Koïta and Bassekou Kouyaté — four to seven strings plucked with a dry percussive attack, cyclic pentatonic ostinati at 90-130 BPM, buzzing metal jangler resonance, and interlocking with a second ngoni and calabash percussion under praise or hunters' song.",
   "recipe": "classic West African modern ngoni music, ballad Poetry, west African griot branch, sub saharan African hunting song baaka (aka pygmy) hunting polyphony san (khoisan) hunting and trance song. carved wood modern luthier goat skin nylon modern call-and-response ngoni, donso ritual large calabash mande gut pre modern hunters donso ngoni, extended hunters large calabash wassoulou gut pre modern kamele ngoni, griot voice, mid strong calabash inverted calabash, close dry to palm hand clap, foundational bass rhythm calabash shekere. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 621,
-  "score": 162.226,
+  "score": 162.656,
   "config": {
     "traditions": [
       "ngoni_jeli",
@@ -24,7 +24,7 @@
           "ngoni_string_material": "ngoni_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 24.415999999999997,
+          "plucked_traditional_technique": 24.439999999999998,
           "ngoni_strings": 2.9899999999999998,
           "ngoni_use": 3.575,
           "ngoni_resonator": 2.9899999999999998,
@@ -42,11 +42,11 @@
           "donso_ngoni_string_material": "donso_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 24.415999999999997,
-          "donso_ngoni_strings": 14.248999999999999,
+          "plucked_traditional_technique": 24.439999999999998,
+          "donso_ngoni_strings": 14.4125,
           "donso_ngoni_use": 10.3565,
           "donso_ngoni_resonator": 4.504499999999999,
-          "donso_ngoni_string_material": 5.7485
+          "donso_ngoni_string_material": 5.915
         }
       },
       {
@@ -59,9 +59,9 @@
           "kamele_ngoni_string_material": "kamele_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 24.415999999999997,
+          "plucked_traditional_technique": 24.439999999999998,
           "kamele_ngoni_strings": 6.3075,
-          "kamele_ngoni_use": 9.083,
+          "kamele_ngoni_use": 9.383,
           "kamele_ngoni_resonator": 3.683,
           "kamele_ngoni_string_material": 2.925
         }
@@ -74,7 +74,7 @@
         },
         "scores": {
           "griot_origin": 2.145,
-          "griot_voice_context": 2.963
+          "griot_voice_context": 2.8265
         }
       },
       {
@@ -95,7 +95,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 2.7409999999999997,
+          "clap_technique": 2.6045,
           "clap_capture": 1.3
         }
       },

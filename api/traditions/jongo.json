@@ -3,27 +3,27 @@
   "name": "Jongo",
   "family": "global",
   "lineage": "Afro-Brazilian rural circle-dance tradition of the Vale do Paraíba (Rio-de-Janeiro and São-Paulo border, plantation-Bantu lineage 19th-century onward) characterized by call-and-response chant over candongueiro and tambu friction-drum patterns. Practiced by Kongo-Angolan-descended quilombo communities since colonial sugar-coffee-plantation labor, jongo nights feature umbigada-rotation-dance, riddle-and-spell sung-couplets (pontos), and trance-adjacent participatory circle structure. The tradition survived the post-abolition (1888-onward) rural-to-urban migration and remained the seedbed for early-20th-century samba-rural and samba-de-roda before the carioca-urban samba-canção codification.",
-  "recipe": "classic Southern American modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, breath veiled tone, straight onset, interlocked note trading. atabaque, agogo, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble. roda capoeira outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 499,
-  "score": 193.602,
+  "recipe": "classic Southern American modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode batuque de umbigada. thick, breath veiled tone, straight onset, interlocked note trading. atabaque, agogo, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble. roda capoeira outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 506,
+  "score": 203.97,
   "config": {
     "traditions": [
       "jongo",
       "pagode",
-      "embolada"
+      "batuque_de_umbigada"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,35 +34,35 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.8849999999999996,
-          "voice_quality": 31.16499999999999,
+          "voice_register": 1.0999999999999996,
+          "voice_quality": 36.96499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4300000000000002,
-          "voice_articulation": 19.889999999999997,
-          "voice_microtone": 18.654999999999994,
-          "voice_tradition": 11.179999999999994,
-          "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 4.1925,
-          "voice_speech_song": 20.507499999999997,
-          "voice_ensemble_config": 18.979999999999997,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 20.929999999999993,
+          "voice_microtone": 20.34499999999999,
+          "voice_tradition": 9.294999999999998,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 3.5425,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 20.669999999999995,
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 5.46,
-          "voice_multitrack_stack": 10.335
+          "voice_processing_chain": 6.759999999999999,
+          "voice_multitrack_stack": 10.984999999999994
         }
       },
       {
         "id": "atabaque",
         "slots": {
           "atabaque_role": "atabaque_rum",
-          "atabaque_skin": "atabaque_synth",
+          "atabaque_skin": "atabaque_cowhide",
           "atabaque_shell_wood": "atabaque_oak_staved"
         },
         "scores": {
           "atabaque_role": 0.39,
-          "atabaque_skin": 0.65,
-          "atabaque_shell_wood": 0.65
+          "atabaque_skin": 0.39,
+          "atabaque_shell_wood": 0.195
         }
       },
       {
@@ -72,7 +72,7 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 8.904999999999998,
+          "agogo_bell": 8.059999999999999,
           "agogo_context": 5.2700000000000005
         }
       },
@@ -82,7 +82,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 12.934999999999997
+          "reco_source": 11.244999999999997
         }
       },
       {
@@ -90,14 +90,14 @@
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
-          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 6.954999999999999,
-          "choir_polyphonic_configuration": 3.965,
-          "choir_regional_canonical_configuration": 3.215,
-          "choir_ensemble_repertoire": 3.445
+          "choir_size": 9.684999999999999,
+          "choir_polyphonic_configuration": 4.69,
+          "choir_regional_canonical_configuration": 4.13,
+          "choir_ensemble_repertoire": 3.735
         }
       }
     ],

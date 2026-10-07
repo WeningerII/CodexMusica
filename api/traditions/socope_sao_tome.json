@@ -5,7 +5,7 @@
   "lineage": "Dance rhythm of São Tomé that arose, like puíta and danço-congo, among the islands' slave-descended population; in the 1970s Os Úntués and other conjuntos set it for electric guitars and dance band, mixing in European pop and soukous elements. This entry models that recorded conjunto form as a live-room tape capture.",
   "recipe": "classic mid-1970s socopé, functional Song, African pop branch. live take. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, shaker source unspecified. live tracking. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 324,
-  "score": 13.682,
+  "score": 13.622,
   "config": {
     "traditions": [
       "socope_sao_tome"
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.11100000000000003,
+          "electric_technique": -0.15000000000000002,
           "amp_make": 0,
           "body_wood": 0.1365,
           "neck_wood": 0,
@@ -127,13 +127,13 @@
           "drum_technique": -0.05,
           "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.403,
+          "shell_wood": 0.273,
           "shell_thickness": 0,
           "bearing_edges": -1.164,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 6.45,
-          "cymbal_lathing": 6.5865,
+          "cymbal_hammering": 6.5040000000000004,
+          "cymbal_lathing": 6.6405,
           "cymbal_finish": 0.105
         }
       },

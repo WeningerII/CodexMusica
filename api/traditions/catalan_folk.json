@@ -3,9 +3,9 @@
   "name": "Catalan folk (música tradicional catalana)",
   "family": "global",
   "lineage": "Traditional music of Catalonia, the Balearics and Valencia documented by the Obra del Cançoner Popular de Catalunya from 1922 and revived from the 1970s by Grup de Folk and later Coetus and Sílvia Pérez Cruz — modal strophic songs (cançons de treball, goigs, nadales, havaneres), the outdoor gralla-and-timbal cobla de tres quartans for castells and dances, and dance repertoire of ball de bastons, jota and contrapàs in duple and 6/8, sung in open-throated unison Catalan with tambourine, accordion and guitar accompaniment.",
-  "recipe": "classic Iberian mid-1970s catalan folk, functional Song, iberian branch, iberian Latin protest song, European carnival processional raíces chilean nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, leather castagnari Italian premium folk music straight accordion, tenor brass belled dance driving tenora, processional cane double reed canonical arundo donax raw outdoor dulzaina, traditional mellow brass tambourine orch, yamaha modern Japanese mid to premium flute, snappy to palm hand clap. iberian kantautor basque galician club. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 673,
-  "score": 286.813,
+  "recipe": "classic Iberian mid-1970s catalan folk, functional Song, iberian branch, iberian Latin protest song, European carnival processional raíces chilean nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, leather castagnari Italian premium folk music straight accordion, soprano dance driving tenora, processional cane double reed canonical arundo donax raw outdoor dulzaina, tambourine orch, yamaha modern Japanese mid to premium flute, snappy to palm hand clap. iberian kantautor basque galician club. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 637,
+  "score": 285.388,
   "config": {
     "traditions": [
       "catalan_folk",
@@ -41,14 +41,14 @@
           "voice_vibrato": 2.47,
           "voice_articulation": 25.93500000000001,
           "voice_microtone": 26.390000000000004,
-          "voice_tradition": 13.363749999999998,
+          "voice_tradition": 13.078749999999998,
           "voice_mechanism_compound": 5.265,
           "voice_estill_quality": 4.030000000000001,
           "voice_speech_song": 31.980000000000004,
           "voice_ensemble_config": 24.830000000000005,
           "voice_ornament_system": 9.200000000000001,
-          "voice_pitch_organization": 1.3406249999999997,
-          "voice_processing_chain": 6.51875,
+          "voice_pitch_organization": 1.3856249999999997,
+          "voice_processing_chain": 6.473749999999999,
           "voice_multitrack_stack": 6.695
         }
       },
@@ -89,13 +89,13 @@
           "reed_config": 0.195,
           "bellows": 1.045,
           "voicing_chamber": 0.195,
-          "accordion_maker_school": 6.090624999999999
+          "accordion_maker_school": 6.045624999999999
         }
       },
       {
         "id": "tenora",
         "slots": {
-          "tenora_form": "tenora_tenor",
+          "tenora_form": "tenora_tible",
           "tenora_context": "tenora_ctx_sardana",
           "tenora_body_wood": "tenora_wood_ginjoler"
         },
@@ -115,7 +115,7 @@
         },
         "scores": {
           "dulzaina_form": 16.3,
-          "dulzaina_context": 7.368124999999999,
+          "dulzaina_context": 6.843125,
           "dulzaina_reed": 1.735,
           "dulzaina_body_wood": 10.640625
         }
@@ -127,7 +127,7 @@
           "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 1.04,
+          "tambourine_orch_jingle": 0.995,
           "tambourine_orch_context": 0.845
         }
       },
@@ -136,15 +136,15 @@
         "slots": {
           "wind_articulation": "wind_bebop_runs",
           "flute_size": "alto_flute",
-          "flute_material": "silver_flute",
-          "flute_technique": "beatboxed_flute",
+          "flute_material": "platinum_flute",
+          "flute_technique": "jazz_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
           "wind_articulation": -0.05,
           "flute_size": 0.39,
-          "flute_material": 0.47999999999999987,
-          "flute_technique": 0.4349999999999999,
+          "flute_material": 0.195,
+          "flute_technique": 0.195,
           "flute_maker_school": 2.08
         }
       },

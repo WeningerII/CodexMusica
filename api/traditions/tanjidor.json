@@ -3,9 +3,9 @@
   "name": "Tanjidor (Betawi brass band)",
   "family": "global",
   "lineage": "Brass-band tradition of the Betawi villages on the outskirts of Jakarta, traced to the bands of enslaved musicians kept by colonial-era estate owners. Clarinet, trumpet or cornet, trombone and a tuba-type bass horn (here the sousaphone card) over a large bass drum and snare drum play marches and Betawi songs, often by ear, for weddings and street processions.",
-  "recipe": "classic modern tanjidor, carnival Processional. clarinet, trumpet, trombone, sousaphone, bass snare drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 185,
-  "score": 1.368,
+  "recipe": "classic modern tanjidor, carnival Processional. clarinet, horn section ensemble trumpet, trombone, sousaphone, bass snare drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 207,
+  "score": 1.541,
   "config": {
     "traditions": [
       "tanjidor"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "clarinet_body": -0.11475000000000002,
+          "clarinet_body": -0.11850000000000002,
           "clarinet_size": 0.063,
           "clarinet_reed": 0,
           "clarinet_articulation": 0.147
@@ -44,8 +44,8 @@
           "brass_size": 0,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0.0315,
-          "trumpet_technique": 0.9989999999999999,
-          "trumpet_bell_metal": 0,
+          "trumpet_technique": 1.1049999999999998,
+          "trumpet_bell_metal": 0.03712499999999999,
           "trumpet_maker_school": 0
         }
       },
@@ -66,7 +66,7 @@
           "trombone_mouthpiece": -0.1,
           "trombone_mute": 0.0315,
           "trombone_technique": 0.063,
-          "trombone_bell_metal": 0,
+          "trombone_bell_metal": 0.03712499999999999,
           "trombone_maker_school": 0
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "sousaphone_bore": 0,
-          "sousaphone_context": 0.33525
+          "sousaphone_context": 0.3315
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Kelantanese ensemble of rebana ubi, very large single-headed drums with hide heads laced and wedged to the body, once used for signalling and now played by village teams at harvest celebrations, official welcomes and inter-village competitions. Teams of drummers combine distinct rhythmic parts into interlocking patterns.",
   "recipe": "classic modern rebana ubi, groove Percussion, east Asian branch. interlocking rebana ubi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 2.62,
+  "score": 2.519,
   "config": {
     "traditions": [
       "rebana_ubi_kelantan"
@@ -18,8 +18,8 @@
           "rebana_ubi_style": "rebana_ubi_ensemble"
         },
         "scores": {
-          "rebana_ubi_size": 1.0859999999999999,
-          "rebana_ubi_style": 1.534
+          "rebana_ubi_size": 1.0394999999999999,
+          "rebana_ubi_style": 1.48
         }
       }
     ],

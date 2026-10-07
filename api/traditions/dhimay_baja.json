@@ -5,7 +5,7 @@
   "lineage": "Processional drumming of the Newar Jyapu farming community of the Kathmandu Valley, played on the large double-headed dhimay drum with bhusyah cymbals at festivals, jatras and processions to shrines. Gert-Matthias Wegner's study The Dhimaybaja of Bhaktapur documents its repertoire. The cymbals card stands in for the bhusyah.",
   "recipe": "classic modern dhimay baja, carnival Processional, south Asian branch. undamped resonance hand and stick dhimay, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 210,
-  "score": 11.583,
+  "score": 11.671,
   "config": {
     "traditions": [
       "dhimay_baja"
@@ -20,8 +20,8 @@
           "dhimay_build": "dhimay_build_wood_laced"
         },
         "scores": {
-          "dhimay_locality": -0.07500000000000001,
-          "dhimay_ensemble": 9.465,
+          "dhimay_locality": -0.1,
+          "dhimay_ensemble": 9.5865,
           "dhimay_beater": 2.4050000000000002,
           "dhimay_build": -0.07
         }
@@ -32,7 +32,7 @@
           "credited_cymbals_identity": "credited_cymbals_source_unspecified"
         },
         "scores": {
-          "credited_cymbals_identity": 0.007499999999999999
+          "credited_cymbals_identity": 0
         }
       }
     ],

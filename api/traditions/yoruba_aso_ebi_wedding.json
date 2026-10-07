@@ -3,14 +3,14 @@
   "name": "Yoruba aso ebi wedding music",
   "family": "global",
   "lineage": "Yoruba wedding-music tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora domestic practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the aso ebi (unified-dress) wedding tradition emphasizes group-celebration vocal-and-drumming participation",
-  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion balafon music yoruba dùndún surrogate speech. thick, breath veiled tone, straight onset, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, foundational gourd bass rhythm calabash shekere. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 587,
-  "score": 264.692,
+  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion benga bikutsi. thick, breath veiled tone, straight onset, interlocked note trading. iroko alternative west African talking drum, modern revival iroko west African premium dunun, foundational bass rhythm calabash shekere. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 460,
+  "score": 223.875,
   "config": {
     "traditions": [
       "yoruba_aso_ebi_wedding",
-      "balafon_mande",
-      "yoruba_dundun_surrogate_speech"
+      "benga",
+      "bikutsi"
     ],
     "instruments": [
       {
@@ -34,52 +34,52 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.230000000000001,
-          "voice_quality": 19.24,
+          "voice_register": 8.955000000000002,
+          "voice_quality": 10.009999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6000000000000005,
-          "voice_articulation": 17.484999999999996,
-          "voice_microtone": 16.054999999999993,
-          "voice_tradition": 58.575,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 20.474999999999994,
-          "voice_ensemble_config": 16.184999999999995,
-          "voice_ornament_system": 10.424999999999997,
-          "voice_pitch_organization": 26.314999999999994,
-          "voice_processing_chain": 8.57,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_vibrato": 1.95,
+          "voice_articulation": 17.289999999999992,
+          "voice_microtone": 18.06999999999999,
+          "voice_tradition": 45.83,
+          "voice_mechanism_compound": 2.145,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 18.069999999999993,
+          "voice_ornament_system": 7.249999999999999,
+          "voice_pitch_organization": 20.264999999999997,
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 5.655000000000002
         }
       },
       {
         "id": "talking_drum",
         "slots": {
           "talking_drum_origin": "gangan_yoruba",
-          "talking_drum_context": "talking_drum_praise",
-          "talking_drum_shell_wood": "talking_drum_omo_canonical",
+          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_shell_wood": "talking_drum_iroko_alt",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 1.5999999999999999,
+          "talking_drum_origin": 0.3,
           "talking_drum_context": 3.185,
-          "talking_drum_shell_wood": 10.044999999999998,
-          "talking_drum_head": 1.995
+          "talking_drum_shell_wood": 7.994999999999999,
+          "talking_drum_head": 0.045
         }
       },
       {
         "id": "dunun",
         "slots": {
           "dunun_size": "sangban",
-          "dunun_bell": "dunun_no_bell",
+          "dunun_bell": "dunun_double_bell",
           "dunun_shell_wood": "dunun_iroko",
           "dunun_head": "dunun_cowhide_canonical"
         },
         "scores": {
-          "dunun_size": 0.5549999999999999,
-          "dunun_bell": 3.4249999999999994,
-          "dunun_shell_wood": 9.88,
-          "dunun_head": 1.995
+          "dunun_size": 0.26999999999999996,
+          "dunun_bell": 2.4250000000000003,
+          "dunun_shell_wood": 7.994999999999999,
+          "dunun_head": 0.045
         }
       },
       {
@@ -89,8 +89,8 @@
           "shekere_beads": "shekere_cowrie"
         },
         "scores": {
-          "shekere_size": 1.69,
-          "shekere_beads": 23.854999999999997
+          "shekere_size": 1.04,
+          "shekere_beads": 18.979999999999997
         }
       }
     ],

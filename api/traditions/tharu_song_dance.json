@@ -5,7 +5,7 @@
   "lineage": "Song-dance repertoire of the Tharu of Nepal's western and central Terai, among them Dang, Bardiya, Kailali and Chitwan. Sakhiya is danced by women in a circle from Krishna Janmashtami through Dashain and Tihar while men play the madal; maghauta is danced at Maghi, the Tharu new year; and jhumra is a western Tharu song-dance sung at Dashain and other festive occasions. Radio Nepal and Music Nepal have carried Tharu-language songs.",
   "recipe": "classic modern tharu song-dance, carnival Processional, south Asian branch. slung madal. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 168,
-  "score": 8.169,
+  "score": 8.349,
   "config": {
     "traditions": [
       "tharu_song_dance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.08737500000000001,
+          "voice_ensemble_config": 0.0945,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.05025,
-          "voice_multitrack_stack": 0.08175,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "madal_role": -0.07,
-          "madal_posture": 8.305,
+          "madal_posture": 8.514999999999999,
           "madal_paste": -0.035,
           "madal_shell": -0.1
         }

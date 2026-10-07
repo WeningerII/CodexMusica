@@ -5,7 +5,7 @@
   "lineage": "Sung recitation of the Punjabi qissa verse romances, above all Waris Shah's 18th-century Heer, alongside Mirza-Sahiban and Sassi-Punnu, in which a solo singer delivers the couplets to traditional melodies associated with each poem. After 1947 EMI Pakistan records and Radio Pakistan carried the style to mass audiences, and the Lok Virsa archive holds recordings. The chimta card stands in for the jingled fire-tongs some singers play while singing.",
   "recipe": "classic late-1940s heer gayaki, ballad Poetry, indian bard branch, indian subcontinent praise song. many notes per syllable, solo with instrumental accompaniment. harmonium indian, jingle studded steel armed brass jingled chimta. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 363,
-  "score": 12.992,
+  "score": 12.753,
   "config": {
     "traditions": [
       "heer_gayaki"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 4.29,
+          "voice_speech_song": 4.0065,
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -63,7 +63,7 @@
         "scores": {
           "free_reed_technique": -0.10500000000000001,
           "harmonium_action": 0.39,
-          "harmonium_voicing": 0.5565,
+          "harmonium_voicing": 0.7065000000000001,
           "harmonium_use": 0.9099999999999999
         }
       },
@@ -75,7 +75,7 @@
           "chimta_build": "chimta_build_steel_brass_jingles"
         },
         "scores": {
-          "chimta_form": 1.455,
+          "chimta_form": 1.3499999999999999,
           "chimta_stroke": -0.1,
           "chimta_build": 1.2449999999999999
         }

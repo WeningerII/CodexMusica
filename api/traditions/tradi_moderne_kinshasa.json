@@ -5,7 +5,7 @@
   "lineage": "Music of Kinshasa ensembles formed by migrants from Kasai and by the Bazombo of the Angolan border, who play their home regions' trance and dance repertoires on electrically amplified likembe lamellophones, homemade percussion and voices, through improvised pickups and amplifiers that distort the sound. Konono No. 1, founded by Mingiedi Mawangu, and the Kasai Allstars reached international audiences through Crammed Discs' Congotronics series from 2004. The Congolese lukembi card stands in for the likembe.",
   "recipe": "classic mid-2000s tradi-moderne, groove Percussion, central east south African branch. lukembi congolese, acoustic membrane drum, found household percussion. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 237,
-  "score": 1.593,
+  "score": 1.121,
   "config": {
     "traditions": [
       "tradi_moderne_kinshasa"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.40950000000000003,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -80,8 +80,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 0.7035,
-          "acoustic_membrane_drum_gesture": 0.7035
+          "acoustic_membrane_drum_form": 0.604125,
+          "acoustic_membrane_drum_gesture": 0.604125
         }
       },
       {

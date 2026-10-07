@@ -3,14 +3,14 @@
   "name": "Coco brasileiro (NE Brazilian work-song)",
   "family": "global",
   "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
-  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion samba de roda pagode. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion pagode roda de samba. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 444,
-  "score": 199.83,
+  "score": 194.172,
   "config": {
     "traditions": [
       "coco_brasileiro",
-      "samba_de_roda",
-      "pagode"
+      "pagode",
+      "roda_de_samba"
     ],
     "instruments": [
       {
@@ -35,31 +35,31 @@
         },
         "scores": {
           "voice_register": 8.149999999999995,
-          "voice_quality": 18.102499999999996,
+          "voice_quality": 21.059999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.84,
-          "voice_articulation": 20.54,
-          "voice_microtone": 19.955,
-          "voice_tradition": 11.245000000000001,
-          "voice_mechanism_compound": 8.384999999999998,
-          "voice_estill_quality": 8.19,
-          "voice_speech_song": 30.029999999999998,
-          "voice_ensemble_config": 20.475,
+          "voice_articulation": 19.239999999999995,
+          "voice_microtone": 18.004999999999992,
+          "voice_tradition": 9.555,
+          "voice_mechanism_compound": 7.344999999999999,
+          "voice_estill_quality": 7.15,
+          "voice_speech_song": 28.339999999999996,
+          "voice_ensemble_config": 18.719999999999995,
           "voice_ornament_system": 3.185000000000001,
           "voice_pitch_organization": 2.4050000000000002,
-          "voice_processing_chain": 5.595,
-          "voice_multitrack_stack": 4.485
+          "voice_processing_chain": 7.22,
+          "voice_multitrack_stack": 4.29
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_jingle": 0.65,
           "tambourine_orch_context": 0.5199999999999999
         }
       },
@@ -74,12 +74,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 2.075,
-          "pandeiro_size": 3.9649999999999985,
+          "percussion_technique": -0.1,
+          "pandeiro_size": 4.809999999999999,
           "pandeiro_context": 4.225,
-          "pandeiro_head": 10.139999999999999,
-          "pandeiro_shell_wood": 10.139999999999999,
-          "pandeiro_jingles": 10.139999999999999
+          "pandeiro_head": 11.05,
+          "pandeiro_shell_wood": 11.05,
+          "pandeiro_jingles": 11.05
         }
       }
     ],

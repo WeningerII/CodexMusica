@@ -5,7 +5,7 @@
   "lineage": "A principal song genre of the Kammu (Khmu), an Austroasiatic-speaking people of northern Laos, notably in Luang Namtha, Oudomxay and Luang Prabang provinces, with communities in Thailand, Vietnam and China. Tøøm is sung poetry in formal verse; it and the other Kammu vocal genres are documented in Håkan Lundström's study of the repertoire of one traditional singer, published with recordings.",
   "recipe": "classic modern tøøm, ballad Poetry. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 115,
-  "score": 0.625,
+  "score": 0.63,
   "config": {
     "traditions": [
       "kammu_toom"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.38549999999999995,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       }

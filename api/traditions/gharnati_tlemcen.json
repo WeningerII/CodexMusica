@@ -1,0 +1,292 @@
+{
+  "id": "gharnati_tlemcen",
+  "name": "Gharnati (Tlemcen school of Andalusi music)",
+  "family": "classical",
+  "lineage": "The school of Andalusi music centred on Tlemcen in western Algeria, which traces its repertoire to Granada (gharnati, 'of Granada') and is organised in nuba suites; it is also cultivated in Oran and, across the border, in Oujda and Rabat. Cheikh Larbi Bensari of Tlemcen was among its first masters on 78 rpm records. The fiddle card stands in for the upright-held kamanja, the tar_frame_drum card for the small jingled tar and the hand-drum card for the derbouka goblet drum.",
+  "recipe": "classic North African early-1950s gharnati, art Music, middle eastern classical branch. oud, kwitra, rabab maghribi, fiddle, tar frame drum, hand drum source unspecified. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 278,
+  "score": 23.289,
+  "config": {
+    "traditions": [
+      "gharnati_tlemcen"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_unison_octaves",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.33899999999999997,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.063,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_andalusi",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_horn",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": 6.55,
+          "oud_school": 1.3,
+          "oud_strings": 3.25,
+          "oud_pick": 0.168,
+          "oud_body_wood": 0.546,
+          "oud_soundboard_wood": 0.546,
+          "oud_string_material": 0
+        }
+      },
+      {
+        "id": "kwitra",
+        "slots": {
+          "kwitra_school": "kwitra_gharnati",
+          "kwitra_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "kwitra_school": 1.8729999999999998,
+          "kwitra_strings": 0
+        }
+      },
+      {
+        "id": "rabab_maghribi",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "rabab_maghribi_form": "rabab_maghribi_andalusi",
+          "rabab_maghribi_role": "rabab_maghribi_takht",
+          "rabab_maghribi_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "rabab_maghribi_form": 6.4350000000000005,
+          "rabab_maghribi_role": -0.07,
+          "rabab_maghribi_strings": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.168,
+          "fiddle_mute": 0.168,
+          "fiddle_articulation": 0.102,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "tar_frame_drum",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_wedding",
+          "tar_frame_shell_wood": "tar_frame_beech",
+          "tar_frame_head": "ngoni_goat_skin"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "tar_size": 0.1995,
+          "tar_frame_drum_context": 0.105,
+          "tar_frame_shell_wood": 0,
+          "tar_frame_head": 0.24149999999999996
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "kwitra": [
+        "kwitra_school",
+        "kwitra_strings"
+      ],
+      "rabab_maghribi": [
+        "bowed_technique",
+        "rabab_maghribi_form",
+        "rabab_maghribi_role",
+        "rabab_maghribi_strings"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "tar_frame_drum": [
+        "percussion_technique",
+        "tar_size",
+        "tar_frame_drum_context",
+        "tar_frame_shell_wood",
+        "tar_frame_head"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ]
+    },
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_maghreb_state_radio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "stone_plaster_medina_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_unison_octaves",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "oud_school": "oud_andalusi",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_horn",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "dutar_strings_unspecified",
+      "kwitra_school": "kwitra_gharnati",
+      "kwitra_strings": "dutar_strings_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "rabab_maghribi_form": "rabab_maghribi_andalusi",
+      "rabab_maghribi_role": "rabab_maghribi_takht",
+      "rabab_maghribi_strings": "dutar_strings_unspecified",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "percussion_technique": "percussion_hands_layered",
+      "tar_size": "tar_small",
+      "tar_frame_drum_context": "tar_frame_drum_wedding",
+      "tar_frame_shell_wood": "tar_frame_beech",
+      "tar_frame_head": "ngoni_goat_skin",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

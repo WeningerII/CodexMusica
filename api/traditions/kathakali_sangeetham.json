@@ -1,0 +1,195 @@
+{
+  "id": "kathakali_sangeetham",
+  "name": "Kathakali sangeetham (Kerala dance-drama music)",
+  "family": "classical",
+  "lineage": "Kathakali, the dance-drama of Kerala that took shape in the seventeenth century out of Ramanattam, is sung entirely by two singers standing behind the actors: the lead singer (ponnani) keeps time on the chengila, a bell-metal gong, and the second singer (singidi) answers him on ilathalam cymbals. They sing the Manipravalam padams of the play text in ragas and talas, while chenda and suddha maddalam drummers accompany the actors' gestures. Kerala Kalamandalam, founded by the poet Vallathol Narayana Menon, became its main training school.",
+  "recipe": "classic modern kathakali sangeetham, art Music, south Asian branch. single lead single track no stacking. ritual jackwood shell layered cowhide canonical kerala chenda, suddha maddalam, elathalam, chengila. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 286,
+  "score": 13.761,
+  "config": {
+    "traditions": [
+      "kathakali_sangeetham"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.3315,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.0315,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.3,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "chenda",
+        "slots": {
+          "chenda_form": "chenda_uruttu",
+          "chenda_repertoire": "chenda_ritual_theatre",
+          "chenda_construction": "chenda_jackwood_cowhide"
+        },
+        "scores": {
+          "chenda_form": 2.25,
+          "chenda_repertoire": 2.641,
+          "chenda_construction": 5.9325
+        }
+      },
+      {
+        "id": "suddha_maddalam",
+        "slots": {
+          "maddalam_head": "maddalam_paste",
+          "maddalam_context": "maddalam_kathakali"
+        },
+        "scores": {
+          "maddalam_head": 0,
+          "maddalam_context": 0
+        }
+      },
+      {
+        "id": "elathalam",
+        "slots": {
+          "elathalam_stroke": "elathalam_closed",
+          "elathalam_ensemble": "elathalam_panchavadyam"
+        },
+        "scores": {
+          "elathalam_stroke": 0,
+          "elathalam_ensemble": 0
+        }
+      },
+      {
+        "id": "chengila",
+        "slots": {
+          "chengila_beater": "chengila_wood_stick",
+          "chengila_size": "chengila_standard"
+        },
+        "scores": {
+          "chengila_beater": 0,
+          "chengila_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "chenda": [
+        "chenda_form",
+        "chenda_repertoire",
+        "chenda_construction"
+      ],
+      "suddha_maddalam": [
+        "maddalam_head",
+        "maddalam_context"
+      ],
+      "elathalam": [
+        "elathalam_stroke",
+        "elathalam_ensemble"
+      ],
+      "chengila": [
+        "chengila_beater",
+        "chengila_size"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "chenda_form": "chenda_uruttu",
+      "chenda_repertoire": "chenda_ritual_theatre",
+      "chenda_construction": "chenda_jackwood_cowhide",
+      "maddalam_head": "maddalam_paste",
+      "maddalam_context": "maddalam_kathakali",
+      "elathalam_stroke": "elathalam_closed",
+      "elathalam_ensemble": "elathalam_panchavadyam",
+      "chengila_beater": "chengila_wood_stick",
+      "chengila_size": "chengila_standard"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

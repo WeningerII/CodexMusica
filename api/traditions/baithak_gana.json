@@ -3,14 +3,14 @@
   "name": "Baithak Gana",
   "family": "global",
   "lineage": "Indo-Caribbean 'sitting song' tradition carried by Bhojpuri-speaking indentured laborers to Suriname, Guyana and Trinidad from the 1870s and codified as a recorded genre in 1960s-80s Paramaribo and Nickerie by singers such as Ramdew Chaitoe and Droopatie Ramgoolam, built on harmonium drone-and-melody, hard-driving dholak in fast 8-beat kaharwa/dadra cycles, ringing dhantal steel rod on every beat, and high nasal declamatory male vocals in Sarnami Hindustani.",
-  "recipe": "classic North African mid-1870s baithak gana, ballad Poetry, indian bard branch, hindu ritual devotional, south Asian wedding hare krishna kirtan baps devotional music. thick, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, rope laced steel ring dholak, devotional narrative steel dhantara, indian rosewood rosewood copper tabla, small steady tala keeping bell metal manjira. cement block broadcast booth. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
-  "recipe_chars": 591,
-  "score": 198.306,
+  "recipe": "classic North African mid-1870s baithak gana, ballad Poetry, indian bard branch, hindu ritual devotional, south Asian wedding hare krishna kirtan dhamail. light, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, rope laced steel ring dholak, devotional narrative steel dhantara, ringing pitched indian rosewood rosewood tabla, small steady tala keeping brass manjira. cement block broadcast booth. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 581,
+  "score": 184.656,
   "config": {
     "traditions": [
       "baithak_gana",
       "hare_krishna",
-      "baps"
+      "sylheti_dhamail"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 2.4850000000000008,
-          "harmonium_action": 1.4949999999999999,
-          "harmonium_voicing": 1.4949999999999999,
-          "harmonium_use": 4.745
+          "free_reed_technique": 0.8449999999999999,
+          "harmonium_action": 0.65,
+          "harmonium_voicing": 1.3,
+          "harmonium_use": 3.38
         }
       },
       {
@@ -37,7 +37,7 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.195,
+          "dholak_use": 0.435,
           "dholak_construction": 0.7350000000000001,
           "dholak_head": 0.585,
           "dholak_tensioning": 1.3
@@ -53,17 +53,17 @@
           "dhantara_dress": "dhantara_dress_flowered"
         },
         "scores": {
-          "bowed_technique": 2.5,
-          "dhantara_stringing": 3.55,
-          "dhantara_role": 13.162499999999998,
+          "bowed_technique": 0.75,
+          "dhantara_stringing": 4.675,
+          "dhantara_role": 11.2125,
           "dhantara_strings": 2.75,
-          "dhantara_dress": 4.615
+          "dhantara_dress": 5.1025
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "head_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -71,7 +71,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -81,21 +81,21 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 1.6995000000000002,
-          "voice_quality": 10.464999999999998,
+          "voice_register": 1.495,
+          "voice_quality": 7.340000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6400000000000006,
-          "voice_articulation": 17.354999999999997,
-          "voice_microtone": 15.859999999999992,
-          "voice_tradition": 10.855,
-          "voice_mechanism_compound": 1.9000000000000004,
-          "voice_estill_quality": 5.915000000000001,
-          "voice_speech_song": 20.604999999999997,
-          "voice_ensemble_config": 16.964999999999993,
-          "voice_ornament_system": 9.024999999999999,
-          "voice_pitch_organization": 4.095000000000001,
-          "voice_processing_chain": 4.484999999999999,
+          "voice_vibrato": 2.015,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 17.029999999999994,
+          "voice_tradition": 10.075,
+          "voice_mechanism_compound": 1.2349999999999999,
+          "voice_estill_quality": 4.9399999999999995,
+          "voice_speech_song": 23.269999999999992,
+          "voice_ensemble_config": 18.134999999999994,
+          "voice_ornament_system": 6.4,
+          "voice_pitch_organization": 3.932499999999999,
+          "voice_processing_chain": 4.9399999999999995,
           "voice_multitrack_stack": 2.3145
         }
       },
@@ -107,9 +107,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 6.11,
-          "tabla_bayan": 1.04,
-          "tabla_syahi": 6.37
+          "tabla_dayan": 4.8100000000000005,
+          "tabla_bayan": 0.39,
+          "tabla_syahi": 6.825
         }
       },
       {
@@ -117,12 +117,12 @@
         "slots": {
           "manjira_form": "manjira_taal_small",
           "manjira_stroke": "manjira_tala_ostinato",
-          "manjira_metal": "manjira_bell_bronze"
+          "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 10.57,
-          "manjira_stroke": 2.8745000000000003,
-          "manjira_metal": 1.45
+          "manjira_form": 7.945,
+          "manjira_stroke": 1.7745,
+          "manjira_metal": 1.1999999999999997
         }
       }
     ],

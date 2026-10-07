@@ -5,7 +5,7 @@
   "lineage": "Northwestern Argentine couple dance descended from the Peruvian zamacueca and fixed in its modern form by Salta and Tucumán composers such as Gustavo \"Cuchi\" Leguizamón, Manuel J. Castilla and Ariel Ramírez from the 1940s: slow 6/8 with constant 3/4 hemiola at 60-80 BPM, guitar rasguido with bass-note punteo, bombo legüero struck alternately on hoop and head, handkerchief-waving choreography, and duo singing in parallel thirds over a fixed introduction-plus-two-part form.",
   "recipe": "classic South American mid-1940s zamba, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean field work folklore ecuatoriano chilean nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar bronze fingerpicked dreadnought acoustic cedar fingerpicked classical nylon-string guitar, swaying bombo leguero, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, naranjillo andean premium wood cedar andean andean classical charango. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 738,
-  "score": 247.152,
+  "score": 247.062,
   "config": {
     "traditions": [
       "zamba_folklorica",
@@ -41,9 +41,9 @@
           "voice_vibrato": 3.055,
           "voice_articulation": 17.224999999999994,
           "voice_microtone": 15.404999999999992,
-          "voice_tradition": 9.844999999999999,
+          "voice_tradition": 9.409999999999998,
           "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 7.7,
+          "voice_estill_quality": 7.745,
           "voice_speech_song": 19.109999999999992,
           "voice_ensemble_config": 16.769999999999992,
           "voice_ornament_system": 9.035,
@@ -83,7 +83,7 @@
           "acoustic_technique": 8.084999999999999,
           "string_tuning": 0,
           "top_wood_classical": 6.109999999999999,
-          "bracing_classical": 2.8850000000000002,
+          "bracing_classical": 2.93,
           "string_classical": 0.975,
           "attack_technique_cl": 1.04
         }
@@ -117,10 +117,10 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 1.04,
-          "grand_piano_brand": 2.19,
+          "grand_piano_brand": 2.235,
           "piano_hammer": 3.46,
           "piano_rim": 4.68,
-          "piano_soundboard": 4.5,
+          "piano_soundboard": 4.545,
           "piano_pinblock": 2.545,
           "piano_plate": 3.3449999999999998,
           "piano_pitch_standard": 7.18
@@ -141,12 +141,12 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.5499999999999998,
+          "bowed_technique": 0.5949999999999999,
           "orch_strings": 0.12999999999999998,
-          "orch_top_wood": 4.475,
+          "orch_top_wood": 4.745,
           "orch_back_wood": 4.44,
           "orch_varnish": 3.15,
-          "orch_setup_period": 2.19,
+          "orch_setup_period": 2.04,
           "orch_bow": 2.4949999999999997,
           "orch_bow_stick": 2.545,
           "orch_articulation": 0.195,

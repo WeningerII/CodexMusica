@@ -3,14 +3,14 @@
   "name": "Chinese conservatory traditional ensemble (民乐 minyue)",
   "family": "global",
   "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
-  "recipe": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music indian violin sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 887,
-  "score": 290.442,
+  "recipe": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music indian violin kathakali sangeetham. thick, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk bamboo stick erhu, low mid rich spectrum vocal imitating silk pipa, shell steel wound concert projection guzheng, silk historical pre modern ruan, silk canonical traditional sanxian, no membrane buzz continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 749,
+  "score": 246.197,
   "config": {
     "traditions": [
       "chinese_traditional_ensemble",
       "indian_violin",
-      "sinhala_vannama"
+      "kathakali_sangeetham"
     ],
     "instruments": [
       {
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 1.6249999999999996,
-          "voice_quality": 7.995,
+          "voice_quality": 10.464999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.7275,
-          "voice_articulation": 11.244999999999997,
-          "voice_microtone": 11.894999999999996,
-          "voice_tradition": 19.5,
-          "voice_mechanism_compound": 5.359999999999999,
-          "voice_estill_quality": 6.45,
-          "voice_speech_song": 15.404999999999998,
-          "voice_ensemble_config": 13.064999999999996,
-          "voice_ornament_system": 11.054999999999998,
-          "voice_pitch_organization": 11.099999999999998,
-          "voice_processing_chain": 1.4949999999999997,
+          "voice_vibrato": 4.615,
+          "voice_articulation": 10.594999999999999,
+          "voice_microtone": 11.049999999999995,
+          "voice_tradition": 17.3875,
+          "voice_mechanism_compound": 3.7350000000000003,
+          "voice_estill_quality": 5.825,
+          "voice_speech_song": 13.909999999999995,
+          "voice_ensemble_config": 11.569999999999997,
+          "voice_ornament_system": 9.429999999999998,
+          "voice_pitch_organization": 9.474999999999998,
+          "voice_processing_chain": 2.145,
           "voice_multitrack_stack": 1.755
         }
       },
@@ -58,17 +58,17 @@
           "bowed_technique": "bowed_legato_classical",
           "erhu_skin": "erhu_python",
           "erhu_use": "erhu_jiangnan",
-          "erhu_body_wood": "erhu_red_sandalwood",
-          "erhu_strings": "erhu_steel_modern",
+          "erhu_body_wood": "erhu_mahogany_body",
+          "erhu_strings": "erhu_silk_historical",
           "erhu_bow": "erhu_bamboo_horsehair"
         },
         "scores": {
-          "bowed_technique": 4.92,
-          "erhu_skin": 3.12,
+          "bowed_technique": 3.295,
+          "erhu_skin": 2.275,
           "erhu_use": 3.244999999999999,
-          "erhu_body_wood": 1.6249999999999998,
-          "erhu_strings": 1.6899999999999997,
-          "erhu_bow": 2.925
+          "erhu_body_wood": 0.3,
+          "erhu_strings": 0.995,
+          "erhu_bow": 1.4300000000000002
         }
       },
       {
@@ -78,14 +78,14 @@
           "pipa_frets": "pipa_modern_frets",
           "pipa_strings": "pipa_silk",
           "pipa_pick": "pipa_fingernail",
-          "pipa_body_wood": "pipa_red_sandalwood"
+          "pipa_body_wood": "pipa_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 4.92,
+          "plucked_traditional_technique": 3.295,
           "pipa_frets": 1.985,
-          "pipa_strings": 3.12,
+          "pipa_strings": 2.275,
           "pipa_pick": 0.045,
-          "pipa_body_wood": 1.6249999999999998
+          "pipa_body_wood": 0.3
         }
       },
       {
@@ -95,15 +95,15 @@
           "guzheng_strings": "guzheng_21",
           "guzheng_picks": "guzheng_tortoise",
           "guzheng_top_wood": "guzheng_wutong_paulownia",
-          "guzheng_frame": "guzheng_rosewood_frame",
+          "guzheng_frame": "guzheng_padauk_frame",
           "guzheng_string_material": "guzheng_steel_wound_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.92,
-          "guzheng_strings": 4.615,
+          "plucked_traditional_technique": 3.295,
+          "guzheng_strings": 3.7700000000000005,
           "guzheng_picks": 1.295,
-          "guzheng_top_wood": 1.6899999999999997,
-          "guzheng_frame": 1.6249999999999998,
+          "guzheng_top_wood": 0.585,
+          "guzheng_frame": 0.3,
           "guzheng_string_material": 1.985
         }
       },
@@ -114,14 +114,14 @@
           "ruan_size": "zhongruan",
           "ruan_context": "ruan_chamber",
           "ruan_body_wood": "ruan_padauk",
-          "ruan_strings": "ruan_nylon_steel_wound"
+          "ruan_strings": "ruan_silk_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 4.92,
+          "plucked_traditional_technique": 3.295,
           "ruan_size": 3.244999999999999,
           "ruan_context": 13.910000000000002,
           "ruan_body_wood": 0,
-          "ruan_strings": 1.6899999999999997
+          "ruan_strings": 1.04
         }
       },
       {
@@ -130,16 +130,16 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "sanxian_size": "sanxian_xiao",
           "sanxian_context": "sanxian_composed",
-          "sanxian_head": "sanxian_python_skin",
+          "sanxian_head": "sanxian_synthetic_python",
           "sanxian_strings": "sanxian_silk_traditional",
           "sanxian_body_wood": "sanxian_padauk"
         },
         "scores": {
-          "plucked_traditional_technique": 4.92,
+          "plucked_traditional_technique": 3.295,
           "sanxian_size": 0.39,
-          "sanxian_context": 4.745,
-          "sanxian_head": 1.6249999999999998,
-          "sanxian_strings": 2.9299999999999997,
+          "sanxian_context": 5.3950000000000005,
+          "sanxian_head": 0.65,
+          "sanxian_strings": 1.3,
           "sanxian_body_wood": 0.3
         }
       },
@@ -153,11 +153,11 @@
           "dizi_regional_style": "dizi_qudi_southern"
         },
         "scores": {
-          "wind_articulation": 5.1,
-          "dizi_membrane": 3.965,
-          "dizi_pitch": 2.5900000000000003,
-          "dizi_body_material": 2.0799999999999996,
-          "dizi_regional_style": 1.6899999999999997
+          "wind_articulation": 3.2,
+          "dizi_membrane": 3.1200000000000006,
+          "dizi_pitch": 1.17,
+          "dizi_body_material": 0.39,
+          "dizi_regional_style": 0.78
         }
       },
       {
@@ -169,10 +169,10 @@
           "sheng_pipe_material": "sheng_bamboo_canonical"
         },
         "scores": {
-          "free_reed_technique": 1.8699999999999999,
-          "sheng_size": 3.835,
-          "sheng_context": 16.9,
-          "sheng_pipe_material": 4.77
+          "free_reed_technique": 1.22,
+          "sheng_size": 2.9899999999999998,
+          "sheng_context": 15.86,
+          "sheng_pipe_material": 3.3799999999999994
         }
       },
       {
@@ -182,7 +182,7 @@
           "yangqin_technique": "yangqin_bamboo_mallets"
         },
         "scores": {
-          "yangqin_courses": 2.015,
+          "yangqin_courses": 2.5749999999999997,
           "yangqin_technique": 1.345
         }
       },
@@ -190,12 +190,12 @@
         "id": "bawu",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "bawu_pitch": "bawu_bb",
+          "bawu_pitch": "bawu_g",
           "bawu_context": "bawu_yi"
         },
         "scores": {
-          "free_reed_technique": 1.8699999999999999,
-          "bawu_pitch": 2.335,
+          "free_reed_technique": 1.22,
+          "bawu_pitch": 1.145,
           "bawu_context": 8.19
         }
       },
@@ -207,7 +207,7 @@
           "hulusi_context": "hulusi_yunnan"
         },
         "scores": {
-          "free_reed_technique": 1.8699999999999999,
+          "free_reed_technique": 1.22,
           "hulusi_config": 2.19,
           "hulusi_context": 8.19
         }

@@ -5,7 +5,7 @@
   "lineage": "Aberdeenshire and Northeast Scottish farm-laborer balladry sung in Doric Scots dialect — collected by Gavin Greig and James Bruce Duncan in the early 20th century, preserved through the School of Scottish Studies Hamish Henderson field recordings, performed by John Strachan, Jeannie Robertson, Lizzie Higgins, the Stewart family of Blairgowrie, and the modern Aberdeenshire continuation (Sheena Wellington, Jock Duncan)",
   "recipe": "classic Northern European early-1940s bothy ballad, ballad Poetry, bothy ballad branch, pre commercial country pre-commercial country roots close harmony. thick, breath veiled tone, wide pitch sway, interlocked note trading. castagnari Italian premium folk music straight accordion, Celtic straight melodeon diatonic. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 426,
-  "score": 207.767,
+  "score": 208.64,
   "config": {
     "traditions": [
       "bothy_ballad_doric",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 18.777499999999993,
+          "voice_register": 18.769999999999996,
           "voice_quality": 16.379999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 13.819999999999997,
           "voice_articulation": 17.939999999999994,
           "voice_microtone": 17.09499999999999,
-          "voice_tradition": 16.802499999999995,
+          "voice_tradition": 17.522499999999997,
           "voice_mechanism_compound": 2.21,
-          "voice_estill_quality": 14.942499999999997,
+          "voice_estill_quality": 15.062499999999996,
           "voice_speech_song": 21.514999999999993,
           "voice_ensemble_config": 17.61499999999999,
           "voice_ornament_system": 4.880000000000001,
-          "voice_pitch_organization": 2.9350000000000005,
+          "voice_pitch_organization": 2.8850000000000007,
           "voice_processing_chain": 7.774999999999999,
           "voice_multitrack_stack": 3.5100000000000002
         }
@@ -68,8 +68,8 @@
           "accordion_reed_material": 0.345,
           "musette_offset": 1.2349999999999999,
           "reed_config": 0.36,
-          "bellows": 0.315,
-          "voicing_chamber": 0.105,
+          "bellows": 0.3,
+          "voicing_chamber": 0.21,
           "accordion_maker_school": 1.885
         }
       },

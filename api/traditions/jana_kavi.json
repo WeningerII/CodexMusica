@@ -5,7 +5,7 @@
   "lineage": "Village folk verse of the Sinhala countryside, sung in four-line kavi stanzas tied to work and the seasons: goyam kavi at the paddy harvest and threshing floor, pal kavi sung by watchers guarding crops from night-time huts, and others for further occasions. The verses are usually sung unaccompanied by individuals or small groups and have been collected in the folk-song archive of Sri Lankan radio.",
   "recipe": "classic modern jana kavi, field Work, south Asian branch. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 157,
-  "score": 2.621,
+  "score": 2.847,
   "config": {
     "traditions": [
       "jana_kavi"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.9065,
+          "voice_ensemble_config": 1.9380000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.11399999999999999,
+          "voice_multitrack_stack": 0.309,
           "voice_tessitura": 0
         }
       }

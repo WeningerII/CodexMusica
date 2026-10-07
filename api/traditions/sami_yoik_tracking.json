@@ -5,7 +5,7 @@
   "lineage": "Sami yoik (joik) tradition continuous from premodern Sami reindeer-herding-and-hunting-and-fishing practice across the Sápmi-region of northern Norway, Sweden, Finland, and Russia through colonial-era Christianization-suppression continuous through 20th-century revival",
   "recipe": "classic Northern European modern sami yoik — animal-tracking and hunting song, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, oceania pacific praise song mongolian hunting-khoomei central asian folk. sygyt, breath veiled tone, fast rate, interlocked note trading. burl bowl southern sami soft pulse reindeer hide red figures sami frame drum. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 466,
-  "score": 221.67,
+  "score": 221.715,
   "config": {
     "traditions": [
       "sami_yoik_tracking",
@@ -61,8 +61,8 @@
         },
         "scores": {
           "sami_frame_drum_form": 11.199999999999996,
-          "sami_frame_drum_ritual": 24.134999999999998,
-          "sami_frame_drum_material": 12.849999999999998
+          "sami_frame_drum_ritual": 24.029999999999998,
+          "sami_frame_drum_material": 12.999999999999998
         }
       }
     ],

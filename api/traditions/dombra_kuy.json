@@ -3,14 +3,14 @@
   "name": "Dombra Küy",
   "family": "global",
   "lineage": "Kazakh solo instrumental art form for the fretted long-necked two-string dombyra, crystallized in the 19th century in two regional schools — the western tökpe style of Kurmangazy and Dina Nurpeisova with fast continuous alternating strums across both strings, and the eastern shertpe style of Tättimbet using plucked, sparser, rubato phrasing — each küy a three-to-six-minute programmatic piece built from a low bass-string drone, a rising climb through the register (buyn) and a return.",
-  "recipe": "classic Northeast Asian early-1940s dombra küy, drone Modal, string branch, central Asian hunting song, heterophonic drone modal armenian folk music kyrgyz traditional music. kargyraa, breath veiled tone, fast rate, interlocked note trading. teardrop bodied delicate finger plucked lyrical dombyra, folk orchestra programmatic solo horsehair strung hide qobyz. open steppe outdoor. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 515,
-  "score": 180.822,
+  "recipe": "classic Northeast Asian early-1940s dombra küy, drone Modal, string branch, central Asian hunting song, heterophonic drone modal kyrgyz traditional music central asian folk. kargyraa, breath veiled tone, fast rate, interlocked note trading. teardrop bodied delicate finger plucked lyrical dombyra, folk orchestra programmatic solo horsehair strung hide qobyz. open steppe outdoor. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 514,
+  "score": 173.295,
   "config": {
     "traditions": [
       "dombra_kuy",
-      "armenian_folk",
-      "kyrgyz_traditional"
+      "kyrgyz_traditional",
+      "central_asian_folk"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "dombyra_strings": "dombyra_nylon"
         },
         "scores": {
-          "dombyra_form": 8.725000000000001,
-          "dombyra_style": 8.125,
+          "dombyra_form": 8.875,
+          "dombyra_style": 8.5,
           "dombyra_strings": 0.325
         }
       },
@@ -35,10 +35,10 @@
           "qobyz_build": "qobyz_build_horsehair_hide"
         },
         "scores": {
-          "bowed_technique": 0.12999999999999998,
-          "qobyz_form": 5.305,
+          "bowed_technique": -0.035,
+          "qobyz_form": 5.53,
           "qobyz_repertoire": 9.18,
-          "qobyz_build": 4.66
+          "qobyz_build": 5.035
         }
       },
       {
@@ -62,22 +62,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.7600000000000002,
-          "voice_quality": 15.014999999999993,
+          "voice_register": 3.6850000000000005,
+          "voice_quality": 16.18499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.795,
-          "voice_articulation": 17.875,
-          "voice_microtone": 24.894999999999996,
-          "voice_tradition": 15.372499999999999,
-          "voice_mechanism_compound": 8.32,
-          "voice_estill_quality": 6.630000000000001,
-          "voice_speech_song": 19.044999999999998,
-          "voice_ensemble_config": 16.119999999999997,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 9.2625,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 3.5750000000000006
+          "voice_vibrato": 2.9749999999999996,
+          "voice_articulation": 16.639999999999997,
+          "voice_microtone": 20.409999999999993,
+          "voice_tradition": 13.064999999999996,
+          "voice_mechanism_compound": 7.865000000000001,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 14.884999999999994,
+          "voice_ornament_system": 2.145,
+          "voice_pitch_organization": 9.295,
+          "voice_processing_chain": 3.185,
+          "voice_multitrack_stack": 4.375000000000001
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Microtonal composition (twentieth-century non-12-TET)",
   "family": "classical",
   "lineage": "American twentieth-century compositional movement systematically employing tunings outside twelve-tone-equal-temperament. Harry Partch (1901-1974) developed his 43-tone just-intonation system and built custom instruments (Cloud-Chamber Bowls, Marimba Eroica, Diamond Marimba) to realize it; Ben Johnston (1926-2019) extended just-intonation into traditional Western chamber-music; Pauline Oliveros, James Tenney, and La Monte Young extended into electronic-and-drone microtonality.",
-  "recipe": "classic North American early-1900s microtonal composition, art Music, western modern branch, string drone modal mbira tradition folkmusik. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 497,
-  "score": 217.955,
+  "recipe": "classic North American early-1900s microtonal composition, art Music, western modern branch, string drone modal mbira tradition juré and la-la. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 502,
+  "score": 210.15,
   "config": {
     "traditions": [
       "microtonal_composition",
       "mbira_tradition",
-      "folkmusik"
+      "creole_jure_la_la"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.6499999999999995,
-          "voice_quality": 7.410000000000001,
+          "voice_register": 3.3,
+          "voice_quality": 10.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.25,
-          "voice_articulation": 11.959999999999994,
-          "voice_microtone": 18.84999999999999,
-          "voice_tradition": 9.3925,
-          "voice_mechanism_compound": 5.85,
-          "voice_estill_quality": 6.955000000000001,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 11.894999999999992,
+          "voice_articulation": 11.829999999999995,
+          "voice_microtone": 17.874999999999993,
+          "voice_tradition": 7.280000000000001,
+          "voice_mechanism_compound": 3.705,
+          "voice_estill_quality": 5.85,
+          "voice_speech_song": 17.224999999999994,
+          "voice_ensemble_config": 11.764999999999993,
           "voice_ornament_system": 5,
           "voice_pitch_organization": 5.515,
-          "voice_processing_chain": 8.635,
-          "voice_multitrack_stack": 3.3050000000000006
+          "voice_processing_chain": 7.01,
+          "voice_multitrack_stack": 3.68
         }
       },
       {
@@ -69,7 +69,7 @@
         "scores": {
           "bowed_technique": 2.5,
           "orch_strings": 2.79,
-          "orch_top_wood": 7.909999999999999,
+          "orch_top_wood": 7.56,
           "orch_back_wood": 6.745,
           "orch_varnish": 6.25,
           "orch_setup_period": 5.605,
@@ -97,11 +97,11 @@
           "grand_piano_size": 0.745,
           "grand_piano_brand": 2.5999999999999996,
           "piano_hammer": 9.344999999999999,
-          "piano_rim": 9.620000000000001,
+          "piano_rim": 8.97,
           "piano_soundboard": 8.435,
           "piano_pinblock": 6.385,
           "piano_plate": 6.49,
-          "piano_pitch_standard": 7.525
+          "piano_pitch_standard": 9.975
         }
       }
     ],

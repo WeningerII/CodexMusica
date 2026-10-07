@@ -5,7 +5,7 @@
   "lineage": "Ensemble of the Betawi and Chinese-Indonesian (peranakan, Cina Benteng) communities of Jakarta and Tangerang, named for the gambang wooden xylophone (here the xylophone card) and the kromong row of small kettle gongs (here the bonang card). Chinese two-string fiddles (tehyan, kongahyan, sukong), suling (here the generic bamboo-flute card), kendang (here the generic hand-drum card), kecrek and gong complete it, playing an older Chinese-derived lagu dalem repertoire and the later lagu sayur songs for weddings and lenong theatre.",
   "recipe": "classic modern gambang kromong, art Music, southeast Asian branch. xylophone, bonang, coconut shell densely ornamented high tuned popular kongahyan, bamboo credited bamboo flute hand drum source unspecified, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 20.059,
+  "score": 20.097,
   "config": {
     "traditions": [
       "gambang_kromong"
@@ -46,9 +46,9 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "kongahyan_resonator": 5.32425,
-          "kongahyan_register": 6.75125,
-          "kongahyan_repertoire": 5.63025,
+          "kongahyan_resonator": 5.287125,
+          "kongahyan_register": 6.677,
+          "kongahyan_repertoire": 5.90325,
           "kongahyan_strings": 0
         }
       },
@@ -77,7 +77,7 @@
         "scores": {
           "hand_drum_structure_neutral": 0,
           "hand_drum_material_neutral": 0,
-          "hand_drum_excitation_neutral": 0.47024999999999995,
+          "hand_drum_excitation_neutral": 0.34650000000000003,
           "hand_drum_damping_neutral": 0,
           "hand_drum_tension_neutral": 0
         }

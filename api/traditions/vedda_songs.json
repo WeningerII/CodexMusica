@@ -5,7 +5,7 @@
   "lineage": "Songs of the Vedda (Wanniyala-aetto), the Indigenous forest people of eastern and central Sri Lanka, whose best-known community today lives at Dambana in Badulla district. Charles and Brenda Seligmann recorded Vedda songs on phonograph cylinders in 1907-08, and C. S. Myers' analysis in their monograph The Veddas (1911) described melodies built on two or three notes. The repertoire includes lullabies, hunting songs and invocations sung in the kirikoraha ceremony for the spirits of the dead.",
   "recipe": "classic late-1900s vedda songs, ritual Devotional, indigenous branch. single lead single track no stacking. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 199,
-  "score": 0.839,
+  "score": 1.16,
   "config": {
     "traditions": [
       "vedda_songs"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 1.0185,
+          "voice_multitrack_stack": 1.34025,
           "voice_tessitura": 0
         }
       }

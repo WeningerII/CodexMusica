@@ -3,9 +3,9 @@
   "name": "Chokwe mukanda and lamellophone music (Lunda, Angola)",
   "family": "global",
   "lineage": "Music of the Chokwe (Tshokwe) of north-eastern Angola, recorded by the Diamang company's Museu do Dundo in the 1950s and 1960s: songs and drumming of the mukanda boys' circumcision and initiation camp and its masked makishi dancers, and personal song with the cisanji lamellophone. The Congolese lukembi card stands in for the cisanji.",
-  "recipe": "classic mid-1950s chokwe mukanda and lamellophone music, ritual Devotional, indigenous branch. acoustic membrane drum, lukembi congolese. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 229,
-  "score": 1.396,
+  "recipe": "classic mid-1950s chokwe mukanda and lamellophone music, ritual Devotional, indigenous branch. membrane drum pulse resonant acoustic membrane drum, lukembi congolese. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 258,
+  "score": 2.194,
   "config": {
     "traditions": [
       "chokwe_mukanda_music"
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 0.7874999999999999,
-          "acoustic_membrane_drum_gesture": 0.9239999999999999
+          "acoustic_membrane_drum_form": 1.25775,
+          "acoustic_membrane_drum_gesture": 1.25175
         }
       },
       {

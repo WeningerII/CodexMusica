@@ -5,7 +5,7 @@
   "lineage": "Dance-drama of southern Thailand, strongest in Phatthalung, Nakhon Si Thammarat and Songkhla, inscribed on UNESCO's Representative List. The lead nora performer, in a beaded costume and crown, sings improvised verses and dances, and troupes also perform the rong khru ritual that honours nora ancestors. The ensemble consists of the pi oboe, the thap pair of goblet drums that follows the dancer, a klong drum, the mong pair of gongs, ching cymbals and the trae wooden clappers. The pi nai card stands in for the nora pi, a hand-drum card for the thap, generic drum and gong cards for the klong and mong, a generic cymbal card for the ching and an auxiliary-percussion card for the trae.",
   "recipe": "classic modern nora, art Music, southeast Asian branch. solo with instrumental accompaniment, tonal language syllable tone locked melody, single lead single track no stacking. pi nai, hand drum source unspecified, membrane drum pulse resonant acoustic membrane drum, gong tamtam, credited cymbals, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 408,
-  "score": 20.606,
+  "score": 20.508,
   "config": {
     "traditions": [
       "nora_southern_thai"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.8769999999999993,
+          "voice_ensemble_config": 3.1499999999999995,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 2.9899999999999998,
           "voice_processing_chain": 0.0315,
@@ -85,8 +85,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.7199999999999998,
-          "acoustic_membrane_drum_gesture": 3.59625
+          "acoustic_membrane_drum_form": 3.4725,
+          "acoustic_membrane_drum_gesture": 3.4725
         }
       },
       {

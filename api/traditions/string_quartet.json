@@ -5,7 +5,7 @@
   "lineage": "Western chamber music tradition for two violins, viola, and cello, codified by Haydn in his sixty-eight quartets (1762-1803) — the form's most consequential codifiers include Mozart (the six Haydn quartets), Beethoven (the sixteen quartets including the late opp. 127-135), Schubert (Death and the Maiden), Bartók (six quartets), Shostakovich (fifteen quartets), and continuing through contemporary composers",
   "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music african-american classical american 21st century classical. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 550,
-  "score": 356.001,
+  "score": 354.377,
   "config": {
     "traditions": [
       "string_quartet",
@@ -33,9 +33,9 @@
           "orch_top_wood": 11.745000000000001,
           "orch_back_wood": 17.95,
           "orch_varnish": 17.125,
-          "orch_setup_period": 17.09357142857143,
+          "orch_setup_period": 16.8525,
           "orch_bow": 0.78,
-          "orch_bow_stick": 20.054642857142852,
+          "orch_bow_stick": 19.834999999999997,
           "orch_articulation": 0.9099999999999999,
           "orch_rosin": 17.125
         }
@@ -60,9 +60,9 @@
           "viola_top_wood": 11.745000000000001,
           "viola_back_wood": 17.95,
           "viola_varnish": 17.125,
-          "viola_setup_period": 17.09357142857143,
-          "viola_bow_stick": 20.054642857142852,
-          "viola_rosin": 18.408571428571427
+          "viola_setup_period": 16.8525,
+          "viola_bow_stick": 19.834999999999997,
+          "viola_rosin": 18.167499999999997
         }
       },
       {
@@ -84,10 +84,10 @@
           "cello_top_wood": 11.745000000000001,
           "cello_back_wood": 17.95,
           "cello_varnish": 17.125,
-          "cello_setup_period": 17.09357142857143,
+          "cello_setup_period": 16.8525,
           "cello_bow_grip": 5.654999999999999,
           "cello_rosin": 18.724999999999998,
-          "cello_bow_stick": 20.054642857142852
+          "cello_bow_stick": 19.834999999999997
         }
       }
     ],

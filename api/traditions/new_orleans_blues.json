@@ -3,21 +3,21 @@
   "name": "New Orleans Blues",
   "family": "blues_gospel",
   "lineage": "Crescent City blues shaped at Cosimo Matassa's J&M studio 1947-1962 by Professor Longhair, Roy Brown, Guitar Slim, Smiley Lewis and Dave Bartholomew's band — 100-150 BPM blues carried on rolling rhumba-boogie piano and a second-line street-parade drum pattern, with a full horn section, tenor sax solos, and shouted or crooned vocals over Afro-Caribbean tresillo bass figures.",
-  "recipe": "classic North American mid-1950s new orleans blues, functional Song, soul R&B branch, American south carnival processional, American jazz early new orleans brass band second-line man's orchestra. thick, blues-shouter, wide pitch sway, interlocked note trading. gospel runs upright piano, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright alder lower tension down tuning single coil electric guitar. dry but alive 1948-1965 indie-commercial early tape us small.",
-  "recipe_chars": 993,
-  "score": 330.51,
+  "recipe": "classic North American mid-1950s new orleans blues, functional Song, soul R&B branch, American south carnival processional, American jazz early trad new orleans brass band second-line. thick, breath veiled tone, wide pitch sway, interlocked note trading. gospel runs upright piano, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright alder open string slide resonance single coil electric guitar. dry but alive 1948-1965 indie-commercial early tape us small.",
+  "recipe_chars": 989,
+  "score": 361.31,
   "config": {
     "traditions": [
       "new_orleans_blues",
-      "new_orleans_brass_parade",
-      "man_s_orchestra"
+      "british_trad_jazz",
+      "new_orleans_brass_parade"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 23.48999999999999,
-          "voice_quality": 9.294999999999991,
+          "voice_register": 26.414999999999996,
+          "voice_quality": 11.049999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.544999999999996,
-          "voice_articulation": 12.284999999999995,
-          "voice_microtone": 11.89499999999999,
-          "voice_tradition": 10.075,
-          "voice_mechanism_compound": 1.69,
+          "voice_vibrato": 11.694999999999999,
+          "voice_articulation": 12.544999999999993,
+          "voice_microtone": 12.34999999999999,
+          "voice_tradition": 11.05,
+          "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 3.9850000000000003,
-          "voice_speech_song": 15.989999999999995,
-          "voice_ensemble_config": 13.909999999999995,
+          "voice_speech_song": 15.794999999999993,
+          "voice_ensemble_config": 15.404999999999994,
           "voice_ornament_system": 2.17,
           "voice_pitch_organization": 3.1200000000000006,
-          "voice_processing_chain": 8.905000000000001,
-          "voice_multitrack_stack": 2.4699999999999998
+          "voice_processing_chain": 9.1,
+          "voice_multitrack_stack": 1.8199999999999998
         }
       },
       {
@@ -80,10 +80,10 @@
           "wind_articulation": 7.15,
           "sax_size": 5.1450000000000005,
           "sax_reed": 0,
-          "sax_body_alloy": 9.25,
+          "sax_body_alloy": 10.275,
           "sax_mouthpiece": 0.045,
-          "sax_technique": 9.524999999999999,
-          "sax_maker_school": 9.555
+          "sax_technique": 10.775,
+          "sax_maker_school": 11.180000000000001
         }
       },
       {
@@ -98,11 +98,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 7.59,
+          "wind_articulation": 9.94,
           "brass_size": 0,
-          "trumpet_mouthpiece": 9.425,
+          "trumpet_mouthpiece": 11.05,
           "brass_mute": 1.345,
-          "trumpet_technique": 7.59,
+          "trumpet_technique": 9.94,
           "trumpet_bell_metal": 6.045000000000002,
           "trumpet_maker_school": 5.004999999999999
         }
@@ -119,9 +119,9 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 7.59,
-          "trombone_type": 7.25,
-          "trombone_mouthpiece": 7.29,
+          "wind_articulation": 9.94,
+          "trombone_type": 8.5,
+          "trombone_mouthpiece": 10.215,
           "trombone_mute": 1.345,
           "trombone_technique": 1.3,
           "trombone_bell_metal": 6.045000000000002,
@@ -143,11 +143,11 @@
         "scores": {
           "amp_make": 13.1625,
           "body_wood": 0.8700000000000001,
-          "pickup_config": 0.39000000000000007,
-          "string_type": 9.425,
+          "pickup_config": 0.1949999999999999,
+          "string_type": 11.245000000000001,
           "scale_length_b": 0.48,
           "fretted_or_not": 0,
-          "bass_technique": 7.4,
+          "bass_technique": 8.65,
           "electric_bass_string_configuration": 0
         }
       },
@@ -159,8 +159,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.924999999999995,
-          "drumhead": 9.36,
+          "drum_technique": 17.029999999999994,
+          "drumhead": 10.985000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -178,22 +178,22 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard",
+          "string_tuning": "open_g",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 3.695,
-          "amp_make": 10.659999999999998,
+          "amp_make": 10.855,
           "body_wood": 1.045,
           "neck_wood": 0.435,
           "fretboard": 0.045,
           "pickup_magnet": 0.045,
           "string_material": 0.09,
-          "string_gauge": 1.545,
+          "string_gauge": 1.045,
           "bridge": 0.045,
           "scale_length": 0.8700000000000001,
           "finish": 0,
-          "string_tuning": 5.924999999999999,
+          "string_tuning": 6.215,
           "single_coil_pickup_construction": 0
         }
       }

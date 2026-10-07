@@ -5,7 +5,7 @@
   "lineage": "1960-onward avant-garde jazz dispensing with fixed harmony and steady meter — Ornette Coleman, Cecil Taylor, Albert Ayler, late John Coltrane (Ascension 1965, Meditations 1965), Pharoah Sanders, Sun Ra Arkestra; ESP-Disk, Impulse!, BYG-Actuel, and Strata-East labels",
   "recipe": "classic North American modern free jazz, improv On Frame, avant branch, industrial noise experimental electric, jam free improv on frame noise music jam bands. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, multiphonic clarinet. radio city music hall eighth floor 1949-1985 mid tier plaza sound radio city nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 686,
-  "score": 218.799,
+  "score": 218.78,
   "config": {
     "traditions": [
       "free_jazz",
@@ -52,7 +52,7 @@
           "brass_mute": 0.6749999999999999,
           "trumpet_technique": 0.75,
           "trumpet_bell_metal": 0.195,
-          "trumpet_maker_school": 3.350833333333333
+          "trumpet_maker_school": 3.34
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "drum_technique": 20.539999999999996,
-          "drumhead": 17.48333333333333,
+          "drumhead": 17.474999999999994,
           "drum_kit_kick_pedal": 0
         }
       },

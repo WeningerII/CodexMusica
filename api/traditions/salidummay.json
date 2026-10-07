@@ -5,7 +5,7 @@
   "lineage": "Communal song of the Kalinga and neighbouring Cordillera peoples of northern Luzon, named for its vocable refrains (salidummay, dong-dong-ay), sung by groups at gatherings, celebrations and work, with new verses set to familiar tunes. Cordillera activist and popular singers have since adopted the form for new songs, often with guitar.",
   "recipe": "classic modern salidummay, functional Song, indigenous ritual devotional. group vocals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 167,
-  "score": 1.899,
+  "score": 1.68,
   "config": {
     "traditions": [
       "salidummay"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.5993749999999998,
+          "voice_ensemble_config": 1.38,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.15,

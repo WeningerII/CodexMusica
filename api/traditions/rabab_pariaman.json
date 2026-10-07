@@ -5,7 +5,7 @@
   "lineage": "Coastal Minangkabau tradition of West Sumatra in which a singer accompanies himself on the rabab Pariaman, a three-string spike fiddle with a coconut-shell body (here the generic fiddle card), to sing kaba, long narrative tales, through the night, interspersed with lighter songs. The related rabab pasisia of Pesisir Selatan uses a violin instead.",
   "recipe": "classic modern rabab pariaman, ballad Poetry. narrative, solo with instrumental accompaniment. fiddle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 182,
-  "score": 6.219,
+  "score": 7.026,
   "config": {
     "traditions": [
       "rabab_pariaman"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 2.1000000000000005,
+          "voice_articulation": 2.2365000000000004,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -63,11 +63,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 1.103625,
+          "bowed_technique": 1.5015000000000003,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
           "fiddle_mute": 0,
-          "fiddle_articulation": 0.1365,
+          "fiddle_articulation": 0.40950000000000003,
           "fiddle_string_configuration": 0
         }
       }

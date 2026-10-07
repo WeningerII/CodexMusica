@@ -3,60 +3,60 @@
   "name": "Forró pé-de-serra (traditional forró)",
   "family": "global",
   "lineage": "Traditional Brazilian forró sub-form preserving the canonical Luiz Gonzaga-era 1940s-1960s northeastern Brazilian dance-music form. Trio configuration: sanfona button-accordion lead, zabumba double-headed bass-drum, triangle, plus voice. Distinguished from later forró eletrônico and forró universitário by pé-de-serra's acoustic-trio (vs full-band-electronic) instrumental signature. Repertoire centers on Luiz Gonzaga's canonical compositional corpus and parallel northeastern forró composers.",
-  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion bloco pagode. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 436,
-  "score": 174.862,
+  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode bumba-meu-boi do maranhão. thick, breath veiled tone, pure, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 443,
+  "score": 137.447,
   "config": {
     "traditions": [
       "forro_pe_de_serra",
-      "bloco",
-      "pagode"
+      "pagode",
+      "bumba_meu_boi_maranhao"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.235,
-          "voice_quality": 27.559999999999988,
+          "voice_register": 1.0999999999999996,
+          "voice_quality": 20.799999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.145,
-          "voice_articulation": 17.095,
-          "voice_microtone": 15.664999999999992,
-          "voice_tradition": 5.654999999999999,
-          "voice_mechanism_compound": 5.5,
-          "voice_estill_quality": 3.7375,
-          "voice_speech_song": 26.585,
-          "voice_ensemble_config": 21.904999999999998,
-          "voice_ornament_system": 2.7499999999999996,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 14.039999999999996,
+          "voice_microtone": 13.454999999999993,
+          "voice_tradition": 4.225,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 18.849999999999994,
+          "voice_ornament_system": 1.6349999999999998,
           "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 7.470000000000001,
-          "voice_multitrack_stack": 8.060000000000002
+          "voice_processing_chain": 6.8950000000000005,
+          "voice_multitrack_stack": 7.0200000000000005
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_chromatic_jazz",
-          "accordion_reed_material": "steel_reeds",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
@@ -65,11 +65,11 @@
         },
         "scores": {
           "free_reed_technique": 1.9600000000000002,
-          "accordion_reed_material": 0.8,
+          "accordion_reed_material": 0.195,
           "musette_offset": 2.5399999999999996,
           "reed_config": 1.3,
           "bellows": 2.5399999999999996,
-          "voicing_chamber": 0.24,
+          "voicing_chamber": 0.45499999999999996,
           "accordion_maker_school": 4.965
         }
       },
@@ -80,8 +80,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 5.134999999999999,
-          "zabumba_technique": 3.0549999999999997
+          "zabumba_shell": 3.0349999999999997,
+          "zabumba_technique": 2.8599999999999994
         }
       },
       {

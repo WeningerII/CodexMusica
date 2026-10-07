@@ -5,7 +5,7 @@
   "lineage": "Acoustic guitar song of the Katanga mining towns of Élisabethville (Lubumbashi) and Jadotville (Likasi) in the 1950s, picked with thumb and index finger in interlocking bass and melody lines. Hugh Tracey's recordings of Jean Bosco Mwenda, notably 'Masanga' (1952), issued on Gallotone 78s, spread the style across East and Central Africa; Losta Abelo and Edouard Masengo also recorded.",
   "recipe": "classic mid-1950s katanga guitar, functional Song, African pop branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. parlor acoustic guitar. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 292,
-  "score": 2.675,
+  "score": 2.914,
   "config": {
     "traditions": [
       "katanga_guitar"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.1365,
+          "voice_processing_chain": 1.3,
           "voice_multitrack_stack": 0.7770000000000001,
           "voice_tessitura": 0
         }
@@ -62,7 +62,7 @@
           "string_acoustic_parlor": "dutar_strings_unspecified"
         },
         "scores": {
-          "acoustic_technique": -0.25,
+          "acoustic_technique": -0.175,
           "string_tuning": 0,
           "top_wood_parlor": 0.147,
           "back_sides_parlor": 0,

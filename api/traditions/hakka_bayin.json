@@ -5,7 +5,7 @@
   "lineage": "Wind-and-string ensemble of Taiwan's Hakka communities, notably in Miaoli and the Liudui area of Pingtung, hired for weddings, temple rites, festivals and funerals. A suona leads silk-and-bamboo instruments such as the erxian and panghu fiddles, sanxian, yangqin and flute over small percussion in qupai suites (the erhu card stands in for the Hakka fiddles); the Miaoli suona master Chen Qingsong led a renowned family troupe.",
   "recipe": "classic modern hakka bayin, wedding, east Asian branch. suona, bamboo stick horsehair threaded between strings erhu, sanxian, traditional bamboo yangqin, danpigu, gong tamtam, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 2.798,
+  "score": 2.794,
   "config": {
     "traditions": [
       "hakka_bayin"
@@ -54,8 +54,8 @@
           "sanxian_body_wood": "sanxian_red_sandalwood"
         },
         "scores": {
-          "plucked_traditional_technique": -0.05,
-          "sanxian_size": 0.005625,
+          "plucked_traditional_technique": -0.0425,
+          "sanxian_size": 0,
           "sanxian_context": 0,
           "sanxian_head": -0.035,
           "sanxian_strings": 0,
@@ -102,7 +102,7 @@
           "naobo_stroke": "naobo_open_clash"
         },
         "scores": {
-          "naobo_type": 0.15562499999999999,
+          "naobo_type": 0.15,
           "naobo_stroke": 0
         }
       }

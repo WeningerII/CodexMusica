@@ -3,9 +3,9 @@
   "name": "Malipenga (Tonga singing-horn dance)",
   "family": "global",
   "lineage": "Tonga dance music using voice-driven singing horns and a pair of drums. The seed follows the sixteen-performer Muganda we Chitonga Banda recording.",
-  "recipe": "classic modern malipenga, groove Percussion, central east south African branch. sung buzzing membrane voice shaped pitch malipenga singing horn, large and small drums malipenga drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 263,
-  "score": 7.342,
+  "recipe": "classic modern malipenga, groove Percussion, central east south African branch. sung buzzing membrane voice shaped pitch malipenga singing horn, large and small drums resonant malipenga drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 272,
+  "score": 7.81,
   "config": {
     "traditions": [
       "malipenga"
@@ -18,8 +18,8 @@
           "malipenga_ensemble": "malipenga_ensemble_group"
         },
         "scores": {
-          "malipenga_excitation": 1.3,
-          "malipenga_ensemble": 0.8085
+          "malipenga_excitation": 1.43,
+          "malipenga_ensemble": 0.8475000000000001
         }
       },
       {
@@ -30,7 +30,7 @@
         },
         "scores": {
           "malipenga_drums_setup": 3.38,
-          "malipenga_drums_gesture": 0.7035
+          "malipenga_drums_gesture": 1.0025
         }
       }
     ],

@@ -1,0 +1,125 @@
+{
+  "id": "nestinarstvo_anastenaria",
+  "name": "Nestinarstvo and Anastenaria (Strandzha fire-dance ritual music)",
+  "family": "global",
+  "lineage": "Ritual music of the fire-dancing rite held for Saints Constantine and Helena in the Strandzha village of Bulgari in south-eastern Bulgaria, inscribed on the UNESCO Representative List, and of its Greek counterpart, the Anastenaria of Agia Eleni and Lagadas, kept by descendants of refugees from Kosti and other Strandzha villages and studied by anthropologist Loring Danforth. Nestinari carrying icons enter a trance and dance barefoot across glowing embers to the sacred drum and the gaida bagpipe; among the Anastenarides the three-string Thracian lyra leads with the drum. The gadulka card stands in for the Thracian lyra.",
+  "recipe": "classic modern nestinarstvo and anastenaria, ritual Devotional. gaida bulgarian, tapan, gadulka. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 176,
+  "score": 14.12,
+  "config": {
+    "traditions": [
+      "nestinarstvo_anastenaria"
+    ],
+    "instruments": [
+      {
+        "id": "gaida_bulgarian",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "gaida_origin": "gaida_djura",
+          "gaida_bulgarian_context": "gaida_bulgarian_wedding",
+          "gaida_chanter_wood": "fluier_body_plum",
+          "gaida_reed": "gaida_cane_canonical",
+          "gaida_bag": "goat_skin_belly"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "gaida_origin": 0,
+          "gaida_bulgarian_context": 0.063,
+          "gaida_chanter_wood": -0.1,
+          "gaida_reed": 0.2625,
+          "gaida_bag": 0
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_wood_goatskin"
+        },
+        "scores": {
+          "tapan_form": 2.45,
+          "tapan_role": 6.449999999999999,
+          "tapan_build": -0.05
+        }
+      },
+      {
+        "id": "gadulka",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "gadulka_form": "gadulka_thracian",
+          "gadulka_repertoire": "gadulka_horo",
+          "gadulka_body": "gadulka_walnut"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "gadulka_form": 5.005000000000001,
+          "gadulka_repertoire": -0.05,
+          "gadulka_body": 0
+        }
+      }
+    ],
+    "pinned": {
+      "gaida_bulgarian": [
+        "wind_articulation",
+        "gaida_origin",
+        "gaida_bulgarian_context",
+        "gaida_chanter_wood",
+        "gaida_reed",
+        "gaida_bag"
+      ],
+      "tapan": [
+        "tapan_form",
+        "tapan_role",
+        "tapan_build"
+      ],
+      "gadulka": [
+        "bowed_technique",
+        "gadulka_form",
+        "gadulka_repertoire",
+        "gadulka_body"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "gaida_origin": "gaida_djura",
+      "gaida_bulgarian_context": "gaida_bulgarian_wedding",
+      "gaida_chanter_wood": "fluier_body_plum",
+      "gaida_reed": "gaida_cane_canonical",
+      "gaida_bag": "goat_skin_belly",
+      "tapan_form": "tapan_balkan",
+      "tapan_role": "tapan_zurna_pair",
+      "tapan_build": "tapan_wood_goatskin",
+      "bowed_technique": "bowed_local_song_melody",
+      "gadulka_form": "gadulka_thracian",
+      "gadulka_repertoire": "gadulka_horo",
+      "gadulka_body": "gadulka_walnut"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

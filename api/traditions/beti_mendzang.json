@@ -5,7 +5,7 @@
   "lineage": "Xylophone ensemble music of the Beti of the Centre region around Yaoundé, in which several gourd-resonated mendzang xylophones of different registers interlock for dances and celebrations. Wergo's Museum Collection Berlin series issued mendzang ensembles recorded in Cameroon in 1984. It is the acoustic source of bikutsi, whose electric guitarists later imitated the xylophone patterns; the balafon card stands in for the mendzang.",
   "recipe": "classic mid-1980s mendzang, groove Percussion, central east south African branch. unprocessed natural acoustic, live take. buzzy natural material resonance calabash gourd balafon, acoustic membrane drum. open air. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 288,
-  "score": 5.721,
+  "score": 5.585,
   "config": {
     "traditions": [
       "beti_mendzang"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.0315,
-          "voice_multitrack_stack": 2.4095,
+          "voice_multitrack_stack": 2.273,
           "voice_tessitura": 0
         }
       },

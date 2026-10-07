@@ -1,0 +1,223 @@
+{
+  "id": "qoyllur_riti_music",
+  "name": "Qoyllur Rit'i (Sinakara pilgrimage music)",
+  "family": "global",
+  "lineage": "Qoyllur Rit'i is the pilgrimage to the Sinakara valley below the Qullqipunku glacier in Cusco, held in the days before Corpus Christi and inscribed by UNESCO in 2011, to which dance troupes of ch'unchu, qhapaq qolla and other nations climb with their own musicians. Each troupe's small band, of cane flutes and drum or of violin and harp, plays its own dance tunes, so the sanctuary resounds with many ensembles at once, cut by the falsetto calls and whistles of the ukuku guardians. The quena card stands in for the troupes' cane flutes and the membrane-drum card for their drums.",
+  "recipe": "classic early-2010s qoyllur rit'i, carnival Processional, andean branch, indigenous ritual devotional. group vocals. quena, membrane drum pulse resonant acoustic membrane drum, melodic bowed song accompaniment fiddle, arpa peruana. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 311,
+  "score": 15.515,
+  "config": {
+    "traditions": [
+      "qoyllur_riti_music"
+    ],
+    "instruments": [
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bamboo",
+          "quena_pitch": "quena_g"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "quena_material": 0.72,
+          "quena_pitch": -0.05
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.29,
+          "acoustic_membrane_drum_gesture": 2.9899999999999998
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.8099999999999996,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.24,
+          "fiddle_articulation": 1.515,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "arpa_peruana",
+        "slots": {
+          "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+          "arpa_peruana_wood": "cedar",
+          "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+          "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+          "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking"
+        },
+        "scores": {
+          "arpa_peruana_form": 0.195,
+          "arpa_peruana_wood": 0.195,
+          "arpa_peruana_configuration": 0,
+          "arpa_peruana_tuning": 0,
+          "arpa_peruana_gesture": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "falsetto",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.38,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.15,
+          "voice_multitrack_stack": 0.3,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "quena": [
+        "wind_articulation",
+        "quena_material",
+        "quena_pitch"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "arpa_peruana": [
+        "arpa_peruana_form",
+        "arpa_peruana_wood",
+        "arpa_peruana_configuration",
+        "arpa_peruana_tuning",
+        "arpa_peruana_gesture"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "mountain_valley",
+    "parts": {
+      "wind_articulation": "wind_folk_melodic",
+      "quena_material": "quena_bamboo",
+      "quena_pitch": "quena_g",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+      "arpa_peruana_wood": "cedar",
+      "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+      "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+      "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking",
+      "voice_register": "falsetto",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

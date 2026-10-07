@@ -5,7 +5,7 @@
   "lineage": "Tunisian urban working-class dance genre named for the mezwed bagpipe, formed in the shanty neighbourhoods of Tunis in the 1960s-70s and popularized on cassette by Hedi Habbouba, Salah Farzit and Samir Loussif — the double-reed bagpipe carrying a continuous ornamented drone-melody over bendir and darbuka playing the fast 6/8 fezzani and 4/4 saidi patterns at 120-150 BPM, with rough colloquial-Tunisian vocals about poverty, prison and exile and dense audience handclapping.",
   "recipe": "classic mid-1960s mezwed, functional Song, mid east n African pop branch, middle eastern wedding, wind pipe drone modal dabke oyun havası. extended whistle, breath veiled tone, slow rate, interlocked note trading. dance driving cane pipes horn bell mizwad, synthetic remo modern world music bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, hand clap, tabl baladi, tunisian banjo. urban courtyard. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 527,
-  "score": 229.297,
+  "score": 228.986,
   "config": {
     "traditions": [
       "mezwed",
@@ -21,7 +21,7 @@
           "mizwad_pipe_build": "mizwad_cane_horn_bell"
         },
         "scores": {
-          "mizwad_form": 9.694999999999999,
+          "mizwad_form": 9.544999999999998,
           "mizwad_context": 4.745,
           "mizwad_pipe_build": 1.9962499999999999
         }
@@ -30,14 +30,14 @@
         "id": "bendir",
         "slots": {
           "bendir_snares": "bendir_no_snares",
-          "bendir_context": "bendir_sufi",
+          "bendir_context": "bendir_folk",
           "bendir_shell_wood": "bendir_juniper_canonical",
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
           "bendir_snares": 0.39,
-          "bendir_context": 0.735,
-          "bendir_shell_wood": 0.585,
+          "bendir_context": 0.375,
+          "bendir_shell_wood": 0.63,
           "bendir_head": 1.4299999999999997
         }
       },
@@ -52,7 +52,7 @@
         "scores": {
           "percussion_technique": 0.45499999999999996,
           "darbuka_material": 0.39,
-          "darbuka_skin": 3.125,
+          "darbuka_skin": 3.335,
           "darbuka_regional_style": 5.423750000000001
         }
       },
@@ -77,7 +77,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.571250000000001,
+          "voice_register": 6.271250000000001,
           "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -90,9 +90,9 @@
           "voice_speech_song": 26.129999999999995,
           "voice_ensemble_config": 22.425,
           "voice_ornament_system": 4.532500000000001,
-          "voice_pitch_organization": 6.100000000000001,
-          "voice_processing_chain": 4.8575,
-          "voice_multitrack_stack": 4.946250000000001
+          "voice_pitch_organization": 6.0550000000000015,
+          "voice_processing_chain": 4.8125,
+          "voice_multitrack_stack": 5.265000000000001
         }
       },
       {
@@ -102,30 +102,30 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.48000000000000004,
+          "clap_technique": 0.54,
           "clap_capture": 0
         }
       },
       {
         "id": "tabl_baladi",
         "slots": {
-          "tabl_baladi_size": "tabl_baladi_standard",
+          "tabl_baladi_size": "tabl_baladi_large",
           "tabl_baladi_sticks": "tabl_baladi_asaya_kirsh"
         },
         "scores": {
-          "tabl_baladi_size": 0.195,
+          "tabl_baladi_size": 0.045,
           "tabl_baladi_sticks": 21.775
         }
       },
       {
         "id": "tunisian_banjo",
         "slots": {
-          "tunisian_banjo_setup": "tunisian_banjo_fretless",
+          "tunisian_banjo_setup": "tunisian_banjo_fretted",
           "tunisian_banjo_context": "tunisian_banjo_mezoued",
           "tunisian_banjo_head": "tunisian_banjo_plastic_head"
         },
         "scores": {
-          "tunisian_banjo_setup": 0.045,
+          "tunisian_banjo_setup": 0.15,
           "tunisian_banjo_context": 7.0200000000000005,
           "tunisian_banjo_head": 0
         }

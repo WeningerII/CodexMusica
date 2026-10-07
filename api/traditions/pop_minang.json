@@ -5,7 +5,7 @@
   "lineage": "Popular song in the Minangkabau language that grew from post-independence Minang orchestras in Jakarta and Padang into a large regional cassette and later VCD industry centred on Padang. Arrangements set Minang verse over a pop band of guitar, bass, drums and keyboard, often adding the colour of talempong kettle gongs (the canang card stands in) and the saluang bamboo flute (the generic bamboo-flute card stands in).",
   "recipe": "classic pop minang, functional Song, east Asian pop branch. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard bamboo credited bamboo flute unspecified, canang kettle gong. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 391,
-  "score": 45.188,
+  "score": 45.225,
   "config": {
     "traditions": [
       "pop_minang"
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.805,
+          "electric_technique": 13.842125,
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.0945,

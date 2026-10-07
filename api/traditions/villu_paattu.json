@@ -1,0 +1,203 @@
+{
+  "id": "villu_paattu",
+  "name": "Villu paattu (Tamil bow-song narrative)",
+  "family": "global",
+  "lineage": "Villu paattu ('bow song') is a narrative song form of southern Tamil Nadu, above all Tirunelveli and Kanyakumari, performed at temple festivals: the lead singer beats the string of a large bow hung with bells with a pair of sticks while telling the story, and a small troupe answers him in chorus and accompanies on the kudam (a clay pot), the udukkai hourglass drum and cymbals. Subbu Arumugam carried it to radio and the concert stage in the twentieth century, extending it from temple stories to social themes. The ghatam card stands in for the kudam.",
+  "recipe": "classic modern villu paattu, ballad Poetry, indian bard branch. narrative, single lead single track no stacking. villu pattu bow, ghatam, udukkai, small manjira. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 241,
+  "score": 8.21,
+  "config": {
+    "traditions": [
+      "villu_paattu"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 2.34,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.69,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "villu_pattu_bow",
+        "slots": {
+          "villu_size": "villu_large",
+          "villu_attachments": "villu_bells",
+          "villu_technique": "villu_sticks"
+        },
+        "scores": {
+          "villu_size": 0.78,
+          "villu_attachments": 0,
+          "villu_technique": 0.0945
+        }
+      },
+      {
+        "id": "ghatam",
+        "slots": {
+          "ghatam_school": "ghatam_manamadurai",
+          "ghatam_technique": "ghatam_full"
+        },
+        "scores": {
+          "ghatam_school": 0.3315,
+          "ghatam_technique": 0.39
+        }
+      },
+      {
+        "id": "udukkai",
+        "slots": {
+          "udukkai_form": "udukkai_folk",
+          "udukkai_head": "udukkai_goat_cord",
+          "udukkai_technique": "udukkai_steady"
+        },
+        "scores": {
+          "udukkai_form": 0.126,
+          "udukkai_head": 0.063,
+          "udukkai_technique": 0.3045
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_brass"
+        },
+        "scores": {
+          "manjira_form": 1.95,
+          "manjira_stroke": -0.07,
+          "manjira_metal": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "villu_pattu_bow": [
+        "villu_size",
+        "villu_attachments",
+        "villu_technique"
+      ],
+      "ghatam": [
+        "ghatam_school",
+        "ghatam_technique"
+      ],
+      "udukkai": [
+        "udukkai_form",
+        "udukkai_head",
+        "udukkai_technique"
+      ],
+      "manjira": [
+        "manjira_form",
+        "manjira_stroke",
+        "manjira_metal"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "villu_size": "villu_large",
+      "villu_attachments": "villu_bells",
+      "villu_technique": "villu_sticks",
+      "ghatam_school": "ghatam_manamadurai",
+      "ghatam_technique": "ghatam_full",
+      "udukkai_form": "udukkai_folk",
+      "udukkai_head": "udukkai_goat_cord",
+      "udukkai_technique": "udukkai_steady",
+      "manjira_form": "manjira_taal_small",
+      "manjira_stroke": "manjira_tala_ostinato",
+      "manjira_metal": "manjira_brass"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

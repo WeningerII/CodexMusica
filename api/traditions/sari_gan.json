@@ -5,7 +5,7 @@
   "lineage": "Collective work song of Bangladesh sung by rowers in the long boats of the nouka baich boat races and by people working together in rows, notably in Sylhet and Barisal. A leader sings a line and the crew answers in chorus, the pulse following the strokes of the oars; Bangladesh Betar and the Bangla Academy have recorded it. The drum and cymbal cards stand in for the dhol and cymbals that keep the stroke.",
   "recipe": "classic modern sari gan, field Work, south Asian branch. single leader group response. membrane drum pulse resonant acoustic membrane drum, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 237,
-  "score": 6.916,
+  "score": 7.01,
   "config": {
     "traditions": [
       "sari_gan"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4583749999999998,
+          "voice_ensemble_config": 1.4949999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 2.388,
-          "acoustic_membrane_drum_gesture": 2.388
+          "acoustic_membrane_drum_form": 2.413,
+          "acoustic_membrane_drum_gesture": 2.4444999999999997
         }
       },
       {
@@ -69,7 +69,7 @@
           "credited_cymbals_identity": "credited_cymbals_source_unspecified"
         },
         "scores": {
-          "credited_cymbals_identity": 0.08187499999999999
+          "credited_cymbals_identity": 0.05749999999999999
         }
       }
     ],

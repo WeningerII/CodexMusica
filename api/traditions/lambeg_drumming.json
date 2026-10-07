@@ -1,0 +1,92 @@
+{
+  "id": "lambeg_drumming",
+  "name": "Lambeg drumming (Ulster Lambeg drum and fife)",
+  "family": "global",
+  "lineage": "The Lambeg, named after a village near Lisburn, is a very large double-headed drum, roughly three feet across, carried on a harness and beaten on both goatskin heads with two curved canes, often with a fife playing the tune. It belongs to the Orange marching tradition of counties Antrim, Armagh, Down and Tyrone and to competitive drumming matches between drummers. Gary Hastings documented the drumming and its fife tunes in his book With Fife and Drum.",
+  "recipe": "classic modern lambeg drumming, carnival Processional, European branch. traditional goatskin heads rope tensioned lambeg drum, unison doubled fife. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 227,
+  "score": 12.946,
+  "config": {
+    "traditions": [
+      "lambeg_drumming"
+    ],
+    "instruments": [
+      {
+        "id": "lambeg_drum",
+        "slots": {
+          "lambeg_drum_context": "lambeg_drum_fife_party",
+          "lambeg_drum_tension": "lambeg_drum_cranked_dry",
+          "lambeg_drum_heads": "lambeg_drum_goatskin"
+        },
+        "scores": {
+          "lambeg_drum_context": -0.07,
+          "lambeg_drum_tension": -0.035,
+          "lambeg_drum_heads": 3.855
+        }
+      },
+      {
+        "id": "fife",
+        "slots": {
+          "fife_tradition": "fife_tradition_anglo_american",
+          "fife_build": "fife_build_grenadilla",
+          "fife_pitch": "fife_pitch_bflat",
+          "fife_role": "fife_role_corps_unison"
+        },
+        "scores": {
+          "fife_tradition": 2.855,
+          "fife_build": 0.2,
+          "fife_pitch": 2.813,
+          "fife_role": 2.8280000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "lambeg_drum": [
+        "lambeg_drum_context",
+        "lambeg_drum_tension",
+        "lambeg_drum_heads"
+      ],
+      "fife": [
+        "fife_tradition",
+        "fife_build",
+        "fife_pitch",
+        "fife_role"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "lambeg_drum_context": "lambeg_drum_fife_party",
+      "lambeg_drum_tension": "lambeg_drum_cranked_dry",
+      "lambeg_drum_heads": "lambeg_drum_goatskin",
+      "fife_tradition": "fife_tradition_anglo_american",
+      "fife_build": "fife_build_grenadilla",
+      "fife_pitch": "fife_pitch_bflat",
+      "fife_role": "fife_role_corps_unison"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

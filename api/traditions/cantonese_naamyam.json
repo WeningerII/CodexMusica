@@ -5,7 +5,7 @@
   "lineage": "Cantonese narrative song of the Pearl River Delta and Hong Kong, not to be confused with the Minnan nanyin of Fujian. Its deishui branch was sung by blind professional musicians in teahouses and at private gatherings; the singer accompanies himself or herself on the zheng and beats time on a wooden clapper, sometimes joined by the coconut-shell yehu fiddle.",
   "recipe": "classic East Asian early-1940s naamyam, ballad Poetry. solo with instrumental accompaniment. guzheng, paiban, yehu. chinese traditional teahouse. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 220,
-  "score": 16.784,
+  "score": 16.62,
   "config": {
     "traditions": [
       "cantonese_naamyam"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.14849999999999997,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -63,7 +63,7 @@
           "guzheng_string_material": "dutar_strings_unspecified"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
+          "plucked_traditional_technique": -0.05,
           "guzheng_strings": 0,
           "guzheng_picks": 0.95,
           "guzheng_top_wood": 0,

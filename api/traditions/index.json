@@ -1,5 +1,5 @@
 {
-  "count": 7438,
+  "count": 8360,
   "items": [
     {
       "id": "honky_tonk",
@@ -44628,6 +44628,5538 @@
       "name": "Iu Mien Taoist ritual music",
       "family": "global",
       "href": "traditions/iu_mien_taoist_ritual.json"
+    },
+    {
+      "id": "kiowa_gourd_dance",
+      "name": "Tia-Piah (Kiowa Gourd Dance songs)",
+      "family": "global",
+      "href": "traditions/kiowa_gourd_dance.json"
+    },
+    {
+      "id": "forty_nine_songs",
+      "name": "Forty-nine songs (Southern Plains late-night social songs)",
+      "family": "global",
+      "href": "traditions/forty_nine_songs.json"
+    },
+    {
+      "id": "southeastern_stomp_dance",
+      "name": "Stomp dance (Southeastern leader-and-response dance songs)",
+      "family": "global",
+      "href": "traditions/southeastern_stomp_dance.json"
+    },
+    {
+      "id": "mvskoke_hymn_singing",
+      "name": "Mvskoke hymn singing (Muscogee and Seminole church hymnody)",
+      "family": "global",
+      "href": "traditions/mvskoke_hymn_singing.json"
+    },
+    {
+      "id": "kiowa_hymns",
+      "name": "Kiowa hymns (Kiowa-language Christian song)",
+      "family": "global",
+      "href": "traditions/kiowa_hymns.json"
+    },
+    {
+      "id": "haudenosaunee_longhouse_ceremonial",
+      "name": "Haudenosaunee Longhouse ceremonial songs (Iroquois Midwinter and Feather Dance)",
+      "family": "global",
+      "href": "traditions/haudenosaunee_longhouse_ceremonial.json"
+    },
+    {
+      "id": "haudenosaunee_social_dance",
+      "name": "Haudenosaunee social dance songs (Eskanye, Smoke Dance and water-drum songs)",
+      "family": "global",
+      "href": "traditions/haudenosaunee_social_dance.json"
+    },
+    {
+      "id": "midewiwin_songs",
+      "name": "Midewiwin songs (Grand Medicine Society)",
+      "family": "global",
+      "href": "traditions/midewiwin_songs.json"
+    },
+    {
+      "id": "big_drum_dream_dance",
+      "name": "Big Drum songs (Ojibwe and Menominee Drum Dance)",
+      "family": "global",
+      "href": "traditions/big_drum_dream_dance.json"
+    },
+    {
+      "id": "cree_round_dance",
+      "name": "Round dance songs (Cree and Northern Plains hand-drum songs)",
+      "family": "global",
+      "href": "traditions/cree_round_dance.json"
+    },
+    {
+      "id": "plains_sun_dance_songs",
+      "name": "Sun Dance songs (Lakota and Plains Sun Dance)",
+      "family": "global",
+      "href": "traditions/plains_sun_dance_songs.json"
+    },
+    {
+      "id": "ghost_dance_songs",
+      "name": "Ghost Dance songs (1889-90 movement and its survivals)",
+      "family": "global",
+      "href": "traditions/ghost_dance_songs.json"
+    },
+    {
+      "id": "hethuska_war_dance",
+      "name": "Hethuska (Omaha and Ponca war-dance society songs)",
+      "family": "global",
+      "href": "traditions/hethuska_war_dance.json"
+    },
+    {
+      "id": "pawnee_hako",
+      "name": "Hako (Pawnee calumet ceremony songs)",
+      "family": "global",
+      "href": "traditions/pawnee_hako.json"
+    },
+    {
+      "id": "hopi_katsina_songs",
+      "name": "Hopi katsina songs (Hopi masked-dance songs)",
+      "family": "global",
+      "href": "traditions/hopi_katsina_songs.json"
+    },
+    {
+      "id": "zuni_ceremonial_songs",
+      "name": "Zuni songs (Shiwi ceremonial and social dance songs)",
+      "family": "global",
+      "href": "traditions/zuni_ceremonial_songs.json"
+    },
+    {
+      "id": "rio_grande_pueblo_dance_songs",
+      "name": "Rio Grande Pueblo dance songs (Tewa, Tiwa and Keres feast-day dances)",
+      "family": "global",
+      "href": "traditions/rio_grande_pueblo_dance_songs.json"
+    },
+    {
+      "id": "waila_chicken_scratch",
+      "name": "Waila (Tohono O'odham chicken scratch)",
+      "family": "global",
+      "href": "traditions/waila_chicken_scratch.json"
+    },
+    {
+      "id": "oodham_traditional_song",
+      "name": "O'odham traditional song (Tohono O'odham ceremonial and social song)",
+      "family": "global",
+      "href": "traditions/oodham_traditional_song.json"
+    },
+    {
+      "id": "southern_california_bird_songs",
+      "name": "Bird songs (Cahuilla, Kumeyaay and Colorado River song cycles)",
+      "family": "global",
+      "href": "traditions/southern_california_bird_songs.json"
+    },
+    {
+      "id": "salt_songs_paiute_chemehuevi",
+      "name": "Salt Songs (Southern Paiute and Chemehuevi mourning cycle)",
+      "family": "global",
+      "href": "traditions/salt_songs_paiute_chemehuevi.json"
+    },
+    {
+      "id": "ute_bear_dance_songs",
+      "name": "Mamakwanhkap (Ute Bear Dance songs)",
+      "family": "global",
+      "href": "traditions/ute_bear_dance_songs.json"
+    },
+    {
+      "id": "nw_california_brush_jump_dance",
+      "name": "Brush Dance and Jump Dance songs (Hupa, Yurok and Karuk)",
+      "family": "global",
+      "href": "traditions/nw_california_brush_jump_dance.json"
+    },
+    {
+      "id": "washat_seven_drums",
+      "name": "Washat (Seven Drums longhouse songs)",
+      "family": "global",
+      "href": "traditions/washat_seven_drums.json"
+    },
+    {
+      "id": "kwakwakawakw_potlatch_songs",
+      "name": "Kwakwaka'wakw potlatch songs (Hamatsa and Tseka winter ceremonial)",
+      "family": "global",
+      "href": "traditions/kwakwakawakw_potlatch_songs.json"
+    },
+    {
+      "id": "nuu_chah_nulth_songs",
+      "name": "Nuu-chah-nulth songs (west coast of Vancouver Island)",
+      "family": "global",
+      "href": "traditions/nuu_chah_nulth_songs.json"
+    },
+    {
+      "id": "tsimshianic_feast_songs",
+      "name": "Tsimshianic feast songs and limx'ooy laments (Nisga'a, Gitxsan, Tsimshian)",
+      "family": "global",
+      "href": "traditions/tsimshianic_feast_songs.json"
+    },
+    {
+      "id": "coast_salish_smokehouse_songs",
+      "name": "Coast Salish smokehouse and canoe-journey songs",
+      "family": "global",
+      "href": "traditions/coast_salish_smokehouse_songs.json"
+    },
+    {
+      "id": "innu_teueikan_nikamu",
+      "name": "Innu nikamu (teueikan drum songs)",
+      "family": "global",
+      "href": "traditions/innu_teueikan_nikamu.json"
+    },
+    {
+      "id": "wabanaki_mikmaq_songs",
+      "name": "Wabanaki and Mi'kmaq songs (Passamaquoddy, Penobscot, Wolastoqiyik, Mi'kmaq)",
+      "family": "global",
+      "href": "traditions/wabanaki_mikmaq_songs.json"
+    },
+    {
+      "id": "dene_drum_dance_songs",
+      "name": "Dene drum dance (tea dance) songs",
+      "family": "global",
+      "href": "traditions/dene_drum_dance_songs.json"
+    },
+    {
+      "id": "electric_powwow",
+      "name": "Electric powwow (powwow-step)",
+      "family": "electronic",
+      "href": "traditions/electric_powwow.json"
+    },
+    {
+      "id": "comcaac_seri_song",
+      "name": "Comcaac icoos (Seri song)",
+      "family": "global",
+      "href": "traditions/comcaac_seri_song.json"
+    },
+    {
+      "id": "raramuri_ritual_fiesta_music",
+      "name": "Rarámuri (Tarahumara) ritual and fiesta music",
+      "family": "global",
+      "href": "traditions/raramuri_ritual_fiesta_music.json"
+    },
+    {
+      "id": "naayeri_mitote_judea",
+      "name": "Náayeri mitote and Judea (Cora ceremonial music)",
+      "family": "global",
+      "href": "traditions/naayeri_mitote_judea.json"
+    },
+    {
+      "id": "voladores_papantla_music",
+      "name": "Danza de los Voladores (Totonac flyers' pipe and drum)",
+      "family": "global",
+      "href": "traditions/voladores_papantla_music.json"
+    },
+    {
+      "id": "son_de_costumbre_huasteca",
+      "name": "Son de costumbre (Huasteca Nahua and Teenek ritual sones)",
+      "family": "global",
+      "href": "traditions/son_de_costumbre_huasteca.json"
+    },
+    {
+      "id": "mazatec_velada_chant",
+      "name": "Mazatec velada chant (Huautla de Jiménez)",
+      "family": "global",
+      "href": "traditions/mazatec_velada_chant.json"
+    },
+    {
+      "id": "tzotzil_tzeltal_fiesta_music",
+      "name": "Tzotzil and Tzeltal fiesta music (Highland Chiapas)",
+      "family": "global",
+      "href": "traditions/tzotzil_tzeltal_fiesta_music.json"
+    },
+    {
+      "id": "maya_pax_quintana_roo",
+      "name": "Maya Pax (Quintana Roo Maya ceremonial music)",
+      "family": "global",
+      "href": "traditions/maya_pax_quintana_roo.json"
+    },
+    {
+      "id": "russian_chastushka",
+      "name": "Chastushka (Russian topical quatrain song)",
+      "family": "global",
+      "href": "traditions/russian_chastushka.json"
+    },
+    {
+      "id": "russian_khorovod",
+      "name": "Khorovod (Russian round-dance song)",
+      "family": "global",
+      "href": "traditions/russian_khorovod.json"
+    },
+    {
+      "id": "russian_svadebnye_pesni",
+      "name": "Svadebnye pesni (Russian wedding song cycle)",
+      "family": "global",
+      "href": "traditions/russian_svadebnye_pesni.json"
+    },
+    {
+      "id": "russian_kalendarnye_pesni",
+      "name": "Kalendarnye pesni (Russian calendar-ritual songs)",
+      "family": "global",
+      "href": "traditions/russian_kalendarnye_pesni.json"
+    },
+    {
+      "id": "kursk_kuvikly",
+      "name": "Kuvikly (Kursk women's panpipe playing)",
+      "family": "global",
+      "href": "traditions/kursk_kuvikly.json"
+    },
+    {
+      "id": "vladimir_rozhok_ensemble",
+      "name": "Vladimirskiy rozhok (Vladimir shepherd-horn ensemble)",
+      "family": "global",
+      "href": "traditions/vladimir_rozhok_ensemble.json"
+    },
+    {
+      "id": "russian_garmon_naigrysh",
+      "name": "Garmon naigryshi (Russian accordion dance tunes)",
+      "family": "global",
+      "href": "traditions/russian_garmon_naigrysh.json"
+    },
+    {
+      "id": "pskov_gusli",
+      "name": "Pskov gusli (Russian wing-shaped psaltery playing)",
+      "family": "global",
+      "href": "traditions/pskov_gusli.json"
+    },
+    {
+      "id": "don_cossack_song",
+      "name": "Don Cossack song (village polyphony of the Don)",
+      "family": "global",
+      "href": "traditions/don_cossack_song.json"
+    },
+    {
+      "id": "kuban_cossack_song",
+      "name": "Kuban Cossack song (Black Sea Cossack song of the Kuban)",
+      "family": "global",
+      "href": "traditions/kuban_cossack_song.json"
+    },
+    {
+      "id": "semeiskie_old_believer_song",
+      "name": "Semeiskie song (Transbaikal Old Believer polyphony)",
+      "family": "global",
+      "href": "traditions/semeiskie_old_believer_song.json"
+    },
+    {
+      "id": "russian_dukhovny_stikh",
+      "name": "Dukhovny stikh (Russian spiritual verse)",
+      "family": "global",
+      "href": "traditions/russian_dukhovny_stikh.json"
+    },
+    {
+      "id": "russian_orthodox_zvon",
+      "name": "Kolokolny zvon (Russian Orthodox bell-ringing)",
+      "family": "global",
+      "href": "traditions/russian_orthodox_zvon.json"
+    },
+    {
+      "id": "soviet_avant_garde_1920s",
+      "name": "Early Soviet avant-garde (1920s futurist and constructivist music)",
+      "family": "classical",
+      "href": "traditions/soviet_avant_garde_1920s.json"
+    },
+    {
+      "id": "russian_horn_orchestra",
+      "name": "Rogovaya muzyka (Russian one-note horn orchestra)",
+      "family": "classical",
+      "href": "traditions/russian_horn_orchestra.json"
+    },
+    {
+      "id": "soviet_mass_song",
+      "name": "Massovaya pesnya (Soviet mass song and Red Army choir)",
+      "family": "global",
+      "href": "traditions/soviet_mass_song.json"
+    },
+    {
+      "id": "soviet_tea_jazz",
+      "name": "Tea-jazz (1930s-50s Soviet jazz)",
+      "family": "jazz",
+      "href": "traditions/soviet_tea_jazz.json"
+    },
+    {
+      "id": "siberian_punk",
+      "name": "Sibirsky pank (Siberian punk)",
+      "family": "rock_punk",
+      "href": "traditions/siberian_punk.json"
+    },
+    {
+      "id": "tatar_munajat",
+      "name": "Munajat (Volga-Tatar devotional song)",
+      "family": "global",
+      "href": "traditions/tatar_munajat.json"
+    },
+    {
+      "id": "kryashen_song",
+      "name": "Kryashen song (baptized Tatar song)",
+      "family": "global",
+      "href": "traditions/kryashen_song.json"
+    },
+    {
+      "id": "bashkir_kurai_uzun_kyuy",
+      "name": "Bashkir kurai and uzun-kyuy (Bashkir long song)",
+      "family": "global",
+      "href": "traditions/bashkir_kurai_uzun_kyuy.json"
+    },
+    {
+      "id": "bashkir_kubair_epic",
+      "name": "Kubair (Bashkir sesen epic recitation)",
+      "family": "global",
+      "href": "traditions/bashkir_kubair_epic.json"
+    },
+    {
+      "id": "chuvash_folk_song",
+      "name": "Chuvash song and instrumental music (Chuvashia)",
+      "family": "global",
+      "href": "traditions/chuvash_folk_song.json"
+    },
+    {
+      "id": "mordvin_erzya_moksha_song",
+      "name": "Erzya and Moksha song (Mordvin multipart singing)",
+      "family": "global",
+      "href": "traditions/mordvin_erzya_moksha_song.json"
+    },
+    {
+      "id": "komi_song",
+      "name": "Komi song (Komi-Zyrian, Izhma and Komi-Permyak)",
+      "family": "global",
+      "href": "traditions/komi_song.json"
+    },
+    {
+      "id": "southern_udmurt_song",
+      "name": "Southern Udmurt village song (Kiyasovo)",
+      "family": "global",
+      "href": "traditions/southern_udmurt_song.json"
+    },
+    {
+      "id": "vainakh_illi",
+      "name": "Illi (Chechen and Ingush heroic song)",
+      "family": "global",
+      "href": "traditions/vainakh_illi.json"
+    },
+    {
+      "id": "avar_folk_song",
+      "name": "Avar song (Dagestan highland song)",
+      "family": "global",
+      "href": "traditions/avar_folk_song.json"
+    },
+    {
+      "id": "ossetian_song_kadaeg",
+      "name": "Ossetian song and Nart kadaeg (North Ossetia)",
+      "family": "global",
+      "href": "traditions/ossetian_song_kadaeg.json"
+    },
+    {
+      "id": "karachay_balkar_song",
+      "name": "Karachay-Balkar song (north-central Caucasus)",
+      "family": "global",
+      "href": "traditions/karachay_balkar_song.json"
+    },
+    {
+      "id": "altai_kai_epic",
+      "name": "Kai (Altai throat-sung epic)",
+      "family": "global",
+      "href": "traditions/altai_kai_epic.json"
+    },
+    {
+      "id": "khakas_khai_chatkhan",
+      "name": "Khai and chatkhan (Khakas throat-sung epic and zither)",
+      "family": "global",
+      "href": "traditions/khakas_khai_chatkhan.json"
+    },
+    {
+      "id": "buryat_yokhor",
+      "name": "Yokhor (Buryat circle-dance song)",
+      "family": "global",
+      "href": "traditions/buryat_yokhor.json"
+    },
+    {
+      "id": "buryat_geser_uliger",
+      "name": "Abai Geser uliger (Buryat epic recitation)",
+      "family": "global",
+      "href": "traditions/buryat_geser_uliger.json"
+    },
+    {
+      "id": "sakha_toyuk",
+      "name": "Toyuk (Sakha improvised solo song)",
+      "family": "global",
+      "href": "traditions/sakha_toyuk.json"
+    },
+    {
+      "id": "sakha_osuokhai",
+      "name": "Osuokhai (Sakha circle-dance song)",
+      "family": "global",
+      "href": "traditions/sakha_osuokhai.json"
+    },
+    {
+      "id": "sakha_algys",
+      "name": "Algys (Sakha ritual blessing chant)",
+      "family": "global",
+      "href": "traditions/sakha_algys.json"
+    },
+    {
+      "id": "evenki_song_shamanic",
+      "name": "Evenki song and shamanic chant",
+      "family": "global",
+      "href": "traditions/evenki_song_shamanic.json"
+    },
+    {
+      "id": "even_hede_song",
+      "name": "Even song and hede circle dance",
+      "family": "global",
+      "href": "traditions/even_hede_song.json"
+    },
+    {
+      "id": "nivkh_music",
+      "name": "Nivkh music (bear-festival tree drum, tyngryng and jaw harp)",
+      "family": "global",
+      "href": "traditions/nivkh_music.json"
+    },
+    {
+      "id": "nanai_ulch_music",
+      "name": "Nanai and Ulch song and shamanic music (Lower Amur)",
+      "family": "global",
+      "href": "traditions/nanai_ulch_music.json"
+    },
+    {
+      "id": "yukaghir_song",
+      "name": "Yukaghir song (Kolyma Odul solo song)",
+      "family": "global",
+      "href": "traditions/yukaghir_song.json"
+    },
+    {
+      "id": "chukchi_drum_dance",
+      "name": "Chukchi drum-dance (yarar ensemble song)",
+      "family": "global",
+      "href": "traditions/chukchi_drum_dance.json"
+    },
+    {
+      "id": "siberian_yupik_drum_song",
+      "name": "Siberian Yupik drum song (Chaplino and St. Lawrence Island)",
+      "family": "global",
+      "href": "traditions/siberian_yupik_drum_song.json"
+    },
+    {
+      "id": "tuvan_kham_algysh",
+      "name": "Kham algysh (Tuvan shamanic invocation)",
+      "family": "global",
+      "href": "traditions/tuvan_kham_algysh.json"
+    },
+    {
+      "id": "nganasan_shamanic_seance",
+      "name": "Nganasan shaman séance (Taymyr)",
+      "family": "global",
+      "href": "traditions/nganasan_shamanic_seance.json"
+    },
+    {
+      "id": "mongol_biyelgee",
+      "name": "Biyelgee (Western Mongolian ger dance)",
+      "family": "global",
+      "href": "traditions/mongol_biyelgee.json"
+    },
+    {
+      "id": "mongol_tuuli_epic",
+      "name": "Tuuli (Mongolian heroic epic)",
+      "family": "global",
+      "href": "traditions/mongol_tuuli_epic.json"
+    },
+    {
+      "id": "altai_uriankhai_tsuur",
+      "name": "Tsuur (Altai Uriankhai end-blown flute)",
+      "family": "global",
+      "href": "traditions/altai_uriankhai_tsuur.json"
+    },
+    {
+      "id": "hunnu_rock",
+      "name": "Hunnu rock (Mongolian folk-metal)",
+      "family": "rock_punk",
+      "href": "traditions/hunnu_rock.json"
+    },
+    {
+      "id": "greenlandic_kalattuut",
+      "name": "Kalattuut (Greenlandic accordion dance music)",
+      "family": "global",
+      "href": "traditions/greenlandic_kalattuut.json"
+    },
+    {
+      "id": "greenlandic_church_choir",
+      "name": "Greenlandic hymn and choir singing (Kalaallit church choirs)",
+      "family": "global",
+      "href": "traditions/greenlandic_church_choir.json"
+    },
+    {
+      "id": "inupiaq_drum_dance",
+      "name": "Iñupiaq drum dance (North Slope Eskimo dance)",
+      "family": "global",
+      "href": "traditions/inupiaq_drum_dance.json"
+    },
+    {
+      "id": "tlingit_koo_eex_song",
+      "name": "Koo.éex' song (Tlingit memorial-party song)",
+      "family": "global",
+      "href": "traditions/tlingit_koo_eex_song.json"
+    },
+    {
+      "id": "gwichin_fiddle",
+      "name": "Gwich'in fiddle music (Athabascan old-time fiddling)",
+      "family": "global",
+      "href": "traditions/gwichin_fiddle.json"
+    },
+    {
+      "id": "alaskan_athabascan_potlatch_song",
+      "name": "Alaskan Athabascan potlatch song (Interior Alaska)",
+      "family": "global",
+      "href": "traditions/alaskan_athabascan_potlatch_song.json"
+    },
+    {
+      "id": "nunatsiavut_moravian_music",
+      "name": "Nunatsiavut Moravian choir and brass (Labrador Inuit church music)",
+      "family": "global",
+      "href": "traditions/nunatsiavut_moravian_music.json"
+    },
+    {
+      "id": "doukhobor_psalmody",
+      "name": "Doukhobor psalm singing (Kootenay psalmy)",
+      "family": "global",
+      "href": "traditions/doukhobor_psalmody.json"
+    },
+    {
+      "id": "palessie_village_song",
+      "name": "Palessie village song (Belarusian Polesian polyphony)",
+      "family": "global",
+      "href": "traditions/palessie_village_song.json"
+    },
+    {
+      "id": "belarusian_calendar_ritual_song",
+      "name": "Belarusian calendar-ritual song (vyasnyanki, Kupalle, Dazhynki)",
+      "family": "global",
+      "href": "traditions/belarusian_calendar_ritual_song.json"
+    },
+    {
+      "id": "belarusian_tsymbaly_orchestra",
+      "name": "Tsymbaly folk orchestra (Belarusian State Folk Orchestra)",
+      "family": "global",
+      "href": "traditions/belarusian_tsymbaly_orchestra.json"
+    },
+    {
+      "id": "begena_spiritual_song",
+      "name": "Begena song (Ethiopian Orthodox box-lyre devotion)",
+      "family": "global",
+      "href": "traditions/begena_spiritual_song.json"
+    },
+    {
+      "id": "beta_israel_liturgy",
+      "name": "Beta Israel liturgy (Ethiopian Jewish Ge'ez prayer chant)",
+      "family": "global",
+      "href": "traditions/beta_israel_liturgy.json"
+    },
+    {
+      "id": "menzuma_ethiopian",
+      "name": "Menzuma (Ethiopian Muslim devotional song)",
+      "family": "global",
+      "href": "traditions/menzuma_ethiopian.json"
+    },
+    {
+      "id": "dorze_polyphony",
+      "name": "Dorze polyphony (Gamo highlands multipart song)",
+      "family": "global",
+      "href": "traditions/dorze_polyphony.json"
+    },
+    {
+      "id": "hamar_music",
+      "name": "Hamar music (South Omo song, lyre and mouth-bow)",
+      "family": "global",
+      "href": "traditions/hamar_music.json"
+    },
+    {
+      "id": "gurage_guragigna",
+      "name": "Guragigna (Gurage dance-song)",
+      "family": "global",
+      "href": "traditions/gurage_guragigna.json"
+    },
+    {
+      "id": "amhara_fukera_shellela",
+      "name": "Fukera and shellela (Amhara war-boast and war chant)",
+      "family": "global",
+      "href": "traditions/amhara_fukera_shellela.json"
+    },
+    {
+      "id": "lalibalocc_dawn_songs",
+      "name": "Lalibalocc (Amhara dawn blessing songs)",
+      "family": "global",
+      "href": "traditions/lalibalocc_dawn_songs.json"
+    },
+    {
+      "id": "ashenda_girls_songs",
+      "name": "Ashenda (Tigray and Amhara girls' festival songs)",
+      "family": "global",
+      "href": "traditions/ashenda_girls_songs.json"
+    },
+    {
+      "id": "tigre_song_eritrean",
+      "name": "Tigre song (Eritrean lowland Tigre music)",
+      "family": "global",
+      "href": "traditions/tigre_song_eritrean.json"
+    },
+    {
+      "id": "kunama_song_dance",
+      "name": "Kunama song and dance (Gash-Barka)",
+      "family": "global",
+      "href": "traditions/kunama_song_dance.json"
+    },
+    {
+      "id": "dhaanto_somali",
+      "name": "Dhaanto (Somali camel-step dance-song)",
+      "family": "global",
+      "href": "traditions/dhaanto_somali.json"
+    },
+    {
+      "id": "buraanbur_somali",
+      "name": "Buraanbur (Somali women's song-poetry and dance)",
+      "family": "global",
+      "href": "traditions/buraanbur_somali.json"
+    },
+    {
+      "id": "mingis_somali_saar",
+      "name": "Mingis (Somali saar possession ceremony music)",
+      "family": "global",
+      "href": "traditions/mingis_somali_saar.json"
+    },
+    {
+      "id": "haqiba_sudanese",
+      "name": "Haqiba (Omdurman vocal song, 1920s-1940s)",
+      "family": "global",
+      "href": "traditions/haqiba_sudanese.json"
+    },
+    {
+      "id": "sudanese_madih_dhikr",
+      "name": "Madih and dhikr (Sudanese Sufi praise song)",
+      "family": "global",
+      "href": "traditions/sudanese_madih_dhikr.json"
+    },
+    {
+      "id": "sudanese_zar",
+      "name": "Zar (Sudanese bori and tambura spirit ceremonies)",
+      "family": "global",
+      "href": "traditions/sudanese_zar.json"
+    },
+    {
+      "id": "shaigiya_tambour_song",
+      "name": "Shaigiya tambour song (Nile-bend lyre song)",
+      "family": "global",
+      "href": "traditions/shaigiya_tambour_song.json"
+    },
+    {
+      "id": "beja_music",
+      "name": "Beja music (eastern Sudan lyre song and electric bands)",
+      "family": "global",
+      "href": "traditions/beja_music.json"
+    },
+    {
+      "id": "berta_waza",
+      "name": "Waza (Berta gourd-trumpet ensemble)",
+      "family": "global",
+      "href": "traditions/berta_waza.json"
+    },
+    {
+      "id": "ingessana_gaam_music",
+      "name": "Gaam music (Ingessana of the Tabi Hills)",
+      "family": "global",
+      "href": "traditions/ingessana_gaam_music.json"
+    },
+    {
+      "id": "baggara_mardoum_hakkamat",
+      "name": "Mardoum and hakkamat song (Baggara of Kordofan and Darfur)",
+      "family": "global",
+      "href": "traditions/baggara_mardoum_hakkamat.json"
+    },
+    {
+      "id": "nuer_song",
+      "name": "Nuer song (Naath ox-songs and personal songs)",
+      "family": "global",
+      "href": "traditions/nuer_song.json"
+    },
+    {
+      "id": "isukuti",
+      "name": "Isukuti (Isukha and Idakho drum-dance)",
+      "family": "global",
+      "href": "traditions/isukuti.json"
+    },
+    {
+      "id": "luo_nyatiti_song",
+      "name": "Nyatiti song (Luo bowl-lyre tradition)",
+      "family": "global",
+      "href": "traditions/luo_nyatiti_song.json"
+    },
+    {
+      "id": "gusii_obokano_song",
+      "name": "Obokano song (Gusii bass-lyre tradition)",
+      "family": "global",
+      "href": "traditions/gusii_obokano_song.json"
+    },
+    {
+      "id": "bukusu_litungu_song",
+      "name": "Litungu song (Bukusu lyre tradition)",
+      "family": "global",
+      "href": "traditions/bukusu_litungu_song.json"
+    },
+    {
+      "id": "mugithi",
+      "name": "Mugithi (Kikuyu one-man-guitar bar music)",
+      "family": "global",
+      "href": "traditions/mugithi.json"
+    },
+    {
+      "id": "mwomboko",
+      "name": "Mwomboko (Kikuyu accordion dance-song)",
+      "family": "global",
+      "href": "traditions/mwomboko.json"
+    },
+    {
+      "id": "omutibo",
+      "name": "Omutibo (Luhya fingerpicked guitar song)",
+      "family": "global",
+      "href": "traditions/omutibo.json"
+    },
+    {
+      "id": "mijikenda_ngoma",
+      "name": "Mijikenda ngoma (Giriama and Digo drum-song, sengenya)",
+      "family": "global",
+      "href": "traditions/mijikenda_ngoma.json"
+    },
+    {
+      "id": "chakacha",
+      "name": "Chakacha (Swahili women's wedding dance-music)",
+      "family": "global",
+      "href": "traditions/chakacha.json"
+    },
+    {
+      "id": "swahili_maulidi_lamu",
+      "name": "Maulidi (Swahili sung praise of the Prophet, Lamu)",
+      "family": "global",
+      "href": "traditions/swahili_maulidi_lamu.json"
+    },
+    {
+      "id": "arbantone",
+      "name": "Arbantone (Nairobi sample-based street rap)",
+      "family": "hip_hop",
+      "href": "traditions/arbantone.json"
+    },
+    {
+      "id": "kidumbak",
+      "name": "Kidumbak (Zanzibar small-ensemble taarab)",
+      "family": "global",
+      "href": "traditions/kidumbak.json"
+    },
+    {
+      "id": "mchiriku",
+      "name": "Mchiriku (Dar es Salaam Zaramo drum-and-keyboard street music)",
+      "family": "global",
+      "href": "traditions/mchiriku.json"
+    },
+    {
+      "id": "beni_ngoma",
+      "name": "Beni ngoma (Swahili-coast brass-band dance societies)",
+      "family": "global",
+      "href": "traditions/beni_ngoma.json"
+    },
+    {
+      "id": "modern_taarab_mipasho",
+      "name": "Modern taarab (Dar es Salaam mipasho keyboard taarab)",
+      "family": "global",
+      "href": "traditions/modern_taarab_mipasho.json"
+    },
+    {
+      "id": "sukuma_dance_societies",
+      "name": "Sukuma dance-society music (bugobogobo and rival ngoma guilds)",
+      "family": "global",
+      "href": "traditions/sukuma_dance_societies.json"
+    },
+    {
+      "id": "hadza_song",
+      "name": "Hadza song (Lake Eyasi forager singing and epeme dance)",
+      "family": "global",
+      "href": "traditions/hadza_song.json"
+    },
+    {
+      "id": "ganda_royal_court_music",
+      "name": "Kiganda royal court music (Buganda palace xylophone and drum-chime ensembles)",
+      "family": "classical",
+      "href": "traditions/ganda_royal_court_music.json"
+    },
+    {
+      "id": "baakisimba",
+      "name": "Baakisimba (Kiganda dance-drumming)",
+      "family": "global",
+      "href": "traditions/baakisimba.json"
+    },
+    {
+      "id": "kadodi_imbalu",
+      "name": "Kadodi (Bagisu imbalu circumcision drumming)",
+      "family": "global",
+      "href": "traditions/kadodi_imbalu.json"
+    },
+    {
+      "id": "acholi_larakaraka_bwola",
+      "name": "Larakaraka and bwola (Acholi courtship and royal dances)",
+      "family": "global",
+      "href": "traditions/acholi_larakaraka_bwola.json"
+    },
+    {
+      "id": "acholi_electronic_wedding",
+      "name": "Acholi electronic wedding music (Gulu)",
+      "family": "electronic",
+      "href": "traditions/acholi_electronic_wedding.json"
+    },
+    {
+      "id": "orunyege_ntogoro",
+      "name": "Orunyege-Ntogoro (Banyoro and Batooro courtship dance)",
+      "family": "global",
+      "href": "traditions/orunyege_ntogoro.json"
+    },
+    {
+      "id": "ekitaguriro",
+      "name": "Ekitaguriro (Ankole cattle dance)",
+      "family": "global",
+      "href": "traditions/ekitaguriro.json"
+    },
+    {
+      "id": "busoga_embaire",
+      "name": "Embaire (Busoga log-xylophone music)",
+      "family": "global",
+      "href": "traditions/busoga_embaire.json"
+    },
+    {
+      "id": "akazehe",
+      "name": "Akazehe (Burundian women's greeting song)",
+      "family": "global",
+      "href": "traditions/akazehe.json"
+    },
+    {
+      "id": "danza_de_tijeras",
+      "name": "Danza de tijeras (Andean scissors dance music)",
+      "family": "global",
+      "href": "traditions/danza_de_tijeras.json"
+    },
+    {
+      "id": "huaylas_mantaro",
+      "name": "Huaylas (Mantaro Valley carnival dance-song)",
+      "family": "global",
+      "href": "traditions/huaylas_mantaro.json"
+    },
+    {
+      "id": "santiago_herranza_mantaro",
+      "name": "Santiago (Mantaro Valley cattle-marking songs)",
+      "family": "global",
+      "href": "traditions/santiago_herranza_mantaro.json"
+    },
+    {
+      "id": "muliza_pasco",
+      "name": "Muliza (Pasco and Tarma carnival song)",
+      "family": "global",
+      "href": "traditions/muliza_pasco.json"
+    },
+    {
+      "id": "harawi_quechua",
+      "name": "Harawi (Quechua women's ritual song)",
+      "family": "global",
+      "href": "traditions/harawi_quechua.json"
+    },
+    {
+      "id": "qeros_song_pinkuyllu",
+      "name": "Q'ero song and pinkuyllu (Paucartambo high puna)",
+      "family": "global",
+      "href": "traditions/qeros_song_pinkuyllu.json"
+    },
+    {
+      "id": "qoyllur_riti_music",
+      "name": "Qoyllur Rit'i (Sinakara pilgrimage music)",
+      "family": "global",
+      "href": "traditions/qoyllur_riti_music.json"
+    },
+    {
+      "id": "wititi_colca",
+      "name": "Wititi (Colca Valley courtship dance music)",
+      "family": "global",
+      "href": "traditions/wititi_colca.json"
+    },
+    {
+      "id": "huaconada_mito",
+      "name": "Huaconada (Mito New Year ritual dance music)",
+      "family": "global",
+      "href": "traditions/huaconada_mito.json"
+    },
+    {
+      "id": "hatajo_de_negritos",
+      "name": "Hatajo de negritos (south-central coast Christmas troupes)",
+      "family": "global",
+      "href": "traditions/hatajo_de_negritos.json"
+    },
+    {
+      "id": "tondero",
+      "name": "Tondero (northern Peruvian coastal dance-song)",
+      "family": "global",
+      "href": "traditions/tondero.json"
+    },
+    {
+      "id": "son_de_los_diablos",
+      "name": "Son de los diablos (Afro-Peruvian carnival devils' dance)",
+      "family": "global",
+      "href": "traditions/son_de_los_diablos.json"
+    },
+    {
+      "id": "eshuva_harakmbut",
+      "name": "Eshuva (Harakmbut sung prayers)",
+      "family": "global",
+      "href": "traditions/eshuva_harakmbut.json"
+    },
+    {
+      "id": "ayarachi_paratia",
+      "name": "Ayarachi (Paratía panpipe-and-drum music)",
+      "family": "global",
+      "href": "traditions/ayarachi_paratia.json"
+    },
+    {
+      "id": "peruvian_indigenismo_art_music",
+      "name": "Indigenismo (Peruvian Andean-nationalist art music)",
+      "family": "classical",
+      "href": "traditions/peruvian_indigenismo_art_music.json"
+    },
+    {
+      "id": "morenada",
+      "name": "Morenada (Bolivian brass-band fraternity dance)",
+      "family": "global",
+      "href": "traditions/morenada.json"
+    },
+    {
+      "id": "caporales",
+      "name": "Caporales (Bolivian saya-caporal dance)",
+      "family": "global",
+      "href": "traditions/caporales.json"
+    },
+    {
+      "id": "saya_afroboliviana",
+      "name": "Saya afroboliviana (Yungas Afro-Bolivian drum-song)",
+      "family": "global",
+      "href": "traditions/saya_afroboliviana.json"
+    },
+    {
+      "id": "tarkeada",
+      "name": "Tarkeada (altiplano tarka carnival troupes)",
+      "family": "global",
+      "href": "traditions/tarkeada.json"
+    },
+    {
+      "id": "kantu_charazani",
+      "name": "K'antu (Charazani panpipe-and-drum troupes)",
+      "family": "global",
+      "href": "traditions/kantu_charazani.json"
+    },
+    {
+      "id": "pinkillu_norte_potosi",
+      "name": "Pinkillu (Norte Potosí rainy-season flutes and wayñu)",
+      "family": "global",
+      "href": "traditions/pinkillu_norte_potosi.json"
+    },
+    {
+      "id": "pujllay_ayarichi_yampara",
+      "name": "Pujllay and Ayarichi (Yampara music of Tarabuco)",
+      "family": "global",
+      "href": "traditions/pujllay_ayarichi_yampara.json"
+    },
+    {
+      "id": "taquirari_oriente",
+      "name": "Taquirari (eastern Bolivian lowland song-dance)",
+      "family": "global",
+      "href": "traditions/taquirari_oriente.json"
+    },
+    {
+      "id": "cueca_boliviana",
+      "name": "Cueca boliviana (and bailecito de tierra)",
+      "family": "global",
+      "href": "traditions/cueca_boliviana.json"
+    },
+    {
+      "id": "musica_chapaca_tarija",
+      "name": "Música chapaca (Tarija valley seasonal music)",
+      "family": "global",
+      "href": "traditions/musica_chapaca_tarija.json"
+    },
+    {
+      "id": "bomba_del_chota",
+      "name": "Bomba del Chota (Afro-Ecuadorian Chota Valley)",
+      "family": "global",
+      "href": "traditions/bomba_del_chota.json"
+    },
+    {
+      "id": "musica_rocolera",
+      "name": "Música rocolera (Ecuadorian rockola cantina song)",
+      "family": "global",
+      "href": "traditions/musica_rocolera.json"
+    },
+    {
+      "id": "amorfino_montubio",
+      "name": "Amorfino (Montubio coastal sung couplets)",
+      "family": "global",
+      "href": "traditions/amorfino_montubio.json"
+    },
+    {
+      "id": "canelos_kichwa_song",
+      "name": "Canelos Kichwa song (Ecuadorian Amazonian Runa)",
+      "family": "global",
+      "href": "traditions/canelos_kichwa_song.json"
+    },
+    {
+      "id": "kamba_kua_san_baltazar",
+      "name": "Kamba Kua (Afro-Paraguayan San Baltazar drumming)",
+      "family": "global",
+      "href": "traditions/kamba_kua_san_baltazar.json"
+    },
+    {
+      "id": "mbya_guarani_opy_song",
+      "name": "Mbyá-Guaraní prayer-house song (opy)",
+      "family": "global",
+      "href": "traditions/mbya_guarani_opy_song.json"
+    },
+    {
+      "id": "rabinal_achi_music",
+      "name": "Rabinal Achí (Xajooj Tun dance-drama music)",
+      "family": "global",
+      "href": "traditions/rabinal_achi_music.json"
+    },
+    {
+      "id": "chirimia_tun_guatemala",
+      "name": "Chirimía y tun (Guatemalan highland Maya shawm and drum)",
+      "family": "global",
+      "href": "traditions/chirimia_tun_guatemala.json"
+    },
+    {
+      "id": "qeqchi_son_harp",
+      "name": "Son q'eqchi' (Maya harp, violin and guitar)",
+      "family": "global",
+      "href": "traditions/qeqchi_son_harp.json"
+    },
+    {
+      "id": "brukdown_belize",
+      "name": "Brukdown (Belizean Kriol boom-and-chime)",
+      "family": "global",
+      "href": "traditions/brukdown_belize.json"
+    },
+    {
+      "id": "chanchona_salvadorena",
+      "name": "Chanchona (eastern Salvadoran string band)",
+      "family": "global",
+      "href": "traditions/chanchona_salvadorena.json"
+    },
+    {
+      "id": "xuc_salvadoreno",
+      "name": "Xuc (Salvadoran dance-band genre)",
+      "family": "global",
+      "href": "traditions/xuc_salvadoreno.json"
+    },
+    {
+      "id": "gueguense_sones",
+      "name": "El Güegüense (Diriamba dance-drama sones)",
+      "family": "global",
+      "href": "traditions/gueguense_sones.json"
+    },
+    {
+      "id": "palo_de_mayo_bluefields",
+      "name": "Palo de Mayo (Bluefields Creole maypole music)",
+      "family": "global",
+      "href": "traditions/palo_de_mayo_bluefields.json"
+    },
+    {
+      "id": "son_nica",
+      "name": "Son nica (Nicaraguan son)",
+      "family": "global",
+      "href": "traditions/son_nica.json"
+    },
+    {
+      "id": "marimba_de_arco_masaya",
+      "name": "Marimba de arco (Masaya marimba-and-guitar trio)",
+      "family": "global",
+      "href": "traditions/marimba_de_arco_masaya.json"
+    },
+    {
+      "id": "musica_segoviana",
+      "name": "Música segoviana (northern Nicaraguan mazurka and polka)",
+      "family": "global",
+      "href": "traditions/musica_segoviana.json"
+    },
+    {
+      "id": "calipso_limonense",
+      "name": "Calipso limonense (Costa Rican Caribbean calypso)",
+      "family": "global",
+      "href": "traditions/calipso_limonense.json"
+    },
+    {
+      "id": "musica_guanacasteca",
+      "name": "Música guanacasteca (Guanacaste marimba dance music)",
+      "family": "global",
+      "href": "traditions/musica_guanacasteca.json"
+    },
+    {
+      "id": "congo_portobelo",
+      "name": "Congo (Afro-Panamanian Costa Arriba drum-song)",
+      "family": "global",
+      "href": "traditions/congo_portobelo.json"
+    },
+    {
+      "id": "guna_gammu_burwi",
+      "name": "Gammu burwi (Guna panpipes and chant)",
+      "family": "global",
+      "href": "traditions/guna_gammu_burwi.json"
+    },
+    {
+      "id": "queh_queh",
+      "name": "Queh-queh (Afro-Guyanese wedding ring-play)",
+      "family": "global",
+      "href": "traditions/queh_queh.json"
+    },
+    {
+      "id": "guyanese_masquerade_band",
+      "name": "Masquerade (Guyanese Christmas fife-and-drum bands)",
+      "family": "global",
+      "href": "traditions/guyanese_masquerade_band.json"
+    },
+    {
+      "id": "comfa_guyana",
+      "name": "Comfa (Afro-Guyanese spirit-manifestation drumming)",
+      "family": "global",
+      "href": "traditions/comfa_guyana.json"
+    },
+    {
+      "id": "shanto_guyana",
+      "name": "Shanto (Guyanese topical song)",
+      "family": "global",
+      "href": "traditions/shanto_guyana.json"
+    },
+    {
+      "id": "chowtal_indo_caribbean",
+      "name": "Chowtal (Indo-Caribbean Phagwah group song)",
+      "family": "global",
+      "href": "traditions/chowtal_indo_caribbean.json"
+    },
+    {
+      "id": "winti_prei",
+      "name": "Winti prei (Afro-Surinamese spirit-dance ceremony)",
+      "family": "global",
+      "href": "traditions/winti_prei.json"
+    },
+    {
+      "id": "saramaka_maroon_music",
+      "name": "Saramaka Maroon song and drumming",
+      "family": "global",
+      "href": "traditions/saramaka_maroon_music.json"
+    },
+    {
+      "id": "pop_jawa_suriname",
+      "name": "Pop Jawa (Surinamese Javanese pop)",
+      "family": "pop",
+      "href": "traditions/pop_jawa_suriname.json"
+    },
+    {
+      "id": "kaseko_guyane",
+      "name": "Kasékò (French Guianese Creole drum-dance)",
+      "family": "global",
+      "href": "traditions/kaseko_guyane.json"
+    },
+    {
+      "id": "ifa_divination_chant",
+      "name": "Ìyẹ̀rẹ̀ Ifá (Yoruba Ifá divination chant)",
+      "family": "global",
+      "href": "traditions/ifa_divination_chant.json"
+    },
+    {
+      "id": "bata_sango_oyo",
+      "name": "Ìlù bàtá (Yoruba bàtá drumming for Ṣàngó)",
+      "family": "global",
+      "href": "traditions/bata_sango_oyo.json"
+    },
+    {
+      "id": "ijala_hunters_chant",
+      "name": "Ìjálá (Yoruba hunters' chant)",
+      "family": "global",
+      "href": "traditions/ijala_hunters_chant.json"
+    },
+    {
+      "id": "ewi_yoruba_poetry",
+      "name": "Ewì (Yoruba recorded poetry)",
+      "family": "global",
+      "href": "traditions/ewi_yoruba_poetry.json"
+    },
+    {
+      "id": "waka_yoruba",
+      "name": "Wákà (Yoruba Muslim women's song)",
+      "family": "global",
+      "href": "traditions/waka_yoruba.json"
+    },
+    {
+      "id": "dadakuada_ilorin",
+      "name": "Dadakúàdà (Ilorin oral-poetry music)",
+      "family": "global",
+      "href": "traditions/dadakuada_ilorin.json"
+    },
+    {
+      "id": "asiko_lagos",
+      "name": "Aṣíkò (Lagos frame-drum dance music)",
+      "family": "global",
+      "href": "traditions/asiko_lagos.json"
+    },
+    {
+      "id": "hausa_bori_music",
+      "name": "Bòòríí (Hausa spirit-possession music)",
+      "family": "global",
+      "href": "traditions/hausa_bori_music.json"
+    },
+    {
+      "id": "hausa_goge_music",
+      "name": "Gòge (Hausa fiddle dance music)",
+      "family": "global",
+      "href": "traditions/hausa_goge_music.json"
+    },
+    {
+      "id": "bandiri_kano",
+      "name": "Bandiri (Hausa Sufi drum-chant)",
+      "family": "global",
+      "href": "traditions/bandiri_kano.json"
+    },
+    {
+      "id": "egwu_ekpili",
+      "name": "Egwu ekpili (Igbo story-song)",
+      "family": "global",
+      "href": "traditions/egwu_ekpili.json"
+    },
+    {
+      "id": "swange_tiv",
+      "name": "Swange (Tiv dance music)",
+      "family": "global",
+      "href": "traditions/swange_tiv.json"
+    },
+    {
+      "id": "owigiri_ijaw",
+      "name": "Owigiri (Ijaw highlife dance music)",
+      "family": "global",
+      "href": "traditions/owigiri_ijaw.json"
+    },
+    {
+      "id": "african_pianism_nigeria",
+      "name": "African pianism (Nigerian art-music piano school)",
+      "family": "classical",
+      "href": "traditions/african_pianism_nigeria.json"
+    },
+    {
+      "id": "lagos_street_pop",
+      "name": "Street-pop (Lagos street-hop)",
+      "family": "hip_hop",
+      "href": "traditions/lagos_street_pop.json"
+    },
+    {
+      "id": "gelede_ketu",
+      "name": "Gẹ̀lẹ̀dẹ́ (Yoruba masquerade song and drumming)",
+      "family": "global",
+      "href": "traditions/gelede_ketu.json"
+    },
+    {
+      "id": "fon_vodun_ceremonial",
+      "name": "Vodun ceremonial music (Fon of southern Benin)",
+      "family": "global",
+      "href": "traditions/fon_vodun_ceremonial.json"
+    },
+    {
+      "id": "zinli_abomey",
+      "name": "Zinli (Fon funeral music of Abomey)",
+      "family": "global",
+      "href": "traditions/zinli_abomey.json"
+    },
+    {
+      "id": "tchinkoume_savalou",
+      "name": "Tchinkoumé (Stan Tohon's tchink system, Savalou)",
+      "family": "global",
+      "href": "traditions/tchinkoume_savalou.json"
+    },
+    {
+      "id": "kabiye_lithophone_evala",
+      "name": "Kabiyè soo orchestras and lithophones (Kara)",
+      "family": "global",
+      "href": "traditions/kabiye_lithophone_evala.json"
+    },
+    {
+      "id": "adowa_akan",
+      "name": "Adowa (Akan funeral dance music)",
+      "family": "global",
+      "href": "traditions/adowa_akan.json"
+    },
+    {
+      "id": "fontomfrom_asante",
+      "name": "Fontomfrom (Asante state drum orchestra)",
+      "family": "classical",
+      "href": "traditions/fontomfrom_asante.json"
+    },
+    {
+      "id": "nnwonkoro_akan",
+      "name": "Nnwonkoro (Akan women's song)",
+      "family": "global",
+      "href": "traditions/nnwonkoro_akan.json"
+    },
+    {
+      "id": "seperewa_song",
+      "name": "Seperewa song (Akan harp-lute song)",
+      "family": "global",
+      "href": "traditions/seperewa_song.json"
+    },
+    {
+      "id": "asafo_fante",
+      "name": "Asafo (Fante warrior-company music)",
+      "family": "global",
+      "href": "traditions/asafo_fante.json"
+    },
+    {
+      "id": "agbadza_ewe",
+      "name": "Agbadza (Ewe social dance-drumming)",
+      "family": "global",
+      "href": "traditions/agbadza_ewe.json"
+    },
+    {
+      "id": "atsiagbekor_ewe",
+      "name": "Atsiagbekor (Ewe war-dance drumming)",
+      "family": "global",
+      "href": "traditions/atsiagbekor_ewe.json"
+    },
+    {
+      "id": "gahu_ewe",
+      "name": "Gahu (Ewe recreational dance-drumming)",
+      "family": "global",
+      "href": "traditions/gahu_ewe.json"
+    },
+    {
+      "id": "borborbor_ewe",
+      "name": "Borborbor (northern Ewe neo-traditional dance music, Kpando)",
+      "family": "global",
+      "href": "traditions/borborbor_ewe.json"
+    },
+    {
+      "id": "adzogbo_ewe",
+      "name": "Adzogbo (Ewe dance-drumming of Fon origin)",
+      "family": "global",
+      "href": "traditions/adzogbo_ewe.json"
+    },
+    {
+      "id": "yeve_ewe_ritual",
+      "name": "Yeve (Ewe thunder-cult ritual music)",
+      "family": "global",
+      "href": "traditions/yeve_ewe_ritual.json"
+    },
+    {
+      "id": "kpanlogo_ga",
+      "name": "Kpanlogo (Ga recreational drum-dance, Accra)",
+      "family": "global",
+      "href": "traditions/kpanlogo_ga.json"
+    },
+    {
+      "id": "gome_ga",
+      "name": "Gome (Ga box-drum dance music, Accra)",
+      "family": "global",
+      "href": "traditions/gome_ga.json"
+    },
+    {
+      "id": "dagara_gyil_funeral",
+      "name": "Dagara gyil funeral music (Lawra, Upper West)",
+      "family": "global",
+      "href": "traditions/dagara_gyil_funeral.json"
+    },
+    {
+      "id": "dagbamba_gondze",
+      "name": "Gondze (Dagbamba one-string fiddle music)",
+      "family": "global",
+      "href": "traditions/dagbamba_gondze.json"
+    },
+    {
+      "id": "simpa_dagbon",
+      "name": "Simpa (Dagbamba dance music, Tamale)",
+      "family": "global",
+      "href": "traditions/simpa_dagbon.json"
+    },
+    {
+      "id": "kasena_jongo",
+      "name": "Kasena music (jongo flute-and-drum dance)",
+      "family": "global",
+      "href": "traditions/kasena_jongo.json"
+    },
+    {
+      "id": "akan_guitar_band_highlife",
+      "name": "Guitar-band highlife and concert party (Akan)",
+      "family": "global",
+      "href": "traditions/akan_guitar_band_highlife.json"
+    },
+    {
+      "id": "burger_highlife",
+      "name": "Burger highlife (Ghanaian-German synth highlife)",
+      "family": "global",
+      "href": "traditions/burger_highlife.json"
+    },
+    {
+      "id": "ghanaian_choral_art_music",
+      "name": "Ghanaian choral art music (Amu school)",
+      "family": "classical",
+      "href": "traditions/ghanaian_choral_art_music.json"
+    },
+    {
+      "id": "zaouli_guro",
+      "name": "Zaouli (Guro masked dance music)",
+      "family": "global",
+      "href": "traditions/zaouli_guro.json"
+    },
+    {
+      "id": "gbofe_afounkaha",
+      "name": "Gbofe of Afounkaha (Tagbana transverse-horn music)",
+      "family": "global",
+      "href": "traditions/gbofe_afounkaha.json"
+    },
+    {
+      "id": "dan_mask_music",
+      "name": "Dan mask music (Yacouba, western Côte d'Ivoire)",
+      "family": "global",
+      "href": "traditions/dan_mask_music.json"
+    },
+    {
+      "id": "ziglibithy",
+      "name": "Ziglibithy (Ivorian Bété dance pop)",
+      "family": "global",
+      "href": "traditions/ziglibithy.json"
+    },
+    {
+      "id": "zoblazo",
+      "name": "Zoblazo (Ivorian Nzima dance pop)",
+      "family": "global",
+      "href": "traditions/zoblazo.json"
+    },
+    {
+      "id": "senegalese_afro_cuban",
+      "name": "Senegalese Afro-Cuban dance-band music (Dakar salsa)",
+      "family": "global",
+      "href": "traditions/senegalese_afro_cuban.json"
+    },
+    {
+      "id": "mouride_xassida",
+      "name": "Xassida (Mouride sung poetry, Touba)",
+      "family": "global",
+      "href": "traditions/mouride_xassida.json"
+    },
+    {
+      "id": "taasu_wolof",
+      "name": "Taasu (Wolof declaimed poetry)",
+      "family": "global",
+      "href": "traditions/taasu_wolof.json"
+    },
+    {
+      "id": "jola_ekonting",
+      "name": "Ekonting songs (Jola folk lute, Casamance)",
+      "family": "global",
+      "href": "traditions/jola_ekonting.json"
+    },
+    {
+      "id": "serer_njuup",
+      "name": "Njuup (Serer song, Sine-Saloum)",
+      "family": "global",
+      "href": "traditions/serer_njuup.json"
+    },
+    {
+      "id": "lebu_ndepp",
+      "name": "Ndëpp (Lebu possession-healing ceremony)",
+      "family": "global",
+      "href": "traditions/lebu_ndepp.json"
+    },
+    {
+      "id": "kankurang_mandinka",
+      "name": "Kankurang (Mandinka initiation masquerade)",
+      "family": "global",
+      "href": "traditions/kankurang_mandinka.json"
+    },
+    {
+      "id": "takamba_gao",
+      "name": "Takamba (Gao lute-and-calabash dance music)",
+      "family": "global",
+      "href": "traditions/takamba_gao.json"
+    },
+    {
+      "id": "dogon_funeral_mask_music",
+      "name": "Dogon funeral and mask music (Bandiagara)",
+      "family": "global",
+      "href": "traditions/dogon_funeral_mask_music.json"
+    },
+    {
+      "id": "holey_songhay_zarma",
+      "name": "Holey (Songhay-Zarma spirit-possession music)",
+      "family": "global",
+      "href": "traditions/holey_songhay_zarma.json"
+    },
+    {
+      "id": "balani_show_bamako",
+      "name": "Balani show (Bamako amplified balafon street party)",
+      "family": "global",
+      "href": "traditions/balani_show_bamako.json"
+    },
+    {
+      "id": "mossi_court_music",
+      "name": "Mossi court music (Moogo Naaba palace drumming)",
+      "family": "classical",
+      "href": "traditions/mossi_court_music.json"
+    },
+    {
+      "id": "warba_mossi",
+      "name": "Warba (Mossi dance of Ganzourgou)",
+      "family": "global",
+      "href": "traditions/warba_mossi.json"
+    },
+    {
+      "id": "wodaabe_yaake_geerewol",
+      "name": "Yaake and geerewol (Wodaabe dance-songs)",
+      "family": "global",
+      "href": "traditions/wodaabe_yaake_geerewol.json"
+    },
+    {
+      "id": "milo_jazz_freetown",
+      "name": "Milo jazz (Freetown street percussion band)",
+      "family": "global",
+      "href": "traditions/milo_jazz_freetown.json"
+    },
+    {
+      "id": "bubu_temne",
+      "name": "Bubu (Temne pipe music, Sierra Leone)",
+      "family": "global",
+      "href": "traditions/bubu_temne.json"
+    },
+    {
+      "id": "sande_bondo_song",
+      "name": "Sande/Bondo (women's society songs, Sierra Leone)",
+      "family": "global",
+      "href": "traditions/sande_bondo_song.json"
+    },
+    {
+      "id": "kpelle_woi_epic",
+      "name": "Woi epic (Kpelle sung narrative, Liberia)",
+      "family": "global",
+      "href": "traditions/kpelle_woi_epic.json"
+    },
+    {
+      "id": "tina_guinea_bissau",
+      "name": "Tina (Guinea-Bissau women's water-drum song)",
+      "family": "global",
+      "href": "traditions/tina_guinea_bissau.json"
+    },
+    {
+      "id": "kola_san_jon",
+      "name": "Kola San Jon (Cape Verdean St John drumming)",
+      "family": "global",
+      "href": "traditions/kola_san_jon.json"
+    },
+    {
+      "id": "medh_haratin",
+      "name": "Medh (Haratin praise songs of the Prophet)",
+      "family": "global",
+      "href": "traditions/medh_haratin.json"
+    },
+    {
+      "id": "bondja_haratin",
+      "name": "Bondja (Haratin women's song and dance)",
+      "family": "global",
+      "href": "traditions/bondja_haratin.json"
+    },
+    {
+      "id": "aita_cheikhat",
+      "name": "Aïta (cheikhat song of the Atlantic plains)",
+      "family": "global",
+      "href": "traditions/aita_cheikhat.json"
+    },
+    {
+      "id": "rways_souss",
+      "name": "Rrways (Souss Amazigh troubadour song)",
+      "family": "global",
+      "href": "traditions/rways_souss.json"
+    },
+    {
+      "id": "aissawa_hadra",
+      "name": "Aïssawa (ʿIsawiyya brotherhood hadra)",
+      "family": "global",
+      "href": "traditions/aissawa_hadra.json"
+    },
+    {
+      "id": "hamadsha_hadra",
+      "name": "Hamadsha (Zerhoun brotherhood trance music)",
+      "family": "global",
+      "href": "traditions/hamadsha_hadra.json"
+    },
+    {
+      "id": "jilala_brotherhood",
+      "name": "Jilala (Moroccan Qadiri brotherhood music)",
+      "family": "global",
+      "href": "traditions/jilala_brotherhood.json"
+    },
+    {
+      "id": "samaa_wa_madih",
+      "name": "Samaʿ wa madih (Moroccan Sufi a cappella song)",
+      "family": "global",
+      "href": "traditions/samaa_wa_madih.json"
+    },
+    {
+      "id": "dakka_marrakchia",
+      "name": "Dakka marrakchia (Marrakech Ashura percussion-song)",
+      "family": "global",
+      "href": "traditions/dakka_marrakchia.json"
+    },
+    {
+      "id": "taqtuqa_jabaliya",
+      "name": "Taqtuqa jabaliya (Jbala mountain song)",
+      "family": "global",
+      "href": "traditions/taqtuqa_jabaliya.json"
+    },
+    {
+      "id": "reggada_oriental",
+      "name": "Reggada (north-eastern Moroccan warrior dance)",
+      "family": "global",
+      "href": "traditions/reggada_oriental.json"
+    },
+    {
+      "id": "guedra_saharan",
+      "name": "Guedra (Saharan kneeling trance dance-song)",
+      "family": "global",
+      "href": "traditions/guedra_saharan.json"
+    },
+    {
+      "id": "moroccan_jewish_piyyut",
+      "name": "Matrouz and piyyut (Moroccan Jewish song)",
+      "family": "global",
+      "href": "traditions/moroccan_jewish_piyyut.json"
+    },
+    {
+      "id": "abidat_rma",
+      "name": "ʿAbidat rma (Chaouia hunters' troupe song)",
+      "family": "global",
+      "href": "traditions/abidat_rma.json"
+    },
+    {
+      "id": "gharnati_tlemcen",
+      "name": "Gharnati (Tlemcen school of Andalusi music)",
+      "family": "classical",
+      "href": "traditions/gharnati_tlemcen.json"
+    },
+    {
+      "id": "hawzi_tlemcen",
+      "name": "Hawzi (Tlemcen urban sung poetry)",
+      "family": "global",
+      "href": "traditions/hawzi_tlemcen.json"
+    },
+    {
+      "id": "ahellil_gourara",
+      "name": "Ahellil (Gourara Zenati choral poetry)",
+      "family": "global",
+      "href": "traditions/ahellil_gourara.json"
+    },
+    {
+      "id": "chaoui_aures",
+      "name": "Chaoui song (Aurès Amazigh)",
+      "family": "global",
+      "href": "traditions/chaoui_aures.json"
+    },
+    {
+      "id": "staifi_setif",
+      "name": "Staïfi (Sétif popular song)",
+      "family": "global",
+      "href": "traditions/staifi_setif.json"
+    },
+    {
+      "id": "bedoui_algerian_gasba",
+      "name": "Bédoui (Algerian gasba-and-guellal Bedouin song)",
+      "family": "global",
+      "href": "traditions/bedoui_algerian_gasba.json"
+    },
+    {
+      "id": "wahrani_oran",
+      "name": "Wahrani (Oran modern song)",
+      "family": "global",
+      "href": "traditions/wahrani_oran.json"
+    },
+    {
+      "id": "stambeli_tunis",
+      "name": "Stambeli (Tunisian healing-trance music)",
+      "family": "global",
+      "href": "traditions/stambeli_tunis.json"
+    },
+    {
+      "id": "zar_egyptian",
+      "name": "Zār (Egyptian spirit-possession ritual music)",
+      "family": "global",
+      "href": "traditions/zar_egyptian.json"
+    },
+    {
+      "id": "simsimiyya_suez_canal",
+      "name": "Simsimiyya (Suez Canal lyre song)",
+      "family": "global",
+      "href": "traditions/simsimiyya_suez_canal.json"
+    },
+    {
+      "id": "sirat_bani_hilal_epic",
+      "name": "Al-Sīra al-Hilāliyya (Egyptian Hilali epic singing)",
+      "family": "global",
+      "href": "traditions/sirat_bani_hilal_epic.json"
+    },
+    {
+      "id": "ibtihalat_egyptian",
+      "name": "Ibtihālāt (Egyptian devotional supplication)",
+      "family": "global",
+      "href": "traditions/ibtihalat_egyptian.json"
+    },
+    {
+      "id": "taqtuqa_egyptian",
+      "name": "Ṭaqṭūqa (early Egyptian light song)",
+      "family": "global",
+      "href": "traditions/taqtuqa_egyptian.json"
+    },
+    {
+      "id": "zajal_lebanese",
+      "name": "Zajal (Lebanese improvised sung-poetry duel)",
+      "family": "global",
+      "href": "traditions/zajal_lebanese.json"
+    },
+    {
+      "id": "ataba_mijana",
+      "name": "ʿAtāba and mījana (Levantine sung improvisation)",
+      "family": "global",
+      "href": "traditions/ataba_mijana.json"
+    },
+    {
+      "id": "qudud_halabiyya",
+      "name": "Al-Qudūd al-Ḥalabiyya (Aleppine measured song)",
+      "family": "global",
+      "href": "traditions/qudud_halabiyya.json"
+    },
+    {
+      "id": "samer_jordanian",
+      "name": "As-Sāmer (Jordanian Bedouin clap-chant dance-song)",
+      "family": "global",
+      "href": "traditions/samer_jordanian.json"
+    },
+    {
+      "id": "rababa_bedouin_poetry",
+      "name": "Shiʿr al-rabāba (Bedouin rababa sung poetry)",
+      "family": "global",
+      "href": "traditions/rababa_bedouin_poetry.json"
+    },
+    {
+      "id": "samaritan_liturgical_chant",
+      "name": "Samaritan liturgical chant (Mount Gerizim)",
+      "family": "global",
+      "href": "traditions/samaritan_liturgical_chant.json"
+    },
+    {
+      "id": "choubi_iraqi",
+      "name": "Choubi (Iraqi dance song)",
+      "family": "global",
+      "href": "traditions/choubi_iraqi.json"
+    },
+    {
+      "id": "ghina_rifi_iraqi",
+      "name": "Ghināʾ rīfī (southern Iraqi rural song)",
+      "family": "global",
+      "href": "traditions/ghina_rifi_iraqi.json"
+    },
+    {
+      "id": "kirkuk_turkmen_hoyrat",
+      "name": "Hoyrat (Kirkuk Turkmen free-rhythm song)",
+      "family": "global",
+      "href": "traditions/kirkuk_turkmen_hoyrat.json"
+    },
+    {
+      "id": "yazidi_qewl",
+      "name": "Qewl (Yazidi sacred hymnody)",
+      "family": "global",
+      "href": "traditions/yazidi_qewl.json"
+    },
+    {
+      "id": "najdi_ardah",
+      "name": "ʿArḍa najdiyya (Najdi sword-and-drum war dance)",
+      "family": "global",
+      "href": "traditions/najdi_ardah.json"
+    },
+    {
+      "id": "hijazi_mizmar",
+      "name": "Mizmār ḥijāzī (Hijazi stick dance with drums)",
+      "family": "global",
+      "href": "traditions/hijazi_mizmar.json"
+    },
+    {
+      "id": "hijazi_majass_sahba",
+      "name": "Majass and sahba (Hijazi urban song)",
+      "family": "classical",
+      "href": "traditions/hijazi_majass_sahba.json"
+    },
+    {
+      "id": "najdi_samri",
+      "name": "Sāmrī (Najdi seated drum-song)",
+      "family": "global",
+      "href": "traditions/najdi_samri.json"
+    },
+    {
+      "id": "al_taghrooda",
+      "name": "Al-Taghrooda (Bedouin camel-riders' chanted poetry)",
+      "family": "global",
+      "href": "traditions/al_taghrooda.json"
+    },
+    {
+      "id": "al_azi_emirati",
+      "name": "Al-ʿĀzī (Emirati chanted praise poetry)",
+      "family": "global",
+      "href": "traditions/al_azi_emirati.json"
+    },
+    {
+      "id": "dhofari_barah",
+      "name": "Al-Barʿah (Dhofari dagger-dance music)",
+      "family": "global",
+      "href": "traditions/dhofari_barah.json"
+    },
+    {
+      "id": "hadrami_dan_sawt",
+      "name": "Dān and ṣawt ḥaḍramī (Hadrami song)",
+      "family": "classical",
+      "href": "traditions/hadrami_dan_sawt.json"
+    },
+    {
+      "id": "lahji_song",
+      "name": "Ghināʾ laḥjī (Lahji song)",
+      "family": "global",
+      "href": "traditions/lahji_song.json"
+    },
+    {
+      "id": "adeni_song",
+      "name": "Al-ughniya al-ʿadaniyya (Adeni modern song)",
+      "family": "global",
+      "href": "traditions/adeni_song.json"
+    },
+    {
+      "id": "yemeni_zamil",
+      "name": "Zāmil (Yemeni tribal chanted poetry)",
+      "family": "global",
+      "href": "traditions/yemeni_zamil.json"
+    },
+    {
+      "id": "yemeni_bara",
+      "name": "Barāʿ (Yemeni highland dagger dance)",
+      "family": "global",
+      "href": "traditions/yemeni_bara.json"
+    },
+    {
+      "id": "yemenite_jewish_diwan",
+      "name": "Diwan (Yemenite Jewish Shabazi song)",
+      "family": "global",
+      "href": "traditions/yemenite_jewish_diwan.json"
+    },
+    {
+      "id": "zeybek_aegean",
+      "name": "Zeybek (Aegean dance-song)",
+      "family": "global",
+      "href": "traditions/zeybek_aegean.json"
+    },
+    {
+      "id": "halay_davul_zurna",
+      "name": "Halay (Anatolian davul-zurna line dance)",
+      "family": "global",
+      "href": "traditions/halay_davul_zurna.json"
+    },
+    {
+      "id": "alevi_bektasi_cem",
+      "name": "Cem (Alevi-Bektaşi ritual song and semah)",
+      "family": "global",
+      "href": "traditions/alevi_bektasi_cem.json"
+    },
+    {
+      "id": "mehter_ottoman",
+      "name": "Mehter (Ottoman Janissary military band)",
+      "family": "classical",
+      "href": "traditions/mehter_ottoman.json"
+    },
+    {
+      "id": "kanto_istanbul",
+      "name": "Kanto (late-Ottoman Istanbul stage song)",
+      "family": "global",
+      "href": "traditions/kanto_istanbul.json"
+    },
+    {
+      "id": "mevlid_turkish",
+      "name": "Mevlid (Turkish chanted nativity-poem ceremony)",
+      "family": "global",
+      "href": "traditions/mevlid_turkish.json"
+    },
+    {
+      "id": "teke_zortlatmasi",
+      "name": "Teke zortlatması (Western Taurus Yörük dance music)",
+      "family": "global",
+      "href": "traditions/teke_zortlatmasi.json"
+    },
+    {
+      "id": "ozgun_muzik",
+      "name": "Özgün müzik (Turkish political song-poetry)",
+      "family": "global",
+      "href": "traditions/ozgun_muzik.json"
+    },
+    {
+      "id": "turkish_five_composers",
+      "name": "Türk Beşleri (Turkish Five national-school art music)",
+      "family": "classical",
+      "href": "traditions/turkish_five_composers.json"
+    },
+    {
+      "id": "urfa_sira_gecesi",
+      "name": "Sıra gecesi (Şanlıurfa gathering music)",
+      "family": "global",
+      "href": "traditions/urfa_sira_gecesi.json"
+    },
+    {
+      "id": "turk_tangosu",
+      "name": "Türk tangosu (Turkish tango-song)",
+      "family": "global",
+      "href": "traditions/turk_tangosu.json"
+    },
+    {
+      "id": "taziyeh_iran",
+      "name": "Ta'zieh (Iranian Shi'a passion-play music)",
+      "family": "global",
+      "href": "traditions/taziyeh_iran.json"
+    },
+    {
+      "id": "zurkhaneh_morshed",
+      "name": "Zurkhaneh (morshed chant for varzesh-e pahlavani)",
+      "family": "global",
+      "href": "traditions/zurkhaneh_morshed.json"
+    },
+    {
+      "id": "khorasani_bakhshi",
+      "name": "Bakhshi (Khorasani dotar bards)",
+      "family": "global",
+      "href": "traditions/khorasani_bakhshi.json"
+    },
+    {
+      "id": "bakhtiari_music",
+      "name": "Bakhtiari music (Zagros tribal song and dance)",
+      "family": "global",
+      "href": "traditions/bakhtiari_music.json"
+    },
+    {
+      "id": "lori_lorestan",
+      "name": "Lori music (Lorestan song, chamar and dance)",
+      "family": "global",
+      "href": "traditions/lori_lorestan.json"
+    },
+    {
+      "id": "yarsan_tanbur_kalam",
+      "name": "Kalam (Yarsan sacred tanbur song)",
+      "family": "global",
+      "href": "traditions/yarsan_tanbur_kalam.json"
+    },
+    {
+      "id": "hawrami_siyah_chamaneh",
+      "name": "Siyah-chamaneh and hore (Gurani free-rhythm song)",
+      "family": "global",
+      "href": "traditions/hawrami_siyah_chamaneh.json"
+    },
+    {
+      "id": "bandari_hormozgan",
+      "name": "Bandari (Hormozgan Persian Gulf dance-song)",
+      "family": "global",
+      "href": "traditions/bandari_hormozgan.json"
+    },
+    {
+      "id": "gilaki_music",
+      "name": "Gilaki music (Gilan Caspian folk song)",
+      "family": "global",
+      "href": "traditions/gilaki_music.json"
+    },
+    {
+      "id": "qashqai_music",
+      "name": "Qashqai music (Fars tribal wedding and bardic song)",
+      "family": "global",
+      "href": "traditions/qashqai_music.json"
+    },
+    {
+      "id": "motrebi_ruhowzi",
+      "name": "Motrebi and ruhowzi (Tehran entertainers' song)",
+      "family": "global",
+      "href": "traditions/motrebi_ruhowzi.json"
+    },
+    {
+      "id": "herati_dutar_chaharbeiti",
+      "name": "Herati music (Herat dutar and chaharbeiti song)",
+      "family": "global",
+      "href": "traditions/herati_dutar_chaharbeiti.json"
+    },
+    {
+      "id": "pashto_landay_tappa",
+      "name": "Tappa and landay (Pashto folk couplet song)",
+      "family": "global",
+      "href": "traditions/pashto_landay_tappa.json"
+    },
+    {
+      "id": "pashtun_attan",
+      "name": "Attan (Pashtun dhol-and-surnai circle dance)",
+      "family": "global",
+      "href": "traditions/pashtun_attan.json"
+    },
+    {
+      "id": "qataghani_dambura",
+      "name": "Qataghani (northern Afghan dambura song)",
+      "family": "global",
+      "href": "traditions/qataghani_dambura.json"
+    },
+    {
+      "id": "nuristani_waj_harp",
+      "name": "Waj (Nuristani arched-harp song)",
+      "family": "global",
+      "href": "traditions/nuristani_waj_harp.json"
+    },
+    {
+      "id": "kabul_radio_golden_age_pop",
+      "name": "Kabul golden-age pop (1960s-70s Radio Afghanistan song)",
+      "family": "pop",
+      "href": "traditions/kabul_radio_golden_age_pop.json"
+    },
+    {
+      "id": "georgian_galoba_chant",
+      "name": "Galoba (Georgian Orthodox polyphonic chant)",
+      "family": "global",
+      "href": "traditions/georgian_galoba_chant.json"
+    },
+    {
+      "id": "tbilisi_kalakuri",
+      "name": "Kalakuri simghera (Tbilisi city song)",
+      "family": "global",
+      "href": "traditions/tbilisi_kalakuri.json"
+    },
+    {
+      "id": "tbilisi_sazandari",
+      "name": "Sazandari (Tbilisi tar, kamancha and daira ensemble)",
+      "family": "global",
+      "href": "traditions/tbilisi_sazandari.json"
+    },
+    {
+      "id": "abkhaz_polyphonic_song",
+      "name": "Apsua song (Abkhaz polyphonic singing)",
+      "family": "global",
+      "href": "traditions/abkhaz_polyphonic_song.json"
+    },
+    {
+      "id": "georgian_gudastviri_mestvire",
+      "name": "Mestvireoba (Georgian gudastviri bagpipe bards)",
+      "family": "global",
+      "href": "traditions/georgian_gudastviri_mestvire.json"
+    },
+    {
+      "id": "rabiz_yerevan",
+      "name": "Rabiz (Yerevan urban popular song)",
+      "family": "pop",
+      "href": "traditions/rabiz_yerevan.json"
+    },
+    {
+      "id": "sasna_tsrer_epic",
+      "name": "Sasna Tsrer (Armenian Sasun epic recitation)",
+      "family": "global",
+      "href": "traditions/sasna_tsrer_epic.json"
+    },
+    {
+      "id": "jazz_mugham",
+      "name": "Caz-muğam (Azerbaijani jazz-mugham)",
+      "family": "jazz",
+      "href": "traditions/jazz_mugham.json"
+    },
+    {
+      "id": "kazakh_zhyrau_terme",
+      "name": "Zhyr and terme (Kazakh zhyrau epic recitation)",
+      "family": "global",
+      "href": "traditions/kazakh_zhyrau_terme.json"
+    },
+    {
+      "id": "khorezm_lazgi",
+      "name": "Lazgi (Khorezm dance music)",
+      "family": "global",
+      "href": "traditions/khorezm_lazgi.json"
+    },
+    {
+      "id": "khorezm_khalfa",
+      "name": "Khalfa (Khorezm women's ritual and wedding singers)",
+      "family": "global",
+      "href": "traditions/khorezm_khalfa.json"
+    },
+    {
+      "id": "karakalpak_zhyraw_baqsy",
+      "name": "Zhyraw and baqsy (Karakalpak epic and lyric singers)",
+      "family": "global",
+      "href": "traditions/karakalpak_zhyraw_baqsy.json"
+    },
+    {
+      "id": "uzbek_baxshi_doston",
+      "name": "Doston (southern Uzbek baxshi epic singing)",
+      "family": "global",
+      "href": "traditions/uzbek_baxshi_doston.json"
+    },
+    {
+      "id": "bukhara_sozanda",
+      "name": "Sozanda (Bukharan women's wedding song ensemble)",
+      "family": "global",
+      "href": "traditions/bukhara_sozanda.json"
+    },
+    {
+      "id": "karnay_surnay_naqqora",
+      "name": "Karnay-surnay (Central Asian ceremonial trumpet and shawm band)",
+      "family": "global",
+      "href": "traditions/karnay_surnay_naqqora.json"
+    },
+    {
+      "id": "turkmen_kushtdepdi",
+      "name": "Küşt depdi (Turkmen ritual song-dance)",
+      "family": "global",
+      "href": "traditions/turkmen_kushtdepdi.json"
+    },
+    {
+      "id": "marabi",
+      "name": "Marabi (Johannesburg slumyard keyboard and dance-band music)",
+      "family": "global",
+      "href": "traditions/marabi.json"
+    },
+    {
+      "id": "malombo_jazz",
+      "name": "Malombo (Mamelodi guitar, flute and drum jazz)",
+      "family": "jazz",
+      "href": "traditions/malombo_jazz.json"
+    },
+    {
+      "id": "kiba_dinaka_pedi",
+      "name": "Kiba (Pedi reed-pipe and drum dance)",
+      "family": "global",
+      "href": "traditions/kiba_dinaka_pedi.json"
+    },
+    {
+      "id": "tshikona_venda",
+      "name": "Tshikona (Venda reed-pipe national dance)",
+      "family": "global",
+      "href": "traditions/tshikona_venda.json"
+    },
+    {
+      "id": "domba_venda",
+      "name": "Domba (Venda girls' initiation python dance)",
+      "family": "global",
+      "href": "traditions/domba_venda.json"
+    },
+    {
+      "id": "cape_malay_choir_nederlandslied",
+      "name": "Cape Malay choirs (nederlandslied and moppie)",
+      "family": "global",
+      "href": "traditions/cape_malay_choir_nederlandslied.json"
+    },
+    {
+      "id": "kaapse_klopse",
+      "name": "Kaapse Klopse (Cape Town minstrel-carnival troupes)",
+      "family": "global",
+      "href": "traditions/kaapse_klopse.json"
+    },
+    {
+      "id": "langarm_cape",
+      "name": "Langarm (Cape ballroom dance-band music)",
+      "family": "global",
+      "href": "traditions/langarm_cape.json"
+    },
+    {
+      "id": "shembe_nazarite_hymns",
+      "name": "Izihlabelelo zamaNazaretha (Shembe hymns and sacred dance)",
+      "family": "global",
+      "href": "traditions/shembe_nazarite_hymns.json"
+    },
+    {
+      "id": "zulu_ingoma_dance",
+      "name": "Ingoma (Zulu competitive dance-song)",
+      "family": "global",
+      "href": "traditions/zulu_ingoma_dance.json"
+    },
+    {
+      "id": "zulu_umakhweyana_ugubhu",
+      "name": "Umakhweyana and ugubhu (Zulu musical-bow song)",
+      "family": "global",
+      "href": "traditions/zulu_umakhweyana_ugubhu.json"
+    },
+    {
+      "id": "zulu_amahubo",
+      "name": "Amahubo (Zulu royal and regimental anthems)",
+      "family": "global",
+      "href": "traditions/zulu_amahubo.json"
+    },
+    {
+      "id": "nguni_diviners_ngoma",
+      "name": "Ingoma yezangoma (Nguni diviners' healing song and dance)",
+      "family": "global",
+      "href": "traditions/nguni_diviners_ngoma.json"
+    },
+    {
+      "id": "tsonga_xigubu_xibelani",
+      "name": "Xitsonga traditional dance-song (xigubu, muchongolo, xibelani)",
+      "family": "global",
+      "href": "traditions/tsonga_xigubu_xibelani.json"
+    },
+    {
+      "id": "lekompo",
+      "name": "Lekompo (Limpopo Sepedi dance music)",
+      "family": "electronic",
+      "href": "traditions/lekompo.json"
+    },
+    {
+      "id": "voelvry_afrikaans_rock",
+      "name": "Voëlvry (1989 Afrikaans alternative rock movement)",
+      "family": "rock",
+      "href": "traditions/voelvry_afrikaans_rock.json"
+    },
+    {
+      "id": "riel_rieldans",
+      "name": "Riel (Khoi- and San-descended rieldans music)",
+      "family": "global",
+      "href": "traditions/riel_rieldans.json"
+    },
+    {
+      "id": "lifela_basotho",
+      "name": "Lifela (Basotho migrants' sung poetry)",
+      "family": "global",
+      "href": "traditions/lifela_basotho.json"
+    },
+    {
+      "id": "mokorotlo_basotho",
+      "name": "Mokorotlo (Basotho men's war song)",
+      "family": "global",
+      "href": "traditions/mokorotlo_basotho.json"
+    },
+    {
+      "id": "mbende_jerusarema",
+      "name": "Mbende Jerusarema (Zezuru dance-drumming)",
+      "family": "global",
+      "href": "traditions/mbende_jerusarema.json"
+    },
+    {
+      "id": "muchongoyo_ndau",
+      "name": "Muchongoyo (Ndau men's dance-drumming)",
+      "family": "global",
+      "href": "traditions/muchongoyo_ndau.json"
+    },
+    {
+      "id": "isitshikitsha_ndebele",
+      "name": "Isitshikitsha (Ndebele dance-song of Matabeleland)",
+      "family": "global",
+      "href": "traditions/isitshikitsha_ndebele.json"
+    },
+    {
+      "id": "mhande_karanga",
+      "name": "Mhande (Karanga ceremonial dance-song)",
+      "family": "global",
+      "href": "traditions/mhande_karanga.json"
+    },
+    {
+      "id": "kwanongoma_marimba",
+      "name": "Kwanongoma marimba (Zimbabwean marimba ensemble)",
+      "family": "global",
+      "href": "traditions/kwanongoma_marimba.json"
+    },
+    {
+      "id": "vapostori_hymnody",
+      "name": "Vapostori hymnody (Zimbabwean Apostolic church song)",
+      "family": "global",
+      "href": "traditions/vapostori_hymnody.json"
+    },
+    {
+      "id": "kalindula",
+      "name": "Kalindula (Zambian popular band music)",
+      "family": "global",
+      "href": "traditions/kalindula.json"
+    },
+    {
+      "id": "makishi_masquerade",
+      "name": "Makishi masquerade music (Luvale mukanda, Zambia)",
+      "family": "global",
+      "href": "traditions/makishi_masquerade.json"
+    },
+    {
+      "id": "mooba_lenje",
+      "name": "Mooba (Lenje spirit dance of Central Zambia)",
+      "family": "global",
+      "href": "traditions/mooba_lenje.json"
+    },
+    {
+      "id": "kalela_copperbelt",
+      "name": "Kalela (Copperbelt mine-town team dance)",
+      "family": "global",
+      "href": "traditions/kalela_copperbelt.json"
+    },
+    {
+      "id": "lozi_royal_music",
+      "name": "Lozi royal music (Kuomboka drums and silimba)",
+      "family": "global",
+      "href": "traditions/lozi_royal_music.json"
+    },
+    {
+      "id": "ngoni_ingoma",
+      "name": "Ingoma (Ngoni war dance of Malawi and Zambia)",
+      "family": "global",
+      "href": "traditions/ngoni_ingoma.json"
+    },
+    {
+      "id": "mapiko_makonde",
+      "name": "Mapiko (Makonde masked dance-drumming)",
+      "family": "global",
+      "href": "traditions/mapiko_makonde.json"
+    },
+    {
+      "id": "tufo_mozambique",
+      "name": "Tufo (Makua women's frame-drum dance-song)",
+      "family": "global",
+      "href": "traditions/tufo_mozambique.json"
+    },
+    {
+      "id": "pandza",
+      "name": "Pandza (Maputo electronic dance-pop)",
+      "family": "global",
+      "href": "traditions/pandza.json"
+    },
+    {
+      "id": "makwayela_mozambique",
+      "name": "Makwayela (southern Mozambican choral dance)",
+      "family": "global",
+      "href": "traditions/makwayela_mozambique.json"
+    },
+    {
+      "id": "nyanga_nyungwe_panpipes",
+      "name": "Nyanga (Nyungwe panpipe dance)",
+      "family": "global",
+      "href": "traditions/nyanga_nyungwe_panpipes.json"
+    },
+    {
+      "id": "tromba_sakalava",
+      "name": "Tromba (Sakalava spirit-possession music)",
+      "family": "global",
+      "href": "traditions/tromba_sakalava.json"
+    },
+    {
+      "id": "kalon_ny_fahiny",
+      "name": "Kalon'ny fahiny (Malagasy 'songs of olden times')",
+      "family": "global",
+      "href": "traditions/kalon_ny_fahiny.json"
+    },
+    {
+      "id": "kilalaky",
+      "name": "Kilalaky (Menabe dance music)",
+      "family": "global",
+      "href": "traditions/kilalaky.json"
+    },
+    {
+      "id": "basesa",
+      "name": "Basesa (east-coast Malagasy dance music)",
+      "family": "global",
+      "href": "traditions/basesa.json"
+    },
+    {
+      "id": "beko_southern_madagascar",
+      "name": "Beko (southern Malagasy vocal polyphony)",
+      "family": "global",
+      "href": "traditions/beko_southern_madagascar.json"
+    },
+    {
+      "id": "kanmtole_seychelles",
+      "name": "Kanmtole (Seychellois contredanse)",
+      "family": "global",
+      "href": "traditions/kanmtole_seychelles.json"
+    },
+    {
+      "id": "mgodro_mayotte",
+      "name": "M'godro (Mayotte dance music)",
+      "family": "global",
+      "href": "traditions/mgodro_mayotte.json"
+    },
+    {
+      "id": "debaa_mayotte",
+      "name": "Debaa (Mahorais women's Sufi chant)",
+      "family": "global",
+      "href": "traditions/debaa_mayotte.json"
+    },
+    {
+      "id": "shigoma_comoros",
+      "name": "Shigoma (Comorian men's wedding dance)",
+      "family": "global",
+      "href": "traditions/shigoma_comoros.json"
+    },
+    {
+      "id": "seperu_basubiya",
+      "name": "Seperu (Basubiya folk dance)",
+      "family": "global",
+      "href": "traditions/seperu_basubiya.json"
+    },
+    {
+      "id": "nama_ancestral_music",
+      "name": "Aixan/Gana/Ob#ANS TSI //Khasigu (Nama ancestral music)",
+      "family": "global",
+      "href": "traditions/nama_ancestral_music.json"
+    },
+    {
+      "id": "shambo_oshiwambo",
+      "name": "Shambo (Oshiwambo dance music)",
+      "family": "global",
+      "href": "traditions/shambo_oshiwambo.json"
+    },
+    {
+      "id": "oviritje",
+      "name": "Oviritje (Otjiherero popular music)",
+      "family": "global",
+      "href": "traditions/oviritje.json"
+    },
+    {
+      "id": "damara_punch",
+      "name": "Damara punch (Khoekhoegowab dance music)",
+      "family": "global",
+      "href": "traditions/damara_punch.json"
+    },
+    {
+      "id": "kathakali_sangeetham",
+      "name": "Kathakali sangeetham (Kerala dance-drama music)",
+      "family": "classical",
+      "href": "traditions/kathakali_sangeetham.json"
+    },
+    {
+      "id": "sopana_sangeetham",
+      "name": "Sopana sangeetham (Kerala temple-step song)",
+      "family": "global",
+      "href": "traditions/sopana_sangeetham.json"
+    },
+    {
+      "id": "panchavadyam",
+      "name": "Panchavadyam (Kerala temple five-instrument orchestra)",
+      "family": "global",
+      "href": "traditions/panchavadyam.json"
+    },
+    {
+      "id": "chenda_melam",
+      "name": "Chenda melam (Kerala temple drum orchestra)",
+      "family": "global",
+      "href": "traditions/chenda_melam.json"
+    },
+    {
+      "id": "thayambaka",
+      "name": "Thayambaka (Kerala solo chenda improvisation)",
+      "family": "classical",
+      "href": "traditions/thayambaka.json"
+    },
+    {
+      "id": "theyyam_thottam",
+      "name": "Theyyam thottam (north Malabar ritual invocation song)",
+      "family": "global",
+      "href": "traditions/theyyam_thottam.json"
+    },
+    {
+      "id": "mudiyettu",
+      "name": "Mudiyettu (Kerala Kali ritual-drama music)",
+      "family": "global",
+      "href": "traditions/mudiyettu.json"
+    },
+    {
+      "id": "cochin_jewish_womens_song",
+      "name": "Judeo-Malayalam women's song (Cochin Jewish)",
+      "family": "global",
+      "href": "traditions/cochin_jewish_womens_song.json"
+    },
+    {
+      "id": "kathaprasangam",
+      "name": "Kathaprasangam (Malayalam musical storytelling)",
+      "family": "global",
+      "href": "traditions/kathaprasangam.json"
+    },
+    {
+      "id": "bharatanatyam_nattuvangam",
+      "name": "Bharatanatyam music (nattuvangam margam ensemble)",
+      "family": "classical",
+      "href": "traditions/bharatanatyam_nattuvangam.json"
+    },
+    {
+      "id": "odissi_sangita",
+      "name": "Odissi sangita (Odia classical music)",
+      "family": "classical",
+      "href": "traditions/odissi_sangita.json"
+    },
+    {
+      "id": "manipuri_nata_sankirtana",
+      "name": "Nata sankirtana (Manipuri ritual singing and drumming)",
+      "family": "global",
+      "href": "traditions/manipuri_nata_sankirtana.json"
+    },
+    {
+      "id": "lai_haraoba",
+      "name": "Lai Haraoba (Meitei pena and maibi ritual song)",
+      "family": "global",
+      "href": "traditions/lai_haraoba.json"
+    },
+    {
+      "id": "khongjom_parba",
+      "name": "Khongjom Parba (Meitei war ballad with dholak)",
+      "family": "global",
+      "href": "traditions/khongjom_parba.json"
+    },
+    {
+      "id": "meitei_modern_song",
+      "name": "Meitei modern song (Manipuri popular and film song)",
+      "family": "global",
+      "href": "traditions/meitei_modern_song.json"
+    },
+    {
+      "id": "yakshagana_himmela",
+      "name": "Yakshagana (coastal Karnataka theatre music)",
+      "family": "global",
+      "href": "traditions/yakshagana_himmela.json"
+    },
+    {
+      "id": "gamaka_kannada",
+      "name": "Gamaka (Kannada epic recitation-singing)",
+      "family": "classical",
+      "href": "traditions/gamaka_kannada.json"
+    },
+    {
+      "id": "dollu_kunitha",
+      "name": "Dollu kunitha (Karnataka barrel-drum dance)",
+      "family": "global",
+      "href": "traditions/dollu_kunitha.json"
+    },
+    {
+      "id": "bhuta_kola_paddana",
+      "name": "Bhuta kola paddana (Tulu spirit-worship epic song)",
+      "family": "global",
+      "href": "traditions/bhuta_kola_paddana.json"
+    },
+    {
+      "id": "harikatha_kalakshepam",
+      "name": "Harikatha kalakshepam (Tamil sung religious discourse)",
+      "family": "global",
+      "href": "traditions/harikatha_kalakshepam.json"
+    },
+    {
+      "id": "villu_paattu",
+      "name": "Villu paattu (Tamil bow-song narrative)",
+      "family": "global",
+      "href": "traditions/villu_paattu.json"
+    },
+    {
+      "id": "terukkuttu_kattaikkuttu",
+      "name": "Terukkuttu / Kattaikkuttu (Tamil Mahabharata street theatre)",
+      "family": "global",
+      "href": "traditions/terukkuttu_kattaikkuttu.json"
+    },
+    {
+      "id": "gaana_chennai",
+      "name": "Gaana (North Chennai street song)",
+      "family": "global",
+      "href": "traditions/gaana_chennai.json"
+    },
+    {
+      "id": "parai_attam",
+      "name": "Parai attam (Tamil frame-drum ensemble and dance)",
+      "family": "global",
+      "href": "traditions/parai_attam.json"
+    },
+    {
+      "id": "burrakatha",
+      "name": "Burrakatha (Telugu ballad narrative)",
+      "family": "global",
+      "href": "traditions/burrakatha.json"
+    },
+    {
+      "id": "oggu_katha",
+      "name": "Oggu katha (Telangana shepherd-caste ritual narrative)",
+      "family": "global",
+      "href": "traditions/oggu_katha.json"
+    },
+    {
+      "id": "bathukamma_paatalu",
+      "name": "Bathukamma paatalu (Telangana women's festival songs)",
+      "family": "global",
+      "href": "traditions/bathukamma_paatalu.json"
+    },
+    {
+      "id": "marfa_hyderabad",
+      "name": "Marfa (Hyderabadi Afro-Arab drum band)",
+      "family": "global",
+      "href": "traditions/marfa_hyderabad.json"
+    },
+    {
+      "id": "natya_sangeet",
+      "name": "Natya sangeet (Marathi stage song)",
+      "family": "global",
+      "href": "traditions/natya_sangeet.json"
+    },
+    {
+      "id": "marathi_bhavgeet",
+      "name": "Bhavgeet (Marathi light poetic song)",
+      "family": "global",
+      "href": "traditions/marathi_bhavgeet.json"
+    },
+    {
+      "id": "gondhal",
+      "name": "Gondhal (Marathi goddess ritual song)",
+      "family": "global",
+      "href": "traditions/gondhal.json"
+    },
+    {
+      "id": "bharud",
+      "name": "Bharud (Marathi allegorical devotional song-drama)",
+      "family": "global",
+      "href": "traditions/bharud.json"
+    },
+    {
+      "id": "bhavai",
+      "name": "Bhavai (Gujarati folk-theatre music)",
+      "family": "global",
+      "href": "traditions/bhavai.json"
+    },
+    {
+      "id": "lok_dayro",
+      "name": "Lok dayro (Saurashtra song-and-story session)",
+      "family": "global",
+      "href": "traditions/lok_dayro.json"
+    },
+    {
+      "id": "sidi_goma_gujarat",
+      "name": "Sidi goma (Afro-Indian Sufi drum dance of Gujarat)",
+      "family": "global",
+      "href": "traditions/sidi_goma_gujarat.json"
+    },
+    {
+      "id": "kalbelia",
+      "name": "Kalbelia (Rajasthani snake-charmer community song and dance)",
+      "family": "global",
+      "href": "traditions/kalbelia.json"
+    },
+    {
+      "id": "pabuji_ki_phad",
+      "name": "Pabuji ki phad (Bhopa epic of Rajasthan)",
+      "family": "global",
+      "href": "traditions/pabuji_ki_phad.json"
+    },
+    {
+      "id": "maand_rajasthani",
+      "name": "Maand (Rajasthani courtly song)",
+      "family": "classical",
+      "href": "traditions/maand_rajasthani.json"
+    },
+    {
+      "id": "dhadi_punjab",
+      "name": "Dhadi (Punjabi heroic ballad singing)",
+      "family": "global",
+      "href": "traditions/dhadi_punjab.json"
+    },
+    {
+      "id": "sufiana_kalam_kashmir",
+      "name": "Sufiana kalam (Kashmiri Sufi art music)",
+      "family": "classical",
+      "href": "traditions/sufiana_kalam_kashmir.json"
+    },
+    {
+      "id": "chakri_kashmir",
+      "name": "Chakri (Kashmiri folk ensemble song)",
+      "family": "global",
+      "href": "traditions/chakri_kashmir.json"
+    },
+    {
+      "id": "rouf_kashmir",
+      "name": "Rouf (Kashmiri women's line-dance song)",
+      "family": "global",
+      "href": "traditions/rouf_kashmir.json"
+    },
+    {
+      "id": "jagar_uttarakhand",
+      "name": "Jagar (Garhwal and Kumaon possession ritual song)",
+      "family": "global",
+      "href": "traditions/jagar_uttarakhand.json"
+    },
+    {
+      "id": "alha_khand",
+      "name": "Alha (Bundelkhand heroic epic singing)",
+      "family": "global",
+      "href": "traditions/alha_khand.json"
+    },
+    {
+      "id": "nautanki",
+      "name": "Nautanki (North Indian folk-operatic theatre)",
+      "family": "global",
+      "href": "traditions/nautanki.json"
+    },
+    {
+      "id": "nagpuri_jhumair",
+      "name": "Nagpuri jhumair (Chotanagpur folk song-dance)",
+      "family": "global",
+      "href": "traditions/nagpuri_jhumair.json"
+    },
+    {
+      "id": "santal_tamak_tumdak",
+      "name": "Santal dance music (tamak' and tumdak')",
+      "family": "global",
+      "href": "traditions/santal_tamak_tumdak.json"
+    },
+    {
+      "id": "tusu_gaan",
+      "name": "Tusu gaan (Manbhum winter-festival songs)",
+      "family": "global",
+      "href": "traditions/tusu_gaan.json"
+    },
+    {
+      "id": "chhau_dance_music",
+      "name": "Chhau (eastern Indian martial dance music)",
+      "family": "global",
+      "href": "traditions/chhau_dance_music.json"
+    },
+    {
+      "id": "pandavani",
+      "name": "Pandavani (Chhattisgarhi Mahabharata ballad)",
+      "family": "global",
+      "href": "traditions/pandavani.json"
+    },
+    {
+      "id": "panthi_satnami",
+      "name": "Panthi (Satnami devotional song-dance)",
+      "family": "global",
+      "href": "traditions/panthi_satnami.json"
+    },
+    {
+      "id": "ganda_baja_dalkhai",
+      "name": "Ganda baja and dalkhai (western Odisha folk ensemble)",
+      "family": "global",
+      "href": "traditions/ganda_baja_dalkhai.json"
+    },
+    {
+      "id": "pala_odisha",
+      "name": "Pala (Odia sung narrative)",
+      "family": "global",
+      "href": "traditions/pala_odisha.json"
+    },
+    {
+      "id": "daskathia",
+      "name": "Daskathia (Odia ballad with kathi clappers)",
+      "family": "global",
+      "href": "traditions/daskathia.json"
+    },
+    {
+      "id": "jatra_bengali_theatre_song",
+      "name": "Jatra (Bengali open-air theatre song)",
+      "family": "global",
+      "href": "traditions/jatra_bengali_theatre_song.json"
+    },
+    {
+      "id": "shyama_sangeet",
+      "name": "Shyama sangeet (Bengali Kali devotional song)",
+      "family": "global",
+      "href": "traditions/shyama_sangeet.json"
+    },
+    {
+      "id": "kabigan",
+      "name": "Kabigan (Bengali poets' sung debate)",
+      "family": "global",
+      "href": "traditions/kabigan.json"
+    },
+    {
+      "id": "durga_puja_dhak",
+      "name": "Dhak drumming (Bengali Durga Puja)",
+      "family": "global",
+      "href": "traditions/durga_puja_dhak.json"
+    },
+    {
+      "id": "bihugeet",
+      "name": "Bihu geet (Assamese spring-festival song)",
+      "family": "global",
+      "href": "traditions/bihugeet.json"
+    },
+    {
+      "id": "assamese_zikir_zari",
+      "name": "Zikir and zari (Assamese Sufi devotional song)",
+      "family": "global",
+      "href": "traditions/assamese_zikir_zari.json"
+    },
+    {
+      "id": "ojapali",
+      "name": "Ojapali (Assamese chorus narrative)",
+      "family": "global",
+      "href": "traditions/ojapali.json"
+    },
+    {
+      "id": "bodo_kherai_bagurumba",
+      "name": "Bodo kherai and bagurumba music",
+      "family": "global",
+      "href": "traditions/bodo_kherai_bagurumba.json"
+    },
+    {
+      "id": "chokri_naga_li",
+      "name": "Li (Chokri Naga multipart folk song)",
+      "family": "global",
+      "href": "traditions/chokri_naga_li.json"
+    },
+    {
+      "id": "khasi_traditional_music",
+      "name": "Khasi traditional music (tangmuri, ksing, duitara)",
+      "family": "global",
+      "href": "traditions/khasi_traditional_music.json"
+    },
+    {
+      "id": "garo_wangala",
+      "name": "Wangala (Garo harvest-festival drum music)",
+      "family": "global",
+      "href": "traditions/garo_wangala.json"
+    },
+    {
+      "id": "mizo_lengkhawm_zai",
+      "name": "Lengkhawm zai (Mizo congregational singing)",
+      "family": "global",
+      "href": "traditions/mizo_lengkhawm_zai.json"
+    },
+    {
+      "id": "goan_mando_dulpod",
+      "name": "Mando and dulpod (Goan Konkani song)",
+      "family": "global",
+      "href": "traditions/goan_mando_dulpod.json"
+    },
+    {
+      "id": "tiatr_kantaram",
+      "name": "Tiatr kantaram (Konkani theatre song)",
+      "family": "global",
+      "href": "traditions/tiatr_kantaram.json"
+    },
+    {
+      "id": "bombay_jazz_age",
+      "name": "Bombay jazz (Goan-led dance-band jazz)",
+      "family": "jazz",
+      "href": "traditions/bombay_jazz_age.json"
+    },
+    {
+      "id": "kota_nilgiri_music",
+      "name": "Kota instrumental music (Nilgiri hills)",
+      "family": "global",
+      "href": "traditions/kota_nilgiri_music.json"
+    },
+    {
+      "id": "banjara_lambadi_songs",
+      "name": "Banjara songs (Gor Lambadi song)",
+      "family": "global",
+      "href": "traditions/banjara_lambadi_songs.json"
+    },
+    {
+      "id": "torres_strait_ailan_dans",
+      "name": "Ailan Dans (Torres Strait Islander dance-song)",
+      "family": "global",
+      "href": "traditions/torres_strait_ailan_dans.json"
+    },
+    {
+      "id": "torres_strait_island_style",
+      "name": "Torres Strait island style (Thursday Island string-band song)",
+      "family": "global",
+      "href": "traditions/torres_strait_island_style.json"
+    },
+    {
+      "id": "yawulyu_warlpiri",
+      "name": "Yawulyu (Warlpiri women's ceremonial song)",
+      "family": "global",
+      "href": "traditions/yawulyu_warlpiri.json"
+    },
+    {
+      "id": "kun_borrk",
+      "name": "Kun-borrk (western Arnhem Land public song-dance)",
+      "family": "global",
+      "href": "traditions/kun_borrk.json"
+    },
+    {
+      "id": "tiwi_kulama_yoi",
+      "name": "Tiwi song (kulama and yoi of Bathurst and Melville Islands)",
+      "family": "global",
+      "href": "traditions/tiwi_kulama_yoi.json"
+    },
+    {
+      "id": "central_australian_aboriginal_hymnody",
+      "name": "Central Australian Aboriginal hymn singing (Ntaria and Ernabella choirs)",
+      "family": "global",
+      "href": "traditions/central_australian_aboriginal_hymnody.json"
+    },
+    {
+      "id": "aboriginal_country_music",
+      "name": "Aboriginal country music (Koori and Murri country)",
+      "family": "country",
+      "href": "traditions/aboriginal_country_music.json"
+    },
+    {
+      "id": "aboriginal_rock_desert_reggae",
+      "name": "Aboriginal rock and desert reggae (Indigenous band music)",
+      "family": "rock",
+      "href": "traditions/aboriginal_rock_desert_reggae.json"
+    },
+    {
+      "id": "gumleaf_bands",
+      "name": "Gumleaf playing (Aboriginal gumleaf bands)",
+      "family": "global",
+      "href": "traditions/gumleaf_bands.json"
+    },
+    {
+      "id": "djatpangarri",
+      "name": "Djatpangarri (Yolngu youth song-dance of Yirrkala)",
+      "family": "global",
+      "href": "traditions/djatpangarri.json"
+    },
+    {
+      "id": "nurlu_west_kimberley",
+      "name": "Nurlu (West Kimberley public song-dance)",
+      "family": "global",
+      "href": "traditions/nurlu_west_kimberley.json"
+    },
+    {
+      "id": "australian_bush_band",
+      "name": "Bush band (Australian colonial folk-song revival)",
+      "family": "global",
+      "href": "traditions/australian_bush_band.json"
+    },
+    {
+      "id": "maori_showbands",
+      "name": "Māori showbands (concert-party pop)",
+      "family": "pop",
+      "href": "traditions/maori_showbands.json"
+    },
+    {
+      "id": "cook_islands_ura_pau",
+      "name": "Ura pa'u (Cook Islands drum dance)",
+      "family": "global",
+      "href": "traditions/cook_islands_ura_pau.json"
+    },
+    {
+      "id": "tuvalu_fakaseasea_fakanau",
+      "name": "Fakaseasea and fakanau (older Tuvaluan song and dance)",
+      "family": "global",
+      "href": "traditions/tuvalu_fakaseasea_fakanau.json"
+    },
+    {
+      "id": "marshallese_roro_jebwa",
+      "name": "Roro and jebwa (Marshallese chant and stick dance)",
+      "family": "global",
+      "href": "traditions/marshallese_roro_jebwa.json"
+    },
+    {
+      "id": "kantan_chamorrita",
+      "name": "Kantan Chamorrita (Chamorro improvised verse song)",
+      "family": "global",
+      "href": "traditions/kantan_chamorrita.json"
+    },
+    {
+      "id": "hawaiian_falsetto_hula_kui",
+      "name": "Leo kiʻekiʻe (Hawaiian falsetto and hula kuʻi song)",
+      "family": "global",
+      "href": "traditions/hawaiian_falsetto_hula_kui.json"
+    },
+    {
+      "id": "hawaiian_himeni",
+      "name": "Himeni (Hawaiian hymn and choral song)",
+      "family": "global",
+      "href": "traditions/hawaiian_himeni.json"
+    },
+    {
+      "id": "hawaiian_renaissance_contemporary",
+      "name": "Contemporary Hawaiian music (1970s Hawaiian Renaissance)",
+      "family": "global",
+      "href": "traditions/hawaiian_renaissance_contemporary.json"
+    },
+    {
+      "id": "tongan_meetuupaki",
+      "name": "Meʻetuʻupaki (Tongan paddle dance-song)",
+      "family": "global",
+      "href": "traditions/tongan_meetuupaki.json"
+    },
+    {
+      "id": "tongan_hiva_kakala",
+      "name": "Hiva kakala (Tongan string-band love song)",
+      "family": "global",
+      "href": "traditions/tongan_hiva_kakala.json"
+    },
+    {
+      "id": "tongan_hiva_usu",
+      "name": "Hiva usu (Tongan old-style hymn polyphony)",
+      "family": "global",
+      "href": "traditions/tongan_hiva_usu.json"
+    },
+    {
+      "id": "tongan_maulu_ulu",
+      "name": "Maʻuluʻulu (Tongan seated group dance-song)",
+      "family": "global",
+      "href": "traditions/tongan_maulu_ulu.json"
+    },
+    {
+      "id": "tongan_kailao",
+      "name": "Kailao (Tongan war-club dance)",
+      "family": "global",
+      "href": "traditions/tongan_kailao.json"
+    },
+    {
+      "id": "fijian_sere_ni_cumu",
+      "name": "Sere ni cumu (Fijian kava-party string-band song)",
+      "family": "global",
+      "href": "traditions/fijian_sere_ni_cumu.json"
+    },
+    {
+      "id": "indo_fijian_bhajan_chowtal",
+      "name": "Indo-Fijian bhajan and chowtal (Fiji Hindi devotional and Holi song)",
+      "family": "global",
+      "href": "traditions/indo_fijian_bhajan_chowtal.json"
+    },
+    {
+      "id": "rotuman_tautoga",
+      "name": "Tautoga (Rotuman group dance-song)",
+      "family": "global",
+      "href": "traditions/rotuman_tautoga.json"
+    },
+    {
+      "id": "marquesan_haka",
+      "name": "Haka of Te Henua ʻEnana (Marquesan chant and dance)",
+      "family": "global",
+      "href": "traditions/marquesan_haka.json"
+    },
+    {
+      "id": "tahitian_ute",
+      "name": "ʻŪtē (Tahitian satirical song)",
+      "family": "global",
+      "href": "traditions/tahitian_ute.json"
+    },
+    {
+      "id": "rapa_nui_riu",
+      "name": "Riu (Rapa Nui traditional chant)",
+      "family": "global",
+      "href": "traditions/rapa_nui_riu.json"
+    },
+    {
+      "id": "kanak_ae_ae_pilou",
+      "name": "Ae-ae and pilou (Kanak customary dance-song)",
+      "family": "global",
+      "href": "traditions/kanak_ae_ae_pilou.json"
+    },
+    {
+      "id": "loyalty_islands_tapera",
+      "name": "Tapéra (Loyalty Islands church choral song)",
+      "family": "global",
+      "href": "traditions/loyalty_islands_tapera.json"
+    },
+    {
+      "id": "png_stringben",
+      "name": "Stringben (Papua New Guinea string band)",
+      "family": "global",
+      "href": "traditions/png_stringben.json"
+    },
+    {
+      "id": "bougainville_bamboo_band",
+      "name": "Bamboo band (Bougainville and Solomon Islands struck-tube band)",
+      "family": "global",
+      "href": "traditions/bougainville_bamboo_band.json"
+    },
+    {
+      "id": "sepik_sacred_flutes_garamut",
+      "name": "Sepik sacred flutes and garamut (Iatmul and Abelam men's ritual music)",
+      "family": "global",
+      "href": "traditions/sepik_sacred_flutes_garamut.json"
+    },
+    {
+      "id": "baining_fire_dance",
+      "name": "Baining night dance (East New Britain fire-dance song)",
+      "family": "global",
+      "href": "traditions/baining_fire_dance.json"
+    },
+    {
+      "id": "trobriand_wosi_milamala",
+      "name": "Wosi milamala (Trobriand harvest-festival songs)",
+      "family": "global",
+      "href": "traditions/trobriand_wosi_milamala.json"
+    },
+    {
+      "id": "taku_atoll_songs",
+      "name": "Takū song and dance (Polynesian outlier atoll)",
+      "family": "global",
+      "href": "traditions/taku_atoll_songs.json"
+    },
+    {
+      "id": "tikopia_songs",
+      "name": "Tikopia songs (Polynesian outlier dance-songs and laments)",
+      "family": "global",
+      "href": "traditions/tikopia_songs.json"
+    },
+    {
+      "id": "bellona_mungiki_songs",
+      "name": "Mungiki songs (Bellona and Rennell Polynesian song)",
+      "family": "global",
+      "href": "traditions/bellona_mungiki_songs.json"
+    },
+    {
+      "id": "vanuatu_stringben",
+      "name": "Stringben (Ni-Vanuatu string band)",
+      "family": "global",
+      "href": "traditions/vanuatu_stringben.json"
+    },
+    {
+      "id": "ambrym_atingting",
+      "name": "Atingting (Ambrym and Malakula slit-drum ensembles)",
+      "family": "global",
+      "href": "traditions/ambrym_atingting.json"
+    },
+    {
+      "id": "changui_guantanamero",
+      "name": "Changüí (Guantánamo proto-son)",
+      "family": "global",
+      "href": "traditions/changui_guantanamero.json"
+    },
+    {
+      "id": "nengon_kiriba_baracoa",
+      "name": "Nengón and kiribá (Baracoa proto-son)",
+      "family": "global",
+      "href": "traditions/nengon_kiriba_baracoa.json"
+    },
+    {
+      "id": "punto_guajiro_cubano",
+      "name": "Punto guajiro (Cuban improvised décima song)",
+      "family": "global",
+      "href": "traditions/punto_guajiro_cubano.json"
+    },
+    {
+      "id": "tumba_francesa",
+      "name": "Tumba francesa (eastern Cuban Franco-Haitian drum-dance)",
+      "family": "global",
+      "href": "traditions/tumba_francesa.json"
+    },
+    {
+      "id": "conga_santiaguera",
+      "name": "Conga santiaguera (Santiago de Cuba carnival conga)",
+      "family": "global",
+      "href": "traditions/conga_santiaguera.json"
+    },
+    {
+      "id": "abakua_ritual_music",
+      "name": "Abakuá (ñáñigo society drumming and chant)",
+      "family": "global",
+      "href": "traditions/abakua_ritual_music.json"
+    },
+    {
+      "id": "arara_cuban_ritual",
+      "name": "Arará (Dahomeyan-Cuban ritual drumming)",
+      "family": "global",
+      "href": "traditions/arara_cuban_ritual.json"
+    },
+    {
+      "id": "iyesa_matanzas",
+      "name": "Iyesá (Matanzas cabildo drumming and song)",
+      "family": "global",
+      "href": "traditions/iyesa_matanzas.json"
+    },
+    {
+      "id": "yuka_makuta_congo_cubano",
+      "name": "Yuka and makuta (Congo-Cuban secular drum-dance)",
+      "family": "global",
+      "href": "traditions/yuka_makuta_congo_cubano.json"
+    },
+    {
+      "id": "afrocubanismo_concert",
+      "name": "Afrocubanismo (Cuban concert music)",
+      "family": "classical",
+      "href": "traditions/afrocubanismo_concert.json"
+    },
+    {
+      "id": "zarzuela_cubana",
+      "name": "Zarzuela cubana (Havana lyric theatre)",
+      "family": "classical",
+      "href": "traditions/zarzuela_cubana.json"
+    },
+    {
+      "id": "mozambique_cubano",
+      "name": "Mozambique (1960s Havana percussion dance)",
+      "family": "global",
+      "href": "traditions/mozambique_cubano.json"
+    },
+    {
+      "id": "organo_oriental_manzanillo",
+      "name": "Órgano oriental (Manzanillo dance-organ music)",
+      "family": "global",
+      "href": "traditions/organo_oriental_manzanillo.json"
+    },
+    {
+      "id": "kumina_jamaican",
+      "name": "Kumina (St Thomas Bongo-nation ritual drumming)",
+      "family": "global",
+      "href": "traditions/kumina_jamaican.json"
+    },
+    {
+      "id": "revival_zion_pukkumina",
+      "name": "Revival Zion and Pukkumina (Jamaican Revivalist worship)",
+      "family": "global",
+      "href": "traditions/revival_zion_pukkumina.json"
+    },
+    {
+      "id": "jamaican_maroon_kromanti",
+      "name": "Kromanti play (Jamaican Maroon ceremonial music)",
+      "family": "global",
+      "href": "traditions/jamaican_maroon_kromanti.json"
+    },
+    {
+      "id": "jamaican_jonkonnu",
+      "name": "Jonkonnu (Jamaican fife-and-drum masquerade)",
+      "family": "global",
+      "href": "traditions/jamaican_jonkonnu.json"
+    },
+    {
+      "id": "etu_jamaican",
+      "name": "Etu (Hanover Yoruba-Jamaican feast dance)",
+      "family": "global",
+      "href": "traditions/etu_jamaican.json"
+    },
+    {
+      "id": "jamaican_dinki_mini_gerreh",
+      "name": "Dinki mini and gerreh (Jamaican nine-night wake music)",
+      "family": "global",
+      "href": "traditions/jamaican_dinki_mini_gerreh.json"
+    },
+    {
+      "id": "jamaican_digging_ring_play_songs",
+      "name": "Digging songs and ring-play songs (rural Jamaica)",
+      "family": "global",
+      "href": "traditions/jamaican_digging_ring_play_songs.json"
+    },
+    {
+      "id": "jamaican_shuffle_rnb",
+      "name": "Jamaican shuffle (pre-ska Kingston R&B)",
+      "family": "global",
+      "href": "traditions/jamaican_shuffle_rnb.json"
+    },
+    {
+      "id": "haitian_konbit_work_songs",
+      "name": "Konbit songs (Haitian collective work songs)",
+      "family": "global",
+      "href": "traditions/haitian_konbit_work_songs.json"
+    },
+    {
+      "id": "dominican_palos_atabales",
+      "name": "Palos / atabales (Afro-Dominican sacred drumming)",
+      "family": "global",
+      "href": "traditions/dominican_palos_atabales.json"
+    },
+    {
+      "id": "salve_dominicana",
+      "name": "Salve dominicana (Dominican Marian devotional song)",
+      "family": "global",
+      "href": "traditions/salve_dominicana.json"
+    },
+    {
+      "id": "dominican_mangulina_carabine",
+      "name": "Mangulina and carabiné (Dominican campesino dances)",
+      "family": "global",
+      "href": "traditions/dominican_mangulina_carabine.json"
+    },
+    {
+      "id": "guloyas_cocolo_dance_drama",
+      "name": "Guloyas (Cocolo dance-drama of San Pedro de Macorís)",
+      "family": "global",
+      "href": "traditions/guloyas_cocolo_dance_drama.json"
+    },
+    {
+      "id": "danza_puertorriquena",
+      "name": "Danza puertorriqueña (Puerto Rican salon danza)",
+      "family": "classical",
+      "href": "traditions/danza_puertorriquena.json"
+    },
+    {
+      "id": "nueva_trova_puertorriquena",
+      "name": "Nueva trova puertorriqueña (Puerto Rican protest song)",
+      "family": "global",
+      "href": "traditions/nueva_trova_puertorriquena.json"
+    },
+    {
+      "id": "trinidad_kalinda",
+      "name": "Kalinda (Trinidad stick-fighting chant)",
+      "family": "global",
+      "href": "traditions/trinidad_kalinda.json"
+    },
+    {
+      "id": "tamboo_bamboo",
+      "name": "Tamboo bamboo (Trinidad bamboo-tube band)",
+      "family": "global",
+      "href": "traditions/tamboo_bamboo.json"
+    },
+    {
+      "id": "trinidad_orisha_shango",
+      "name": "Orisha (Shango) drumming and song (Trinidad)",
+      "family": "global",
+      "href": "traditions/trinidad_orisha_shango.json"
+    },
+    {
+      "id": "spiritual_baptist_hymnody",
+      "name": "Spiritual Baptist (Shouter) hymn singing",
+      "family": "global",
+      "href": "traditions/spiritual_baptist_hymnody.json"
+    },
+    {
+      "id": "trinidad_tassa_drumming",
+      "name": "Tassa drumming (Indo-Trinidadian drum ensemble)",
+      "family": "global",
+      "href": "traditions/trinidad_tassa_drumming.json"
+    },
+    {
+      "id": "tan_singing",
+      "name": "Tan singing (Indo-Caribbean local classical song)",
+      "family": "classical",
+      "href": "traditions/tan_singing.json"
+    },
+    {
+      "id": "tobago_tambrin_reel_jig",
+      "name": "Tambrin band music (Tobago reel and jig)",
+      "family": "global",
+      "href": "traditions/tobago_tambrin_reel_jig.json"
+    },
+    {
+      "id": "barbados_tuk_band",
+      "name": "Tuk band (Barbados)",
+      "family": "global",
+      "href": "traditions/barbados_tuk_band.json"
+    },
+    {
+      "id": "spouge",
+      "name": "Spouge (Barbadian ska-calypso)",
+      "family": "global",
+      "href": "traditions/spouge.json"
+    },
+    {
+      "id": "rake_and_scrape",
+      "name": "Rake-and-scrape (Bahamian saw-and-accordion dance music)",
+      "family": "global",
+      "href": "traditions/rake_and_scrape.json"
+    },
+    {
+      "id": "bahamian_rhyming_spirituals",
+      "name": "Rhyming spirituals (Bahamian anthems)",
+      "family": "global",
+      "href": "traditions/bahamian_rhyming_spirituals.json"
+    },
+    {
+      "id": "bahamian_goombay_calypso",
+      "name": "Goombay (Nassau nightclub calypso)",
+      "family": "global",
+      "href": "traditions/bahamian_goombay_calypso.json"
+    },
+    {
+      "id": "carriacou_big_drum",
+      "name": "Big Drum (Carriacou Nation Dance)",
+      "family": "global",
+      "href": "traditions/carriacou_big_drum.json"
+    },
+    {
+      "id": "carriacou_string_band",
+      "name": "Carriacou string band (quadrille and parang serenade)",
+      "family": "global",
+      "href": "traditions/carriacou_string_band.json"
+    },
+    {
+      "id": "saint_lucian_kwadril",
+      "name": "Kwadril (Saint Lucian quadrille)",
+      "family": "global",
+      "href": "traditions/saint_lucian_kwadril.json"
+    },
+    {
+      "id": "saint_lucian_flower_societies",
+      "name": "La Rose and La Marguerite (Saint Lucian flower-society songs)",
+      "family": "global",
+      "href": "traditions/saint_lucian_flower_societies.json"
+    },
+    {
+      "id": "saint_lucian_jwe",
+      "name": "Jwé (Saint Lucian wake and play songs)",
+      "family": "global",
+      "href": "traditions/saint_lucian_jwe.json"
+    },
+    {
+      "id": "jing_ping",
+      "name": "Jing ping (Dominica accordion band music)",
+      "family": "global",
+      "href": "traditions/jing_ping.json"
+    },
+    {
+      "id": "dominica_bele",
+      "name": "Bélé (Dominica drum-dance)",
+      "family": "global",
+      "href": "traditions/dominica_bele.json"
+    },
+    {
+      "id": "kittitian_big_drum_fife_masquerade",
+      "name": "Big drum and fife (St Kitts and Nevis Christmas Sports masquerade)",
+      "family": "global",
+      "href": "traditions/kittitian_big_drum_fife_masquerade.json"
+    },
+    {
+      "id": "quelbe",
+      "name": "Quelbe (Virgin Islands scratch band)",
+      "family": "global",
+      "href": "traditions/quelbe.json"
+    },
+    {
+      "id": "cariso_st_croix",
+      "name": "Cariso (St Croix women's song)",
+      "family": "global",
+      "href": "traditions/cariso_st_croix.json"
+    },
+    {
+      "id": "tambu_curacao",
+      "name": "Tambú (Curaçao drum-song)",
+      "family": "global",
+      "href": "traditions/tambu_curacao.json"
+    },
+    {
+      "id": "seu_curacao",
+      "name": "Seú (Curaçao harvest procession)",
+      "family": "global",
+      "href": "traditions/seu_curacao.json"
+    },
+    {
+      "id": "dande_aruba",
+      "name": "Dande (Aruban New Year serenade)",
+      "family": "global",
+      "href": "traditions/dande_aruba.json"
+    },
+    {
+      "id": "bele_martinique",
+      "name": "Bèlè (Martinique drum-dance)",
+      "family": "global",
+      "href": "traditions/bele_martinique.json"
+    },
+    {
+      "id": "danmye_ladja_martinique",
+      "name": "Danmyé (Martinican ladja combat-dance music)",
+      "family": "global",
+      "href": "traditions/danmye_ladja_martinique.json"
+    },
+    {
+      "id": "guadeloupe_mas_a_po",
+      "name": "Mas a po (Guadeloupean carnival skin-drum bands)",
+      "family": "global",
+      "href": "traditions/guadeloupe_mas_a_po.json"
+    },
+    {
+      "id": "son_palenquero",
+      "name": "Son palenquero (San Basilio de Palenque sexteto)",
+      "family": "global",
+      "href": "traditions/son_palenquero.json"
+    },
+    {
+      "id": "alabaos_gualies_pacifico",
+      "name": "Alabaos and gualíes (Colombian Pacific wake songs)",
+      "family": "global",
+      "href": "traditions/alabaos_gualies_pacifico.json"
+    },
+    {
+      "id": "chirimia_chocoana",
+      "name": "Chirimía chocoana (Quibdó street band)",
+      "family": "global",
+      "href": "traditions/chirimia_chocoana.json"
+    },
+    {
+      "id": "carranga_boyacense",
+      "name": "Carranga (Boyacá campesino string music)",
+      "family": "global",
+      "href": "traditions/carranga_boyacense.json"
+    },
+    {
+      "id": "torbellino_guabina",
+      "name": "Torbellino and guabina (Santander-Boyacá highland song)",
+      "family": "global",
+      "href": "traditions/torbellino_guabina.json"
+    },
+    {
+      "id": "musica_parrandera_paisa",
+      "name": "Música parrandera (Antioquian December party song)",
+      "family": "global",
+      "href": "traditions/musica_parrandera_paisa.json"
+    },
+    {
+      "id": "wayuu_jayeechi",
+      "name": "Jayeechi (Wayuu sung narratives)",
+      "family": "global",
+      "href": "traditions/wayuu_jayeechi.json"
+    },
+    {
+      "id": "guaracha_aleteo_colombiana",
+      "name": "Guaracha colombiana (aleteo electronic dance)",
+      "family": "electronic",
+      "href": "traditions/guaracha_aleteo_colombiana.json"
+    },
+    {
+      "id": "chimbangueles_san_benito",
+      "name": "Chimbangueles (San Benito drumming of Sur del Lago)",
+      "family": "global",
+      "href": "traditions/chimbangueles_san_benito.json"
+    },
+    {
+      "id": "calipso_el_callao",
+      "name": "Calipso de El Callao (Venezuelan Guayana carnival calypso)",
+      "family": "global",
+      "href": "traditions/calipso_el_callao.json"
+    },
+    {
+      "id": "parranda_san_pedro_guatire",
+      "name": "Parranda de San Pedro (Guarenas and Guatire)",
+      "family": "global",
+      "href": "traditions/parranda_san_pedro_guatire.json"
+    },
+    {
+      "id": "diablos_danzantes_venezuela",
+      "name": "Diablos danzantes (Venezuelan Corpus Christi devil-dance music)",
+      "family": "global",
+      "href": "traditions/diablos_danzantes_venezuela.json"
+    },
+    {
+      "id": "aguinaldo_parranda_venezolana",
+      "name": "Aguinaldo venezolano (Venezuelan Christmas parranda)",
+      "family": "global",
+      "href": "traditions/aguinaldo_parranda_venezolana.json"
+    },
+    {
+      "id": "tamunangue_lara",
+      "name": "Tamunangue (Lara sones de negro for San Antonio)",
+      "family": "global",
+      "href": "traditions/tamunangue_lara.json"
+    },
+    {
+      "id": "golpe_larense",
+      "name": "Golpe larense (golpe tocuyano)",
+      "family": "global",
+      "href": "traditions/golpe_larense.json"
+    },
+    {
+      "id": "merengue_caraqueno",
+      "name": "Merengue caraqueño (Venezuelan 5/8 merengue)",
+      "family": "global",
+      "href": "traditions/merengue_caraqueno.json"
+    },
+    {
+      "id": "vals_venezolano",
+      "name": "Vals venezolano (Venezuelan waltz)",
+      "family": "classical",
+      "href": "traditions/vals_venezolano.json"
+    },
+    {
+      "id": "onda_nueva",
+      "name": "Onda nueva (Venezuelan jazz-joropo)",
+      "family": "global",
+      "href": "traditions/onda_nueva.json"
+    },
+    {
+      "id": "musica_oriental_venezolana",
+      "name": "Música oriental (eastern Venezuelan galerón and polo)",
+      "family": "global",
+      "href": "traditions/musica_oriental_venezolana.json"
+    },
+    {
+      "id": "joropo_central_tuyero",
+      "name": "Joropo central (Tuy valleys harp joropo)",
+      "family": "global",
+      "href": "traditions/joropo_central_tuyero.json"
+    },
+    {
+      "id": "fulia_velorio_de_cruz",
+      "name": "Fulía (Venezuelan Cruz de Mayo wake song)",
+      "family": "global",
+      "href": "traditions/fulia_velorio_de_cruz.json"
+    },
+    {
+      "id": "changa_tuki",
+      "name": "Changa tuki (Caracas barrio electronic dance)",
+      "family": "electronic",
+      "href": "traditions/changa_tuki.json"
+    },
+    {
+      "id": "warao_song_orinoco_delta",
+      "name": "Warao song (Orinoco delta shamanic song)",
+      "family": "global",
+      "href": "traditions/warao_song_orinoco_delta.json"
+    },
+    {
+      "id": "son_de_artesa",
+      "name": "Son de artesa (Costa Chica platform-dance son)",
+      "family": "global",
+      "href": "traditions/son_de_artesa.json"
+    },
+    {
+      "id": "danza_de_diablos_costa_chica",
+      "name": "Danza de los diablos (Costa Chica Afro-Mexican devil dance)",
+      "family": "global",
+      "href": "traditions/danza_de_diablos_costa_chica.json"
+    },
+    {
+      "id": "jarana_yucateca",
+      "name": "Jarana yucateca (Yucatecan vaquería dance band)",
+      "family": "global",
+      "href": "traditions/jarana_yucateca.json"
+    },
+    {
+      "id": "huapango_arribeno",
+      "name": "Huapango arribeño (Sierra Gorda topada)",
+      "family": "global",
+      "href": "traditions/huapango_arribeno.json"
+    },
+    {
+      "id": "colombia_de_monterrey",
+      "name": "Colombia de Monterrey (regiomontano cumbia vallenata)",
+      "family": "global",
+      "href": "traditions/colombia_de_monterrey.json"
+    },
+    {
+      "id": "parachicos_chiapa_de_corzo",
+      "name": "Parachicos (Chiapa de Corzo January fiesta music)",
+      "family": "global",
+      "href": "traditions/parachicos_chiapa_de_corzo.json"
+    },
+    {
+      "id": "heikyoku_heike_biwa",
+      "name": "Heikyoku (Heike biwa recitation)",
+      "family": "classical",
+      "href": "traditions/heikyoku_heike_biwa.json"
+    },
+    {
+      "id": "satsuma_biwa",
+      "name": "Satsuma biwa (Kagoshima narrative lute song)",
+      "family": "classical",
+      "href": "traditions/satsuma_biwa.json"
+    },
+    {
+      "id": "chikuzen_biwa",
+      "name": "Chikuzen biwa (Hakata narrative lute song)",
+      "family": "classical",
+      "href": "traditions/chikuzen_biwa.json"
+    },
+    {
+      "id": "higo_biwa_moso",
+      "name": "Higo biwa (Kumamoto blind-priest biwa narrative)",
+      "family": "global",
+      "href": "traditions/higo_biwa_moso.json"
+    },
+    {
+      "id": "tokiwazu_bushi",
+      "name": "Tokiwazu-bushi (kabuki narrative shamisen song)",
+      "family": "classical",
+      "href": "traditions/tokiwazu_bushi.json"
+    },
+    {
+      "id": "kiyomoto_bushi",
+      "name": "Kiyomoto-bushi (high-voiced kabuki narrative song)",
+      "family": "classical",
+      "href": "traditions/kiyomoto_bushi.json"
+    },
+    {
+      "id": "shinnai_bushi",
+      "name": "Shinnai-bushi (Edo street-ballad jōruri)",
+      "family": "classical",
+      "href": "traditions/shinnai_bushi.json"
+    },
+    {
+      "id": "kokyoku_joruri",
+      "name": "Kokyoku (Itchū, Katō, Miyazono and Ogie-bushi)",
+      "family": "classical",
+      "href": "traditions/kokyoku_joruri.json"
+    },
+    {
+      "id": "edo_kouta",
+      "name": "Kouta (Edo short shamisen song)",
+      "family": "classical",
+      "href": "traditions/edo_kouta.json"
+    },
+    {
+      "id": "gendai_hogaku",
+      "name": "Gendai hōgaku (contemporary music for Japanese instruments)",
+      "family": "classical",
+      "href": "traditions/gendai_hogaku.json"
+    },
+    {
+      "id": "shigin_poetry_chant",
+      "name": "Shigin (chanted Chinese-style poetry)",
+      "family": "classical",
+      "href": "traditions/shigin_poetry_chant.json"
+    },
+    {
+      "id": "nachi_no_dengaku",
+      "name": "Nachi no Dengaku (Nachi shrine field-music ritual)",
+      "family": "global",
+      "href": "traditions/nachi_no_dengaku.json"
+    },
+    {
+      "id": "hayachine_kagura",
+      "name": "Hayachine kagura (Iwate yamabushi kagura)",
+      "family": "global",
+      "href": "traditions/hayachine_kagura.json"
+    },
+    {
+      "id": "iwami_kagura",
+      "name": "Iwami kagura (western Shimane kagura)",
+      "family": "global",
+      "href": "traditions/iwami_kagura.json"
+    },
+    {
+      "id": "oku_mikawa_hanamatsuri",
+      "name": "Hanamatsuri (Oku-Mikawa yudate kagura)",
+      "family": "global",
+      "href": "traditions/oku_mikawa_hanamatsuri.json"
+    },
+    {
+      "id": "kawachi_ondo",
+      "name": "Kawachi ondo (Osaka narrative bon-dance song)",
+      "family": "global",
+      "href": "traditions/kawachi_ondo.json"
+    },
+    {
+      "id": "goze_uta",
+      "name": "Goze-uta (Echigo blind women's shamisen song)",
+      "family": "global",
+      "href": "traditions/goze_uta.json"
+    },
+    {
+      "id": "edo_kiyari",
+      "name": "Kiyari (Edo timber-hauling and firemen's chant)",
+      "family": "global",
+      "href": "traditions/edo_kiyari.json"
+    },
+    {
+      "id": "amami_shimauta",
+      "name": "Amami shima-uta (Amami Islands song)",
+      "family": "global",
+      "href": "traditions/amami_shimauta.json"
+    },
+    {
+      "id": "yaeyama_minyo",
+      "name": "Yaeyama min'yō (Yaeyama Islands song, yunta and jiraba)",
+      "family": "global",
+      "href": "traditions/yaeyama_minyo.json"
+    },
+    {
+      "id": "ryukyu_noro_umui_kwena",
+      "name": "Umui and kwena (Ryukyuan priestess ritual song)",
+      "family": "global",
+      "href": "traditions/ryukyu_noro_umui_kwena.json"
+    },
+    {
+      "id": "kakure_kirishitan_orasho",
+      "name": "Orasho (Kakure Kirishitan hidden-Christian prayer chant)",
+      "family": "global",
+      "href": "traditions/kakure_kirishitan_orasho.json"
+    },
+    {
+      "id": "goeika_pilgrim_hymn",
+      "name": "Goeika (Japanese Buddhist pilgrim hymns)",
+      "family": "global",
+      "href": "traditions/goeika_pilgrim_hymn.json"
+    },
+    {
+      "id": "sekkyo_bushi",
+      "name": "Sekkyō-bushi (Hachiōji sermon-ballad narrative)",
+      "family": "classical",
+      "href": "traditions/sekkyo_bushi.json"
+    },
+    {
+      "id": "chindon_ya",
+      "name": "Chindon-ya (Japanese street advertising band)",
+      "family": "global",
+      "href": "traditions/chindon_ya.json"
+    },
+    {
+      "id": "rokyoku_naniwa_bushi",
+      "name": "Rōkyoku (naniwa-bushi shamisen narrative song)",
+      "family": "global",
+      "href": "traditions/rokyoku_naniwa_bushi.json"
+    },
+    {
+      "id": "japanese_gunka",
+      "name": "Gunka (Japanese military song)",
+      "family": "global",
+      "href": "traditions/japanese_gunka.json"
+    },
+    {
+      "id": "soshi_enka_enkashi",
+      "name": "Enka-shi street song (sōshi enka and violin enka)",
+      "family": "global",
+      "href": "traditions/soshi_enka_enkashi.json"
+    },
+    {
+      "id": "kansai_foku_urc",
+      "name": "Kansai foku (Kansai underground folk song)",
+      "family": "global",
+      "href": "traditions/kansai_foku_urc.json"
+    },
+    {
+      "id": "koza_rock",
+      "name": "Koza rock (Okinawan base-town hard rock)",
+      "family": "rock",
+      "href": "traditions/koza_rock.json"
+    },
+    {
+      "id": "daechwita",
+      "name": "Daechwita (Korean royal military processional music)",
+      "family": "classical",
+      "href": "traditions/daechwita.json"
+    },
+    {
+      "id": "changgeuk",
+      "name": "Changgeuk (Korean staged pansori opera)",
+      "family": "classical",
+      "href": "traditions/changgeuk.json"
+    },
+    {
+      "id": "gugak_gwanhyeonak",
+      "name": "Gugak gwanhyeonak (Korean traditional-instrument orchestra)",
+      "family": "classical",
+      "href": "traditions/gugak_gwanhyeonak.json"
+    },
+    {
+      "id": "donghaean_byeolsingut",
+      "name": "Donghaean byeolsingut (Korean east-coast village shaman rite)",
+      "family": "global",
+      "href": "traditions/donghaean_byeolsingut.json"
+    },
+    {
+      "id": "jeju_simbang_gut",
+      "name": "Jeju simbang gut (Jeju Island shaman ritual)",
+      "family": "global",
+      "href": "traditions/jeju_simbang_gut.json"
+    },
+    {
+      "id": "korean_talchum",
+      "name": "Talchum (Korean mask-dance drama music)",
+      "family": "global",
+      "href": "traditions/korean_talchum.json"
+    },
+    {
+      "id": "north_korean_revolutionary_song",
+      "name": "Hyeongmyeong gayo (North Korean revolutionary song)",
+      "family": "global",
+      "href": "traditions/north_korean_revolutionary_song.json"
+    },
+    {
+      "id": "north_korean_electronic_light_music",
+      "name": "North Korean electronic light music (Pochonbo-style ensembles)",
+      "family": "pop",
+      "href": "traditions/north_korean_electronic_light_music.json"
+    },
+    {
+      "id": "pibada_revolutionary_opera",
+      "name": "Pibada-sik gageuk (North Korean Sea of Blood-style revolutionary opera)",
+      "family": "classical",
+      "href": "traditions/pibada_revolutionary_opera.json"
+    },
+    {
+      "id": "north_korean_minjok_eumak",
+      "name": "Minjok eumak (North Korean reformed national music)",
+      "family": "classical",
+      "href": "traditions/north_korean_minjok_eumak.json"
+    },
+    {
+      "id": "saeta_andaluza",
+      "name": "Saeta (Andalusian Holy Week processional song)",
+      "family": "global",
+      "href": "traditions/saeta_andaluza.json"
+    },
+    {
+      "id": "fandangos_de_huelva",
+      "name": "Fandangos de Huelva (Huelva village fandangos)",
+      "family": "global",
+      "href": "traditions/fandangos_de_huelva.json"
+    },
+    {
+      "id": "cantes_mineros_levante",
+      "name": "Cantes mineros (taranta, minera, cartagenera)",
+      "family": "global",
+      "href": "traditions/cantes_mineros_levante.json"
+    },
+    {
+      "id": "tangos_tientos_flamencos",
+      "name": "Tangos and tientos (flamenco four-beat palos)",
+      "family": "global",
+      "href": "traditions/tangos_tientos_flamencos.json"
+    },
+    {
+      "id": "cantes_de_ida_y_vuelta",
+      "name": "Cantes de ida y vuelta (guajira, colombiana, milonga)",
+      "family": "global",
+      "href": "traditions/cantes_de_ida_y_vuelta.json"
+    },
+    {
+      "id": "opera_flamenca",
+      "name": "Ópera flamenca (1920s-1950s staged flamenco)",
+      "family": "global",
+      "href": "traditions/opera_flamenca.json"
+    },
+    {
+      "id": "zambra_sacromonte",
+      "name": "Zambra gitana (Sacromonte cave zambra)",
+      "family": "global",
+      "href": "traditions/zambra_sacromonte.json"
+    },
+    {
+      "id": "verdiales_malaga",
+      "name": "Verdiales (Málaga hill-country pandas)",
+      "family": "global",
+      "href": "traditions/verdiales_malaga.json"
+    },
+    {
+      "id": "zambomba_jerezana",
+      "name": "Zambomba jerezana (Jerez Christmas villancico gathering)",
+      "family": "global",
+      "href": "traditions/zambomba_jerezana.json"
+    },
+    {
+      "id": "auroros_murcia",
+      "name": "Auroros (Murcian dawn-song brotherhoods)",
+      "family": "global",
+      "href": "traditions/auroros_murcia.json"
+    },
+    {
+      "id": "cuadrillas_de_animas",
+      "name": "Cuadrillas de ánimas (Murcian aguilando bands)",
+      "family": "global",
+      "href": "traditions/cuadrillas_de_animas.json"
+    },
+    {
+      "id": "trovo_alpujarreno",
+      "name": "Trovo (Alpujarra improvised sung verse)",
+      "family": "global",
+      "href": "traditions/trovo_alpujarreno.json"
+    },
+    {
+      "id": "cant_d_estil_valencia",
+      "name": "Cant d'estil (Valencian sung style-song)",
+      "family": "global",
+      "href": "traditions/cant_d_estil_valencia.json"
+    },
+    {
+      "id": "musica_festera_moros_cristianos",
+      "name": "Música festera (Moros y Cristianos marches)",
+      "family": "global",
+      "href": "traditions/musica_festera_moros_cristianos.json"
+    },
+    {
+      "id": "misteri_d_elx",
+      "name": "Misteri d'Elx (Elche Assumption mystery play)",
+      "family": "global",
+      "href": "traditions/misteri_d_elx.json"
+    },
+    {
+      "id": "cant_de_la_sibilla",
+      "name": "Cant de la Sibil·la (Mallorcan Christmas Sibyl chant)",
+      "family": "global",
+      "href": "traditions/cant_de_la_sibilla.json"
+    },
+    {
+      "id": "ball_de_bot_mallorca",
+      "name": "Ball de bot and xeremiers (Mallorcan dance music)",
+      "family": "global",
+      "href": "traditions/ball_de_bot_mallorca.json"
+    },
+    {
+      "id": "baile_del_tambor_gomera",
+      "name": "Baile del tambor (La Gomera drum-and-chácaras ballads)",
+      "family": "global",
+      "href": "traditions/baile_del_tambor_gomera.json"
+    },
+    {
+      "id": "seguidillas_manchegas",
+      "name": "Seguidillas manchegas (La Mancha sung dance)",
+      "family": "global",
+      "href": "traditions/seguidillas_manchegas.json"
+    },
+    {
+      "id": "regueifa_galega",
+      "name": "Regueifa (Galician sung verse duel)",
+      "family": "global",
+      "href": "traditions/regueifa_galega.json"
+    },
+    {
+      "id": "tamboradas_semana_santa",
+      "name": "Tamboradas (Spanish Holy Week drum rituals)",
+      "family": "global",
+      "href": "traditions/tamboradas_semana_santa.json"
+    },
+    {
+      "id": "romancero_oral_hispanico",
+      "name": "Romancero (Spanish oral ballad singing)",
+      "family": "global",
+      "href": "traditions/romancero_oral_hispanico.json"
+    },
+    {
+      "id": "cantigas_de_santa_maria",
+      "name": "Cantigas de Santa María (Alfonsine Marian songs)",
+      "family": "classical",
+      "href": "traditions/cantigas_de_santa_maria.json"
+    },
+    {
+      "id": "tonadilla_escenica",
+      "name": "Tonadilla escénica (Madrid theatre song-interlude)",
+      "family": "classical",
+      "href": "traditions/tonadilla_escenica.json"
+    },
+    {
+      "id": "bakalao_valenciano",
+      "name": "Bakalao (Valencian Ruta club sound)",
+      "family": "electronic",
+      "href": "traditions/bakalao_valenciano.json"
+    },
+    {
+      "id": "desgarrada_minhota",
+      "name": "Desgarrada minhota (Minho sung challenge)",
+      "family": "global",
+      "href": "traditions/desgarrada_minhota.json"
+    },
+    {
+      "id": "cante_ao_baldao",
+      "name": "Cante ao baldão (Alentejo sung challenge with viola campaniça)",
+      "family": "global",
+      "href": "traditions/cante_ao_baldao.json"
+    },
+    {
+      "id": "gaita_mirandesa_pauliteiros",
+      "name": "Gaita mirandesa and pauliteiros (Terra de Miranda)",
+      "family": "global",
+      "href": "traditions/gaita_mirandesa_pauliteiros.json"
+    },
+    {
+      "id": "corridinho_algarvio",
+      "name": "Corridinho (Algarve accordion dance)",
+      "family": "global",
+      "href": "traditions/corridinho_algarvio.json"
+    },
+    {
+      "id": "musica_pimba",
+      "name": "Pimba (Portuguese arraial popular song)",
+      "family": "pop",
+      "href": "traditions/musica_pimba.json"
+    },
+    {
+      "id": "marchas_populares_lisboa",
+      "name": "Marchas populares (Lisbon Santo António parades)",
+      "family": "global",
+      "href": "traditions/marchas_populares_lisboa.json"
+    },
+    {
+      "id": "revista_portuguesa",
+      "name": "Revista à portuguesa (Lisbon Parque Mayer revue song)",
+      "family": "global",
+      "href": "traditions/revista_portuguesa.json"
+    },
+    {
+      "id": "encomendacao_das_almas",
+      "name": "Encomendação das almas (Portuguese Lenten souls chant)",
+      "family": "global",
+      "href": "traditions/encomendacao_das_almas.json"
+    },
+    {
+      "id": "ottava_rima_improvvisata",
+      "name": "Ottava rima improvvisata (Tuscan and Lazio poeti a braccio)",
+      "family": "global",
+      "href": "traditions/ottava_rima_improvvisata.json"
+    },
+    {
+      "id": "arbereshe_vjersh",
+      "name": "Vjersh (Arbëreshë multipart song of Calabria and Basilicata)",
+      "family": "global",
+      "href": "traditions/arbereshe_vjersh.json"
+    },
+    {
+      "id": "griko_salentino",
+      "name": "Griko song (Grecìa Salentina)",
+      "family": "global",
+      "href": "traditions/griko_salentino.json"
+    },
+    {
+      "id": "courenta_valadas_occitanas",
+      "name": "Courenta and balet (Occitan valleys of Piedmont dance music)",
+      "family": "global",
+      "href": "traditions/courenta_valadas_occitanas.json"
+    },
+    {
+      "id": "resian_citira_bunkula",
+      "name": "Citira and bunkula (Val Resia dance music)",
+      "family": "global",
+      "href": "traditions/resian_citira_bunkula.json"
+    },
+    {
+      "id": "maggio_drammatico",
+      "name": "Maggio drammatico (Apennine sung folk drama)",
+      "family": "global",
+      "href": "traditions/maggio_drammatico.json"
+    },
+    {
+      "id": "canti_delle_mondine",
+      "name": "Canti delle mondine (Po valley rice-weeders' songs)",
+      "family": "global",
+      "href": "traditions/canti_delle_mondine.json"
+    },
+    {
+      "id": "canti_di_questua",
+      "name": "Canti di questua (Pasquella and Cantamaggio door-to-door songs)",
+      "family": "global",
+      "href": "traditions/canti_di_questua.json"
+    },
+    {
+      "id": "lamenti_settimana_santa_sicilia",
+      "name": "Lamenti della Settimana Santa (Sicilian Holy Week multipart laments)",
+      "family": "global",
+      "href": "traditions/lamenti_settimana_santa_sicilia.json"
+    },
+    {
+      "id": "banda_da_giro_pugliese",
+      "name": "Banda da giro (Apulian touring wind band)",
+      "family": "global",
+      "href": "traditions/banda_da_giro_pugliese.json"
+    },
+    {
+      "id": "sceneggiata_napoletana",
+      "name": "Sceneggiata (Neapolitan song melodrama)",
+      "family": "global",
+      "href": "traditions/sceneggiata_napoletana.json"
+    },
+    {
+      "id": "canzone_romanesca",
+      "name": "Canzone romanesca (Roman dialect popular song)",
+      "family": "global",
+      "href": "traditions/canzone_romanesca.json"
+    },
+    {
+      "id": "old_roman_chant",
+      "name": "Cantus romanus (Old Roman chant)",
+      "family": "classical",
+      "href": "traditions/old_roman_chant.json"
+    },
+    {
+      "id": "lauda_spirituale",
+      "name": "Lauda spirituale (Italian vernacular devotional song)",
+      "family": "classical",
+      "href": "traditions/lauda_spirituale.json"
+    },
+    {
+      "id": "frottola",
+      "name": "Frottola (north Italian court song, c. 1500)",
+      "family": "classical",
+      "href": "traditions/frottola.json"
+    },
+    {
+      "id": "villanella_napoletana",
+      "name": "Villanella alla napoletana (Neapolitan villanesca)",
+      "family": "classical",
+      "href": "traditions/villanella_napoletana.json"
+    },
+    {
+      "id": "minhag_italiani_chant",
+      "name": "Minhag italiani (Italian-rite synagogue chant)",
+      "family": "global",
+      "href": "traditions/minhag_italiani_chant.json"
+    },
+    {
+      "id": "marc_brijuz_malta",
+      "name": "Marċ brijuż (Maltese band-club festa march)",
+      "family": "global",
+      "href": "traditions/marc_brijuz_malta.json"
+    },
+    {
+      "id": "zaqq_u_tanbur",
+      "name": "Żaqq u tanbur (Maltese bagpipe and drum music)",
+      "family": "global",
+      "href": "traditions/zaqq_u_tanbur.json"
+    },
+    {
+      "id": "bumba_meu_boi_maranhao",
+      "name": "Bumba-meu-boi do Maranhão (São Luís ox drama)",
+      "family": "global",
+      "href": "traditions/bumba_meu_boi_maranhao.json"
+    },
+    {
+      "id": "tambor_de_crioula",
+      "name": "Tambor de crioula (Maranhão punga drum dance)",
+      "family": "global",
+      "href": "traditions/tambor_de_crioula.json"
+    },
+    {
+      "id": "tambor_de_mina",
+      "name": "Tambor de Mina (Maranhão Jeje-Nagô liturgy)",
+      "family": "global",
+      "href": "traditions/tambor_de_mina.json"
+    },
+    {
+      "id": "xango_pernambuco",
+      "name": "Xangô de Pernambuco (Recife Nagô orisha liturgy)",
+      "family": "global",
+      "href": "traditions/xango_pernambuco.json"
+    },
+    {
+      "id": "jurema_sagrada",
+      "name": "Jurema sagrada (catimbó toantes)",
+      "family": "global",
+      "href": "traditions/jurema_sagrada.json"
+    },
+    {
+      "id": "batuque_gaucho",
+      "name": "Batuque (Rio Grande do Sul orisha religion)",
+      "family": "global",
+      "href": "traditions/batuque_gaucho.json"
+    },
+    {
+      "id": "caboclinho_pernambucano",
+      "name": "Caboclinho (Pernambuco carnival caboclo groups)",
+      "family": "global",
+      "href": "traditions/caboclinho_pernambucano.json"
+    },
+    {
+      "id": "ciranda_pernambucana",
+      "name": "Ciranda (Pernambuco coastal circle dance)",
+      "family": "global",
+      "href": "traditions/ciranda_pernambucana.json"
+    },
+    {
+      "id": "cavalo_marinho",
+      "name": "Cavalo-marinho (Pernambuco Zona da Mata folk drama)",
+      "family": "global",
+      "href": "traditions/cavalo_marinho.json"
+    },
+    {
+      "id": "banda_de_pifanos",
+      "name": "Banda de pífanos (Northeastern cane-fife band)",
+      "family": "global",
+      "href": "traditions/banda_de_pifanos.json"
+    },
+    {
+      "id": "musica_armorial",
+      "name": "Música armorial (Pernambuco Armorial Movement chamber music)",
+      "family": "classical",
+      "href": "traditions/musica_armorial.json"
+    },
+    {
+      "id": "reisado_guerreiro",
+      "name": "Reisado and guerreiro (Northeastern Epiphany folguedo)",
+      "family": "global",
+      "href": "traditions/reisado_guerreiro.json"
+    },
+    {
+      "id": "pastoril_nordestino",
+      "name": "Pastoril (Northeastern nativity folguedo)",
+      "family": "global",
+      "href": "traditions/pastoril_nordestino.json"
+    },
+    {
+      "id": "cheganca_nordestina",
+      "name": "Chegança (Northeastern nautical folk drama)",
+      "family": "global",
+      "href": "traditions/cheganca_nordestina.json"
+    },
+    {
+      "id": "benditos_incelencias",
+      "name": "Benditos and incelências (Cariri penitent and wake songs)",
+      "family": "global",
+      "href": "traditions/benditos_incelencias.json"
+    },
+    {
+      "id": "maculele",
+      "name": "Maculelê (Santo Amaro stick dance)",
+      "family": "global",
+      "href": "traditions/maculele.json"
+    },
+    {
+      "id": "tore_nordeste",
+      "name": "Toré (Northeastern Brazilian Indigenous ritual dance)",
+      "family": "global",
+      "href": "traditions/tore_nordeste.json"
+    },
+    {
+      "id": "boi_bumba_parintins",
+      "name": "Boi-bumbá de Parintins (Amazonas toada de boi)",
+      "family": "global",
+      "href": "traditions/boi_bumba_parintins.json"
+    },
+    {
+      "id": "marabaixo",
+      "name": "Marabaixo (Amapá Afro-Brazilian drum dance)",
+      "family": "global",
+      "href": "traditions/marabaixo.json"
+    },
+    {
+      "id": "cururu_siriri_cuiabano",
+      "name": "Cururu and siriri (Cuiabá viola-de-cocho song-dance)",
+      "family": "global",
+      "href": "traditions/cururu_siriri_cuiabano.json"
+    },
+    {
+      "id": "folia_de_reis",
+      "name": "Folia de Reis (Brazilian Epiphany house-visiting devotion)",
+      "family": "global",
+      "href": "traditions/folia_de_reis.json"
+    },
+    {
+      "id": "caixeiras_do_divino",
+      "name": "Caixeiras do Divino (Maranhão Holy Spirit festival drum-song)",
+      "family": "global",
+      "href": "traditions/caixeiras_do_divino.json"
+    },
+    {
+      "id": "congado_mineiro",
+      "name": "Congado mineiro (Reinado do Rosário guards)",
+      "family": "global",
+      "href": "traditions/congado_mineiro.json"
+    },
+    {
+      "id": "batuque_de_umbigada",
+      "name": "Batuque de umbigada (tambu of the São Paulo Médio Tietê)",
+      "family": "global",
+      "href": "traditions/batuque_de_umbigada.json"
+    },
+    {
+      "id": "samba_de_bumbo",
+      "name": "Samba de bumbo (rural samba of São Paulo)",
+      "family": "global",
+      "href": "traditions/samba_de_bumbo.json"
+    },
+    {
+      "id": "fandango_caicara",
+      "name": "Fandango caiçara (Paraná and São Paulo coast)",
+      "family": "global",
+      "href": "traditions/fandango_caicara.json"
+    },
+    {
+      "id": "vissungo",
+      "name": "Vissungo (Minas Gerais mining work songs)",
+      "family": "global",
+      "href": "traditions/vissungo.json"
+    },
+    {
+      "id": "vanguarda_paulista",
+      "name": "Vanguarda Paulista (Lira Paulistana scene)",
+      "family": "pop",
+      "href": "traditions/vanguarda_paulista.json"
+    },
+    {
+      "id": "marchinha_carnaval",
+      "name": "Marchinha (Rio carnival march-song)",
+      "family": "global",
+      "href": "traditions/marchinha_carnaval.json"
+    },
+    {
+      "id": "maxixe",
+      "name": "Maxixe (tango brasileiro)",
+      "family": "global",
+      "href": "traditions/maxixe.json"
+    },
+    {
+      "id": "modinha",
+      "name": "Modinha (Luso-Brazilian sentimental song)",
+      "family": "global",
+      "href": "traditions/modinha.json"
+    },
+    {
+      "id": "lundu_brasileiro",
+      "name": "Lundu (Afro-Brazilian dance-song)",
+      "family": "global",
+      "href": "traditions/lundu_brasileiro.json"
+    },
+    {
+      "id": "musica_colonial_mineira",
+      "name": "Música colonial mineira (Minas Gerais colonial sacred music)",
+      "family": "classical",
+      "href": "traditions/musica_colonial_mineira.json"
+    },
+    {
+      "id": "filarmonica_dobrado",
+      "name": "Filarmônica and dobrado (Brazilian civic wind band)",
+      "family": "global",
+      "href": "traditions/filarmonica_dobrado.json"
+    },
+    {
+      "id": "nativismo_gaucho",
+      "name": "Nativismo gaúcho (Califórnia da Canção Nativa song)",
+      "family": "global",
+      "href": "traditions/nativismo_gaucho.json"
+    },
+    {
+      "id": "santo_daime_hinarios",
+      "name": "Santo Daime hinários (Acre ayahuasca hymnody)",
+      "family": "global",
+      "href": "traditions/santo_daime_hinarios.json"
+    },
+    {
+      "id": "upper_xingu_flutes",
+      "name": "Upper Xingu ritual and sacred-flute music (Kamayurá, Kuikuro, Wauja)",
+      "family": "global",
+      "href": "traditions/upper_xingu_flutes.json"
+    },
+    {
+      "id": "kisedje_suya_song",
+      "name": "Kisêdjê (Suyá) akia and ngere song",
+      "family": "global",
+      "href": "traditions/kisedje_suya_song.json"
+    },
+    {
+      "id": "xavante_auwe_dano_re",
+      "name": "A'uwẽ (Xavante) da-ño're and ceremonial song",
+      "family": "global",
+      "href": "traditions/xavante_auwe_dano_re.json"
+    },
+    {
+      "id": "mebengokre_kayapo_ceremonial_song",
+      "name": "Mebêngôkre (Kayapó) ceremonial song",
+      "family": "global",
+      "href": "traditions/mebengokre_kayapo_ceremonial_song.json"
+    },
+    {
+      "id": "boe_bororo_funeral_song",
+      "name": "Boe (Bororo) funeral and ritual song",
+      "family": "global",
+      "href": "traditions/boe_bororo_funeral_song.json"
+    },
+    {
+      "id": "enawene_nawe_yaokwa",
+      "name": "Yaokwa (Enawenê-Nawê ritual cycle)",
+      "family": "global",
+      "href": "traditions/enawene_nawe_yaokwa.json"
+    },
+    {
+      "id": "yanomami_shamanic_reahu_song",
+      "name": "Yanomami shamanic chant and reahu feast song",
+      "family": "global",
+      "href": "traditions/yanomami_shamanic_reahu_song.json"
+    },
+    {
+      "id": "huni_kuin_huni_meka",
+      "name": "Huni meka (Huni Kuin nixi pae chants)",
+      "family": "global",
+      "href": "traditions/huni_kuin_huni_meka.json"
+    },
+    {
+      "id": "upper_rio_negro_tukanoan_ritual",
+      "name": "Upper Rio Negro ritual music (Tukano, Desana, Baniwa)",
+      "family": "global",
+      "href": "traditions/upper_rio_negro_tukanoan_ritual.json"
+    },
+    {
+      "id": "malambo_argentino",
+      "name": "Malambo (Argentine gaucho zapateo)",
+      "family": "global",
+      "href": "traditions/malambo_argentino.json"
+    },
+    {
+      "id": "chamarrita_entrerriana",
+      "name": "Chamarrita (Entre Ríos litoral song-dance)",
+      "family": "global",
+      "href": "traditions/chamarrita_entrerriana.json"
+    },
+    {
+      "id": "chaya_riojana_vidala_chayera",
+      "name": "Chaya riojana (La Rioja carnival vidala chayera)",
+      "family": "global",
+      "href": "traditions/chaya_riojana_vidala_chayera.json"
+    },
+    {
+      "id": "qom_toba_song_nvike",
+      "name": "Qom (Toba) song and n'vike fiddle",
+      "family": "global",
+      "href": "traditions/qom_toba_song_nvike.json"
+    },
+    {
+      "id": "wichi_song",
+      "name": "Wichí song (Gran Chaco)",
+      "family": "global",
+      "href": "traditions/wichi_song.json"
+    },
+    {
+      "id": "argentine_nationalist_art_music",
+      "name": "Nacionalismo musical argentino (Argentine nationalist art music)",
+      "family": "classical",
+      "href": "traditions/argentine_nationalist_art_music.json"
+    },
+    {
+      "id": "canto_a_lo_poeta",
+      "name": "Canto a lo poeta (Chilean sung décima, a lo divino and a lo humano)",
+      "family": "global",
+      "href": "traditions/canto_a_lo_poeta.json"
+    },
+    {
+      "id": "cueca_brava",
+      "name": "Cueca brava (Santiago urban cueca chilenera)",
+      "family": "global",
+      "href": "traditions/cueca_brava.json"
+    },
+    {
+      "id": "bailes_chinos",
+      "name": "Bailes chinos (Chilean devotional flute brotherhoods)",
+      "family": "global",
+      "href": "traditions/bailes_chinos.json"
+    },
+    {
+      "id": "musica_chilota",
+      "name": "Música chilota (Chiloé archipelago dance music)",
+      "family": "global",
+      "href": "traditions/musica_chilota.json"
+    },
+    {
+      "id": "bailes_religiosos_la_tirana",
+      "name": "Bailes religiosos de La Tirana (Norte Grande devotional dance bands)",
+      "family": "global",
+      "href": "traditions/bailes_religiosos_la_tirana.json"
+    },
+    {
+      "id": "neofolklore_chileno",
+      "name": "Neofolklore chileno (1960s Chilean folk-pop vocal groups)",
+      "family": "global",
+      "href": "traditions/neofolklore_chileno.json"
+    },
+    {
+      "id": "albanian_kreshnik_lahuta_epic",
+      "name": "Këngë kreshnikësh (Albanian lahuta frontier-warrior epic)",
+      "family": "global",
+      "href": "traditions/albanian_kreshnik_lahuta_epic.json"
+    },
+    {
+      "id": "albanian_kenge_qytetare",
+      "name": "Këngë qytetare (Albanian urban song of Shkodër and Elbasan)",
+      "family": "global",
+      "href": "traditions/albanian_kenge_qytetare.json"
+    },
+    {
+      "id": "aromanian_farsherot_song",
+      "name": "Cântitsi armãneashti (Aromanian song and Farsherot polyphony)",
+      "family": "global",
+      "href": "traditions/aromanian_farsherot_song.json"
+    },
+    {
+      "id": "ganga_herzegovina",
+      "name": "Ganga (Herzegovinian shouted group song)",
+      "family": "global",
+      "href": "traditions/ganga_herzegovina.json"
+    },
+    {
+      "id": "bosniak_ilahije_kaside",
+      "name": "Ilahije and kaside (Bosniak Islamic devotional song)",
+      "family": "global",
+      "href": "traditions/bosniak_ilahije_kaside.json"
+    },
+    {
+      "id": "becarac_slavonia",
+      "name": "Bećarac (Slavonian couplet song)",
+      "family": "global",
+      "href": "traditions/becarac_slavonia.json"
+    },
+    {
+      "id": "medimurska_popevka",
+      "name": "Međimurska popevka (Međimurje folk song)",
+      "family": "global",
+      "href": "traditions/medimurska_popevka.json"
+    },
+    {
+      "id": "croatian_glagolitic_chant",
+      "name": "Glagoljaško pjevanje (Croatian Glagolitic chant)",
+      "family": "global",
+      "href": "traditions/croatian_glagolitic_chant.json"
+    },
+    {
+      "id": "lijerica_lindo_dubrovnik",
+      "name": "Lijerica and linđo (Dubrovnik bowed-lira dance music)",
+      "family": "global",
+      "href": "traditions/lijerica_lindo_dubrovnik.json"
+    },
+    {
+      "id": "serbian_vlach_timok_homolje",
+      "name": "Vlach music of eastern Serbia (Timok and Homolje)",
+      "family": "global",
+      "href": "traditions/serbian_vlach_timok_homolje.json"
+    },
+    {
+      "id": "vranje_urban_song",
+      "name": "Vranjanska pesma (Vranje urban song)",
+      "family": "global",
+      "href": "traditions/vranje_urban_song.json"
+    },
+    {
+      "id": "macedonian_calgija",
+      "name": "Čalgija (Macedonian Ottoman-urban ensemble)",
+      "family": "global",
+      "href": "traditions/macedonian_calgija.json"
+    },
+    {
+      "id": "zurla_tapan_macedonia",
+      "name": "Zurli i tapan (Macedonian shawm-and-drum music)",
+      "family": "global",
+      "href": "traditions/zurla_tapan_macedonia.json"
+    },
+    {
+      "id": "nestinarstvo_anastenaria",
+      "name": "Nestinarstvo and Anastenaria (Strandzha fire-dance ritual music)",
+      "family": "global",
+      "href": "traditions/nestinarstvo_anastenaria.json"
+    },
+    {
+      "id": "cretan_rizitika",
+      "name": "Rizitika (western Cretan table and road songs)",
+      "family": "global",
+      "href": "traditions/cretan_rizitika.json"
+    },
+    {
+      "id": "heptanese_kantada",
+      "name": "Kantada (Ionian Islands serenade)",
+      "family": "global",
+      "href": "traditions/heptanese_kantada.json"
+    },
+    {
+      "id": "epirus_polyphonic_song",
+      "name": "Polyphonic song of Epirus (Pogoni multipart song)",
+      "family": "global",
+      "href": "traditions/epirus_polyphonic_song.json"
+    },
+    {
+      "id": "greek_elafro_tragoudi",
+      "name": "Elafró tragoúdi (Athenian light song)",
+      "family": "pop",
+      "href": "traditions/greek_elafro_tragoudi.json"
+    },
+    {
+      "id": "greek_ionian_national_school",
+      "name": "Eptanisiaki and Ethniki Scholi (Greek Ionian and National School art music)",
+      "family": "classical",
+      "href": "traditions/greek_ionian_national_school.json"
+    },
+    {
+      "id": "cypriot_violi_laouto",
+      "name": "Violi kai laouto (Cypriot fiddle-and-lute dance music)",
+      "family": "global",
+      "href": "traditions/cypriot_violi_laouto.json"
+    },
+    {
+      "id": "romanian_colindat_ceata",
+      "name": "Colindat (Romanian men's-group Christmas carolling)",
+      "family": "global",
+      "href": "traditions/romanian_colindat_ceata.json"
+    },
+    {
+      "id": "romanian_calus",
+      "name": "Căluș (Romanian Whitsun ritual dance)",
+      "family": "global",
+      "href": "traditions/romanian_calus.json"
+    },
+    {
+      "id": "csango_moldavian_music",
+      "name": "Csángó zene (Moldavian Csángó song and dance music)",
+      "family": "global",
+      "href": "traditions/csango_moldavian_music.json"
+    },
+    {
+      "id": "banat_taragot_music",
+      "name": "Muzică bănățeană (Banat taragot and dance music)",
+      "family": "global",
+      "href": "traditions/banat_taragot_music.json"
+    },
+    {
+      "id": "romanian_romanta_mahala",
+      "name": "Romanță and cântec de mahala (Bucharest urban song)",
+      "family": "global",
+      "href": "traditions/romanian_romanta_mahala.json"
+    },
+    {
+      "id": "slovak_gajdy",
+      "name": "Gajdošská kultúra (Slovak gajdy bagpipe music)",
+      "family": "global",
+      "href": "traditions/slovak_gajdy.json"
+    },
+    {
+      "id": "chodsko_dudacka_muzika",
+      "name": "Dudácká muzika (Chodsko and South Bohemian bagpipe band)",
+      "family": "global",
+      "href": "traditions/chodsko_dudacka_muzika.json"
+    },
+    {
+      "id": "warsaw_kapela_podworkowa",
+      "name": "Kapela podwórkowa (Warsaw courtyard street-song band)",
+      "family": "global",
+      "href": "traditions/warsaw_kapela_podworkowa.json"
+    },
+    {
+      "id": "polish_interwar_tango",
+      "name": "Tango polskie (Warsaw interwar cabaret song and tango)",
+      "family": "pop",
+      "href": "traditions/polish_interwar_tango.json"
+    },
+    {
+      "id": "polish_yass",
+      "name": "Yass (1990s Polish alternative-jazz scene)",
+      "family": "jazz",
+      "href": "traditions/polish_yass.json"
+    },
+    {
+      "id": "hutsul_music",
+      "name": "Hutsulska muzyka (Hutsul Carpathian highland music)",
+      "family": "global",
+      "href": "traditions/hutsul_music.json"
+    },
+    {
+      "id": "crimean_tatar_music",
+      "name": "Qırımtatar musiqisi (Crimean Tatar song and dance music)",
+      "family": "global",
+      "href": "traditions/crimean_tatar_music.json"
+    },
+    {
+      "id": "ukrainian_partes_concerto",
+      "name": "Partesnyi spiv and dukhovnyi kontsert (Ukrainian Baroque choral concerto)",
+      "family": "classical",
+      "href": "traditions/ukrainian_partes_concerto.json"
+    },
+    {
+      "id": "rusyn_prostopinije",
+      "name": "Prostopinije (Carpatho-Rusyn plainchant)",
+      "family": "global",
+      "href": "traditions/rusyn_prostopinije.json"
+    },
+    {
+      "id": "ukrainian_troisti_muzyky",
+      "name": "Troisti muzyky (Ukrainian fiddle, tsymbaly and drum trio)",
+      "family": "global",
+      "href": "traditions/ukrainian_troisti_muzyky.json"
+    },
+    {
+      "id": "finnish_kaale_romani_song",
+      "name": "Kaale romanilaulu (Finnish Roma song)",
+      "family": "global",
+      "href": "traditions/finnish_kaale_romani_song.json"
+    },
+    {
+      "id": "laestadian_sions_sanger",
+      "name": "Sions sånger / Siionin laulut (Laestadian hymn singing)",
+      "family": "global",
+      "href": "traditions/laestadian_sions_sanger.json"
+    },
+    {
+      "id": "tornedalian_meankieli_song",
+      "name": "Tornedalian folk song (Meänkieli song of the Torne Valley)",
+      "family": "global",
+      "href": "traditions/tornedalian_meankieli_song.json"
+    },
+    {
+      "id": "norwegian_romani_tater_song",
+      "name": "Romani viser (Norwegian Romani traveller song)",
+      "family": "global",
+      "href": "traditions/norwegian_romani_tater_song.json"
+    },
+    {
+      "id": "ostrobothnian_menuett_polska",
+      "name": "Menuett och polska (Finland-Swedish Ostrobothnian fiddle dance)",
+      "family": "global",
+      "href": "traditions/ostrobothnian_menuett_polska.json"
+    },
+    {
+      "id": "finnish_rekilaulu",
+      "name": "Rekilaulu (Finnish rhymed-couplet folk song)",
+      "family": "global",
+      "href": "traditions/finnish_rekilaulu.json"
+    },
+    {
+      "id": "finnish_kupletti_rillumarei",
+      "name": "Kupletti and rillumarei (Finnish comic couplet song)",
+      "family": "global",
+      "href": "traditions/finnish_kupletti_rillumarei.json"
+    },
+    {
+      "id": "jouhikko_bowed_lyre",
+      "name": "Jouhikko (Finnish-Karelian bowed lyre music)",
+      "family": "global",
+      "href": "traditions/jouhikko_bowed_lyre.json"
+    },
+    {
+      "id": "herannaisyys_siionin_virret",
+      "name": "Siionin virret (Finnish Awakening körtti hymn singing)",
+      "family": "global",
+      "href": "traditions/herannaisyys_siionin_virret.json"
+    },
+    {
+      "id": "finnish_poliittinen_laululiike",
+      "name": "Poliittinen laululiike (Finnish 1970s political song movement)",
+      "family": "global",
+      "href": "traditions/finnish_poliittinen_laululiike.json"
+    },
+    {
+      "id": "norwegian_religiose_folketoner",
+      "name": "Religiøse folketoner (Norwegian sacred folk tunes)",
+      "family": "global",
+      "href": "traditions/norwegian_religiose_folketoner.json"
+    },
+    {
+      "id": "valdres_langeleik",
+      "name": "Langeleik (Valdres drone-zither music)",
+      "family": "global",
+      "href": "traditions/valdres_langeleik.json"
+    },
+    {
+      "id": "swedish_medeltida_ballader",
+      "name": "Medeltida ballader (Swedish medieval ballad singing)",
+      "family": "global",
+      "href": "traditions/swedish_medeltida_ballader.json"
+    },
+    {
+      "id": "swedish_folklig_koralsang",
+      "name": "Folklig koralsång (Swedish folk chorale singing)",
+      "family": "global",
+      "href": "traditions/swedish_folklig_koralsang.json"
+    },
+    {
+      "id": "swedish_vackelsesang",
+      "name": "Väckelsesång (Swedish free-church revival song)",
+      "family": "global",
+      "href": "traditions/swedish_vackelsesang.json"
+    },
+    {
+      "id": "swedish_sackpipa_music",
+      "name": "Säckpipa (Swedish bagpipe music of Dalarna)",
+      "family": "global",
+      "href": "traditions/swedish_sackpipa_music.json"
+    },
+    {
+      "id": "nordic_gammaldans",
+      "name": "Gammaldans (Nordic old-time couple-dance music)",
+      "family": "global",
+      "href": "traditions/nordic_gammaldans.json"
+    },
+    {
+      "id": "danish_hojskolesang_faellessang",
+      "name": "Højskolesang and fællessang (Danish communal songbook singing)",
+      "family": "global",
+      "href": "traditions/danish_hojskolesang_faellessang.json"
+    },
+    {
+      "id": "danish_revyvise",
+      "name": "Revyvise (Danish revue song)",
+      "family": "global",
+      "href": "traditions/danish_revyvise.json"
+    },
+    {
+      "id": "dansk_visesang",
+      "name": "Dansk visesang (Danish vise song)",
+      "family": "global",
+      "href": "traditions/dansk_visesang.json"
+    },
+    {
+      "id": "icelandic_passiusalmar_gomlu_login",
+      "name": "Passíusálmar gömlu lögin (Icelandic folk Passion-hymn singing)",
+      "family": "global",
+      "href": "traditions/icelandic_passiusalmar_gomlu_login.json"
+    },
+    {
+      "id": "finnish_torviseitsikko",
+      "name": "Torviseitsikko (Finnish brass septet)",
+      "family": "global",
+      "href": "traditions/finnish_torviseitsikko.json"
+    },
+    {
+      "id": "breton_bagad",
+      "name": "Bagad (Breton pipe band)",
+      "family": "global",
+      "href": "traditions/breton_bagad.json"
+    },
+    {
+      "id": "provencal_galoubet_tambourin",
+      "name": "Galoubet-tambourin (Provençal pipe and tabor)",
+      "family": "global",
+      "href": "traditions/provencal_galoubet_tambourin.json"
+    },
+    {
+      "id": "bearn_bigorre_polyphony",
+      "name": "Cant pirenenc (Béarnais and Bigourdan polyphonic song)",
+      "family": "global",
+      "href": "traditions/bearn_bigorre_polyphony.json"
+    },
+    {
+      "id": "gascon_banda",
+      "name": "Banda (southwest French festive brass band)",
+      "family": "global",
+      "href": "traditions/gascon_banda.json"
+    },
+    {
+      "id": "carnaval_de_dunkerque",
+      "name": "Carnaval de Dunkerque (Dunkirk carnival song)",
+      "family": "global",
+      "href": "traditions/carnaval_de_dunkerque.json"
+    },
+    {
+      "id": "chants_de_marins",
+      "name": "Chants de marins (French maritime work song)",
+      "family": "global",
+      "href": "traditions/chants_de_marins.json"
+    },
+    {
+      "id": "trobamuffin_occitan",
+      "name": "Trobamuffin (Occitan raggamuffin)",
+      "family": "global",
+      "href": "traditions/trobamuffin_occitan.json"
+    },
+    {
+      "id": "opera_bouffe",
+      "name": "Opéra bouffe (Offenbach-era Parisian operetta)",
+      "family": "classical",
+      "href": "traditions/opera_bouffe.json"
+    },
+    {
+      "id": "opera_comique",
+      "name": "Opéra-comique (French spoken-dialogue opera)",
+      "family": "classical",
+      "href": "traditions/opera_comique.json"
+    },
+    {
+      "id": "melodie_francaise",
+      "name": "Mélodie (French art song)",
+      "family": "classical",
+      "href": "traditions/melodie_francaise.json"
+    },
+    {
+      "id": "taize_chant",
+      "name": "Chants de Taizé (Taizé meditative chant)",
+      "family": "global",
+      "href": "traditions/taize_chant.json"
+    },
+    {
+      "id": "afro_trap_francais",
+      "name": "Afro trap (French)",
+      "family": "hip_hop",
+      "href": "traditions/afro_trap_francais.json"
+    },
+    {
+      "id": "kunstlied",
+      "name": "Lied (German art song)",
+      "family": "classical",
+      "href": "traditions/kunstlied.json"
+    },
+    {
+      "id": "singspiel",
+      "name": "Singspiel (German spoken-dialogue opera)",
+      "family": "classical",
+      "href": "traditions/singspiel.json"
+    },
+    {
+      "id": "wiener_walzer",
+      "name": "Wiener Walzer (Viennese Strauss-era waltz)",
+      "family": "classical",
+      "href": "traditions/wiener_walzer.json"
+    },
+    {
+      "id": "sorbian_folk_music",
+      "name": "Serbska ludowa hudźba (Sorbian folk music of Lusatia)",
+      "family": "global",
+      "href": "traditions/sorbian_folk_music.json"
+    },
+    {
+      "id": "posaunenchor",
+      "name": "Posaunenchor (German Protestant church brass choir)",
+      "family": "global",
+      "href": "traditions/posaunenchor.json"
+    },
+    {
+      "id": "arbeiterlied_kampflied",
+      "name": "Arbeiterlied and Kampflied (German workers' fighting song)",
+      "family": "global",
+      "href": "traditions/arbeiterlied_kampflied.json"
+    },
+    {
+      "id": "munich_eurodisco",
+      "name": "Munich sound (1970s Eurodisco)",
+      "family": "electronic",
+      "href": "traditions/munich_eurodisco.json"
+    },
+    {
+      "id": "basler_fasnacht_pfeifen_trommeln",
+      "name": "Basler Trommeln und Pfeifen (Basel Fasnacht piccolo-and-drum music)",
+      "family": "global",
+      "href": "traditions/basler_fasnacht_pfeifen_trommeln.json"
+    },
+    {
+      "id": "romansh_folk_choral_song",
+      "name": "Chanzuns rumantschas (Romansh folk and choral song)",
+      "family": "global",
+      "href": "traditions/romansh_folk_choral_song.json"
+    },
+    {
+      "id": "genevan_psalter",
+      "name": "Psautier de Genève (Genevan Psalter metrical psalmody)",
+      "family": "classical",
+      "href": "traditions/genevan_psalter.json"
+    },
+    {
+      "id": "dutch_psalm_singing_oude_wijze",
+      "name": "Psalmzingen op de oude wijze (Dutch Reformed slow psalm singing)",
+      "family": "global",
+      "href": "traditions/dutch_psalm_singing_oude_wijze.json"
+    },
+    {
+      "id": "midwinterhoornblazen",
+      "name": "Midwinterhoornblazen (Twente midwinter horn blowing)",
+      "family": "global",
+      "href": "traditions/midwinterhoornblazen.json"
+    },
+    {
+      "id": "palingsound",
+      "name": "Palingsound (Volendam pop)",
+      "family": "pop",
+      "href": "traditions/palingsound.json"
+    },
+    {
+      "id": "bubbling_dutch_antillean",
+      "name": "Bubbling (Dutch-Antillean sped-up dancehall)",
+      "family": "electronic",
+      "href": "traditions/bubbling_dutch_antillean.json"
+    },
+    {
+      "id": "belgian_popcorn",
+      "name": "Popcorn (Belgian slow-soul dance scene)",
+      "family": "pop",
+      "href": "traditions/belgian_popcorn.json"
+    },
+    {
+      "id": "binche_gilles_carnival",
+      "name": "Airs de Gilles (Binche carnival music)",
+      "family": "global",
+      "href": "traditions/binche_gilles_carnival.json"
+    },
+    {
+      "id": "walloon_cramignon",
+      "name": "Cramignon and chanson wallonne (Walloon song of Liège)",
+      "family": "global",
+      "href": "traditions/walloon_cramignon.json"
+    },
+    {
+      "id": "ring_shout_mcintosh",
+      "name": "Ring shout (McIntosh County coastal Georgia shout)",
+      "family": "global",
+      "href": "traditions/ring_shout_mcintosh.json"
+    },
+    {
+      "id": "united_house_of_prayer_shout_band",
+      "name": "Shout band (United House of Prayer trombone choir)",
+      "family": "global",
+      "href": "traditions/united_house_of_prayer_shout_band.json"
+    },
+    {
+      "id": "dr_watts_lined_hymnody",
+      "name": "Dr. Watts hymnody (African American lined-out hymns)",
+      "family": "global",
+      "href": "traditions/dr_watts_lined_hymnody.json"
+    },
+    {
+      "id": "old_regular_baptist_lined_hymnody",
+      "name": "Old Regular Baptist lined hymnody (southeastern Kentucky)",
+      "family": "global",
+      "href": "traditions/old_regular_baptist_lined_hymnody.json"
+    },
+    {
+      "id": "american_moravian_music",
+      "name": "American Moravian music (Salem and Bethlehem trombone choirs and anthems)",
+      "family": "classical",
+      "href": "traditions/american_moravian_music.json"
+    },
+    {
+      "id": "alabados_penitente",
+      "name": "Alabados (New Mexican Penitente hymns)",
+      "family": "global",
+      "href": "traditions/alabados_penitente.json"
+    },
+    {
+      "id": "molokan_singing_california",
+      "name": "Molokan singing (Russian Spiritual Christian psalms, California)",
+      "family": "global",
+      "href": "traditions/molokan_singing_california.json"
+    },
+    {
+      "id": "california_mission_music",
+      "name": "California mission music (Franciscan canto figurado)",
+      "family": "classical",
+      "href": "traditions/california_mission_music.json"
+    },
+    {
+      "id": "moody_sankey_gospel_hymn",
+      "name": "Gospel hymn (Moody-Sankey revival song)",
+      "family": "global",
+      "href": "traditions/moody_sankey_gospel_hymn.json"
+    },
+    {
+      "id": "north_mississippi_fife_drum",
+      "name": "North Mississippi fife-and-drum (cane fife picnic music)",
+      "family": "global",
+      "href": "traditions/north_mississippi_fife_drum.json"
+    },
+    {
+      "id": "texas_contest_fiddle",
+      "name": "Texas contest fiddling (long-bow Texas style)",
+      "family": "global",
+      "href": "traditions/texas_contest_fiddle.json"
+    },
+    {
+      "id": "civil_rights_freedom_songs",
+      "name": "Freedom songs (US civil-rights movement singing)",
+      "family": "global",
+      "href": "traditions/civil_rights_freedom_songs.json"
+    },
+    {
+      "id": "creole_jure_la_la",
+      "name": "Juré and la-la (Louisiana Creole pre-zydeco music)",
+      "family": "global",
+      "href": "traditions/creole_jure_la_la.json"
+    },
+    {
+      "id": "isleno_decimas",
+      "name": "Isleño décimas (St. Bernard Parish Canary Islander ballads)",
+      "family": "global",
+      "href": "traditions/isleno_decimas.json"
+    },
+    {
+      "id": "nuevomexicano_folk",
+      "name": "Música nuevomexicana (northern New Mexico Hispano folk)",
+      "family": "global",
+      "href": "traditions/nuevomexicano_folk.json"
+    },
+    {
+      "id": "polish_american_polka",
+      "name": "Polish-American polka (Chicago honky and Eastern styles)",
+      "family": "global",
+      "href": "traditions/polish_american_polka.json"
+    },
+    {
+      "id": "cleveland_style_polka",
+      "name": "Cleveland-style polka (Slovenian-American)",
+      "family": "global",
+      "href": "traditions/cleveland_style_polka.json"
+    },
+    {
+      "id": "armenian_american_kef",
+      "name": "Kef music (Armenian-American dance ensemble)",
+      "family": "global",
+      "href": "traditions/armenian_american_kef.json"
+    },
+    {
+      "id": "yiddish_theatre_second_avenue",
+      "name": "Yiddish theatre song (Second Avenue operetta)",
+      "family": "pop",
+      "href": "traditions/yiddish_theatre_second_avenue.json"
+    },
+    {
+      "id": "philadelphia_mummers_string_band",
+      "name": "Mummers string band (Philadelphia New Year's parade)",
+      "family": "global",
+      "href": "traditions/philadelphia_mummers_string_band.json"
+    },
+    {
+      "id": "pachuco_boogie",
+      "name": "Pachuco boogie (1940s Los Angeles caló jump)",
+      "family": "jazz",
+      "href": "traditions/pachuco_boogie.json"
+    },
+    {
+      "id": "west_side_sound_san_antonio",
+      "name": "West Side Sound (San Antonio Chicano R&B)",
+      "family": "rock",
+      "href": "traditions/west_side_sound_san_antonio.json"
+    },
+    {
+      "id": "minstrel_show_music",
+      "name": "Minstrel-show music (19th-century blackface stage song)",
+      "family": "pop",
+      "href": "traditions/minstrel_show_music.json"
+    },
+    {
+      "id": "american_parlor_song",
+      "name": "American parlor song (19th-century sentimental ballad)",
+      "family": "pop",
+      "href": "traditions/american_parlor_song.json"
+    },
+    {
+      "id": "cowboy_poetry_recitation",
+      "name": "Cowboy poetry (ranch-country recitation)",
+      "family": "global",
+      "href": "traditions/cowboy_poetry_recitation.json"
+    },
+    {
+      "id": "african_american_toasts",
+      "name": "Toasts (African American narrative recitation)",
+      "family": "global",
+      "href": "traditions/african_american_toasts.json"
+    },
+    {
+      "id": "novelty_piano",
+      "name": "Novelty piano (1920s keyboard novelty)",
+      "family": "jazz",
+      "href": "traditions/novelty_piano.json"
+    },
+    {
+      "id": "west_gallery_music",
+      "name": "West gallery music (English village church bands and quires)",
+      "family": "global",
+      "href": "traditions/west_gallery_music.json"
+    },
+    {
+      "id": "english_change_ringing",
+      "name": "Change ringing (English full-circle church bell ringing)",
+      "family": "global",
+      "href": "traditions/english_change_ringing.json"
+    },
+    {
+      "id": "lambeg_drumming",
+      "name": "Lambeg drumming (Ulster Lambeg drum and fife)",
+      "family": "global",
+      "href": "traditions/lambeg_drumming.json"
+    },
+    {
+      "id": "ulster_marching_flute_bands",
+      "name": "Ulster flute bands (blood-and-thunder and melody marching bands)",
+      "family": "global",
+      "href": "traditions/ulster_marching_flute_bands.json"
+    },
+    {
+      "id": "sliabh_luachra_music",
+      "name": "Sliabh Luachra music (Cork-Kerry polkas and slides)",
+      "family": "global",
+      "href": "traditions/sliabh_luachra_music.json"
+    },
+    {
+      "id": "donegal_fiddle",
+      "name": "Donegal fiddle tradition (Ulster highlands and mazurkas)",
+      "family": "global",
+      "href": "traditions/donegal_fiddle.json"
+    },
+    {
+      "id": "irish_showband",
+      "name": "Showband (Irish ballroom dance bands)",
+      "family": "pop",
+      "href": "traditions/irish_showband.json"
+    },
+    {
+      "id": "irish_traveller_song",
+      "name": "Irish Traveller song (Mincéir ballad singing)",
+      "family": "global",
+      "href": "traditions/irish_traveller_song.json"
+    },
+    {
+      "id": "romanichal_gypsy_song",
+      "name": "Romanichal song (English Gypsy singing)",
+      "family": "global",
+      "href": "traditions/romanichal_gypsy_song.json"
+    },
+    {
+      "id": "black_british_gospel",
+      "name": "Black British gospel (UK gospel choirs)",
+      "family": "global",
+      "href": "traditions/black_british_gospel.json"
+    },
+    {
+      "id": "english_ballad_opera",
+      "name": "Ballad opera (Georgian English song-play)",
+      "family": "classical",
+      "href": "traditions/english_ballad_opera.json"
+    },
+    {
+      "id": "savoy_opera",
+      "name": "Savoy opera (Gilbert and Sullivan comic opera)",
+      "family": "classical",
+      "href": "traditions/savoy_opera.json"
+    },
+    {
+      "id": "english_pastoral_school",
+      "name": "English pastoral school (folk-song-based concert music)",
+      "family": "classical",
+      "href": "traditions/english_pastoral_school.json"
+    },
+    {
+      "id": "british_trad_jazz",
+      "name": "Trad (British traditional jazz boom)",
+      "family": "jazz",
+      "href": "traditions/british_trad_jazz.json"
+    },
+    {
+      "id": "victorian_parlour_ballad",
+      "name": "Drawing-room ballad (Victorian and Edwardian parlour song)",
+      "family": "pop",
+      "href": "traditions/victorian_parlour_ballad.json"
+    },
+    {
+      "id": "british_theatre_organ",
+      "name": "Theatre organ (British cinema and ballroom organ)",
+      "family": "pop",
+      "href": "traditions/british_theatre_organ.json"
+    },
+    {
+      "id": "english_glee_and_catch",
+      "name": "Glee and catch (Georgian English club part-song)",
+      "family": "classical",
+      "href": "traditions/english_glee_and_catch.json"
+    },
+    {
+      "id": "shirei_eretz_yisrael",
+      "name": "Shirei Eretz Yisrael (Hebrew songs of the Land of Israel)",
+      "family": "global",
+      "href": "traditions/shirei_eretz_yisrael.json"
+    },
+    {
+      "id": "lehakot_tzvaiyot",
+      "name": "Lehakot tzva'iyot (Israeli army entertainment troupes)",
+      "family": "pop",
+      "href": "traditions/lehakot_tzvaiyot.json"
+    },
+    {
+      "id": "yemenite_jewish_womens_song",
+      "name": "Shirat nashim (Yemenite Jewish women's song)",
+      "family": "global",
+      "href": "traditions/yemenite_jewish_womens_song.json"
+    },
+    {
+      "id": "abayudaya_jewish_song",
+      "name": "Abayudaya music (Ugandan Jewish song)",
+      "family": "global",
+      "href": "traditions/abayudaya_jewish_song.json"
+    },
+    {
+      "id": "maftirim_hymnody",
+      "name": "Maftirim (Ottoman Sephardic hymnody in makam)",
+      "family": "global",
+      "href": "traditions/maftirim_hymnody.json"
+    },
+    {
+      "id": "francarabe_judeo_arabic_song",
+      "name": "Francarabe (Judeo-Arabic popular song of the Maghreb)",
+      "family": "global",
+      "href": "traditions/francarabe_judeo_arabic_song.json"
+    },
+    {
+      "id": "spanish_portuguese_synagogue_music",
+      "name": "Spanish and Portuguese synagogue music (Western Sephardic rite)",
+      "family": "global",
+      "href": "traditions/spanish_portuguese_synagogue_music.json"
+    },
+    {
+      "id": "ashkenazi_choral_synagogue",
+      "name": "Ashkenazi choral synagogue music (Sulzer-Lewandowski school)",
+      "family": "classical",
+      "href": "traditions/ashkenazi_choral_synagogue.json"
+    },
+    {
+      "id": "babylonian_jewish_liturgy",
+      "name": "Babylonian Jewish liturgy and pizmonim (Iraqi Jewish rite)",
+      "family": "global",
+      "href": "traditions/babylonian_jewish_liturgy.json"
+    },
+    {
+      "id": "holocaust_ghetto_songs",
+      "name": "Ghetto and partisan songs (Yiddish songs of the Holocaust)",
+      "family": "global",
+      "href": "traditions/holocaust_ghetto_songs.json"
+    },
+    {
+      "id": "new_jewish_school_art_music",
+      "name": "New Jewish School (Society for Jewish Folk Music art music)",
+      "family": "classical",
+      "href": "traditions/new_jewish_school_art_music.json"
+    },
+    {
+      "id": "badkhn_wedding_recitation",
+      "name": "Badkhones (Yiddish wedding-jester recitation)",
+      "family": "global",
+      "href": "traditions/badkhn_wedding_recitation.json"
+    },
+    {
+      "id": "ashkenazi_torah_cantillation",
+      "name": "Ashkenazi Torah cantillation (leyning)",
+      "family": "global",
+      "href": "traditions/ashkenazi_torah_cantillation.json"
+    },
+    {
+      "id": "vlach_roma_djili",
+      "name": "Vlach Roma song (loki and khelimaski djili)",
+      "family": "global",
+      "href": "traditions/vlach_roma_djili.json"
+    },
+    {
+      "id": "servika_roma_song",
+      "name": "Servika Roma song (Slovak Romani song)",
+      "family": "global",
+      "href": "traditions/servika_roma_song.json"
+    },
+    {
+      "id": "ottawa_valley_fiddle",
+      "name": "Ottawa Valley fiddling and step dance (Ontario old-time)",
+      "family": "global",
+      "href": "traditions/ottawa_valley_fiddle.json"
+    },
+    {
+      "id": "down_east_old_time_fiddle",
+      "name": "Down East old-time fiddling (Canadian Maritime dance-band style)",
+      "family": "global",
+      "href": "traditions/down_east_old_time_fiddle.json"
+    },
+    {
+      "id": "prince_edward_island_fiddle",
+      "name": "Prince Edward Island fiddling (Island Scottish and Acadian fiddle)",
+      "family": "global",
+      "href": "traditions/prince_edward_island_fiddle.json"
+    },
+    {
+      "id": "miramichi_lumberwoods_song",
+      "name": "Miramichi lumberwoods song (Maritime Anglo-Canadian balladry)",
+      "family": "global",
+      "href": "traditions/miramichi_lumberwoods_song.json"
+    },
+    {
+      "id": "old_colony_lange_wies",
+      "name": "Lange Wies (Old Colony Mennonite long-tune hymn singing)",
+      "family": "global",
+      "href": "traditions/old_colony_lange_wies.json"
+    },
+    {
+      "id": "ukrainian_canadian_zabava",
+      "name": "Zabava (Ukrainian-Canadian prairie dance-band music)",
+      "family": "global",
+      "href": "traditions/ukrainian_canadian_zabava.json"
+    },
+    {
+      "id": "musique_actuelle",
+      "name": "Musique actuelle (Montreal creative music)",
+      "family": "jazz",
+      "href": "traditions/musique_actuelle.json"
+    },
+    {
+      "id": "toronto_jamaican_soul_reggae",
+      "name": "Toronto Jamaican-Canadian soul and reggae",
+      "family": "global",
+      "href": "traditions/toronto_jamaican_soul_reggae.json"
+    },
+    {
+      "id": "australian_convict_colonial_ballads",
+      "name": "Australian convict and colonial ballads (traditional bush song)",
+      "family": "global",
+      "href": "traditions/australian_convict_colonial_ballads.json"
+    },
+    {
+      "id": "nz_colonial_folk_song",
+      "name": "New Zealand colonial folk song (goldfields, whaling and shearing songs)",
+      "family": "global",
+      "href": "traditions/nz_colonial_folk_song.json"
+    },
+    {
+      "id": "xpressway_noise_underground",
+      "name": "Xpressway noise underground (Dunedin lo-fi experimental rock)",
+      "family": "rock",
+      "href": "traditions/xpressway_noise_underground.json"
+    },
+    {
+      "id": "asian_american_creative_jazz",
+      "name": "Asian American creative jazz (Asian Improv movement)",
+      "family": "jazz",
+      "href": "traditions/asian_american_creative_jazz.json"
+    },
+    {
+      "id": "kachi_kachi",
+      "name": "Kachi-kachi (Puerto Rican music of Hawaii)",
+      "family": "global",
+      "href": "traditions/kachi_kachi.json"
+    },
+    {
+      "id": "rock_beur",
+      "name": "Rock beur (Franco-Maghrebi rock of the 1980s)",
+      "family": "rock",
+      "href": "traditions/rock_beur.json"
+    },
+    {
+      "id": "rai_n_b",
+      "name": "Rai'n'B (French rai-R&B crossover)",
+      "family": "pop",
+      "href": "traditions/rai_n_b.json"
     }
   ]
 }

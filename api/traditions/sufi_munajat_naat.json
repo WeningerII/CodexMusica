@@ -5,7 +5,7 @@
   "lineage": "Sufi devotional praise-song tradition continuous from medieval Sufi-poetic era (13th-15th century Rumi, Hafez, Saadi era) through Indo-Persian-Mughal-era continuous performance into modern Sufi-and-Muslim-diaspora practice; munajat (intimate-supplication praise of God) and naat (praise of the Prophet Muhammad) are the canonical Sufi praise-forms",
   "recipe": "classic South Asian early-1940s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music andalusī nūba persian traditional music. thick, declaimed, slow rate, interlocked note trading. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
   "recipe_chars": 528,
-  "score": 257.102,
+  "score": 255.287,
   "config": {
     "traditions": [
       "sufi_munajat_naat",
@@ -38,12 +38,12 @@
           "voice_quality": 30.329,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.2755,
+          "voice_vibrato": 12.080499999999999,
           "voice_articulation": 12.674999999999995,
           "voice_microtone": 23.854999999999993,
-          "voice_tradition": 31.644000000000002,
+          "voice_tradition": 30.309,
           "voice_mechanism_compound": 20.95,
-          "voice_estill_quality": 12.849499999999997,
+          "voice_estill_quality": 13.149499999999998,
           "voice_speech_song": 20.214999999999996,
           "voice_ensemble_config": 13.649999999999995,
           "voice_ornament_system": 21.294999999999998,
@@ -64,7 +64,7 @@
           "free_reed_technique": 0.8449999999999999,
           "harmonium_action": 1.8200000000000003,
           "harmonium_voicing": 1.4300000000000002,
-          "harmonium_use": 6.889499999999999
+          "harmonium_use": 6.499499999999999
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "tabla_dayan": 6.629999999999999,
-          "tabla_bayan": 5.2105,
+          "tabla_bayan": 5.015499999999999,
           "tabla_syahi": 4.225
         }
       }

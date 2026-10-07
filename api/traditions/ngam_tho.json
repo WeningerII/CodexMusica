@@ -5,7 +5,7 @@
   "lineage": "Melodic recitation of Vietnamese verse, chiefly in lục bát and song thất lục bát meters, using named tunes such as ngâm sa mạc and ngâm sổng; chanting the Tale of Kiều (ngâm Kiều) is a classic form. From the 1950s it was a staple of radio, on the Voice of Vietnam in Hanoi and on Radio Saigon's poetry programmes, where reciters were accompanied by bamboo flute, đàn tranh and đàn bầu improvising around the voice.",
   "recipe": "classic mid-1950s ngâm thơ, ballad Poetry. tonal language syllable tone locked melody. dan tranh, sao truc, dan bau. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 196,
-  "score": 7.005,
+  "score": 6.99,
   "config": {
     "traditions": [
       "ngam_tho"
@@ -62,7 +62,7 @@
           "dan_tranh_body_wood": "dan_tranh_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": -0.035,
+          "plucked_traditional_technique": -0.05,
           "dan_tranh_use": 1.3,
           "dan_tranh_strings": 0,
           "dan_tranh_string_material": 0,

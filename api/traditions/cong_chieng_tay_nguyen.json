@@ -5,7 +5,7 @@
   "lineage": "Gong music of the Central Highlands peoples, among them the Ê Đê, Jarai, Bahnar, M'nông and Xơ Đăng of Gia Lai, Đắk Lắk, Kon Tum, Đắk Nông and Lâm Đồng, proclaimed by UNESCO in 2005 as the Space of Gong Culture. Ensembles of bossed gongs (cồng) and flat gongs (chiêng), each player sounding a single gong, accompany rites of the agricultural and life cycle, buffalo sacrifices, funerals and village festivals, often together with a drum. The gong card stands in for both cồng and chiêng, and a generic membrane-drum card for the ensemble drum.",
   "recipe": "classic mid-2000s cồng chiêng, ritual Devotional, indigenous branch. gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 12.733,
+  "score": 12.673,
   "config": {
     "traditions": [
       "cong_chieng_tay_nguyen"
@@ -29,7 +29,7 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 5.9799999999999995,
+          "acoustic_membrane_drum_form": 5.919625,
           "acoustic_membrane_drum_gesture": 4.68
         }
       }

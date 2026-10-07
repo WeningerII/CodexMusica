@@ -3,14 +3,14 @@
   "name": "Organum",
   "family": "classical",
   "lineage": "Earliest notated Western polyphony, documented from the Musica enchiriadis around 900 CE and brought to its high form at Notre-Dame de Paris circa 1160-1240 by Leonin and Perotin, in which a plainchant tenor is stretched into immensely sustained drone notes while one to three upper voices move above in rhythmic modes, cadencing on perfect fifths, octaves and unisons within a Pythagorean tuning, sung by small male ensembles in stone church acoustics.",
-  "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal detskie pesni hoho. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, single rank treble piping chant doubling portative organ, gut bourdon drone legato vielle medieval, single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 515,
-  "score": 202.67,
+  "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal detskie pesni cântitsi armãneashti. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, single rank treble piping chant doubling portative organ, gut bourdon drone legato vielle medieval, single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 531,
+  "score": 213.785,
   "config": {
     "traditions": [
       "organum",
       "detskie_pesni",
-      "hoho_nias"
+      "aromanian_farsherot_song"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 2.95,
-          "voice_quality": 11.114999999999997,
+          "voice_quality": 13.454999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.864999999999998,
-          "voice_articulation": 17.940000000000005,
-          "voice_microtone": 18.72,
+          "voice_articulation": 20.28,
+          "voice_microtone": 20.215,
           "voice_tradition": 13,
           "voice_mechanism_compound": 6.299999999999999,
           "voice_estill_quality": 12.204999999999997,
-          "voice_speech_song": 25.935,
-          "voice_ensemble_config": 23.270000000000003,
+          "voice_speech_song": 27.625,
+          "voice_ensemble_config": 25.220000000000002,
           "voice_ornament_system": 5.995,
-          "voice_pitch_organization": 8.14,
-          "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 5.485000000000001
+          "voice_pitch_organization": 8.290000000000001,
+          "voice_processing_chain": 4.550000000000001,
+          "voice_multitrack_stack": 6.635000000000001
         }
       },
       {
@@ -73,7 +73,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "portative_organ_form": 3.045,
+          "portative_organ_form": 3.545,
           "portative_organ_repertoire": 6.745000000000001,
           "portative_organ_pipework": -0.1
         }
@@ -90,7 +90,7 @@
           "bowed_technique": 9.2,
           "vielle_medieval_form": 0.65,
           "vielle_medieval_repertoire": 4.34,
-          "vielle_medieval_stringing": 2.9850000000000003
+          "vielle_medieval_stringing": 3.785
         }
       },
       {
@@ -102,7 +102,7 @@
         },
         "scores": {
           "medieval_psaltery_form": 0.75,
-          "medieval_psaltery_playing": 2.4400000000000004,
+          "medieval_psaltery_playing": 1.79,
           "medieval_psaltery_stringing": -0.035
         }
       },

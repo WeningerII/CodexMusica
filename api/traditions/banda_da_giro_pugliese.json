@@ -1,0 +1,212 @@
+{
+  "id": "banda_da_giro_pugliese",
+  "name": "Banda da giro (Apulian touring wind band)",
+  "family": "global",
+  "lineage": "The bande da giro are the large wind bands of Puglia hired from town to town through the summer season of patronal feasts, where from illuminated bandstands in the piazza they play operatic fantasias and transcribed arias, symphonic marches and processional marches. The repertoire took shape in the nineteenth century, with the flugelhorn family (flicorni) and clarinets taking the singers' parts, and bands from towns such as Squinzano, Conversano and Lecce became renowned for it. The tenor horn and baritone horn cards stand in for the flicorno contralto and flicorno baritono, and the sousaphone card for the band's tuba-type basses.",
+  "recipe": "classic modern banda da giro, carnival Processional, European branch. clarinet, flugelhorn, tenor horn eb, baritone horn bb, trombone, sousaphone, bass drum, credited cymbals. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 255,
+  "score": 3.002,
+  "config": {
+    "traditions": [
+      "banda_da_giro_pugliese"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 0.0315,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.105
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_couesnon_vintage"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "flugel_use": 0.39,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 0.39,
+          "flugelhorn_maker_school": -1.8689999999999996
+        }
+      },
+      {
+        "id": "tenor_horn_eb",
+        "slots": {
+          "tenor_horn_eb_identity": "tenor_horn_eb_scored"
+        },
+        "scores": {
+          "tenor_horn_eb_identity": 0
+        }
+      },
+      {
+        "id": "baritone_horn_bb",
+        "slots": {
+          "baritone_horn_bb_identity": "baritone_horn_bb_scored"
+        },
+        "scores": {
+          "baritone_horn_bb_identity": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_red_brass",
+          "trombone_maker_school": "trombone_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "trombone_type": 0,
+          "trombone_mouthpiece": 0.8999999999999999,
+          "trombone_mute": 0.3,
+          "trombone_technique": 0,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.5774999999999999
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_oompah_march"
+        },
+        "scores": {
+          "sousaphone_bore": 0.78,
+          "sousaphone_context": 0.39
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.6315,
+          "bass_drum_beater": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "flugelhorn": [
+        "wind_articulation",
+        "flugel_use",
+        "flugelhorn_pitch",
+        "flugelhorn_bell_metal",
+        "flugelhorn_maker_school"
+      ],
+      "tenor_horn_eb": [
+        "tenor_horn_eb_identity"
+      ],
+      "baritone_horn_bb": [
+        "baritone_horn_bb_identity"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "sousaphone": [
+        "sousaphone_bore",
+        "sousaphone_context"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "urban_courtyard",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "urban_courtyard",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "flugel_use": "flugel_brass_band",
+      "flugelhorn_pitch": "flugelhorn_bb",
+      "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+      "flugelhorn_maker_school": "flugelhorn_couesnon_vintage",
+      "tenor_horn_eb_identity": "tenor_horn_eb_scored",
+      "baritone_horn_bb_identity": "baritone_horn_bb_scored",
+      "trombone_type": "valve_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_red_brass",
+      "trombone_maker_school": "trombone_yamaha_xeno",
+      "sousaphone_bore": "sousaphone_eb_bass",
+      "sousaphone_context": "sousaphone_oompah_march",
+      "bass_drum_size": "bass_drum_concert",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

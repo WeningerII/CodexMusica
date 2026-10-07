@@ -3,9 +3,9 @@
   "name": "Sayeerhe (Tujia funeral song-dance)",
   "family": "global",
   "lineage": "Funeral song-dance of the Tujia of the middle Qingjiang valley in western Hubei (Changyang, Wufeng and Badong), performed through the night at the wake of an elder: a drummer beating a large drum beside the coffin leads the high-pitched songs, and the men who dance answer him; it is listed on China's national intangible-heritage register as a traditional dance. The acoustic membrane drum card stands in for the funeral drum.",
-  "recipe": "classic modern sayeerhe, funeral Lament, east Asian branch. unprocessed natural acoustic. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 222,
-  "score": 10.057,
+  "recipe": "classic modern sayeerhe, funeral Lament, east Asian branch. single leader group response, unprocessed natural acoustic. membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 12.095,
   "config": {
     "traditions": [
       "tujia_sayeerhe"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.47624999999999995,
+          "voice_ensemble_config": 0.585,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1,
-          "voice_multitrack_stack": 0.069,
+          "voice_multitrack_stack": 0.29400000000000004,
           "voice_tessitura": 0
         }
       },
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.5649999999999995,
-          "acoustic_membrane_drum_gesture": 3.565
+          "acoustic_membrane_drum_form": 5.5675,
+          "acoustic_membrane_drum_gesture": 4.2675
         }
       }
     ],

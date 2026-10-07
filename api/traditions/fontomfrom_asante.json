@@ -1,0 +1,126 @@
+{
+  "id": "fontomfrom_asante",
+  "name": "Fontomfrom (Asante state drum orchestra)",
+  "family": "classical",
+  "lineage": "Court drum orchestra of the Asante and other Akan states, played for the Asantehene and paramount chiefs at durbars, festivals and royal funerals. A pair of tall fontomfrom drums leads atumpan talking drums, petia and other supporting drums and the dawuro bell in dance pieces and drummed praises; a generic card stands in for the bell.",
+  "recipe": "classic modern fontomfrom, praise Song, sub saharan African branch. interlocking booming open ringing fontomfrom, narrow open ringing hardwood shell atumpan, petia, agogo source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 270,
+  "score": 50.708,
+  "config": {
+    "traditions": [
+      "fontomfrom_asante"
+    ],
+    "instruments": [
+      {
+        "id": "fontomfrom",
+        "slots": {
+          "fontomfrom_scope": "fontomfrom_bommaa_pair",
+          "fontomfrom_court": "fontomfrom_asante_kumasi",
+          "fontomfrom_function": "fontomfrom_akantam_dance",
+          "fontomfrom_technique": "fontomfrom_curved_open"
+        },
+        "scores": {
+          "fontomfrom_scope": 5.5625,
+          "fontomfrom_court": 8.9225,
+          "fontomfrom_function": 7.6365,
+          "fontomfrom_technique": 3.455
+        }
+      },
+      {
+        "id": "atumpan",
+        "slots": {
+          "atumpan_mode": "atumpan_fontomfrom_battery",
+          "atumpan_interval": "atumpan_narrow_third",
+          "atumpan_stroke": "atumpan_curved_open",
+          "atumpan_build": "atumpan_tweneboa_antelope"
+        },
+        "scores": {
+          "atumpan_mode": 5.75,
+          "atumpan_interval": 8.151,
+          "atumpan_stroke": 2.855,
+          "atumpan_build": 4.95
+        }
+      },
+      {
+        "id": "petia",
+        "slots": {
+          "petia_size": "petia_standard",
+          "petia_role": "petia_ostinato"
+        },
+        "scores": {
+          "petia_size": 0.273,
+          "petia_role": 0.2415
+        }
+      },
+      {
+        "id": "agogo_source_unspecified",
+        "slots": {
+          "agogo_source_unspecified_identity": "agogo_source_unspecified_named_role"
+        },
+        "scores": {
+          "agogo_source_unspecified_identity": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "fontomfrom": [
+        "fontomfrom_scope",
+        "fontomfrom_court",
+        "fontomfrom_function",
+        "fontomfrom_technique"
+      ],
+      "atumpan": [
+        "atumpan_mode",
+        "atumpan_interval",
+        "atumpan_stroke",
+        "atumpan_build"
+      ],
+      "petia": [
+        "petia_size",
+        "petia_role"
+      ],
+      "agogo_source_unspecified": [
+        "agogo_source_unspecified_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "fontomfrom_scope": "fontomfrom_bommaa_pair",
+      "fontomfrom_court": "fontomfrom_asante_kumasi",
+      "fontomfrom_function": "fontomfrom_akantam_dance",
+      "fontomfrom_technique": "fontomfrom_curved_open",
+      "atumpan_mode": "atumpan_fontomfrom_battery",
+      "atumpan_interval": "atumpan_narrow_third",
+      "atumpan_stroke": "atumpan_curved_open",
+      "atumpan_build": "atumpan_tweneboa_antelope",
+      "petia_size": "petia_standard",
+      "petia_role": "petia_ostinato",
+      "agogo_source_unspecified_identity": "agogo_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

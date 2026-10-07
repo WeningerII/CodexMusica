@@ -3,9 +3,9 @@
   "name": "Tayuban (Javanese tayub dance-party gamelan)",
   "family": "global",
   "lineage": "Javanese social dance event in which female singer-dancers (ledhek or waranggana) sing with a gamelan and invite men to dance with them in turn. It is held at village cleansing ceremonies, harvest feasts and weddings in regions such as Blora and Nganjuk.",
-  "recipe": "classic modern tayuban, art Music, southeast Asian branch. solo with instrumental accompaniment, single lead single track no stacking. lively gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian, saron gamelan, bonang, kenong, kempul. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 343,
-  "score": 17.157,
+  "recipe": "classic modern tayuban, art Music, southeast Asian branch. solo with instrumental accompaniment. lively gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian, saron gamelan, bonang, kenong, kempul. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 17.082,
   "config": {
     "traditions": [
       "tayuban"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.5306249999999999,
+          "voice_multitrack_stack": 0.49349999999999994,
           "voice_tessitura": 0
         }
       },
@@ -75,7 +75,7 @@
         },
         "scores": {
           "saron_size": 0,
-          "saron_tuning_system": 0.635625
+          "saron_tuning_system": 0.5985
         }
       },
       {

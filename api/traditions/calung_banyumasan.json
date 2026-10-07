@@ -3,9 +3,9 @@
   "name": "Calung Banyumasan (Banyumas bamboo gamelan with lengger)",
   "family": "global",
   "lineage": "Bamboo ensemble of the Banyumas region of Central Java that takes over gamelan roles on bamboo: struck bamboo xylophones (here the bamboo tube-xylophone card) as gambang and slenthem, bamboo kenong, a blown bamboo gong and kendang. It accompanies lengger female singer-dancers and sung songs in Banyumas dialect.",
-  "recipe": "classic modern calung banyumasan, art Music, southeast Asian branch. solo with instrumental accompaniment, single lead single track no stacking. ensemble blended trung bamboo xylophone, gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 348,
-  "score": 11.553,
+  "recipe": "classic modern calung banyumasan, art Music, southeast Asian branch. solo with instrumental accompaniment. ensemble blended trung bamboo xylophone, gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 310,
+  "score": 11.515,
   "config": {
     "traditions": [
       "calung_banyumasan"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.5306249999999999,
+          "voice_multitrack_stack": 0.49349999999999994,
           "voice_tessitura": 0
         }
       },

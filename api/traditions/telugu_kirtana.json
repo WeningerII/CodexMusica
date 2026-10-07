@@ -3,14 +3,14 @@
   "name": "Telugu kirtana (Carnatic devotional song)",
   "family": "classical",
   "lineage": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
-  "recipe": "classic South Asian early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet javali. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 528,
-  "score": 262.5,
+  "recipe": "classic South Asian early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet harikatha kalakshepam. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 520,
+  "score": 239.748,
   "config": {
     "traditions": [
       "telugu_kirtana",
       "borgeet_assamese",
-      "javali"
+      "harikatha_kalakshepam"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 24.570000000000004,
+          "voice_register": 0.845,
+          "voice_quality": 29.055,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.879999999999999,
-          "voice_articulation": 10.399999999999997,
-          "voice_microtone": 10.204999999999997,
-          "voice_tradition": 30.675,
-          "voice_mechanism_compound": 8.149999999999999,
-          "voice_estill_quality": 10.464999999999998,
-          "voice_speech_song": 14.039999999999996,
-          "voice_ensemble_config": 11.179999999999994,
-          "voice_ornament_system": 32.044999999999995,
-          "voice_pitch_organization": 32.915,
-          "voice_processing_chain": 7.344999999999999,
-          "voice_multitrack_stack": 2.535
+          "voice_vibrato": 8.319999999999999,
+          "voice_articulation": 9.945,
+          "voice_microtone": 9.555,
+          "voice_tradition": 28.175,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 7.54,
+          "voice_speech_song": 13.129999999999995,
+          "voice_ensemble_config": 9.685,
+          "voice_ornament_system": 29.17,
+          "voice_pitch_organization": 30.04,
+          "voice_processing_chain": 9.49,
+          "voice_multitrack_stack": 1.69
         }
       },
       {
@@ -62,11 +62,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 4.29,
+          "mridangam_heads": 2.9899999999999998,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 12.939999999999998,
+          "mridangam_shell_wood": 12.94,
           "mridangam_heads_material": 2.535,
-          "mridangam_lineage": 12.244999999999997
+          "mridangam_lineage": 12.094999999999999
         }
       },
       {
@@ -80,10 +80,10 @@
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": 8.25,
-          "tanpura_size": 2.34,
-          "tanpura_jawari": 8.25,
-          "tanpura_strings": 1.69,
+          "plucked_traditional_technique": 5.75,
+          "tanpura_size": 0.845,
+          "tanpura_jawari": 5.75,
+          "tanpura_strings": 1.885,
           "tanpura_string_material": 3.38,
           "tanpura_body_wood": 2.535
         }

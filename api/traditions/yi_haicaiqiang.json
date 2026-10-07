@@ -5,7 +5,7 @@
   "lineage": "Song form of the Nisu Yi villages around Yilong Lake in Shiping county, Honghe, also called daobanjiang ('rowing back the oar'), named after the lake's 'sea vegetable' water plant. A complete performance is a large multi-section vocal suite (juqiang, kongqiang, zhengqiqiang and baihuaqiang sections) combining solo, antiphonal, leader-and-chorus, unison and choral singing; tied to a courting custom of young men and women, it was listed in the first batch of China's national intangible-heritage register.",
   "recipe": "classic modern haicaiqiang, ballad Poetry. multi note runs per syllable, many notes per syllable, single leader group response. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 207,
-  "score": 3.726,
+  "score": 3.843,
   "config": {
     "traditions": [
       "yi_haicaiqiang"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.69,
-          "voice_ensemble_config": 1.15,
+          "voice_ensemble_config": 1.1889999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.07799999999999999,
           "voice_tessitura": 0
         }
       }

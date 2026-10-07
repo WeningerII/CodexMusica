@@ -5,7 +5,7 @@
   "lineage": "Shuar anent; selected unaccompanied intimate ritual song, distinguished from the festive nampet repertoire. This models vocal delivery and does not reproduce restricted texts or claim ritual efficacy.",
   "recipe": "classic modern shuar anent, ritual Devotional, amazonian branch. solo unaccompanied. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 164,
-  "score": 1.54,
+  "score": 1.507,
   "config": {
     "traditions": [
       "shuar_anent"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.363,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 0.189
         }
       }
     ],

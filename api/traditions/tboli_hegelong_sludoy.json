@@ -5,7 +5,7 @@
   "lineage": "Instrumental and sung music of the T'boli of Lake Sebu in South Cotabato, Mindanao, centred on the hegelong, a two-string boat lute with one melody and one drone string, and the s'ludoy, a bamboo tube zither whose strings are cut from the bamboo skin, alongside the kumbing jaw harp and the t'nonggong drum. The kutiyapi card stands in for the hegelong, valiha for the s'ludoy and the drum card for the t'nonggong.",
   "recipe": "classic modern t'boli hegelong and s'ludoy, ritual Devotional, indigenous branch. solo with instrumental accompaniment, single lead single track no stacking. modal drone foundation kutiyapi, valiha, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 331,
-  "score": 13.024,
+  "score": 13.506,
   "config": {
     "traditions": [
       "tboli_hegelong_sludoy"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.105,
-          "voice_multitrack_stack": 1.0185,
+          "voice_multitrack_stack": 1.4640000000000002,
           "voice_tessitura": 0
         }
       },
@@ -73,7 +73,7 @@
           "valiha_strings": "valiha_idiochord"
         },
         "scores": {
-          "valiha_form": 0.8999999999999999,
+          "valiha_form": 0.9371249999999999,
           "valiha_repertoire": -0.07,
           "valiha_strings": 0.26
         }

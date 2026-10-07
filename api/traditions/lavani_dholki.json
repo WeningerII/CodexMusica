@@ -5,7 +5,7 @@
   "lineage": "Marathi women's dance-song of Maharashtra, developed in 18th–19th century Peshwa-era tamasha troupes and carried into 20th-century Marathi cinema by composers such as Vasant Pawar and singers Sulochana Chavan and Shanta Shelke's lyricists — fast 6- or 8-beat dholki patterns with halgi frame-drum accents at 130–160 BPM, harmonium and manjira filling the cadences, and a chest-forward, nasal, forwardly-projected female delivery declaiming double-meaning Marathi verse punctuated by shouted interjections for the ghungroo-dancer.",
   "recipe": "classic mid-1980s lavani, ballad Poetry, indian bard branch, south Asian carnival processional, south Asian pop functional song, south Asian field work gujarati pop bhojpuri pop. extended whistle, breath veiled tone, fast rate, interlocked note trading. dholak, halgi, treble-extended vocal female harmonium indian, small open ring manjira, indian rosewood rosewood clay tabla, synthetic ornamented tumbi. festival stage. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 560,
-  "score": 229.576,
+  "score": 227.793,
   "config": {
     "traditions": [
       "lavani_dholki",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 13.519999999999998,
+          "voice_register": 12.649999999999999,
           "voice_quality": 11.764999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.645,
+          "voice_vibrato": 1.7950000000000002,
           "voice_articulation": 22.035,
           "voice_microtone": 21.644999999999996,
           "voice_tradition": 16.9,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 6.11,
           "voice_speech_song": 30.875,
           "voice_ensemble_config": 21.775,
-          "voice_ornament_system": 6.704375,
+          "voice_ornament_system": 6.614375,
           "voice_pitch_organization": 6.60625,
           "voice_processing_chain": 5.525,
           "voice_multitrack_stack": 7.2475000000000005
@@ -55,16 +55,16 @@
       {
         "id": "dholak",
         "slots": {
-          "dholak_use": "dholak_classical",
+          "dholak_use": "dholak_wedding",
           "dholak_construction": "dholak_large",
           "dholak_head": "dholak_synthetic_head",
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 0.375,
+          "dholak_use": 0.09,
           "dholak_construction": 2.395625,
-          "dholak_head": 0.39,
-          "dholak_tensioning": 0.39
+          "dholak_head": 0.195,
+          "dholak_tensioning": 0.195
         }
       },
       {
@@ -87,9 +87,9 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 2.79375,
+          "free_reed_technique": 2.5687500000000005,
           "harmonium_action": 2.08,
-          "harmonium_voicing": 4.615,
+          "harmonium_voicing": 4.496875,
           "harmonium_use": 2.08
         }
       },
@@ -102,7 +102,7 @@
         },
         "scores": {
           "manjira_form": 4.245,
-          "manjira_stroke": 3.9881249999999993,
+          "manjira_stroke": 4.033124999999999,
           "manjira_metal": 0.585
         }
       },

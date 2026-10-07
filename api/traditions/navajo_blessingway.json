@@ -3,24 +3,24 @@
   "name": "Navajo Blessingway (Hózhǫ́ǫ́jí) recitation",
   "family": "global",
   "lineage": "Blessingway (Hózhǫ́ǫ́jí) is the central ceremony of the Diné (Navajo), a rite for restoring and maintaining hózhǫ́ (beauty, harmony, balance) used at childbirth, marriage, girls' puberty (Kinaaldá), and to sanctify life-passages, rather than to cure illness. Led by a hataałii (singer/medicine person) in the hogan over one or two nights, it consists of long fixed sequences of sung prayer and recited text recounting the emergence and the deeds of Changing Woman, learned through years of apprenticeship. The songs and prayers must be delivered in exact order and wording. The tradition is documented in the scholarship of Washington Matthews, Leland Wyman, and Father Berard Haile, and remains a living practice.",
-  "recipe": "classic early-1890s navajo blessingway (hózhǫ́ǫ́jí) recitation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, breath veiled tone, straight note core, interlocked note trading. adobe room. acoustic horn. wax cylinder.",
-  "recipe_chars": 287,
-  "score": 233.673,
+  "recipe": "classic early-1890s navajo blessingway (hózhǫ́ǫ́jí) recitation, ritual Devotional, indigenous branch mapuche tayil genealogical chant ethiopian debtera liturgical incantation. thick, breath veiled tone, breath pulsed, interlocked note trading. adobe room. acoustic horn. wax cylinder.",
+  "recipe_chars": 284,
+  "score": 215.769,
   "config": {
     "traditions": [
       "navajo_blessingway",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "ethiopian_debtera_incantation"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.4815,
-          "voice_quality": 41.990000000000045,
+          "voice_register": 2.250000000000001,
+          "voice_quality": 33.995000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 26.455000000000005,
-          "voice_microtone": 26.065000000000005,
-          "voice_tradition": 23.009999999999998,
-          "voice_mechanism_compound": 13.181000000000001,
-          "voice_estill_quality": 10.854999999999997,
-          "voice_speech_song": 27.95000000000001,
-          "voice_ensemble_config": 27.040000000000006,
-          "voice_ornament_system": 10.900000000000002,
-          "voice_pitch_organization": 3.9000000000000012,
-          "voice_processing_chain": 19.435,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_vibrato": 1.5045000000000002,
+          "voice_articulation": 25.480000000000008,
+          "voice_microtone": 27.625000000000004,
+          "voice_tradition": 20.215,
+          "voice_mechanism_compound": 7.1065000000000005,
+          "voice_estill_quality": 8.71,
+          "voice_speech_song": 26.130000000000006,
+          "voice_ensemble_config": 26.26000000000001,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 8.603,
+          "voice_processing_chain": 18.524999999999995,
+          "voice_multitrack_stack": 2.34
         }
       }
     ],

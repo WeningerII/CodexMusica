@@ -3,9 +3,9 @@
   "name": "Ghazal Melayu (Johor Malay ghazal)",
   "family": "global",
   "lineage": "Malay ghazal as it took shape in Johor, where it has flourished since the late nineteenth century. Sung Malay verse is accompanied by harmonium, tabla, gambus lute (the oud card stands in), violin and maracas, often with guitar and tambourine, the gambus and harmonium reflecting Arab and Indian links.",
-  "recipe": "classic modern ghazal melayu, functional Song, east Asian pop branch. solo with instrumental accompaniment. song accompaniment harmonium indian, pitched indian rosewood rosewood tabla, oud, fiddle, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 286,
-  "score": 11.149,
+  "recipe": "classic modern ghazal melayu, functional Song, east Asian pop branch. solo with instrumental accompaniment. song accompaniment harmonium indian, tabla, oud, fiddle, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 253,
+  "score": 11.433,
   "config": {
     "traditions": [
       "ghazal_melayu"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.2385,
+          "voice_multitrack_stack": 0.16799999999999998,
           "voice_tessitura": 0
         }
       },
@@ -62,8 +62,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "harmonium_action": 0.8247499999999998,
-          "harmonium_voicing": 0.9612499999999998,
+          "harmonium_action": 0.8085,
+          "harmonium_voicing": 0.8084999999999999,
           "harmonium_use": 1.95
         }
       },
@@ -75,8 +75,8 @@
           "tabla_syahi": "fresh_syahi"
         },
         "scores": {
-          "tabla_dayan": 1.01675,
-          "tabla_bayan": 0.3275,
+          "tabla_dayan": 0.9814999999999999,
+          "tabla_bayan": 0.34650000000000003,
           "tabla_syahi": 0.0315
         }
       },
@@ -92,12 +92,12 @@
           "oud_string_material": "dutar_strings_unspecified"
         },
         "scores": {
-          "plucked_traditional_technique": 0.19500000000000003,
+          "plucked_traditional_technique": 0.186,
           "oud_school": 0,
-          "oud_strings": 0.03525,
+          "oud_strings": 0,
           "oud_pick": 0.3045,
-          "oud_body_wood": 0.39299999999999996,
-          "oud_soundboard_wood": 0.21,
+          "oud_body_wood": 0.6659999999999999,
+          "oud_soundboard_wood": 0.483,
           "oud_string_material": 0
         }
       },
@@ -127,8 +127,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.1805,
-          "maracas_filling": 0.1175
+          "maracas_construction": 0.1995,
+          "maracas_filling": 0.1365
         }
       }
     ],

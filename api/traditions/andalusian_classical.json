@@ -5,7 +5,7 @@
   "lineage": "Andalusian classical is represented here by Salim Fergani with Beihdja Rahal — Opéra de Lyon,21January2023, malouf and sanâa programme. This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic andalusian classical, art Music, middle eastern classical branch. no specific ornament system. oud arbi, Lebanese cedar eastern Mediterranean pyramid nylon arab school oud, articulate metal finger picks qanun, carpathian spruce European maple bosnian source flamed figure cremonese pre 1750 violin orchestral, walnut bent frame canonical Iranian tar frame drum, goat skin Turkish darbuka regional darbuka, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 581,
-  "score": 164.983,
+  "score": 164.402,
   "config": {
     "traditions": [
       "andalusian_classical"
@@ -58,9 +58,9 @@
           "oud_arbi_plectrum": "oud_arbi_risha_quill"
         },
         "scores": {
-          "oud_arbi_form": 1.8479999999999996,
-          "oud_arbi_tuning": 2.1,
-          "oud_arbi_plectrum": 0
+          "oud_arbi_form": 1.6121249999999998,
+          "oud_arbi_tuning": 1.827,
+          "oud_arbi_plectrum": 0.03712499999999999
         }
       },
       {
@@ -75,7 +75,7 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
+          "plucked_traditional_technique": 12.037125,
           "oud_school": 0.5985,
           "oud_strings": 6.24,
           "oud_pick": 0.168,
@@ -96,7 +96,7 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 12,
+          "plucked_traditional_technique": 12.037125,
           "qanun_strings": 6.24,
           "qanun_levers": 0.4515,
           "qanun_pick": 6.24,
@@ -120,12 +120,12 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 12.286,
+          "bowed_technique": 12.323125,
           "orch_strings": 0.168,
-          "orch_top_wood": 15.075,
+          "orch_top_wood": 15.226875,
           "orch_back_wood": 12.0865,
           "orch_varnish": 13.363,
-          "orch_setup_period": 12.8425,
+          "orch_setup_period": 12.5695,
           "orch_bow": 0.3045,
           "orch_bow_stick": 15.469999999999999,
           "orch_articulation": 0.0945,
@@ -174,9 +174,9 @@
           "ghaita_reed": "ghaita_arundo_canonical"
         },
         "scores": {
-          "wind_articulation": -0.15000000000000002,
+          "wind_articulation": -0.11287500000000003,
           "ghaita_region": 0.2415,
-          "ghaita_context": 0.9765000000000001,
+          "ghaita_context": 0.8400000000000001,
           "ghaita_body_wood": 1.1865,
           "ghaita_reed": 1.155
         }

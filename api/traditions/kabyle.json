@@ -3,14 +3,14 @@
   "name": "Kabyle (Kabylie chanson)",
   "family": "global",
   "lineage": "Song tradition of the Kabylie mountains of northern Algeria, moving from village achewiq women's laments and idebbalen bendir-and-ghaita processionals into the exile chanson kabyle of the Paris cafés from the 1950s, codified by Slimane Azem, Cherif Kheddam, Idir and Lounès Matoub — Tamazight-language strophic verse in Aeolian and Phrygian modes over acoustic guitar, mandole and bendir at moderate 6/8 or 2/4, with a plain unforced lead voice and unison choral refrains carrying identity politics.",
-  "recipe": "classic Western European mid-1950s kabyle, ballad Poetry, med east poetic branch, middle east n African protest song, chanson fado ballad poetry algerian raï egyptian political-vocal lineage. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, lyrical folk song Berber mandole, bendir, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, snappy to palm hand clap. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 599,
-  "score": 189.37,
+  "recipe": "classic Western European mid-1950s kabyle, ballad Poetry, med east poetic branch, middle east n African protest song, chanson fado ballad poetry özgün müzik algerian raï. thick, breath veiled tone, interlocked note trading, neutral third half flat. martin lifespan fingerpicked acoustic guitar, folk song Berber melodic single line mandole, bendir, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, snappy to palm hand clap. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 601,
+  "score": 183.55,
   "config": {
     "traditions": [
       "kabyle",
-      "algerian_rai_political",
-      "egyptian_sayyed_darwish_sheikh_imam"
+      "ozgun_muzik",
+      "algerian_rai_political"
     ],
     "instruments": [
       {
@@ -18,28 +18,28 @@
         "slots": {
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
+          "back_sides": "rosewood_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 0,
           "top_wood": 0.45499999999999996,
-          "back_sides": 0.45499999999999996,
+          "back_sides": 0.585,
           "string_acoustic": 2.0799999999999996,
-          "acoustic_om_technique": 4.395
+          "acoustic_om_technique": 6.370000000000001
         }
       },
       {
         "id": "mandole",
         "slots": {
           "mandole_form": "mandole_kabyle",
-          "mandole_role": "mandole_strummed",
+          "mandole_role": "mandole_melodic",
           "mandole_strings": "mandole_steel"
         },
         "scores": {
-          "mandole_form": 19.554999999999996,
-          "mandole_role": 0.4875,
+          "mandole_form": 20.279999999999998,
+          "mandole_role": 2,
           "mandole_strings": -0.05
         }
       },
@@ -54,8 +54,8 @@
         "scores": {
           "bendir_snares": 0.45499999999999996,
           "bendir_context": 0.15,
-          "bendir_shell_wood": 0.65,
-          "bendir_head": 0.195
+          "bendir_shell_wood": 0.45499999999999996,
+          "bendir_head": 0.045
         }
       },
       {
@@ -74,27 +74,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 1.7199999999999993,
-          "voice_quality": 13.06499999999999,
+          "voice_register": 3.7199999999999998,
+          "voice_quality": 12.154999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.08,
-          "voice_articulation": 16.50999999999999,
-          "voice_microtone": 29.639999999999993,
-          "voice_tradition": 14.9175,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 23.919999999999995,
-          "voice_ensemble_config": 18.52499999999999,
-          "voice_ornament_system": 5.4399999999999995,
-          "voice_pitch_organization": 5.484999999999999,
-          "voice_processing_chain": 5.164999999999999,
-          "voice_multitrack_stack": 4.907500000000001
+          "voice_vibrato": 0.39,
+          "voice_articulation": 19.434999999999995,
+          "voice_microtone": 22.684999999999995,
+          "voice_tradition": 13.682500000000001,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 24.894999999999992,
+          "voice_ensemble_config": 19.759999999999994,
+          "voice_ornament_system": 1.765,
+          "voice_pitch_organization": 4.72,
+          "voice_processing_chain": 6.23,
+          "voice_multitrack_stack": 4.9725
         }
       },
       {
@@ -102,26 +102,26 @@
         "slots": {
           "bowed_technique": "bowed_sul_tasto",
           "orch_strings": "plain_beef_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "european_maple_general_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "bernardel_rosin_orch"
+          "orch_articulation": "pizz_orch",
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.295,
+          "bowed_technique": -0.035,
           "orch_strings": 0.995,
-          "orch_top_wood": 2.8699999999999997,
-          "orch_back_wood": 3.015,
-          "orch_varnish": 2.195,
-          "orch_setup_period": 0.65,
-          "orch_bow": 1.5599999999999998,
+          "orch_top_wood": 2.275,
+          "orch_back_wood": 1.8199999999999998,
+          "orch_varnish": 1.3649999999999998,
+          "orch_setup_period": 0.7149999999999999,
+          "orch_bow": 0.38999999999999996,
           "orch_bow_stick": 3.2499999999999987,
-          "orch_articulation": 0.375,
-          "orch_rosin": 2.015
+          "orch_articulation": 0.345,
+          "orch_rosin": 0.7
         }
       },
       {
@@ -131,7 +131,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.065,
+          "clap_technique": 1.3,
           "clap_capture": 0
         }
       }

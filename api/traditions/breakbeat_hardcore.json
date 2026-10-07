@@ -3,14 +3,14 @@
   "name": "Breakbeat Hardcore",
   "family": "electronic",
   "lineage": "UK rave style of 1990-1993 built at Shut Up and Dance, Suburban Base and Reinforced by The Prodigy, 4hero, Acen and Altern-8 — 125-145 BPM Amen and Think breaks chopped on Akai S950 samplers, sped-up soul and ragga vocal snippets, Hoover and piano riffs, and 808/909 sub-bass, cut to dubplate for pirate radio and warehouse sound systems.",
-  "recipe": "classic Western European 1990-1993 breakbeat hardcore, bass System, uk soundsystem branch, bass descendants bass system, techno electronic dance, dub descendants bass system funky breaks jump-up. thick, breath veiled tone, slow rate, interlocked note trading. chopped sampler, TR-909, behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, sampled chopped turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 543,
-  "score": 261.643,
+  "recipe": "classic Western European 1990-1993 breakbeat hardcore, bass System, uk soundsystem branch, bass descendants bass system, techno electronic dance, dub descendants bass system electric powwow funky breaks. thick, breath veiled tone, straight note core, interlocked note trading. chopped sampler, TR-909, behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, sampled chopped turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 560,
+  "score": 247.16,
   "config": {
     "traditions": [
       "breakbeat_hardcore",
-      "funky_breaks",
-      "jump_up"
+      "electric_powwow",
+      "funky_breaks"
     ],
     "instruments": [
       {
@@ -20,14 +20,14 @@
           "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 4.005,
-          "sampler_archetypes": 1.9649999999999999,
-          "sampler_bit_depth": 1.7549999999999994,
-          "sampler_workflow": 5.38,
-          "sampler_classic_context": 31.037500000000016
+          "electronic_technique": 4.73,
+          "sampler_archetypes": 2.19,
+          "sampler_bit_depth": 0.06499999999999999,
+          "sampler_workflow": 5.23,
+          "sampler_classic_context": 28.080000000000005
         }
       },
       {
@@ -51,8 +51,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 18.2975,
-          "drum_machine_808_context": 16.64,
+          "tr808_voice": 16.639999999999997,
+          "drum_machine_808_context": 14.689999999999998,
           "tr808_production_origin": 1.195
         }
       },
@@ -65,7 +65,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 18.1675,
+          "electronic_technique": 18.199999999999996,
           "poly_archetypes": 0.585,
           "poly_voices": 0.195,
           "poly_maker_lineage": -0.7350000000000001
@@ -78,10 +78,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "native_american_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -93,21 +93,21 @@
         },
         "scores": {
           "voice_register": 2.7700000000000005,
-          "voice_quality": 5.330000000000002,
+          "voice_quality": 8.450000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999996,
-          "voice_articulation": 25.870000000000008,
-          "voice_microtone": 26.715000000000003,
-          "voice_tradition": 5.07,
+          "voice_vibrato": 1.0399999999999998,
+          "voice_articulation": 23.010000000000005,
+          "voice_microtone": 24.244999999999997,
+          "voice_tradition": 7.182499999999999,
           "voice_mechanism_compound": 3.7050000000000005,
           "voice_estill_quality": 2.99,
-          "voice_speech_song": 26.52000000000001,
-          "voice_ensemble_config": 25.80500000000001,
-          "voice_ornament_system": 7.085,
-          "voice_pitch_organization": 2.9899999999999998,
-          "voice_processing_chain": 9.674999999999999,
-          "voice_multitrack_stack": 5.460000000000001
+          "voice_speech_song": 23.010000000000005,
+          "voice_ensemble_config": 23.79,
+          "voice_ornament_system": 6.175,
+          "voice_pitch_organization": 2.84,
+          "voice_processing_chain": 10.125,
+          "voice_multitrack_stack": 4.615
         }
       },
       {
@@ -117,8 +117,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 4.005,
-          "turntable_technique": 1.7874999999999996
+          "electronic_technique": 4.73,
+          "turntable_technique": 2.0349999999999997
         }
       }
     ],

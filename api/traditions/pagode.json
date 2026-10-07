@@ -3,14 +3,14 @@
   "name": "Pagode",
   "family": "global",
   "lineage": "Rio de Janeiro 1980s-onward backyard urban-samba subgenre with small-roda informal performance setting — codified through Beth Carvalho discovering and promoting the Cacique de Ramos sambistas, Zeca Pagodinho’s rise from that scene to mainstream stardom (Pagode do Zeca 1986 onward), and Almir Guineto and Jovelina Pérola Negra — characterized by the tantã, banjo-cavaco, and repique-de-mão small-ensemble instrumentation",
-  "recipe": "classic Southern American mid-1980s pagode, groove Percussion, pagode branch, Brazilian song functional song nova música pernambucana bossa nova. thick, breath veiled tone, straight onset, interlocked note trading. classical nylon-string guitar, samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, choro tradition nylon Brazilian rosewood pre 1992 choro violao 7 cordas, snappy samba tradition metal construction reco reco. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 876,
-  "score": 287.345,
+  "recipe": "classic Southern American mid-1980s pagode, groove Percussion, pagode branch, Brazilian song functional song cururu and siriri fandango caiçara. thick, breath veiled tone, straight onset, interlocked note trading. low mid rich spectrum cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, Brazilian rosewood pre 1992 choro violao 7 cordas, snappy samba tradition metal construction reco reco. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 884,
+  "score": 280.172,
   "config": {
     "traditions": [
       "pagode",
-      "nova_musica_pernambucana",
-      "bossa_nova"
+      "cururu_siriri_cuiabano",
+      "fandango_caicara"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.315,
-          "voice_quality": 35.81499999999999,
+          "voice_register": 2.9900000000000015,
+          "voice_quality": 35.16499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.005,
-          "voice_articulation": 18.33,
-          "voice_microtone": 17.744999999999994,
-          "voice_tradition": 5.557499999999999,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 4.680000000000001,
-          "voice_speech_song": 23.66,
-          "voice_ensemble_config": 18.069999999999997,
-          "voice_ornament_system": 0.8899999999999998,
-          "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 7.0200000000000005
+          "voice_vibrato": 1.56,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 18.394999999999992,
+          "voice_tradition": 8.645,
+          "voice_mechanism_compound": 4.29,
+          "voice_estill_quality": 3.9000000000000004,
+          "voice_speech_song": 24.96,
+          "voice_ensemble_config": 18.914999999999996,
+          "voice_ornament_system": 0.8449999999999999,
+          "voice_pitch_organization": 0.7799999999999998,
+          "voice_processing_chain": 6.629999999999999,
+          "voice_multitrack_stack": 7.54
         }
       },
       {
@@ -59,16 +59,16 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "double_top_cl",
-          "string_classical": "carbon_cl",
-          "attack_technique_cl": "thumb_attack_cl"
+          "string_classical": "plain_sheep_gut_classical_guitar",
+          "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 2.57,
+          "acoustic_technique": 1.945,
           "string_tuning": 0,
-          "top_wood_classical": 0.975,
+          "top_wood_classical": 4.874999999999999,
           "bracing_classical": 0.78,
-          "string_classical": 0.39,
-          "attack_technique_cl": 1.125
+          "string_classical": 0.8999999999999999,
+          "attack_technique_cl": 0.975
         }
       },
       {
@@ -81,10 +81,10 @@
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 1.6574999999999998,
-          "cavaquinho_origin": 10.334999999999997,
-          "cavaquinho_context": 24.244999999999997,
-          "cavaquinho_body_wood": 7.994999999999998,
+          "plucked_traditional_technique": 3.4450000000000003,
+          "cavaquinho_origin": 8.709999999999997,
+          "cavaquinho_context": 25.48,
+          "cavaquinho_body_wood": 6.759999999999998,
           "cavaquinho_strings": 0.9299999999999999
         }
       },
@@ -99,12 +99,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 0.825,
-          "pandeiro_size": 7.994999999999998,
-          "pandeiro_context": 5.784999999999999,
-          "pandeiro_head": 5.915000000000001,
-          "pandeiro_shell_wood": 5.915000000000001,
-          "pandeiro_jingles": 5.915000000000001
+          "percussion_technique": -0.1,
+          "pandeiro_size": 6.759999999999998,
+          "pandeiro_context": 5.589999999999998,
+          "pandeiro_head": 6.11,
+          "pandeiro_shell_wood": 6.11,
+          "pandeiro_jingles": 6.11
         }
       },
       {
@@ -116,8 +116,8 @@
         },
         "scores": {
           "surdo_size": 0.3,
-          "surdo_skin": 5.2,
-          "surdo_shell": 4.16
+          "surdo_skin": 2.8600000000000003,
+          "surdo_shell": 2.47
         }
       },
       {
@@ -128,9 +128,9 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 1.2349999999999999,
-          "tamborim_striker": 9.034999999999998,
-          "tamborim_shell": 4.16
+          "tamborim_skin": 0.39,
+          "tamborim_striker": 7.149999999999998,
+          "tamborim_shell": 2.47
         }
       },
       {
@@ -143,11 +143,11 @@
           "violao_7_role": "violao_7_bordao_counter"
         },
         "scores": {
-          "violao_7_string7": 1.17,
-          "violao_7_strings": 1.04,
-          "violao_7_body_wood": 5.980000000000002,
+          "violao_7_string7": 0.78,
+          "violao_7_strings": 0.39,
+          "violao_7_body_wood": 5.98,
           "violao_7_top_wood": 0.7349999999999999,
-          "violao_7_role": 1.625
+          "violao_7_role": 0.78
         }
       },
       {
@@ -156,7 +156,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 9.034999999999998
+          "reco_source": 7.149999999999998
         }
       }
     ],

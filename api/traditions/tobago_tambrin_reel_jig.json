@@ -1,0 +1,105 @@
+{
+  "id": "tobago_tambrin_reel_jig",
+  "name": "Tambrin band music (Tobago reel and jig)",
+  "family": "global",
+  "lineage": "The tambrin band of Tobago, goatskin tambrin frame drums with a fiddle and a steel triangle, plays for the Tobago reel, a dance associated with the ancestral spirits, and for the jig and other social dances descended from British dances. It is a staple of the Tobago Heritage Festival; the frame-drum card stands in for the tambrins.",
+  "recipe": "classic modern tambrin band music, groove Percussion, Caribbean branch. fiddle, credited frame drums, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 199,
+  "score": 1.739,
+  "config": {
+    "traditions": [
+      "tobago_tambrin_reel_jig"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 1.2529999999999997,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.105,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.063,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0.063
+        }
+      },
+      {
+        "id": "concert_triangle",
+        "slots": {
+          "concert_triangle_construction": "concert_triangle_grover_six_kanigen"
+        },
+        "scores": {
+          "concert_triangle_construction": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ],
+      "concert_triangle": [
+        "concert_triangle_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified",
+      "concert_triangle_construction": "concert_triangle_grover_six_kanigen"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

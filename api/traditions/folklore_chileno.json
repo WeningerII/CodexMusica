@@ -5,7 +5,7 @@
   "lineage": "The codified rural song-and-dance repertory of central Chile — cueca, tonada, refalosa, sajuriana — collected and professionalized from the 1940s by Violeta Parra, Margot Loyola and the Cuncumén and Huasos Quincheros ensembles, marked by cueca's 6/8-against-3/4 hemiola strummed on guitar and arpa, tambourine and handclaps, brisk 120-140 BPM dance tempo, and parallel-thirds duet singing in a bright, nasal chest register.",
   "recipe": "classic Andean mid-1940s folklore chileno, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean field work folklore ecuatoriano nueva canción. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, harpa, castagnari Italian premium folk music accordion, bombo leguero. bogota colombian andean studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 483,
-  "score": 191.688,
+  "score": 190.998,
   "config": {
     "traditions": [
       "folklore_chileno",
@@ -27,7 +27,7 @@
           "acoustic_technique": 4.035,
           "string_tuning": 0,
           "top_wood_classical": 4.81,
-          "bracing_classical": 3.235,
+          "bracing_classical": 3.28,
           "string_classical": 0.585,
           "attack_technique_cl": 0.195
         }
@@ -71,13 +71,13 @@
           "voice_vibrato": 1.625,
           "voice_articulation": 25.609999999999992,
           "voice_microtone": 25.869999999999994,
-          "voice_tradition": 14.397499999999999,
+          "voice_tradition": 14.165,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 10.274999999999999,
+          "voice_estill_quality": 10.319999999999999,
           "voice_speech_song": 29.835,
           "voice_ensemble_config": 23.269999999999996,
-          "voice_ornament_system": 12.122499999999999,
-          "voice_pitch_organization": 2.6849999999999996,
+          "voice_ornament_system": 11.44,
+          "voice_pitch_organization": 2.73,
           "voice_processing_chain": 5.264999999999999,
           "voice_multitrack_stack": 3.802500000000001
         }
@@ -97,7 +97,7 @@
           "free_reed_technique": 0.695,
           "accordion_reed_material": 0.65,
           "musette_offset": 0.845,
-          "reed_config": 1.135,
+          "reed_config": 1.18,
           "bellows": 0.6950000000000001,
           "voicing_chamber": 0.195,
           "accordion_maker_school": 1.04
@@ -113,7 +113,7 @@
         "scores": {
           "bombo_leguero_form": 1.695,
           "bombo_leguero_style": -0.035,
-          "bombo_leguero_head": 0.95
+          "bombo_leguero_head": 0.995
         }
       }
     ],

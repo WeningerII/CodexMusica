@@ -5,7 +5,7 @@
   "lineage": "Maldivian women’s dance-song accompanied by fingertip rhythms on metal water pots.",
   "recipe": "classic modern bandiyaa jehun, functional Song. maldivian, group vocals. metal vessel fingertip bandiyaa pot. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 189,
-  "score": 5.803,
+  "score": 5.77,
   "config": {
     "traditions": [
       "bandiyaa_jehun"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7475,
+          "voice_ensemble_config": 0.7150000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -5,7 +5,7 @@
   "lineage": "Havana dance-band style consolidated between 1988 and 1995 by NG La Banda under José Luis Cortés, then Charanga Habanera and Los Van Van, layering funk and jazz harmony over Cuban son structures — extended, fully arranged cuerpo sections giving way to open montuno/despelote passages, tumbadora and timbales driving a broken, marcha-heavy groove around a shifting 2-3 or 3-2 son clave, virtuosic bass tumbaos that abandon the anticipated bass, dense brass punches, and a shouted, slangy lead vocal traded with coro.",
   "recipe": "classic Caribbean late-1980s timba, groove Percussion, son salsa branch, rumba Cuban, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. driving open tone tumbadora, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, a 415 Baroque pitch grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, vintage ambassador asymmetric brushes-and-sticks drum kit. Cuban state recording 1962-present mid tier estudios areito havana. shure SM57.",
   "recipe_chars": 996,
-  "score": 510.008,
+  "score": 508.372,
   "config": {
     "traditions": [
       "timba",
@@ -34,7 +34,7 @@
           "timbales_context": "timbales_descarga"
         },
         "scores": {
-          "percussion_technique": 12.015,
+          "percussion_technique": 12.315,
           "timbales_shell": 9.36,
           "timbales_context": 1.935
         }
@@ -48,8 +48,8 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 12.015,
-          "bongos_skin": 20.63,
+          "percussion_technique": 12.315,
+          "bongos_skin": 20.855,
           "bongos_context": 1.935,
           "bongos_shell_wood": 7.540000000000001
         }
@@ -70,7 +70,7 @@
           "amp_make": 7.744999999999999,
           "body_wood": 0.195,
           "pickup_config": 0.24,
-          "string_type": 21.27,
+          "string_type": 20.744999999999997,
           "scale_length_b": 0.195,
           "fretted_or_not": 0,
           "bass_technique": 17.625,
@@ -98,8 +98,8 @@
           "piano_rim": 0.8124999999999999,
           "piano_soundboard": 0.5199999999999999,
           "piano_pinblock": 0.06499999999999999,
-          "piano_plate": 0.39499999999999996,
-          "piano_pitch_standard": 5.725
+          "piano_plate": 0.45499999999999996,
+          "piano_pitch_standard": 6.265
         }
       },
       {
@@ -116,7 +116,7 @@
         "scores": {
           "wind_articulation": 3.4774999999999996,
           "brass_size": 2.2350000000000003,
-          "trumpet_mouthpiece": 20.97,
+          "trumpet_mouthpiece": 20.445,
           "brass_mute": 0.49499999999999994,
           "trumpet_technique": 3.4774999999999996,
           "trumpet_bell_metal": 3.4450000000000003,
@@ -157,12 +157,12 @@
         },
         "scores": {
           "wind_articulation": 3.4774999999999996,
-          "sax_size": 2.2750000000000004,
+          "sax_size": 2.185,
           "sax_reed": 2.2350000000000003,
           "sax_body_alloy": 18.82,
           "sax_mouthpiece": 2.2350000000000003,
           "sax_technique": 17.715,
-          "sax_maker_school": 22.875
+          "sax_maker_school": 22.35
         }
       },
       {
@@ -190,10 +190,10 @@
           "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.764999999999997,
+          "voice_vibrato": 17.615,
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 18.004999999999995,
-          "voice_tradition": 21.555,
+          "voice_tradition": 20.835,
           "voice_mechanism_compound": 4.615,
           "voice_estill_quality": 6.175000000000001,
           "voice_speech_song": 17.874999999999996,
@@ -213,7 +213,7 @@
         },
         "scores": {
           "drum_technique": 26.39,
-          "drumhead": 22.235,
+          "drumhead": 21.709999999999997,
           "drum_kit_kick_pedal": 0
         }
       }

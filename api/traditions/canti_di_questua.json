@@ -1,0 +1,202 @@
+{
+  "id": "canti_di_questua",
+  "name": "Canti di questua (Pasquella and Cantamaggio door-to-door songs)",
+  "family": "global",
+  "lineage": "Calendar begging songs of central Italy, sung by groups of singers and players who go from house to house at turning points of the year: the Pasquella or Befanata on the eve of Epiphany, the Cantamaggio or maggiolata on the night of 30 April. The songs wish good fortune on the household and ask for eggs, wine, food or money in return, and the bands, found across the Marche, Umbria, Abruzzo, Romagna and Tuscany, accompany them with organetto or accordion, guitar and tambourine.",
+  "recipe": "classic modern canti di questua, carnival Processional, European branch. organetto abruzzese, classical nylon-string guitar, central Italian processional devotional tammorra. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 254,
+  "score": 9.999,
+  "config": {
+    "traditions": [
+      "canti_di_questua"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.40950000000000003,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "organetto_abruzzese",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "organetto_rows": "organetto_two_row",
+          "organetto_tremolo": "organetto_wet",
+          "organetto_style": "organetto_ballad"
+        },
+        "scores": {
+          "free_reed_technique": -0.15000000000000002,
+          "organetto_rows": 0.3465,
+          "organetto_tremolo": 0.0315,
+          "organetto_style": 0.063
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "lattice_cl",
+          "string_classical": "dutar_strings_unspecified",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "string_tuning": 0,
+          "top_wood_classical": 0.3465,
+          "bracing_classical": 0.6089999999999999,
+          "string_classical": 0,
+          "attack_technique_cl": -0.035
+        }
+      },
+      {
+        "id": "tammorra",
+        "slots": {
+          "tammorra_form": "tammorra_tamburello_ciociaro",
+          "tammorra_context": "tammorra_processione",
+          "tammorra_head": "tammorra_pelle_capra"
+        },
+        "scores": {
+          "tammorra_form": 6.042000000000001,
+          "tammorra_context": 1.8199999999999998,
+          "tammorra_head": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "organetto_abruzzese": [
+        "free_reed_technique",
+        "organetto_rows",
+        "organetto_tremolo",
+        "organetto_style"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "tammorra": [
+        "tammorra_form",
+        "tammorra_context",
+        "tammorra_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "organetto_rows": "organetto_two_row",
+      "organetto_tremolo": "organetto_wet",
+      "organetto_style": "organetto_ballad",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "lattice_cl",
+      "string_classical": "dutar_strings_unspecified",
+      "attack_technique_cl": "apoyando_cl",
+      "tammorra_form": "tammorra_tamburello_ciociaro",
+      "tammorra_context": "tammorra_processione",
+      "tammorra_head": "tammorra_pelle_capra"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

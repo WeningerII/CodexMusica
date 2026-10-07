@@ -3,14 +3,14 @@
   "name": "Tamil pop (independent non-film)",
   "family": "pop",
   "lineage": "Non-film Tamil popular music took shape in the 1990s when the Chennai studio culture around Ilaiyaraaja and A. R. Rahman spilled into standalone albums — Unnikrishnan and Bombay Jayashri's light-music records, then the 2000s Tamil rock and indie wave (Kadal Pura, Anthony Daasan) and after 2015 an internet-native scene of Hiphop Tamizha, Sean Roldan and Santhosh Narayanan side projects — typically 80-130 BPM 4/4 productions blending programmed kits and synth pads with mridangam, thavil, nadaswaram or urumi accents and Carnatic-trained vocal gamaka over Western chord progressions.",
-  "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music afghan traditional carnatic kacheri. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, plucked short envelope analog poly synth, rock canon ernie ball slinky electric bass, TR-808, indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
-  "recipe_chars": 984,
-  "score": 306.545,
+  "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music bharatanatyam music afghan traditional. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, plucked short envelope analog poly synth, rock canon ernie ball slinky electric bass, TR-808, bronze strummed open chord ringing overtones dreadnought acoustic guitar, kerala bamboo alternative south indian continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 949,
+  "score": 311.84,
   "config": {
     "traditions": [
       "tamil_pop",
-      "afghan_traditional",
-      "carnatic_kacheri"
+      "bharatanatyam_nattuvangam",
+      "afghan_traditional"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 14.624999999999995,
-          "voice_quality": 14.429999999999993,
+          "voice_quality": 15.989999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.46,
-          "voice_articulation": 17.809999999999995,
-          "voice_microtone": 19.36999999999999,
-          "voice_tradition": 24.7,
+          "voice_articulation": 18.914999999999996,
+          "voice_microtone": 19.824999999999992,
+          "voice_tradition": 21.970000000000002,
           "voice_mechanism_compound": 4.234999999999999,
-          "voice_estill_quality": 4.9750000000000005,
-          "voice_speech_song": 20.34499999999999,
-          "voice_ensemble_config": 19.629999999999992,
-          "voice_ornament_system": 15.53,
-          "voice_pitch_organization": 14.274999999999999,
-          "voice_processing_chain": 5.265000000000001,
-          "voice_multitrack_stack": 2.4400000000000004
+          "voice_estill_quality": 4.825,
+          "voice_speech_song": 21.449999999999996,
+          "voice_ensemble_config": 21.18999999999999,
+          "voice_ornament_system": 16.630000000000003,
+          "voice_pitch_organization": 15.375,
+          "voice_processing_chain": 7.215000000000001,
+          "voice_multitrack_stack": 3.7700000000000005
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "mridangam_heads": 1.95,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 1.885,
+          "mridangam_shell_wood": 2.535,
           "mridangam_heads_material": 0.6749999999999999,
-          "mridangam_lineage": 1.885
+          "mridangam_lineage": 2.535
         }
       },
       {
@@ -78,9 +78,9 @@
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 1.04,
+          "thavil_context": 0.65,
           "thavil_technique": 0.26999999999999996,
-          "thavil_shell_wood": 4.425,
+          "thavil_shell_wood": 4.925,
           "thavil_head": 0.6749999999999999
         }
       },
@@ -94,11 +94,11 @@
           "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
         },
         "scores": {
-          "nadaswaram_register": 4.455,
+          "nadaswaram_register": 5.955,
           "nadaswaram_ensemble": 2.2800000000000002,
-          "nadaswaram_body_wood": 4.2299999999999995,
-          "nadaswaram_reed": 4.2749999999999995,
-          "nadaswaram_lineage": 4.619999999999999
+          "nadaswaram_body_wood": 4.7299999999999995,
+          "nadaswaram_reed": 4.7749999999999995,
+          "nadaswaram_lineage": 5.619999999999999
         }
       },
       {
@@ -148,7 +148,7 @@
         },
         "scores": {
           "tr808_voice": 0,
-          "drum_machine_808_context": 0.845,
+          "drum_machine_808_context": 0.65,
           "tr808_production_origin": 0.045
         }
       },
@@ -162,28 +162,28 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 9.7,
+          "acoustic_technique": 9.85,
           "string_tuning": 0.45500000000000007,
-          "top_wood": 0.195,
-          "back_sides": 1.885,
-          "string_acoustic": 1.1949999999999998
+          "top_wood": 0.045,
+          "back_sides": 0.585,
+          "string_acoustic": 1.045
         }
       },
       {
         "id": "bansuri",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "bansuri_length": "classical_bansuri",
+          "bansuri_length": "small_bansuri",
           "bansuri_ornament": "meend_bansuri",
           "bansuri_body_material": "bansuri_kerala_bamboo",
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
           "wind_articulation": 3.7,
-          "bansuri_length": 1.8850000000000002,
-          "bansuri_ornament": 5.42,
-          "bansuri_body_material": 7.6049999999999995,
-          "bansuri_lineage": 1.04
+          "bansuri_length": 1.17,
+          "bansuri_ornament": 3.795,
+          "bansuri_body_material": 5.46,
+          "bansuri_lineage": 0.65
         }
       },
       {
@@ -197,10 +197,10 @@
         },
         "scores": {
           "bowed_technique": 3.795,
-          "violin_carnatic_tuning": 25.609999999999992,
-          "violin_carnatic_posture": 2.795,
-          "violin_carnatic_strings": 4.9399999999999995,
-          "violin_carnatic_lineage": 1.885
+          "violin_carnatic_tuning": 24.375,
+          "violin_carnatic_posture": 2.145,
+          "violin_carnatic_strings": 2.7950000000000004,
+          "violin_carnatic_lineage": 2.535
         }
       }
     ],
