@@ -67,6 +67,7 @@ Nine candidates were not added:
 - **No map pin.** Two islands are missing from the basemap's country polygons, so they
   could not be pinned: Rodriguan accordion dances and San Andrés and Providencia Raizal
   music. They need the basemap's island supplement extended, as was done for Onotoa.
+  (Done in batch 3, below.)
 
 | Gap-list region | Added |
 | --- | ---: |
@@ -104,6 +105,42 @@ The authoring and review method is the same as batch 1:
   219 copy a comparable studio entry's chain and are labelled as authored models.
 - The wording sweep retuned the batch-2 entries whose automatic preface named an
   unrelated culture.
+
+## Batch 3 — the two island entries
+
+The basemap's island supplement, now `references/_natural_earth_10m_islands.json`,
+adds the Natural Earth 1:10m polygons for Rodrigues (Mauritius) and for San Andrés and
+Providencia (Colombia), next to Onotoa. With the islands drawn, the two batch-2 entries
+held back for want of a pin pass the atlas checks at their true locations:
+
+- **Rodriguan accordion dances (kotis, laval, polka, mazok)**, at Port Mathurin. The
+  island's couple and set dances, played on the button accordion with drum and
+  triangle, and kept distinct from its sega tambour. Exemplars: the CREM-CNRS
+  *Île Rodrigues vol. 2: Accordéon* field recordings and the trio Sakili.
+- **Raizal music (San Andrés and Providencia)**, at San Andrés. The English-Creole
+  islanders' string-band polka, mazurka, waltz and schottische, with mento and calypso,
+  on mandolin, guitar, fiddle, washtub bass, jawbone and maracas. Exemplars: the Creole
+  Group, Elkin Robinson and the Green Moon Festival.
+
+Both drafts were re-checked against web sources before they were added. The Rodrigues
+entry gained its CREM archive and Musical Traditions sources, and its voice part was
+corrected to accompanied song. The Raizal entry's ensemble now follows the documented
+conjunto típico, and its sources and exemplars gained Elkin Robinson.
+
+### Effect on existing recipes
+
+Six existing static recipes compile differently. Neither new entry is the cause:
+
+- **Deboxe and its neighbours.** Five changes come from the Deboxe correction, because
+  the engine reads a tradition's own lineage and description:
+  - `deboxe`'s header era now reads "2017-2019" instead of "late-2010s";
+  - four Brazilian funk neighbours (`funk_ostentacao`, `funk_paulista`, `funk_rj` and
+    `funk_viral`) re-pick an automatic variant or a related-style name.
+- **One internal pick.** `kanmtole_seychelles` changes one variant pick that its recipe
+  text does not show.
+
+No instrument, room, tuning or chain moved. The pairs are in
+[`geographic-gap-fill/batch3-existing-recipe-changes.csv`](geographic-gap-fill/batch3-existing-recipe-changes.csv).
 
 ## How each entry was made and checked
 

@@ -1,8 +1,8 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-10-07",
-  "count": 8360,
+  "generated": "2026-10-08",
+  "count": 8362,
   "items": [
     {
       "id": "honky_tonk",
@@ -8303,8 +8303,8 @@
       "id": "funk_paulista",
       "name": "Funk paulista (São Paulo funk)",
       "family": "electronic",
-      "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, rap, fast rate, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 493
+      "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, breath veiled tone, straight onset, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 513
     },
     {
       "id": "bedroom_rnb",
@@ -8667,8 +8667,8 @@
       "id": "funk_ostentacao",
       "name": "Funk ostentacao",
       "family": "hip_hop",
-      "recipe": "classic Southern American 2008-2012 funk ostentacao, mc Rhythm, intl hip hop branch, Brazilian groove percussion, Latin electric electronic dance pagode deboxe. thick, breath veiled tone, slow rate, interlocked note trading. sampler drum machine, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, low sub bass analog poly synth, TR-808. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 505
+      "recipe": "classic Southern American 2008-2012 funk ostentacao, mc Rhythm, intl hip hop branch, Brazilian groove percussion, Latin electric electronic dance deboxe pagode. thick, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, low sub bass analog poly synth, TR-808. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 510
     },
     {
       "id": "trap_funk",
@@ -8982,8 +8982,8 @@
       "id": "deboxe",
       "name": "Deboxe (Brazilian eletrofunk)",
       "family": "electronic",
-      "recipe": "classic Southern American late-2010s deboxe, groove Percussion, Brazilian branch, Latin electric electronic dance, reggaeton MC rhythm dembow. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sampler drum machine, low sub bass monosynth acid bass, low sub bass digital subtractive. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 444
+      "recipe": "classic Southern American 2017-2019 deboxe, groove Percussion, Brazilian branch, Latin electric electronic dance, reggaeton MC rhythm dembow. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, sampler drum machine, low sub bass monosynth acid bass, low sub bass digital subtractive. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 443
     },
     {
       "id": "trap_chileno",
@@ -9451,8 +9451,8 @@
       "id": "funk_viral",
       "name": "Funk Viral",
       "family": "electronic",
-      "recipe": "classic Southern American late-2010s funk viral, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Latin electric electronic dance, intl hip hop MC rhythm funk paulista grime. vocal fry, rap, breath pulsed, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, multitrack vocal stack, snappy to palm hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 515
+      "recipe": "classic Southern American late-2010s funk viral, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Latin electric electronic dance, intl hip hop MC rhythm funk paulista deboxe. vocal fry, rap, straight onset, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, hand clap. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 581
     },
     {
       "id": "medieval_rock",
@@ -17466,8 +17466,8 @@
       "id": "funk_rj",
       "name": "Funk RJ (Rio proibidão and tamborzão lineage)",
       "family": "electronic",
-      "recipe": "classic Southern American mid-1990s funk rj, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Afro-diasporic MC rhythm pagode funk consciente. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sound design field sampler, turntable, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 563
+      "recipe": "classic Southern American mid-1990s funk rj, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Afro-diasporic MC rhythm pagode deboxe. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sound design field sampler, turntable, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 554
     },
     {
       "id": "nuevo_folklore_argentino",
@@ -58523,6 +58523,20 @@
       "family": "pop",
       "recipe": "classic Western European mid-2000s rai'n'b, functional Song, mid east n African pop branch. multi note runs per syllable, neutral third half flat. TR-808, sampler, singing lead analog poly synth, 2000s elastic pitch edited stack multitrack vocal stack. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 464
+    },
+    {
+      "id": "rodrigues_accordion_dances",
+      "name": "Rodriguan accordion dances (kotis, laval, polka, mazok)",
+      "family": "global",
+      "recipe": "classic modern rodriguan accordion dances, functional Song. accordion, membrane drum pulse resonant acoustic membrane drum, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 221
+    },
+    {
+      "id": "raizal_san_andres_providencia",
+      "name": "Raizal music (San Andrés and Providencia)",
+      "family": "global",
+      "recipe": "classic modern raizal music, functional Song, tropical song branch. solo with instrumental accompaniment, single lead single track no stacking. mandolin, parlor acoustic guitar, melodic bowed song accompaniment fiddle, tea chest bass, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 323
     }
   ]
 }

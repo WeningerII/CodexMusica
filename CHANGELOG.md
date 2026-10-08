@@ -6,6 +6,51 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — Arbitrary-pin review: 43 atlas pins moved to a documented origin
+
+The rest of the geographic attribution audit's first recommendation is done. Every pin it called
+arbitrary was reviewed, along with 4 that its reverse checks flagged: 1157 in all. Each
+entry was classified, every proposed move was reviewed independently, and disputes
+went to a tie-break.
+
+- **43 moved** to a single documented origin. Examples: karaoke to Kobe, opera to
+  Florence, popping to Fresno, the prepared piano to Seattle, goregrind to Liverpool,
+  the handpan to Bern, Afro-soul to Johannesburg.
+- **1058 have no single right place** and keep their pins: 893 placeless and 165
+  multi-origin.
+- **The moves run mostly into** North America (+6) and Europe (+2), because these are
+  genres born there but pinned at one member's home abroad.
+
+`deboxe` is also corrected. Its lineage and description named Rio Grande do Sul, but
+sources place the brand in Brasília and Goiás, so the pin moves to Brasília. The ledger is
+`docs/geographic-attribution-audit/arbitrary-pins.csv`.
+
+### Added — Duplicate pass: a verified merge map (no entries merged)
+
+The audit's 988 near-duplicate flags and 279 name-similarity pairs were judged, with a
+skeptic re-check of every merge candidate.
+
+- **Verdicts:** 339 same, 370 slice, 399 variant worth keeping, 156 distinct.
+- **The merge map:** the confirmed pairs form 529 clusters, which would retire 681
+  entries (371 Every Noise, 310 core).
+
+No catalog data changed. The pairs and clusters are in
+`docs/geographic-attribution-audit/duplicates.csv` and `duplicate-clusters.csv`.
+
+### Added — Geographic gap fill, batch 3: Rodrigues and San Andrés
+
+The atlas basemap's island supplement is renamed
+`references/_natural_earth_10m_islands.json`. Next to Onotoa, it now adds the
+Natural Earth 1:10m polygons for Rodrigues (Mauritius) and for San Andrés and
+Providencia (Colombia). `scripts/build_atlas_basemap.js` promotes a single-Polygon
+country to a MultiPolygon so the island can join it.
+
+With the islands drawn, the two batch-2 candidates held back for want of a pin are
+added at their true locations: `rodrigues_accordion_dances` and
+`raizal_san_andres_providencia`.
+
+Catalog totals: 8362 traditions and 1667 instruments. <!-- check_docs:ignore -->
+
 ### Added — Geographic gap fill, batch 2: 922 traditions from the remaining 21 regions
 
 Batch 2 adds the rest of the audit's verified gap list. It covers:

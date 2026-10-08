@@ -1,5 +1,5 @@
 {
-  "count": 8360,
+  "count": 8362,
   "items": [
     {
       "id": "honky_tonk",
@@ -50160,6 +50160,18 @@
       "name": "Rai'n'B (French rai-R&B crossover)",
       "family": "pop",
       "href": "traditions/rai_n_b.json"
+    },
+    {
+      "id": "rodrigues_accordion_dances",
+      "name": "Rodriguan accordion dances (kotis, laval, polka, mazok)",
+      "family": "global",
+      "href": "traditions/rodrigues_accordion_dances.json"
+    },
+    {
+      "id": "raizal_san_andres_providencia",
+      "name": "Raizal music (San Andrés and Providencia)",
+      "family": "global",
+      "href": "traditions/raizal_san_andres_providencia.json"
     }
   ]
 }

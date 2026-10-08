@@ -6353,6 +6353,8 @@ const TRADITION_SIGNATURES = {
   'kachi_kachi': ['plucked', 'strummed', 'dance-rhythm', 'festive', 'song-accompaniment', 'folk', 'rhythmic', 'live-ensemble'],
   'rock_beur': ['rock-context', 'electric', 'backbeat', 'driving', 'shouted', 'microtonal-bend', 'rough', 'tight-rhythmic-articulation'],
   'rai_n_b': ['melismatic', 'ornamental-melismatic', 'sub-bass', 'synthesized', 'pop', 'sample-foundational', 'dance-friendly', 'duet'],
+  'rodrigues_accordion_dances': ['accordion', 'bellows-driven', 'dance', 'dance-rhythm', 'folk-tradition', 'festive'],
+  'raizal_san_andres_providencia': ['plucked', 'bowed', 'strummed', 'dance-song', 'single-string', 'rattle', 'live-ensemble', 'festive', 'folk'],
 };
 
 // ---- Catalog: the tradition data layer ----

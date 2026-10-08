@@ -5,7 +5,7 @@
   "lineage": "Kanmtole is a Seychellois figure dance for couples in the contredanse family, taken over from European country dancing and played by a small string-and-accordion band. It belongs to the islands' older European-derived dance repertoire and is distinct from the moutya drum dance.",
   "recipe": "classic modern kanmtole, functional Song. fiddle, accordion, credited banjo unspecified, concert triangle, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 5.919,
+  "score": 6.335,
   "config": {
     "traditions": [
       "kanmtole_seychelles"
@@ -76,8 +76,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 1.4365,
-          "acoustic_membrane_drum_gesture": 1.4365
+          "acoustic_membrane_drum_form": 1.6445,
+          "acoustic_membrane_drum_gesture": 1.6445
         }
       }
     ],

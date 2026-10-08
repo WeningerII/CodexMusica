@@ -3,14 +3,14 @@
   "name": "Funk RJ (Rio proibidão and tamborzão lineage)",
   "family": "electronic",
   "lineage": "Rio de Janeiro's own funk lineage from the 1990s favela bailes onward, codified by DJ Marlboro's Volume series, then the tamborzão beat built by DJ Luciano Oliveira circa 1998 from sampled atabaque, timbal and repique hits, and carried by Cidinho e Doca, MC Cidinho, Bonde do Tigrão and the proibidão MCs — 125-135 BPM in a syncopated non-four-on-floor pattern, minimal or absent harmony, call-and-response chanted refrains, and lyrics reporting favela life and command territory, recorded fast and pressed straight to CD or sound-system playback.",
-  "recipe": "classic Southern American mid-1990s funk rj, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Afro-diasporic MC rhythm pagode funk consciente. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sound design field sampler, turntable, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 563,
-  "score": 229.397,
+  "recipe": "classic Southern American mid-1990s funk rj, groove Percussion, Afro-diasporic electric branch, Brazilian groove percussion, Afro-diasporic MC rhythm pagode deboxe. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sound design field sampler, turntable, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 554,
+  "score": 233.757,
   "config": {
     "traditions": [
       "funk_rj",
       "pagode",
-      "funk_consciente"
+      "deboxe"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.075,
-          "voice_quality": 20.60499999999999,
+          "voice_register": 1.5749999999999995,
+          "voice_quality": 21.904999999999987,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.29,
-          "voice_articulation": 22.294999999999995,
-          "voice_microtone": 21.514999999999997,
-          "voice_tradition": 6.9875,
-          "voice_mechanism_compound": 3.9,
-          "voice_estill_quality": 2.8600000000000008,
-          "voice_speech_song": 24.115000000000002,
-          "voice_ensemble_config": 23.139999999999997,
-          "voice_ornament_system": 2.3400000000000003,
-          "voice_pitch_organization": 1.4425,
-          "voice_processing_chain": 12.899999999999997,
-          "voice_multitrack_stack": 12.609999999999994
+          "voice_vibrato": 3.79,
+          "voice_articulation": 23.985,
+          "voice_microtone": 23.4,
+          "voice_tradition": 6.955000000000001,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 26.455000000000002,
+          "voice_ensemble_config": 26.064999999999998,
+          "voice_ornament_system": 1.6525,
+          "voice_pitch_organization": 1.2924999999999998,
+          "voice_processing_chain": 11.774999999999999,
+          "voice_multitrack_stack": 13.194999999999997
         }
       },
       {
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.3474999999999997,
+          "tr808_voice": 1.95,
           "drum_machine_808_context": 3.4774999999999996,
           "tr808_production_origin": 0.045
         }
@@ -75,22 +75,22 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.6525000000000003,
-          "sampler_archetypes": 2.455,
-          "sampler_bit_depth": 0.195,
-          "sampler_workflow": 1.76,
-          "sampler_classic_context": 28.275
+          "electronic_technique": 1.5775,
+          "sampler_archetypes": 1.8199999999999998,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 2.635,
+          "sampler_classic_context": 29.444999999999997
         }
       },
       {
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_backspin"
+          "turntable_technique": "turntable_chirp_baby"
         },
         "scores": {
-          "electronic_technique": 2.6525000000000003,
-          "turntable_technique": 0.8775
+          "electronic_technique": 1.5775,
+          "turntable_technique": 0.15
         }
       },
       {
@@ -115,7 +115,7 @@
         },
         "scores": {
           "tamborim_skin": 0.195,
-          "tamborim_striker": 4.224999999999999,
+          "tamborim_striker": 3.574999999999999,
           "tamborim_shell": 5.07
         }
       }

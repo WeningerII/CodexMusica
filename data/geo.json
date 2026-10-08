@@ -7692,9 +7692,9 @@
     "North America"
   ],
   "deboxe": [
-    -16.69,
-    -49.26,
-    "Goiânia",
+    -15.794,
+    -47.883,
+    "Brasília",
     "Latin America & Caribbean"
   ],
   "trap_chileno": [
@@ -14760,9 +14760,9 @@
     "Africa"
   ],
   "afro_soul": [
-    6.52,
-    3.38,
-    "Lagos",
+    -26.2,
+    28.04,
+    "Johannesburg",
     "Africa"
   ],
   "coladeira": [
@@ -15774,9 +15774,9 @@
     "Europe"
   ],
   "dissonant_death_metal": [
-    56.13,
-    -106.35,
-    "Canada (Gorguts country-level practice anchor)",
+    45.4,
+    -71.89,
+    "Sherbrooke",
     "North America"
   ],
   "cavernous_death_metal": [
@@ -17352,9 +17352,9 @@
     "Europe"
   ],
   "roots_americana": [
-    46.7867,
-    -92.1005,
-    "Duluth (regional songwriter network)",
+    36.16,
+    -86.78,
+    "Nashville",
     "North America"
   ],
   "southern_americana": [
@@ -18660,9 +18660,9 @@
     "East Asia"
   ],
   "classic_country_pop": [
-    34.0522,
-    -118.2437,
-    "Los Angeles",
+    36.16,
+    -86.78,
+    "Nashville",
     "North America"
   ],
   "classic_icelandic_pop": [
@@ -20658,9 +20658,9 @@
     "Europe"
   ],
   "deep_melodic_death_metal": [
-    51.0777,
-    -0.8038,
-    "Liphook",
+    57.7089,
+    11.9746,
+    "Gothenburg",
     "Europe"
   ],
   "deep_symphonic_black_metal": [
@@ -21900,9 +21900,9 @@
     "Europe"
   ],
   "symphonic_black_metal": [
-    37.25,
-    21.673,
-    "Kyparissia",
+    59.9139,
+    10.7522,
+    "Oslo",
     "Europe"
   ],
   "symphonic_death_metal": [
@@ -22554,9 +22554,9 @@
     "Latin America & Caribbean"
   ],
   "emo_punk": [
-    42.36,
-    -71.059,
-    "Boston",
+    38.907,
+    -77.037,
+    "Washington",
     "North America"
   ],
   "finnish_post_punk": [
@@ -22650,10 +22650,10 @@
     "Europe"
   ],
   "glam_punk": [
-    51.507,
-    -0.128,
-    "London",
-    "Europe"
+    40.7128,
+    -74.006,
+    "New York City",
+    "North America"
   ],
   "gothic_post_punk": [
     51.507,
@@ -23376,10 +23376,10 @@
     "Europe"
   ],
   "surf_punk": [
-    -20.33,
-    -40.292,
-    "Vila Velha",
-    "Latin America & Caribbean"
+    34.05,
+    -118.24,
+    "Los Angeles",
+    "North America"
   ],
   "swedish_emo": [
     61.303,
@@ -24336,10 +24336,10 @@
     "Europe"
   ],
   "neo_rockabilly": [
-    30.267,
-    -97.743,
-    "Austin",
-    "North America"
+    51.51,
+    -0.13,
+    "London",
+    "Europe"
   ],
   "norwegian_alternative_rock": [
     63.43,
@@ -25032,10 +25032,10 @@
     "Southeast Asia"
   ],
   "traditional_rockabilly": [
-    -34.929,
-    138.601,
-    "Adelaide",
-    "Oceania & Pacific"
+    35.15,
+    -90.05,
+    "Memphis",
+    "North America"
   ],
   "trash_rock": [
     40.713,
@@ -25092,10 +25092,10 @@
     "Europe"
   ],
   "underground_grunge": [
-    -37.814,
-    144.963,
-    "Melbourne",
-    "Oceania & Pacific"
+    47.6062,
+    -122.3321,
+    "Seattle",
+    "North America"
   ],
   "varmland_rock": [
     59.379,
@@ -25302,10 +25302,10 @@
     "East Asia"
   ],
   "christian_pop": [
-    25.033,
-    121.565,
-    "Taipei",
-    "East Asia"
+    36.16,
+    -86.78,
+    "Nashville",
+    "North America"
   ],
   "classic_assamese_pop": [
     26.144,
@@ -27876,10 +27876,10 @@
     "Europe"
   ],
   "opera": [
-    38.7628,
-    -93.736,
-    "Warrensburg",
-    "North America"
+    43.7696,
+    11.2558,
+    "Florence",
+    "Europe"
   ],
   "opera_chorus": [
     -33.8568,
@@ -28344,10 +28344,10 @@
     "Latin America & Caribbean"
   ],
   "modern_reggae": [
-    51.5074,
-    -0.1278,
-    "London",
-    "Europe"
+    17.97,
+    -76.79,
+    "Kingston",
+    "Latin America & Caribbean"
   ],
   "polish_reggae": [
     53.1515,
@@ -29730,10 +29730,10 @@
     "North America"
   ],
   "bboy": [
-    -25.27,
-    133.78,
-    "Australia",
-    "Oceania & Pacific"
+    40.8448,
+    -73.8648,
+    "Bronx",
+    "North America"
   ],
   "beat_poetry": [
     37.77,
@@ -29742,16 +29742,16 @@
     "North America"
   ],
   "beatboxing": [
-    54.9069,
-    -1.3838,
-    "Sunderland",
-    "Europe"
+    40.7128,
+    -74.006,
+    "New York City",
+    "North America"
   ],
   "beatdown": [
-    1.0456,
-    104.0305,
-    "Batam",
-    "Southeast Asia"
+    40.7128,
+    -74.006,
+    "New York",
+    "North America"
   ],
   "beatlesque": [
     -41.4332,
@@ -29970,9 +29970,9 @@
     "Europe"
   ],
   "braindance": [
-    51.481,
-    7.217,
-    "Bochum",
+    51.51,
+    -0.13,
+    "London",
     "Europe"
   ],
   "brasilia_indie": [
@@ -30408,9 +30408,9 @@
     "Europe"
   ],
   "chapman_stick": [
-    34.87,
-    -111.76,
-    "Sedona artist base",
+    34.05,
+    -118.24,
+    "Los Angeles",
     "North America"
   ],
   "charango": [
@@ -31038,10 +31038,10 @@
     "Europe"
   ],
   "deep_surf_music": [
-    52.636,
-    -1.14,
-    "Leicester",
-    "Europe"
+    34.05,
+    -118.24,
+    "Los Angeles",
+    "North America"
   ],
   "delaware_indie": [
     39.745,
@@ -31182,10 +31182,10 @@
     "North America"
   ],
   "epic_doom": [
-    39.95,
-    -75.16,
-    "Philadelphia",
-    "North America"
+    59.3293,
+    18.0686,
+    "Stockholm",
+    "Europe"
   ],
   "erotik": [
     52.52,
@@ -31200,10 +31200,10 @@
     "Europe"
   ],
   "ethereal_gothic": [
-    38.03,
-    -78.48,
-    "Charlottesville",
-    "North America"
+    51.51,
+    -0.13,
+    "London",
+    "Europe"
   ],
   "euphonium": [
     41.0,
@@ -31308,9 +31308,9 @@
     "North America"
   ],
   "fourth_world": [
-    34.05,
-    -118.24,
-    "Los Angeles",
+    40.7128,
+    -74.006,
+    "New York",
     "North America"
   ],
   "french_oi": [
@@ -31416,9 +31416,9 @@
     "Europe"
   ],
   "gothic_doom": [
-    46.6,
-    1.89,
-    "France",
+    53.72,
+    -1.86,
+    "Halifax",
     "Europe"
   ],
   "gotico_brasileiro": [
@@ -32250,10 +32250,10 @@
     "North America"
   ],
   "karaoke": [
-    -25.2744,
-    133.7751,
-    "Australia",
-    "Oceania & Pacific"
+    34.691,
+    135.195,
+    "Kobe",
+    "East Asia"
   ],
   "karntner_volksmusik": [
     46.7222,
@@ -32556,9 +32556,9 @@
     "Europe"
   ],
   "lilith": [
-    56.13,
-    -106.35,
-    "Canada",
+    49.2827,
+    -123.1207,
+    "Vancouver",
     "North America"
   ],
   "limerick_indie": [
@@ -33096,9 +33096,9 @@
     "Latin America & Caribbean"
   ],
   "mountain_dulcimer": [
-    38,
-    -97,
-    "United States",
+    37.34,
+    -82.98,
+    "Hindman",
     "North America"
   ],
   "mumbai_indie": [
@@ -34074,9 +34074,9 @@
     "Europe"
   ],
   "orgcore": [
-    43.1566,
-    -77.6088,
-    "Rochester",
+    29.652,
+    -82.325,
+    "Gainesville",
     "North America"
   ],
   "orlando_indie": [
@@ -34320,10 +34320,10 @@
     "Europe"
   ],
   "prepared_piano": [
-    41.9028,
-    12.4964,
-    "Rome",
-    "Europe"
+    47.6062,
+    -122.3321,
+    "Seattle",
+    "North America"
   ],
   "progressive_alternative": [
     40.7128,
@@ -35142,10 +35142,10 @@
     "North America"
   ],
   "staff_band": [
-    41.8781,
-    -87.6298,
-    "Chicago",
-    "North America"
+    51.51,
+    -0.13,
+    "London",
+    "Europe"
   ],
   "stl_indie": [
     38.627,
@@ -35994,9 +35994,9 @@
     "North America"
   ],
   "wagnerian_singing": [
-    47.3769,
-    8.5417,
-    "Zürich",
+    49.95,
+    11.58,
+    "Bayreuth",
     "Europe"
   ],
   "washboard": [
@@ -36114,9 +36114,9 @@
     "Europe"
   ],
   "wrock": [
-    43.4516,
-    -80.4925,
-    "Kitchener",
+    42.19,
+    -71.2,
+    "Norwood",
     "North America"
   ],
   "wuhan_indie": [
@@ -37092,10 +37092,10 @@
     "East Asia"
   ],
   "christian_afrobeat": [
-    51.598,
-    -0.071,
-    "London",
-    "Europe"
+    6.52,
+    3.38,
+    "Lagos",
+    "Africa"
   ],
   "circuit": [
     43.657,
@@ -37416,10 +37416,10 @@
     "Europe"
   ],
   "goregrind": [
-    44.978,
-    -93.265,
-    "Minneapolis",
-    "North America"
+    53.41,
+    -2.98,
+    "Liverpool",
+    "Europe"
   ],
   "gotlandsk_musik": [
     57.635,
@@ -37686,9 +37686,9 @@
     "North America"
   ],
   "handpan": [
-    51.3388,
-    6.5853,
-    "Krefeld",
+    46.948,
+    7.4474,
+    "Bern",
     "Europe"
   ],
   "hardgroove": [
@@ -38484,9 +38484,9 @@
     "Southeast Asia"
   ],
   "popping": [
-    36.1699,
-    -115.1398,
-    "Las Vegas",
+    36.738,
+    -119.787,
+    "Fresno",
     "North America"
   ],
   "psytech": [
@@ -38586,9 +38586,9 @@
     "Southeast Asia"
   ],
   "urban_contemporary": [
-    39.8,
-    -98.5,
-    "United States",
+    40.7128,
+    -74.006,
+    "New York City",
     "North America"
   ],
   "viet_instrumental": [
@@ -38694,10 +38694,10 @@
     "Caucasus & Central Asia"
   ],
   "gospel_drill": [
-    6.6111,
-    0.4703,
-    "Ho",
-    "Africa"
+    51.51,
+    -0.13,
+    "London",
+    "Europe"
   ],
   "hip_hop_reunionnais": [
     -21.0096,
@@ -38814,10 +38814,10 @@
     "Middle East"
   ],
   "latin_pop": [
-    4.5709,
-    -74.2973,
-    "Colombia",
-    "Latin America & Caribbean"
+    25.7617,
+    -80.1918,
+    "Miami",
+    "North America"
   ],
   "macedonian_pop": [
     41.6086,
@@ -39222,10 +39222,10 @@
     "Middle East"
   ],
   "underground_boom_bap": [
-    10.8231,
-    106.6297,
-    "Ho Chi Minh City",
-    "Southeast Asia"
+    40.7128,
+    -74.006,
+    "New York City",
+    "North America"
   ],
   "dark_progressive_house": [
     32.0853,
@@ -40560,7 +40560,7 @@
   "psychokore": [52.52,13.405,"Berlin","Europe"],
   "relaxative": [54.5,-2.5,"United Kingdom","Europe"],
   "romantico": [23.1136,-82.3666,"Havana","Latin America & Caribbean"],
-  "skinhead_oi": [53.8008,-1.5491,"Leeds","Europe"],
+  "skinhead_oi": [51.51,-0.13,"London","Europe"],
   "viet_remix": [21.0285,105.8542,"Hanoi","Southeast Asia"],
   "vintage_chanson": [48.8566,2.3522,"Paris","Europe"],
   "deep_deep_house": [41.3874,2.1686,"Barcelona","Europe"],
@@ -40601,7 +40601,7 @@
   "outer_hip_hop": [49.8951,-97.1384,"Winnipeg","North America"],
   "deep_melodic_metalcore": [39.9526,-75.1652,"Philadelphia","North America"],
   "deep_metalcore": [-31.9523,115.8613,"Perth","Oceania & Pacific"],
-  "deep_happy_hardcore": [-33.8688,151.2093,"Sydney","Oceania & Pacific"],
+  "deep_happy_hardcore": [51.51,-0.13,"London","Europe"],
   "deep_hardcore": [52.0705,4.3007,"The Hague","Europe"],
   "deep_psychobilly": [52.4862,-1.8904,"Birmingham","Europe"],
   "deep_soft_rock": [34.0522,-118.2437,"Los Angeles","North America"],
@@ -42088,5 +42088,7 @@
   "asian_american_creative_jazz": [37.77,-122.42,"San Francisco","North America"],
   "kachi_kachi": [21.31,-157.86,"Honolulu","Oceania & Pacific"],
   "rock_beur": [45.76,4.84,"Lyon","Europe"],
-  "rai_n_b": [48.86,2.35,"Paris","Europe"]
+  "rai_n_b": [48.86,2.35,"Paris","Europe"],
+  "rodrigues_accordion_dances": [-19.68,63.42,"Port Mathurin","Africa"],
+  "raizal_san_andres_providencia": [12.58,-81.7,"San Andrés","Latin America & Caribbean"]
 }

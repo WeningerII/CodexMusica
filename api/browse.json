@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-10-07",
+  "generated": "2026-10-08",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 8360,
+  "count": 8362,
   "items": [
     {
       "id": "honky_tonk",
@@ -50296,7 +50296,7 @@
       "id": "deboxe",
       "name": "Deboxe (Brazilian eletrofunk)",
       "family": "electronic",
-      "lineage": "Southern-Brazilian eletrofunk stream named for the Rio Grande do Sul party-and-label brand Deboxe, consolidated from roughly 2018 onward out of gaúcho DJ crews reworking Rio funk montagem practice — 130-150 BPM four-on-the-floor with hard-clipped distorted 808 sub-kicks, gunshot and vocal-chop stabs, radically pitched-down or sped-up MC acapellas, and long automated build-and-drop edits made entirely in the DAW for sound-car and open-air baile playback.",
+      "lineage": "Central-west Brazilian eletrofunk stream named for Deboxe, a car-audio shop and sound-car crew from Taguatinga in the Federal District (Brasília) whose parties, DJs and second shop in Goiânia carried it through Goiás in the late 2010s and 2020s; it builds on the eletrofunk that began in Paraná, reworking Rio funk montagem practice — 130-150 BPM four-on-the-floor with hard-clipped distorted 808 sub-kicks, gunshot and vocal-chop stabs, radically pitched-down or sped-up MC acapellas, and long automated build-and-drop edits made entirely in the DAW for sound-car and open-air baile playback.",
       "parent": "groovePercussion.brazilian",
       "axes": [
         -2,
@@ -50320,7 +50320,7 @@
         "monosynth_acid_bass",
         "digital_subtractive"
       ],
-      "description": "A DJ-driven eletrofunk style from Rio Grande do Sul and the wider Brazilian south, spread after 2018 through the Deboxe party circuit, YouTube and short-video platforms. It is defined by deliberately overdriven sub-bass kicks, minimal melodic content, chopped MC vocals treated as percussion, and edits engineered for the distortion of car and street sound systems. Against Rio's mandelão it is faster and more four-on-the-floor, and against brega funk it drops the melodic hooks almost entirely.",
+      "description": "A DJ-driven eletrofunk style from Brasília and Goiás, spread through the Deboxe sound-car and party circuit, YouTube and short-video platforms. It is defined by deliberately overdriven sub-bass kicks, minimal melodic content, chopped MC vocals treated as percussion, and edits engineered for the distortion of car and street sound systems. Against Rio's mandelão it is faster and more four-on-the-floor, and against brega funk it drops the melodic hooks almost entirely.",
       "exemplars": [
         "Deboxe Entertainment",
         "DJ Guuga",
@@ -290157,6 +290157,75 @@
       "description": "A melismatic, ornamented lead voice in Arabic trades verses with smooth French R&B vocals and rap over programmed booming kick, crisp snares and synth pads, with looped North African percussion patterns under polished choruses.",
       "exemplars": [
         "Rai'n'B Fever compilations (Kore & Skalp, 2004-)"
+      ]
+    },
+    {
+      "id": "rodrigues_accordion_dances",
+      "name": "Rodriguan accordion dances (kotis, laval, polka, mazok)",
+      "family": "global",
+      "lineage": "On the island of Rodrigues the European couple and set dances - the kotis (schottische), polka, waltz, mazok (mazurka), quadrille and the local laval - survive as a living repertoire played on the diatonic button accordion, which the island's music is almost entirely built on, over drum and triangle; it is kept distinct from the island's sega tambour. The general accordion card stands in for the two-row button accordion.",
+      "parent": "functionalSong",
+      "axes": [
+        1,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        -1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "accordion",
+        "acoustic_membrane_drum",
+        "concert_triangle",
+        "voice"
+      ],
+      "description": "A bright accordion plays square-cut waltz, polka and schottische tunes over a steady drum beat, with a triangle marking the dance pulse.",
+      "exemplars": [
+        "Île Rodrigues vol. 2: Accordéon (Takamba field recordings, 1996-1998; CREM-CNRS archive)",
+        "Sakili, with Rodriguan accordionist Ricardo Legentil - Creole Sounds from the Indian Ocean"
+      ]
+    },
+    {
+      "id": "raizal_san_andres_providencia",
+      "name": "Raizal music (San Andrés and Providencia)",
+      "family": "global",
+      "lineage": "The Raizal people, the English-Creole-speaking Protestant islanders of San Andrés, Providencia and Santa Catalina, keep a string-band dance music of polka, mazurka, waltz and schottische alongside mento and calypso, played by the conjunto típico of mandolin, guitar, fiddle, the one-string washtub bass (tub bass or tinajo), horse-jawbone rattle and maracas, next to the islands' Baptist hymn singing. The tea-chest-bass card stands in for the washtub bass.",
+      "parent": "functionalSong.tropicalSong",
+      "axes": [
+        1,
+        -1,
+        0,
+        2,
+        1,
+        2,
+        1,
+        -2,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "mandolin",
+        "acoustic_guitar_parlor",
+        "fiddle",
+        "tea_chest_bass",
+        "maracas",
+        "voice"
+      ],
+      "description": "Mandolin and fiddle trade bright dance tunes over strummed guitar, a thudding one-string tub bass and a rattling jawbone, moving between lilting waltzes, brisk polkas and swaying calypso.",
+      "exemplars": [
+        "Creole Group recordings",
+        "Elkin Robinson (Providencia) - Putumayo-released island folk with washtub bass and jawbone",
+        "Green Moon Festival (San Andrés) performances"
       ]
     }
   ]

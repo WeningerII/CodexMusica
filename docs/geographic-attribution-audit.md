@@ -4,8 +4,10 @@ Date: 2026-10-06/07. Baseline: the 7078-tradition catalog and `data/geo.json` at
 head of `main` on that date. Per-entry evidence is in
 [`geographic-attribution-audit/`](geographic-attribution-audit/). The audit itself
 changed no catalog data. Its first recommendation, re-pinning the confirmed wrong pins,
-was applied on 2026-10-07 (see [Applied: re-pins](#applied-re-pins-2026-10-07)). The
-figures below describe the catalog before that change.
+was applied on 2026-10-07 (see [Applied: re-pins](#applied-re-pins-2026-10-07)), and the
+review of the arbitrary pins it called for followed on 2026-10-08 (see
+[Applied: arbitrary-pin review](#applied-arbitrary-pin-review-2026-10-08)). The figures
+below describe the catalog before those changes.
 
 ## The question
 
@@ -19,8 +21,8 @@ traditions), or from both?
 Both, but they are different problems with different sizes.
 
 1. **Wrong pins are real but small.** 264 pins are confirmed to be in the wrong place,
-   210 of them in the wrong country, and a sample suggests about 125 more among the
-   arbitrary pins. Relocating the confirmed ones moves a net 94 pins out of Europe and
+   210 of them in the wrong country, and a sample suggested about 125 more among the
+   arbitrary pins (a full review later found 43). Relocating the confirmed ones moves a net 94 pins out of Europe and
    North America. That is about 1% of the catalog and does not change the map's shape.
 2. **Inflation drives the hyper-concentrations.**
    - 4490 entries (63%) were imported from Spotify's Every Noise at Once taxonomy.
@@ -237,7 +239,8 @@ A streaming-listenership taxonomy cannot supply these.
 ## Recommended course of action
 
 1. **Re-pin the 264 confirmed misattributions.** Done on 2026-10-07; see below. Next,
-   review the other 1153 arbitrary pins: about 11% have a real origin elsewhere.
+   review the other 1153 arbitrary pins: about 11% have a real origin elsewhere. Done on
+   2026-10-08: the full review found 43, about 4%; see below.
 2. **Stop pinning placeless entries.** Arbitrary pins, including the 560 non-traditions
    such as 8D, 432Hz, Reiki and Birthday, belong in a "no fixed origin" group, not at a
    member's hometown.
@@ -245,7 +248,9 @@ A streaming-listenership taxonomy cannot supply these.
    of their parent genre, or as a layer that is off by default.
 4. **Do a duplicate pass before merging anything.** Near-duplicates are under-counted:
    blind re-labels flagged them about twice as often as the first pass. The current
-   duplicate graph also has 23 mutual pairs and 91 chains to untangle.
+   duplicate graph also has 23 mutual pairs and 91 chains to untangle. Done as analysis
+   on 2026-10-08; nothing is merged yet. See
+   [Duplicate pass](#duplicate-pass-2026-10-08).
 5. **Fill gaps in rate order:** China, Maritime and Mainland Southeast Asia, the rest of
    South Asia, Central and East Africa, Siberia and Russia's peoples, the Andes and
    Amazonia, and Indigenous North America. Start from the verified candidates in
@@ -275,7 +280,10 @@ agent.
     not Ramallah.
 - **1 held:** `deboxe`. Web sources tie the Deboxe brand to Goiânia's car-sound
   culture, so its pin is right. The record's Rio Grande do Sul lineage is the error,
-  and it should be corrected in the record.
+  and it should be corrected in the record. (Corrected on 2026-10-08. Further sources
+  place Deboxe's original shop and sound-car crew in Taguatinga, Brasília, with a second
+  shop in Goiânia, so the pin moved to Brasília and the lineage and description now name
+  Brasília and Goiás.)
 - **Coordinates:**
   - 234 moves reuse the coordinate the atlas already uses for that city.
   - 28 use coordinates looked up from web sources.
@@ -304,6 +312,143 @@ moved, coordinate source, evidence URL and reason, is
 [`geographic-attribution-audit/repins.csv`](geographic-attribution-audit/repins.csv).
 The `data/geo-meta.json` note records that 28 of the moved ids are on its 2026-09-09
 model-reviewed list.
+
+## Applied: arbitrary-pin review (2026-10-08)
+
+The audit labelled 1153 pins arbitrary: the entry sits where one member artist, label
+or venue happens to be. The review covered all of them, plus 4 pins that the reverse
+checks had flagged as wrongly placed. Most of these entries come from Every Noise.
+
+**Method.**
+
+1. **Classify.** Agents classified each entry, using its record and up to 10 web
+   searches per batch of about 48. The verdicts were:
+   - **pin ok:** already at its documented origin or centre;
+   - **wrong place:** one documented origin, and the pin is not there;
+   - **placeless:** no geographic identity;
+   - **multi-origin:** sources credit two or more places about equally;
+   - **uncertain.**
+
+   A prominent act's home did not count as an origin unless sources credit that scene
+   with starting the style. The classifiers skipped the last item of each batch; those
+   23 entries were classified by hand.
+2. **Review.** Before `data/geo.json` changed, an independent reviewer checked every
+   proposed move against the atlas conventions in `scripts/_atlas_regions.js`, and
+   disputes went to a tie-break.
+
+| Verdict | Entries |
+| --- | ---: |
+| placeless | 893 |
+| multi-origin | 165 |
+| wrong place | 44 |
+| pin ok | 42 |
+| uncertain | 13 |
+
+Of the 44 proposed moves:
+
+- **42 applied.**
+- **1 adjusted:** B-boy music goes to the Bronx, not New York.
+- **1 held:** deep drum and bass is a market strand with no documented single origin.
+
+Examples:
+
+| Entry | Was pinned at | Moved to |
+| --- | --- | --- |
+| Karaoke | Australia's centroid | Kobe |
+| Opera | Warrensburg, Missouri | Florence |
+| Popping | Las Vegas | Fresno |
+| Prepared piano | Rome | Seattle (Cage, 1940) |
+| Goregrind | Minneapolis | Liverpool |
+| Handpan | Krefeld | Bern (PANArt) |
+| Afro-soul | Lagos | Johannesburg |
+| Christian afrobeat | London | Lagos |
+
+**What it found.**
+
+- **The rate.** 43 moves is 3.7%, a third of the 11% the 102-item sample suggested.
+  - The fuller pass was stricter about what counts as a single origin.
+  - Of the 15 moves the earlier reverse checks proposed, it confirmed 5. It called
+    old-school EBM, trancecore and Arab experimental multi-origin, and assyrian pop
+    diaspora-defined.
+- **The direction.** Unlike the first re-pin, these moves run mostly *into* North
+  America and Europe. They are genres that began there but were pinned at a member's
+  home abroad: surf in Leicester, rockabilly in Adelaide, boom bap in Ho Chi Minh City.
+  - 23 of the 43 change sidebar region.
+  - Net change: North America +6, Europe +2, Oceania & Pacific −5, Southeast Asia −2,
+    Latin America & Caribbean −1.
+- **No single place.** 1058 entries (893 placeless, 165 multi-origin) have no single
+  right place. They are the entries recommendation 2 would move into a "no fixed
+  origin" group. Their pins were left as they are.
+
+**Checks.** `data/atlas-geo.json` was regenerated, and the atlas, geography and doc gates
+pass.
+
+**Records.** Every reviewed entry is in
+[`geographic-attribution-audit/arbitrary-pins.csv`](geographic-attribution-audit/arbitrary-pins.csv).
+Each row gives the classifier's verdict, place, evidence and reason, the review and
+tie-break, and the old and new coordinates. The `deboxe` correction is its last row.
+
+## Duplicate pass (2026-10-08)
+
+This pass changed no catalog data. It turns the audit's near-duplicate flags into a
+verified duplicate map, so that any merge can be decided from evidence.
+
+**What was checked.** 1267 pairs:
+
+- the 988 entries the audit flagged as near-duplicates, each paired with its target;
+- 279 pairs found by name similarity, where neither side is a market label or
+  non-tradition.
+
+**How.**
+
+1. A judge agent read both records and labelled each pair:
+   - **same:** one tradition under two names;
+   - **slice:** an era, market, mood or "deep/classic" slice with no documented
+     difference in sound or practice;
+   - **variant:** a documented sub-style worth keeping;
+   - **distinct.**
+2. A skeptic tried to refute every "same" and "slice" verdict. It overturned 95 of
+   804, by naming a concrete difference.
+
+| Final verdict | Audit flags | Name similarity |
+| --- | ---: | ---: |
+| same | 336 | 3 |
+| slice | 348 | 22 |
+| variant | 284 | 115 |
+| distinct | 17 | 139 |
+| unsure | 3 | 0 |
+
+**What it found.**
+
+- **The audit's flags hold up.** 69% of them are real merge candidates, and only 2%
+  are wrong.
+- **Missed duplicates are rare.** Among the remaining distinct entries, name
+  similarity found only 25 more merge candidates.
+- **Duplication is not only an Every Noise problem.** 250 "same" pairs join two core
+  records, such as `chaabi_algerien` and `algerian_chaabi`.
+- **No gap-fill entry is on either side** of a merge candidate.
+
+**The merge map.** The 709 confirmed same or slice pairs form 529 clusters.
+
+- Each cluster has one surviving entry: the one every "keep" verdict points to.
+- 11 clusters had conflicting keeps, from mutual pairs or chains. There the
+  hand-researched, least-pointed-at entry was chosen.
+- Folding would retire **681 entries**: 371 from Every Noise and 310 from the core.
+- Most clusters are pairs. The largest have six members:
+  - alternative R&B: `alt_rnb`, `neo_r_and_b`, `indie_r_and_b`, `deep_r_and_b` and
+    others;
+  - Americana: `alt_country_americana`, `new_americana`, `roots_americana` and others.
+
+**Not decided here.** How a fold should work: deleting, keeping the retired id as an
+alias, or redirecting the URL. A fold also changes stable API URLs and neighbouring
+recipes, so it is left for the owner.
+
+**Records.**
+
+- [`geographic-attribution-audit/duplicates.csv`](geographic-attribution-audit/duplicates.csv)
+  gives each pair's judge and skeptic verdicts, reasons and the id to keep.
+- [`geographic-attribution-audit/duplicate-clusters.csv`](geographic-attribution-audit/duplicate-clusters.csv)
+  gives each clustered id and its surviving entry.
 
 ## Limits
 
@@ -347,3 +492,9 @@ model-reviewed list.
   that conflicted with an accepted pin, 46 re-checked as fine.
 - [`geographic-attribution-audit/repins.csv`](geographic-attribution-audit/repins.csv):
   the 2026-10-07 re-pin ledger, one row per confirmed wrong pin.
+- [`geographic-attribution-audit/arbitrary-pins.csv`](geographic-attribution-audit/arbitrary-pins.csv):
+  the 2026-10-08 arbitrary-pin review, one row per reviewed entry, with its verdict,
+  review, decision and any new coordinate.
+- [`geographic-attribution-audit/duplicates.csv`](geographic-attribution-audit/duplicates.csv)
+  and [`duplicate-clusters.csv`](geographic-attribution-audit/duplicate-clusters.csv): the
+  2026-10-08 duplicate pass, pair verdicts and the resulting merge map.

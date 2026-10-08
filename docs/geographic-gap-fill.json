@@ -37,6 +37,12 @@
         "western_europe"
       ],
       "entries": 922
+    },
+    {
+      "batch": 3,
+      "base_commit": "b0a3b18c",
+      "regions": ["caribbean_mexico_colven", "southern_africa"],
+      "entries": 2
     }
   ],
   "entries": [
@@ -32641,6 +32647,75 @@
         }
       ],
       "exemplars": ["Rai'n'B Fever compilations (Kore & Skalp, 2004-)"]
+    },
+    {
+      "id": "rodrigues_accordion_dances",
+      "name": "Rodriguan accordion dances (kotis, laval, polka, mazok)",
+      "batch": 3,
+      "gap": {
+        "region": "southern_africa",
+        "name": "Rodriguan accordion dances"
+      },
+      "anchor": {
+        "latitude": -19.68,
+        "longitude": 63.42,
+        "label": "Port Mathurin",
+        "region": "Africa"
+      },
+      "country": "Mauritius",
+      "sources": [
+        {
+          "url": "https://archives.crem-cnrs.fr/archives/items/11951/",
+          "note": "CREM-CNRS: Île Rodrigues vol. 2, accordéon"
+        },
+        {
+          "url": "https://mustrad.mainlynorfolk.info/reviews/rodrigue.htm",
+          "note": "Musical Traditions review: Rodrigues music almost entirely accordion based; polka, waltz, mazok, kotis, quadrille, laval"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Music_of_Mauritius",
+          "note": "Music of Mauritius (Rodrigues)"
+        }
+      ],
+      "exemplars": [
+        "Île Rodrigues vol. 2: Accordéon (Takamba field recordings, 1996-1998; CREM-CNRS archive)",
+        "Sakili, with Rodriguan accordionist Ricardo Legentil - Creole Sounds from the Indian Ocean"
+      ]
+    },
+    {
+      "id": "raizal_san_andres_providencia",
+      "name": "Raizal music (San Andrés and Providencia)",
+      "batch": 3,
+      "gap": {
+        "region": "caribbean_mexico_colven",
+        "name": "San Andrés and Providencia Raizal music"
+      },
+      "anchor": {
+        "latitude": 12.58,
+        "longitude": -81.7,
+        "label": "San Andrés",
+        "region": "Latin America & Caribbean"
+      },
+      "country": "Colombia",
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Raizal_people",
+          "note": "Raizal people of San Andrés, Providencia and Santa Catalina"
+        },
+        {
+          "url": "https://www.lifeder.com/instrumentos-musicales-region-insular/",
+          "note": "Conjunto típico: tub bass, jawbone, maracas, violin, guitar, mandolin"
+        },
+        {
+          "url": "https://www.putumayo.com/elkinrobinson",
+          "note": "Elkin Robinson: washtub bass, horse jawbone rattle, maracas, acoustic guitar"
+        }
+      ],
+      "exemplars": [
+        "Creole Group recordings",
+        "Elkin Robinson (Providencia) - Putumayo-released island folk with washtub bass and jawbone",
+        "Green Moon Festival (San Andrés) performances"
+      ]
     }
   ],
   "skipped": [
@@ -32679,18 +32754,6 @@
       "region": "east_africa",
       "name": "Afar music",
       "reason": "Recorded evidence (Yanna Momina's Afar Ways, RTD radio archive) confirms the tradition exists, but its traditional ensemble and sound could not be confirmed from the evidence or reliable knowledge, so an entry would rest on invented instruments and texture."
-    },
-    {
-      "batch": 2,
-      "region": "southern_africa",
-      "name": "Rodriguan accordion dances",
-      "reason": "Not a duplicate and authored, but cannot be pinned: Rodrigues (Port Mathurin, -19.68,63.42) is absent from the validator's country polygons (data/countries.geo.json has only the main island of Mauritius), so the true location fails as '593 km offshore'. Pinning it on Mauritius would misplace it and conflate it with sega. A complete authored entry (validates except for that geo check) is saved at w41/rodrigues_unpinnable.jsonl."
-    },
-    {
-      "batch": 2,
-      "region": "caribbean_mexico_colven",
-      "name": "San Andrés and Providencia Raizal music",
-      "reason": "Not a duplicate and authored, but cannot be pinned: San Andrés (12.58,-81.70) is absent from the validator's country polygons (data/countries.geo.json), so the true location fails as 'in Nicaragua, 198 km offshore'. Pinning it on the Colombian mainland would misplace it. A complete authored entry is saved at w51/raizal_unpinnable.jsonl for use once the island is covered or a geo exception is allowed."
     },
     {
       "batch": 2,

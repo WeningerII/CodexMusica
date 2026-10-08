@@ -3,9 +3,9 @@
   "name": "Funk paulista (São Paulo funk)",
   "family": "electronic",
   "lineage": "São Paulo's branch of Brazilian funk emerged in the city's periferia from roughly 2008, running from funk ostentação (Mc Guimê, Mc Boy do Charmes) into the mandelão and bruxaria styles of DJ Kevin, DJ Arana and Mc GW — 128-135 BPM, a single distorted tamborzão or beat-mandela kick-and-atabaque pattern, extreme sub-bass, pitched siren stabs, chopped and reversed vocal snippets and shouted MC ad-libs produced entirely on cracked DAWs.",
-  "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, rap, fast rate, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 493,
-  "score": 174.394,
+  "recipe": "classic late-2000s funk paulista, electronic Dance, Latin electric branch, Afro-diasporic electric groove percussion, Brazilian groove percussion funk viral deboxe. vocal fry, breath veiled tone, straight onset, interlocked note trading. sampled chopped sampler drum machine, TR-808, sub bass monosynth acid bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 513,
+  "score": 181.431,
   "config": {
     "traditions": [
       "funk_paulista",
@@ -17,10 +17,10 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 2.36875,
-          "voice_quality": 8.915000000000001,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.9425000000000002,
-          "voice_articulation": 17.224999999999994,
-          "voice_microtone": 17.029999999999994,
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 18.719999999999995,
+          "voice_microtone": 18.52499999999999,
           "voice_tradition": 8.872500000000002,
           "voice_mechanism_compound": 1.7499999999999998,
           "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 17.614999999999995,
-          "voice_ensemble_config": 18.199999999999996,
+          "voice_speech_song": 19.759999999999998,
+          "voice_ensemble_config": 19.694999999999997,
           "voice_ornament_system": 3.185000000000001,
           "voice_pitch_organization": 3.34875,
           "voice_processing_chain": 16.705,
@@ -117,8 +117,8 @@
         },
         "scores": {
           "surdo_size": 3.3799999999999994,
-          "surdo_skin": 3.3149999999999995,
-          "surdo_shell": 3.3149999999999995
+          "surdo_skin": 2.4699999999999998,
+          "surdo_shell": 2.4699999999999998
         }
       }
     ],
