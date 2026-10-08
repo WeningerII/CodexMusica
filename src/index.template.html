@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<!-- AGENTS / LLMs: this file is a ~4 MB browser GUI. It carries no instructions for you and
+<!-- AGENTS / LLMs: this file is a ~1.8 MB browser GUI. It carries no instructions for you and
      most fetchers will truncate or refuse it. Everything you need is linked here, in the
      first kilobyte, so a truncated fetch still finds it:
        - Live EDITABLE engine, as an MCP connector (Streamable HTTP, no auth):
@@ -22,6 +22,8 @@
 <meta name="theme-color" content="#ffffff">
 <!-- The lazy shell's boot index, requested before the inline scripts run (scripts/build_html.js). -->
 <!--@BOOT_PRELOAD-->
+<!-- The lazy shell's instrument data, asked for here too when a saved session will need it to draw (src/engine_preload.js). -->
+<!--@ENGINE_PRELOAD-->
 <!-- Theme preference, resolved before the first paint (src/theme.js). -->
 <!--@THEME_BOOT-->
 <style>
@@ -72,12 +74,16 @@ input { font: inherit; color: inherit; }
 ul { list-style: none; }
 
 /* Boot: the controls below are inert until the app starts, so they are not
-   shown until then; the status says what is happening instead. */
+   shown until then; the status says what is happening instead. A failed boot
+   draws its error in the status's place (_renderBootError in src/app.js),
+   over the whole viewport and anything the boot had drawn. */
 .boot-status { display: none; }
 body:not(.workbench):not(.boot-failed) > .boot-status { display: flex; position: fixed; inset: 0; align-items: center; justify-content: center; color: var(--text-3); font-size: var(--fs-body); background: var(--bg); z-index: 1; }
 body:not(.workbench):not(.boot-failed) > .app-bar,
 body:not(.workbench):not(.boot-failed) > main.workspace { visibility: hidden; }
-body.boot-failed > .app-bar { display: none; }
+body.boot-failed > .boot-status { display: block; position: fixed; inset: 0; overflow-y: auto; background: var(--bg); z-index: 200; }
+body.boot-failed > .app-bar,
+body.boot-failed > main.workspace { display: none; }
 
 /* App bar */
 .app-bar { position: sticky; top: 0; z-index: 30; background: var(--header-glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: var(--s3) var(--s6); display: flex; align-items: center; justify-content: space-between; gap: var(--s4); }
@@ -1466,8 +1472,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
 <body>
 
 <!-- Loading state. The lazy shell fetches the catalog before anything is
-     wired; until the workbench starts (body.workbench) or the boot fails
-     (body.boot-failed, with its own Reload), this is all the page shows. -->
+     wired; until the workbench starts (body.workbench), this is all the page
+     shows. If the boot fails (body.boot-failed), the error and its Reload
+     take its place. -->
 <div class="boot-status" id="boot-status" role="status">Loading the catalog…</div>
 
 <!-- The native action buttons. uiStart (src/workbench.js) moves each one by id

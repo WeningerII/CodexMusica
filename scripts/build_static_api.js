@@ -29,6 +29,8 @@ const {
   compactInstrumentImages,
   compactTraditionImages,
 } = require('./_image_tables.js');
+const { AXIS_KEYS, browseItem, bootIndex, proseIndex, starterIds } = require('./_browse_tables.js');
+const { engineText } = require('./_page_tables.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
 const {
@@ -78,25 +80,6 @@ function writeJson(p, obj) {
 function writeJsonCompact(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj));
 }
-
-// Canonical 13-axis order — the browse index stores axes as a compact array in
-// this order (named keys would repeat 13× per tradition and bloat the index at
-// scale). The app maps array→named on load via the file's `axisKeys` header.
-const AXIS_KEYS = [
-  'harm',
-  'pitch',
-  'ornament',
-  'meter',
-  'density',
-  'transmission',
-  'improv',
-  'soundTech',
-  'intensity',
-  'voice',
-  'timbre',
-  'percussion',
-  'cyclicity',
-];
 
 function compileTradition(t) {
   const seed = seedFromTradition(t.id, [], EMPTY_OPTS);
@@ -213,37 +196,19 @@ async function main() {
       recipe: rec.recipe,
       recipe_chars: rec.recipe_chars,
     });
-    const ext = C.TRADITION_EXTRAS[t.id] || {};
-    const browseItem = {
-      id: t.id,
-      name: t.name,
-      family: t.family,
-      lineage: t.lineage || null,
-      parent: ext.parent || null,
-      axes: AXIS_KEYS.map((k) => (ext.axes && typeof ext.axes[k] === 'number' ? ext.axes[k] : 0)),
-      instruments: t.instruments || [],
-      description: ext.description || '',
-    };
-    // Optional fields ship only when non-empty — at catalog scale the empty
-    // markers alone are real bytes, and the app's guards treat absent and
-    // empty identically.
-    if (ext.exemplars && ext.exemplars.length) browseItem.exemplars = ext.exemplars;
-    if (ext.crossRefs && ext.crossRefs.length) browseItem.crossRefs = ext.crossRefs;
-    browseItems.push(browseItem);
+    browseItems.push(browseItem(t, C.TRADITION_EXTRAS[t.id] || {}));
     ok++;
     if (ok % 100 === 0) process.stderr.write(`  ...${ok} traditions\n`);
   }
   writeJson(path.join(OUT, 'traditions', 'index.json'), { count: tindex.length, items: tindex });
 
-  // ---- browse.json: the Tier-1 index the lazy-loaded browser app boots from ----
+  // ---- browse.json: the published Tier-1 index (api/index.json "browse") ----
   // Everything the BROWSE surfaces show (name/family/lineage/parent/axes/
-  // instruments/description/exemplars/crossRefs) so search, the tree, find-
-  // similar, and fingerprints all run locally off ONE fetch with zero loss of
-  // recall or display fidelity vs the embedded build. Only the few row fields
-  // an IMPORT needs (tuning/room/parts/chain_*) stay out — they ride in each
-  // traditions/{id}.json as `source`, fetched once per imported tradition.
-  // This split is what lets the app scale past the single-file memory ceiling
-  // without a server and without per-action lag on browse interactions.
+  // instruments/description/exemplars/crossRefs). Only the few row fields an
+  // IMPORT needs (tuning/room/parts/chain_*) stay out — they ride in each
+  // traditions/{id}.json as `source`, fetched once per imported tradition. The
+  // lazy app no longer fetches it: it boots from browse_boot.json and reads
+  // browse_prose.json, written below from the same items.
   writeJsonCompact(path.join(OUT, 'browse.json'), {
     name: 'Codex Musica — browse index (Tier-1 data for the lazy-loaded app)',
     generated: new Date().toISOString().slice(0, 10),
@@ -251,6 +216,24 @@ async function main() {
     count: browseItems.length,
     items: browseItems,
   });
+
+  // ---- browse_boot.json + browse_prose.json: the lazy shell's two halves of browse.json ----
+  // The first view needs every genre's name, classification, axes, roster and
+  // catalog status, and prose only for the genres the Genre page opens on
+  // (STARTER_TRADITIONS in src/app.js). Prose is 85% of browse.json's transfer,
+  // so it arrives after the first paint. scripts/_browse_tables.js is the rule;
+  // check_api.js holds both files to the catalog through it.
+  const starters = starterIds(fs.readFileSync(path.join(__dirname, '..', 'src', 'app.js'), 'utf8'));
+  const strays = starters.filter((id) => !C.TRADITIONS.some((t) => t.id === id));
+  if (strays.length)
+    throw new Error(
+      `STARTER_TRADITIONS (src/app.js) names ${strays.join(', ')}, not in the catalog`
+    );
+  writeJsonCompact(
+    path.join(OUT, 'browse_boot.json'),
+    bootIndex(browseItems, C.TRADITION_EXTRAS, starters)
+  );
+  writeJsonCompact(path.join(OUT, 'browse_prose.json'), proseIndex(browseItems));
 
   // ---- nav_glyphs.json: room and preface glyph artwork, fetched on demand ----
   // The lazy shell leaves NAV_GLYPH_SVGS (references/09_nav_glyphs.js) out of
@@ -262,6 +245,17 @@ async function main() {
     count: Object.keys(C.NAV_GLYPH_SVGS).length,
     svgs: C.NAV_GLYPH_SVGS,
   });
+
+  // ---- engine.json: the instrument engine the lazy shell fetches at its first paint ----
+  // (or from <head>, when a saved session needs it to draw).
+  // The page copy of references 01, 02, 03 and 07 (instruments, family parts,
+  // rooms, chains, tunings, instrument axes, preface lexicon), unmerged, one
+  // element per line, written by scripts/_page_tables.js and held to it by
+  // check_api.js. Internal, like nav_glyphs.json: not a published endpoint.
+  fs.writeFileSync(
+    path.join(OUT, 'engine.json'),
+    engineText(path.join(__dirname, '..', 'references'))
+  );
 
   // ---- tradition_images.json / instrument_images.json: the two photo tables ----
   // Derived from references/_image_manifest.json by scripts/_image_tables.js and
