@@ -25,8 +25,9 @@
 //                cannot carry, and a count that is not a positive integer; the
 //                decoder refuses a `__proto__` key in the DF remainder, a
 //                signature line with fewer lists than ids, a count list whose
-//                length is not the vocabulary's, and an index that names no
-//                token
+//                length is not the vocabulary's, an index that names no
+//                token, and a count or index that is not written whole (a
+//                point, a sign, zero padding, a string or a fraction)
 //
 // Usage:  node scripts/check_engine_codec.js
 'use strict';
@@ -276,6 +277,31 @@ const DECODER = [
     'a zero count',
     withLine('DESCRIPTOR_DF', (v) => (v.a = v.a.replace(/^[^,]*/, '0'))),
     /not usable/,
+  ],
+  [
+    'a count parseInt would half-read',
+    withLine('DESCRIPTOR_DF', (v) => (v.a = v.a.replace(/^[^,]*/, '1.5zz'))),
+    /not usable/,
+  ],
+  [
+    'a zero-padded count',
+    withLine('DESCRIPTOR_DF', (v) => (v.a = v.a.replace(/^[^,]*/, '01'))),
+    /not usable/,
+  ],
+  [
+    'a DF remainder count written as a string',
+    withLine('DESCRIPTOR_DF', (v) => (v.r[Object.keys(v.r)[0]] = '3')),
+    /not usable/,
+  ],
+  [
+    'a fractional DF remainder count',
+    withLine('DESCRIPTOR_DF', (v) => (v.r[Object.keys(v.r)[0]] = 2.5)),
+    /not usable/,
+  ],
+  [
+    'a signature index with a sign',
+    withLine('TRADITION_SIGNATURES', (v) => (v.l = '+1' + v.l.slice(v.l.search(/[ .]/)))),
+    /names no token/,
   ],
   ['a missing line', [...elements, JSON.parse(lines[0])], /no DESCRIPTOR_DF line/],
 ];

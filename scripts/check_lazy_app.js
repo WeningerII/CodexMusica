@@ -825,9 +825,13 @@ const CAPTURE_PROBE = `
   return out;
 `;
 
-// The fingerprint's descriptor sort: 40 tokens, most of them in DESCRIPTOR_DF
-// (in the engine's own words, and outside them) and some not, in no order.
+// The fingerprint's descriptor sort: 42 tokens, in no order. Most are in
+// DESCRIPTOR_DF and in the engine's own words (the codec's count list); the two
+// addresses are in DESCRIPTOR_DF but outside those words (its remainder); the
+// rest are in neither.
 const SORT_TOKENS = [
+  '13-brentford-road-jamaica',
+  '2120-south-michigan-avenue',
   'warm',
   'bright',
   'dark',

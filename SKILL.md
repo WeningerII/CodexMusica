@@ -649,7 +649,10 @@ path). Don't hand-edit the duplicated pieces independently:
 - **Tradition signatures** live canonically in `references/_tradition_signatures.json`;
   `node scripts/build_signatures.js` regenerates the `app.js` inline copy from it. Never
   edit the `app.js` `TRADITION_SIGNATURES` block by hand. Adding a token means classing it
-  in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8).
+  in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8). The
+  lazy `codex.html` does not carry that block, or `DESCRIPTOR_DF`: it ships both inside
+  `api/engine.json`, so after regenerating either one, also run `npm run build:api` and
+  `node scripts/build_html.js`.
 - `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
   functions (in jsdom) and the node primitives on shared fixtures and fails if their
   descriptor sets or preface picks diverge — behavioral parity, not just textual. <!-- @promise: browser-node-parity --> If you

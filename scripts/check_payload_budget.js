@@ -35,7 +35,7 @@
 //                — not on the first view's path, but a restored session's
 //                first draw and every action that creates a card wait for it
 //                (Engine in src/app.js)
-//   add-path     codex.html + api/browse_boot.json            <= 1,351,680 (1,320 KiB)
+//   add-path     codex.html + api/browse_boot.json            <= 1,318,912 (1,288 KiB)
 //                + api/engine.json, each gzipped on its own
 //                — everything an early Add, or a restored session's first
 //                draw, has to download before it can finish. Step 10 was held
@@ -46,21 +46,23 @@
 //                through scripts/_engine_codec.js, measure 1,354,560.
 //
 // WHERE THE NUMBERS CAME FROM. Step 10 as built (2026-10-08) measures page
-// 354,872, critical 591,986, inline-data 74,437, engine 690,352 and add-path
-// 1,282,338. Step 10 lowered the page, critical and inline-data limits to a
-// whole number of KiB above those figures (9.7%, 10.7% and 15.6% headroom)
-// and set add-path the same way (5.4%), each low enough that what step 10
-// took out cannot come back unseen: the page's 34,248 B of headroom is less
+// 354,962, critical 592,076, inline-data 74,529, engine 690,355 and add-path
+// 1,282,431. Step 10 lowered the page, critical and inline-data limits to a
+// whole number of KiB above those figures (9.6%, 10.7% and 15.4% headroom)
+// and add-path to the KiB nearest the middle between the build and the
+// two tables written plain (2.8% headroom), each low enough that what step 10
+// took out cannot come back unseen: the page's 34,158 B of headroom is less
 // than either render table's src/app.js mirror would add back (about 43 KB
-// and 74 KB gzipped), inline-data's 11,579 less than the tree's node
-// descriptions (about 32 KB), and add-path's 69,342 less than the two tables
-// written plain would cost (72,222). Main before step 10 (44527a805) measures
-// page 505,627, critical 742,741, inline-data 106,870, engine 654,769 and
-// add-path 1,397,510: it fails all four of those budgets, and must. The
-// engine limit is step 9's, unchanged: the step-9 prototype's 713,289 plus
-// headroom, rounded up to a multiple of 20 KiB. The step-8 page, with the
-// engine inline, measures 1,155,985 / 1,391,523 / 769,171 and has no engine
-// file; it fails here too.
+// and 74 KB gzipped), inline-data's 11,487 less than the tree's node
+// descriptions (about 32 KB), and add-path's 36,481 about half of what the two
+// tables written plain would cost (72,222): a drift of a few KB either way
+// neither fails step 10 nor lets that plain write through (faults.js 10q).
+// Main before step 10 (44527a805) measures page 505,627, critical 742,741,
+// inline-data 106,870, engine 654,769 and add-path 1,397,510: it fails all
+// four of those budgets, and must. The engine limit is step 9's, unchanged:
+// the step-9 prototype's 713,289 plus headroom, rounded up to a multiple of
+// 20 KiB. The step-8 page, with the engine inline, measures 1,155,985 /
+// 1,391,523 / 769,171 and has no engine file; it fails here too.
 //
 // RAISING A BUDGET NEEDS A CITED LIGHTHOUSE RUN. A limit here moves up only in
 // a commit that cites, beside the new number, a Lighthouse mobile run of the
@@ -118,7 +120,7 @@ const BUDGETS = {
   critical: 655360,
   'inline-data': 86016,
   engine: 778240,
-  'add-path': 1351680,
+  'add-path': 1318912,
 };
 const TOP = 5;
 

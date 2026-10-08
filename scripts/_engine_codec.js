@@ -86,6 +86,10 @@ function* codexDecodeSteps(vocab, enc, t) {
   };
   const unsafe = (k) => k === '__proto__' || k === 'constructor' || k === 'prototype';
   const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+  // A count is written in base 36 with no sign, point or padding, and read only
+  // when it is whole: parseInt alone would take '1.5zz' as 1.
+  const b36 = /^[1-9a-z][0-9a-z]*$/;
+  const count = (n) => Number.isSafeInteger(n) && n > 0;
   const order = vocab.order();
   yield;
   const D = enc.DESCRIPTOR_DF,
@@ -105,14 +109,14 @@ function* codexDecodeSteps(vocab, enc, t) {
   for (let i = 0; i < a.length; i += 2500) {
     for (let j = i; j < a.length && j < i + 2500; j++) {
       if (a[j] === '') continue;
-      const n = parseInt(a[j], 36);
-      if (!(n > 0) || unsafe(order[j])) fail('DESCRIPTOR_DF count ' + j + ' is not usable');
+      const n = b36.test(a[j]) ? parseInt(a[j], 36) : NaN;
+      if (!count(n) || unsafe(order[j])) fail('DESCRIPTOR_DF count ' + j + ' is not usable');
       df[order[j]] = n;
     }
     yield;
   }
   for (const k of Object.keys(D.r)) {
-    if (unsafe(k) || own(df, k) || !(D.r[k] > 0))
+    if (unsafe(k) || own(df, k) || !count(D.r[k]))
       fail('DESCRIPTOR_DF token ' + k + ' is not usable');
     df[k] = D.r[k];
   }
@@ -127,7 +131,7 @@ function* codexDecodeSteps(vocab, enc, t) {
       if (unsafe(keys[j]) || own(sig, keys[j]))
         fail('TRADITION_SIGNATURES id ' + keys[j] + ' is not usable');
       sig[keys[j]] = lists[j].split('.').map((n) => {
-        const x = v[parseInt(n, 36)];
+        const x = /^(0|[1-9a-z][0-9a-z]*)$/.test(n) ? v[parseInt(n, 36)] : undefined;
         return typeof x === 'string'
           ? x
           : fail('TRADITION_SIGNATURES ' + keys[j] + ' names no token at ' + n);

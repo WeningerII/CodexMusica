@@ -625,6 +625,7 @@ Its centre of gravity is a graft, not an architecture.
 | `references/11_landmask.js` | **derived** | `build_landmask.js` | `check_landmask.js`, `check_artifact_fresh.js` | never edited by hand |
 | `references/_tradition_signatures.json` | **source** (edited in Phase 1) | — | `validate.js` (key validity), `check_signature_tokens.js` | named maintainer |
 | `src/app.js:15` `TRADITION_SIGNATURES` | **derived mirror** | `build_signatures.js` | `build_signatures.js --check`, `tandem.js:391-405` | never edited by hand |
+| `api/engine.json`, its `TRADITION_SIGNATURES` line | **derived**, encoded by `scripts/_engine_codec.js` (the copy the lazy page reads) | `build_static_api.js` | `check_api.js`, `check_signature_tokens.js`, `check_artifact_fresh.js` | never edited by hand |
 | `api/places/index.json` | **derived** | `build_places.js` | `check_api.js`, `check_artifact_fresh.js` | — |
 | `api/places/{place_id}.json` | **derived** | `build_places.js` | `check_api.js`, `check_artifact_fresh.js` | — |
 | `api/places/by-tradition.json` | **derived** | `build_places.js` | `check_api.js`, `check_places.js` | — |
