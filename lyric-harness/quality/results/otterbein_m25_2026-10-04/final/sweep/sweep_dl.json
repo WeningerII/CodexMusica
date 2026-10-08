@@ -1,0 +1,235 @@
+{
+  "counts": {
+    "PASS": 17,
+    "FAIL": 4,
+    "CANNOT RUN": 0
+  },
+  "rows": [
+    {
+      "suite": "quality/test_data_row_claims.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.4,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_declared_inputs.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 20.3,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_discriminate.py",
+      "exit": 2,
+      "verdict": "FAIL",
+      "seconds": 0.4,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": ["exit 2 with no FAIL line -- it crashed rather than failed a check"]
+    },
+    {
+      "suite": "quality/test_door_census.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 16.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_english_text.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 0.1,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_expected_drift.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 0.1,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_field_store.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 62.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_figure_exhibits.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 11.8,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_fit.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 15.9,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_floor.py",
+      "exit": 1,
+      "verdict": "FAIL",
+      "seconds": 64.2,
+      "bound": 1200,
+      "fail_lines": 2,
+      "disagrees": false,
+      "evidence": [
+        "FAIL  AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 tokens the floor can FLAG at 98.7% of lengths and reaches no profile at all at 1.3% \u2014 lengths 1-9 are below the measured lyric range after apparatus annotations",
+        "FAIL  the five song thresholds are the recorded corpus percentiles"
+      ]
+    },
+    {
+      "suite": "quality/test_floor_window.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 26.3,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_fwer.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 96.3,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_g2p.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 955.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_gate_census.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 140.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_grid.py",
+      "exit": 1,
+      "verdict": "FAIL",
+      "seconds": 95.4,
+      "bound": 1200,
+      "fail_lines": 1,
+      "disagrees": false,
+      "evidence": ["FAIL  eng: 8652 songs, 539 with an air of their own"]
+    },
+    {
+      "suite": "quality/test_high_report.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 198.2,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_homeoteleuton.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 77.1,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_homograph.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 174.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_interlocking_chain.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.3,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_loop.py",
+      "exit": 1,
+      "verdict": "FAIL",
+      "seconds": 872.3,
+      "bound": 1200,
+      "fail_lines": 1,
+      "disagrees": false,
+      "evidence": [
+        "FAIL  ...and the perturbation is restored, so no later section inherits a narrowed floor"
+      ]
+    },
+    {
+      "suite": "quality/test_ltc.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 10.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    }
+  ],
+  "partial": false,
+  "not_reached": [],
+  "appeared_during_run": [],
+  "head_at_start": "5ddebdbf",
+  "head_at_end": "06e83cd7",
+  "tree_moved_during_run": true,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) against the pinned baseline. ~~It has no pass/fail of its own to read, so a verdict here would be this module inventing one.~~ STRUCK 2026-09-26: since 9396946 (2026-08-11) `assert_pinned` exits 1 on drift, so it does carry a verdict. It stays out because it is not in this glob and `quality/counters.py` runs it as the `sonnet battery` counter.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

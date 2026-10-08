@@ -1,6 +1,6 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload */
 /* global UILayout */
-/* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting */
+/* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
    canonical app (src/app.js) and catalog, which stay the only engine.
@@ -543,8 +543,16 @@ async function uiAddInstrument(id, { configure, message, destination } = {}) {
   try {
     const dest = destination !== undefined ? destination : $ui('instrument-destination')?.value;
     app._addToTradition = dest || null;
-    const c = await addInstrumentFromPicker(id, { configure });
-    if (!c) throw Error('Instrument unavailable');
+    const retry = {
+      label: 'Retry',
+      run: () => uiAddInstrument(id, { configure, message, destination: dest || '' }),
+    };
+    const c = await addInstrumentFromPicker(id, { configure, retry });
+    // No card while the instrument data could not load: engineReady has said so.
+    if (!c) {
+      if (!_engineLive) return null;
+      throw Error('Instrument unavailable');
+    }
     renderAll();
     uiOpenEditor(c.id);
     showToast(message ? message(c) : _addedInstrumentMessage(id, c), 'success');
@@ -568,6 +576,7 @@ function uiExport() {
   uiDownload('codex-musica-session.json', JSON.stringify(p, null, 2), 'application/json');
 }
 async function uiImport(file) {
+  if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => uiImport(file) }))) return;
   try {
     const s = JSON.parse(await file.text()),
       cards = s.cards || s.workspace?.cards;
@@ -1016,7 +1025,10 @@ function uiStart() {
   status.setAttribute('role', 'status');
   status.textContent = 'Connecting…';
   $ui('chat-form').before(status);
-  uiCheckAI();
+  // After the first paint: a cross-origin status check started during boot
+  // competes with the genre page's first render for the network and is
+  // counted on the path to the largest paint. 'Connecting…' stays until then.
+  uiAfterPaint(uiCheckAI);
 
   const domain = $ui('chat-domain');
   domain.addEventListener('change', uiUpdatePrompt);
@@ -1215,7 +1227,7 @@ function uiCloseLightbox() {
 // Pages build rows with uiRowsHTML (and a jump bar with uiRowsJumpHTML), and
 // bracket a repaint with uiRowsKeep / uiRowsRestore so each row keeps its
 // place, its length and the focused card control.
-/* exported uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTile, listenHref */
+/* exported uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTile, uiTilesPhotos, listenHref */
 const UI_ROWS_CHUNK = 30;
 const UI_ROWS = new Map(); // row key → { items, tile, sig }
 const UI_TILE_RATIO = new Map(); // photo src → its width / height, clamped
@@ -1258,15 +1270,39 @@ function uiTile(o) {
   return (
     `<div class="cm-tile" role="listitem" data-tile="${o.kind}" data-id="${id}" style="--ar:${ratio.toFixed(3)}"><div class="cm-tile-shot${src ? '' : ' is-glyph'}">` +
     (src
-      ? `<img class="cm-tile-img" src="${esc(src)}" alt="" loading="lazy" decoding="async">`
+      ? uiTilePhotoHTML(src, o.photo, o.name)
       : `<span class="cm-tile-glyph" aria-hidden="true">${o.glyph(o.id)}</span>`) +
-    (src && o.photo.credit
-      ? `<button type="button" class="cm-tile-credit" data-ui="tile-credit" data-credit="${esc(o.photo.credit)}" data-href="${esc(o.photo.href || '')}" aria-label="Photo credit for ${name}" data-tooltip="${esc(o.photo.credit)}">${icon('info', 14)}</button>`
-      : '') +
     `<a class="cm-tile-play" href="${listenHref(o.name, o.kind === 'instrument')}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${name} on YouTube">${icon('play', 16)}</a>` +
     uiTileAdd(o) +
     `</div><div class="cm-tile-cap"><button type="button" class="cm-tile-name" data-ui="${o.open}" data-id="${id}" title="${name}">${name}</button><span class="cm-tile-sub" title="${esc(o.sub)}">${esc(o.sub)}</span><button type="button" class="cm-tile-more" data-menu-toggle aria-controls="cm-tile-menu" aria-haspopup="menu" aria-expanded="false" aria-label="More for ${name}">${icon('ellipsis-vertical', 18)}</button></div></div>`
   );
+}
+// A card's photo and, when it has one, the button that shows its credit.
+function uiTilePhotoHTML(src, photo, name) {
+  return (
+    `<img class="cm-tile-img" src="${esc(src)}" alt="" loading="lazy" decoding="async">` +
+    (photo.credit
+      ? `<button type="button" class="cm-tile-credit" data-ui="tile-credit" data-credit="${esc(photo.credit)}" data-href="${esc(photo.href || '')}" aria-label="Photo credit for ${esc(name)}" data-tooltip="${esc(photo.credit)}">${icon('info', 14)}</button>`
+      : '')
+  );
+}
+// Photos that arrive after the cards are drawn go into those cards in place:
+// the glyph gives way to the photo and nothing else in the card is rebuilt.
+// Redrawing the list instead would replace the button under a pointer that is
+// mid-press, and on a slow phone the photos land seconds after the list.
+// photo(id) → { src, credit, href } | null, as uiTile takes it.
+function uiTilesPhotos(root, kind, photo) {
+  for (const shot of root?.querySelectorAll(
+    `.cm-tile[data-tile="${kind}"] > .cm-tile-shot.is-glyph`
+  ) || []) {
+    const tile = shot.parentElement,
+      p = photo(tile.dataset.id),
+      glyph = shot.querySelector('.cm-tile-glyph');
+    if (!p?.src || UI_TILE_FAILED.has(p.src) || !glyph) continue;
+    shot.classList.remove('is-glyph');
+    tile.style.setProperty('--ar', (UI_TILE_RATIO.get(p.src) || 4 / 3).toFixed(3));
+    glyph.outerHTML = uiTilePhotoHTML(p.src, p, tile.querySelector('.cm-tile-name').textContent);
+  }
 }
 // groups: [{ key, label, items }] (items carry .id); tile(item) → uiTile(...).
 // `prefix` names the list, so a row's key is unique on the page. A row with no
@@ -1804,7 +1840,9 @@ function uiReceiveReply(payload, request) {
     const use = document.createElement('button');
     use.className = 'btn btn-primary';
     use.innerHTML = icon('plus', 16) + ' Use recipe';
-    use.onclick = () => {
+    use.onclick = async () => {
+      if (!_engineLive && !(await engineReady({ label: 'Retry', run: () => use.onclick() })))
+        return;
       try {
         app.cards = normalizeWorkspaceCards(source, true);
         pushHistory();
@@ -1930,13 +1968,9 @@ function uiRestoreSession() {
     const shared = localStorage.getItem('codex-workbench-v1');
     const recovery = sessionStorage.getItem('codex-workbench-recovery');
     if (recovery && shared && recovery !== shared) UI.storageConflict = true;
-    const saved = JSON.parse(
-      recovery ||
-        shared ||
-        localStorage.getItem('musica-workbench-v3') ||
-        localStorage.getItem('musica-study-v1') ||
-        'null'
-    );
+    // The same session, in the same order, that the lazy shell's boot checks
+    // for cards before it draws (storedSessionText in src/app.js).
+    const saved = JSON.parse(storedSessionText() || 'null');
     app.lyrics =
       typeof saved?.lyrics === 'string'
         ? saved.lyrics
@@ -1952,7 +1986,10 @@ function uiRestoreSession() {
     app.history = [];
     app.historyIndex = -1;
     pushHistory();
-  } catch {
+  } catch (e) {
+    // A restore that reached the instrument data before it loaded is a boot
+    // bug, not a damaged session: let the boot error say so, and write nothing.
+    if (e && e.name === 'EngineNotReadyError') throw e;
     UI.storageConflict = true;
     showToast('Saved session needs recovery. Export this session before replacing it.', 'error');
   }
@@ -2031,6 +2068,36 @@ function uiShowStorageConflict() {
     uiButton('keep-session', 'Keep this session', 'save') +
     uiButton('export', 'Export this session', 'download');
   document.querySelector('.ui-header').after(note);
+}
+// Run fn once the first paint has been presented and the main thread is idle:
+// two animation frames (the second runs after the frame the first one queued
+// has been drawn), then an idle callback with a 2 s ceiling so it cannot be
+// starved. Where either API is missing (jsdom harnesses, older Safari) it
+// falls back to a timer. For work the first view does not need: optional
+// fetches and status checks that would otherwise compete with it.
+//
+// A HIDDEN TAB DRAWS NO FRAMES, so waiting for them would hold fn until the tab
+// is shown and then run it under the reader. A tab hidden when this is called,
+// or hidden before its frames arrive, goes straight to the idle callback,
+// which is what booting in a background tab did before: nothing is painting
+// there to compete with. fn runs once either way.
+function uiAfterPaint(fn) {
+  let done = false;
+  const run = () => {
+    if (!done) {
+      done = true;
+      fn();
+    }
+  };
+  const idle = () =>
+    typeof requestIdleCallback === 'function'
+      ? requestIdleCallback(run, { timeout: 2000 })
+      : setTimeout(run, 0);
+  const hidden = () => typeof document !== 'undefined' && document.visibilityState === 'hidden';
+  if (typeof requestAnimationFrame !== 'function' || hidden()) return void idle();
+  requestAnimationFrame(() => requestAnimationFrame(idle));
+  if (typeof document !== 'undefined' && typeof document.addEventListener === 'function')
+    document.addEventListener('visibilitychange', () => hidden() && idle(), { once: true });
 }
 async function uiCheckAI() {
   const status = $ui('ai-status');

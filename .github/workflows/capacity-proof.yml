@@ -2,6 +2,9 @@ name: Actual-runtime capacity proof
 
 # One actual all-family proof per caller workflow attempt. Reused by CI and
 # complete production qualification; consumers validate their own runtime.
+# Keep CPython 3.11.16/x64 on Ubuntu 24.04 aligned with qualification and CI
+# consumers. Floating 3.11 selected different patch builds within run
+# 37586558306; exact sys.version attestation correctly refused those receipts.
 on:
   workflow_call: {}
 permissions:
@@ -9,7 +12,7 @@ permissions:
 jobs:
   capacity-proof:
     name: verify
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # 2026-09-08: observed local workers1 wall was 1600.725s; the later
     # workers4 full proof consumed 2042.343s aggregate CPU.
     #
@@ -45,7 +48,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Install the exact runtime dependencies
         run: python3 -m pip install --disable-pip-version-check --require-hashes -r "$GITHUB_WORKSPACE/mcp/requirements-runtime.txt"
       - name: Stage the actual lexical runtime

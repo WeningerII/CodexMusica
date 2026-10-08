@@ -1,0 +1,54 @@
+# author: Kate Hankey
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, only a signature under each hymn, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the hymnal's origin (Dayton, Ohio) would be a guess. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# function: hymn
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# attribution: every item carries its own `--- AUTHOR:` line quoting the signature the source prints under its last stanza; the name above is that signature without honorific, degree or date.
+# structure: [VERSE n] a stanza; [REFRAIN] the stanza the source labels `Cho.--` or `Ref.--`, printed once after the verse it follows. Not staged: the hymn number, tune name and metre heading, the italic topic line and its cross-reference number, stanza numerals, the signature line (quoted in `--- AUTHOR:`), and indentation.
+# staged: 2026-10-04, Pass 1 same-gate top-up (quality/CORPUS_LOADING_PROTOCOL.md): the Otterbein hymns that print a refrain and that no corpus file held
+# songs: 1
+
+--- TITLE: I love to tell the story
+--- AUTHOR: Miss Kate Hankey, 1867. — the source's own signature under the last stanza, hymn 419, verbatim
+[VERSE 1]
+I love to tell the story
+Of unseen things above,
+Of Jesus and his glory,
+Of Jesus and his love!
+I love to tell the story,
+Because I know it's true;
+It satisfies my longings,
+As nothing else would do.
+[REFRAIN]
+I love to tell the story!
+'Twill be my theme in glory,
+To tell the old, old story
+Of Jesus and his love.
+[VERSE 2]
+I love to tell the story!
+More wonderful it seems,
+Than all the golden fancies
+Of all our golden dreams.
+I love to tell the story!
+It did so much for me!
+And that is just the reason,
+I tell it now to thee.
+[VERSE 3]
+I love to tell the story!
+'Tis pleasant to repeat
+What seems, each time, I tell it,
+More wonderfully sweet.
+I love to tell the story!
+For some have never heard
+The message of salvation
+From God's own Holy Word.
+[VERSE 4]
+I love to tell the story!
+For those who know it best
+Seem hungering and thirsting
+To hear it like the rest.
+And when, in scenes of glory,
+I sing the new, new song,
+'Twill be--the old, old story
+That I have loved so long.

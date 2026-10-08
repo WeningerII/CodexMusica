@@ -1,0 +1,40 @@
+======================================================================
+ARTIFACT ARM — re-derived from the COMMITTED table, true forever
+======================================================================
+
+======================================================================
+D1 ARM — re-derived from the LIVE TREE; true only of a DECLARED
+         corpus state, which is the whole reason this arm exists
+======================================================================
+D1: 4,351,811 unique eng_song endword-cross pairs, 1,000 sampled at seed 20260818
+  masculine-rhyme=  false  admits()= admits     2  e.g. 'alane'/'again'
+  masculine-rhyme=  false  admits()=rejects   707  e.g. 'presumptuous'/'plainly'
+  masculine-rhyme=refused  admits()= admits     4  e.g. 'ice--'/'advice--'
+  masculine-rhyme=refused  admits()=rejects   279  e.g. 'hums'/'re-arranged'
+  masculine-rhyme=   true  admits()= admits     5  e.g. 'plight'/'might'
+  masculine-rhyme=   true  admits()=rejects     3  e.g. 'roman'/'know'
+  agreement over judged: 712/717 (99.3%); refusals apart (doctrine 79)
+
+  HOLDS 9
+    artifact cells          16530
+    artifact corpus_files   145
+    artifact md5            7d4daf7928cf7c973fdea04e17d06088
+    artifact n_false        233898661
+    artifact n_pairs        417020664
+    artifact n_refused      175411006
+    artifact n_true         7710997
+    artifact rows           57
+    D1 false/admits        2
+  MOVED 7
+    D1 pool: recorded 4,390,056 over 1297 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated, measured 4,351,811. THE POPULATION MOVED — re-derive DELIBERATELY and strike the recorded table with its date (doctrine 58: the repair is aimed at the measurement, never at the number)
+    D1 false/rejects: recorded 678, measured 707
+    D1 refused/admits: recorded 6, measured 4
+    D1 refused/rejects: recorded 305, measured 279
+    D1 true/admits: recorded 3, measured 5
+    D1 true/rejects: recorded 6, measured 3
+    D1 agreement: recorded 681/689, measured 712/717
+  CANNOT RUN 0
+
+  THREE VERDICTS, NEVER SUMMED (doctrine 79). The run-1 D1 table is HISTORICAL and is not checked: it cannot be re-derived at head at any population — 3 of the 143 files were deleted at 76f978f and 140 changed content; reproduce with `git archive 2ff4e51 lyric-harness`.
+
+RESULT: DRIFT — 7 recorded figure(s) moved.

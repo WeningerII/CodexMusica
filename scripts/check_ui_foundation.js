@@ -92,7 +92,7 @@
 
 'use strict';
 /* global document, window, openPrefaceModal, renderPrefaceModalBody, MutationObserver, getComputedStyle, localStorage, location, parent, app, UI, UI_PAGES, innerHeight, Storage, ROOMS, RECIPE_CHAR_CEILING, Inst, Room, Tradition, addCard, compileRecipeStack, envCardOf, pushHistory, renderAll, uiNavigate, uiSync, Catalog, INSTRUMENTS, normalizeSearch, renderGenreDiscovery, gpRenderMain, renderInstrumentDiscovery, computeDistance */
-/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre */
+/* global innerWidth, UITheme, uiInspectInstrument, INSTRUMENT_FAMILIES, uiAddGenre, Engine */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -234,10 +234,25 @@ async function stubPhotos(ctx) {
     },
   };
 }
+// Booted, the genre prose merged and the instrument engine (api/engine.json)
+// committed, so searches, details and every stage that reads ROOMS,
+// INSTRUMENTS, Inst or Room read what the embedded build reads. In the lazy
+// shell those tables are empty `let` slots until the engine lands (asked for at
+// the first paint, or from <head> for a saved session); a stage run before
+// then reads `undefined`, or tests nothing. The state before either arrives
+// is check_lazy_app.js's to gate. The embedded build has the engine at load
+// (Engine.ready() at once), and a page with no Engine at all predates the
+// split.
 async function ready(page) {
-  await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready, null, {
-    timeout: 60000,
-  });
+  await page.waitForFunction(
+    () =>
+      typeof UI !== 'undefined' &&
+      UI.ready &&
+      (typeof Catalog === 'undefined' || Catalog.proseLoaded()) &&
+      (typeof Engine === 'undefined' || Engine.ready()),
+    null,
+    { timeout: 60000 }
+  );
 }
 async function loadDelta(page) {
   await page.getByLabel('Search genres').fill('Delta blues');
@@ -341,14 +356,23 @@ async function loadDelta(page) {
         panel.__gateMarker = 'same-node';
         return app.cards.length;
       });
+      // ready() waited for the engine, so ROOMS is the whole table here. The
+      // edit must MOVE the room: a guard that left it as it was (as a
+      // `typeof ROOMS` fallback does on a lazy page read before the engine)
+      // lets every "same state on another route" check below pass on nothing.
       const edited = await page.evaluate(() => {
         app.workspaceName = 'Gate session';
         const c = app.cards[0];
-        c.room = typeof ROOMS !== 'undefined' ? ROOMS[1].id : c.room;
+        const from = c.room;
+        c.room = ROOMS.find((r) => r.id !== from).id;
         pushHistory();
         renderAll();
-        return { room: c.room, id: c.id };
+        return { room: c.room, from, id: c.id };
       });
+      check(
+        edited.room && edited.room !== edited.from,
+        `E. the room edit did not change the room (${edited.from} → ${edited.room})`
+      );
       for (const view of ['instrument', 'map']) {
         await page.click(`button[data-view="${view}"]`);
         await page.waitForTimeout(view === 'map' ? 1500 : 300);
@@ -1676,6 +1700,9 @@ async function loadDelta(page) {
       // A thumb's 44px: 21px either side of each control's centre still hits it
       // (the circles are drawn smaller); a jump letter is 44px tall to a
       // thumb; the A–Z bar fades where letters continue past its edge.
+      // The photo credits arrive after the first paint (the photo table is
+      // fetched once the page has drawn), so wait for one before measuring it.
+      await page.waitForSelector('#genre-list .cm-tile-credit', { timeout: 15000 });
       const thumbs = await page.evaluate(() => {
         const t = document.querySelector('#genre-list .cm-tile-credit').closest('.cm-tile');
         t.scrollIntoView({ block: 'center' });

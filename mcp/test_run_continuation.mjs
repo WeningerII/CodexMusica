@@ -195,7 +195,13 @@ try {
   // ties rhymes only at line ends and the record cap rose to 1 MiB (owner's
   // ruling), so no group pivot precedes the door, which opens on continuation
   // 0 with eleven independent briefs, all admitted (118608 state bytes).
-  const originalIndependent = [1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
+  // ~~[1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23]~~ REPINNED 2026-10-07 for the
+  // bound-word rule (owner ruling 2026-10-02; measured, CI run 37695281044):
+  // group A [1, 8, 9, 10, 11] is judged at the words it binds, so L1 is a
+  // group pivot asked before the door again -- the group, then L1 at
+  // attempts 0, 1 and 2 -- and the door opens on continuation 4 with the
+  // other ten, all admitted (125291 state bytes).
+  const originalIndependent = [2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -288,7 +294,9 @@ try {
   // ~~[1, 14, 15, 17, 19, 21, 23]~~ [2, 14, 15, 17, 19, 21, 23] (2026-10-01,
   // any-reading rule; measured): L1 is asked as a pivot before the door.
   // ~~[2, 14, 15, 17, 19, 21, 23]~~ -> all eleven (2026-10-04; measured).
-  assert.deepEqual(firstSubset, [1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
+  // ~~all eleven~~ -> the ten after L1 (2026-10-07, bound-word rule;
+  // measured): L1 is asked as a pivot before the door, as on 2026-10-01.
+  assert.deepEqual(firstSubset, [2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)

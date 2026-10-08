@@ -1,4 +1,5 @@
 """Production data admission, population conservation, and source reader regressions."""
+import collections
 import contextlib
 import io
 import hashlib
@@ -108,47 +109,99 @@ print("WordNet staging contract holds")
                 self._wordnet_probe(staged, selected, missing=True)
         self._wordnet_probe(None, source, missing=True, no_package=True)
 
+    #: Every `# APPARATUS:` annotation pass, oldest first, with the
+    #: (rows, titles, section labels) it classified. A later pass may annotate
+    #: further rows of a file an earlier pass touched, so each receipt is read
+    #: against its file with every LATER pass reverted — the text that pass
+    #: was written about — and must account for its own rows exactly.
+    APPARATUS_RECEIPTS = (
+        ("data/english_nonlyric_apparatus.json", (253, 9, 136)),
+        ("data/english_apparatus_m25_2026-10-04.json", (1639, 0, 1642)),
+        ("data/english_apparatus_labels_2026-10-04.json", (1344, 0, 323)),
+    )
+
     def test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics(self):
         import lyric_harness as lh
         from quality.lyric_reader import lyric_items, normalized_rows, calibration_items
-        receipt = json.loads((ROOT / "data/english_nonlyric_apparatus.json").read_text())
-        classified = titles = labels = 0
-        for record in receipt["files"]:
-            path = ROOT / "corpus/song" / record["file"]
-            current = path.read_text().splitlines()
-            original = current.copy()
-            edits = {int(at): edit for at, edit in record["replacements"].items()}
-            kinds = {row.lineno: row.kind for row in normalized_rows(path)}
-            for at, edit in edits.items():
-                self.assertEqual(edit["after"], "# APPARATUS: " + edit["before"])
-                self.assertEqual(current[at - 1], edit["after"], (path.name, at))
-                self.assertEqual(kinds[at], "apparatus", (path.name, at))
-                original[at - 1] = edit["before"]
-                labels += int(edit["before"].startswith("["))
-            # The receipt also records whole-file application hashes. This
-            # enduring check allows independent header-provenance corrections.
-            start = record["source_start_line"] - 1
-            self.assertEqual(hashlib.sha256(("\n".join(original[start:]) + "\n").encode()).hexdigest(),
-                             record["before_body_sha256"], path.name)
-            with patch.object(lh, "read_lyric_text", return_value="\n".join(original) + "\n"):
-                before = list(lyric_items(path))
-            expected = []
-            for title, at, body in before:
-                kept = [row for row in body if row.lineno not in edits]
-                classified += len(body) - len(kept)
-                if at in edits:
-                    self.assertEqual(kept, [], (path.name, title))
-                    titles += 1
-                else:
-                    expected.append((title, at, kept))
-            self.assertEqual(list(lyric_items(path)), expected, path.name)
-            list(calibration_items(path))  # All explicit edition identities resolve.
-        self.assertEqual((classified, titles, labels), (253, 9, 136))
+        receipts = [(json.loads((ROOT / name).read_text()), counts)
+                    for name, counts in self.APPARATUS_RECEIPTS]
+        edits_of = [{record["file"]: {int(at): edit for at, edit in record["replacements"].items()}
+                     for record in receipt["files"]} for receipt, _ in receipts]
+        for k, (receipt, counts) in enumerate(receipts):
+            classified = titles = labels = 0
+            for record in receipt["files"]:
+                path = ROOT / "corpus/song" / record["file"]
+                current = path.read_text().splitlines()
+                applied = current.copy()  # the file as THIS pass left it
+                for later in edits_of[k + 1:]:
+                    for at, edit in later.get(record["file"], {}).items():
+                        self.assertEqual(applied[at - 1], edit["after"], (path.name, at))
+                        applied[at - 1] = edit["before"]
+                original = applied.copy()
+                edits = edits_of[k][record["file"]]
+                kinds = {row.lineno: row.kind for row in normalized_rows(path)}
+                for at, edit in edits.items():
+                    self.assertEqual(edit["after"], "# APPARATUS: " + edit["before"])
+                    self.assertEqual(current[at - 1], edit["after"], (path.name, at))
+                    self.assertEqual(kinds[at], "apparatus", (path.name, at))
+                    original[at - 1] = edit["before"]
+                    labels += int(edit["before"].startswith("["))
+                # The receipt also records whole-file application hashes. This
+                # enduring check allows independent header-provenance corrections.
+                start = record["source_start_line"] - 1
+                self.assertEqual(hashlib.sha256(("\n".join(original[start:]) + "\n").encode()).hexdigest(),
+                                 record["before_body_sha256"], path.name)
+                with patch.object(lh, "read_lyric_text", return_value="\n".join(original) + "\n"):
+                    before = list(lyric_items(path))
+                expected = []
+                for title, at, body in before:
+                    kept = [row for row in body if row.lineno not in edits]
+                    classified += len(body) - len(kept)
+                    if at in edits:
+                        self.assertEqual(kept, [], (path.name, title))
+                        titles += 1
+                    else:
+                        expected.append((title, at, kept))
+                with patch.object(lh, "read_lyric_text", return_value="\n".join(applied) + "\n"):
+                    self.assertEqual(list(lyric_items(path)), expected, path.name)
+                list(calibration_items(path))  # All explicit edition identities resolve.
+            self.assertEqual((classified, titles, labels), counts, receipt["date"])
         stevenson = dict((title, body) for title, _, body in lyric_items(
             ROOT / "corpus/song/eng_british_robert_louis_stevenson.txt"))
         self.assertEqual(len(stevenson["I Bed in Summer"]), 12)
         self.assertNotIn("To Alison Cunningham", stevenson)  # Contents-list heading.
         self.assertIn("From Her Boy", stevenson)  # The actual dedicatory verse.
+
+    def test_label_prefixes_strip_exactly_and_refuse_drift(self):
+        """A label in front of sung words is declared per line and stripped by
+        the reader to exactly the words after it; a drifted line or a declared
+        line that is no longer lyric refuses rather than reading wrong."""
+        import lyric_harness as lh
+        from quality import lyric_reader as LR
+        table = json.loads((ROOT / "data/lyric_label_prefixes.json").read_text())
+        declared = collections.defaultdict(dict)
+        for entry in table["prefixes"]:
+            declared[entry["file"]][entry["line"]] = entry["prefix"]
+        self.assertEqual(sum(map(len, declared.values())), 348)
+        for name, lines in sorted(declared.items()):
+            path = ROOT / "corpus/song" / name
+            raw = path.read_text().splitlines()
+            rows = {row.lineno: row for row in LR.normalized_rows(path)}
+            for line, prefix in lines.items():
+                staged = lh.normalise_bracket_spans(raw[line - 1].strip(), str(path)).strip()
+                self.assertTrue(staged.startswith(prefix), (name, line))
+                self.assertEqual(rows[line].kind, "lyric", (name, line))
+                self.assertEqual(rows[line].text, staged[len(prefix):].strip(), (name, line))
+        name, lines = sorted(declared.items())[0]
+        line = sorted(lines)[0]
+        for mutated in ({(name, line): "~" + lines[line]}, {(name, 1): "# "}):
+            with patch.object(LR, "_label_prefixes", lambda m=mutated: m):
+                with self.assertRaises(ValueError):
+                    list(LR.normalized_rows(ROOT / "corpus/song" / name))
+        draft = Path(tempfile.mkdtemp()) / name  # same name, outside the corpus
+        draft.write_text((ROOT / "corpus/song" / name).read_text())
+        self.assertEqual(next(r for r in LR.normalized_rows(draft) if r.lineno == line).text,
+                         lh.normalise_bracket_spans(draft.read_text().splitlines()[line - 1].strip(), str(draft)).strip())
 
     def test_cold_archive_staging_downloads_verifies_and_installs(self):
         from quality import fetch_data as staging
@@ -261,8 +314,12 @@ print("WordNet staging contract holds")
         source = frequency.LAYER._sources["eng-song"]
         layer.declare(source)
         end, pair, _ = layer._song_tables(source)
-        self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13836, 248513))
-        self.assertEqual(sum(end["word"].values()), 407)
+        # 2026-10-04, the Otterbein / M-25 closing sitting's final rebuild:
+        # 13836 / 248513 -> 13663 / 247781, literal `word` 407 -> 412
+        # (+7 hymn line endings, -2 Watts lines the label and apparatus pass
+        # marked).
+        self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13663, 247781))
+        self.assertEqual(sum(end["word"].values()), 412)
         self.assertEqual(set(pair["a"]), {"ca", "the"})
 
     def test_optional_norms_do_not_disable_or_change_any_requested_floor_feature(self):

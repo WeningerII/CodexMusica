@@ -3081,14 +3081,23 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     # 2026-09-15: apparatus annotations move the complete table from
     # 13856 types / 248628 tokens to 13836 / 248513. All 407 literal
     # `word` occurrences remain; the header regression still pins those.
+    # 2026-10-04 (the Otterbein / M-25 closing sitting's final rebuild):
+    # 13836 / 248513 -> 13663 types / 247781 tokens, and literal `word`
+    # 407 -> 412: +7 line-final `word` in the Otterbein hymns (Faber 1,
+    # Baltzell 2, David Nelson 1, Hankey 1, Stockton 1, Whittle 1) and -2 in
+    # Watts: two lines the label and apparatus pass (5b3ba18c) marked
+    # `# APPARATUS:`, not M-25(a). Still all counted.
     check("the exact TSV header does not consume literal `word` entries",
-          tot["word"] == 407 and len(tot) == 13836
-          and sum(tot.values()) == 248513,
+          tot["word"] == 412 and len(tot) == 13663
+          and sum(tot.values()) == 247781,
           f"literal word={tot['word']}; {len(tot)} types / {sum(tot.values())} tokens")
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",
-          top[:2] == ["me", "thee"] and tot["me"] == 2907
-          and tot["thee"] == 2016 and len(authors["me"]) == 482,
+          # 2026-10-04: me 2907 -> 2968 over 482 -> 503 authors, thee
+          # 2016 -> 2051 -- the Otterbein hymns' own line endings, net of
+          # the apparatus the two passes marked. The head order is unmoved.
+          top[:2] == ["me", "thee"] and tot["me"] == 2968
+          and tot["thee"] == 2051 and len(authors["me"]) == 503,
           f"data/song_endword_en.tsv: {len(tot)} distinct line-final words, "
           f"{sum(tot.values())} tokens. A commonness cut on it flags `thee` "
           f"as one of the two tritest line-endings in English.")
@@ -3694,6 +3703,57 @@ def test_a_remembered_edge_is_the_evaluated_one():
           "slot, and the draft's own stream still does",
           pinned is not None and trial is None and own is not None,
           f"pinned built: {pinned is not None}, trial slot: {trial!r:.40}")
+    # BUT THE EDGE MEMO READS THE DRAFT'S OWN SLOT FOR IT (2026-10-07): each
+    # pair a pinned word sits on re-asks a whole-song figure under the same
+    # combination, and re-evaluating every edge killed PR #460's 24-line
+    # revise at the deadline. The claims: the trial is handed the draft's
+    # slot and no other, edges are served to it, and every edge and every
+    # whole-song verdict under the pinned reading is the uncached one.
+    saved = os.environ.get("LYRIC_PAIR_MEMO")
+    RT.assemble = spy
+    try:
+        os.environ["LYRIC_PAIR_MEMO"] = "1"
+        RT.pair_memo_clear()
+        tst = (RT.build_stream(lines, pinned, declaration={"language": "eng"})
+               if pinned is not None else None)
+        orphan = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], tst,
+                                     base_ok=True)
+                  if tst is not None else "unbuilt")
+        own = RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], st)
+        based = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], tst,
+                                    base_ok=True)
+                 if tst is not None else None)
+        for n in names:
+            RT.line_pairs_for(RT.REGISTRY[n], st)
+        hits = RT._EDGE_MEMO_TALLY["hit"]
+        seen.clear()
+        warm = ({n: snap(RT.line_pairs_for(RT.REGISTRY[n], tst))
+                 for n in names} if tst is not None else {})
+        warm_edges, hits = list(seen), RT._EDGE_MEMO_TALLY["hit"] - hits
+        os.environ["LYRIC_PAIR_MEMO"] = "0"
+        seen.clear()
+        cold = ({n: snap(RT.line_pairs_for(RT.REGISTRY[n], tst))
+                 for n in names} if tst is not None else {})
+        cold_edges = list(seen)
+    finally:
+        RT.assemble = real
+        if saved is None:
+            os.environ.pop("LYRIC_PAIR_MEMO", None)
+        else:
+            os.environ["LYRIC_PAIR_MEMO"] = saved
+        RT.pair_memo_clear()
+    check("a pinned stream's edge memo is the draft's own slot, and none "
+          "before the draft has one",
+          tst is not None and orphan is None and based is own,
+          f"orphan {orphan!r:.40}, same slot {based is own}")
+    check("edges are served to the pinned stream, and every one is the edge "
+          "a fresh realise finds",
+          hits > 0 and warm_edges == cold_edges,
+          f"{hits} pair(s) served; {sum(map(len, warm_edges))} against "
+          f"{sum(map(len, cold_edges))}")
+    check("every whole-song verdict under the pinned reading is the "
+          "uncached one", bool(warm) and warm == cold,
+          f"{[n for n in names if warm.get(n) != cold.get(n)]}")
 
 
 # ---------------------------------------------------------------------------

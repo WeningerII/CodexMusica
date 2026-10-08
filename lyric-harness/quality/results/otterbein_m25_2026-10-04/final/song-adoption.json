@@ -1,0 +1,45 @@
+{
+  "draws": 2000,
+  "files": 859,
+  "held_out_fpr": {
+    "ANY": [19.39, 13.9, 24.14],
+    "anaphora": [5.1, 3.11, 7.55],
+    "cliche": [7.33, 5.69, 8.71],
+    "cv": [4.87, 3.53, 6.77],
+    "fwr": [4.93, 3.1, 7.69],
+    "mattr": [5.09, 3.08, 7.95],
+    "predictability": [4.91, 0.0, 6.92]
+  },
+  "hi": 350,
+  "items": 3251,
+  "lo": 150,
+  "period": {
+    "anaphora": [0.008, 0.868],
+    "cv": [0.069, 0.1747],
+    "fwr": [0.136, 0.0084],
+    "mattr": [-0.126, 0.012],
+    "predictability": [0.082, 0.1061]
+  },
+  "profile": "song",
+  "provenance": {
+    "comparator_fingerprint": "d8f5a5b15e172aa574eb4a1f5b830ec61b22771a6cfdf9c8bf691103de4aba8f",
+    "corpus_sha256": "b0d30dfcaa014a93b6d4d47e69aa2e9fa9f19c97653310217946c01af24332b8",
+    "nltk": "3.10.3",
+    "population_fingerprint": "73efe9cd7528670b3802c97c24c38376f49d584fedf47efca5e382af09568c8d",
+    "question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+    "tagger_sha256": "0189b5b3824b9c61b131d017c86749201a8e3962e089a67a811548aefcd195a3",
+    "version": 1,
+    "with_predictability": true
+  },
+  "sampled": null,
+  "seeds": 200,
+  "thresholds": {
+    "anaphora": 0.3086080586080586,
+    "cv": 0.10734042428432794,
+    "fwr": 0.4806227538486295,
+    "mattr": 0.7058043299534118,
+    "predictability": 0.9333333333333333
+  },
+  "version": 1,
+  "with_predictability": true
+}

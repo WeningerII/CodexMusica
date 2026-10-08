@@ -297,7 +297,9 @@ def test_backfilled_corpus():
     # hide that distinction the first time a merge did drop something.
     # REPINNED 2026-08-20 (HBV safe subset): 1048 -> 1320 (+272), then
     # 1320 -> 1297 when the near-name twin scan merged 23 pairs.
-    check("all 1297 eng files are seen", len(files) == 1297)
+    # REPINNED 2026-10-04 (Otterbein refrain hymns): 1297 -> 1344, the 47
+    # new `eng_hymn_*` files.
+    check("all 1344 eng files are seen", len(files) == 1344)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))
@@ -332,7 +334,11 @@ def test_backfilled_corpus():
     # 428 -> 700. Every HBV file is blank for the same reason Oxford and
     # PAH are -- the edition prints no tradition -- so the declared half
     # cannot move and the blank half moves by the whole batch.
-    check("620 files declare a region and 677 declare a stated blank — "
+    # 2026-10-04: stated blanks 677 -> 724 (the label carried the count; the
+    # check reads the property). All 47 Otterbein hymn files are blank with a
+    # `# region-basis:` line -- the hymnal prints no author's tradition -- so
+    # the declared half is unmoved at 620.
+    check("620 files declare a region and 724 declare a stated blank — "
           "every file answers the axis, none is silently empty",
           len(declared) == 620
           and all(b in basis for b in headers if b not in set(declared)),
@@ -380,18 +386,26 @@ def test_backfilled_corpus():
     # 2026-09-15: 8661 -> 8652 after preserving nine apparatus-only
     # headings as APPARATUS: five English title/contents records and four
     # Scottish Stevenson contents records. Region blanks remain 1538.
-    check("the report counts the corpus: 8,652 songs, 1,538 honestly "
+    # REPINNED 2026-10-04 (Otterbein refrain hymns): 8652 -> 8725 songs, the
+    # 73 hymns (66 in the 47 new files, 7 appended to five existing ones);
+    # undeclared_region 1538 -> 1609 (+71). Two of the appended hymns went
+    # to files that declare a region (Root american, Bonar scottish); the
+    # other 71 sit in blank-region files. undeclared_function is unmoved at
+    # 7515: every new hymn carries function hymn, the appended ones by an
+    # item-level `--- FUNCTION: hymn` line. M-25(a) and the label pass move
+    # none of these -- they mark lines, never titles.
+    check("the report counts the corpus: 8,725 songs, 1,609 honestly "
           "undeclared regions, undeclared functions counted APART "
           "(evidence-or-blank leaves most songs untagged)",
-          r["songs"] == 8652 and r["undeclared_region"] == 1538
+          r["songs"] == 8725 and r["undeclared_region"] == 1609
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals plus the undeclared partition the corpus — the "
           "axis is single-valued, and a blank is counted, never dropped",
-          sum(r["by_region"].values()) + r["undeclared_region"] == 8652
-          and r["by_region"] == {"american": 845, "english": 4495,
-                                 "irish": 205, "scottish": 1569})
+          sum(r["by_region"].values()) + r["undeclared_region"] == 8725
+          and r["by_region"] == {"american": 846, "english": 4495,
+                                 "irish": 205, "scottish": 1570})
 
 
 def test_manifest():

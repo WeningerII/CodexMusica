@@ -8870,7 +8870,7 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
             and n_lines * (n_lines - 1) // 2 <= PAIR_MEMO_CAP
             and not ("stub_resolution" in schema.capabilities()
                      and stream.supply("stub_resolution").state == "absent")):
-        edge_slot = _pair_memo_slot(schema, stream)
+        edge_slot = _pair_memo_slot(schema, stream, base_ok=True)
     if edge_slot is not None:
         sigs = sigs or _stream_line_sigs(stream)
         edges = edge_slot.setdefault("edges", collections.OrderedDict())
@@ -9186,13 +9186,14 @@ def pair_memo_disclosure():
             f"({t['slots']} schema slot(s), {t['held']} row(s) held)")
 
 
-def _stream_const_key(stream):
+def _stream_const_key(stream, phon=None):
     """-> the stream-level half of the memo key, or None when it cannot be
-    spelled (an alt surface, an undeclared phonology)."""
+    spelled (an alt surface, an undeclared phonology). `phon`, when given,
+    stands in for `stream.phon` (a pinned trial's base, `_pair_memo_slot`)."""
     if getattr(stream, "alt", None):
         return None
     try:
-        d = stream.phon.declaration()
+        d = (phon or stream.phon).declaration()
         pk = (d["language"], d["name"],
               json.dumps(d, sort_keys=True, default=repr))
     except (AttributeError, KeyError, TypeError):
@@ -9207,10 +9208,14 @@ def _stream_const_key(stream):
         return None
 
 
-def _pair_memo_slot(schema, stream):
+def _pair_memo_slot(schema, stream, base_ok=False):
     """-> the memo slot for this (schema, stream constants), created on first
     use and moved to the end on every use; None when the memo is off or the
-    key cannot be spelled."""
+    key cannot be spelled.
+
+    `base_ok` (the whole-song edge memo only): a stream read under one
+    combination of readings is given the slot of the stream it was pinned
+    from, keyed on that stream's phonology, instead of None."""
     if not _pair_memo_enabled():
         return None
     # A stream read under ONE combination of readings (`pinned_phonology`)
@@ -9219,7 +9224,22 @@ def _pair_memo_slot(schema, stream):
     # combination, and on the 18-line capacity draft (seed 20260909) those
     # filled all `PAIR_MEMO_SLOTS` and evicted the draft's own -- 2,040 edge
     # hits against 41,106 misses (2026-10-02).
-    if getattr(getattr(stream, "phon", None), "any_reading_trial", False):
+    #
+    # ~~"judged once per schema and never again"~~ IS NOT TRUE OF A
+    # WHOLE-SONG FIGURE (2026-10-07). Every pair a pinned word sits on asks
+    # `chain rhyme (rap)` again under the SAME combination, and each one
+    # re-evaluated every edge of the draft: on PR #460's 24-line scaffold,
+    # four group-A pairs on 'wire' x two readings x every trial draft,
+    # 208.6 of 210.3 resolving seconds, and the first revise call was killed
+    # at the 600 s deadline. An edge is keyed on its two lines' signatures,
+    # which carry every unit's reading, so a line the combination does not
+    # touch keys the same under the pinned phonology as under the one it was
+    # pinned from: the edge memo (`base_ok`) reads and extends THAT slot --
+    # no slot is opened per combination, so none is evicted -- and only the
+    # edges on a re-read line are evaluated. The pair-local memo keeps the
+    # exclusion; its verdicts are not where the time went.
+    trial = getattr(getattr(stream, "phon", None), "any_reading_trial", False)
+    if trial and not base_ok:
         return None
     # A stream that does not carry its own text, or carries it for a
     # different number of lines than it indexes, cannot spell a per-line
@@ -9227,11 +9247,18 @@ def _pair_memo_slot(schema, stream):
     # lines would share one key. Disabled for that stream, never guessed.
     if len(getattr(stream, "text_lines", ()) or ()) != len(stream.lines):
         return None
-    const = _stream_const_key(stream)
+    base = (getattr(stream.phon, "any_reading_base", None) if trial
+            else None)
+    if trial and base is None:
+        return None
+    const = _stream_const_key(stream, phon=base)
     if const is None:
         return None
     key = (schema.name, repr(schema), const)
     slot = _PAIR_MEMO.get(key)
+    if slot is None and trial:
+        # Only the base stream's own slot, never one opened for a trial.
+        return None
     if slot is None:
         slot = {"store": {}}
         _PAIR_MEMO[key] = slot
@@ -9555,8 +9582,10 @@ def pinned_phonology(stream, combo):
         return None
     eng = English(fallback=ph.fallback, readings=ph.readings, lexicon=pinned)
     # A trial phonology, built once per combination: `_pair_memo_slot`
-    # keeps its streams out of the memo (see there).
+    # keeps its streams out of the pair memo, and gives the whole-song edge
+    # memo the slot of `any_reading_base` (see there).
     eng.any_reading_trial = True
+    eng.any_reading_base = getattr(ph, "any_reading_base", None) or ph
     return eng
 
 

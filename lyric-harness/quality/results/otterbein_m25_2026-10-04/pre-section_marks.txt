@@ -1,0 +1,21 @@
+======================================================================
+THE BRACKETED MARKS, BY KIND — never summed (doctrine 79)
+======================================================================
+  kind        marks     lines
+  function        6     76893
+  movement        3        12
+  form            6    125333
+  voice          12        60
+  apparatus      27        56
+  refused         1         1
+
+  FUNCTION rows the vocabulary has NO function for: 0
+
+  MOVEMENT rows — a level the model has no layer for: 3
+     [SIUBHAL]  6 lines in 3 file(s)
+     [URLAR]  5 lines in 3 file(s)
+     [CRUNLUATH]  1 lines in 1 file(s)
+
+FAIL — 2 complaint(s)
+  - 'REFRAIN': table says 707 lines, corpus has 785
+  - 'VERSE': table says 74177 lines, corpus has 72829

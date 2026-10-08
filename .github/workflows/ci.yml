@@ -1015,6 +1015,17 @@ jobs:
       - name: UI reachability
         run: npm run reachability
 
+      # The embedded build (every table inline: the page check_lazy_app and
+      # tandem compare the lazy shell against) has its own --check — each of
+      # the eight engine tables present by name, with rows; none of the lazy
+      # names (the index, the commit, the two digests) or the preload; each
+      # <script> under the parse ceiling — and until this step nothing in CI
+      # ran it: those gates build it without --check. --out keeps it off the
+      # default output path, where the lazy build above is what UI
+      # reachability reads.
+      - name: Build the embedded codex.html (--check)
+        run: npm run build:html:embedded -- --out="$RUNNER_TEMP/embedded/codex.html" --quiet
+
   # Reproducibility + two-sided gates. Separate job so the fresh rebuild runs in
   # parallel with `verify`, and still gates the merge (runs on PRs).
   #
@@ -1035,10 +1046,17 @@ jobs:
     # M-250: skip when a pull_request run already tests this commit.
     if: needs.dup.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
-    # MEASURED at ~10-15 minutes green; the same apt-stall class as verify
-    # hung THIS job 44m+ on the run for PR #168 (2026-08-18). Same cap,
-    # same reason.
-    timeout-minutes: 30
+    # MEASURED at ~10-15 minutes green when first pinned; the same apt-stall
+    # class as verify hung THIS job 44m+ on the run for PR #168 (2026-08-18).
+    # REPINNED 2026-10-06 from ~~30~~ to 45 for step 9's fault classes. PR
+    # #501's run measured the job at 22m43s: the cold build 11m54s, fault
+    # injection 9m49s. Step 9 brought faults.js to 91 classes, 36 of them for
+    # the engine split (9i-9zo; a class planted for one check of the engine
+    # section runs that check alone, --checks). MEASURED on PR #502's first
+    # run (run 37559558317, 2026-10-07, cold): the job 32m01s, the build
+    # 12m40s, fault injection 18m22s. 30 would have cancelled it; 45 leaves
+    # 13 min, room for a slow runner.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
 
@@ -1138,6 +1156,24 @@ jobs:
           path: ${{ runner.temp }}/fresh
           key: artifact-build-v1-${{ steps.artifact-key.outputs.key }}
 
+      # The lazy page's gzip budgets (scripts/check_payload_budget.js): the page,
+      # the page plus the boot index, its inline data, and api/engine.json. On a
+      # diff that can move an artifact it measures the FRESH build, the pair this
+      # tree produces, already byte-compared to the committed pair above; on any
+      # other diff, the committed pair, as the fault step below does. It runs
+      # after the cache save on purpose: the gate is not a build input, so a run
+      # that fails here still banks its verified build, and a follow-up that
+      # changes only the gate reuses it. verify's parallel regression step runs
+      # it too, on the committed pair (`npm run check:budget`, in test:serial).
+      - name: Payload budget — the lazy page and its engine file within their gzip budgets
+        run: |
+          if [ "${{ needs.gate.outputs.artifacts_affected }}" = "true" ]; then
+            node scripts/check_payload_budget.js --html="$RUNNER_TEMP/fresh/codex.html" --api="$RUNNER_TEMP/fresh/api"
+          else
+            echo "No artifact input changed — measuring the committed artifacts."
+            node scripts/check_payload_budget.js --html=codex.html --api=api
+          fi
+
       # Fault injection runs on EVERY diff, docs-only included, and that is
       # deliberate: several of its classes inject into AGENTS.md / README.md /
       # SKILL.md to prove the promise and doc-drift gates are two-sided. Skipping
@@ -1150,9 +1186,23 @@ jobs:
       # what a fresh build of this tree produces, and the parent commit's own
       # freshness run proved it byte-for-byte. faults.js copies before injecting,
       # so the working tree is untouched either way.
+      #
+      # It runs unless the run was cancelled (`!cancelled()`), after a failed
+      # step above as well: a page over its budget, or a reproducibility diff,
+      # is one verdict, and it must not hide the fault verdicts behind it (on a
+      # page already over, each budget class records BASELINE-OVER and the
+      # classes after them still run). A failed step still fails the job; this
+      # one reports beside it. With no fresh pair to inject against (a step
+      # above stopped before the build finished), it says so and fails at
+      # once, rather than plant into files that are not there.
       - name: Fault injection — every gate is two-sided (0 escapes)
+        if: ${{ !cancelled() }}
         run: |
           if [ "${{ needs.gate.outputs.artifacts_affected }}" = "true" ]; then
+            if [ ! -f "$RUNNER_TEMP/fresh/codex.html" ] || [ ! -d "$RUNNER_TEMP/fresh/api" ]; then
+              echo "No fresh build to inject against: a step above stopped before it was made."
+              exit 1
+            fi
             node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
           else
             echo "Docs-only diff — injecting against the committed artifacts."
@@ -1498,7 +1548,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       # No pip install: the harness is pure standard library by design, and
       # `quality/declared_inputs.py` is the record of that boundary. If this
@@ -2364,7 +2415,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
@@ -3195,7 +3247,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
@@ -3263,7 +3316,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
@@ -3346,7 +3400,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (the floor reaches the POS tagger through features.py)
@@ -3477,7 +3532,8 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
       - name: Stage the pronunciation dictionary
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (sections reach the POS tagger through features.py)
@@ -3634,7 +3690,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       # THE SAME THREE PACKAGES `nightly` INSTALLS, AND FOR A REASON THAT COST
       # THIS SWEEP ITS MEANING ONCE BEFORE. With nltk absent, nine test files
@@ -3771,7 +3828,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && github.event.schedule == '17 3 * * *')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # 350, RAISED FROM 240 ON 2026-09-22, AND BCI-10 BELOW IS NO LONGER BOUND
     # ARITHMETIC — IT IS A MEASUREMENT. That note said the bounds totalled
     # 267.4m against a 240m cap and that "cache save may be lost at the job
@@ -3839,7 +3896,8 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.11.16'
+          architecture: 'x64'
 
       # song_profile_calibration's memo lives OUTSIDE the repo, at
       # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes

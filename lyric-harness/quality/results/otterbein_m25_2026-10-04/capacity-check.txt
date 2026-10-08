@@ -1,0 +1,4 @@
+  DRIFT: capacity modal-table fingerprint is missing or stale
+  DRIFT: CAPACITY_UNVERIFIED: actual-runtime all-family receipt is missing or unreadable
+  DRIFT: THE JUDGE MOVED, and the witness verdicts below are its consequence rather than 6 independent findings (doctrine 79): data/song_endword_en.tsv, data/song_rhymepair_en.tsv changed since this artifact was certified. `chain_hi` is unaffected -- it is tier-1 arithmetic over the lexicon -- but every `chain_lo` was certified through a grader that no longer answers the same way. Re-derive: `python3 quality/capacity.py --derive --parts=DIR`
+CAPACITY CHECK: FAIL — tier 1 re-derived over 12387 families, ADOPTED constants compared, 6 witnesses re-graded
