@@ -76,6 +76,7 @@
 //   tree prose inline   -> build_html.js --check (the tree's descriptions are back in the lazy page)
 //   tree prose missing  -> check_api.js       (the prose file no longer carries the tree's descriptions)
 //   tree prose no redraw -> check_lazy_app.js (the picker is not redrawn when the tree's descriptions land)
+//   plain encoding      -> check_payload_budget.js (the render tables written plain; an early Add downloads 72 KB more)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -792,21 +793,23 @@ if (want('9s', 'engine-file-drift')) {
 
 // 9t, 9ta–9tc. THE PAYLOAD BUDGETS -> check_payload_budget.js. No other gate
 //     holds the lazy page and its two first downloads to a size, so each of
-//     the four budgets gets its own plant, each in a copy of the page and of
-//     the two api/ files the budgets read. The plant is incompressible base64,
-//     sized from the gate's own baseline line so the budget lands about 32 KiB
-//     over its limit whatever its headroom is today (a fixed size would stop
-//     reaching the limit once the page shrank, or the engine file did; at step
-//     9 the headroom is 76 KB for the page, 45 KB for page + boot index, 37 KB
-//     for the inline data and 125 KB for the engine). The bytes come from a
+//     the first four budgets gets its own plant, each in a copy of the page
+//     and of the two api/ files the budgets read (the fifth, add-path, is
+//     10q's, below). The plant is incompressible base64, sized from the gate's
+//     own baseline line so the budget lands about 32 KiB over its limit
+//     whatever its headroom is today (a fixed size would stop reaching the
+//     limit once the page shrank, or the engine file did; at step 10 the
+//     headroom is 34 KB for the page, 63 KB for page + boot index, 12 KB for
+//     the inline data and 88 KB for the engine). The bytes come from a
 //     hash chain, not a random source, so every run plants the same files. The
 //     unplanted copy must pass first, or a class could not tell its plant from
 //     a page already over. When it does not, each budget class records a
 //     failure of its own (BASELINE-OVER; the gate's table is printed once) and
 //     the run goes on: in CI the freshness job's budget step has already
 //     failed on that page, and the classes after these still owe a verdict.
-function budgetEnv() {
-  const d = mkenv(['scripts']);
+// `items` are what mkenv copies beside the page and the two api/ files.
+function budgetEnv(items) {
+  const d = mkenv(items);
   const html = path.join(d, 'codex.html');
   const api = path.join(d, 'api');
   fs.copyFileSync(FRESH_HTML || path.join(ROOT, 'codex.html'), html);
@@ -828,8 +831,8 @@ function budgetEnv() {
 let baselineShown = false;
 // One budget class: plant(B) into budgetEnv's copy, then the gate. With the
 // unplanted copy already over, the class cannot plant: a failure row.
-function budgetClass(cls, plant, expect) {
-  const B = budgetEnv();
+function budgetClass(cls, plant, expect, items = ['scripts']) {
+  const B = budgetEnv(items);
   if (B.over) {
     if (!baselineShown)
       process.stderr.write(
@@ -1724,6 +1727,30 @@ if (want('10p', 'tree-prose-no-redraw')) {
     /window W-tree: a tree row left its description out and did not mark the picker pending/
   );
 }
+
+// 10q. plain-encoding -> check_payload_budget.js  (add-path)
+//     The two render tables written to api/engine.json as plain JSON, not
+//     through the codec: the header still names the codec and its digest
+//     still agrees, and the page and its first view are unchanged, so only
+//     the bytes differ. The engine file stays inside its own budget (about
+//     763 KB of 778 KB); what an early Add or a restored session downloads
+//     before it can finish goes past add-path, step 9's bar in bytes. The
+//     file is rewritten by the planted code in the budgets' copy.
+if (want('10q', 'plain-encoding'))
+  budgetClass(
+    'plain-encoding -> check_payload_budget.js',
+    (B) => {
+      plantIn(
+        B.d,
+        'scripts/_page_tables.js',
+        '    ...codec.encodeDescriptorTables(els.slice(1), tables.TRADITION_SIGNATURES, tables.DESCRIPTOR_DF)\n',
+        '    ...ENCODED.map((n) => [n, tables[n]])\n'
+      );
+      rebuildEngine(B.d);
+    },
+    /✗ add-path: [\d,]+ B gzip, over its [\d,]+ B/,
+    ['scripts', 'references']
+  );
 
 // 9b. minification changes behaviour -> check_minified_equivalence.js
 //     The gate builds the embedded app BOTH ways from one source and compares

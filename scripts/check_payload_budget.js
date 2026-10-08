@@ -1,47 +1,66 @@
 #!/usr/bin/env node
-// check_payload_budget.js — what the lazy page costs to download, held to four
+// check_payload_budget.js — what the lazy page costs to download, held to five
 // gzip budgets.
 //
 // Step 9 took the instrument engine out of the lazy codex.html: the page went
 // from 1,155,985 B gzipped to 497,884, and the engine tables became one
 // internal file, api/engine.json, asked for at the first paint (from <head>
-// when a saved session needs it to draw). Nothing else holds the page to that
-// size. build_html --check caps each <script> block at the renderer's 1 MiB
-// parse ceiling and proves the engine slots are empty, and check_lazy_app
-// proves the first view makes no engine accessor read; all of it passes on a
-// page that has regrown by hundreds of kilobytes of something else: the glyph
-// artwork or the photo table back inline, a new runtime module, a comment.
-// This gate measures the bytes themselves.
+// when a saved session needs it to draw). Step 10 moved the two render tables
+// (each tradition's signature, and how common each descriptor is) into that
+// file too, and the genre tree's node descriptions into api/browse_prose.json:
+// the page went to 354,872. Nothing else holds the page to that size.
+// build_html --check caps each <script> block at the renderer's 1 MiB parse
+// ceiling and proves the engine slots are empty, and check_lazy_app proves the
+// first view makes no engine accessor read; all of it passes on a page that
+// has regrown by hundreds of kilobytes of something else: the glyph artwork or
+// the photo table back inline, a new runtime module, a comment. This gate
+// measures the bytes themselves.
 //
-// THE FOUR BUDGETS, in bytes after Node zlib level 6 (gzip -6: zlib's default
-// level, and the one the step-9 measurements were taken at). What a host sends
-// depends on its own compressor, so these are a fixed yardstick, not a
-// transfer size.
+// THE FIVE BUDGETS, in bytes after Node zlib level 6 (gzip -6: zlib's default
+// level, and the one the step-9 and step-10 measurements were taken at). What
+// a host sends depends on its own compressor, so these are a fixed yardstick,
+// not a transfer size.
 //
-//   page         codex.html                                  <= 573,440 (560 KiB)
-//   critical     codex.html + api/browse_boot.json            <= 778,240 (760 KiB)
+//   page         codex.html                                  <=   389,120 (380 KiB)
+//   critical     codex.html + api/browse_boot.json            <=   655,360 (640 KiB)
 //                — the two transfers the first view waits for, each gzipped
 //                on its own, as each is served
-//   inline-data  every labelled data <script> block of the    <= 143,360 (140 KiB)
+//   inline-data  every labelled data <script> block of the    <=    86,016 (84 KiB)
 //                page, concatenated: each block whose
 //                `// ─── label ───` does not start with `runtime: ` (the
 //                references tables the page still carries, and the engine
-//                block's slots and INSTRUMENT_INDEX). The template's own
-//                unlabelled blocks and the runtime modules are not data.
-//   engine       api/engine.json                              <= 778,240 (760 KiB)
+//                block's slots, codec and INSTRUMENT_INDEX). The template's
+//                own unlabelled blocks and the runtime modules are not data.
+//   engine       api/engine.json                              <=   778,240 (760 KiB)
 //                — not on the first view's path, but a restored session's
 //                first draw and every action that creates a card wait for it
 //                (Engine in src/app.js)
+//   add-path     codex.html + api/browse_boot.json            <= 1,351,680 (1,320 KiB)
+//                + api/engine.json, each gzipped on its own
+//                — everything an early Add, or a restored session's first
+//                draw, has to download before it can finish. Step 10 was held
+//                to both finishing no later than on step 9's page; this is
+//                that bar in bytes. A page that only moves its
+//                bytes into api/engine.json passes the page budget and fails
+//                this one: the two render tables written there plain, not
+//                through scripts/_engine_codec.js, measure 1,354,560.
 //
-// WHERE THE NUMBERS CAME FROM. Each limit is the step-9 prototype's figure
-// (2026-10-06: page 496,286, critical 731,824, inline-data 106,721, engine
-// 713,289) plus headroom, rounded up to a multiple of 20 KiB. Step 9 as built
-// measures page 497,884, critical 733,422, inline-data 106,770, engine 653,140.
-// The page's 75,556 B of headroom is less than either table the lazy page
-// fetches instead of carrying would add back (api/instrument_images.json is
-// 93,173 B gzipped, api/nav_glyphs.json 264,619). The step-8 page, with the
+// WHERE THE NUMBERS CAME FROM. Step 10 as built (2026-10-08) measures page
+// 354,872, critical 591,986, inline-data 74,437, engine 690,352 and add-path
+// 1,282,338. Step 10 lowered the page, critical and inline-data limits to a
+// whole number of KiB above those figures (9.7%, 10.7% and 15.6% headroom)
+// and set add-path the same way (5.4%), each low enough that what step 10
+// took out cannot come back unseen: the page's 34,248 B of headroom is less
+// than either render table's src/app.js mirror would add back (about 43 KB
+// and 74 KB gzipped), inline-data's 11,579 less than the tree's node
+// descriptions (about 32 KB), and add-path's 69,342 less than the two tables
+// written plain would cost (72,222). Main before step 10 (44527a805) measures
+// page 505,627, critical 742,741, inline-data 106,870, engine 654,769 and
+// add-path 1,397,510: it fails all four of those budgets, and must. The
+// engine limit is step 9's, unchanged: the step-9 prototype's 713,289 plus
+// headroom, rounded up to a multiple of 20 KiB. The step-8 page, with the
 // engine inline, measures 1,155,985 / 1,391,523 / 769,171 and has no engine
-// file; it fails here, and must.
+// file; it fails here too.
 //
 // RAISING A BUDGET NEEDS A CITED LIGHTHOUSE RUN. A limit here moves up only in
 // a commit that cites, beside the new number, a Lighthouse mobile run of the
@@ -51,8 +70,11 @@
 // Lighthouse 13.5 mobile, simulated throttling, against a local gzip-6 server,
 // medians of 5, the page at 497,884 B: FCP 3.09 s, LCP 4.66 s, TBT 0.81 s,
 // TTI 4.85 s, score 0.58 (the step-8 head in the same session: 6.39 s, 8.08 s,
-// 1.87 s, 9.26 s, 0.33). A bigger number with no run behind it is how a
-// budget stops being one. Lowering a limit needs nothing.
+// 1.87 s, 9.26 s, 0.33). The add-path budget stands for a timed bar as well,
+// so raising it also needs the slow-phone early Add and restored session
+// timed, interleaved, against the page it replaces. A bigger number with no
+// run behind it is how a budget stops being one. Lowering a limit needs
+// nothing.
 //
 // THE SHAPE COMES FIRST. The budgets describe the lazy shell with its engine
 // block, so they are refused, with exit 2, for any other page: one without the
@@ -66,7 +88,8 @@
 // it, each gzipped on its own: <script> blocks by label for the page (and the
 // markup outside them, template and comments, as one piece), plus the boot
 // index for critical; data blocks for inline-data; lines of api/engine.json,
-// one engine element each, for engine.
+// one engine element each, for engine; and all of those together for
+// add-path.
 //
 // No promise is registered for this budget, so this gate carries no coverage
 // tag (check_promises.js holds those to a bijection). It runs in test:serial
@@ -91,10 +114,11 @@ const ROOT = path.join(__dirname, '..');
 
 // Raising one of these needs a cited Lighthouse run: see the header.
 const BUDGETS = {
-  page: 573440,
-  critical: 778240,
-  'inline-data': 143360,
+  page: 389120,
+  critical: 655360,
+  'inline-data': 86016,
   engine: 778240,
+  'add-path': 1351680,
 };
 const TOP = 5;
 
@@ -224,6 +248,16 @@ const measured = [
     gzip: engineBuf ? gz(engineBuf) : null,
     what: shown(enginePath),
     pieces: enginePieces,
+  },
+  {
+    id: 'add-path',
+    gzip: bootBuf && engineBuf ? pageGzip + gz(bootBuf) + gz(engineBuf) : null,
+    what: `${shown(htmlPath)} + ${shown(bootPath)} + ${shown(enginePath)}`,
+    pieces: () => [
+      ...pagePieces(),
+      piece(shown(bootPath), bootBuf.toString('utf8')),
+      ...enginePieces(),
+    ],
   },
 ];
 
