@@ -26,6 +26,7 @@ import io
 import json
 import os
 import sys
+import time
 
 HARNESS = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -55,6 +56,68 @@ class ProtocolStream(io.TextIOBase):
 
 REQUEST_ENV = ("LYRIC_CONTROL_TOKEN", "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_CHECKPOINT_PATH",
                "LYRIC_PROPOSER_BUDGET_USD", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN")
+
+
+def run_reader(payload, request_id):
+    """Typed deterministic leases; acknowledge durable state before continuing.
+
+    This family cannot supply argv, import a proposer, or select a Python module.
+    Catalog resolution and page paths originate in the authenticated Node adapter.
+    """
+    from library.analysis import AnalysisSession
+    if not isinstance(payload, dict) or not isinstance(payload.get("source"), dict):
+        raise ValueError("reader requires a registered source object")
+    requested = payload.get("requested", ["sound", "form", "rhythm", "language"])
+    if not isinstance(requested, list) or any(
+            layer not in ("sound", "form", "rhythm", "language") for layer in requested):
+        raise ValueError("reader requested layer is not supported")
+    paths = list(payload.get("committed_pages") or [])
+    if not all(isinstance(item, str) and os.path.isabs(item) for item in paths):
+        raise ValueError("reader committed page paths must be registered absolute paths")
+
+    def load_records(schema_id):
+        for page_path in paths:
+            with open(page_path, encoding="utf-8") as source_file:
+                page = json.load(source_file)
+            for row in page.get("instances", []):
+                engine = row.get("engine_payload") or {}
+                if schema_id in (row.get("schema_id"), row.get("method_id"),
+                                 row.get("schema_name"), engine.get("schema_id"),
+                                 engine.get("schema_name")):
+                    yield row
+
+    lease_ms = min(600000, max(1, int(payload.get("lease_ms", 600000))))
+    deadline = time.monotonic() + lease_ms / 1000
+    session = AnalysisSession(payload["source"], payload.get("declarations"), requested,
+                              payload.get("checkpoint"), load_records=load_records,
+                              identity=payload.get("identity"),
+                              requested_methods=payload.get("requested_methods"))
+    while True:
+        step = session.step(budget_candidates=256, deadline=min(deadline, time.monotonic() + 1),
+                            max_bytes=1048576)
+        if step.get("provider_calls") != 0:
+            raise ValueError("reader provider isolation failed")
+        frame = json.dumps({"id": request_id, "event": "reader_checkpoint", "data": step},
+                           ensure_ascii=False, separators=(",", ":"))
+        if len(frame.encode("utf-8")) > 2 * 1024 * 1024:
+            raise ValueError("reader checkpoint frame exceeds byte limit")
+        print(frame, flush=True)
+        ack_line = sys.stdin.readline()
+        if not ack_line:
+            raise ValueError("reader durable acknowledgement was interrupted")
+        ack = json.loads(ack_line)
+        if ack.get("id") != request_id or ack.get("event") != "reader_ack":
+            raise ValueError("reader durable acknowledgement is invalid")
+        added = ack.get("added_page_paths") or []
+        if not all(isinstance(item, str) and os.path.isabs(item) for item in added):
+            raise ValueError("reader acknowledged page paths are invalid")
+        paths.extend(added)
+        if step.get("done") and ack.get("reason") in (None, "COMPLETE", "YIELD", "LEASE_EXHAUSTED"):
+            return {"status": "complete", "reason": "COMPLETE", "provider_calls": 0}
+        if not ack.get("continue") or time.monotonic() >= deadline:
+            reason = ack.get("reason") or "LEASE_EXHAUSTED"
+            return {"status": "yielded" if reason in ("YIELD", "LEASE_EXHAUSTED") else "paused",
+                    "reason": reason, "provider_calls": 0}
 
 
 def run_one(argv, request_id=None, request_env=None):
@@ -112,6 +175,9 @@ def main():
             continue
         try:
             req = json.loads(line)
+            family = req.get("family", "lyrics")
+            if family not in ("lyrics", "reader"):
+                raise ValueError("worker family is not supported")
             argv = req.get("argv") or []
             if not isinstance(argv, list) \
                     or not all(isinstance(a, str) for a in argv):
@@ -120,6 +186,23 @@ def main():
             print(json.dumps({"id": None, "code": -1, "stdout": "",
                               "stderr": f"worker: unreadable request: {e}"}),
                   flush=True)
+            continue
+        if family == "reader":
+            try:
+                result = run_reader(req.get("reader"), req.get("id"))
+                print(json.dumps({"id": req.get("id"), "code": 0, "stdout": "", "stderr": "",
+                                  "reader_result": result}), flush=True)
+            except Exception as exc:
+                # No traceback/source prose leaks through the reader protocol.
+                reason = str(exc).split(":", 1)[0]
+                if reason not in ("INVALID_DECLARATION", "UNSUPPORTED_METHOD", "STALE_READING",
+                                  "RESOURCE_LIMIT", "RESULT_EXPIRED", "SNAPSHOT_CHANGED"):
+                    reason = "READER_ERROR"
+                print(json.dumps({"id": req.get("id"), "code": 1, "stdout": "",
+                                  "stderr": "reader: " + str(exc),
+                                  "error_code": reason,
+                                  "reader_result": {"status": "paused", "reason": reason,
+                                                    "provider_calls": 0}}), flush=True)
             continue
         code, so, se = run_one(argv, req.get("id"), req.get("env"))
         print(json.dumps({"id": req.get("id"), "code": code,

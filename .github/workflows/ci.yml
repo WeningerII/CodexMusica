@@ -782,6 +782,23 @@ jobs:
 
       - name: Capacity acceptance oracle counterexamples
         run: python3 scripts/test_lyrics_capacity.py
+      - name: Qualify the reader against the exact production image
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          mkdir -p reader-image-evidence
+          docker run --rm --cpus=1 --memory=2g --network=none \
+            --mount "type=bind,src=$GITHUB_WORKSPACE/reader-image-evidence,dst=/evidence" \
+            --entrypoint node "${{ steps.image.outputs.image_id }}" \
+            /app/mcp/qualify_reader.mjs --memory-max-bytes 1717567488 \
+            --output /evidence/reader-qualification.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reader-image-evidence-${{ github.run_attempt }}
+          path: reader-image-evidence/
+          if-no-files-found: error
+          retention-days: 30
       # THE CAPACITY MATRIX STOOD HERE FROM 2026-09-08 UNTIL 2026-09-12 and
       # became `.github/workflows/capacity-matrix.yml`. Since M-282's
       # 2026-09-17 placement decision, production qualification calls it;

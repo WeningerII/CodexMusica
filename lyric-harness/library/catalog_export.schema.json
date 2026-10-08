@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rights-filtered immutable Library deployment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "canonical_manifest_sha256",
+    "counts",
+    "artifacts",
+    "omitted",
+    "import_chunks",
+    "whole_sources",
+    "packs",
+    "site_index"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "snapshot_id": { "$ref": "#/$defs/hash" },
+    "canonical_manifest_sha256": { "$ref": "#/$defs/hash" },
+    "counts": { "type": "object" },
+    "references": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["path", "raw_sha256", "raw_bytes", "gzip_sha256", "gzip_bytes"],
+        "additionalProperties": true
+      }
+    },
+    "site_index": {
+      "type": "object",
+      "required": ["path", "raw_sha256", "raw_bytes", "gzip_sha256", "gzip_bytes"],
+      "additionalProperties": true
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["sha256", "bytes", "representation"],
+        "properties": {
+          "sha256": { "$ref": "#/$defs/hash" },
+          "bytes": { "type": "integer", "minimum": 0 },
+          "representation": {
+            "enum": ["gzip_metadata", "reading", "utf8_source", "utf8_fragments"]
+          },
+          "gzip_path": { "type": "string" },
+          "gzip_sha256": { "$ref": "#/$defs/hash" },
+          "gzip_bytes": { "type": "integer", "minimum": 0 },
+          "pack_paths": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "raw_sha256", "raw_bytes", "gzip_sha256", "gzip_bytes", "kind"],
+        "properties": {
+          "path": { "type": "string" },
+          "raw_sha256": { "$ref": "#/$defs/hash" },
+          "raw_bytes": { "type": "integer", "minimum": 0, "maximum": 1048576 },
+          "gzip_sha256": { "$ref": "#/$defs/hash" },
+          "gzip_bytes": { "type": "integer", "minimum": 0 },
+          "kind": { "enum": ["readings", "sources", "fragments", "reading_chunks"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "omitted": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "reason"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "$ref": "#/$defs/hash" },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "import_chunks": { "type": "array", "items": { "type": "string" } },
+    "whole_sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["availability", "source_paths", "reason"],
+        "properties": {
+          "availability": { "enum": ["readable", "held"] },
+          "source_paths": { "type": "array", "items": { "type": "string" } },
+          "reason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+}

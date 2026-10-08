@@ -84,6 +84,9 @@ Connector:
 | STATE_WIRE_BYTES | 2,359,296 (2,304 KB) | `../mcp/payload_limits.js` |
 | HTTP_REQUEST_BYTES | 4,718,592 (4,608 KB) | `../mcp/payload_limits.js` |
 | CONTROL_CAP | 18,874,368 | `../mcp/python_bridge.js` |
+| READER_FRAME_CAP | 2,113,536 | `../mcp/python_bridge.js` |
+| RESERVE_BYTES | 16,384 (16 KB) | `../mcp/reader_job_store.js` |
+| READER_BODY_BYTES | 2,097,152 (2,048 KB) | `../mcp/reader_protocol.js` |
 | RUN_TTL_MS | 21,600,000 | `../mcp/run_store.js` |
 | RUN_CAP | 64 | `../mcp/run_store.js` |
 | MAX_TRADITIONS_PER_CALL | 16 | `../mcp/schemas.js` |

@@ -21236,17 +21236,21 @@ function lyricMetaOf(v){
       if(typeof n==='string'&&n.trim())out.notes[String(k).slice(0,L.noteKey)]=n.slice(0,L.note);
   const plain=(x,max)=>{if(!x||typeof x!=='object'||Array.isArray(x))return {};try{const t=JSON.stringify(x);return t.length<=max?JSON.parse(t):{};}catch{return {};}};
   out.drafts=plain(v.drafts,L.drafts);out.ui=plain(v.ui,L.ui);
+  // Library credits and coordinates are a sidecar, never inserted into sung
+  // lines. Keep the complete versioned bundle through saves and exports.
+  if(typeof v.draftId==='string'&&/^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$/.test(v.draftId))out.draftId=v.draftId;
+  if(v.libraryOrigin?.version===1)out.libraryOrigin=plain(v.libraryOrigin,Infinity);
   return out;
 }
 // What Undo restores of it: the creative context the person edited.
-const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes});
+const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{})});
 function sessionSnapshot() {
   const meta=lyricMetaOf(app.lyricMeta);
   return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||'',lyricMeta:lyricMetaHistory(meta)};
 }
 function sessionKey(value) {
   const s=Array.isArray(value)?{cards:value,name:'Untitled session',lyrics:''}:value;
-  return JSON.stringify([musicalWorkspaceKey(s.cards),s.name,s.lyrics,s.lyricMeta?[s.lyricMeta.brief,s.lyricMeta.notes]:null]);
+  return JSON.stringify([musicalWorkspaceKey(s.cards),s.name,s.lyrics,s.lyricMeta?[s.lyricMeta.brief,s.lyricMeta.notes,s.lyricMeta.draftId,s.lyricMeta.libraryOrigin]:null]);
 }
 function pushHistory() {
   if(typeof _applyRecipeDedup==='function')_applyRecipeDedup();
@@ -21266,7 +21270,7 @@ function _restoreSnapshot(idx) {
     if(Array.isArray(snapshot))app.cards=snapshot;
     else {
       app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';
-      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});app.lyricMeta={...m,brief:h.brief,notes:h.notes};}
+      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;app.lyricMeta={...m,...lyricMetaHistory(h)};}
     }
     for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
     if(typeof UI!=='undefined')UI.lyricRevision++;

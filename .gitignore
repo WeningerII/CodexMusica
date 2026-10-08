@@ -49,3 +49,6 @@ __pycache__/
 # These attest the actual assembled build/runtime, not a source checkout.
 /mcp/build_identity.json
 /mcp/capacity_verification.json*
+
+# Generated immutable Library artifacts are built and verified for release.
+/lyric-harness/library/snapshot/

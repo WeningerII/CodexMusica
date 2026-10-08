@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codexmusica.com/contracts/library-manifest-v1.json",
+  "title": "Codex Musica immutable Library manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "repository_commit",
+    "parser_version",
+    "normalizer_version",
+    "identity_registry_sha256",
+    "rights_registry_sha256",
+    "counts",
+    "sources",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "snapshot_id": { "$ref": "#/$defs/hash" },
+    "repository_commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "parser_version": { "type": "string" },
+    "normalizer_version": { "type": "string" },
+    "identity_registry_sha256": { "$ref": "#/$defs/hash" },
+    "rights_registry_sha256": { "$ref": "#/$defs/hash" },
+    "counts": {
+      "type": "object",
+      "required": [
+        "source_files",
+        "collections",
+        "works",
+        "editions",
+        "reading_units",
+        "readable_collections",
+        "readable_works",
+        "readable_editions",
+        "readable_reading_units",
+        "availability"
+      ],
+      "properties": {
+        "availability": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["readable", "metadata_only", "held", "rejected", "research_only"]
+          },
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      },
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "bytes", "physical_rows", "reading_units"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "$ref": "#/$defs/hash" },
+          "bytes": { "type": "integer", "minimum": 0 },
+          "physical_rows": { "type": "integer", "minimum": 0 },
+          "reading_units": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "artifacts": { "type": "object", "additionalProperties": { "$ref": "#/$defs/hash" } }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+}
