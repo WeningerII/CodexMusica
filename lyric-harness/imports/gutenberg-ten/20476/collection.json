@@ -1,0 +1,48 @@
+{
+  "gutenberg_id": "20476",
+  "title": "Hymns for Christian Devotion",
+  "source_url": "https://www.gutenberg.org/ebooks/20476",
+  "raw_url": "https://raw.githubusercontent.com/GITenberg/Hymns-for-Christian-DevotionEspecially-Adapted-to-the-Universalist-Denomination_20476/6196bc7e228a999fa0e57902d9202c7916bac00d/20476-h/20476-h.htm",
+  "sha256": "44d22d3307bb2f228ad674894e28199418c877a45fc0e84ef548aeb0ce5c0b42",
+  "encoding": "UTF-8",
+  "publication_year": 1853,
+  "edition": "Twenty-second edition; Boston: Abel Tompkins, 1853",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/files/20476/20476-h/20476-h.htm",
+      "locator": "title page",
+      "excerpt": "TWENTY-SECOND EDITION. BOSTON: ABEL TOMPKINS. 1853.",
+      "conclusion": "Edition-specific publication evidence: supplied 1853 edition, not the 1846 first copyright or 2007 eBook release."
+    },
+    {
+      "url": "https://www.gutenberg.org/ebooks/20476",
+      "locator": "About this eBook / Copyright",
+      "excerpt": "Public domain in the USA.",
+      "conclusion": "PG public-domain assessment corroborates the pre-1931 printed edition."
+    }
+  ],
+  "counts": {
+    "source_entries": 1008,
+    "eligible_before_deduplication": 990,
+    "excluded_translation": 15,
+    "excluded_original_language_unresolved": 3
+  },
+  "scope": "Every numbered hymn 1–1008, including the three closing doxologies. Preface, indexes, headings, meters and editorial arguments are not lyric text. Complete printed stanzas; no splitting or length truncation.",
+  "attribution_policy": "Author field retains the exact printed credit; collection names are source credits, not invented personal authors. First lines distinguish generic repeated subjects such as The Same.",
+  "translation_review": "Reviewed explicit translation notice, foreign-language authors, denominational and Ancient Hymns credits. Ancient Hymns alone is not an exclusion: Mant included original English hymns, confirmed for #903 and #981 in Julian’s Dictionary of Hymnology as reproduced by Hymnary. #979 remains held out as unresolved.",
+  "review_urls": [
+    "https://hymnary.org/text/o_it_is_joy_in_one_to_meet",
+    "https://www.hymnary.org/text/for_all_thy_saints_o_lord",
+    "https://hymnary.org/text/thy_name_be_hallowed_evermore_o_god_thy"
+  ],
+  "transcription_corrections": [
+    {
+      "entry": "923",
+      "from": "Give us in thy belovd house,",
+      "to": "Give us in thy belovéd house,",
+      "evidence": "Same pinned mirror plain-text 20476-8.txt; SHA256 504b0907149678e2ccd0804fa71c9adeeae8711fa336a458a8dbcd61136e255f",
+      "url": "https://raw.githubusercontent.com/GITenberg/Hymns-for-Christian-DevotionEspecially-Adapted-to-the-Universalist-Denomination_20476/6196bc7e228a999fa0e57902d9202c7916bac00d/20476-8.txt"
+    }
+  ],
+  "deduplication": "Deferred to the integrator against all ten collections and the existing corpus; these are eligibility counts, not imported counts."
+}

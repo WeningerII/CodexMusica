@@ -243,6 +243,15 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 
 ## Files
 
+The backend image retains the approved Library Site catalog `5226b4fb…` beside
+the current catalog, under `lyric-harness/library/snapshot/<snapshot_id>/`.
+`mcp/Dockerfile` copies its admitted assets from the immutable qualified image
+digest and `lyric-harness/quality/release_assets.py` checks each retained catalog's complete
+census, byte hashes, and redistribution allowlist. Reader requests keep their
+original snapshot and reading revision; advancing the connector never rewrites
+them to the newest source. Image qualification runs a complete native reader
+request against the retained snapshot as well as the current catalog.
+
 - `engine.js` — the deterministic workspace surface (start/edit/render + discovery) over `scripts/_workspace_ops.js`; validation + state-passing response shaping.
 - `tools.js` — MCP tool definitions (zod schemas) + `buildServer()`.
 - `server_stdio.js` — stdio entry (local).

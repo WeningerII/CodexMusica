@@ -50,8 +50,15 @@ function assetEpoch(env) {
   const manifest = path.join(root, 'data/runtime_assets.json');
   const staged = env.LYRIC_STAGED_DATA || path.join(root, 'data');
   const files = [manifest, path.join(root, 'data'), path.join(root, 'corpus'), staged];
+  const catalogDirectories = new Set();
   try {
-    for (const asset of JSON.parse(fs.readFileSync(manifest, 'utf8')).assets)
+    for (const asset of JSON.parse(fs.readFileSync(manifest, 'utf8')).assets) {
+      if (
+        asset.base === 'root' &&
+        (asset.id === 'library_catalog' || /^library_catalog_[a-f0-9]{64}$/.test(asset.id)) &&
+        asset.directory
+      )
+        catalogDirectories.add(path.join(root, asset.directory));
       for (const item of asset.files) {
         const base = asset.base === 'root' ? root : staged;
         const file = path.join(base, item.path);
@@ -67,14 +74,18 @@ function assetEpoch(env) {
         )
           files.push(parent);
       }
+    }
   } catch {}
-  return [...new Set(files)]
-    .map(stat)
-    .concat(
-      ...[path.join(root, 'data'), staged, path.join(root, 'corpus')].map((directory) =>
-        directoryEpoch(directory)
-      )
-    );
+  const catalogSeen = new Set();
+  return [...new Set(files)].map(stat).concat(
+    ...[path.join(root, 'data'), staged, path.join(root, 'corpus')].map((directory) =>
+      directoryEpoch(directory)
+    ),
+    // Declared files are already statted above. Directory metadata detects
+    // undeclared additions, including beneath a retained snapshot, without
+    // making Python bytecode creation invalidate readiness.
+    ...[...catalogDirectories].map((directory) => directoryEpoch(directory, catalogSeen))
+  );
 }
 
 // The production reader is cached only while its source, consumed asset file

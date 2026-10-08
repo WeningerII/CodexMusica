@@ -109,3 +109,13 @@ lyric-harness/map/*.json
 /lyric-harness/data/library_identity_registry.json.gz
 /lyric-harness/library/methods.json
 /lyric-harness/library/schema.json
+
+# Reproducible Gutenberg import data, byte-checked by its source adapters.
+/lyric-harness/imports/gutenberg-ten/*/candidates.json
+/lyric-harness/imports/gutenberg-ten/*/index.json
+/lyric-harness/imports/gutenberg-ten/*/contents.json
+/lyric-harness/imports/gutenberg-ten/audit.json
+/lyric-harness/imports/gutenberg-ten/source_manifest.json
+
+# Independent Sites package: preserve the reviewed source and its locked inputs.
+/sites/library/

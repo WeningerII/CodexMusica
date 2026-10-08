@@ -68,7 +68,13 @@ const resolver = createCatalogResolver({
   resourceFingerprint: assets.assets_sha256,
 });
 const catalog = await resolver.probe();
-const pinnedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
+const pinnedSnapshot = '6534c1c17a6ddf994478b1d0b472d332e5eb2c5dfff3f61bd8dfc0cb830e2a7b';
+const retainedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
+const retainedImage =
+  'ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7';
+const retainedCatalog = assets.reader?.retained_snapshots?.find(
+  (item) => item.snapshot_id === retainedSnapshot
+);
 assert.equal(
   catalog.snapshot_id,
   pinnedSnapshot,
@@ -80,7 +86,11 @@ if (assets.releaseRequired) {
     pinnedSnapshot,
     'The image must contain admitted reader assets.'
   );
-  assert.equal(assets.reader?.counts?.readable_reading_units, 20865);
+  assert.equal(assets.reader?.counts?.readable_reading_units, 23561);
+  assert.ok(retainedCatalog, 'The approved Library Site snapshot must remain installed.');
+  assert.equal(retainedCatalog.source_image, retainedImage);
+  assert.equal(retainedCatalog.counts.reading_units, 32220);
+  assert.equal(retainedCatalog.counts.readable_reading_units, 20865);
   assert.match(build.commit || '', /^[a-f0-9]{40}$/);
   assert.ok(build.release_id, 'The image must carry its baked release identity.');
 }
@@ -161,20 +171,28 @@ try {
     scheme: 'AA',
   });
   assert.notEqual(writing.isError, true, JSON.stringify(writing));
-  for (const [language, reading_unit_id, reading_revision] of cases) {
+  const requestedCases = cases.map((item) => [...item, catalog.snapshot_id]);
+  // Exercise the same resolver, durable job store and native worker for a
+  // request from the approved Site after the connector's catalog advances.
+  if (assets.releaseRequired || retainedCatalog)
+    requestedCases.push([...cases[0], retainedSnapshot]);
+  for (const [language, reading_unit_id, reading_revision, snapshot_id] of requestedCases) {
     const request = {
       contract_version: 1,
-      snapshot_id: catalog.snapshot_id,
+      snapshot_id,
       reading_unit_id,
       reading_revision,
       declaration_set: {},
       requested_layers: ['sound', 'form', 'rhythm', 'language'],
     };
     const identity = await resolver.resolveIdentity(request);
+    assert.equal(identity.snapshot_id, snapshot_id);
+    assert.equal(identity.reading_unit_id, reading_unit_id);
+    assert.equal(identity.reading_revision, reading_revision);
     const { source } = await resolver.resolveSource(request);
     const created = store.create({
       viewer: 'qualification',
-      idempotency_key: language,
+      idempotency_key: `${language}:${snapshot_id}`,
       identity,
       request,
     });
@@ -221,11 +239,18 @@ try {
       ['completed', 'completed_with_refusals'].includes(completed.state),
       JSON.stringify(completed.reason)
     );
+    assert.equal(summary.coverage.partial, false, 'The complete reading must be covered.');
+    assert.equal(summary.coverage.pending_methods, 0);
+    assert.equal(
+      summary.coverage.requested_methods,
+      summary.coverage.answered_methods + summary.coverage.refused_methods
+    );
     assert.notEqual((await lookup).isError, true);
     results.push({
       language,
       reading_unit_id,
       reading_revision,
+      snapshot_id,
       state: completed.state,
       coverage: summary.coverage,
       counters: summary.counters,

@@ -1,0 +1,51 @@
+{
+  "gutenberg_id": "56625",
+  "title": "Songs of the West",
+  "publication_year": 1913,
+  "edition": "Fifth Edition in One Volume. Methuen & Co. Ltd., 36 Essex Street W.C., London. New and Revised Edition October 1905. Reprinted April 1913.",
+  "language": "English",
+  "source_url": "https://www.gutenberg.org/ebooks/56625",
+  "html_url": "https://www.gutenberg.org/cache/epub/56625/pg56625-images.html",
+  "retrieval": {
+    "mirror_url": "https://github.com/GITenberg/Songs-of-the-West-Folk-Songs-of-Devon-Cornwall-Collected-from-the-Mouths-of-the-People_56625",
+    "commit": "47e9588bd98e77893fa0f17ba31897455c2c9b66",
+    "file": "56625-h/56625-h.htm",
+    "sha256": "9a7d0fd35eba8f3d91c68fd63e35e2493a9cefec1a4d51d021ac69a4ebac8f2a",
+    "encoding": "ISO-8859-1",
+    "fetched_on": "2026-10-08",
+    "edition_verification": "Mirror HTML imprint agrees with exact Project Gutenberg ebook HTML, independently inspected through browser."
+  },
+  "rights": {
+    "status": "public_domain",
+    "jurisdiction": "USA",
+    "basis": "Supplied 1913 edition, published before 1931; Project Gutenberg ebook catalogue explicitly identifies Public domain in the USA.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/56625",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_excerpt": "Fifth Edition in One Volume. Methuen & Co. Ltd., 36 Essex Street W.C., London. New and Revised Edition October 1905. Reprinted April 1913.",
+    "scope": "Printed words in the supplied edition; no music, images, modern copyrighted versions or PG boilerplate imported."
+  },
+  "counts": {
+    "source_entries": 121,
+    "eligible_before_corpus_deduplication": 121,
+    "other_excluded_entries": 0,
+    "duplicates": "Determined by integration across all ten collections and existing corpus.",
+    "numbered_song_sections": 123,
+    "within_entry_repeated_musical_settings": 1
+  },
+  "excluded_non_entry_material": [
+    "title and imprint pages",
+    "preface and introduction",
+    "editorial notes and footnotes",
+    "illustration captions",
+    "contents and index",
+    "Project Gutenberg license and boilerplate"
+  ],
+  "extraction": {
+    "adapter": "adapter.py",
+    "faithfulness": "Complete lyric stanzas; typographical indentation and stanza numbers removed. Original words, punctuation and printed chorus abbreviations retained. No length truncation or modernisation.",
+    "optional_stanzas": "No108 retains all seven stanzas, including two source-bracketed optional stanzas. Only their four square-bracket delimiters are removed so existing readers do not misclassify the first sung lines as apparatus.",
+    "section_labels": "27 printed CHORUS:/CHORUS./Refrain labels across eight songs become typed chorus/refrain section metadata. Their labels are removed from sung text, all following lyric words retained. Ordinary lyric use of refrain in no85 is unchanged."
+  },
+  "count_reconciliation": "121 numbered songs; no50 printed in two parts retained as one complete work. No58 has two musical settings with small verbal variants: first complete setting retained, second preserved as alternate_musical_setting in audit candidates. No25 editorial quotation excluded from lyric body.",
+  "original_language_review": "All121 accompanying numbered notes preserved for audit. Non-English parallels mentioned in notes are not imported; the songs themselves are English folk lyrics or explicitly English editorial recompositions, with no identified translation."
+}

@@ -1,6 +1,17 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-10-04 (the Otterbein refrain hymns, `MISSING.md` M-25(a)
+Current result, 2026-10-08 (ten Project Gutenberg collections for the Library):
+**2,201 files, 0 FAIL, 38 WARN, 1,743 NOTE**. The 724 added author files carry
+724 new source declarations (2,066 -> 2,790). Check G adds 526 elision notes;
+check H adds three residue-only notes for actual one-line stanzas (38 -> 41).
+No failures or warnings are added. The indent census adds seven agreeing files
+(516 -> 523); six opposite and 22 within-null files are unchanged. Duplicate
+versions and printed chorus/speaker labels were corrected before this census.
+The repository's population checker establishes that all new files are outside
+all six calibrated populations; no calibrated constant was re-derived or changed.
+See `../imports/gutenberg-ten/README.md` for source counts and reproduction.
+
+Previous result, 2026-10-04 (the Otterbein refrain hymns, `MISSING.md` M-25(a)
 and the label and apparatus pass, one loading batch): **1,477 files, 0 FAIL,
 38 WARN, 1,214 NOTE**. Files +47 (the new `eng_hymn_*` files). Check H accounts
 for all of WARN −57 and NOTE −16 (files 65 WARN / 54 NOTE -> 8 / 38).
