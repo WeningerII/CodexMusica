@@ -8,6 +8,8 @@ The application comes from the approved private Site source commit `940dcdc1019a
 
 The approved backend engine is `ceab2d61b79006621570bdd8a40b3fb5f69f9329`. Its catalog snapshot is `5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e`: 32,220 metadata entries, 20,865 readable units, 11,354 held units and one research-only unit. This is an immutable release pin, not a claim about the newer corpus on main.
 
+Backend releases retain this approved snapshot beside the current catalog. The retained assets come from the exact previously qualified image and are admitted into the release inventory with their original hashes and rights boundaries. Production qualification exercises a native reader request against both catalogs, so a newer corpus cannot silently invalidate this Site's pinned requests.
+
 Generated catalog packs and complete download parts are deliberately excluded from Git. They come from the backend's source, identity and rights pins; every staged pack is checked against its hashes. The dedicated Library workflow regenerates the qualified catalog from its historical inputs before the full local database/storage checks. The public static build and Render connector image do not bundle this frontend or its generated assets.
 
 ## Install and check
@@ -50,7 +52,7 @@ Configure only server-side runtime values through Sites:
 | `READER_BRIDGE_SECRET` | Shared signing key for the private backend bridge and package staging. |
 | `READER_COOKIE_KEY` | Private viewer-cookie signing key, at least 32 characters. |
 
-The backend must use matching bridge configuration and the same catalog snapshot. Viewer cookies isolate analysis jobs and exports. Whole readings and source downloads enforce their recorded rights; held metadata never grants access to a held body. No runtime secrets, private viewer cookies, generated database state or build output belong in source control.
+The backend must use matching bridge configuration and include this catalog snapshot, either as its current catalog or as an admitted retained snapshot. Viewer cookies isolate analysis jobs and exports. Whole readings and source downloads enforce their recorded rights; held metadata never grants access to a held body. No runtime secrets, private viewer cookies, generated database state or build output belong in source control.
 
 ## Completed live acceptance
 

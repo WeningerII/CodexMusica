@@ -17,6 +17,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data" / "runtime_assets.json"
 READER_DIRECTORY = "library/snapshot"
+RETAINED_CATALOG_PREFIX = "library_catalog_"
 
 
 def canonical(value):
@@ -87,7 +88,7 @@ def manifest(path=MANIFEST):
     return value
 
 
-def file_errors(asset, base, actual_files=None):
+def file_errors(asset, base, actual_files=None, *, nested_assets=()):
     errors = []
     for entry in asset["files"]:
         path = Path(base) / entry["path"]
@@ -105,6 +106,10 @@ def file_errors(asset, base, actual_files=None):
     if asset.get("directory"):
         directory = Path(base) / asset["directory"]
         expected = {str(Path(base) / entry["path"]) for entry in asset["files"]}
+        # The current catalog may contain independently admitted immutable
+        # snapshots. Each nested package has its own complete byte allowlist.
+        expected.update(str(Path(base) / entry["path"])
+                        for nested in nested_assets for entry in nested["files"])
         extra = {str(path) for path in directory.rglob("*") if path.is_file()} - expected
         errors.extend(f"{asset['id']}: undeclared file {Path(path).relative_to(base)}" for path in sorted(extra))
     return errors
@@ -112,9 +117,11 @@ def file_errors(asset, base, actual_files=None):
 
 def verify_asset(asset_id, *, root=ROOT, staged=None):
     root = Path(root)
-    asset = next(a for a in manifest(root / "data" / MANIFEST.name)["assets"] if a["id"] == asset_id)
+    assets = manifest(root / "data" / MANIFEST.name)["assets"]
+    asset = next(a for a in assets if a["id"] == asset_id)
     staged = staged or os.environ.get("LYRIC_STAGED_DATA") or Path(root) / "data"
-    errors = file_errors(asset, root if asset["base"] == "root" else staged)
+    nested = [a for a in assets if a["id"].startswith(RETAINED_CATALOG_PREFIX)] if asset_id == "library_catalog" else []
+    errors = file_errors(asset, root if asset["base"] == "root" else staged, nested_assets=nested)
     if errors:
         raise ValueError("; ".join(errors))
     return asset
@@ -237,12 +244,37 @@ def reader_catalog_asset(directory):
             "omitted_artifact_count": selection["omitted_artifact_count"], "files": files}
 
 
+def retained_reader_catalog_metadata(selection, snapshot_id, source_image):
+    if (not re.fullmatch(r"[a-f0-9]{64}", snapshot_id or "")
+            or not re.fullmatch(r"ghcr\.io/weningerii/codexmusica/lyrics@sha256:[a-f0-9]{64}", source_image or "")):
+        raise ValueError("retained reader catalog requires a snapshot and immutable qualified image")
+    if selection["snapshot_id"] != snapshot_id:
+        raise ValueError("retained reader catalog snapshot does not match its pin")
+    return {"id": RETAINED_CATALOG_PREFIX + snapshot_id, "base": "root", "runtime": True,
+            "decision": "approved", "directory": f"{READER_DIRECTORY}/{snapshot_id}",
+            "source_image": source_image,
+            "reason": "Admitted immutable snapshot retained for an existing Library Site.",
+            **{key: selection[key] for key in ("snapshot_id", "counts", "repository_commit",
+                                               "canonical_manifest_sha256", "omitted_artifact_count")}}
+
+
+def retained_reader_catalog_asset(directory, snapshot_id, source_image):
+    """Admit a prior qualified catalog without changing its canonical bytes."""
+    asset = reader_catalog_asset(directory)
+    asset.update(retained_reader_catalog_metadata(asset, snapshot_id, source_image))
+    for entry in asset["files"]:
+        relative = Path(entry["path"]).relative_to(READER_DIRECTORY)
+        entry["path"] = f"{asset['directory']}/{relative.as_posix()}"
+    return asset
+
+
 def inventory(*, root=ROOT, staged=None, release=True, manifest_path=None):
     root = Path(root)
     manifest_path = Path(manifest_path) if manifest_path is not None else root / "data" / MANIFEST.name
     staged = Path(staged or os.environ.get("LYRIC_STAGED_DATA") or root / "data")
     value = manifest(manifest_path)
     errors, assets, reader = [], [], None
+    retained = [asset for asset in value["assets"] if asset["id"].startswith(RETAINED_CATALOG_PREFIX)]
     for asset in value["assets"]:
         base = root if asset["base"] == "root" else staged
         present = any((base / entry["path"]).exists() for entry in asset["files"])
@@ -252,9 +284,10 @@ def inventory(*, root=ROOT, staged=None, release=True, manifest_path=None):
         if release and (not required or asset["decision"] != "approved"):
             errors.append(f"{asset['id']}: {asset['decision']} or research-only asset is present/required in release")
         actual_files = []
-        errors.extend(file_errors(asset, base, actual_files))
+        errors.extend(file_errors(asset, base, actual_files,
+                                  nested_assets=retained if asset["id"] == "library_catalog" else ()))
         item = {"id": asset["id"], "decision": asset["decision"], "runtime": required}
-        if asset["id"] == "library_catalog":
+        if asset["id"] == "library_catalog" or asset in retained:
             # A full catalog is not a preview-size list. Keep the CLI readiness
             # envelope bounded while hashing every declared file's actual bytes.
             item.update(artifact_count=len(actual_files),
@@ -275,6 +308,9 @@ def inventory(*, root=ROOT, staged=None, release=True, manifest_path=None):
             expected_paths = {f"{READER_DIRECTORY}/{path}" for path in selection["selected"]}
             if {entry["path"] for entry in catalog["files"]} != expected_paths:
                 raise ValueError("reader installed allowlist differs from the complete admitted census")
+            if any(entry["sha256"] != selection["selected"][str(Path(entry["path"]).relative_to(READER_DIRECTORY))]
+                   for entry in catalog["files"]):
+                raise ValueError("reader installed hashes differ from the canonical catalog")
             if any(catalog.get(key) != selection[key] for key in
                    ("snapshot_id", "repository_commit", "canonical_manifest_sha256", "counts", "omitted_artifact_count")):
                 raise ValueError("reader catalog metadata fingerprint mismatch")
@@ -285,8 +321,31 @@ def inventory(*, root=ROOT, staged=None, release=True, manifest_path=None):
                       ("snapshot_id", "repository_commit", "canonical_manifest_sha256", "counts", "omitted_artifact_count")}
             reader.update(registry_hash=reference["registry_hash"], schema_sha256=reference["schema_sha256"],
                           artifact_count=len(expected_paths), directory=READER_DIRECTORY)
+            # Do not retain two full indexes while admitting old snapshots.
+            del selection
+            retained_metadata = []
+            for asset in retained:
+                snapshot_id = asset["id"][len(RETAINED_CATALOG_PREFIX):]
+                selection = reader_catalog_selection(root / asset["directory"])
+                expected = retained_reader_catalog_metadata(selection, snapshot_id, asset.get("source_image"))
+                expected_hashes = {f"{expected['directory']}/{relative}": digest
+                                   for relative, digest in selection["selected"].items()}
+                # file_errors already hashed every actual byte once. Bind those
+                # declarations to the canonical admitted census without reading
+                # every complete reading a second time during startup.
+                if ({key: item for key, item in asset.items() if key != "files"} != expected
+                        or {entry["path"]: entry["sha256"] for entry in asset["files"]} != expected_hashes):
+                    raise ValueError("retained reader catalog declaration differs from its admitted canonical census")
+                retained_metadata.append({key: expected[key] for key in
+                    ("snapshot_id", "repository_commit", "canonical_manifest_sha256", "counts",
+                     "omitted_artifact_count", "source_image", "directory")})
+                del selection
+            if retained_metadata:
+                reader["retained_snapshots"] = retained_metadata
         except (OSError, ValueError, KeyError, TypeError) as error:
             errors.append(f"library_catalog: {error}")
+    elif retained:
+        errors.append("retained reader catalogs require a current catalog and method reference")
     if release:
         allowed = {str(root / "data" / "runtime_assets.json")}
         for asset in value["assets"]:
@@ -328,7 +387,7 @@ def runtime_modules(root=ROOT):
         if not path.name.startswith("test_") and "__pycache__" not in path.parts]
 
 
-def assemble(target, *, root=ROOT, staged=None, reader_catalog=None):
+def assemble(target, *, root=ROOT, staged=None, reader_catalog=None, retained_reader_catalogs=()):
     """Copy only executable runtime modules and approved, byte-verified assets."""
     root, target = Path(root).resolve(), Path(target).resolve()
     staged = Path(staged or os.environ.get("LYRIC_STAGED_DATA") or root / "data")
@@ -339,11 +398,20 @@ def assemble(target, *, root=ROOT, staged=None, reader_catalog=None):
     source_manifest = root / "data" / MANIFEST.name
     value = manifest(source_manifest)
     catalog_asset = None
+    retained_assets = []
+    if retained_reader_catalogs and reader_catalog is None:
+        raise ValueError("retained reader catalogs require a current reader catalog")
     if reader_catalog is not None:
         if any(asset["id"] in {"library_reference", "library_catalog"} for asset in value["assets"]):
             raise ValueError("source manifest already contains assembled reader assets")
         catalog_asset = reader_catalog_asset(reader_catalog)
         value["assets"].append(reader_reference_asset(root))
+        seen = {catalog_asset["snapshot_id"]}
+        for directory, snapshot_id, source_image in retained_reader_catalogs:
+            if snapshot_id in seen:
+                raise ValueError("duplicate current or retained reader snapshot")
+            seen.add(snapshot_id)
+            retained_assets.append((Path(directory), retained_reader_catalog_asset(directory, snapshot_id, source_image)))
     selected = [asset for asset in value["assets"] if asset["runtime"]]
     errors = []
     for asset in selected:
@@ -371,6 +439,23 @@ def assemble(target, *, root=ROOT, staged=None, reader_catalog=None):
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(Path(reader_catalog) / relative, destination)
         value["assets"].append(catalog_asset)
+        current_files = {str(Path(entry["path"]).relative_to(READER_DIRECTORY)): entry
+                         for entry in catalog_asset["files"]}
+        for directory, asset in retained_assets:
+            for entry in asset["files"]:
+                relative = Path(entry["path"]).relative_to(asset["directory"])
+                destination = target / entry["path"]
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                current = current_files.get(relative.as_posix())
+                if (current and current["sha256"] == entry["sha256"]
+                        and current["bytes"] == entry["bytes"]):
+                    # Both independently admitted packages name the same bytes.
+                    # Preserve their immutable paths without doubling unchanged
+                    # reading bodies in the final image's filesystem layer.
+                    os.link(target / current["path"], destination)
+                else:
+                    shutil.copyfile(directory / relative, destination)
+            value["assets"].append(asset)
         (target / "data" / MANIFEST.name).write_bytes(canonical(value) + b"\n")
     else:
         shutil.copyfile(source_manifest, target / "data" / MANIFEST.name)
@@ -386,12 +471,15 @@ def main():
     parser.add_argument("--root", default=str(ROOT))
     parser.add_argument("--staged-data")
     parser.add_argument("--reader-catalog", metavar="CANONICAL_DIRECTORY")
+    parser.add_argument("--retain-reader-catalog", nargs=3, action="append", default=[],
+                        metavar=("DIRECTORY", "SNAPSHOT_ID", "QUALIFIED_IMAGE"))
     args = parser.parse_args()
     try:
-        if args.reader_catalog and not args.assemble:
+        if (args.reader_catalog or args.retain_reader_catalog) and not args.assemble:
             raise ValueError("--reader-catalog requires --assemble")
         result = (assemble(args.assemble, root=args.root, staged=args.staged_data,
-                           reader_catalog=args.reader_catalog) if args.assemble else
+                           reader_catalog=args.reader_catalog,
+                           retained_reader_catalogs=args.retain_reader_catalog) if args.assemble else
                   inventory(root=args.root, staged=args.staged_data, release=not args.integrity))
     except (OSError, ValueError, KeyError, StopIteration) as error:
         result = {"ok": False, "errors": [str(error)]}
