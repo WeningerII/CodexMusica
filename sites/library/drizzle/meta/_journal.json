@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1791420365110,
+      "tag": "0000_early_cerise",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791423790998,
+      "tag": "0001_needy_tinkerer",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791423986663,
+      "tag": "0002_low_vargas",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1791425603376,
+      "tag": "0003_legal_marvel_zombies",
+      "breakpoints": true
+    }
+  ]
+}

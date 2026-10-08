@@ -1,0 +1,74 @@
+[
+  {
+    "id": "blake",
+    "title": "Songs of Innocence & Experience",
+    "author": "William Blake",
+    "image": "/art/blake.jpg",
+    "imageCredit": "William Blake, Songs of Innocence title page, 1789–1794. Yale Center for British Art / Wikimedia Commons. Public domain.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:William_Blake_-_Songs_of_Innocence_and_of_Experience,_Plate_3,_Innocence_Title_Page_(Bentley_3)_-_Google_Art_Project.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "dickinson",
+    "title": "Selected Poems",
+    "author": "Emily Dickinson",
+    "image": "/art/dickinson.png",
+    "imageCredit": "Poems by Emily Dickinson, cover, Roberts Brothers, 1890. Internet Archive / Wikimedia Commons. Public domain.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Poems_by_Emily_Dickinson,_Cover.png",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "shakespeare",
+    "title": "Shakespeare’s Sonnets",
+    "author": "William Shakespeare",
+    "image": "/art/shakespeare.jpg",
+    "imageCredit": "Shakespeare's Sonnets, title page, 1609. Folger Shakespeare Library / Wikimedia Commons. Public domain.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Sonnets1609titlepage.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "whitman",
+    "title": "Leaves of Grass",
+    "author": "Walt Whitman",
+    "image": "/art/whitman.jpg",
+    "imageCredit": "Walt Whitman, Leaves of Grass, first-edition cover, 1855. Wikimedia Commons. Public domain.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Leaves_of_Grass_(1855)_cover.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "hafez",
+    "title": "Ghazals of Hafez",
+    "author": "Hafez of Shiraz",
+    "image": "/art/hafez.jpg",
+    "imageCredit": "Hafiz, Divan manuscript W.636, fol. 120b, 1796. Walters Art Museum / Wikimedia Commons. CC0.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Collection_of_poems_(divan),_%E1%B8%A4%C4%81fi%E1%BA%93_with_a_king,_a_policeman,_a_judge_and_a_sufi,_enjoying_wine,_Walters_Manuscript_W.636,_fol._120b.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "kalevala",
+    "title": "Kalevala",
+    "author": "Finnish oral tradition · compiled by Elias Lönnrot",
+    "image": "/art/kalevala.jpg",
+    "imageCredit": "Akseli Gallen-Kallela, The Forging of the Sampo, 1893. Ateneum / Wikimedia Commons. Public domain.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Gallen_Kallela_The_Forging_of_the_Sampo.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "bilhana",
+    "title": "Caurapañcāśikā",
+    "author": "Bilhaṇa",
+    "image": "/art/sanskrit.jpg",
+    "imageCredit": "Bhartrihari, Shatakatraya manuscript in Newar script, 16th century. Asa Archive / Wikimedia Commons. CC0.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bhartrihari_Shatakatraya,_Sanskrit_language,_Newar_script.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  },
+  {
+    "id": "li-qingzhao",
+    "title": "漱玉詞 · Shuyu ci",
+    "author": "李清照 · Li Qingzhao",
+    "image": "/art/chinese.jpg",
+    "imageCredit": "Ma Lin, Scholar Reclining and Watching Rising Clouds; Poem by Wang Wei, 1225. Cleveland Museum of Art / Wikimedia Commons. CC0.",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Clevelandart_1961.421.jpg",
+    "imageNote": "Historical artwork; not a facsimile of the text edition."
+  }
+]
