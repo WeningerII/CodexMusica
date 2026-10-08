@@ -7087,6 +7087,49 @@
   <url><loc>https://codexmusica.com/api/traditions/philly_drill.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/cumbia.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/italo_beats.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/japanese_buddhist_chant.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/vintage_italian_soundtrack.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/samba_moderno.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_hardtechno.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/electropop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/speedrun.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/kashmiri_hip_hop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/sesotho_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/vietnamese_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/griot.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/instrumental_acoustic_guitar.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/musica_neoleonesa.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/indie_viet.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/vintage_swoon.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/corridos_cristianos.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/concurso_de_talentos_argentino.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/modern_country_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/new_wave_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/kleine_hoerspiel.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/malayalam_madh.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/marci_brijuzi.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/world.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/manipuri_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deathgrass.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/venda_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/chicago_mexican.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/tavern.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/pop_catracho.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/cerkes_muzikleri.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/funktronica.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/spacewave.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dark_black_metal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/indonesian_lo_fi_pop.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/classic_sierreno.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/deep_norteno.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/vintage_western.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/forro_manauara.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/narodnozabavna.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/cryptic_black_metal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/bleakgaze.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/pop_minang.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/anime_phonk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/hypnosis.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -8754,4 +8797,8 @@
   <url><loc>https://codexmusica.com/api/instruments/produced_cowbell.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/russian_seven_string_guitar.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/dholki_nal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/clarinet_section_bb_eb.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/bajo_quinto.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/jt4000_micro.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/software_virtual_analog_synth.json</loc></url>
 </urlset>

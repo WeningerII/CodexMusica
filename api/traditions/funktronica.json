@@ -1,0 +1,229 @@
+{
+  "id": "funktronica",
+  "name": "funktronica",
+  "family": "electronic",
+  "lineage": "Funktronica brings funk grooves into electronic and independent pop production. Synthesizer bass, programmed rhythm, guitar and processed vocals can interact in compact arrangements, alongside more instrumental and dance-oriented recordings.",
+  "recipe": "classic funktronica, groove Percussion, funk percussive branch, pop experimental experimental electric bristol trip hop indonesian hyperpop. one note per syllable, solo with instrumental accompaniment, delay throw phrase end send, single lead single track no stacking. midrange-forward clean chicken-scratch single coil electric guitar, fast decay focused low sub bass analog synth, TR-808. treated studio.",
+  "recipe_chars": 406,
+  "score": 33.56,
+  "config": {
+    "traditions": [
+      "funktronica",
+      "bristol_trip_hop",
+      "indonesian_hyperpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_tape_delay_throw_phrase_end",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.04,
+          "voice_ensemble_config": 2.7299999999999995,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 4.0200000000000005,
+          "voice_multitrack_stack": 1.1549999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_fender",
+          "finish": "poly",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 8.245,
+          "amp_make": 0,
+          "body_wood": 0.045,
+          "neck_wood": 0.045,
+          "fretboard": -0.035,
+          "pickup_magnet": 0.045,
+          "string_material": 0,
+          "string_gauge": 0.39499999999999996,
+          "bridge": 0.045,
+          "scale_length": 0,
+          "finish": 0.045,
+          "string_tuning": 0.63,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 5.1675,
+          "oscillator": 0.195,
+          "filter_topology": 3.185,
+          "envelope": 1.635,
+          "modulation": 0.35
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr808_voice": 5.2975,
+          "drum_machine_808_context": 1.95,
+          "tr808_production_origin": 0.585
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
+      ],
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "drum_machine_808": [
+        "tr808_voice",
+        "drum_machine_808_context",
+        "tr808_production_origin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_tape_delay_throw_phrase_end",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electric_technique": "electric_chicken_scratch",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "string_gauge": "g_10",
+      "bridge": "hardtail",
+      "scale_length": "scale_fender",
+      "finish": "poly",
+      "string_tuning": "standard_tuning",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "electronic_technique": "electronic_bass_sub",
+      "oscillator": "triangle_osc",
+      "filter_topology": "transistor_ladder",
+      "envelope": "pluck_env",
+      "modulation": "no_mod",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_roland_osaka_canonical"
+    },
+    "pin_parts": true
+  }
+}

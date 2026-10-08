@@ -1,0 +1,38 @@
+{
+  "baseline": "166bd5c9a1107a9883ff60308293c8816e16532c",
+  "preserved_counts": 9742,
+  "added": {
+    "fourths": 1,
+    "narrative-recitation": 1,
+    "octave-paired": 1,
+    "sung-praise-interludes": 1,
+    "unison-paired": 1,
+    "wound": 1
+  },
+  "coverage": 97.00622865179828,
+  "identical_to_reviewed_df_map_and_app": true,
+  "scope": "PR #496 only; initialize six new source-measured descriptor counts. Preserve all prior frozen values, original 97% gate, engine, schema and supported instrument facts.",
+  "semantic_review": {
+    "traditions": 7121,
+    "fixture_import_contexts": 1174,
+    "compiled_api_contexts": 7121,
+    "changed_formats": 4,
+    "changed_traditions": [
+      "griot",
+      "chicago_mexican"
+    ],
+    "impact": "Ordering only within the same instrument chunks; zero descriptor loss/gain, configuration differences, fixture differences, compiled API differences or browser/connector parity errors."
+  },
+  "validation": [
+    "Original build_descriptor_df.js --check passes unchanged",
+    "Original build_html.js --out=codex.html --check passes",
+    "Prettier check passes",
+    "Exact DF-map and app SHA match the already reviewed exhaustive comparison; no unchanged exhaustive run repeated."
+  ],
+  "qualification": "Exact-head CI pending; this receipt does not claim CI completion.",
+  "prior_evidence": {
+    "minimal-six-comparison-summary.json": "057aed145e7f06ad6d09c0b3420d6c0ed99503b9e4514401c35ebbcd1b1b030a",
+    "minimal-six-semantic-review461.json": "1680d8bffb67b9aea4ec9f7872d227e797bf58ec207d2a25160a9089773ffdf5",
+    "minimal-six-strict-chunk-proof.json": "b4c25e36825cab4ea25329fb61136b2978381537937c52d45936738508ecf5ac"
+  }
+}

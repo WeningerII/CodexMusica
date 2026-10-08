@@ -97,6 +97,21 @@
             "ornamented",
             "griot-tradition"
           ]
+        },
+        {
+          "id": "griot_voice_narrative_recital",
+          "auto": false,
+          "name": "Narrative recital with sung praise interludes",
+          "descriptors": [
+            "oral-history",
+            "narrative-recitation",
+            "sung-praise-interludes"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "ornamented",
+            "griot-tradition"
+          ]
         }
       ]
     }
@@ -176,6 +191,21 @@
             "communal",
             "celebratory",
             "traditional"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "ornamented",
+            "griot-tradition"
+          ]
+        },
+        {
+          "id": "griot_voice_narrative_recital",
+          "auto": false,
+          "name": "Narrative recital with sung praise interludes",
+          "descriptors": [
+            "oral-history",
+            "narrative-recitation",
+            "sung-praise-interludes"
           ],
           "match_tokens": [
             "speech-derived",

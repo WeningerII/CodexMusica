@@ -5,7 +5,7 @@
   "lineage": "Deep breakcore follows lesser-known and extreme branches of breakcore’s international electronic scene. Its discovery cohort includes DJ Skull Vomit, Disbreakz and Autonon, with crossings into industrial sound, hardcore rhythms and metal-influenced performance.",
   "recipe": "classic deep breakcore, electronic Dance. overdriven subglottal pressure, solo with instrumental accompaniment. single coil electric guitar, credited programmed drums unspecified. live tracking.",
   "recipe_chars": 194,
-  "score": 3.949,
+  "score": 4.087,
   "config": {
     "traditions": [
       "deep_breakcore"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -72,13 +72,13 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.105,
+          "body_wood": 0,
           "neck_wood": 0,
           "fretboard": -0.035,
-          "pickup_magnet": 0.063,
+          "pickup_magnet": 0.20049999999999998,
           "string_material": 0,
           "string_gauge": 0.7,
-          "bridge": 0.063,
+          "bridge": 0.20049999999999998,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,

@@ -30,6 +30,30 @@
           "match_tokens": []
         }
       ]
+    },
+    {
+      "id": "software_sample_editing",
+      "name": "Recorded-material editing",
+      "variants": [
+        {
+          "id": "software_sample_editing_unspecified",
+          "name": "Editing method unspecified; preserve existing recorded-material scope",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "software_sample_editing_chopped",
+          "name": "Recorded fragments cut and rearranged into the authored rhythmic backing; all positive source material retained",
+          "default": false,
+          "descriptors": [
+            "chopped",
+            "sampled"
+          ],
+          "match_tokens": [],
+          "auto": false
+        }
+      ]
     }
   ],
   "description": "Software playback and arrangement of positively documented sampled audio. Retains full sampled melody/rhythm/bass/effect layers without inventing live instrumentalists, hardware sampler model, bit-depth or individual processing algorithms. Neutral routing axes are authored coordinates, not measured source properties.",
@@ -49,6 +73,30 @@
             "digital"
           ],
           "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_sample_editing",
+      "name": "Recorded-material editing",
+      "variants": [
+        {
+          "id": "software_sample_editing_unspecified",
+          "name": "Editing method unspecified; preserve existing recorded-material scope",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        },
+        {
+          "id": "software_sample_editing_chopped",
+          "name": "Recorded fragments cut and rearranged into the authored rhythmic backing; all positive source material retained",
+          "default": false,
+          "descriptors": [
+            "chopped",
+            "sampled"
+          ],
+          "match_tokens": [],
+          "auto": false
         }
       ]
     }
