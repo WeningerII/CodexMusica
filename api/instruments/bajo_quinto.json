@@ -1,0 +1,327 @@
+{
+  "id": "bajo_quinto",
+  "name": "Bajo quinto",
+  "short": "bajo quinto",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "description": "Mexican fretted guitar-family instrument with ten steel strings in five doubled courses. The standard A–D–G–C–F tuning combines octave pairs on the two lower courses with unison pairs above. Used for rhythmic and harmonic accompaniment alongside accordion and bass.",
+  "sources": [
+    "https://blog.taylorguitars.com/double-course-duo-introducing-the-657ce-bajo-quinto-and-doce-doble"
+  ],
+  "parts": [
+    {
+      "id": "bajo_quinto_courses",
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "bajo_quinto_five_double_courses",
+          "name": "Ten strings in five double courses",
+          "default": true,
+          "descriptors": [
+            "double-course",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_tuning",
+      "name": "Course tuning",
+      "variants": [
+        {
+          "id": "bajo_quinto_adgcf",
+          "name": "A–D–G–C–F fourths; low two octave pairs, upper three unisons",
+          "default": true,
+          "descriptors": [
+            "fourths",
+            "octave-paired",
+            "unison-paired"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_top",
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "bajo_quinto_top_unknown",
+          "name": "Soundboard species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        },
+        {
+          "id": "bajo_quinto_spruce_top",
+          "name": "Authored spruce soundboard",
+          "default": false,
+          "descriptors": [
+            "spruce",
+            "projecting",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_back",
+      "name": "Back and sides",
+      "variants": [
+        {
+          "id": "bajo_quinto_back_unknown",
+          "name": "Back and sides species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        },
+        {
+          "id": "bajo_quinto_maple_back",
+          "name": "Authored maple back and sides",
+          "default": false,
+          "descriptors": [
+            "maple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_strings",
+      "name": "String construction",
+      "variants": [
+        {
+          "id": "bajo_quinto_steel_wound_unspecified",
+          "name": "Steel strings; winding alloy unspecified",
+          "default": true,
+          "descriptors": [
+            "steel",
+            "wound"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_articulation",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "bajo_quinto_strummed_chords",
+          "name": "Authored rhythmic chord strumming",
+          "default": true,
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        },
+        {
+          "id": "bajo_quinto_picked_figures",
+          "name": "Authored picked connecting figures",
+          "default": false,
+          "descriptors": [
+            "picked",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    }
+  ],
+  "exclude_family_parts": [
+    "plucked_traditional_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "bajo_quinto_courses",
+      "name": "String courses",
+      "variants": [
+        {
+          "id": "bajo_quinto_five_double_courses",
+          "name": "Ten strings in five double courses",
+          "default": true,
+          "descriptors": [
+            "double-course",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_tuning",
+      "name": "Course tuning",
+      "variants": [
+        {
+          "id": "bajo_quinto_adgcf",
+          "name": "A–D–G–C–F fourths; low two octave pairs, upper three unisons",
+          "default": true,
+          "descriptors": [
+            "fourths",
+            "octave-paired",
+            "unison-paired"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_top",
+      "name": "Soundboard",
+      "variants": [
+        {
+          "id": "bajo_quinto_top_unknown",
+          "name": "Soundboard species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        },
+        {
+          "id": "bajo_quinto_spruce_top",
+          "name": "Authored spruce soundboard",
+          "default": false,
+          "descriptors": [
+            "spruce",
+            "projecting",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_back",
+      "name": "Back and sides",
+      "variants": [
+        {
+          "id": "bajo_quinto_back_unknown",
+          "name": "Back and sides species unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        },
+        {
+          "id": "bajo_quinto_maple_back",
+          "name": "Authored maple back and sides",
+          "default": false,
+          "descriptors": [
+            "maple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_strings",
+      "name": "String construction",
+      "variants": [
+        {
+          "id": "bajo_quinto_steel_wound_unspecified",
+          "name": "Steel strings; winding alloy unspecified",
+          "default": true,
+          "descriptors": [
+            "steel",
+            "wound"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bajo_quinto_articulation",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "bajo_quinto_strummed_chords",
+          "name": "Authored rhythmic chord strumming",
+          "default": true,
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        },
+        {
+          "id": "bajo_quinto_picked_figures",
+          "name": "Authored picked connecting figures",
+          "default": false,
+          "descriptors": [
+            "picked",
+            "articulate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "string"
+          ]
+        }
+      ]
+    }
+  ]
+}

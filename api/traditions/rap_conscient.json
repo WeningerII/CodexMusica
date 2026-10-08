@@ -5,7 +5,7 @@
   "lineage": "Francophone conscious rap consolidated in Paris and the Île-de-France banlieues circa 1990-1998 through IAM, Assassin, La Rumeur and Kery James, setting dense literary alexandrine-leaning French flows and anti-colonial, anti-police lyric argument at 88-96 BPM over boom-bap breaks, jazz and North African string samples, filtered contrabass loops and heavily scratched hooks.",
   "recipe": "classic Western European mid-1990s rap conscient, mc Rhythm, intl hip hop branch, us hip hop conscious rap, urban American protest song conscious hip-hop jazz rap. thick, rap, straight onset, interlocked note trading. chopped sampler, sampled chopped turntable, TR-808, growly gut upright bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 591,
-  "score": 384.079,
+  "score": 384.731,
   "config": {
     "traditions": [
       "rap_conscient",
@@ -35,16 +35,16 @@
         },
         "scores": {
           "voice_register": 14.918624999999995,
-          "voice_quality": 39.73024999999999,
+          "voice_quality": 39.70924999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.44375,
+          "voice_vibrato": 10.517999999999999,
           "voice_articulation": 23.075,
           "voice_microtone": 22.619999999999997,
           "voice_tradition": 11.150374999999999,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 6.344499999999999,
-          "voice_speech_song": 37.004999999999995,
+          "voice_speech_song": 37.083375,
           "voice_ensemble_config": 22.294999999999998,
           "voice_ornament_system": 6.435000000000001,
           "voice_pitch_organization": 0.8999999999999997,
@@ -66,7 +66,7 @@
           "sampler_archetypes": 17.4525,
           "sampler_bit_depth": 2.9250000000000003,
           "sampler_workflow": 13.2,
-          "sampler_classic_context": 37.789500000000004
+          "sampler_classic_context": 38.025
         }
       },
       {
@@ -77,7 +77,7 @@
         },
         "scores": {
           "electronic_technique": 10.623749999999998,
-          "turntable_technique": 12.350874999999998
+          "turntable_technique": 12.387999999999998
         }
       },
       {
@@ -88,7 +88,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 11.334124999999998,
+          "tr808_voice": 11.457874999999998,
           "drum_machine_808_context": 2.9575000000000005,
           "tr808_production_origin": 0.45499999999999996
         }
@@ -116,7 +116,7 @@
         },
         "scores": {
           "keyboard_technique": 6.375,
-          "rhodes_model": 9.425875,
+          "rhodes_model": 9.549624999999999,
           "rhodes_use": 0.39,
           "rhodes_tine_material": 0.45499999999999996,
           "rhodes_hammer_tip": -0.665,

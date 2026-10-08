@@ -1,7 +1,12 @@
 # PR 460 / 479 integration checkpoint — 2026-10-07
 
 This branch preserves the reviewed integration, lint repairs and safe-point test
-continuations. **PR 479 is not qualified for merge.** Its original author branch
+continuations. ~~**PR 479 is not qualified for merge.**~~ (2026-10-08:
+superseded. CI run 37677923478 on this checkpoint failed only `mcp/test.mjs`
+"lyric family" and `mcp/test_run_continuation.mjs`, both the 24-line call
+killed at 599 s while grading. With main's edge-memo fix from PR #460
+(`3985037ed`) merged in, both pass, and PR #479 lands this checkpoint plus
+main.) Its original author branch
 remains at `88abb0a04e4b174939e6594cac0b49806e3e9584`.
 
 The separate experimental projection is preserved at

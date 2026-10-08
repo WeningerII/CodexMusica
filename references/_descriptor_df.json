@@ -1,7 +1,7 @@
 {
   "meta": {
     "generator": "scripts/build_descriptor_df.js",
-    "note": "Frozen corpus document frequency. Regenerate ONLY with --freeze; doing so reorders descriptors and requires re-blessing the recipe snapshots in the same commit.",
+    "note": "Regenerate ONLY with scripts/build_descriptor_df.js --freeze for the normal full-recount procedure. This one-time scoped maintenance extension initializes six newly introduced descriptor counts from source 166bd5c9 while retaining all 9742 prior frozen token values. Source statistics below describe the original baseline freeze; tokens and occurrences include the six-count extension. This partial initialization is not a complete --freeze regeneration and does not change the normal regeneration policy.",
     "source": {
       "instruments": 1392,
       "variants": 11697,
@@ -9,8 +9,8 @@
       "rooms": 256,
       "chain_items": 253
     },
-    "tokens": 9742,
-    "occurrences": 33186
+    "tokens": 9748,
+    "occurrences": 33192
   },
   "df": {
     "10th-to-16th-partial-overtone-range": 1,
@@ -3219,6 +3219,7 @@
     "fourteen-key": 1,
     "fourteen-step": 1,
     "fourth-fifth-octave-intervals-characteristic": 1,
+    "fourths": 1,
     "fragile": 8,
     "fragile-tone": 1,
     "frailed": 2,
@@ -5632,6 +5633,7 @@
     "naranjillo": 2,
     "narrative": 68,
     "narrative-ballad-tradition": 1,
+    "narrative-recitation": 1,
     "narrow": 7,
     "narrow-attack-onset": 1,
     "narrow-bandwidth-presence": 1,
@@ -5880,6 +5882,7 @@
     "octave-fuzz-circuit": 1,
     "octave-lower": 1,
     "octave-lowered": 1,
+    "octave-paired": 1,
     "octave-shifted-summed": 1,
     "octave-shifted-tail": 1,
     "octave-up": 2,
@@ -8388,6 +8391,7 @@
     "sun-studios-706-union-avenue-memphis": 1,
     "sun-studios-defining-sound": 1,
     "sung-genealogy": 1,
+    "sung-praise-interludes": 1,
     "sunrise": 1,
     "superpyth": 1,
     "supple": 8,
@@ -9182,6 +9186,7 @@
     "unison-doubled": 8,
     "unison-male-voices": 1,
     "unison-or-octave-cadential-endings": 1,
+    "unison-paired": 1,
     "unisonoric": 1,
     "universal-12": 1,
     "universal-audio": 1,
@@ -9676,6 +9681,7 @@
     "world-fusion": 1,
     "worn": 2,
     "worn-fold": 1,
+    "wound": 1,
     "woven-counterpoint": 1,
     "wow-and-flutter": 2,
     "wow-and-flutter-light": 1,

@@ -1,0 +1,74 @@
+{
+  "id": "world",
+  "name": "World",
+  "family": "vernacular",
+  "lineage": "World music became a shared record-industry category in1987, bringing international and roots recordings together for shops, press and audiences. Its repertoire spans regional traditional practices, contemporary popular styles and cross-cultural collaborations.",
+  "recipe": "classic world, improv On Frame. calabash cowhide mande traditional mande hardwood local traditional kora. live tracking.",
+  "recipe_chars": 120,
+  "score": 3.706,
+  "config": {
+    "traditions": [
+      "world"
+    ],
+    "instruments": [
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_full",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_diabate_lineage"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "kora_strings": 0,
+          "kora_resonator": 1.168,
+          "kora_strings_mat": 0.168,
+          "kora_top_skin": 1.105,
+          "kora_neck_wood": 1.3,
+          "kora_lineage": 0
+        }
+      }
+    ],
+    "pinned": {
+      "kora": [
+        "plucked_traditional_technique",
+        "kora_strings",
+        "kora_resonator",
+        "kora_strings_mat",
+        "kora_top_skin",
+        "kora_neck_wood",
+        "kora_lineage"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "plucked_traditional_technique": "plucked_fingerpicked",
+      "kora_strings": "kora_21_traditional",
+      "kora_resonator": "kora_calabash_full",
+      "kora_strings_mat": "kora_fishing_line",
+      "kora_top_skin": "kora_cowhide_canonical",
+      "kora_neck_wood": "kora_hardwood_local",
+      "kora_lineage": "kora_diabate_lineage"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "id": "speedrun",
+  "name": "Speedrun",
+  "family": "electronic",
+  "lineage": "Speedrun is a discovery field linking energetic internet electronic music with independent games and online creator communities. Its repertoire includes Waterflame, Creo and Dimrain47, spanning melodic synthesis, sample-based arrangement and rhythm-led production rather than one fixed tempo or sound chip.",
+  "recipe": "classic speedrun, experimental Elec. software sample playback, wavetable synth. treated studio.",
+  "recipe_chars": 95,
+  "score": 0.186,
+  "config": {
+    "traditions": [
+      "speedrun"
+    ],
+    "instruments": [
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0.11999999999999998,
+          "software_sample_editing": 0
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_static",
+          "wt_family": "wt_analog_emul",
+          "wt_polyphony": "wt_poly"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "wt_position": 0,
+          "wt_family": 0.105,
+          "wt_polyphony": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "software_sample_playback": [
+        "software_sample_playback_identity",
+        "software_sample_editing"
+      ],
+      "wavetable_synth": [
+        "electronic_technique",
+        "wt_position",
+        "wt_family",
+        "wt_polyphony"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "electronic_technique": "electronic_lead_line",
+      "wt_position": "wt_static",
+      "wt_family": "wt_analog_emul",
+      "wt_polyphony": "wt_poly",
+      "software_sample_editing": "software_sample_editing_unspecified"
+    },
+    "pin_parts": true
+  }
+}

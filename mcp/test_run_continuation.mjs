@@ -200,7 +200,8 @@ try {
   // group A [1, 8, 9, 10, 11] is judged at the words it binds, so L1 is a
   // group pivot asked before the door again -- the group, then L1 at
   // attempts 0, 1 and 2 -- and the door opens on continuation 4 with the
-  // other ten, all admitted (125291 state bytes).
+  // other ten, all admitted (125291 state bytes on main; ~~125291~~ 304438
+  // with PR #479's revise-loop redesign, same walk, measured 2026-10-08).
   const originalIndependent = [2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the

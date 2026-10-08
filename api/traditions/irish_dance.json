@@ -5,7 +5,7 @@
   "lineage": "Irish dance music is rooted in social dancing and the transmission of tunes such as reels and jigs. Instrumental groups continue to develop this repertoire in sessions, concerts and recordings.",
   "recipe": "classic irish dance, improv On Frame, Celtic traditional branch. fiddle, ornamented breathy dance driving irish wooden flute, full band boxwood pre 1900 historical Irish cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, dreadnought acoustic guitar, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 447,
-  "score": 39.233,
+  "score": 39.118,
   "config": {
     "traditions": [
       "irish_dance"
@@ -17,7 +17,7 @@
           "bowed_technique": "bowed_celtic_session",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "practice_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
@@ -25,7 +25,7 @@
           "bowed_technique": 4.0315,
           "fiddle_strings": 0.0705,
           "fiddle_bow": 0.105,
-          "fiddle_mute": 0.14024999999999999,
+          "fiddle_mute": 0.18899999999999997,
           "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
         }
@@ -41,8 +41,8 @@
         "scores": {
           "irish_wooden_flute_pattern": 4.95,
           "irish_wooden_flute_keys": 1.885,
-          "irish_wooden_flute_idiom": 7.734999999999999,
-          "irish_wooden_flute_material": -0.05
+          "irish_wooden_flute_idiom": 7.619999999999999,
+          "irish_wooden_flute_material": -0.035
         }
       },
       {
@@ -78,9 +78,9 @@
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.37124999999999997,
+          "top_wood": 0.33975,
           "back_sides": 0.22049999999999997,
-          "string_acoustic": 0.4485
+          "string_acoustic": 0.417
         }
       },
       {

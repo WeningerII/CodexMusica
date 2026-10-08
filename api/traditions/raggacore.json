@@ -16,10 +16,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
         }
       },
       {
@@ -122,7 +124,8 @@
     ],
     "pinned": {
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ],
       "sampler_drum_machine": [
         "electronic_technique",
@@ -192,7 +195,8 @@
       "electronic_technique": "electronic_sample_chopped",
       "sample_bitdepth": "sixteen_bit",
       "sample_swing": "tight_swing",
-      "sample_processing": "chopped_break"
+      "sample_processing": "chopped_break",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true,
     "chain_mic": "mic_sm58_dynamic_shure",

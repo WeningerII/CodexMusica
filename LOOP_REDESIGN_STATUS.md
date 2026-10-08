@@ -1,9 +1,45 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-03. **Phase 3 (build) is under way.** The debate passed,
+Last update: ~~2026-10-03~~ 2026-10-08. ~~**Phase 3 (build) is under way.**~~
+**Landing as PR #479 on the owner's go-ahead (2026-10-08).** The debate passed,
 and the design is version 4. Steps 1-4 are built and committed; step 5 is
-written and waiting for its tests to run.
+~~written and waiting for its tests to run~~ built and passing.
+
+## LANDING (2026-10-08)
+
+PR #479 lands `codex/repair-479-reviewed` (`0f7438682`: the 11 lint fixes,
+`mcp/test_resume_stopped.mjs`, the `test_propose.py` pins) merged with
+main at `500f75dc4`. The experimental first-pass projection on
+`codex/repair-460-479` (`d49e08cd`) stays out. The three handoff items below:
+
+1. **The killed call.** It was never root-caused, and it no longer
+   reproduces. CI run 37677923478 on `0f7438682` failed only the two
+   connector tests below, both on the 24-line call killed at 599 s while
+   grading. On that scaffold, 208.6 of 210.3 s went to re-judging the same
+   whole-song edges, and main's edge-memo fix (PR #460, `3985037ed`) stops
+   that. With it merged
+   in, one warm worker reaches the first batch in 5 calls and 393.4 s, with
+   no kill. Under a forced 120 s budget, three calls stop cleanly and the
+   fourth delivers the batch. Still open: a single place that takes longer
+   than a whole call is still killed, because stopping inside a place
+   (option C) was not built.
+2. **The two connector tests** pass on the merge: `mcp/test.mjs` (193 checks)
+   and `mcp/test_run_continuation.mjs` (7m04s). The batch-door walk equals
+   main's pin (group [1,8,9,10,11], then L1 three times; the door opens on
+   continuation 4 with [2,3,4,5,14,15,17,19,21,23]), so it needs no re-pin.
+   The run's state for that walk is 304438 bytes, against main's 125258.
+3. **CI time.** This is decided by CI's `verify` job on the merged head.
+   The redesign adds only `mcp/test_loop_redesign.mjs` (about 24 s).
+
+**The 104-line song** (seed 0, one 104-line batch question, the same answer
+on both trees) finishes identically on main and on this merge:
+
+- The final song and verdict are the same: exit 2, uncertified, no line
+  flag stands.
+- The finishing call takes 129.1 s here and 129.5 s on main.
+- The saved state is 59069 decoded bytes here and 49977 on main, against
+  the 1152 KiB cap.
 
 ## HANDOFF (2026-10-03): stopped here at the owner's request
 

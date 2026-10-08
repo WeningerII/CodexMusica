@@ -1,0 +1,58 @@
+{
+  "id": "vietnamese_pop",
+  "name": "Vietnamese Pop",
+  "family": "pop",
+  "lineage": "Vietnamese popular song connects domestic and overseas recording, performance and listening communities. Romantic melodies and familiar song repertories circulate through singers, amplified ensembles and instrumental reinterpretations, including piano arrangements of Trịnh Công Sơn’s songs.",
+  "recipe": "classic vietnamese pop, functional Song, east Asian pop branch. upright piano. parlor.",
+  "recipe_chars": 86,
+  "score": 0.165,
+  "config": {
+    "traditions": [
+      "vietnamese_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "upright_use": 0.1995,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "parlor",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "parlor",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

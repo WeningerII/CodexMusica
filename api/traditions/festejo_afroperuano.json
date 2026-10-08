@@ -3,66 +3,66 @@
   "name": "Festejo (Afro-Peruvian celebration)",
   "family": "global",
   "lineage": "Afro-Peruvian folk-popular dance-and-song tradition of coastal Peru (Lima, Chincha, El Carmen, Ica regions), descended from West-African-enslaved-population cultural memory through colonial-Peruvian slavery period. Fast 6/8 meter, virtuoso cajón lead, quijada jawbone-rattle, acoustic-guitar. Nicomedes Santa Cruz (1925-1992) and Victoria Santa Cruz (1922-2014) consolidated twentieth-century cultural revival. Susana Baca, Eva Ayllón anchor contemporary scene.",
-  "recipe": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion bloco pagode. thick, breath veiled tone, straight note core, interlocked note trading. lead open slap hand drum congas, sitka spruce spruce fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 514,
-  "score": 201.525,
+  "recipe": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion bloco baião. speech quality modal neutral larynx, one note per syllable, solo with instrumental accompaniment, no specific ornament system. hands layered congas, sitka spruce spruce fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 556,
+  "score": 70.198,
   "config": {
     "traditions": [
       "festejo_afroperuano",
       "bloco",
-      "pagode"
+      "baiao"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "mix_voice",
+          "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 4.4,
-          "voice_quality": 25.86999999999999,
+          "voice_register": 0,
+          "voice_quality": 0.10000000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.415000000000001,
-          "voice_articulation": 17.095,
-          "voice_microtone": 15.664999999999992,
-          "voice_tradition": 11.634999999999998,
-          "voice_mechanism_compound": 5.5,
-          "voice_estill_quality": 3.7375,
-          "voice_speech_song": 24.375,
-          "voice_ensemble_config": 16.834999999999994,
+          "voice_vibrato": 0.38999999999999996,
+          "voice_articulation": 0,
+          "voice_microtone": -0.21,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 3.5349999999999997,
+          "voice_ensemble_config": 2.34,
           "voice_ornament_system": 2.7499999999999996,
-          "voice_pitch_organization": 2.3075,
-          "voice_processing_chain": 6.17,
-          "voice_multitrack_stack": 6.37
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 2.3400000000000003,
+          "voice_multitrack_stack": 5.784999999999999
         }
       },
       {
         "id": "congas",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "conga_set": "quinto",
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
           "conga_skin": "conga_mule_hide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 11.424999999999999,
-          "conga_set": 2.02,
+          "percussion_technique": 9.875,
+          "conga_set": 0,
           "conga_skin": 0.705,
           "conga_shell_wood": 0.705
         }
@@ -74,14 +74,14 @@
           "string_tuning": "standard_tuning",
           "top_wood_parlor": "sitka_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "silk_steel_p"
+          "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
           "acoustic_technique": 5.050000000000001,
           "string_tuning": 0,
           "top_wood_parlor": 1.8599999999999999,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.9950000000000001
+          "string_acoustic_parlor": 0.195
         }
       },
       {
@@ -104,11 +104,43 @@
         },
         "scores": {
           "quijada_form": 11.439999999999998,
-          "quijada_context": 7.475,
+          "quijada_context": 8.125,
           "quijada_preparation": 0.6
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "congas": [
+        "percussion_technique",
+        "conga_set"
+      ],
+      "acoustic_guitar_parlor": [
+        "acoustic_technique",
+        "top_wood_parlor",
+        "back_sides_parlor",
+        "string_acoustic_parlor"
+      ],
+      "cajon_peruano": [
+        "cajon_peruano_construction",
+        "cajon_peruano_role"
+      ]
+    },
     "room": "bogota_colombian_andean_studio",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
@@ -132,7 +164,7 @@
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
+      "voice_tradition": "voice_tradition_source_unspecified",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
@@ -141,16 +173,18 @@
       "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "percussion_technique": "percussion_hands_layered",
       "conga_set": "conga_proper",
-      "acoustic_technique": "acoustic_strummed_ringing",
+      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood_parlor": "sitka_p",
       "back_sides_parlor": "mahogany_bs_p",
       "string_acoustic_parlor": "phosphor_p",
       "cajon_peruano_construction": "cajon_peruano_open_back",
-      "cajon_peruano_role": "cajon_peruano_festejo"
+      "cajon_peruano_role": "cajon_peruano_festejo",
+      "voice_articulation": "voice_articulation_source_unspecified"
     },
+    "pin_parts": true,
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
     "chain_medium": "digital_high",

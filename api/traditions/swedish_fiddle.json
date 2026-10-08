@@ -5,7 +5,7 @@
   "lineage": "Swedish fiddle practice codified through 19th-century parish spelmän, the 1908 spelmansstämma revival movement and the Zorn medal system from 1933 — polska in uneven 3/4 with the second or third beat shortened, plus schottis, vals and polketta, played with heavy double-stops, drone-fifth accompaniment, second-fiddle stämma harmony a third below, and swung foot-driven pulse in unison spelmanslag ensembles.",
   "recipe": "classic Northern European late-1900s swedish fiddle tradition, improv On Frame, string improv branch, string drone modal, Slavic baltic domestic rhythm estonian folk music polish folk. kargyraa, breath veiled tone, slow rate, interlocked note trading. double stops fiddle, traditional spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, castagnari Italian premium folk music drone like accordion, harpa. mountain valley fabod. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 516,
-  "score": 166.894,
+  "score": 167.209,
   "config": {
     "traditions": [
       "swedish_fiddle",
@@ -55,7 +55,7 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_drone_under",
-          "accordion_reed_material": "brass_reeds",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
@@ -64,9 +64,9 @@
         },
         "scores": {
           "free_reed_technique": 3.7700000000000005,
-          "accordion_reed_material": 0.15,
+          "accordion_reed_material": 0.195,
           "musette_offset": 0.7649999999999999,
-          "reed_config": 0.15,
+          "reed_config": 0.195,
           "bellows": 0.7649999999999999,
           "voicing_chamber": 0.21,
           "accordion_maker_school": 1.69
@@ -80,7 +80,7 @@
         },
         "scores": {
           "harpa_size": 0.195,
-          "harpa_strings": 0.65
+          "harpa_strings": 0.6950000000000001
         }
       },
       {
@@ -104,7 +104,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 1.1799999999999997,
+          "voice_register": 1.2699999999999998,
           "voice_quality": 16.444999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -119,7 +119,7 @@
           "voice_ornament_system": 3.7196428571428584,
           "voice_pitch_organization": 3.7050000000000005,
           "voice_processing_chain": 5.199999999999999,
-          "voice_multitrack_stack": 10.143928571428571
+          "voice_multitrack_stack": 10.23392857142857
         }
       }
     ],
