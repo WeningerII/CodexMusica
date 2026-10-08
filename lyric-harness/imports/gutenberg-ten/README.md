@@ -72,7 +72,9 @@ The existing recursive Library builder reads the generated author files under
 shared reader, engines, pipelines, and runtime behavior are unchanged. The
 repository's own population checker confirms that the additions are outside all
 six calibrated populations; no re-adoption is owed. The all-file integrity
-snapshot includes the new files.
+snapshot includes the new files. The whole-corpus section-label census is
+remeasured for VERSE, CHORUS and REFRAIN; its table retains the previous counts.
+Source-registry provenance and runtime byte pins include those derived updates.
 
 Deduplication compares the existing English reading units, Shakespeare sonnets,
 Whitman units, and accepted entries in the declared collection order. It records

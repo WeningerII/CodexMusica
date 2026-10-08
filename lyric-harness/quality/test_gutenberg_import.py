@@ -211,6 +211,22 @@ class BatchEvidenceTests(unittest.TestCase):
                                   for p in paths})
         self.assertEqual(set(IMPORT.DEST.rglob('*.txt')), set(paths[1:]))
 
+    def test_production_admission_and_derived_censuses_include_the_import(self):
+        approved = read_json(ROOT / 'library/catalog_sources.json')
+        self.assertEqual(approved['tree'], read_json(BATCH / 'source_manifest.json'))
+        docker = (ROOT.parent / 'mcp/Dockerfile').read_text()
+        self.assertEqual(re.search(r'--repo-sha\s+([a-f0-9]{40})', docker)[1],
+                         approved['repository_commit'])
+        assets = read_json(ROOT / 'data/runtime_assets.json')
+        pinned = {row['path']: row for asset in assets['assets']
+                  for row in asset['files']}
+        for name in ('data/sources.tsv', 'data/section_marks.tsv'):
+            raw = (ROOT / name).read_bytes()
+            self.assertEqual(pinned[name]['bytes'], len(raw), name)
+            self.assertEqual(pinned[name]['sha256'], hashlib.sha256(raw).hexdigest(), name)
+        from quality import section_marks
+        self.assertEqual(section_marks.check(), [])
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
