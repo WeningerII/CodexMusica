@@ -80,6 +80,7 @@ const SOURCE_FILES = [
   '07_preface_lexicon.js',
   '08_asset_manifest.js',
   '09_nav_glyphs.js',
+  '10_tradition_signatures.js',
 ];
 
 // ──────────────────────────── argv ────────────────────────────

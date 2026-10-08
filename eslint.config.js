@@ -93,6 +93,7 @@ module.exports = [
         TRADITIONS: 'readonly',
         TRADITION_EXTRAS: 'readonly',
         TRADITION_ALIASES: 'readonly',
+        TRADITION_SIGNATURES: 'readonly',
         TREE_NODES: 'readonly',
         TUNINGS: 'readonly',
         mergeFamilyParts: 'readonly',

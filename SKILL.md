@@ -647,8 +647,10 @@ checker must still print `{"totalIssues":0,…}`.
 `src/app.js` (the browser/`codex.html`) and as `scripts/` primitives (the CLI/agent
 path). Don't hand-edit the duplicated pieces independently:
 - **Tradition signatures** live canonically in `references/_tradition_signatures.json`;
-  `node scripts/build_signatures.js` regenerates the `app.js` inline copy from it. Never
-  edit the `app.js` `TRADITION_SIGNATURES` block by hand. Adding a token means classing it
+  `node scripts/build_signatures.js` generates `references/10_tradition_signatures.js`
+  from it, the copy the page reads as an engine table (inline in the embedded page,
+  from `api/engine.json` in the lazy one) and the loader reads for Node. Never edit that
+  file by hand. Adding a token means classing it
   in `references/_soundword_vocab.json` and, if it is cultural, ruling the pair (I8).
 - **Retired tradition ids** live in `references/_tradition_aliases.json` (retired id →
   `{of, name, verdict}`). A merge deletes the duplicate record from `05`/`06` and every

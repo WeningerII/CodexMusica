@@ -6,6 +6,24 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — tradition signatures leave the lazy page's first view
+
+`TRADITION_SIGNATURES` used to be a generated block inside `src/app.js`, about 450 KB
+raw once the gap fill grew it. It is now `references/10_tradition_signatures.js`,
+still generated from `references/_tradition_signatures.json` by
+`scripts/build_signatures.js`, and it is an engine table (`scripts/_page_tables.js`).
+
+- **Embedded page:** the table is inline beside the other engine tables.
+- **Lazy page:** it arrives in `api/engine.json`. Signatures are read only when a card
+  is configured, which already waits for the engine.
+- **Node:** the loader reads the same file.
+- **Why:** after the gap fill and the merge, the first view (`codex.html` plus
+  `api/browse_boot.json`) was 51 KB gzipped over its 778,240 B budget, and the
+  `src/app.js` script block was 1028 KiB against its 1024 KiB ceiling. Both now pass
+  without raising a budget.
+- **Readers updated:** `check_signature_tokens.js` (it reads the generated file and
+  `api/engine.json`) and `tandem.js`.
+
 ### Changed — merged 649 duplicate traditions; every retired id stays an alias
 
 The duplicate pass's merge map was applied. 649 traditions were retired into 512

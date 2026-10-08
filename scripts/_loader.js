@@ -15,6 +15,7 @@ const FILES = [
   '07_preface_lexicon.js',
   '08_asset_manifest.js',
   '09_nav_glyphs.js',
+  '10_tradition_signatures.js',
 ];
 
 const bundle = FILES.map((f) => fs.readFileSync(path.join(REFS, f), 'utf8')).join('\n');
@@ -51,6 +52,7 @@ const TABLES = [
   'ROOM_GLYPH',
   'PREFACE_CAT_GLYPH',
   'PREFACE_GLYPH',
+  'TRADITION_SIGNATURES',
 ];
 
 const re = new RegExp(`const (${TABLES.join('|')})`, 'g');
