@@ -3,9 +3,9 @@
   "name": "Música Colimense",
   "family": "vernacular",
   "lineage": "Música Colimense brings together popular and traditional music circulating in Colima, including regional bands, mariachi, sierreño groups and romantic rondallas. Municipal and university ensembles connect public celebrations, serenades and recorded regional repertoires.",
-  "recipe": "classic música colimense, functional Song. low mid rich spectrum cedar classical nylon-string guitar, credited requinto unspecified, double bass. live tracking.",
-  "recipe_chars": 160,
-  "score": 5.35,
+  "recipe": "classic música colimense, functional Song. group vocals. low mid rich spectrum cedar classical nylon-string guitar, credited requinto unspecified, double bass. live tracking.",
+  "recipe_chars": 174,
+  "score": 5.672,
   "config": {
     "traditions": [
       "musica_colimense"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.40950000000000003,
+          "voice_ensemble_config": 0.53325,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.16899999999999998,
+          "voice_processing_chain": 0.29274999999999995,
           "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
@@ -109,9 +109,9 @@
           "bass_top_wood": -0.1,
           "bass_back_wood": -0.1,
           "bass_varnish": -0.1,
-          "bass_setup_period": 0.2,
+          "bass_setup_period": 0.237125,
           "bass_play": 0.25,
-          "bass_rosin": 0.2,
+          "bass_rosin": 0.237125,
           "bass_bow_stick": -0.15000000000000002
         }
       }

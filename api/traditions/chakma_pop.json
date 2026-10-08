@@ -3,9 +3,9 @@
   "name": "Chakma Pop",
   "family": "pop",
   "lineage": "Chakma pop carries contemporary songs in the Chakma language through local studios, online video and cross-border community networks. Romantic writing and cultural identity connect newer compositions with established song traditions, while digital production lets singers collaborate with arrangers beyond their hometowns.",
-  "recipe": "classic chakma pop, functional Song. solo with instrumental accompaniment. digital software sample playback. treated studio.",
-  "recipe_chars": 124,
-  "score": 4.932,
+  "recipe": "classic chakma pop, functional Song. small note groups per syllable, solo with instrumental accompaniment. digital software sample playback. treated studio.",
+  "recipe_chars": 156,
+  "score": 5.277,
   "config": {
     "traditions": [
       "chakma_pop"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.4485,
-          "voice_ensemble_config": 3.3149999999999995,
+          "voice_speech_song": 0.5589999999999999,
+          "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.16899999999999998,
+          "voice_processing_chain": 0.33799999999999997,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -55,10 +55,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 1
+          "software_sample_playback_identity": 1,
+          "software_sample_editing": 0
         }
       }
     ],
@@ -83,7 +85,8 @@
         "voice_tessitura"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ]
     },
     "room": "treated_studio",
@@ -120,7 +123,8 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

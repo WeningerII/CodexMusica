@@ -55,10 +55,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0.3
+          "software_sample_playback_identity": 0.3,
+          "software_sample_editing": 0
         }
       }
     ],
@@ -83,7 +85,8 @@
         "voice_tessitura"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ]
     },
     "room": "live_room",
@@ -120,7 +123,8 @@
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_tessitura": "voice_tessitura_source_unspecified",
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

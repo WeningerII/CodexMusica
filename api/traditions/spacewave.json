@@ -1,0 +1,166 @@
+{
+  "id": "spacewave",
+  "name": "Spacewave",
+  "family": "electronic",
+  "lineage": "Spacewave develops the cosmic and science-fiction strand of contemporary synth music. Producers connect retro electronic timbres with imagined voyages, orbital environments and cinematic storytelling, working across rhythmic synthwave and more atmospheric electronic settings.",
+  "recipe": "classic spacewave, experimental Elec, retro aesthetic branch. analog software virtual analog synth, jt4000 micro, software sample playback, credited beat unspecified. treated studio.",
+  "recipe_chars": 182,
+  "score": 4.736,
+  "config": {
+    "traditions": [
+      "spacewave"
+    ],
+    "instruments": [
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "square_pulse",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.45,
+          "oscillator": 0,
+          "filter_topology": 0.39,
+          "envelope": 0.0315,
+          "modulation": 0.063
+        }
+      },
+      {
+        "id": "jt4000_micro",
+        "slots": {
+          "jt4000_engine": "jt4000_hybrid_engine",
+          "jt4000_oscillators": "jt4000_two_per_voice",
+          "jt4000_voice_count": "jt4000_four_voices",
+          "jt4000_dac": "jt4000_twelve_bit_dac",
+          "jt4000_filter": "jt4000_filter_unspecified",
+          "jt4000_envelope": "jt4000_envelope_unspecified",
+          "jt4000_gesture": "jt4000_melodic_line"
+        },
+        "scores": {
+          "jt4000_engine": 0.78,
+          "jt4000_oscillators": 0,
+          "jt4000_voice_count": 0,
+          "jt4000_dac": 0,
+          "jt4000_filter": 0,
+          "jt4000_envelope": 0,
+          "jt4000_gesture": 0
+        }
+      },
+      {
+        "id": "software_virtual_analog_synth",
+        "slots": {
+          "software_va_engine": "software_va_analog_modelling",
+          "software_va_oscillator": "software_va_oscillator_unspecified",
+          "software_va_filter": "software_va_filter_unspecified",
+          "software_va_voice_allocation": "software_va_voices_unspecified",
+          "software_va_envelope": "software_va_held_envelope",
+          "software_va_gesture": "software_va_layered_pad"
+        },
+        "scores": {
+          "software_va_engine": 0.39,
+          "software_va_oscillator": 0,
+          "software_va_filter": 0,
+          "software_va_voice_allocation": 0,
+          "software_va_envelope": 0,
+          "software_va_gesture": 0.2415
+        }
+      },
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0.39,
+          "software_sample_editing": 0
+        }
+      },
+      {
+        "id": "credited_beat_unspecified",
+        "slots": {
+          "credited_beat_identity": "credited_beat_mechanism_unspecified"
+        },
+        "scores": {
+          "credited_beat_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "analog_synth": [
+        "electronic_technique",
+        "oscillator",
+        "filter_topology",
+        "envelope",
+        "modulation"
+      ],
+      "jt4000_micro": [
+        "jt4000_engine",
+        "jt4000_oscillators",
+        "jt4000_voice_count",
+        "jt4000_dac",
+        "jt4000_filter",
+        "jt4000_envelope",
+        "jt4000_gesture"
+      ],
+      "software_virtual_analog_synth": [
+        "software_va_engine",
+        "software_va_oscillator",
+        "software_va_filter",
+        "software_va_voice_allocation",
+        "software_va_envelope",
+        "software_va_gesture"
+      ],
+      "software_sample_playback": [
+        "software_sample_playback_identity",
+        "software_sample_editing"
+      ],
+      "credited_beat_unspecified": [
+        "credited_beat_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "oscillator": "square_pulse",
+      "filter_topology": "transistor_ladder",
+      "envelope": "sustain_env",
+      "modulation": "no_mod",
+      "credited_beat_identity": "credited_beat_mechanism_unspecified",
+      "jt4000_engine": "jt4000_hybrid_engine",
+      "jt4000_oscillators": "jt4000_two_per_voice",
+      "jt4000_voice_count": "jt4000_four_voices",
+      "jt4000_dac": "jt4000_twelve_bit_dac",
+      "jt4000_filter": "jt4000_filter_unspecified",
+      "jt4000_envelope": "jt4000_envelope_unspecified",
+      "jt4000_gesture": "jt4000_melodic_line",
+      "software_va_engine": "software_va_analog_modelling",
+      "software_va_oscillator": "software_va_oscillator_unspecified",
+      "software_va_filter": "software_va_filter_unspecified",
+      "software_va_voice_allocation": "software_va_voices_unspecified",
+      "software_va_envelope": "software_va_held_envelope",
+      "software_va_gesture": "software_va_layered_pad",
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "software_sample_editing": "software_sample_editing_unspecified"
+    },
+    "pin_parts": true
+  }
+}

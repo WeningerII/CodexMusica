@@ -5,7 +5,7 @@
   "lineage": "The competition theme-samba of Rio de Janeiro's escolas de samba, formalized after the 1930s Estácio-era school system and hardened into its modern form in the 1970s-80s, in which a single composed melody narrating the school's annual enredo is sung by a puxador over a 200-300-piece bateria at 130-145 BPM, surdos de primeira/segunda/terceira marking the two-beat pulse, tamborins in teleco-teco, repiniques calling the breaks, and cavaquinho-and-violão harmony support.",
   "recipe": "classic Southern American mid-1930s samba-enredo, carnival Processional, Brazilian branch, Brazilian groove percussion, pagode Brazilian bloco. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, Brazilian rosewood pre 1992 choro spruce modern choro tradition violao 7 cordas, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, agogo, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, snappy samba tradition metal construction reco reco. escola samba quadra. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA.",
   "recipe_chars": 994,
-  "score": 459.73,
+  "score": 459.64,
   "config": {
     "traditions": [
       "samba_enredo",
@@ -35,10 +35,10 @@
         },
         "scores": {
           "voice_register": 1.235,
-          "voice_quality": 51.765,
+          "voice_quality": 51.015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.205,
+          "voice_vibrato": 3.415,
           "voice_articulation": 20.864999999999995,
           "voice_microtone": 18.134999999999994,
           "voice_tradition": 11.114999999999997,
@@ -47,8 +47,8 @@
           "voice_speech_song": 27.202500000000004,
           "voice_ensemble_config": 19.304999999999996,
           "voice_ornament_system": 3.7499999999999996,
-          "voice_pitch_organization": 2.03,
-          "voice_processing_chain": 6.67,
+          "voice_pitch_organization": 1.8799999999999997,
+          "voice_processing_chain": 6.625,
           "voice_multitrack_stack": 10.399999999999999
         }
       },
@@ -79,7 +79,7 @@
           "violao_7_role": "violao_7_bordao_counter"
         },
         "scores": {
-          "violao_7_string7": 4.209999999999999,
+          "violao_7_string7": 4.164999999999999,
           "violao_7_strings": 0.65,
           "violao_7_body_wood": 7.279999999999999,
           "violao_7_top_wood": 1.045,
@@ -133,7 +133,7 @@
           "cuica_head": "cuica_calfskin_canonical"
         },
         "scores": {
-          "percussion_technique": 0.325,
+          "percussion_technique": 0.41500000000000004,
           "cuica_size": 14.169999999999998,
           "cuica_context": 2.5349999999999997,
           "cuica_shell_material": 22.879999999999995,
@@ -160,9 +160,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 18.04,
+          "choir_size": 18.189999999999998,
           "choir_polyphonic_configuration": 6.124999999999999,
-          "choir_regional_canonical_configuration": 9.29,
+          "choir_regional_canonical_configuration": 9.739999999999998,
           "choir_ensemble_repertoire": 1.6899999999999997
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Balkan drill adapts drill production to regional rap networks across southeastern Europe. Crni Cerak, Rasta and Banfica helped bring its hard beats and local-language street narratives to clubs, festivals and streaming releases. It overlaps Balkan trap while emphasizing drill-oriented rhythm and delivery.",
   "recipe": "classic balkan drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. software sample playback, produced 808 bass. treated studio.",
   "recipe_chars": 188,
-  "score": 19.67,
+  "score": 19.609,
   "config": {
     "traditions": [
       "balkan_drill"
@@ -38,13 +38,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.33899999999999997,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.75,
-          "voice_ensemble_config": 0.571,
+          "voice_ensemble_config": 0.5635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -55,10 +55,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
         }
       },
       {
@@ -70,7 +72,7 @@
         },
         "scores": {
           "produced_808_bass_identity": 0.39,
-          "produced_808_bass_decay": 0.105,
+          "produced_808_bass_decay": 0,
           "produced_808_bass_processing": 0
         }
       }
@@ -96,7 +98,8 @@
         "voice_tessitura"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ],
       "produced_808_bass": [
         "produced_808_bass_identity",
@@ -141,7 +144,8 @@
       "software_sample_playback_identity": "software_sample_playback_digital",
       "produced_808_bass_identity": "produced_808_bass_low_bass",
       "produced_808_bass_decay": "produced_808_bass_long_decay",
-      "produced_808_bass_processing": "produced_808_bass_unclipped"
+      "produced_808_bass_processing": "produced_808_bass_unclipped",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

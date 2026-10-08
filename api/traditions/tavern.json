@@ -1,0 +1,66 @@
+{
+  "id": "tavern",
+  "name": "Tavern",
+  "family": "vernacular",
+  "lineage": "Tavern gathers convivial historical-folk listening and performance, bringing Celtic tune arrangements together with medieval and Renaissance-inspired music. Contemporary performers range from intimate solo instrumentalists to theatrical dance ensembles.",
+  "recipe": "classic tavern, improv On Frame, Celtic traditional branch. fingerpicked acoustic guitar. live tracking.",
+  "recipe_chars": 104,
+  "score": 3.425,
+  "config": {
+    "traditions": [
+      "tavern"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0.4095,
+          "acoustic_om_technique": 3.0500000000000007
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked"
+    },
+    "pin_parts": true
+  }
+}
