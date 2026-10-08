@@ -60,6 +60,9 @@
 //   engine preload stray key -> build_html.js --check (<head> reads a session key app.js does not)
 //   embedded engine table missing -> build_html.js --embedded --check (the reference page lacks a table)
 //   inlined engine reader -> check_lazy_app.js (an engine read in code inlined from scripts/ goes uncounted)
+//   sig unguarded       -> check_lazy_app.js (a tradition's signature reads as none before the instrument data)
+//   df unguarded        -> check_lazy_app.js (a descriptor sort caches frequencies before the instrument data)
+//   table read in first view -> check_lazy_app.js (the first view reads a render table)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -1328,6 +1331,64 @@ if (want('9zo', 'inlined-engine-reader')) {
     'inlined-engine-reader -> check_lazy_app.js',
     lazyGate(d, '--only=engine', '--checks=E6'),
     /engine E6: the direct reads of the engine tables changed: scripts\/_card_descriptors\.js@inline INSTRUMENTS in harvestDescriptors: 0 → 1/
+  );
+}
+
+// 10d–10f. THE RENDER TABLES. TRADITION_SIGNATURES and DESCRIPTOR_DF are
+//     read only through _traditionSignatureFor and _ensureDescriptorDF, and
+//     only from a card, so no first-view path reads either. Before the
+//     instrument data is in, each reader misses: a counted EngineNotReadyError,
+//     never an answer. (The lazy page still carries both tables here; the
+//     guards are what will let it leave them out.)
+
+// 10d. sig-unguarded -> check_lazy_app.js  (E11)
+//     Without its _engineLive test the reader answers before the instrument
+//     data is in, and an empty signature reads as "this tradition has none".
+if (want('10d', 'sig-unguarded')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    "  !_engineLive ? Engine.miss('TRADITION_SIGNATURES ' + tradId) : (tradId && TRADITION_SIGNATURES[tradId]) || [];",
+    '  (tradId && TRADITION_SIGNATURES[tradId]) || [];'
+  );
+  record(
+    'sig-unguarded -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E11'),
+    /engine E11: _traditionSignatureFor\('bluegrass'\) before the instrument data landed (?:answered|threw \w+); want EngineNotReadyError/
+  );
+}
+
+// 10e. df-unguarded -> check_lazy_app.js  (E11)
+//     Without its guard the reader fills its memo before the instrument data
+//     is in, and what it caches then is what every later sort orders by.
+if (want('10e', 'df-unguarded')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', "  if (!_engineLive) return Engine.miss('DESCRIPTOR_DF');\n", '');
+  record(
+    'df-unguarded -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E11'),
+    /engine E11: _DESCRIPTOR_DF was filled before the instrument data landed/
+  );
+}
+
+// 10f. table-read-in-first-view -> check_lazy_app.js  (E2)
+//     The genre picker's tree is drawn the moment the picker opens, which can
+//     be long before the instrument data is in. A signature read there misses,
+//     and E2's sweep, which opens the picker and expands the tree with the
+//     data held, counts it.
+if (want('10f', 'table-read-in-first-view')) {
+  const d = lazyEnv();
+  plantIn(
+    d,
+    'src/app.js',
+    '  const indent = depth * 16;\n\n  let html = `<div class="tree-node"',
+    '  const indent = depth * 16;\n  _traditionSignatureFor(node.id);\n\n  let html = `<div class="tree-node"'
+  );
+  record(
+    'table-read-in-first-view -> check_lazy_app.js',
+    lazyGate(d, '--only=engine', '--checks=E2'),
+    /engine E2: [^\n]*\b\d+ engine read\(s\)/
   );
 }
 

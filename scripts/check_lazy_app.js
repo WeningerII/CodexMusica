@@ -128,6 +128,12 @@
 //     both fingerprint as the embedded build's engine.
 //   • E10 — a copy of api/engine.json with CRLF line endings loads to the
 //     embedded build's engine.
+//   • E11 — the render tables (TRADITION_SIGNATURES, DESCRIPTOR_DF): while
+//     held, a tradition's signature and a descriptor sort each throw
+//     EngineNotReadyError and are counted (Engine.misses() rises by 2), an
+//     empty sort returns [] with no miss, and the frequencies' memo is still
+//     empty; once released, both tables and both calls are the embedded
+//     build's.
 //
 //   FAILURE PATHS (section `failure`; the lazy app fails honestly):
 //   • F1, the boot index unreachable → the boot-error state renders and is
@@ -329,7 +335,7 @@ const ENGINE_READERS = {
 };
 
 // The engine section's checks, by id (--checks).
-const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10'];
+const ENGINE_CHECKS = ['E0', 'E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7', 'E8', 'E9', 'E10', 'E11'];
 
 const ONLY = flagList('only') || SECTIONS;
 const PRINT_READERS = argv.includes('--print-readers');
@@ -784,6 +790,9 @@ const CAPTURE_PROBE = `
   return out;
 `;
 
+// FNV-1a over a string, in the page: a fingerprint without shipping the text.
+const FNV = `const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619) >>> 0; return h; };`;
+
 // The engine fingerprint both builds compute after the imports (parity):
 // FNV-1a per component, so a drift names the part of the engine that moved.
 // Variants are numbered by first sight, walking INSTRUMENTS' merged parts in
@@ -792,7 +801,7 @@ const CAPTURE_PROBE = `
 // distinct variant's JSON in that order. Sorting before the merge reorders
 // what the merge collects; a file that differs from references/ changes JSON.
 const ENGINE_FINGERPRINT = `
-  const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619) >>> 0; return h; };
+  ${FNV}
   const seen = new Map(), distinct = [];
   const vid = (v) => { if (!seen.has(v)) { seen.set(v, distinct.length); distinct.push(v); } return seen.get(v); };
   const instruments = INSTRUMENTS.map((inst) => {
@@ -1842,20 +1851,35 @@ const E5_STEP = `
 const E5_STATE = `const s = document.getElementById('instrument-search');
   return { body: document.getElementById('instrument-body').innerHTML, total: document.getElementById('ip-total').textContent, focused: document.activeElement === s, value: s.value };`;
 
+// E11: the two tables the recipe's render reads (a tradition's signature, and
+// the descriptor frequencies a sort orders by), each fingerprinted as sorted
+// entries, and one call through each table's direct reader. A signature that
+// is an empty list is left out: the one reader answers [] for it and for an
+// absent id alike.
+const E11_TOKENS = ['warm', 'bright'];
+const RENDER_TABLES = `
+  ${FNV}
+  const byKey = ([a], [b]) => (a < b ? -1 : a > b ? 1 : 0);
+  const sig = Object.entries(TRADITION_SIGNATURES).filter(([, v]) => v.length > 0).sort(byKey);
+  const df = Object.entries(DESCRIPTOR_DF).sort(byKey);
+  return { sig: [sig.length, fnv(JSON.stringify(sig))], df: [df.length, fnv(JSON.stringify(df))],
+    signature: _traditionSignatureFor('bluegrass'), sorted: _sortDescriptorsByPriority(${JSON.stringify(E11_TOKENS)}) };`;
+
 // The embedded page, every reference the selected checks use, in turn: the
-// merged engine's fingerprint (E9, E10), E1's instruments, E4's picker, E5's
-// search (then cleared), the inspector, then each card step (E3; E7 uses the
-// featured genre's).
+// merged engine's fingerprint (E9, E10), E11's render tables, E1's
+// instruments, E4's picker, E5's search (then cleared), the inspector, then
+// each card step (E3; E7 uses the featured genre's).
 const E7_STEP = E3_STEPS.find(([label]) => label === 'add an instrument to the featured genre');
 async function engineReference(embedHtml) {
   const need = (...ids) => ids.some((id) => ONLY_CHECKS.includes(id));
-  if (!need('E1', 'E3', 'E4', 'E5', 'E7', 'E9', 'E10')) return { e3: {} };
+  if (!need('E1', 'E3', 'E4', 'E5', 'E7', 'E9', 'E10', 'E11')) return { e3: {} };
   const dom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
   const probe = (body) => runProbe(dom, body, E_WAIT);
   try {
     const ref = { e3: {} };
     await probe(SETTLE);
     if (need('E9', 'E10')) ref.engine = await probe(ENGINE_FINGERPRINT);
+    if (need('E11')) ref.tables = await probe(RENDER_TABLES);
     if (need('E1'))
       ref.inst = await probe(
         'return Object.fromEntries(INSTRUMENTS.map((i) => { const x = Inst(i.id); return [i.id, [x.name, x.short == null ? null : x.short, x.family]]; }));'
@@ -2495,6 +2519,90 @@ async function engineCrlf(lazyHtml, refP) {
   }
 }
 
+// E11. The render tables: TRADITION_SIGNATURES and DESCRIPTOR_DF are read
+// only through _traditionSignatureFor and _ensureDescriptorDF, and only from a
+// card. Before the instrument data is in, each read misses — a counted
+// EngineNotReadyError, never an empty answer that would read as "none" — and
+// the frequencies' memo stays empty, so nothing wrong is cached for later. A
+// sort of nothing reads nothing. Once released, both tables and both readers
+// answer as the embedded build's.
+async function engineRenderTables(lazyHtml, refP) {
+  const tag = 'engine E11';
+  const L = heldLazy(lazyHtml);
+  try {
+    await runProbe(L.dom, SETTLE, E_WAIT, { prose: false });
+    const held = await runProbe(
+      L.dom,
+      `const threw = (f) => { try { f(); return null; } catch (e) { return { name: e.name, typed: e instanceof EngineNotReadyError }; } };
+      const before = Engine.misses();
+      const signature = threw(() => _traditionSignatureFor('bluegrass'));
+      const sorted = threw(() => _sortDescriptorsByPriority(${JSON.stringify(E11_TOKENS)}));
+      const mid = Engine.misses();
+      let empty;
+      try { empty = _sortDescriptorsByPriority([]); } catch (e) { empty = { threw: e.name }; }
+      return { before, mid, after: Engine.misses(), signature, sorted, empty, memo: _DESCRIPTOR_DF === null, ready: Engine.ready() };`,
+      E_WAIT,
+      { prose: false }
+    );
+    if (held.__err) return fail(`${tag}: probe crashed: ${held.__err}`);
+    if (held.ready) return fail(`${tag}: the engine was ready while held — vacuous`);
+    const want = (what, got) => {
+      if (!got || got.name !== 'EngineNotReadyError' || !got.typed)
+        fail(
+          `${tag}: ${what} before the instrument data landed ${got ? `threw ${got.name}` : 'answered'}; want EngineNotReadyError`
+        );
+    };
+    want(`_traditionSignatureFor('bluegrass')`, held.signature);
+    want(`_sortDescriptorsByPriority(${JSON.stringify(E11_TOKENS)})`, held.sorted);
+    if (held.mid - held.before !== 2)
+      fail(
+        `${tag}: Engine.misses() went ${held.before} → ${held.mid} over a signature and a sort before the instrument data landed; want a rise of 2`
+      );
+    if (!Array.isArray(held.empty) || held.empty.length)
+      fail(
+        `${tag}: _sortDescriptorsByPriority([]) before the instrument data landed gave ${JSON.stringify(held.empty)}; want [] with no read`
+      );
+    if (held.after !== held.mid)
+      fail(
+        `${tag}: _sortDescriptorsByPriority([]) was counted as a miss (${held.mid} → ${held.after}); a sort of nothing reads nothing`
+      );
+    if (!held.memo)
+      fail(
+        `${tag}: _DESCRIPTOR_DF was filled before the instrument data landed; the memo must stay empty until it can hold the real frequencies`
+      );
+    L.hold['api/engine.json'].release();
+    const r = await runProbe(
+      L.dom,
+      `const e = await Engine.ensure().then(() => null, (e) => e.message);
+      if (e) return { error: e, state: Engine.state() };
+      ${RENDER_TABLES}`,
+      E_WAIT,
+      { prose: false }
+    );
+    const ref = await refP;
+    if (r.__err || ref.__err) return fail(`${tag}: probe crashed: ${r.__err || ref.__err}`);
+    if (r.error) return fail(`${tag}: the engine did not load once released (${r.error})`);
+    const t = ref.tables;
+    if (!t.sig[0] || !t.df[0] || !t.signature.length || t.sorted.length !== E11_TOKENS.length)
+      return fail(
+        `${tag}: the embedded build's render tables are empty (${t.sig[0]} signatures, ${t.df[0]} frequencies, bluegrass's signature ${t.signature.length} long) — vacuous`
+      );
+    const off = ['sig', 'df', 'signature', 'sorted'].filter(
+      (k) => JSON.stringify(r[k]) !== JSON.stringify(t[k])
+    );
+    if (off.length)
+      fail(
+        `${tag}: once the instrument data landed the render tables differ from the embedded build's in: ${off.join(', ')}`
+      );
+    else if (held.mid - held.before === 2 && held.memo)
+      note(
+        `${tag}: each table's reader misses while held, counted; ${t.sig[0]} signatures and ${t.df[0]} frequencies equal the embedded build's after`
+      );
+  } finally {
+    L.dom.window.close();
+  }
+}
+
 // E2. A sweep: every distinct control on every route and in a genre's
 // detail, the header's add, saved, undo and redo, and the tree's expand,
 // find-similar, back and import, with the engine held throughout. The file import (a file picker) and the
@@ -2760,6 +2868,7 @@ async function engineSection(embedHtml, lazyHtml) {
     E8: [guard('E8', () => engineRecordBeside(lazyHtml))],
     E9: [true, false].map((planned) => guard('E9', () => engineMergePlan(lazyHtml, planned, refP))),
     E10: [guard('E10', () => engineCrlf(lazyHtml, refP))],
+    E11: [guard('E11', () => engineRenderTables(lazyHtml, refP))],
   };
   await Promise.all([
     refP,
@@ -3593,6 +3702,7 @@ async function engineRefused(lazyHtml, id) {
       E8: "E8 the genre's record beside the engine",
       E9: 'E9 the merge plan, used only by its own merge code',
       E10: 'E10 a CRLF copy',
+      E11: 'E11 the render tables miss while held, then match',
     };
     const checks = ENGINE_CHECKS.filter((id) => ONLY_CHECKS.includes(id));
     ran.push(
