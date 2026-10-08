@@ -466,8 +466,10 @@ def test_every_declared_source_reaches_a_row():
     # declarations over 1,430 -> 1,477 files. +47 files each carrying one
     # `# source:` id, and +5 declarations on the five existing files that
     # took appended hymns (Bonar, Faber, Cooper, Rankin, Root) -- 47 + 5 = 52.
-    check("2066 id-shaped `# source:` declarations are checked, over 1477 "
-          "files", total == 2066 and len(files) == 1477, (total, len(files)))
+    # 2026-10-08: 724 Library author files add one source declaration each;
+    # 2066/1477 -> 2790/2201. Existing file declarations are unchanged.
+    check("2790 id-shaped `# source:` declarations are checked, over 2201 "
+          "files", total == 2790 and len(files) == 2201, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second
@@ -1306,8 +1308,10 @@ def test_check_H_on_the_real_corpus():
     # Previous warning/note split 104/48; now measured 65/54.
     # REPINNED 2026-10-04: 65/54 -> 8/38 (M-25(a) took it to 8/35; the label
     # pass's eight new residue blocks put three more files in the NOTE half).
-    check("8 files carry raw apparatus-shaped blocks, 38 carry residue only",
-          (warn, note) == (8, 38), (warn, note))
+    # 2026-10-08: three Library files add real one-line stanzas; 8/38 -> 8/41.
+    # Printed chorus/speaker labels and ornaments are explicit apparatus.
+    check("8 files carry raw apparatus-shaped blocks, 41 carry residue only",
+          (warn, note) == (8, 41), (warn, note))
 
 
 # ---------------------------------------------------------------------------
@@ -1350,8 +1354,10 @@ def test_check_I_reads_the_indent_and_charges_nothing():
     # closing couplet); once the label and apparatus pass marked its indented
     # numerals (`IX`, `LXII`) as apparatus, its different-depth pairs fell
     # from 52 below `_INDENT_MIN_PAIRS` (40), so check I has no witness for it.
-    check("516 agree / 6 opposite / 22 inside the null",
-          summary and "AGREES 516 | runs OPPOSITE 6 | inside the null 22"
+    # 2026-10-08: seven Library files enter AGREES, 516 -> 523; existing
+    # classes and the six calibrated research populations remain unchanged.
+    check("523 agree / 6 opposite / 22 inside the null",
+          summary and "AGREES 523 | runs OPPOSITE 6 | inside the null 22"
           in summary[0].measured, summary and summary[0].measured[:70])
     check("the per-file notes are the two SMALL populations only, 28 of them",
           len(fs) - 1 == 28, len(fs) - 1)

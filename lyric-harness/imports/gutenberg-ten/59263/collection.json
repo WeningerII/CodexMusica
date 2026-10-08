@@ -1,0 +1,45 @@
+{
+  "gutenberg_id": "59263",
+  "title": "88 Favourite Carols and Hymns for Christmas",
+  "publication_year": null,
+  "edition": "Otley: William Walker and Sons. Supplied title page undated.",
+  "source_url": "https://www.gutenberg.org/files/59263/59263-h/59263-h.htm",
+  "source_sha256": "1d1c08efcfc68d5e0707ea07123a042d2cd4c4ebecc339412cc75d834c694052",
+  "source_entries": 88,
+  "counts": {
+    "eligible_before_deduplication": 84,
+    "original_language_unresolved": 1,
+    "translation": 3
+  },
+  "deduplication": "Pending integrator comparison across all ten collections and existing corpus; candidates preserve every numbered entry.",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/59263",
+      "excerpt": "Copyright: Public domain in the USA.",
+      "checked": "2026-10-08"
+    },
+    {
+      "url": "https://www.gutenberg.org/files/59263/59263-h/59263-h.htm",
+      "excerpt": "OTLEY: WILLIAM WALKER AND SONS.",
+      "note": "No publication year asserted. PG release date 2019 is not an edition date."
+    }
+  ],
+  "scope": "Complete numbered entries only. Front matter, indexes, license and editorial prose are not candidate works. No length cap or splitting of long works.",
+  "validation": {
+    "numbered_ids_contiguous": true,
+    "nonempty_text_all_entries": true,
+    "stanzas_preserved": true,
+    "adapter_rerun_byte_identical": true,
+    "no_gutenberg_boilerplate_in_eligible_text": true,
+    "chorus_labels_not_sung": true,
+    "chorus_fix_preserves_all_sung_lines": true
+  },
+  "retrieval_url": "https://raw.githubusercontent.com/GITenberg/88-Favourite-Carols-and-Hymns-for-Christmas_59263/master/59263-h/59263-h.htm",
+  "retrieval": "Exact PG59263 transcription mirrored by GITenberg, publication imprint cross-checked with live Gutenberg edition.",
+  "translation_policy": "Exclude both versions of Gerhardt translation (44,81), Latin Easter hymn translation (68); hold unattributed Moravian text 18 pending original-language evidence. Printed anonymous credits retained unless recognizable authorship identified.",
+  "extraction": {
+    "chorus_labels": "Printed Chorus/Cho labels become chorus section metadata; labels are not sung. Abbreviated repeat wording remains as printed, without expansion.",
+    "chorus_label_count": 16,
+    "affected_entry_ids": ["5", "6", "9", "13", "16", "17", "21", "24", "29", "37", "39"]
+  }
+}

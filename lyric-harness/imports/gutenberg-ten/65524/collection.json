@@ -1,0 +1,47 @@
+{
+  "gutenberg_id": "65524",
+  "title": "Modern Street Ballads",
+  "editor": "John Ashton",
+  "publication_year": 1888,
+  "edition": "London: Chatto & Windus, Piccadilly, 1888.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/65524",
+  "source_url": "https://www.gutenberg.org/files/65524/65524-h/65524-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/Modern-Street-Ballads_65524/67a9aae327bca57eb4ffe796aec88c70e94c2c31/65524-h/65524-h.htm",
+  "mirror_commit": "67a9aae327bca57eb4ffe796aec88c70e94c2c31",
+  "source_sha256": "ee45d0bc964e011af2d55572eab4de223215568f5ad07c90eb7ef5ca49a8c7fc",
+  "source_bytes": 688395,
+  "retrieved_on": "2026-10-08",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/65524/65524-h/65524-h.htm",
+    "excerpt": "London / CHATTO & WINDUS PICCADILLY / 1888 / [The right of translation is reserved]"
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/65524",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "English lyric text in the exact supplied historical printing; Gutenberg metadata checked 2026-10-08. This record does not claim worldwide public-domain status.",
+    "publication_year_used": 1888
+  },
+  "counts": {
+    "contents_entries": 138,
+    "supplemental_titled_entries": 1,
+    "candidate_units": 139,
+    "eligible_before_deduplication": 138,
+    "excluded_before_deduplication": 1
+  },
+  "deduplication": "Deferred to common integration across these ten collections and the existing corpus; eligibility counts are not import counts.",
+  "notes": [
+    "All 138 contents entries accounted for. The separately headed John Hobbs at page4 is one additional complete unindexed ballad; its indexed flag is false. It is a source-authored title, not an artificial split.",
+    "The Chronicles of the Pope is excluded as a 46-paragraph prose political parody.",
+    "Only song stanza markup is extracted. Editorial prose, editorial verse quotations, page numbers, illustrations, and footnotes are not lyric text.",
+    "Sale of a Wife preserves the complete supplied 46 verse lines and the source's terminal six-asterisk omission marker; no missing verses are invented. This is explicitly a source witness with a printed omission, not a claim to a longer broadside's completeness.",
+    "The title-page reservation of translation rights is a historical publisher notice, not evidence that the lyrics are translated. Collection and per-entry notes were screened for translation attribution.",
+    "Printed chorus/refrain headings are structural [CHORUS]/[REFRAIN] markers. Omission marks and performance instructions use # APPARATUS comments; they remain auditable but are excluded from sung verse line counts. Spoken labels are apparatus; the source speech words remain intact."
+  ],
+  "validation": {
+    "contents_coverage": "asserted by adapter",
+    "source_pin": "Pinned mirror bytes compared byte-for-byte against initially retrieved source",
+    "stanza_boundaries": "HTML br line endings and source stanza/paragraph blocks preserved",
+    "structural_labels": "Six offline boundary tests across these two collections pass, including unsung omission/performance labels."
+  }
+}

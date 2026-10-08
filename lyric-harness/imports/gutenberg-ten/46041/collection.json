@@ -1,0 +1,33 @@
+{
+  "id": "46041",
+  "title": "The Christian Hymn Book",
+  "source_url": "https://www.gutenberg.org/ebooks/46041",
+  "raw_url": "https://raw.githubusercontent.com/GITenberg/The-Christian-Hymn-Bookand-Selected-by-A.-Campbell-and-Others_46041/master/46041-h/46041-h.htm",
+  "source_sha256": "1ecabd27aa8411c526df28d1d27f0181ba6871b13a99cf4637f80aaa7e6f99c7",
+  "source_md5": "f19dd3d90e71da4de3d526ae8c8bd7d8",
+  "source_bytes": 2103612,
+  "edition": "Revised and enlarged by a committee. Cincinnati: H. S. Bosworth, Publisher, 1870. Copyright entry 1865 is not the supplied edition publication year.",
+  "publication_year": 1870,
+  "jurisdiction": "USA",
+  "rights_evidence": [
+    {
+      "url": "https://www.gutenberg.org/ebooks/46041",
+      "excerpt": "Public domain in the USA."
+    },
+    {
+      "url": "https://www.gutenberg.org/cache/epub/46041/pg46041-images.html",
+      "excerpt": "CINCINNATI: H. S. BOSWORTH, PUBLISHER. 1870.",
+      "note": "Title-page imprint verified against the mirror bytes and authoritative PG transcription; title and compiler agree."
+    }
+  ],
+  "counts": {
+    "source_entries": 1324,
+    "eligible_before_deduplication": 1282,
+    "translation_exclusions": 42,
+    "other_exclusions": 0
+  },
+  "eligibility_basis": "Every entry is independently marked and numbered as a hymn. All complete printed hymns retained, maximum 347 words; no arbitrary length cap applied. No front matter, thematic headings, index, footnotes, scripture cross-references or stanza numbers enter lyrics. Printed chorus transitions represented as separate sections. English verse paraphrases of scripture treated as original English compositions; literary translations excluded.",
+  "translation_screen": "Manual review of all 1324 first lines and printed attributions; explicit foreign-language/source credits, identifiable translated texts including English-translator credits, and targeted Hymnary/Canterbury/CCEL authority checks. Printed author credits are preserved, including Anonymous and occasional historical misattributions. This is a documented screening process, not a claim that the anthology supplies original-language histories for every anonymous hymn. Cross-collection QA against PG20476, PG76498 and PG59263 translated entries identified additional anonymous Te Deum and Franck/Winkworth selections (217,539).",
+  "extraction": "Python standard-library HTML parser; source div.hymn and div.verse boundaries; p lyric lines; strip span.vn and span.scripRef only; decode entities; normalize whitespace within a printed line; split at printed CHORUS labels preserving section type; no spelling modernization or new verses.",
+  "source_access": "Authoritative Project Gutenberg HTTP shell download unavailable (proxy CONNECT 403); established GITenberg mirror obtained over raw.githubusercontent.com, with exact edition title-page verified."
+}
