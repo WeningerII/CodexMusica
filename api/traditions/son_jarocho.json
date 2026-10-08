@@ -3,9 +3,9 @@
   "name": "Son jarocho",
   "family": "global",
   "lineage": "Mexican Veracruz-Gulf-Coast Afro-Mestizo-Indigenous son tradition with characteristic jarana five-double-course strum-guitar, requinto-jarocho four-string lead-melody-guitar, harp, quijada-de-burro donkey-jawbone scraper, and zapateado wooden-platform dance-percussion. Originated late-17th-century in the Sotavento lowlands south of Veracruz-Port out of Afro-Cuban habanera, Spanish-baroque fandango, and Indigenous-Totonac musical-fusion. The canonical La Bamba is the most internationally recognized son jarocho son, but the tradition spans 80+ son sones with characteristic 6/8-against-2/4 sesquialteral hemiola, call-and-response sung verses (often improvised, decimas Spanish-poetic-form), and circular fandango community-dance-and-music-making fiesta-context. The 1970s-1980s son-jarocho-revival reconnected urban Mexico City to rural Sotavento source-communities.",
-  "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song son de artesa banda sinaloense. extended whistle, breath veiled tone, straight note core, interlocked note trading. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 673,
-  "score": 289.577,
+  "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song son de artesa banda sinaloense. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. diatonic only son jarocho tradition cedrillo canonical veracruz bass and harmony arpa cedrillo canonical veracruz strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 663,
+  "score": 137.645,
   "config": {
     "traditions": [
       "son_jarocho",
@@ -16,40 +16,42 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 0.52,
-          "voice_quality": 14.884999999999994,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.5399999999999999,
-          "voice_articulation": 18.069999999999997,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 11.144999999999996,
-          "voice_mechanism_compound": 6.369999999999999,
-          "voice_estill_quality": 5.525,
-          "voice_speech_song": 22.099999999999994,
-          "voice_ensemble_config": 18.394999999999996,
-          "voice_ornament_system": 1.4625,
-          "voice_pitch_organization": 3.2500000000000004,
-          "voice_processing_chain": 8.33,
-          "voice_multitrack_stack": 5.330000000000001
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.17,
+          "voice_ensemble_config": 4.419999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.195,
+          "voice_processing_chain": 0.585,
+          "voice_multitrack_stack": 2.535,
+          "voice_tessitura": 0
         }
       },
       {
@@ -57,13 +59,13 @@
         "slots": {
           "arpa_jarocha_strings": "arpa_jarocha_36",
           "arpa_jarocha_body_wood": "arpa_jarocha_cedrillo",
-          "arpa_jarocha_string_material": "arpa_jarocha_gut_historical",
+          "arpa_jarocha_string_material": "arpa_jarocha_nylon_modern",
           "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
         },
         "scores": {
           "arpa_jarocha_strings": 18.284999999999997,
           "arpa_jarocha_body_wood": 6.034999999999999,
-          "arpa_jarocha_string_material": 10.989999999999998,
+          "arpa_jarocha_string_material": -1.305,
           "arpa_jarocha_role": 37.18
         }
       },
@@ -73,15 +75,15 @@
           "plucked_traditional_technique": "plucked_folk_strummed",
           "jarana_size": "jarana_segunda",
           "jarana_jarocha_context": "jarana_jarocha_fandango",
-          "jarana_jarocha_body_wood": "jarana_palo_escrito",
-          "jarana_jarocha_strings": "jarana_gut_historical"
+          "jarana_jarocha_body_wood": "jarana_cedrillo",
+          "jarana_jarocha_strings": "jarana_nylon_modern"
         },
         "scores": {
           "plucked_traditional_technique": 3.965,
           "jarana_size": 12.344999999999999,
           "jarana_jarocha_context": 3.799999999999999,
-          "jarana_jarocha_body_wood": 7.215,
-          "jarana_jarocha_strings": 12.489999999999998
+          "jarana_jarocha_body_wood": 6.034999999999999,
+          "jarana_jarocha_strings": 0.1949999999999999
         }
       },
       {
@@ -91,14 +93,14 @@
           "requinto_jarocho_pluck": "requinto_jarocho_horn",
           "requinto_jarocho_tuning": "requinto_jarocho_high",
           "requinto_jarocho_body_wood": "requinto_cedrillo",
-          "requinto_jarocho_strings": "requinto_gut_historical"
+          "requinto_jarocho_strings": "requinto_nylon_modern"
         },
         "scores": {
           "plucked_traditional_technique": 3.965,
           "requinto_jarocho_pluck": 12.944999999999999,
           "requinto_jarocho_tuning": 3.445,
           "requinto_jarocho_body_wood": 6.034999999999999,
-          "requinto_jarocho_strings": -0.035
+          "requinto_jarocho_strings": -1.305
         }
       },
       {
@@ -119,6 +121,45 @@
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "arpa_jarocha": [
+        "arpa_jarocha_strings",
+        "arpa_jarocha_body_wood",
+        "arpa_jarocha_string_material",
+        "arpa_jarocha_role"
+      ],
+      "jarana_jarocha": [
+        "jarana_size",
+        "jarana_jarocha_context",
+        "jarana_jarocha_body_wood",
+        "jarana_jarocha_strings"
+      ],
+      "requinto_jarocho": [
+        "requinto_jarocho_pluck",
+        "requinto_jarocho_tuning",
+        "requinto_jarocho_body_wood",
+        "requinto_jarocho_strings"
+      ]
+    },
     "room": "plaza_garibaldi_outdoor_mariachi",
     "archetype": "arch_churubusco_ranchera_bolero",
     "inline_chain": {
@@ -139,20 +180,19 @@
     "tuning": "mariachi_son_6_8_3_4",
     "room": "plaza_garibaldi_outdoor_mariachi",
     "parts": {
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
+      "voice_tradition": "voice_tradition_source_unspecified",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "slow_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "plucked_traditional_technique": "plucked_tremolo",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "requinto_jarocho_pluck": "requinto_jarocho_horn",
       "requinto_jarocho_tuning": "requinto_jarocho_high",
       "requinto_jarocho_body_wood": "requinto_cedrillo",
@@ -164,8 +204,13 @@
       "arpa_jarocha_strings": "arpa_jarocha_36",
       "arpa_jarocha_body_wood": "arpa_jarocha_cedrillo",
       "arpa_jarocha_string_material": "arpa_jarocha_nylon_modern",
-      "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
+      "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
+    "pin_parts": true,
     "chain_mic": "mic_u47_tube_neumann",
     "chain_pre": "pre_tube_german_v72",
     "chain_comp": "comp_vari_mu",

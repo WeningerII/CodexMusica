@@ -5,7 +5,7 @@
   "lineage": "Malaysian Tamil pop connects locally produced Tamil songs, independent singles and film music. Singers and producers combine melodic hooks with contemporary production and folk-derived expression, circulating through Malaysian studios, screen productions and online releases.",
   "recipe": "classic malaysian tamil pop, functional Song. human voice ensemble unspecified, vocal percussion voice. treated studio.",
   "recipe_chars": 119,
-  "score": 0.78,
+  "score": 0.823,
   "config": {
     "traditions": [
       "malaysian_tamil_pop"
@@ -62,7 +62,7 @@
         },
         "scores": {
           "vocal_percussion_airstream_mechanism": 0,
-          "vocal_percussion_beatbox_articulation": 0,
+          "vocal_percussion_beatbox_articulation": 0.042749999999999996,
           "vocal_percussion_syllabic_drum_system": 0,
           "vocal_percussion_context": 0.78
         }

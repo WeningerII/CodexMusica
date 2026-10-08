@@ -3,65 +3,67 @@
   "name": "Bajan Soca",
   "family": "global",
   "lineage": "Barbadian soca style shaped around the Crop Over festival since the 1980s and codified by Square One, Krosfyah and later producers such as Nicholas Brancker and Stiffy's circle, mixing 130-155 BPM soca grooves with the local 'ragga soca' and bashment-soca accents, live or sampled horn sections, tuk-band snare-and-bass-drum inflections, and melodic sung hooks alongside chanted crowd calls.",
-  "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system cumbia argentina panamanian pop. thick, breath veiled tone, straight note core, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, la bella flats Detroit soul bass canon thumb muted electric bass, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 827,
-  "score": 204.77,
+  "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system raggamuffin kaneka. raised subglottal pressure, one note per syllable, group vocals, live take. brushes-and-sticks drum kit, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, one man band yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 781,
+  "score": 100.717,
   "config": {
     "traditions": [
       "bajan_soca",
-      "cumbia_argentina",
-      "panamanian_pop"
+      "raggamuffin",
+      "kaneka"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 3.490000000000002,
-          "voice_quality": 11.569999999999993,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 2.555,
-          "voice_articulation": 18.589999999999996,
-          "voice_microtone": 19.499999999999993,
-          "voice_tradition": 4.030000000000001,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 3.9325000000000006,
-          "voice_speech_song": 26.259999999999998,
-          "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 0.825,
-          "voice_pitch_organization": 0.5199999999999999,
-          "voice_processing_chain": 5.664999999999999,
-          "voice_multitrack_stack": 8.049999999999999
+          "voice_effort": 0.5,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.195,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.17,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.45499999999999996,
+          "voice_multitrack_stack": 1.69,
+          "voice_tessitura": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.459999999999997,
-          "drumhead": 2.325,
+          "drum_technique": 17.159999999999993,
+          "drumhead": 1.95,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -69,22 +71,22 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.99,
-          "body_wood": 0.195,
-          "pickup_config": 0.345,
-          "string_type": 3.5750000000000006,
-          "scale_length_b": 0.345,
+          "amp_make": 6.574999999999999,
+          "body_wood": 2.145,
+          "pickup_config": 0.545,
+          "string_type": 8.865,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0,
-          "bass_technique": 3.7,
+          "bass_technique": 7.824999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -94,13 +96,13 @@
           "electronic_technique": "electronic_lead_line",
           "rompler_preset_bank": "rompler_preset_piano_orchestral",
           "rompler_context": "rompler_context_arranger_party",
-          "rompler_lineage": "rompler_korg_pa_arranger"
+          "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
-          "electronic_technique": 3,
-          "rompler_preset_bank": 4.2299999999999995,
-          "rompler_context": 5.09,
-          "rompler_lineage": 1
+          "electronic_technique": 0.4225,
+          "rompler_preset_bank": 2.88,
+          "rompler_context": 5.239999999999999,
+          "rompler_lineage": 2.08
         }
       },
       {
@@ -115,13 +117,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 1.8849999999999998,
-          "sax_size": 0.195,
+          "wind_articulation": 2.2350000000000003,
+          "sax_size": 1.4949999999999999,
           "sax_reed": 0.435,
-          "sax_body_alloy": 0.78,
+          "sax_body_alloy": 0.585,
           "sax_mouthpiece": 0.78,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.345
+          "sax_maker_school": 0.845
         }
       },
       {
@@ -132,16 +134,16 @@
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.8849999999999998,
+          "wind_articulation": 2.2350000000000003,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 5.234999999999999,
+          "trumpet_mouthpiece": 5.385,
           "brass_mute": 0.15,
-          "trumpet_technique": 1.8849999999999998,
-          "trumpet_bell_metal": 0.845,
+          "trumpet_technique": 2.2350000000000003,
+          "trumpet_bell_metal": 0.7349999999999999,
           "trumpet_maker_school": 0.7799999999999998
         }
       },
@@ -159,15 +161,39 @@
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_jingle": 0,
           "tambourine_orch_context": 0.12999999999999998
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "rompler_workstation": [
+        "electronic_technique"
+      ]
+    },
     "room": "port_of_spain_community_studio",
     "archetype": "arch_trinidad_carnival_soca",
     "inline_chain": {
@@ -187,6 +213,27 @@
   "source": {
     "tuning": "trinidad_calypso_soca_2_4",
     "room": "port_of_spain_community_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "staccato_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_plate_reverb_medium",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_technique": "electronic_lead_line"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_smart_c1_bus",

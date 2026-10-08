@@ -5,7 +5,7 @@
   "lineage": "The wind bands of Malta's band clubs (każini tal-banda), founded in parish after parish from the mid-nineteenth century, are the musical heart of the village festa: on the feast days they march through the streets playing lively marches (marċi brijużi) by local bandmasters, give open-air programmes and accompany the procession of the patron saint's statue, while funeral marches serve the Good Friday processions. Rival clubs within the same town regularly commission new marches, and the repertoire is widely recorded. The sousaphone card stands in for the bands' tuba-type basses.",
   "recipe": "classic modern marċ brijuż, carnival Processional, European branch. clarinet, saxophone, trumpet, trombone, baritone horn bb, oompah march marching sousaphone, snare bass drum. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 256,
-  "score": 6.553,
+  "score": 6.658,
   "config": {
     "traditions": [
       "marc_brijuz_malta"
@@ -25,7 +25,7 @@
           "clarinet_body": -0.10500000000000001,
           "clarinet_size": 0.0315,
           "clarinet_reed": 0.08099999999999999,
-          "clarinet_articulation": 0.105
+          "clarinet_articulation": 0.1785
         }
       },
       {
@@ -128,7 +128,7 @@
         },
         "scores": {
           "bass_drum_size": 0.0315,
-          "bass_drum_beater": 0
+          "bass_drum_beater": 0.0315
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "The Lambeg, named after a village near Lisburn, is a very large double-headed drum, roughly three feet across, carried on a harness and beaten on both goatskin heads with two curved canes, often with a fife playing the tune. It belongs to the Orange marching tradition of counties Antrim, Armagh, Down and Tyrone and to competitive drumming matches between drummers. Gary Hastings documented the drumming and its fife tunes in his book With Fife and Drum.",
   "recipe": "classic modern lambeg drumming, carnival Processional, European branch. traditional goatskin heads rope tensioned lambeg drum, unison doubled fife. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 227,
-  "score": 13.109,
+  "score": 13.078,
   "config": {
     "traditions": [
       "lambeg_drumming"
@@ -36,7 +36,7 @@
           "fife_tradition": 2.96,
           "fife_build": 0.2,
           "fife_pitch": 2.7815,
-          "fife_role": 2.9330000000000003
+          "fife_role": 2.9015
         }
       }
     ],

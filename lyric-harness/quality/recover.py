@@ -344,8 +344,13 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
         _req = {(x, y) for x in _ends for y in _ends if x < y}
         from lyric_harness import admit_is_default as _AIDv
         if _req and _AIDv(decl):
+            # BOUND AT THE END WORDS (`MISSING.md` M-317): a line-end edge is
+            # a default group's question, and `grade()` judges that group at
+            # the two words it binds -- a relation elsewhere in the lines
+            # does not answer it.
             _schemas_by_lines = dict(_RLv.whole_vocabulary_pairs(
-                lines, _RPv(), requested_pairs=_req))
+                lines, _RPv(), requested_pairs=_req,
+                bound={p_: (-1, -1) for p_ in _req}))
     except Exception:
         _schemas_by_lines = {}
     edges = []

@@ -5,7 +5,7 @@
   "lineage": "Chinese R&B is used here as a Chinese-language music category, not a nationality test. David Tao’s Taiwan/Los Angeles practice demonstrates R&B songcraft and self-production. This default deliberately selects the documented all-vocal Spring Wind arrangement: layered self-sung harmony with a foreground melody. It is one clearly evidenced branch rather than a claim that Chinese R&B is usually a cappella or exclusively Mandarin.",
   "recipe": "classic modern chinese r&b, functional Song, soul R&B branch. equal tempered, one note per syllable, all voices same rhythm, lead plus third fifth harmony stack 3 part. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 372,
-  "score": 8.87,
+  "score": 9.103,
   "config": {
     "traditions": [
       "chinese_r_and_b"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.4575,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 1.4299999999999997,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,

@@ -5,7 +5,7 @@
   "lineage": "Street carnival of the port of Dunkirk in French Flanders, traditionally traced to the feasts given to fishermen before they sailed for the Icelandic cod fishery. Each bande marches behind a band of fifes, drums and brass, the musique, led by a tambour-major (the piccolo card stands in for the fifes and the generic horns card for the brass), while masked and costumed carnavaleux sing carnival songs in French and Flemish dialect, press together in the chahut and end the day at the Place Jean-Bart singing the Cantate à Jean Bart on their knees; OPCI-Ethnodoc catalogues recordings of the songs.",
   "recipe": "classic modern carnaval de dunkerque, carnival Processional, European branch. piccolo, snare bass drum, credited horns unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 0.635,
+  "score": 0.666,
   "config": {
     "traditions": [
       "carnaval_de_dunkerque"
@@ -91,7 +91,7 @@
         },
         "scores": {
           "bass_drum_size": 0,
-          "bass_drum_beater": 0
+          "bass_drum_beater": 0.0315
         }
       }
     ],

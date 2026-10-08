@@ -2158,10 +2158,10 @@ def check_indent(files, src):
     """I · the printed indent against the measured rhyme partition.
 
     THREE COUNTS, NEVER SUMMED, and the reason the two SMALL ones get the
-    per-file notes is proportion rather than significance. 517 English files
-    of 545 have an indent that agrees with their rhyme partition, which is
-    the corpus-wide result and is reported ONCE -- 517 notes each saying "as
-    expected" would bury the 28 that do not, and the population is not
+    per-file notes is proportion rather than significance. 516 English files
+    of 544 (517 of 545 before 2026-10-04) have an indent that agrees with
+    their rhyme partition, which is the corpus-wide result and is reported
+    ONCE -- 516 notes each saying "as expected" would bury the 28 that do not, and the population is not
     silent because the summary counts it (doctrine 20/79).
     """
     out = []
@@ -3250,7 +3250,21 @@ def main(argv=None):
 #: (spaced/attached 44/71 -> 43/39) and `eng_celtic_msm_robert_lochore.txt`
 #: (42/52 -> 40/29). Those two notes are the whole delta; every other finding
 #: is identical line for line against an `origin/main` run of the same day.
-PINNED_SHAPE = {"files": 1430, "FAIL": 0, "WARN": 95, "NOTE": 1195}
+#: REPINNED 2026-10-04 (the Otterbein refrain hymns, M-25(a) and the label and
+#: apparatus pass, one loading batch): files ~~1430~~ -> 1477, WARN ~~95~~ ->
+#: 38, NOTE ~~1195~~ -> 1214, FAIL 0. Files +47, the new `eng_hymn_*` files.
+#: WARN -57 and NOTE -16 are all check H (65/54 -> 8/38 files). ~~the one-line
+#: `[VERSE]` blocks the two passes marked as apparatus~~ CORRECTED 2026-10-05:
+#: M-25(a) alone marked one-line blocks (65/54 -> 8/35, NOTE -19); the label
+#: and apparatus pass then CREATED 8 residue one-line blocks, putting 3 more
+#: files in the NOTE half (35 -> 38). NOTE +36 is check G,
+#: one elision-orthography note on each of 36 new hymn files. NOTE -1 is
+#: check E, the Watts title echo whose echoing line ~~M-25(a) marked as an
+#: embedded title~~ the label and apparatus pass marked (a two-line block;
+#: its receipt classes the line an editorial note). 1195 + 36 - 16 - 1 = 1214.
+#: ~~Nothing else moved.~~ No other finding COUNT moved; several measurements
+#: did (`quality/RESULTS_CORPUS_AUDIT.md`, the 2026-10-04 result).
+PINNED_SHAPE = {"files": 1477, "FAIL": 0, "WARN": 38, "NOTE": 1214}
 
 
 def _verify_shape(files, findings):

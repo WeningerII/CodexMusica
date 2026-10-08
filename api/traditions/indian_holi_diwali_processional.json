@@ -5,7 +5,7 @@
   "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
   "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional mappila paattu indian sangeet. thick, declaimed, straight onset, interlocked note trading. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, ringing pitched indian rosewood rosewood tabla, dhol. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 617,
-  "score": 264.587,
+  "score": 264.887,
   "config": {
     "traditions": [
       "indian_holi_diwali_processional",
@@ -79,7 +79,7 @@
         "scores": {
           "shehnai_register": 8.45,
           "shehnai_use": 12.934999999999999,
-          "shehnai_body_wood": 12.384999999999998,
+          "shehnai_body_wood": 12.61,
           "shehnai_reed": 0.345,
           "shehnai_lineage": 0.89625
         }
@@ -92,7 +92,7 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 12.359999999999998,
+          "tabla_dayan": 12.584999999999997,
           "tabla_bayan": 0.78,
           "tabla_syahi": 1.6899999999999997
         }
@@ -106,7 +106,7 @@
         },
         "scores": {
           "dhol_form": 21.06,
-          "dhol_repertoire": 17.069999999999997,
+          "dhol_repertoire": 16.919999999999998,
           "dhol_shell": 2.4050000000000002
         }
       }

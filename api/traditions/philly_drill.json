@@ -55,10 +55,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
         }
       },
       {
@@ -105,7 +107,8 @@
         "voice_tessitura"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ],
       "produced_808_bass": [
         "produced_808_bass_identity",
@@ -154,7 +157,8 @@
       "produced_808_bass_decay": "produced_808_bass_long_decay",
       "produced_808_bass_processing": "produced_808_bass_unclipped",
       "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified",
-      "software_sample_playback_identity": "software_sample_playback_digital"
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

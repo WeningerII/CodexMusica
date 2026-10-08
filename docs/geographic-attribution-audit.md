@@ -459,7 +459,9 @@ The owner chose to merge the duplicates and keep every retired id as an alias.
 - 316 "same" merges: one tradition under two names;
 - 333 "slice" merges: an era, market or mood slice with no documented difference.
 
-The catalog went from 8362 to 7713 traditions. <!-- check_docs:ignore -->
+The catalog went from 8362 to 7713 traditions. Merged with `main`'s 43 reviewed genres, <!-- check_docs:ignore -->
+it is 7755: one of them, `pop_minang`, was also a gap-fill entry, and the gap-fill <!-- check_docs:ignore -->
+record was kept.
 
 **What was held back.** The duplicate map was applied with two exceptions, both
 decisions the repository had already recorded:

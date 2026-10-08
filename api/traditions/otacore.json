@@ -72,10 +72,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
         }
       },
       {
@@ -133,7 +135,8 @@
         "fm_model_lineage"
       ],
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ],
       "vocoder": [
         "voc_band_count",
@@ -191,7 +194,8 @@
       "software_sample_playback_identity": "software_sample_playback_digital",
       "voc_band_count": "voc_many_bands",
       "voc_carrier": "voc_saw_carrier",
-      "voc_modulator": "voc_voice_mod"
+      "voc_modulator": "voc_voice_mod",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

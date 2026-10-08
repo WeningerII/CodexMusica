@@ -5,7 +5,7 @@
   "lineage": "Buddhist ritual wind-ensemble music of Beijing's Ming-dynasty Zhihua Temple, transmitted by monk-musicians in a lineage traced to the temple's founding and listed as national intangible heritage in 2006. Guanzi lead, with sheng, dizi and yunluo gong-chimes over drum and cymbals, playing suites from gongche-notated scores (the acoustic drum card stands in for the temple drum).",
   "recipe": "classic mid-2000s zhihua temple jingyin, ritual Devotional, buddhist branch. guanzi, bamboo pipes copper brass free reeds canonical Chinese sheng, dizi, yunluo, membrane drum pulse resonant acoustic membrane drum, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 300,
-  "score": 11.723,
+  "score": 10.967,
   "config": {
     "traditions": [
       "zhihua_jingyin"
@@ -19,9 +19,9 @@
           "guanzi_style": "guanzi_beijing"
         },
         "scores": {
-          "guanzi_size": 0.3315,
+          "guanzi_size": 0.3,
           "guanzi_body": 0.1365,
-          "guanzi_style": 0.3315
+          "guanzi_style": 0.3
         }
       },
       {
@@ -35,8 +35,8 @@
         "scores": {
           "free_reed_technique": -0.10500000000000001,
           "sheng_size": 0.105,
-          "sheng_context": 0.45149999999999996,
-          "sheng_pipe_material": 1.3335
+          "sheng_context": 0.5565,
+          "sheng_pipe_material": 1.1235
         }
       },
       {
@@ -50,10 +50,10 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "dizi_membrane": 0.0315,
+          "dizi_membrane": 0,
           "dizi_pitch": 0.0315,
-          "dizi_body_material": 0.21,
-          "dizi_regional_style": 0.105
+          "dizi_body_material": 0,
+          "dizi_regional_style": 0
         }
       },
       {
@@ -74,8 +74,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.8775,
-          "acoustic_membrane_drum_gesture": 4.1505
+          "acoustic_membrane_drum_form": 3.7409999999999997,
+          "acoustic_membrane_drum_gesture": 4.013999999999999
         }
       },
       {
@@ -86,7 +86,7 @@
         },
         "scores": {
           "naobo_type": 0.44099999999999995,
-          "naobo_stroke": 0.3
+          "naobo_stroke": 0.3315
         }
       }
     ],

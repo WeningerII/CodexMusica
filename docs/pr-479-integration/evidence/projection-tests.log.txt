@@ -1,0 +1,10 @@
+test_trial_obligation_projection_preserves_asked_answers (quality.test_production_revision.ProductionRevisionTests.test_trial_obligation_projection_preserves_asked_answers) ... ok
+test_projected_offer_equals_original_first_pass (quality.test_production_revision.ProductionRevisionTests.test_projected_offer_equals_original_first_pass) ... ok
+test_partial_offer_can_leave_an_existing_failure_open (quality.test_production_revision.ProductionRevisionTests.test_partial_offer_can_leave_an_existing_failure_open) ... ok
+test_per_slot_offer_preserves_existing_other_slot_failures (quality.test_production_revision.ProductionRevisionTests.test_per_slot_offer_preserves_existing_other_slot_failures) ... ok
+test_requested_first_offer_matches_complete_grade_oracle (quality.test_production_revision.ProductionRevisionTests.test_requested_first_offer_matches_complete_grade_oracle) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.524s
+
+OK

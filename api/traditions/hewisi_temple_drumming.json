@@ -5,7 +5,7 @@
   "lineage": "Ceremonial drum offering (hewisi pooja) of Sinhala Buddhist temples, best known from the daily services at the Temple of the Tooth (Dalada Maligawa) in Kandy and from perahera processions. The ensemble joins the davula barrel drum, the tammattama pair of stick-struck drums and the horanewa double-reed oboe; a generic membrane-drum card stands in for the davula, the nagara card for the tammattama and the Nepali sahnai card for the horanewa.",
   "recipe": "classic modern hewisi, ritual Devotional, buddhist branch. sahnai, membrane drum pulse resonant acoustic membrane drum, nagara indian. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 12.429,
+  "score": 11.736,
   "config": {
     "traditions": [
       "hewisi_temple_drumming"
@@ -29,8 +29,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 6.387499999999999,
-          "acoustic_membrane_drum_gesture": 5.6605
+          "acoustic_membrane_drum_form": 6.0409999999999995,
+          "acoustic_membrane_drum_gesture": 5.314
         }
       },
       {

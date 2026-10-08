@@ -1,7 +1,9 @@
 name: Qualification backstop
 
-# ONE JOB, ONE QUESTION: did a Production qualification start tonight? If none
-# did, this dispatches one. That is the whole workflow.
+# The scheduled/manual job asks whether Production qualification started
+# tonight. The CI-completion job dispatches it for a successful trusted current
+# main push. Neither checks out repository code or changes release acceptance.
+# The historical timing and stand-down rules below describe the nightly job.
 #
 # WHY IT EXISTS, and it is not a hypothetical. On 2026-09-17 the 01:23 UTC
 # schedule in `production-qualification.yml` DID NOT FIRE. Checked on main at
@@ -75,6 +77,10 @@ name: Qualification backstop
 # shape `sync-pages.yml` documents at length has no surface here at all.
 
 on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
     inputs:
       lookback_hours:
@@ -93,7 +99,89 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # The release verifier still accepts only workflow_dispatch/schedule
+  # qualification evidence. This no-checkout job produces a dispatch after a
+  # successful trusted main push; it does not substitute CI for qualification.
+  dispatch-after-ci:
+    if: >-
+      ${{ github.event_name == 'workflow_run' &&
+          github.event.workflow_run.name == 'CI' &&
+          github.event.workflow_run.event == 'push' &&
+          github.event.workflow_run.head_branch == 'main' &&
+          github.event.workflow_run.head_repository.full_name == github.repository &&
+          github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch qualification for the exact trusted CI head
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const source = context.payload.workflow_run;
+            const { owner, repo } = context.repo;
+            const repository = `${owner}/${repo}`;
+            if (context.eventName !== 'workflow_run' || source?.name !== 'CI' ||
+                source.event !== 'push' || source.status !== 'completed' ||
+                source.conclusion !== 'success' || source.head_branch !== 'main' ||
+                source.head_repository?.full_name !== repository ||
+                !/^[a-f0-9]{40}$/.test(source.head_sha || '')) {
+              throw new Error('Qualification dispatch requires successful trusted main push CI.');
+            }
+            const { data: ci } = await github.rest.actions.getWorkflow({
+              owner, repo, workflow_id: 'ci.yml'
+            });
+            if (ci.id !== source.workflow_id || ci.name !== 'CI' ||
+                ci.path !== '.github/workflows/ci.yml') {
+              throw new Error('The triggering run does not identify this repository CI workflow.');
+            }
+            const { data: qualification } = await github.rest.actions.getWorkflow({
+              owner, repo, workflow_id: 'production-qualification.yml'
+            });
+            if (qualification.name !== 'Production qualification' ||
+                qualification.path !== '.github/workflows/production-qualification.yml') {
+              throw new Error('The qualification workflow identity is invalid.');
+            }
+            const matchingRuns = async () => {
+              const { data } = await github.rest.actions.listWorkflowRuns({
+                owner, repo, workflow_id: qualification.id, branch: 'main',
+                head_sha: source.head_sha, per_page: 100
+              });
+              return data.workflow_runs.filter(run =>
+                run.workflow_id === qualification.id && run.head_sha === source.head_sha &&
+                run.head_branch === 'main' && run.head_repository?.full_name === repository &&
+                ['workflow_dispatch', 'schedule'].includes(run.event));
+            };
+            const existing = await matchingRuns();
+            if (existing.length) {
+              core.info(`Qualification already exists for ${source.head_sha}; no redispatch.`);
+              return;
+            }
+            // Recheck immediately before dispatch; a newer main needs its own
+            // CI. A race after this read is caught by the created-run SHA check.
+            const { data: main } = await github.rest.repos.getBranch({
+              owner, repo, branch: 'main'
+            });
+            if (main.commit.sha !== source.head_sha) {
+              core.info('Main advanced after this CI; qualification dispatch stands down.');
+              return;
+            }
+            const before = Math.floor(Date.now() / 1000) * 1000;
+            await github.rest.actions.createWorkflowDispatch({
+              owner, repo, workflow_id: qualification.id, ref: 'main'
+            });
+            for (let attempt = 0; attempt < 12; attempt++) {
+              const created = (await matchingRuns()).find(run =>
+                run.event === 'workflow_dispatch' && Date.parse(run.created_at) >= before);
+              if (created) {
+                core.info(`Verified qualification run ${created.id} at ${source.head_sha}.`);
+                return;
+              }
+              await new Promise(resolve => setTimeout(resolve, 5000));
+            }
+            throw new Error('Dispatch was accepted but no exact-head qualification run appeared.');
+
   backstop:
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

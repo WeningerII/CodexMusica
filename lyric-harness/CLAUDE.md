@@ -28,8 +28,8 @@ Slowest call per tool on the 16-line reference song (2026-10-04, limit 600s per 
 |---|---|---:|
 | `map/song-path.md` | which functions run for each tool, and where the time goes | 3.2k |
 | `map/rules.md` | every finding code, its severity, and whether it can stop a song | 1.1k |
-| `map/limits.md` | every numeric cap, budget and time limit, with its file | 1.3k |
-| `map/files.md` | which files the song program uses, which it never loads, sizes | 2k |
+| `map/limits.md` | every numeric cap, budget and time limit, with its file | 1.4k |
+| `map/files.md` | which files the song program uses, which it never loads, sizes | 2.1k |
 | `map/timings.md` | seconds per tool call on the reference song | <1k |
 
 ## Reading code without filling the context
@@ -45,11 +45,11 @@ Slowest call per tool on the 16-line reference song (2026-10-04, limit 600s per 
   - Commands (python3 lyric_harness.py ...) (2k)
   - Doctrine you hold while writing (5.9k)
   - House rules (<1k)
-  - Test discipline (5.7k)
+  - Test discipline (6k)
   - Quality layer (quality/) (<1k)
   - Known gaps, priority order (13k)
   - The doctrine index — every number, and where it lives (3k)
-- `MISSING.md` (620k): the defect register, entries `M-<n>`. Grep for the entry number.
+- `MISSING.md` (630k): the defect register, entries `M-<n>`. Grep for the entry number.
 - `BACKLOG.md` (50k): open work, by tier.
 - `corpus/`, `data/`, `quality/results/`: measurement inputs and outputs, millions of tokens. In the traced run the song program opened 46 data files and 0 under `corpus/` (`map/files.md` lists them).
 

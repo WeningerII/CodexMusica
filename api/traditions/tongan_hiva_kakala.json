@@ -5,7 +5,7 @@
   "lineage": "Tongan popular love-song genre, the 'fragrant' songs named for kakala flowers, sung in close harmony to string-band accompaniment of guitars and ukulele at kava-drinking gatherings (faikava), village dances and for the tauʻolunga solo dance. The repertoire was widely issued on Viking Records LPs and is played by kava-club string bands in Tonga and the diaspora.",
   "recipe": "classic modern hiva kakala, functional Song, tropical song branch. small vocal ensemble. dreadnought acoustic guitar, ukulele. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 1.913,
+  "score": 1.721,
   "config": {
     "traditions": [
       "tongan_hiva_kakala"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.8250000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.42074999999999996,
-          "voice_multitrack_stack": 0.372,
+          "voice_processing_chain": 0.26475,
+          "voice_multitrack_stack": 0.336,
           "voice_tessitura": 0
         }
       },

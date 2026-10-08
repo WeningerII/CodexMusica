@@ -5,7 +5,7 @@
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
   "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional wutaishan fojiao yinyue. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage modern ensemble taiko drum, higher pitched six holed aged bamboo lacquered ryuteki, sustained cluster chords gagaku kangen. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 690,
-  "score": 68.985,
+  "score": 69.135,
   "config": {
     "traditions": [
       "gagaku",
@@ -70,9 +70,9 @@
         },
         "scores": {
           "taiko_size": 0.9749999999999999,
-          "taiko_skin": 3.7249999999999996,
+          "taiko_skin": 3.769999999999999,
           "taiko_shell_wood": 3.769999999999999,
-          "taiko_lineage": 1.945,
+          "taiko_lineage": 1.7950000000000002,
           "taiko_technique": 1.95
         }
       },
@@ -97,9 +97,9 @@
           "gagaku_kangen_texture": "gagaku_kangen_sho_aitake"
         },
         "scores": {
-          "gagaku_kangen_configuration": 4.595,
-          "gagaku_kangen_repertoire": 4.595,
-          "gagaku_kangen_texture": 4.6
+          "gagaku_kangen_configuration": 4.745,
+          "gagaku_kangen_repertoire": 4.745,
+          "gagaku_kangen_texture": 4.555
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Style created in the 1960s in Mamelodi, Pretoria, by guitarist Philip Tabane, who formed the Malombo Jazzmen with flautist Abbey Cindi and drummer Julian Bahula and later worked with percussionist Gabriel Thobejane. It is named after malombo, the drum-led spirit-possession and healing music of the Venda, whose drum patterns and melodies Tabane joined to improvised jazz guitar. The 1969 album The Indigenous Afro-Jazz Sounds of Philip Tabane and His Malombo Jazzmen was reissued by Matsuli Music in 2021. The membrane-drum card stands in for the malombo drums.",
   "recipe": "classic Southern African mid-1960s malombo, improv On Frame, central east south African groove percussion. solo with instrumental accompaniment. single coil electric guitar, flute like credited flute unspecified, membrane drum pulse resonant acoustic membrane drum. live tracking. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 381,
-  "score": 15.865,
+  "score": 16.015,
   "config": {
     "traditions": [
       "malombo_jazz"
@@ -77,7 +77,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0.09,
           "string_material": 0,
-          "string_gauge": 0.745,
+          "string_gauge": 0.895,
           "bridge": -1.41,
           "scale_length": 0,
           "finish": 0,

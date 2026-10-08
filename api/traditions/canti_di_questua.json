@@ -5,7 +5,7 @@
   "lineage": "Calendar begging songs of central Italy, sung by groups of singers and players who go from house to house at turning points of the year: the Pasquella or Befanata on the eve of Epiphany, the Cantamaggio or maggiolata on the night of 30 April. The songs wish good fortune on the household and ask for eggs, wine, food or money in return, and the bands, found across the Marche, Umbria, Abruzzo, Romagna and Tuscany, accompany them with organetto or accordion, guitar and tambourine.",
   "recipe": "classic modern canti di questua, carnival Processional, European branch. organetto abruzzese, classical nylon-string guitar, central Italian processional devotional tammorra. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 254,
-  "score": 9.002,
+  "score": 9.033,
   "config": {
     "traditions": [
       "canti_di_questua"
@@ -61,7 +61,7 @@
           "organetto_style": "organetto_ballad"
         },
         "scores": {
-          "free_reed_technique": -0.15000000000000002,
+          "free_reed_technique": -0.11850000000000002,
           "organetto_rows": 0.3465,
           "organetto_tremolo": 0.0315,
           "organetto_style": 0.0315

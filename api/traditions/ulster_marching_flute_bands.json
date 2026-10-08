@@ -5,7 +5,7 @@
   "lineage": "Marching bands of flutes and drums that lead the parades of the Orange Order, the Royal Black Institution and the Apprentice Boys of Derry through the Northern Ireland marching season around the Twelfth of July. Blood-and-thunder bands play simple-system B-flat flutes in unison over loud side drums and a bass drum swung with exaggerated strokes, while melody and part-music flute bands play keyed flutes in arranged parts and compete in band contests. Gordon Ramsey's study of the bands documents their music and identity; the generic flute card stands in for the band flutes.",
   "recipe": "classic modern ulster flute bands, carnival Processional, European branch. flute like credited flute unspecified, snare bass drum, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 4.773,
+  "score": 4.804,
   "config": {
     "traditions": [
       "ulster_marching_flute_bands"
@@ -37,7 +37,7 @@
         },
         "scores": {
           "bass_drum_size": 0.0315,
-          "bass_drum_beater": 0
+          "bass_drum_beater": 0.0315
         }
       },
       {

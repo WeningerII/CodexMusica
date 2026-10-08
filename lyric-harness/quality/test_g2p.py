@@ -480,11 +480,15 @@ def test_real_population_against_shakespeares_own_form():
     # resolve, each carrying an interior word CMUdict cannot read: sonnet 1
     # `buriest`, 95 `ill-us'd`, 102 `Alack`, 114 `million'd`/`sharp'st`,
     # 140 `profan'd`. superseded: exactly {(140, 6, 8)}.
+    # REPINNED 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317): an unread
+    # word elsewhere on the line no longer holds an END-WORD pair open, so
+    # 102 (forth/worth), 114 (accidents/intents) and 140 (ornaments/rents)
+    # are judged with the fallback OFF and leave this set (each violates in
+    # General American). superseded: the five pairs below plus those three.
     check("...and resolve exactly the uncertainty an unread INTERIOR word "
-          "caused — five pairs, each with an interior word CMUdict cannot "
+          "caused — two pairs, each with an interior word CMUdict cannot "
           "read — and no other",
-          interior_newly == {(1, 9, 11), (95, 13, 14), (102, 1, 3),
-                             (114, 5, 7), (140, 6, 8)}
+          interior_newly == {(1, 9, 11), (95, 13, 14)}
           and all(_interior_oov(p) for p in interior_newly),
           f"{sorted(interior_newly)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's
@@ -519,9 +523,16 @@ def test_real_population_against_shakespeares_own_form():
     # its cost comparison on: new_viol there ~~is exactly [(45,9,11),
     # (46,9,11)]~~ contains both, beside (49,9,11) and (96,1,3) since the
     # N-relation model (2026-09-24; see `_DERIVED_WRONG`).
+    # REPINNED 2026-10-02 from ~~0~~ (doctrine 17), THE BOUND WORDS
+    # (`MISSING.md` M-317): three of the 39 held only through other words of
+    # their lines, and at their END WORDS they are the declared-dialect
+    # residue this comment has named since 2026-08-11 -- recur'd/assur'd
+    # (45), impannelled/determined (46), and wantonness/less (96). They come
+    # back as violations exactly as they did under the two-name door.
     new_viol = [p for p in lexical_newly if p in v1]
-    check("and all 39 SATISFY the current door, as the sonnet mandates",
-          len(new_viol) == 0,
+    check("and 36 of the 39 SATISFY the current door; the three that do not "
+          "are the declared-dialect residue",
+          sorted(new_viol) == [(45, 9, 11), (46, 9, 11), (96, 1, 3)],
           f"{len(lexical_newly) - len(new_viol)}/{len(lexical_newly)} = "
           f"{1 - len(new_viol)/len(lexical_newly):.1%} {sorted(new_viol)}. "
           f"This is the only clean "

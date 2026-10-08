@@ -5,7 +5,7 @@
   "lineage": "Higo biwa is the mōsō, or blind-priest, biwa tradition of Kumamoto in central Kyushu, whose performers both carried out household rites such as purifying the kitchen hearth and recited long danmono tales at village gatherings. Yamashika Yoshiyuki of Nankan, known as the last biwa hōshi, was recorded in field and commercial sessions from about 1970, and Hugh de Ferranti's research documents his repertory. The biwa card stands in for the slender mōsō biwa.",
   "recipe": "classic early-1970s higo biwa, ritual Devotional, buddhist branch. narrative, solo with instrumental accompaniment, single lead single track no stacking. biwa lute. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 256,
-  "score": 4.458,
+  "score": 4.353,
   "config": {
     "traditions": [
       "higo_biwa_moso"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.378,
-          "voice_multitrack_stack": 1.8375,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.7325,
           "voice_tessitura": 0
         }
       },
@@ -63,7 +63,7 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
-          "biwa_type": 0.2415,
+          "biwa_type": 0.3465,
           "biwa_plectrum": 0,
           "biwa_body_wood": 0.2415,
           "biwa_strings": 0

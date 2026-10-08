@@ -3,9 +3,9 @@
   "name": "Portuguese Folk (Música Popular Portuguesa)",
   "family": "vernacular",
   "lineage": "The regional rural repertoire of mainland Portugal — Minho vira and chula, Beira and Trás-os-Montes dance tunes, Alentejo and Ribatejo song — collected systematically by Michel Giacometti and Fernando Lopes-Graça in the 1960s-70s and revived by Grupo de Acção Cultural and Brigada Victor Jara, marked by fast 6/8 and 2/4 dance metres, women's high open chest singing, adufe square frame-drum patterns, and plucked viola braguesa and cavaquinho accompaniment.",
-  "recipe": "classic mid-1960s portuguese folk, functional Song, iberian branch, European carnival processional, wind pipe drone modal basque folk organetto. thick, breath veiled tone, fast rate, interlocked note trading. viola braguesa, jacaranda rosewood canonical Portuguese strummed cavaquinho, adufe, gaita galega three drone muiñeira dance driving gaita galega, brass castagnari Italian premium folk music straight accordion, tambourine orch, regional traditional pomegranate wood castanets. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 576,
-  "score": 282.14,
+  "recipe": "classic mid-1960s portuguese folk, functional Song, iberian branch, European carnival processional, wind pipe drone modal basque folk organetto. thick, breath veiled tone, fast rate, interlocked note trading. viola braguesa, jacaranda rosewood canonical Portuguese strummed cavaquinho, adufe, gaita galega three drone muiñeira dance driving gaita galega, castagnari Italian premium folk music straight accordion, tambourine orch, regional traditional pomegranate wood castanets. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 570,
+  "score": 282.125,
   "config": {
     "traditions": [
       "portuguese_folk",
@@ -74,7 +74,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 8.604999999999999,
-          "cavaquinho_origin": 3.295,
+          "cavaquinho_origin": 3.4450000000000003,
           "cavaquinho_context": 24.440000000000005,
           "cavaquinho_body_wood": 1.535,
           "cavaquinho_strings": -0.07000000000000003
@@ -104,7 +104,7 @@
           "gaita_galega_bag": "gaita_galega_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 3.2,
+          "wind_articulation": 3.245,
           "gaita_galega_drones": 4.535,
           "gaita_galega_use": 7.0249999999999995,
           "gaita_galega_chanter_wood": 0.585,
@@ -124,12 +124,12 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.45,
-          "accordion_reed_material": 1.0050000000000001,
+          "free_reed_technique": 4.495,
+          "accordion_reed_material": 0.8550000000000002,
           "musette_offset": 0.845,
           "reed_config": 0.345,
           "bellows": 0.65,
-          "voicing_chamber": 0.85,
+          "voicing_chamber": 0.745,
           "accordion_maker_school": 3.38
         }
       },

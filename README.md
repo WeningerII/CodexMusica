@@ -3,7 +3,7 @@
 A structured catalog of recorded-music traditions in 13-dimensional parameter space,
 and an engine that turns a song specification into a tightly compressed structural
 **recipe** — a descriptor stack that tells you how to record it. The catalog spans
-**7,713 traditions** and **1667 instruments** (with per-part variant decomposition),
+**7,755 traditions** and **1671 instruments** (with per-part variant decomposition),
 **256 rooms**, **84 chain archetypes**, and **122 tunings**.
 
 The headline operation is recipe generation; the same catalog also supports tradition
@@ -11,7 +11,14 @@ blending, axis-profile matching, structural diffing, and catalog introspection. 
 browser app builds into a dependency-free `codex.html` — a **lazy shell** that loads
 the catalog on demand from the static `api/` served beside it, scaling past the
 single-file memory ceiling. A fully-embedded single-file variant (`--embedded`) still
-builds, and a gate proves the shell behaves identically to it. <!-- @promise: lazy-shell-parity --> The page
+builds, and a gate proves the shell behaves identically to it once the genre
+descriptions and the instrument data have loaded. Both follow the first view, which
+needs only a small boot index (a saved recipe waits for the instrument data before it
+is drawn, and asks for it as the page loads); until they land, a description or
+instrument list the page shows is marked as loading, never as missing, a search says
+it matched names only, and an action that needs the instrument data waits for it
+instead of acting without it.
+<!-- @promise: lazy-shell-parity --> The page
 ships minified, and a second gate proves that reprinting it changed no behaviour —
 both builds are made from the same source in one run and compared.
 <!-- @promise: minified-equivalence -->

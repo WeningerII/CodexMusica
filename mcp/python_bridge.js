@@ -13,6 +13,7 @@ const RESULT = '  lyric result: ';
 // ~~8 MiB~~ -> 18 MiB 2026-10-04: a control record carries a checkpoint, which
 // grew x2.25 with STATE_DECODED_BYTES (owner's ruling).
 const CONTROL_CAP = 18 * 1024 * 1024;
+const READER_FRAME_CAP = 2 * 1024 * 1024 + 16384;
 const positiveInteger = (value, fallback) =>
   Number.isSafeInteger(Number(value)) && Number(value) > 0 ? Number(value) : fallback;
 export const PYTHON_MAX_ADMITTED = positiveInteger(process.env.LYRIC_QUEUE_MAX_JOBS, 16);
@@ -305,7 +306,39 @@ export function createPythonBridge({
         try {
           const reply = JSON.parse(line);
           if (!waiter || reply.id !== waiter.id) continue;
-          if (reply.event === 'output') waiter.capture.append(reply.stream, reply.data);
+          if (reply.event === 'reader_checkpoint') {
+            if (
+              waiter.family !== 'reader' ||
+              Buffer.byteLength(line) > READER_FRAME_CAP ||
+              reply.data?.provider_calls !== 0
+            )
+              throw interrupted('unreadable reader checkpoint', { code: 'READER_PROTOCOL' });
+            const current = waiter;
+            // Python waits for this acknowledgement. No cursor advances until
+            // the sink has fsynced its pages and fenced checkpoint pointer.
+            Promise.resolve()
+              .then(() => current.onReaderCheckpoint(reply.data))
+              .then((ack = {}) => {
+                if (waiter !== current || worker !== child) return;
+                const reason =
+                  ack.stop_reason ||
+                  current.shouldStop?.() ||
+                  (queue.some((job) => job.family !== 'reader') ? 'YIELD' : null) ||
+                  (performance.now() >= current.readerDeadlineAt ? 'LEASE_EXHAUSTED' : null);
+                child.stdin.write(
+                  JSON.stringify({
+                    id: current.id,
+                    event: 'reader_ack',
+                    continue: !reason && !reply.data.done,
+                    reason: reason || (reply.data.done ? 'COMPLETE' : null),
+                    added_page_paths: ack.added_page_paths || [],
+                  }) + '\n'
+                );
+              })
+              .catch((error) => {
+                if (waiter === current) kill(error);
+              });
+          } else if (reply.event === 'output') waiter.capture.append(reply.stream, reply.data);
           else if (typeof reply.code === 'number') {
             // Accept the old final-frame shape as well during rollout.
             if (reply.stdout) waiter.capture.append('stdout', reply.stdout);
@@ -316,7 +349,13 @@ export function createPythonBridge({
             // Counted on the ANSWER, never on the dispatch: a request the
             // worker was handed and died on populated nothing.
             served++;
-            current.resolve({ code: reply.code, ...current.capture.result() });
+            current.resolve({
+              code: reply.code,
+              ...current.capture.result(),
+              ...(current.family === 'reader'
+                ? { reader_result: reply.reader_result, error_code: reply.error_code }
+                : {}),
+            });
           } else throw interrupted('unreadable worker reply', { protocolError: true });
         } catch (error) {
           kill(error);
@@ -326,7 +365,9 @@ export function createPythonBridge({
       // Frames are <= 16 KiB code points, including JSON escaping. This cap
       // protects framing only; decoded stdout and stderr have identical caps
       // on both execution paths.
-      if (Buffer.byteLength(protocol) > 1024 * 1024)
+      if (
+        Buffer.byteLength(protocol) > (waiter?.family === 'reader' ? READER_FRAME_CAP : 1024 * 1024)
+      )
         kill(interrupted('worker protocol frame exceeds cap', { protocolError: true }));
     });
     child.stdin.on('error', (error) => {
@@ -380,7 +421,11 @@ export function createPythonBridge({
       : 0;
     const signals = [...new Set([options?.signal, context.signal].filter(Boolean))];
     const signal = signals.length > 1 ? AbortSignal.any(signals) : signals[0];
-    const deadlineAt = Math.min(at + timeoutMs, external - reserve);
+    const callTimeoutMs =
+      options?.family === 'reader'
+        ? Math.min(605000, positiveInteger(options?.timeoutMs, 605000))
+        : timeoutMs;
+    const deadlineAt = Math.min(at + callTimeoutMs, external - reserve);
     const deadlineMs = now + deadlineAt - at;
     // THE WALL, NAMED (M-279, repair 2). The turn wall says
     // `stopped_detail: {seconds, cap_seconds}` and a reader can see it; the
@@ -392,11 +437,11 @@ export function createPythonBridge({
     // value is read or written here that was not already computed above.
     const callerAt = Number.isFinite(external) ? external - reserve : Infinity;
     const toolDeadline = {
-      tool_budget_ms: Math.round(timeoutMs),
+      tool_budget_ms: Math.round(callTimeoutMs),
       caller_deadline_ms: Number.isFinite(external) ? Math.round(external - at) : null,
       reserve_ms: Math.round(reserve),
       cap_ms: Math.round(deadlineAt - at),
-      bound_by: at + timeoutMs <= callerAt ? 'tool_budget' : 'caller_deadline',
+      bound_by: at + callTimeoutMs <= callerAt ? 'tool_budget' : 'caller_deadline',
     };
     return {
       ...options,
@@ -502,6 +547,11 @@ export function createPythonBridge({
       waiter = {
         id,
         capture: captured,
+        family: options.family || 'lyrics',
+        onReaderCheckpoint: options.onReaderCheckpoint,
+        shouldStop: options.shouldStop,
+        readerDeadlineAt:
+          performance.now() + Math.min(600000, options.readerPayload?.lease_ms || 600000),
         resolve: (result) => {
           cleanup();
           resolve(result);
@@ -516,7 +566,15 @@ export function createPythonBridge({
         Math.max(1, options.deadlineAt - performance.now())
       );
       options.signal?.addEventListener('abort', abort, { once: true });
-      child.stdin.write(JSON.stringify({ id, argv: args, env: requestEnv(options) }) + '\n');
+      child.stdin.write(
+        JSON.stringify({
+          id,
+          family: options.family || 'lyrics',
+          argv: args,
+          ...(options.family === 'reader' ? { reader: options.readerPayload } : {}),
+          env: requestEnv(options),
+        }) + '\n'
+      );
     });
   const cold = (args, options = limits({})) =>
     new Promise((resolve) => {
@@ -633,7 +691,13 @@ export function createPythonBridge({
     let admission;
     try {
       admission =
-        supplied.admission || admit({ bytes: Buffer.byteLength(JSON.stringify(args)), ...options });
+        supplied.admission ||
+        admit({
+          bytes: Buffer.byteLength(
+            JSON.stringify(supplied.family === 'reader' ? supplied.readerPayload : args)
+          ),
+          ...options,
+        });
       if (!admissions.has(admission) || admission.started || admission.releaseRequested)
         throw interrupted('Invalid or already used Python admission', { code: 'BAD_REQUEST' });
       admission.started = true;
@@ -661,7 +725,15 @@ export function createPythonBridge({
           broker = await openKitchenBudget(options.context);
           options.budgetEnv = broker.env;
         }
-        if (!workerEnabled) result = stamp(await cold(args, options), 'cold');
+        if (options.family === 'reader') {
+          // Reader has one typed, whitelisted entrance and no CLI/provider
+          // fallback. A failed lease remains paused at its durable checkpoint.
+          try {
+            result = stamp(await warm(args, options), 'warm-reader');
+          } catch (error) {
+            result = stamp(failure(['reader'], error), 'killed');
+          }
+        } else if (!workerEnabled) result = stamp(await cold(args, options), 'cold');
         else {
           try {
             result = stamp(await warm(args, options), 'warm');
@@ -744,6 +816,7 @@ export function createPythonBridge({
     return new Promise((resolve, reject) => {
       let timer;
       const job = {
+        family: supplied.family || 'lyrics',
         admission,
         owned: !supplied.admission,
         execute,
@@ -786,6 +859,15 @@ export function createPythonBridge({
   };
   return {
     runVerb,
+    runReaderLease: (payload, supplied = {}) => {
+      if (!payload || typeof payload !== 'object' || !supplied.onReaderCheckpoint)
+        return Promise.reject(
+          interrupted('Reader requires a typed payload and durable checkpoint sink.', {
+            code: 'BAD_REQUEST',
+          })
+        );
+      return runVerb([], { ...supplied, context: {}, family: 'reader', readerPayload: payload });
+    },
     admit,
     capacity: () => ({
       maxAdmitted,

@@ -1,0 +1,182 @@
+{
+  "id": "anime_phonk",
+  "name": "Anime Phonk",
+  "family": "electronic",
+  "lineage": "Anime phonk connects phonk production with anime imagery, character themes and online montage culture. Producers combine forceful low bass and electronic rhythms with melodic or metallic hooks and edited vocal phrases, overlapping drift phonk, glitch production and Brazilian funk crossovers.",
+  "recipe": "classic anime phonk, electronic Dance. stutter edit cut as instrument human voice ensemble credited synthesizer credited programmed drums unspecified, sub bass low produced 808 bass, produced cowbell. treated studio.",
+  "recipe_chars": 216,
+  "score": 13.542,
+  "config": {
+    "traditions": [
+      "anime_phonk"
+    ],
+    "instruments": [
+      {
+        "id": "human_voice_ensemble_unspecified",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 8.7,
+          "human_voice_ensemble_source_status": 0,
+          "human_voice_tracking_source_status": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "produced_808_bass",
+        "slots": {
+          "produced_808_bass_identity": "produced_808_bass_low_bass",
+          "produced_808_bass_decay": "produced_808_bass_long_decay",
+          "produced_808_bass_processing": "produced_808_bass_soft_clipped"
+        },
+        "scores": {
+          "produced_808_bass_identity": 3.0305,
+          "produced_808_bass_decay": 0.0315,
+          "produced_808_bass_processing": 0
+        }
+      },
+      {
+        "id": "produced_cowbell",
+        "slots": {
+          "produced_cowbell_identity": "produced_cowbell_generator_unspecified",
+          "produced_cowbell_decay": "produced_cowbell_short_decay",
+          "produced_cowbell_articulation": "produced_cowbell_repeated_pattern"
+        },
+        "scores": {
+          "produced_cowbell_identity": 1,
+          "produced_cowbell_decay": 0,
+          "produced_cowbell_articulation": 0.39
+        }
+      },
+      {
+        "id": "credited_synthesizer_unspecified",
+        "slots": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        },
+        "scores": {
+          "credited_synthesizer_identity": 0
+        }
+      },
+      {
+        "id": "credited_programmed_drums_unspecified",
+        "slots": {
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        },
+        "scores": {
+          "credited_programmed_drums_identity": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "human_voice_ensemble_unspecified": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "human_voice_ensemble_source_status",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "human_voice_tracking_source_status",
+        "voice_tessitura"
+      ],
+      "produced_808_bass": [
+        "produced_808_bass_identity",
+        "produced_808_bass_decay",
+        "produced_808_bass_processing"
+      ],
+      "produced_cowbell": [
+        "produced_cowbell_identity",
+        "produced_cowbell_decay",
+        "produced_cowbell_articulation"
+      ],
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ],
+      "credited_programmed_drums_unspecified": [
+        "credited_programmed_drums_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_stutter_edit",
+      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "produced_808_bass_identity": "produced_808_bass_low_bass",
+      "produced_808_bass_decay": "produced_808_bass_long_decay",
+      "produced_808_bass_processing": "produced_808_bass_soft_clipped",
+      "produced_cowbell_identity": "produced_cowbell_generator_unspecified",
+      "produced_cowbell_decay": "produced_cowbell_short_decay",
+      "produced_cowbell_articulation": "produced_cowbell_repeated_pattern",
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+    },
+    "pin_parts": true
+  }
+}

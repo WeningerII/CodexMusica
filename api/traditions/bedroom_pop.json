@@ -3,108 +3,108 @@
   "name": "Bedroom pop",
   "family": "global",
   "lineage": "2010s onward indie-pop subgenre originating in solo bedroom-DAW production — characterized by lo-fi or hi-fi DIY production, intimate vocal delivery, and adolescent thematic content — codified through Clairo (Pretty Girl 2017, Immunity 2019), Cuco, Boy Pablo, Mac DeMarco (Salad Days 2014, the genre's lineage-bearing predecessor), Beabadoobee, with the form serving as the late-2010s indie-pop mainstream",
-  "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, singing lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 530,
-  "score": 382.999,
+  "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song yacht rock skiffle. breath veiled tone, slow rate, equal tempered, modern pop training. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp electric bass, TR-808, analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 459,
+  "score": 168.314,
   "config": {
     "traditions": [
       "bedroom_pop",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "mix_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "voice_articulation_source_unspecified",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 53.886250000000004,
-          "voice_quality": 13.389999999999992,
+          "voice_register": 0,
+          "voice_quality": 14.429999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.995,
-          "voice_articulation": 12.414999999999994,
-          "voice_microtone": 41.10000000000001,
-          "voice_tradition": 23.53,
-          "voice_mechanism_compound": 3.055,
-          "voice_estill_quality": 6.012500000000001,
-          "voice_speech_song": 16.70499999999999,
-          "voice_ensemble_config": 12.349999999999993,
-          "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 9.2575,
-          "voice_multitrack_stack": 15.534999999999998
+          "voice_vibrato": 2.405,
+          "voice_articulation": 0,
+          "voice_microtone": 43.97500000000001,
+          "voice_tradition": 24.179999999999996,
+          "voice_mechanism_compound": 0.585,
+          "voice_estill_quality": 0.195,
+          "voice_speech_song": 1.2349999999999999,
+          "voice_ensemble_config": 5.654999999999999,
+          "voice_ornament_system": 0.3,
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 0.09562499999999999,
+          "voice_multitrack_stack": 2.4699999999999998
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_fender",
           "finish": "nitro",
-          "string_tuning": "drop_d",
+          "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 17.720625,
-          "amp_make": 10.789999999999994,
-          "body_wood": 2.6649999999999996,
-          "neck_wood": 2.6649999999999996,
-          "fretboard": 2.5999999999999996,
-          "pickup_magnet": 0.39,
-          "string_material": 0.585,
-          "string_gauge": 2.6649999999999996,
+          "electric_technique": 18.220625,
+          "amp_make": 11.342499999999998,
+          "body_wood": 0.345,
+          "neck_wood": 2.015,
+          "fretboard": 1.56,
+          "pickup_magnet": 0,
+          "string_material": 0.39,
+          "string_gauge": 1.625,
           "bridge": 0.39,
-          "scale_length": 2.6649999999999996,
-          "finish": 0.09,
-          "string_tuning": 12.414999999999996,
+          "scale_length": 0,
+          "finish": 0.39,
+          "string_tuning": 0.345,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
           "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "string_type": "coated_nano_bass",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive",
+          "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.374999999999998,
-          "body_wood": 2.6649999999999996,
+          "amp_make": 11.342499999999998,
+          "body_wood": 0.345,
           "pickup_config": 3.6356249999999997,
-          "string_type": 27.62499999999999,
-          "scale_length_b": 2.6649999999999996,
-          "fretted_or_not": 0.195,
-          "bass_technique": 21.439999999999994,
+          "string_type": 0.1875,
+          "scale_length_b": 0.345,
+          "fretted_or_not": 0.045,
+          "bass_technique": 0.12999999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,44 +112,89 @@
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 0.325,
-          "drum_machine_808_context": 5.85,
-          "tr808_production_origin": 0.42562500000000003
+          "tr808_voice": 1.17,
+          "drum_machine_808_context": 4.3549999999999995,
+          "tr808_production_origin": -1.12
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 18.165625,
-          "poly_archetypes": 11.049999999999997,
+          "electronic_technique": 0.45499999999999996,
+          "poly_archetypes": 9.814999999999998,
           "poly_voices": 0.585,
-          "poly_maker_lineage": 0.19499999999999967
+          "poly_maker_lineage": -0.1050000000000002
         }
       },
       {
         "id": "ukulele",
         "slots": {
           "ukulele_size": "ukulele_baritone",
-          "ukulele_style": "ukulele_fingerstyle",
-          "ukulele_wood": "ukulele_koa"
+          "ukulele_style": "ukulele_strum",
+          "ukulele_wood": "ukulele_mahogany"
         },
         "scores": {
-          "ukulele_size": 1.17,
-          "ukulele_style": 0.12999999999999998,
-          "ukulele_wood": 0.25
+          "ukulele_size": 1.625,
+          "ukulele_style": 0.975,
+          "ukulele_wood": 0.39
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_single_coil": [
+        "body_wood",
+        "pickup_magnet",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_machine_808": [
+        "tr808_voice",
+        "drum_machine_808_context",
+        "tr808_production_origin"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ]
+    },
     "room": "untreated_bedroom",
     "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
@@ -197,8 +242,13 @@
       "drum_machine_808_context": "drum_machine_808_rb",
       "tr808_production_origin": "tr808_roland_osaka_canonical",
       "electronic_technique": "electronic_pad_drone",
-      "string_tuning": "standard_tuning"
+      "string_tuning": "standard_tuning",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "poly_archetypes": "oberheim_obxa",
+      "poly_voices": "poly_8_voice",
+      "poly_maker_lineage": "poly_oberheim_tom"
     },
+    "pin_parts": true,
     "chain_mic": "condenser_ldc",
     "chain_pre": "transformer_solid_state",
     "chain_comp": "comp_distressor_modern",

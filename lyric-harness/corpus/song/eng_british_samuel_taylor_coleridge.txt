@@ -18,7 +18,7 @@
 # edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-1 — 1800 — detected in file: '1800'; read for its PREFACE and TITLE PAGE, which are what decide this file's contents. NO VERSE IS TAKEN FROM IT.
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1931 impression — title page states 'Impression of 1931' and 'First edition, 1900'; earlier 1919 attribution withdrawn (2026-09-14).
 # songs: 19
-# lines: 859
+# lines: 846
 # attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE NAMING THE SOURCE
 #       THAT DECIDED IT. This file was rebuilt 2026-08-11 because it did not,
 #       and an attribution that lives only in a FILENAME gets checked exactly
@@ -631,16 +631,16 @@ Thus mayest thou ever, evermore rejoice.
 --- TITLE: The Foster-Mother'S Tale, A Dramatic Fragment
 --- AUTHOR: NOT NAMED BY ANY SOURCE ON DISK — the 1800 Preface (PG 8905) assigns THE FOSTER-MOTHER'S TALE to "a Friend" and never names him; see NOTE
 --- NOTE: The attribution chain, and its weakest link, so the next reader does not have to trust this filename. (1) The 1798 volume (PG 9622) is ANONYMOUS — it signs no poem and its Advertisement speaks of "the author" in the singular. (2) Its 1800 second edition (PG 8905) is "By W. WORDSWORTH." and its Preface names five poems furnished by "a Friend", this among them, so the poem is expressly NOT Wordsworth's. (3) No file on disk prints this title beside a name. Coleridge follows only by elimination over the two names in PG 9622's Project Gutenberg catalogue header — a modern cataloguer's claim, not the book's. Every other item in this file is in a sole-author Coleridge volume; this one is not.
-[REFRAIN]
-FOSTER-MOTHER.
+# APPARATUS: [REFRAIN]
+# APPARATUS: FOSTER-MOTHER.
 [VERSE 1]
 I never saw the man whom you describe.
 [VERSE 2]
-MARIA.
+# APPARATUS: MARIA.
 'Tis strange! he spake of you familiarly
 As mine and Albert's common Foster-mother.
-[REFRAIN]
-FOSTER-MOTHER.
+# APPARATUS: [REFRAIN]
+# APPARATUS: FOSTER-MOTHER.
 [VERSE 3]
 Now blessings on the man, whoe'er he be,
 That joined your names with mine! O my sweet lady,
@@ -651,21 +651,21 @@ All you had learnt in the day; and how to talk
 In gentle phrase, then bid me sing to you--
 'Tis more like heaven to come than what _has_ been.
 [VERSE 4]
-MARIA.
+# APPARATUS: MARIA.
 O my dear Mother! this strange man has left me
 Troubled with wilder fancies, than the moon
 Breeds in the love-sick maid who gazes at it,
 Till lost in inward vision, with wet eye
 She gazes idly!--But that entrance, Mother!
-[REFRAIN]
-FOSTER-MOTHER.
+# APPARATUS: [REFRAIN]
+# APPARATUS: FOSTER-MOTHER.
 [VERSE 5]
 Can no one hear? It is a perilous tale!
 [VERSE 6]
-MARIA.
+# APPARATUS: MARIA.
 No one.
-[REFRAIN]
-FOSTER-MOTHER
+# APPARATUS: [REFRAIN]
+# APPARATUS: FOSTER-MOTHER
 [VERSE 7]
 My husband's father told it me,
 Poor old Leoni!--Angels rest his soul!
@@ -719,13 +719,13 @@ His love grew desperate; and defying death,
 He made that cunning entrance I described:
 And the young man escaped.
 [VERSE 8]
-MARIA.
+# APPARATUS: MARIA.
 'Tis a sweet tale:
 Such as would lull a listening child to sleep,
 His rosy face besoiled with unwiped tears.--
 And what became of him?
-[REFRAIN]
-FOSTER-MOTHER.
+# APPARATUS: [REFRAIN]
+# APPARATUS: FOSTER-MOTHER.
 [VERSE 9]
 He went on ship-board
 With those bold voyagers, who made discovery
@@ -738,10 +738,10 @@ And all alone, set sail by silent moonlight
 Up a great river, great as any sea,
 And ne'er was heard of more: but 'tis supposed,
 He lived and died among the savage men.
-[VERSE 10]
-LINES LEFT UPON A SEAT IN A YEW-TREE WHICH STANDS NEAR THE LAKE OF
-ESTHWAITE, ON A DESOLATE PART OF THE SHORE, YET COMMANDING A
-BEAUTIFUL PROSPECT.
+# APPARATUS: [VERSE 10]
+# APPARATUS: LINES LEFT UPON A SEAT IN A YEW-TREE WHICH STANDS NEAR THE LAKE OF
+# APPARATUS: ESTHWAITE, ON A DESOLATE PART OF THE SHORE, YET COMMANDING A
+# APPARATUS: BEAUTIFUL PROSPECT.
 [VERSE 11]
 --Nay, Traveller! rest. This lonely yew-tree stands
 Far from all human dwelling: what if here
@@ -805,8 +805,8 @@ True dignity abides with him alone
 Who, in the silent hour of inward thought,
 Can still suspect, and still revere himself,
 In lowliness of heart.
-[VERSE 14]
-THE NIGHTINGALE;
+# APPARATUS: [VERSE 14]
+# APPARATUS: THE NIGHTINGALE;
 
 --- TITLE: Glycine’s Song
 --- AUTHOR: Samuel Taylor Coleridge — Oxford Book of English Verse (PG 66619), poem 555 under the heading SAMUEL TAYLOR COLERIDGE

@@ -2162,29 +2162,31 @@ def uncovered_bar_findings(fits, sections=()):
     would be a norm nobody declared (doctrine 96), which is the same reason
     `crowded` and `fighting` are counts and not verdicts.
     """
+    # Repeated display names are different spans. Keep the same concrete
+    # occurrence key as overlap_findings, including wholly empty sections.
     by_section, order = {}, []
     for f in fits:
-        name = f.placement.section
-        if name not in by_section:
-            by_section[name] = []
-            order.append(name)
-        by_section[name].append(f)
+        key = section_key(f.placement)
+        if key not in by_section:
+            by_section[key] = []
+            order.append(key)
+        by_section[key].append(f)
     geometry = {}
     for s in sections:
-        name = _sec(s, "name")
-        geometry[name] = (_sec(s, "cycle").pulses, int(_sec(s, "bars")),
-                          int(_sec(s, "start_bar")))
-        if name not in by_section:
-            by_section[name] = []
-            order.append(name)
+        key = (int(_sec(s, "start_bar")), _sec(s, "name"))
+        geometry[key] = (_sec(s, "cycle").pulses, int(_sec(s, "bars")), key[0])
+        if key not in by_section:
+            by_section[key] = []
+            order.append(key)
     if sections:
-        order = [_sec(s, "name") for s in sections] + \
-            [n for n in order if n not in {_sec(s, "name") for s in sections}]
+        declared = [(int(_sec(s, "start_bar")), _sec(s, "name")) for s in sections]
+        order = declared + [key for key in order if key not in set(declared)]
     out = []
-    for name in order:
-        members = by_section[name]
-        if name in geometry:
-            pulses, bars, start_bar = geometry[name]
+    for key in order:
+        name = key[1]
+        members = by_section[key]
+        if key in geometry:
+            pulses, bars, start_bar = geometry[key]
         elif members:
             p = members[0].placement
             if p.section_bars is None:

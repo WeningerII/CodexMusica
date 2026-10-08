@@ -5,7 +5,7 @@
   "lineage": "Kingston and Atlanta hybrid formed circa 2013-2016 through producers and deejays including Vybz Kartel, Alkaline, Popcaan and Rvssian, replacing dancehall's one-drop riddim with Southern trap architecture — booming long-decay 808 kicks, triplet hi-hat rolls at 70-75 BPM half-time (140 double-time), sparse minor-key synth motifs, and patois deejay vocals heavily doubled, Auto-Tuned and stacked in ad-lib layers.",
   "recipe": "classic Southern American 2013-2016 traphall, bass System, Jamaican branch, us hip hop southern, reggae diaspora bass system dirty south rap atlanta bass. vocal fry, rap, slow rate, interlocked note trading. TR-808, low sub bass analog poly synth, unison double single performer stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sampled chopped sampler drum machine. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 587,
-  "score": 200.877,
+  "score": 203.222,
   "config": {
     "traditions": [
       "traphall",
@@ -47,7 +47,7 @@
           "voice_speech_song": 22.165,
           "voice_ensemble_config": 21.45,
           "voice_ornament_system": 5.460000000000001,
-          "voice_pitch_organization": 1.495,
+          "voice_pitch_organization": 1.69,
           "voice_processing_chain": 6.000000000000001,
           "voice_multitrack_stack": 4.875
         }
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.995,
-          "drum_machine_808_context": 7.334999999999999,
+          "tr808_voice": 11.625,
+          "drum_machine_808_context": 7.965,
           "tr808_production_origin": 0.65
         }
       },
@@ -74,7 +74,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 16.54,
+          "electronic_technique": 17.17,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.435
@@ -88,7 +88,7 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 1.5,
+          "multitrack_stack_density": 1.675,
           "multitrack_stack_era_aesthetic": 0.35750000000000015,
           "multitrack_stack_processing": 2.245
         }
@@ -103,9 +103,9 @@
         },
         "scores": {
           "electronic_technique": 4.780000000000001,
-          "sample_bitdepth": 3.14,
+          "sample_bitdepth": 3.3675,
           "sample_swing": 7.0200000000000005,
-          "sample_processing": 4.375
+          "sample_processing": 4.2325
         }
       }
     ],

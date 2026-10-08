@@ -5,7 +5,7 @@
   "lineage": "Música festera is the wind-band repertoire composed for the Moros y Cristianos festivals of Alcoi and the towns of Alicante province and the Valencian interior, played by local music societies as the Moorish and Christian companies parade. Its core genres are the slow, heavily percussive marcha mora, whose first example is usually given as Antonio Pérez Verdú's 'A-Ben-Amet', the brighter, more martial marcha cristiana, and the pasodoble festero; new marches are composed for the festivals every year. The credited-horns card stands for the band's trumpets, trombones and other brass.",
   "recipe": "classic modern música festera, carnival Processional, European branch. clarinet, credited horns unspecified, bass snare drum, credited cymbals. shoebox concert hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 2.61,
+  "score": 2.715,
   "config": {
     "traditions": [
       "musica_festera_moros_cristianos"
@@ -25,7 +25,7 @@
           "clarinet_body": -0.10500000000000001,
           "clarinet_size": 0,
           "clarinet_reed": 0.7,
-          "clarinet_articulation": 0.14024999999999999
+          "clarinet_articulation": 0.21375
         }
       },
       {
@@ -45,7 +45,7 @@
         },
         "scores": {
           "bass_drum_size": 0.0315,
-          "bass_drum_beater": 0
+          "bass_drum_beater": 0.0315
         }
       },
       {

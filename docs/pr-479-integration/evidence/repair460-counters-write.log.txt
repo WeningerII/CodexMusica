@@ -1,0 +1,68 @@
+==============================================================================
+COUNTERS — measured on the cheap path
+==============================================================================
+  [ok      ] MISSING entries by status
+      43 OPEN / 35 PARTIAL / 1 BLOCKED / 278 CLOSED / 15 RESOLVED = 372 entries
+      audit_register's independent parser agrees: 372 entries
+      derived by: python3 quality/counters.py
+  [ok      ] doctrines
+      **96**, a contiguous run 1–96 with no number in both files (21 in `HANDBOOK.md`, 75 in `quality/METHOD.md`)
+      `known gap N` is a SEPARATE numbering, 1–10, 10 items — not part of the run. HANDBOOK.md's bare `^N. **` count is 36 = 21 doctrines + 15 known gaps, which is where the recorded 27 (and so 102) came from.
+      derived by: python3 quality/verify_doctrines.py
+  [ok      ] stranded modules
+      **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,741 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed
+      63 one-shot runners have a `__main__`; rhyme_constraints test callers: test_declared_inputs.py, test_production_relations.py, test_relation_shapes.py, test_relations.py
+      derived by: python3 lyric_harness.py wiring
+  [ok      ] public symbols by where they are referenced
+      **1653** DECLARED-public top-level functions/classes under `quality/` and the root — **385** named by another production module, **498** by tests only, **639** only inside their own module, **4** by nothing anywhere, **127** REFUSED (81 ambiguous, 35 dynamic, 11 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **93** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them
+      named by nothing, longest first: quality.rhyme_constraints.scan (def, 9 lines); quality.capacity.corpus_files (def, 4 lines); quality.rhyme_constraints.DIRECTED_DIFFER (def, 2 lines); quality.rhyme_constraints.CLASS_EQUAL (def, 2 lines)
+      that list is THIS run's, and cells are closing entries in it now — re-run rather than quoting it
+      OUT OF SCOPE and unmeasured: 550 public methods on those classes — a dead method on a live class is invisible to a top-level sweep
+      OUTSIDE THE POPULATION, public at the top level and omitted by their own module's `__all__`: quality.field_store.comparator_sources; quality.field_store.lexicon_resources; quality.fit.AssumedMeter; quality.fit.InertCoordinate; quality.fit.WordReadings; quality.fit.main; quality.fit.section_key; quality.gate_census.by_disposition; quality.gate_census.convention_violations; quality.gate_census.main; quality.gate_census.severity_fields; quality.gate_census.unruled; quality.graph_probe.indexed; quality.graph_probe.main; quality.grid.Specialisation; quality.grid.SpecialisationMismatch; quality.grid.placement_findings; quality.grid.profile_functions; quality.grid.resolve_marked_references; quality.grid.severity_of; quality.grid.specialisation_of; quality.loop.apply_candidate; quality.loop.swap_at_slot; quality.meter.exact_integer; quality.meter.exact_number; quality.meter.guard_expansion; quality.meter.validate_blueprint; quality.plan.audible_share; quality.plan.brief_legend; quality.plan.fillable_line_counts; quality.plan.form_min_sections; quality.plan.line_binding_ceiling; quality.plan.place_gloss; quality.plan.plan_max_token; quality.plan.render_blueprint_song; quality.plan.schema_asks; quality.propose.ProposerUnavailable; quality.propose.UnorderableMember; quality.propose.parse_batch; quality.propose.render_batch; quality.propose.slot_phrase; quality.relations.Alternatives; quality.relations.FigureMembers; quality.relations.LinePairResults; quality.relations.NativeRhyme; quality.relations.PrefixAgree; quality.relations.VocabularyPairResults; quality.relations.align_anchor; quality.relations.align_flush_left; quality.relations.align_flush_right; quality.relations.align_none; quality.relations.audible_as_end_rhyme; quality.relations.audible_relations; quality.relations.declare_beat; quality.relations.declare_tonal_template; quality.relations.declared_pair_schema; quality.relations.figure_pair_representable; quality.relations.inert_census; quality.relations.line_status_from; quality.relations.main; quality.relations.pair_memo_clear; quality.relations.pair_memo_disclosure; quality.relations.pair_memo_tally; quality.relations.pair_scope_representable; quality.relations.placement_bindable; quality.relations.planning_traits; quality.relations.print_inert_report; quality.relations.quantifier_table; quality.relations.stanzas_from_sections; quality.relations.tradition_provenance; quality.relations.uncertain; quality.relations.whole_vocabulary_pairs; quality.revise.SlotField; quality.revise.ban_emptied_note; quality.revise.field_memo_clear; quality.revise.field_memo_tally; quality.revise.held_note_standing; quality.revise.memo_disclosure; quality.revise.rank_memo_tally; quality.revise.score_memo_tally; quality.revise.score_rank_memo_clear; quality.rhyme_constraints.Extent; quality.rhyme_constraints.QuantifierRefused; quality.rhyme_constraints.apply_pred; quality.rhyme_constraints.canonical_quantifier; quality.rhyme_constraints.demo_type; quality.rhyme_types.coarse_relation_consensus; quality.rhyme_types.name; quality.rhyme_types.namespaced_vocabulary; quality.rhyme_types.relation_ambiguities; quality.rhyme_types.schema_relation_names; quality.schemes.name; quality.slots.span_kind — each is invisible to every bucket above, so adding or stranding one moves no figure here
+      derived by: python3 quality/counters.py
+  [ok      ] mutations declared
+      **59 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test)
+      all 59 apply cleanly to the current source
+      derived by: python3 quality/counters.py
+  [REFUSED ] mutations caught
+      REFUSED (cost) — not measured on the cheap path
+      not measured on the cheap path
+      remedy: python3 quality/counters.py --slow
+      derived by: python3 quality/test_mutation.py
+  [VOLATILE] `corpus/song/` files
+      1421 files   (not written to the table)
+      counted in /workspace/CodexMusica-repair-460-map/lyric-harness/corpus/song at run time
+      derived by: python3 quality/counters.py
+  [VOLATILE] `corpus/song/eng_*` — K-1's own quantities
+      1297 files, 8,652 staged items (8,537 work votes, 115 declared out), 282,745 sung lines; 2,432 repeat blocks (1,580 BURDEN / 595 REFRAIN / 257 CHORUS); CONCENTRATION (K-1a): top files eng_hall_thomas_durfey.txt 567 (23.3%), eng_celtic_robert_burns.txt 369 (15.2%), eng_british_felicia_hemans.txt 278 (11.4%) of 2432 blocks in 101 carrying files   (not written to the table)
+      rule: a staged item is a `--- TITLE:` line and a WORK VOTE is one that `data/calibration_work_editions.json` does not declare weight 0 (M-20 — two counts, never summed: a poem staged twice is two items and one work); a sung line is non-blank and does not begin `#`, `---` or `[`; a repeat block is a `[TAG` line with its trailing index stripped; the concentration rides the cell because the total alone is the biased number (K-1a)
+      derived by: python3 quality/counters.py
+  [VOLATILE] `data/sources.tsv` rows
+      1627 rows   (not written to the table)
+      1627 data rows + 1 header; physical lines 1628
+      derived by: python3 quality/counters.py
+  [VOLATILE] `data/lyricists.tsv` rows
+      551 rows   (not written to the table)
+      551 data rows + 1 header; physical lines 552
+      derived by: python3 quality/counters.py
+  [ok      ] sonnet battery
+      40/1012 = 4.0% violations (`mandated 1064, judged 1012, refused 52`)
+      judged + refused = mandated, so no refusal is in the numerator
+      derived by: python3 battery.py
+  [ok      ] band FPR on random pairs
+      **0.00%** (0 of 4,000 at seed 20260810, the runner's own default n; 0.00% = 0 of 3,000 at n=3,000 — the population size is a coordinate)
+      n=4,000: 4000 judged, 0 refused by CMUdict
+      derived by: python3 quality/redteam_band.py
+  [ok      ] register-audit findings
+      **0** — FALSE derivations: none
+      audit_register exit code 0
+      derived by: python3 quality/audit_register.py
+  [REFUSED ] adversaries built, of 8
+      REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it)
+      `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it)
+      remedy: read §0 and decide; do not let this file guess
+      derived by: read BACKLOG.md §0
+
+  asked 14, answered 12, refused 2  (refusals by kind: COST 1, JUDGEMENT 1)
+
+BACKLOG.md's counters table rewritten between the <!-- COUNTERS --> markers.

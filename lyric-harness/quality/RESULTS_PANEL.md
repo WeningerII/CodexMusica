@@ -99,6 +99,13 @@ are re-derived nightly by `python3 quality/sentencehood.py --check`.
   500-song protocol has p99 = **0.125**, adopted as the `STACKED_DRAFT`
   ceiling (1.4% of the canon at or over it); `long_bridge` reads **0.16**
   and now grades **exit 3**. The five passing songs read 0.0.
+  RE-MEASURED, NOT RE-ADOPTED, 2026-10-08: the 500-song draw was a seeded
+  shuffle of the sorted file list, so PR #497's 47 new Otterbein files
+  (1,297 -> 1,344) redrew it whole and its p99 read 0.200 with no sampled
+  song's fraction changed. `--check` now measures every marked song of >= 8
+  lines: p99 **0.125** before and after #497 (8,306 songs, 1.50% at or
+  over; 8,355 songs, 1.48%), so the ceiling stands (`quality/sentencehood.py`,
+  ADOPTED).
 - **The subtle mode's gate was REFUSED by measurement, on the record**:
   human songs carry verbless lines at 33% and 2-runs in 32% of sections,
   and the seven lines of the three rejected sections are statistically

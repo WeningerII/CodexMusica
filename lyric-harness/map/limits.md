@@ -46,6 +46,7 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | RANK_MEMO_CAP | 2,048 | `quality/revise.py` |
 | RIME_MEMO_CAP | 200,000 | `quality/revise.py` |
 | END_PAIR_MEMO_CAP | 400,000 | `quality/revise.py` |
+| _BOUND_TOKEN_MEMO_CAP | 50,000 | `quality/revise.py` |
 | MEMBER_READING_CAP | 64 | `quality/rhyme_types.py` |
 
 Connector:
@@ -75,6 +76,7 @@ Connector:
 | MAX_WANT_CHARS | 80 | `../mcp/lyric_tools.js` |
 | MAX_ANSWER_CHARS | 4,000 | `../mcp/lyric_tools.js` |
 | MAX_OUTPUT_BYTES | 9,437,184 (9,216 KB) | `../mcp/lyric_tools.js` |
+| LOOKUP_MAX_ADMITTED | 8 | `../mcp/lyric_tools.js` |
 | CONNECTOR_ATTEMPTS | 1 | `../mcp/lyric_tools.js` |
 | KITCHEN_ATTEMPTS | 3 | `../mcp/lyric_tools.js` |
 | REFUSAL_HEADLINE_MAX | 400 | `../mcp/lyric_tools.js` |
@@ -82,6 +84,9 @@ Connector:
 | STATE_WIRE_BYTES | 2,359,296 (2,304 KB) | `../mcp/payload_limits.js` |
 | HTTP_REQUEST_BYTES | 4,718,592 (4,608 KB) | `../mcp/payload_limits.js` |
 | CONTROL_CAP | 18,874,368 | `../mcp/python_bridge.js` |
+| READER_FRAME_CAP | 2,113,536 | `../mcp/python_bridge.js` |
+| RESERVE_BYTES | 16,384 (16 KB) | `../mcp/reader_job_store.js` |
+| READER_BODY_BYTES | 2,097,152 (2,048 KB) | `../mcp/reader_protocol.js` |
 | RUN_TTL_MS | 21,600,000 | `../mcp/run_store.js` |
 | RUN_CAP | 64 | `../mcp/run_store.js` |
 | MAX_TRADITIONS_PER_CALL | 16 | `../mcp/schemas.js` |

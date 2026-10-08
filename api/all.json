@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json. `aliases` maps each retired (merged) id to the tradition it was merged into.",
   "generated": "2026-10-08",
-  "count": 7713,
+  "count": 7755,
   "items": [
     {
       "id": "honky_tonk",
@@ -50,8 +50,8 @@
       "id": "mariachi",
       "name": "Mariachi",
       "family": "vernacular",
-      "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno son de artesa. thick, full chest belt, straight note core, interlocked note trading. plain gut beef gut varnished sitka spruce hard rock maple violin orchestral, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, foundational rural mariachi full. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 906
+      "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno chicago mexican. thick, forward-resonance, interlocked note trading, equal tempered. plain gut beef gut varnished sitka spruce hard rock maple violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral standard rim orchestral balance unison trumpet, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, nylon octave doubled canonical mariachi strummed vihuela mexicana, foundational rural mariachi full. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 901
     },
     {
       "id": "ranchera",
@@ -897,8 +897,8 @@
       "id": "choro",
       "name": "Choro",
       "family": "global",
-      "recipe": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba pagode. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, low mid rich spectrum broken in fast cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, powell boston canonical American orchestral flute, softer tone ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 770
+      "recipe": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba pagode. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, classical nylon-string guitar, samba foundation jacaranda rosewood canonical Portuguese strummed cavaquinho, powell boston canonical American orchestral flute, softer tone ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 746
     },
     {
       "id": "afrobeat",
@@ -1268,8 +1268,8 @@
       "id": "son_jarocho",
       "name": "Son jarocho",
       "family": "global",
-      "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song son de artesa banda sinaloense. extended whistle, breath veiled tone, straight note core, interlocked note trading. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 673
+      "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song son de artesa banda sinaloense. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. diatonic only son jarocho tradition cedrillo canonical veracruz bass and harmony arpa cedrillo canonical veracruz strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 663
     },
     {
       "id": "mento",
@@ -1898,8 +1898,8 @@
       "id": "forro_brasileiro",
       "name": "Forró brasileiro",
       "family": "global",
-      "recipe": "classic Southern American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion roda de samba pagode. thick, breath veiled tone, slow rate, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 626
+      "recipe": "classic Southern American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion roda de samba samba moderno. kargyraa, breath veiled tone, slow rate, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 636
     },
     {
       "id": "marinera",
@@ -2178,8 +2178,8 @@
       "id": "bedroom_pop",
       "name": "Bedroom pop",
       "family": "global",
-      "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, singing lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 530
+      "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song yacht rock skiffle. breath veiled tone, slow rate, equal tempered, modern pop training. marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp electric bass, TR-808, analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 459
     },
     {
       "id": "chillwave",
@@ -2199,8 +2199,8 @@
       "id": "uilleann_pipe_solo",
       "name": "Uilleann pipe solo",
       "family": "global",
-      "recipe": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame scottish fiddle tradition irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 496
+      "recipe": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame scottish fiddle tradition tavern. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 484
     },
     {
       "id": "didgeridoo_yidaki_solo",
@@ -4495,8 +4495,8 @@
       "id": "son_istmeno",
       "name": "Son istmeño (Oaxaca Isthmus)",
       "family": "global",
-      "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode roda de samba. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 411
+      "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion. solo with instrumental accompaniment, unprocessed natural acoustic. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 390
     },
     {
       "id": "trio_romantico_mexicano",
@@ -4642,22 +4642,22 @@
       "id": "festejo_afroperuano",
       "name": "Festejo (Afro-Peruvian celebration)",
       "family": "global",
-      "recipe": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion pagode bumba-meu-boi do maranhão. thick, breath veiled tone, straight note core, interlocked note trading. lead open slap hand drum congas, fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 514
+      "recipe": "classic Andean early-1920s festejo, groove Percussion, Latin am branch, Brazilian groove percussion. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. hands layered congas, fingerpicked parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition fist struck off beat accents festejo tradition quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 522
     },
     {
       "id": "lando_afroperuano",
       "name": "Landó (Afro-Peruvian slow groove)",
       "family": "global",
-      "recipe": "classic Andean modern landó, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, breath veiled tone, slow rate, interlocked note trading. mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition boiled sun dried loose teeth quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 550
+      "recipe": "classic Andean modern landó, groove Percussion, Latin am branch, Brazilian groove percussion baião tambor de crioula. chest mix belt, one note per syllable, solo with instrumental accompaniment, equal tempered 12 fixed pitch. mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas, parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition boiled sun dried loose teeth quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 599
     },
     {
       "id": "currulao_pacifico",
       "name": "Currulao (Colombian Pacific)",
       "family": "global",
-      "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion pagode roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. ostinato low driving palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 353
+      "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion pagode tambor de crioula. thick, breath veiled tone, straight onset, interlocked note trading. ostinato low driving palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 362
     },
     {
       "id": "champeta_cartagenera",
@@ -4677,8 +4677,8 @@
       "id": "forro_pe_de_serra",
       "name": "Forró pé-de-serra (traditional forró)",
       "family": "global",
-      "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode bumba-meu-boi do maranhão. thick, breath veiled tone, pure, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 443
+      "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion. pure, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 463
     },
     {
       "id": "brega_tecnobrega",
@@ -4705,8 +4705,8 @@
       "id": "coco_brasileiro",
       "name": "Coco brasileiro (NE Brazilian work-song)",
       "family": "global",
-      "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion pagode roda de samba. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 444
+      "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion tambor de crioula bumba-meu-boi do maranhão. group vocals, live take. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 419
     },
     {
       "id": "classical_period_18c",
@@ -5454,8 +5454,8 @@
       "id": "slap_house",
       "name": "Slap house (Brazilian house 2010s)",
       "family": "electronic",
-      "recipe": "classic Southern American slap house, electronic Dance, house branch, Brazilian groove percussion pagode samba rock. thick, breath veiled tone, straight onset, interlocked note trading. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, fast decay focused low sub bass analog synth. estudios scatena sp. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 490
+      "recipe": "classic Southern American slap house, electronic Dance, house branch, Brazilian groove percussion pagode forró manauara. slow rate, interlocked note trading, equal tempered, modern pop training. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, low sub bass analog synth. estudios scatena sp. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 480
     },
     {
       "id": "afro_house",
@@ -5552,8 +5552,8 @@
       "id": "sambass_brazilian_dnb",
       "name": "Sambass (Brazilian drum-and-bass)",
       "family": "electronic",
-      "recipe": "classic Southern American mid-2000s sambass, bass System, bass descendants branch, Brazilian groove percussion pagode samba. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, low sub bass analog synth. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 379
+      "recipe": "classic Southern American mid-2000s sambass, bass System, bass descendants branch, Brazilian groove percussion pagode samba moderno. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, low sub bass analog synth. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 387
     },
     {
       "id": "brostep",
@@ -6315,8 +6315,8 @@
       "id": "american_political_hip_hop",
       "name": "American political hip-hop and conscious rap",
       "family": "global",
-      "recipe": "classic North American mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system gangsta rap houston chopped and screwed. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 516
+      "recipe": "classic North American mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system gangsta rap jazz rap. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 497
     },
     {
       "id": "irish_rebel_song",
@@ -6364,8 +6364,8 @@
       "id": "tibetan_thodrol_lama_praise",
       "name": "Tibetan thödröl praise-recitation",
       "family": "global",
-      "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual throat singing tibetan ache lhamo opera. sygyt, declaimed, slow rate, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 369
+      "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual throat singing siberian folk music. thick, ametrical pitched chant free rhythm, drone organized harmonic series overtone selection. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 405
     },
     {
       "id": "welsh_moliannu_cerdd_dant",
@@ -6392,8 +6392,8 @@
       "id": "arabic_madh_qasida",
       "name": "Arabic madh and qasida (Arabic praise-poetry)",
       "family": "global",
-      "recipe": "classic Middle Eastern early-1940s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud. qat chew majlis room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-      "recipe_chars": 485
+      "recipe": "classic Middle Eastern early-1940s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud. qat chew majlis room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_chars": 504
     },
     {
       "id": "english_nursery_rhyme",
@@ -7582,8 +7582,8 @@
       "id": "hypnosis_induction",
       "name": "Hypnotic induction",
       "family": "global",
-      "recipe": "classic mid-1840s hypnotic induction, spoken Word, intimate voice branch audiobook narration guided meditation. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 292
+      "recipe": "classic mid-1840s hypnotic induction, spoken Word, intimate voice branch shipping forecast cadence audiobook narration. minimal subglottal pressure, no pitch organization speech, solo unaccompanied. closet booth. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 311
     },
     {
       "id": "standup_comedy",
@@ -8226,8 +8226,8 @@
       "id": "arrochadeira",
       "name": "Arrochadeira",
       "family": "global",
-      "recipe": "classic South American 2014-2016 arrochadeira, functional Song, Brazilian song branch, Brazilian groove percussion, intl hip hop MC rhythm pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, low sub bass analog poly synth, sampler drum machine, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 657
+      "recipe": "classic South American 2014-2016 arrochadeira, functional Song, Brazilian song branch, Brazilian groove percussion, intl hip hop MC rhythm pagode rap marseillais. thick, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, low sub bass analog poly synth, sampled chopped sampler drum machine, mahogany pyramid pure nickel bass British mid 60s era fingerstyle electric bass, timbal brasileiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 665
     },
     {
       "id": "swamp_rock",
@@ -8450,8 +8450,8 @@
       "id": "velha_guarda",
       "name": "Velha Guarda",
       "family": "global",
-      "recipe": "classic Southern American 1967-1969 velha guarda, groove Percussion, Brazilian branch, pagode Brazilian, Brazilian song functional song, Latin am troubadour ballad poetry roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
-      "recipe_chars": 986
+      "recipe": "classic Southern American 1967-1969 velha guarda, groove Percussion, Brazilian branch, pagode Brazilian, Brazilian song functional song, Latin am troubadour ballad poetry roda de samba bossa nova. one note per syllable, solo with instrumental accompaniment. samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, snappy samba tradition metal construction reco reco, call response single leader group response global traditional polyphonic choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 954
     },
     {
       "id": "cumbia_420",
@@ -9255,8 +9255,8 @@
       "id": "pakistani_pop",
       "name": "Pakistani Pop",
       "family": "pop_rock",
-      "recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu sikh shabad kirtan. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, mid 1960s double tracking era 2 to 4 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
-      "recipe_chars": 654
+      "recipe": "classic mid-1990s pakistani pop, functional Song, south Asian pop branch, indian subcontinent praise song mappila paattu malayalam madh. thick, declaimed, straight note core, interlocked note trading. clean strummed single coil electric guitar, rock canon ernie ball slinky electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, ringing pitched indian rosewood rosewood tabla, dholak, harmonium indian, mid 1960s double tracking era 2 to 4 track multitrack vocal stack. treated studio. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+      "recipe_chars": 650
     },
     {
       "id": "vietnamese_melodic_rap",
@@ -9269,8 +9269,8 @@
       "id": "panamanian_pop",
       "name": "Panamanian Pop",
       "family": "pop",
-      "recipe": "classic modern panamanian pop, functional Song, tropical song branch, reggaeton MC rhythm trap triste reggaeton mexicano. thick, breath veiled tone, straight note core, interlocked note trading. congas, rhythm chordal accordion, thumb muted electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog poly synth, pre modern classic salsa brass timbales, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-      "recipe_chars": 698
+      "recipe": "classic modern panamanian pop, functional Song, tropical song branch, reggaeton MC rhythm trap triste perreo. solo with instrumental accompaniment. siam oak mid tier modern congas, rhythm chordal accordion, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808, plucked short envelope analog poly synth, pre modern classic salsa brass timbales, lead plus third fifth 3 part stack late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+      "recipe_chars": 709
     },
     {
       "id": "colombian_hip_hop",
@@ -10312,8 +10312,8 @@
       "id": "oldschool_jungle",
       "name": "Oldschool Jungle",
       "family": "electronic",
-      "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass german techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-      "recipe_chars": 516
+      "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass funk consciente. rap, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, low sub bass monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+      "recipe_chars": 542
     },
     {
       "id": "raggacore",
@@ -10725,8 +10725,8 @@
       "id": "concert_march",
       "name": "March (concert and military band)",
       "family": "classical",
-      "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass concert band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, silver plated British brass band ceremonial besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
-      "recipe_chars": 992
+      "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass concert band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
+      "recipe_chars": 990
     },
     {
       "id": "blue_note",
@@ -10781,8 +10781,8 @@
       "id": "free_funk",
       "name": "Free Funk",
       "family": "jazz",
-      "recipe": "classic North American mid-1980s free funk, improv On Frame, avant branch, funk percussive groove percussion, American jazz fusion brit funk. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance ensemble trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 812
+      "recipe": "classic North American mid-1980s free funk, improv On Frame, avant branch, funk percussive groove percussion, American jazz fusion psychedelic jazz fusion. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 817
     },
     {
       "id": "indo_jazz",
@@ -11208,14 +11208,14 @@
       "id": "sega",
       "name": "Séga (Mauritian creole dance song)",
       "family": "global",
-      "recipe": "classic East African 1957-1959 séga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, tropical song functional song fann at-tanbura nyahbinghi. light, breath veiled tone, slow rate, interlocked note trading. kayamba, parlor acoustic guitar, alder pyramid pure nickel bass British mid 60s era electric bass, maracas, snappy to palm hand clap. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
-      "recipe_chars": 541
+      "recipe": "classic East African modern séga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, tropical song functional song fann at-tanbura nyahbinghi. light, breath veiled tone, slow rate, interlocked note trading. kayamba, parlor acoustic guitar, alder pyramid pure nickel bass British mid 60s era electric bass, maracas, snappy to palm hand clap. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+      "recipe_chars": 538
     },
     {
       "id": "seggae",
       "name": "Seggae",
       "family": "global",
-      "recipe": "classic Western European 1984-1986 seggae, bass System, reggae diaspora branch, central east south African groove percussion, sub saharan African protest song south african freedom song séga. vocal fry, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, kayamba, Hammond a 100 built in Leslie home spinet tonewheel organ. brent black community studio london. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+      "recipe": "classic Western European 1984-1986 seggae, bass System, reggae diaspora branch, central east south African groove percussion, sub saharan African protest song séga south african freedom song. vocal fry, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, kayamba, Hammond a 100 built in Leslie home spinet tonewheel organ. brent black community studio london. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
       "recipe_chars": 653
     },
     {
@@ -11397,15 +11397,15 @@
       "id": "roda_de_samba",
       "name": "Roda de Samba",
       "family": "vernacular",
-      "recipe": "classic mid-1920s roda de samba, groove Percussion, pagode branch, Brazilian groove percussion, Brazilian song functional song, Brazilian carnival processional velha guarda. thick, breath veiled tone, slow rate, interlocked note trading. samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro choro tradition violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, tan tan drum, nylon canonical rio carnival aluminum canonical modern rio escola surdo, snappy samba tradition metal construction reco reco, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. urban courtyard. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-      "recipe_chars": 951
+      "recipe": "classic mid-1920s roda de samba, groove Percussion, pagode branch, Brazilian groove percussion, Brazilian song functional song, Brazilian carnival processional velha guarda. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. samba foundation mahogany samba canon cavaquinho, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, tan tan drum, nylon canonical rio carnival aluminum canonical modern rio escola surdo, snappy samba tradition metal construction reco reco, call response single leader group response global traditional polyphonic choir ensemble. urban courtyard. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 921
     },
     {
       "id": "partido_alto",
       "name": "Partido-Alto",
       "family": "vernacular",
-      "recipe": "classic Southern American mid-1930s partido-alto, groove Percussion, Brazilian branch, pagode Brazilian, Latin am troubadour ballad poetry, Brazilian song functional song roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, samba foundation mahogany samba canon cavaquinho, Brazilian rosewood pre 1992 choro accompaniment violao 7 cordas, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival aluminum canonical modern rio escola surdo, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-      "recipe_chars": 928
+      "recipe": "classic Southern American mid-1930s partido-alto, groove Percussion, Brazilian branch, pagode Brazilian, Latin am troubadour ballad poetry, Brazilian song functional song roda de samba brega paraense. vocal fry, breath veiled tone, interlocked note trading, neutral third half flat. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, samba foundation mahogany samba canon cavaquinho, choro tradition nylon Brazilian rosewood pre 1992 choro accompaniment violao 7 cordas, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival surdo, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 946
     },
     {
       "id": "jovem_guarda",
@@ -11537,15 +11537,15 @@
       "id": "cumbia_andina_mexicana",
       "name": "Cumbia andina mexicana",
       "family": "global",
-      "recipe": "classic Southwestern American mid-1980s cumbia andina mexicana, groove Percussion, Latin am branch, Mexican functional song, tropical song functional song cumbia ranchera duranguense. vocal fry, full chest belt, slow rate, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, andean tradition paired rows interlocking siku panpipes, quena, alder pyramid pure nickel bass British mid 60s era electric bass, guiro, open slap hand drum timbales, drum machine analog. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 717
+      "recipe": "classic Southwestern American mid-1980s cumbia andina mexicana, groove Percussion, Latin am branch, Mexican functional song, tropical song functional song duranguense música bajacaliforniana. vocal fry, full chest belt, breath pulsed, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, andean tradition paired rows interlocking siku panpipes, quena, alder pyramid pure nickel bass British mid 60s era electric bass, guiro, open slap hand drum timbales, drum machine analog. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 729
     },
     {
       "id": "cumbia_ranchera",
       "name": "Cumbia ranchera",
       "family": "global",
-      "recipe": "classic Southwestern American mid-1970s cumbia ranchera, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia pop. thick, full chest belt, straight note core, interlocked note trading. castagnari Italian premium folk music chordal accordion, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, lead open slap hand drum congas. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 736
+      "recipe": "classic Southwestern American mid-1970s cumbia ranchera, functional Song, Mexican branch, tejano border ranchera, Latin am groove percussion cumbia andina mexicana. solo with instrumental accompaniment, plate reverb medium decay vocal classic, single lead single track no stacking. castagnari Italian premium folk music chordal accordion, pyramid pure nickel bass British mid 60s era electric bass, guiro, kevlar aramid extreme tension brushes-and-sticks drum kit, analog poly synth, lead open slap hand drum congas. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 715
     },
     {
       "id": "cumbia_editada",
@@ -11579,8 +11579,8 @@
       "id": "salsa_choke",
       "name": "Salsa choke",
       "family": "global",
-      "recipe": "classic early-2010s salsa choke, groove Percussion, son salsa branch, reggaeton MC rhythm, tropical song functional song perreo barbadian pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. TR-808, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mahogany pyramid pure nickel bass British mid 60s era electric bass, plucked short envelope analog poly synth, guiro, heavy one piece matched to monette horn ensemble trumpet. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-      "recipe_chars": 692
+      "recipe": "classic early-2010s salsa choke, groove Percussion, son salsa branch, reggaeton MC rhythm, tropical song functional song perreo barbadian pop. solo with instrumental accompaniment. TR-808, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mahogany pyramid pure nickel bass British mid 60s era electric bass, plucked short envelope analog poly synth, guiro, heavy one piece matched to monette horn ensemble trumpet. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+      "recipe_chars": 655
     },
     {
       "id": "salsa_urbana",
@@ -12104,8 +12104,8 @@
       "id": "bajan_soca",
       "name": "Bajan Soca",
       "family": "global",
-      "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system cumbia argentina panamanian pop. thick, breath veiled tone, straight note core, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, la bella flats Detroit soul bass canon thumb muted electric bass, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 827
+      "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system raggamuffin kaneka. raised subglottal pressure, one note per syllable, group vocals, live take. brushes-and-sticks drum kit, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, one man band yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 781
     },
     {
       "id": "grenada_soca",
@@ -12279,8 +12279,8 @@
       "id": "kadongo_kamu",
       "name": "Kadongo Kamu",
       "family": "global",
-      "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry senegalese traditional malian traditional. extended whistle, declaimed, interlocked note trading, neutral third half flat. coated nanoweb fingerpicked dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-      "recipe_chars": 585
+      "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry senegalese traditional. extended whistle, declaimed, pure, interlocked note trading. coated nanoweb fingerpicked dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "recipe_chars": 547
     },
     {
       "id": "sungura",
@@ -13014,8 +13014,8 @@
       "id": "modern_funk",
       "name": "Modern Funk",
       "family": "electronic",
-      "recipe": "classic modern modern funk, functional Song, soul R&B branch, funk percussive groove percussion, lofi house house brit funk new orleans funk. thick, breath veiled tone, straight onset, interlocked note trading. classic source linndrum, behringer rd 8 modern clone analog circuit reproduction TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, low sub bass monosynth acid bass, talkbox, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 615
+      "recipe": "classic modern modern funk, functional Song, soul R&B branch, funk percussive groove percussion, lofi house house brit funk funktronica. thick, blues-shouter, straight onset, interlocked note trading. linndrum, behringer rd 8 modern clone analog circuit reproduction TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth, low sub bass monosynth acid bass, talkbox, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 590
     },
     {
       "id": "country_boogie",
@@ -13315,8 +13315,8 @@
       "id": "portuguese_folk",
       "name": "Portuguese Folk (Música Popular Portuguesa)",
       "family": "vernacular",
-      "recipe": "classic mid-1960s portuguese folk, functional Song, iberian branch, European carnival processional, wind pipe drone modal basque folk organetto. thick, breath veiled tone, fast rate, interlocked note trading. viola braguesa, jacaranda rosewood canonical Portuguese strummed cavaquinho, adufe, gaita galega three drone muiñeira dance driving gaita galega, brass castagnari Italian premium folk music straight accordion, tambourine orch, regional traditional pomegranate wood castanets. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 576
+      "recipe": "classic mid-1960s portuguese folk, functional Song, iberian branch, European carnival processional, wind pipe drone modal basque folk organetto. thick, breath veiled tone, fast rate, interlocked note trading. viola braguesa, jacaranda rosewood canonical Portuguese strummed cavaquinho, adufe, gaita galega three drone muiñeira dance driving gaita galega, castagnari Italian premium folk music straight accordion, tambourine orch, regional traditional pomegranate wood castanets. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 570
     },
     {
       "id": "flemish_folk",
@@ -13511,8 +13511,8 @@
       "id": "tamburica",
       "name": "Tamburica Orchestra Music",
       "family": "global",
-      "recipe": "classic Central European mid-1840s tamburica orchestra music, drinking Song, balkan branch, European carnival processional, Slavic balkan field work cologne karneval kolo. thick, breath veiled tone, fast rate, interlocked note trading. tamburica prim, tamburica brac, horo dance driving tambura balkan, venice catlin high twist renaissance bass carpathian spruce European maple double bass, castagnari Italian premium folk music accordion, sitka spruce hard rock maple acer saccharum spirit varnish shellac alcohol violin orchestral. budapest carpathian csarda tavern. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
-      "recipe_chars": 714
+      "recipe": "classic Central European mid-1840s tamburica orchestra music, drinking Song, balkan branch, European carnival processional, Slavic balkan field work cologne karneval hutsulska muzyka. thick, breath veiled tone, fast rate, interlocked note trading. tamburica prim, tamburica brac, horo dance driving tambura balkan, venice catlin high twist renaissance bass plywood laminate double bass, castagnari Italian premium folk music accordion, sitka spruce hard rock maple acer saccharum spirit varnish shellac alcohol violin orchestral. budapest carpathian csarda tavern. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+      "recipe_chars": 710
     },
     {
       "id": "kolo",
@@ -13581,8 +13581,8 @@
       "id": "lezginka",
       "name": "Lezginka",
       "family": "global",
-      "recipe": "classic Eastern European mid-1930s lezginka, wedding, middle eastern branch, European carnival processional, central east south African groove percussion liwa séga. piercing, breath veiled tone, fast rate, interlocked note trading. zurna, brass weltmeister east German mid tier vintage volk accordion, dhol, hand clap, naghara azerbaijani, shichepshin. field recording. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-      "recipe_chars": 503
+      "recipe": "classic Eastern European mid-1930s lezginka, wedding, middle eastern branch, European carnival processional, central east south African groove percussion liwa séga. piercing, breath veiled tone, fast rate, interlocked note trading. zurna, weltmeister east German mid tier vintage volk accordion, dhol, hand clap, naghara azerbaijani, shichepshin. field recording. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 497
     },
     {
       "id": "circassian_folk",
@@ -14407,8 +14407,8 @@
       "id": "frenchcore",
       "name": "Frenchcore",
       "family": "electronic",
-      "recipe": "classic 1994-1996 frenchcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric peak-time techno. thick, breath veiled tone, slow rate, interlocked note trading. TR-909, classic acid monosynth acid bass, analog mono synth, field textural sampler, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 526
+      "recipe": "classic 1994-1996 frenchcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric industrial hardcore. no pitch organization speech, solo with instrumental accompaniment, stutter edit cut as instrument, chopped vocal sample rhythmic bed. TR-909, classic acid monosynth acid bass, analog mono synth, field textural sampler, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 600
     },
     {
       "id": "uptempo_hardcore",
@@ -14421,8 +14421,8 @@
       "id": "xtra_raw",
       "name": "Xtra Raw",
       "family": "electronic",
-      "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance peak-time techno belgian techno. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. TR-909, low sub bass digital subtractive, low sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 510
+      "recipe": "classic 2017-2019 xtra raw, electronic Dance, hardstyle branch, techno electronic dance deep hardtechno peak-time techno. overdriven subglottal pressure, unrestrained, solo with instrumental accompaniment, single lead single track no stacking. TR-909, sub bass digital subtractive, sub bass wavetable synth, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 538
     },
     {
       "id": "hands_up",
@@ -15121,8 +15121,8 @@
       "id": "fife_and_drum",
       "name": "Fife and Drum Corps",
       "family": "vernacular",
-      "recipe": "classic mid-1880s fife and drum corps, groove Percussion, American marching branch, European carnival processional, American south field work galoubet-tambourin kolo. martial driving unison doubled fife, piercing marching nickel silver nickel silver piccolo, pipe band flourishing kevlar aramid extreme tension tenor double bass rapid double strokes bass drum, drumline school marching, deep boom sustained goatskin head bright tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 514
+      "recipe": "classic mid-1880s fife and drum corps, groove Percussion, American marching branch, European carnival processional, American south field work galoubet-tambourin kolo. martial driving unison doubled fife, piercing marching nickel silver nickel silver piccolo, five drum arc kevlar aramid extreme tension nylon tenor double bass rapid double strokes bass drum, drumline school marching, deep boom sustained goatskin head bright tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 512
     },
     {
       "id": "concert_band",
@@ -15212,8 +15212,8 @@
       "id": "reggaeton_mexicano",
       "name": "Reggaeton Mexicano",
       "family": "global",
-      "recipe": "classic 2019-2022 reggaeton mexicano, mc Rhythm, reggaeton branch, Mexican functional song, tropical song functional song cumbia ranchera duranguense. thick, full chest belt, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler, analog poly synth, la bella flats Detroit soul bass canon electric bass, requinto jarocho. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 578
+      "recipe": "classic 2019-2022 reggaeton mexicano, mc Rhythm, reggaeton branch, Mexican functional song, tropical song functional song cumbia ranchera cumbia argentina. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler, analog poly synth, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass, requinto jarocho. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 634
     },
     {
       "id": "salsa_venezolana",
@@ -15289,8 +15289,8 @@
       "id": "afro_rnb",
       "name": "Afro R&B",
       "family": "pop",
-      "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance congolese rumba naija old school. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-      "recipe_chars": 588
+      "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance congolese rumba isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+      "recipe_chars": 568
     },
     {
       "id": "afro_soul",
@@ -44332,8 +44332,8 @@
       "id": "chakma_pop",
       "name": "Chakma Pop",
       "family": "pop",
-      "recipe": "classic chakma pop, functional Song. solo with instrumental accompaniment. digital software sample playback. treated studio.",
-      "recipe_chars": 124
+      "recipe": "classic chakma pop, functional Song. small note groups per syllable, solo with instrumental accompaniment. digital software sample playback. treated studio.",
+      "recipe_chars": 156
     },
     {
       "id": "hyperpop_italiano",
@@ -44948,8 +44948,8 @@
       "id": "musica_colimense",
       "name": "Música Colimense",
       "family": "vernacular",
-      "recipe": "classic música colimense, functional Song. low mid rich spectrum cedar classical nylon-string guitar, credited requinto unspecified, double bass. live tracking.",
-      "recipe_chars": 160
+      "recipe": "classic música colimense, functional Song. group vocals. low mid rich spectrum cedar classical nylon-string guitar, credited requinto unspecified, double bass. live tracking.",
+      "recipe_chars": 174
     },
     {
       "id": "musica_morelense",
@@ -45006,6 +45006,307 @@
       "family": "vernacular",
       "recipe": "classic cumbia, groove Percussion, Latin am branch. one note per syllable, single lead single track no stacking. upright piano, electric bass, bach stradivarius 180 canonical American orchestral trumpet, credited auxiliary percussion. live tracking.",
       "recipe_chars": 249
+    },
+    {
+      "id": "japanese_buddhist_chant",
+      "name": "Japanese Buddhist chant",
+      "family": "global",
+      "recipe": "classic japanese buddhist chant, ritual Devotional, buddhist branch. metrical pitched chant fixed rhythm fixed rhythm chant cycle human voice ensemble unspecified. shoebox concert hall.",
+      "recipe_chars": 185
+    },
+    {
+      "id": "vintage_italian_soundtrack",
+      "name": "Vintage Italian Soundtrack",
+      "family": "global",
+      "recipe": "classic mid-1960s vintage italian soundtrack, groove Percussion, funk percussive branch, art music canadian contemporary classical modern chamber music. alnico nickel clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato tonewheel organ. treated studio.",
+      "recipe_chars": 477
+    },
+    {
+      "id": "samba_moderno",
+      "name": "Samba Moderno",
+      "family": "vernacular",
+      "recipe": "classic samba moderno, groove Percussion, pagode branch, Brazilian song functional song brega and tecnobrega funk melody. one note per syllable, group vocals. samba foundation mahogany samba canon cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, bass driven tan tan drum. live tracking.",
+      "recipe_chars": 379
+    },
+    {
+      "id": "deep_hardtechno",
+      "name": "Deep Hardtechno",
+      "family": "electronic",
+      "recipe": "classic deep hardtechno, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 104
+    },
+    {
+      "id": "electropop",
+      "name": "Electropop",
+      "family": "electronic",
+      "recipe": "classic electropop, functional Song, synthpop branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, drum machine analog, electronic synthesis sequencing unspecified. treated studio.",
+      "recipe_chars": 253
+    },
+    {
+      "id": "speedrun",
+      "name": "Speedrun",
+      "family": "electronic",
+      "recipe": "classic speedrun, experimental Elec. software sample playback, wavetable synth. treated studio.",
+      "recipe_chars": 95
+    },
+    {
+      "id": "kashmiri_hip_hop",
+      "name": "Kashmiri hip hop",
+      "family": "hip_hop",
+      "recipe": "classic kashmiri hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. software sample playback. treated studio.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "sesotho_pop",
+      "name": "Sesotho Pop",
+      "family": "pop",
+      "recipe": "classic sesotho pop, functional Song, African pop branch. one note per syllable, solo with instrumental accompaniment. software sample playback. live tracking.",
+      "recipe_chars": 159
+    },
+    {
+      "id": "vietnamese_pop",
+      "name": "Vietnamese Pop",
+      "family": "pop",
+      "recipe": "classic vietnamese pop, functional Song, east Asian pop branch. upright piano. parlor.",
+      "recipe_chars": 86
+    },
+    {
+      "id": "griot",
+      "name": "Griot",
+      "family": "global",
+      "recipe": "classic griot, ballad Poetry, west African griot branch. oral history narrative recitation sung praise interludes griot voice, balafon. live tracking.",
+      "recipe_chars": 150
+    },
+    {
+      "id": "instrumental_acoustic_guitar",
+      "name": "Instrumental acoustic guitar",
+      "family": "global",
+      "recipe": "classic instrumental acoustic guitar, art Music. phosphor bronze bronze fingerpicked acoustic guitar. shoebox concert hall.",
+      "recipe_chars": 123
+    },
+    {
+      "id": "musica_neoleonesa",
+      "name": "Música Neoleonesa",
+      "family": "vernacular",
+      "recipe": "classic música neoleonesa, ballad Poetry. responsive traditional leather accordion, bajo sexto. live tracking.",
+      "recipe_chars": 110
+    },
+    {
+      "id": "indie_viet",
+      "name": "Indie Việt",
+      "family": "pop",
+      "recipe": "classic indie việt, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 186
+    },
+    {
+      "id": "vintage_swoon",
+      "name": "Vintage Swoon",
+      "family": "pop",
+      "recipe": "classic vintage swoon, functional Song. group vocals. dreadnought acoustic guitar, block chord upright piano, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 214
+    },
+    {
+      "id": "corridos_cristianos",
+      "name": "Corridos Cristianos",
+      "family": "vernacular",
+      "recipe": "classic corridos cristianos, ritual Devotional, christian gospel branch, tejano border corrido. solo with instrumental accompaniment, single lead single track no stacking. low mid rich spectrum soft attack cedar classical nylon-string guitar. parlor.",
+      "recipe_chars": 250
+    },
+    {
+      "id": "concurso_de_talentos_argentino",
+      "name": "Concurso de Talentos Argentino",
+      "family": "pop",
+      "recipe": "classic concurso de talentos argentino, functional Song. one note per syllable, solo with instrumental accompaniment. classical nylon-string guitar. parlor.",
+      "recipe_chars": 156
+    },
+    {
+      "id": "modern_country_pop",
+      "name": "Modern Country Pop",
+      "family": "pop",
+      "recipe": "classic modern country pop, functional Song, country branch. solo with instrumental accompaniment, unprocessed natural acoustic. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 240
+    },
+    {
+      "id": "new_wave_pop",
+      "name": "New Wave Pop",
+      "family": "pop",
+      "recipe": "classic new wave pop, functional Song. live take. strummed open chord ringing overtones dreadnought acoustic guitar, spoken word voice. live tracking.",
+      "recipe_chars": 150
+    },
+    {
+      "id": "kleine_hoerspiel",
+      "name": "Kleine Hörspiel",
+      "family": "global",
+      "recipe": "classic kleine hörspiel, spoken Word. spoken dramatic cast, software sample playback, credited sound effect unspecified. treated studio.",
+      "recipe_chars": 136
+    },
+    {
+      "id": "malayalam_madh",
+      "name": "Malayalam Madh",
+      "family": "global",
+      "recipe": "classic malayalam madh, praise Song, indian subcontinent branch. tar frame drum. live tracking.",
+      "recipe_chars": 95
+    },
+    {
+      "id": "marci_brijuzi",
+      "name": "Marċi Brijużi",
+      "family": "folk",
+      "recipe": "classic marċi brijużi, carnival Processional, European branch. clarinet section bb eb, saxophone, trumpet, french horn, trombone, baritone horn bb, yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, bass snare drum, credited cymbals. live tracking.",
+      "recipe_chars": 296
+    },
+    {
+      "id": "world",
+      "name": "World",
+      "family": "vernacular",
+      "recipe": "classic world, improv On Frame. calabash cowhide mande traditional mande hardwood local traditional kora. live tracking.",
+      "recipe_chars": 120
+    },
+    {
+      "id": "manipuri_pop",
+      "name": "Manipuri Pop",
+      "family": "pop",
+      "recipe": "classic manipuri pop, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 220
+    },
+    {
+      "id": "deathgrass",
+      "name": "Deathgrass",
+      "family": "vernacular",
+      "recipe": "classic deathgrass, functional Song. small note groups per syllable, unprocessed natural acoustic. wood old time clawhammer low bridge loose action open back banjo 5 string, fiddle, upright bass, dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 239
+    },
+    {
+      "id": "venda_pop",
+      "name": "Venda Pop",
+      "family": "pop",
+      "recipe": "classic venda pop, groove Percussion. one note per syllable, live take. dreadnought acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 220
+    },
+    {
+      "id": "chicago_mexican",
+      "name": "Chicago Mexican",
+      "family": "vernacular",
+      "recipe": "classic chicago mexican, functional Song, Mexican branch. duet, live take. accordion, bajo quinto, electric bass, drum kit. live tracking.",
+      "recipe_chars": 138
+    },
+    {
+      "id": "tavern",
+      "name": "Tavern",
+      "family": "vernacular",
+      "recipe": "classic tavern, improv On Frame, Celtic traditional branch. fingerpicked acoustic guitar. live tracking.",
+      "recipe_chars": 104
+    },
+    {
+      "id": "pop_catracho",
+      "name": "Pop Catracho",
+      "family": "pop",
+      "recipe": "classic pop catracho, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. parlor.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "cerkes_muzikleri",
+      "name": "Çerkes Müzikleri",
+      "family": "global",
+      "recipe": "classic çerkes müzikleri, improv On Frame. solo with instrumental accompaniment. global traditional polyphonic choir ensemble, panduri, kaval, accordion, credited auxiliary percussion. shoebox concert hall.",
+      "recipe_chars": 206
+    },
+    {
+      "id": "funktronica",
+      "name": "funktronica",
+      "family": "electronic",
+      "recipe": "classic funktronica, groove Percussion, funk percussive branch, pop experimental experimental electric bristol trip hop indonesian hyperpop. one note per syllable, solo with instrumental accompaniment, delay throw phrase end send, single lead single track no stacking. midrange-forward clean chicken-scratch single coil electric guitar, fast decay focused low sub bass analog synth, TR-808. treated studio.",
+      "recipe_chars": 406
+    },
+    {
+      "id": "spacewave",
+      "name": "Spacewave",
+      "family": "electronic",
+      "recipe": "classic spacewave, experimental Elec, retro aesthetic branch. analog software virtual analog synth, jt4000 micro, software sample playback, credited beat unspecified. treated studio.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "dark_black_metal",
+      "name": "Dark Black Metal",
+      "family": "rock",
+      "recipe": "classic dark black metal, distorted Rock, black branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. live tracking.",
+      "recipe_chars": 229
+    },
+    {
+      "id": "indonesian_lo_fi_pop",
+      "name": "Indonesian Lo-fi Pop",
+      "family": "pop",
+      "recipe": "classic indonesian lo-fi pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. low mid rich spectrum full phosphor bronze modern martin dreadnought acoustic guitar. shoebox concert hall.",
+      "recipe_chars": 222
+    },
+    {
+      "id": "classic_sierreno",
+      "name": "Classic Sierreño",
+      "family": "global",
+      "recipe": "classic classic sierreño, functional Song, Mexican branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. low mid rich spectrum cedar classical nylon-string guitar, electric bass, accordion. live tracking.",
+      "recipe_chars": 257
+    },
+    {
+      "id": "deep_norteno",
+      "name": "Deep Norteño",
+      "family": "global",
+      "recipe": "classic deep norteño, functional Song, tejano border branch. conversational, solo with instrumental accompaniment, single lead single track no stacking. saxophone, accordion, dance rhythm strummed bajo sexto, electric bass, drum kit. live tracking.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "vintage_western",
+      "name": "Vintage Western",
+      "family": "vernacular",
+      "recipe": "classic vintage western, ballad Poetry. unprocessed natural acoustic. dry vintage mahogany parlor acoustic guitar, pearwood marine band tradition brass traditional richter canonical 10 hole diatonic blues harmonica. live tracking.",
+      "recipe_chars": 230
+    },
+    {
+      "id": "forro_manauara",
+      "name": "Forró Manauara",
+      "family": "vernacular",
+      "recipe": "classic forró manauara, groove Percussion, Brazilian branch, electronic dance baile funk south african house. one note per syllable, group vocals. alder rosewood single coil electric guitar, alder fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified, accordion, wood baião tradition low stick with high bacalhau buzz zabumba, sampler. live tracking.",
+      "recipe_chars": 452
+    },
+    {
+      "id": "narodnozabavna",
+      "name": "Narodnozabavna",
+      "family": "global",
+      "recipe": "classic narodnozabavna, drinking Song, European branch. accordion, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar, upright bass. live tracking.",
+      "recipe_chars": 176
+    },
+    {
+      "id": "cryptic_black_metal",
+      "name": "Cryptic Black Metal",
+      "family": "rock",
+      "recipe": "classic cryptic black metal, distorted Rock, black branch. overdriven subglottal pressure, solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 275
+    },
+    {
+      "id": "bleakgaze",
+      "name": "Bleakgaze",
+      "family": "rock",
+      "recipe": "classic bleakgaze, distorted Rock, black branch. pure, one note per syllable, solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "pop_minang",
+      "name": "Pop Minang (Minangkabau-language pop)",
+      "family": "pop",
+      "recipe": "classic pop minang, functional Song, east Asian pop branch. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard bamboo credited bamboo flute unspecified, canang kettle gong. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 391
+    },
+    {
+      "id": "anime_phonk",
+      "name": "Anime Phonk",
+      "family": "electronic",
+      "recipe": "classic anime phonk, electronic Dance. stutter edit cut as instrument human voice ensemble credited synthesizer credited programmed drums unspecified, sub bass low produced 808 bass, produced cowbell. treated studio.",
+      "recipe_chars": 216
+    },
+    {
+      "id": "hypnosis",
+      "name": "Hypnosis",
+      "family": "global",
+      "recipe": "classic hypnosis, spoken Word, intimate voice branch shipping forecast cadence. minimal subglottal pressure, no pitch organization speech. closet booth.",
+      "recipe_chars": 152
     },
     {
       "id": "nanyin",
@@ -46002,13 +46303,6 @@
       "recipe_chars": 203
     },
     {
-      "id": "pop_minang",
-      "name": "Pop Minang (Minangkabau-language pop)",
-      "family": "pop",
-      "recipe": "classic pop minang, functional Song, east Asian pop branch. clean strummed single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard bamboo credited bamboo flute unspecified, canang kettle gong. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 391
-    },
-    {
       "id": "gamad_padang",
       "name": "Gamad (Padang coastal song)",
       "family": "global",
@@ -46803,8 +47097,8 @@
       "id": "bakthi_gee",
       "name": "Bakthi gee (Sinhala Buddhist devotional song)",
       "family": "global",
-      "recipe": "classic modern bakthi gee, ritual Devotional, buddhist branch. single leader group response, live take. song accompaniment harmonium indian, tabla. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 227
+      "recipe": "classic modern bakthi gee, ritual Devotional, buddhist branch. single leader group response. song accompaniment harmonium indian, tabla. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 216
     },
     {
       "id": "batticaloa_koothu",

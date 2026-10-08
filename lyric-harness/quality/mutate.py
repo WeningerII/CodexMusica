@@ -197,8 +197,8 @@ ROOT = os.path.dirname(HERE)
 SYMLINK_DIRS = (os.path.join("data", "labels"),
                 os.path.join("data", "authority_src"),
                 os.path.join("data", "nltk"))
-#: Files at or below this are copied; above it they are symlinked. The 16 files
-#: over the line are dictionaries and label tables, none of them written.
+#: Other files at or below this are copied; above it they are symlinked.
+#: Declared root asset leaves and corpus bytes always stay regular copies.
 COPY_MAX_BYTES = 2 * 1024 * 1024
 SKIP_NAMES = {"__pycache__", ".git", ".pytest_cache", ".mypy_cache",
               # a dependency tree is not the repo: mcp/ carries its own
@@ -1546,8 +1546,8 @@ def discover_tests(only=None):
 # Shadow tree — the copy every mutation is applied to
 # ---------------------------------------------------------------------------
 
-def _mirror(src_dir, dst_dir, links):
-    """Real directories all the way down; copy small files, symlink big ones."""
+def _mirror(src_dir, dst_dir, links, regular_files=()):
+    """Copy declared regular inputs and small files; symlink other bulk data."""
     os.makedirs(dst_dir, exist_ok=True)
     for name in sorted(os.listdir(src_dir)):
         if name in SKIP_NAMES:
@@ -1564,8 +1564,8 @@ def _mirror(src_dir, dst_dir, links):
                     os.symlink(os.path.realpath(s), d)
                     links.append(rel)
                 else:
-                    _mirror(s, d, links)
-            elif (name.endswith(".py") or rel.startswith("corpus" + os.sep)
+                    _mirror(s, d, links, regular_files)
+            elif (rel in regular_files or name.endswith(".py") or rel.startswith("corpus" + os.sep)
                   or os.path.getsize(s) <= COPY_MAX_BYTES):
                 shutil.copy2(s, d)
             else:
@@ -1594,7 +1594,15 @@ def snapshot(base):
     """
     if "path" not in _SNAPSHOT:
         dst = tempfile.mkdtemp(prefix="snapshot-", dir=base)
-        _mirror(ROOT, os.path.join(dst, HARNESS_DIRNAME), [])
+        # Asset verification requires regular exact-byte leaves. Sharing a
+        # large root asset as a symlink makes the unmutated baseline unreadable
+        # (CMUdict and the song tables), before any defect has been planted.
+        with open(os.path.join(ROOT, "data", "runtime_assets.json"), encoding="utf-8") as stream:
+            assets = json.load(stream)["assets"]
+        regular_files = {os.path.normpath(entry["path"])
+                         for asset in assets if asset["base"] == "root"
+                         for entry in asset["files"]}
+        _mirror(ROOT, os.path.join(dst, HARNESS_DIRNAME), [], regular_files)
         repo = os.path.dirname(ROOT)
         for name, rule in SIBLING_RULES:
             s = os.path.join(repo, name)

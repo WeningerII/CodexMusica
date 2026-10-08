@@ -48,6 +48,8 @@ import {
   assertContinuationCapacity,
   continuationSemanticIdentity,
   CONNECTOR_DECLARATION_BYTES,
+  encodeInterviewWire,
+  verifyInterviewCursor,
 } from './state_codec.js';
 import {
   RunStore,
@@ -254,6 +256,24 @@ const bridge = createPythonBridge({
   getContext: requestContext,
   openKitchenBudget,
 });
+// A lookup does not wait behind a grade. In the song runs of 2026-09-30,
+// twelve `lyric_types` calls passed the caller's 60 s limit while a grade
+// or revise held the one serial queue, though the lookup itself takes about
+// 2.5 s. Lookups get their own queue and a one-shot process (no warm
+// worker): measured at about 2.5 s and 283 MB peak a call, so one at a time
+// fits beside the warm worker in the service's 2 GB.
+const LOOKUP_MAX_ADMITTED = 8;
+const lookupBridge = createPythonBridge({
+  python: PYTHON,
+  harnessDir: HARNESS_DIR,
+  workerPath: WORKER_PATH,
+  harnessEnv,
+  timeoutMs: SUBPROCESS_TIMEOUT_MS,
+  maxOutputBytes: MAX_OUTPUT_BYTES,
+  workerEnabled: false,
+  getContext: requestContext,
+  maxAdmitted: LOOKUP_MAX_ADMITTED,
+});
 const admissionScope = new AsyncLocalStorage();
 const runVerb = (args, options = {}) =>
   bridge.runVerb(args, {
@@ -265,6 +285,9 @@ export const lyricCapacity = () => bridge.capacity();
 // that matters — it has answered at least one request in this process, so its
 // replay memo is populated. Read straight off the bridge; see workerState().
 export const lyricWorkerState = () => bridge.workerState();
+// Private reader jobs share this worker; this is not a connector tool or a
+// provider entrance. The lookup bridge retains its existing separate contract.
+export const readerPythonBridge = bridge;
 export const _workerInternals = bridge.internals;
 
 const EXIT_MEANING = {
@@ -279,6 +302,10 @@ const EXIT_MEANING = {
   // reported as notes and no longer move an exit code.
   3: 'answered — at least one FLAG stands; the report names the lines',
   4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
+  // A call nearing its deadline stops itself between steps instead of being
+  // killed (LOOP_REDESIGN.md §2.3b; owner ruling Q3, 2026-10-02). It asks
+  // nothing, so it is not a 4: an answer sent to it would be refused.
+  5: 'STOPPED at a safe point — resumable; continue with no answer',
 };
 
 // Every count, finding and loop record in a verdict is read off the
@@ -391,30 +418,77 @@ function groupOutcomeAt(st, members, round, attempt = null, question = null) {
   return null;
 }
 
-function foldedOne(asked, answer, st) {
-  let verdict = 'unknown';
-  let reasons = [];
-  let source = 'unverified';
-  const o =
-    asked.kind === 'propose' && typeof asked.attempt === 'number'
-      ? outcomeAt(st, asked.line, asked.attempt, asked.round)
-      : asked.kind === 'propose_group' && Array.isArray(asked.members)
-        ? groupOutcomeAt(st, asked.members, asked.round, asked.attempt, asked.question_sha256)
-        : null;
-  if (o) {
-    verdict = o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown';
-    reasons = Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
-    source = 'outcome';
-  }
-  return {
-    ...asked,
-    answer:
-      typeof answer === 'string' ? answer.slice(0, 300) : JSON.stringify(answer).slice(0, 300),
-    verdict,
-    reasons,
-    source,
-  };
+// THE FOLD, BY JOURNAL DIFF (LOOP_REDESIGN.md §2.2 option B and §2.8 D;
+// owner's ruling 2026-10-02). It used to read only the incoming
+// `pending.answer`, so a batch member the walk had not reached yet came back
+// `unknown` / `unverified`, and its eventual verdict was never published at
+// all (defect 2, reproduced in Phase 1). Now every call compares the records
+// in the state it RETURNS with those in the state it was handed:
+//   - every new or changed outcome, group outcome or pass-by disposition is
+//     published, by the call that wrote it, as `accepted`, `rejected` or
+//     `not_applied` (source `outcome`);
+//   - every answer on record with no record yet is published as `pending`,
+//     waiting on the question now asked, or on the next call when the run
+//     stopped before reaching it (source `waiting`).
+// One row is an object, as a single answer's fold always was; several are an
+// array, as a batch's always was. `unknown` remains only for a row this cannot
+// match, which no state minted by this connector produces.
+const _lineKey = (o) => `${o.line}|${o.attempt ?? 0}|${o.round ?? ''}`;
+const _groupKey = (o) =>
+  `${(o.members || []).map(Number).join(',')}|${o.round ?? ''}|${o.attempt ?? ''}|${o.question_sha256 ?? ''}`;
+const _lines = (ns) => (ns && ns.length ? ns.map((n) => `L${n}`).join(', ') : 'an earlier line');
+const WHY_NOT_APPLIED = {
+  closed: (by) =>
+    `not judged: its finding was already closed by the accepted rewrite of ${_lines(by)}`,
+  rewritten: (by) => `not judged: this line was rewritten by the accepted rewrite of ${_lines(by)}`,
+  no_finding: () => 'not judged: no finding stands on this line in the current draft',
+};
+
+// WHERE A RUN STANDS, for the no-progress count (LOOP_REDESIGN.md §2.8 E;
+// owner ruling Q4, 2026-10-02). Two states are at the same position when the
+// saved position (phase, round, place in the pass, and the menus already built
+// for a question under construction), the number of verdict and pass-by
+// records, and the question pending are all the same. The count itself and
+// the seal are left out, so carrying the count never reads as progress.
+function positionOf(st) {
+  if (!st || typeof st !== 'object') return null;
+  const loop = st.cursor?.loop || {};
+  return JSON.stringify([
+    loop.phase ?? null,
+    loop.round ?? null,
+    loop.at ?? null,
+    Array.isArray(loop.menus) ? loop.menus.length : 0,
+    (st.outcomes || []).length,
+    (st.group_outcomes || []).length,
+    (st.dispositions || []).length,
+    st.pending ? { kind: st.pending.kind, record: st.pending.record } : null,
+  ]);
 }
+
+// -> the count of consecutive calls that ended without an answer and without
+// moving the run, carried in the state this call returns. Only an exit-5 stop
+// or a killed call is compared; any advance resets it to 0. Reported, never
+// refused: no call is ever turned away for it.
+function stallsOf(prevStateText, st) {
+  let prev;
+  try {
+    prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
+  } catch {
+    return 0;
+  }
+  if (!prev || typeof prev !== 'object') return 0;
+  const before = positionOf(prev);
+  return before !== null && before === positionOf(st)
+    ? (Number.isInteger(prev.stalls) && prev.stalls > 0 ? prev.stalls : 0) + 1
+    : 0;
+}
+
+const NO_PROGRESS_AT = 2;
+const noProgressNote = (n, st) =>
+  ` NO PROGRESS: ${n} calls in a row ended at the same position (` +
+  `${st?.cursor?.loop?.phase ?? 'the start'}, round ${st?.cursor?.loop?.round ?? '?'}, on a ` +
+  `${(st?.accepted_lines || []).length}-line draft). This draft does not fit one call on this ` +
+  'server; the run is kept and a further call is not refused.';
 
 function foldedOf(prevStateText, st) {
   let prev;
@@ -423,34 +497,107 @@ function foldedOf(prevStateText, st) {
   } catch {
     return null;
   }
-  const pend = prev && typeof prev === 'object' ? prev.pending : null;
-  if (!pend || typeof pend !== 'object') return null;
-  if (pend.answer == null || pend.answer === '') return null;
-  const asked = askedOf(pend);
-  if (!asked) return null;
-  if (asked.kind === 'propose_batch') {
-    // One record per member (M-236); the member's own answer is the row the
-    // harness folded, read back off the replay file.
-    const recs = Array.isArray(pend.record?.records) ? pend.record.records : [];
-    const folded = Array.isArray(st?.answered?.propose) ? st.answered.propose : [];
-    return recs.map((r) => {
-      const one = {
-        kind: 'propose',
-        line: r.line,
-        attempt: r.attempt ?? 0,
-        round: r.round ?? null,
-      };
-      const rec = folded.find(
-        (f) =>
-          f &&
-          f.line === one.line &&
-          (f.attempt ?? 0) === one.attempt &&
-          (f.round ?? null) === one.round
-      );
-      return foldedOne(one, rec && typeof rec.text === 'string' ? rec.text : pend.answer, st);
+  if (!prev || typeof prev !== 'object' || !st || typeof st !== 'object') return null;
+  const list = (x, k) =>
+    x && Array.isArray(x[k]) ? x[k].filter((o) => o && typeof o === 'object') : [];
+  const before = (k, keyOf) => new Map(list(prev, k).map((o) => [keyOf(o), JSON.stringify(o)]));
+  const answers = new Map(list(st.answered, 'propose').map((r) => [_lineKey(r), r]));
+  const groupAnswers = new Map(list(st.answered, 'propose_group').map((r) => [_groupKey(r), r]));
+  const rows = [];
+  const clip = (t) => (typeof t === 'string' ? t : JSON.stringify(t ?? '')).slice(0, 300);
+  const reasonsOf = (o) =>
+    Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
+  const seenOut = before('outcomes', _lineKey);
+  const recorded = new Set();
+  for (const o of list(st, 'outcomes')) {
+    const k = _lineKey(o);
+    recorded.add(k);
+    if (seenOut.get(k) === JSON.stringify(o)) continue;
+    rows.push({
+      kind: 'propose',
+      line: o.line,
+      attempt: o.attempt ?? 0,
+      round: o.round ?? null,
+      answer: clip(o.text ?? answers.get(k)?.text),
+      verdict: o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown',
+      reasons: reasonsOf(o),
+      source: 'outcome',
     });
   }
-  return foldedOne(asked, pend.answer, st);
+  const seenGroup = before('group_outcomes', _groupKey);
+  const groupRecorded = new Set();
+  for (const o of list(st, 'group_outcomes')) {
+    const k = _groupKey(o);
+    groupRecorded.add(k);
+    if (seenGroup.get(k) === JSON.stringify(o)) continue;
+    rows.push({
+      kind: 'propose_group',
+      members: (o.members || []).map(Number),
+      attempt: o.attempt ?? null,
+      round: o.round ?? null,
+      question_sha256: o.question_sha256 ?? null,
+      answer: clip(o.text),
+      verdict: o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown',
+      reasons: reasonsOf(o),
+      source: 'outcome',
+    });
+  }
+  const seenDisp = before('dispositions', _lineKey);
+  for (const d of list(st, 'dispositions')) {
+    const k = _lineKey(d);
+    recorded.add(k);
+    if (seenDisp.get(k) === JSON.stringify(d)) continue;
+    const why = WHY_NOT_APPLIED[d.why] || (() => 'not judged');
+    rows.push({
+      kind: 'propose',
+      line: d.line,
+      attempt: d.attempt ?? 0,
+      round: d.round ?? null,
+      answer: clip(answers.get(k)?.text),
+      verdict: 'not_applied',
+      reasons: [why(Array.isArray(d.by) ? d.by : [])],
+      by: Array.isArray(d.by) ? d.by.map(Number) : [],
+      source: 'outcome',
+    });
+  }
+  const asked = st.pending && typeof st.pending === 'object' ? askedOf(st.pending) : null;
+  const waitingOn = asked
+    ? asked.members || asked.lines || (asked.line != null ? [asked.line] : [])
+    : [];
+  const waiting = waitingOn.length
+    ? `pending: waiting on ${_lines(waitingOn)}, the question asked now`
+    : 'pending: the run stopped before reaching it; continue with no answer';
+  for (const [k, r] of answers) {
+    if (recorded.has(k)) continue;
+    rows.push({
+      kind: 'propose',
+      line: r.line,
+      attempt: r.attempt ?? 0,
+      round: r.round ?? null,
+      answer: clip(r.text),
+      verdict: 'pending',
+      reasons: [waiting],
+      waiting_on: waitingOn.map(Number),
+      source: 'waiting',
+    });
+  }
+  for (const [k, r] of groupAnswers) {
+    if (groupRecorded.has(k)) continue;
+    rows.push({
+      kind: 'propose_group',
+      members: (r.members || []).map(Number),
+      attempt: r.attempt ?? null,
+      round: r.round ?? null,
+      question_sha256: r.question_sha256 ?? null,
+      answer: clip(Array.isArray(r.new) ? r.new.join('\n') : r.text),
+      verdict: 'pending',
+      reasons: [waiting],
+      waiting_on: waitingOn.map(Number),
+      source: 'waiting',
+    });
+  }
+  if (!rows.length) return null;
+  return rows.length === 1 ? rows[0] : rows;
 }
 
 // A short fingerprint of the draft a call carried, so the cycles of one song
@@ -853,6 +1000,10 @@ function verdictOf(r) {
   if (r.code === 2 && record.status === 'refused' && typeof record.refusal === 'string')
     v.refusal = record.refusal;
   if (typeof record.memo_state === 'string') v.memo_state = record.memo_state;
+  // Why a saved position could not be used, when one existed (owner's ruling
+  // 2026-10-02, Q5; LOOP_REDESIGN.md §2.0). `replayed_answers` and
+  // `cursor_resumed` stay in the harness's own record, unpublished.
+  if (typeof record.cursor_stripped === 'string') v.cursor_stripped = record.cursor_stripped;
   for (const key of ['memo_hit', 'memo_asked', 'stale_answers', 'plan_lines'])
     if (Number.isInteger(record[key]) && record[key] >= 0) v[key] = record[key];
   const findings = Array.isArray(record.findings)
@@ -1247,7 +1398,7 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group must stand in, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (membership: a perfect rhyme stands in class:RHYME and class:ASSONANCE, and in class:CONSONANCE only when it closes on a consonant — heart/start does, sky/fly does not), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when its pairs stand in at least one; each pair\'s relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Planning draws no relation. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas.'
+    'Declare ONE rhyme relation every mandated group must stand in, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (membership: a perfect rhyme stands in class:RHYME and class:ASSONANCE, and in class:CONSONANCE only when it closes on a consonant — heart/start does, sky/fly does not), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair\'s relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Planning draws no relation. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas.'
   );
 
 const functionsField = z
@@ -1502,6 +1653,8 @@ export const _verdictInternals = {
   groupOutcomeAt,
   askedOf,
   foldedOf,
+  positionOf,
+  stallsOf,
   outcomeAt,
   draftFp,
   draftFromText,
@@ -1975,8 +2128,10 @@ function reviseDescription({ kitchen = false } = {}) {
     'too predictable — and no song. Answer by calling lyric_revise again with only `answer` (exactly one ' +
     'line of song text) or `answers` (one {line, text} per asked line — the shape for a batch or a group ' +
     'question): the run keeps its declarations and the draft it opened on, and the call names the run the ' +
-    'way this connection carries it. Each call re-runs the loop from its record (deterministic, so the same ' +
-    'questions arrive in the same order). To start again on a different draft, grade that draft first, then ' +
+    'way this connection carries it. Each call resumes from its saved, sealed position, or replays its ' +
+    'record when that position cannot be trusted; the same questions arrive in the same order either way. ' +
+    'A call that nears its time limit stops between steps (exit 5) and the next call with no answer ' +
+    'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`. ';
   const chat =
     'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the draft and the declarations; one call runs the ' +
@@ -2311,6 +2466,9 @@ export function registerLyricTools(server, tool) {
                       'JOURNAL_CAPACITY: this journal is a recovery artifact and cannot resume. Keep it and its final_draft or accepted_lines. An identical restart may hit the same limit; reduce the requested scope explicitly before independent new_run work.'
                     );
                   if (field === 'state') {
+                    // The seal is checked first, over the state exactly as it
+                    // was returned (LOOP_REDESIGN.md §2.0.1).
+                    verifyInterviewCursor(decoded);
                     if (!decoded.connector_declarations || !Array.isArray(decoded.input_draft))
                       throw refuse(
                         'CONTINUATION_INVALID: interview state lacks original input and declarations; preserve it as a recovery artifact.'
@@ -2412,9 +2570,12 @@ export function registerLyricTools(server, tool) {
               // is the harness's OWN deferred-run state (its `answered` block is a
               // valid --propose=replay: file), so the revision is reproducible by
               // anyone holding the conversation — and it cannot be forged into a
-              // finished song, because every answer in it is REPLAYED through
-              // verify() on this call and the render below only ever comes from
-              // the verb's own run past a stop condition.
+              // finished song. A verdict is trusted only under this server's
+              // seal: an edited outcome, journal or saved position fails the
+              // seal, the position is dropped, and every answer is REPLAYED
+              // through verify() on this call (LOOP_REDESIGN.md §2.0.1). The
+              // render below only ever comes from the verb's own run past a
+              // stop condition.
               if (a.state != null) {
                 let st;
                 try {
@@ -2462,7 +2623,10 @@ export function registerLyricTools(server, tool) {
                 // a run capability. This string is request-local; the cached
                 // predecessor remains immutable until the accepted successor.
                 a.state = JSON.stringify(st);
-                await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
+                // The no-progress count is the connector's, read off `a.state`
+                // when this call ends; the harness never sees or returns it.
+                const { stalls: _stalls, ...forHarness } = st;
+                await writeFile(statePath, JSON.stringify(forHarness, null, 2) + '\n', 'utf8');
               } else if (a.answer != null || a.answers != null) {
                 throw refuse(
                   '`answer`/`answers` without `state` — the first call has no question to answer'
@@ -2592,7 +2756,7 @@ export function registerLyricTools(server, tool) {
                   `DECLARATION_CAPACITY: writer declarations exceed ${CONNECTOR_DECLARATION_BYTES} UTF-8 bytes. Measurement tools still accept their documented payload limits; no writer was started.`
                 );
               const encodeInterview = (state) =>
-                encodeState({
+                encodeInterviewWire({
                   ...state,
                   input_draft: a.draft,
                   connector_declarations: declarationsOf(a),
@@ -2660,11 +2824,17 @@ export function registerLyricTools(server, tool) {
                 if (currentCheckpoint)
                   if (writer === 'interview') result.state = encodeInterview(currentCheckpoint);
                   else result.checkpoint = encodeState(currentCheckpoint);
+                let capacityState = writer === 'interview' ? currentCheckpoint : null;
                 try {
-                  result.state = encodeInterview(JSON.parse(await readFile(statePath, 'utf8')));
+                  capacityState = JSON.parse(await readFile(statePath, 'utf8'));
+                  result.state = encodeInterview(capacityState);
                 } catch (error) {
                   if (error.code !== 'ENOENT') throw error;
                 }
+                // Every verdict this call wrote is published, on every branch
+                // that returns a state (LOOP_REDESIGN.md §2.8 D).
+                if (writer === 'interview' && capacityState)
+                  result.folded = foldedOf(a.state, capacityState);
                 const saved = RUNS.put(runKey, {
                   status: 'journal_capacity',
                   draft: exactDraft,
@@ -2754,7 +2924,14 @@ export function registerLyricTools(server, tool) {
                         path: typeof r.path === 'string' ? r.path : null,
                         ms: typeof r.ms === 'number' ? r.ms : null,
                         ...Object.fromEntries(
-                          ['memo_state', 'memo_hit', 'memo_asked', 'stale_answers', 'plan_lines']
+                          [
+                            'memo_state',
+                            'memo_hit',
+                            'memo_asked',
+                            'stale_answers',
+                            'plan_lines',
+                            'cursor_stripped',
+                          ]
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])
                         ),
@@ -2886,8 +3063,22 @@ export function registerLyricTools(server, tool) {
                     ? 'interrupted'
                     : 'refused';
                 if (uncertainProposal) other.uncertain_proposal = true;
+                // THE NO-PROGRESS COUNT (§2.8 E). Compared only on a safe-point
+                // stop and a killed call; it rides in the sealed state.
+                if (writer === 'interview') {
+                  delete currentCheckpoint.stalls;
+                  if (r.code === 5 || r.timed_out || r.cancelled) {
+                    const stalls = stallsOf(a.state, currentCheckpoint);
+                    if (stalls > 0) currentCheckpoint.stalls = stalls;
+                    if (stalls >= NO_PROGRESS_AT) other.no_progress_calls = stalls;
+                  }
+                }
                 if (writer === 'interview') other.state = encodeInterview(currentCheckpoint);
                 else other.checkpoint = encodeState(currentCheckpoint);
+                // A call that ends without a question (a kill, or a safe-point
+                // stop) still publishes the verdicts it wrote, and every answer
+                // it did not reach as pending (LOOP_REDESIGN.md §2.8 D).
+                if (writer === 'interview') other.folded = foldedOf(a.state, currentCheckpoint);
                 other.final_draft = exactDraft;
                 other.replay_draft = a.draft;
                 if (resumable) {
@@ -2903,6 +3094,8 @@ export function registerLyricTools(server, tool) {
                   });
                   other.run_id = saved.run_id;
                   other.run_revision = saved.revision;
+                  if (other.no_progress_calls)
+                    other.meaning += noProgressNote(other.no_progress_calls, currentCheckpoint);
                   other.meaning += uncertainProposal
                     ? ' The provider request may have completed but no answer was recorded. Automatic continuation is stopped. final_draft preserves accepted edits; replay_draft and checkpoint preserve the evidence. Existing new_run can start independent work from final_draft, with a possible additional provider charge.'
                     : ` Resume explicitly with run_id or ${writer === 'interview' ? 'state' : 'checkpoint'} under the same declarations; completed proposals are in that journal.`;
@@ -3234,7 +3427,8 @@ export function registerLyricTools(server, tool) {
       checkWords([a.word_a, a.word_b]);
       // The position completes the coordinate; without one the harness names
       // nothing, because most names are defined at a place in the line.
-      const r = await runVerb([
+      // Its own queue: see `lookupBridge`.
+      const r = await lookupBridge.runVerb([
         'types',
         a.word_a,
         '--',
@@ -3258,7 +3452,8 @@ export function lyricInstructions({ kitchen = false } = {}) {
       : 'you write every line — the service never writes lyrics for an outside caller. ') +
     'A pair stands in EVERY relation its sound supports (a perfect rhyme is also assonance, and consonance when ' +
     'it closes on a consonant; rime riche is also rhyme): the default judges every pair against every coarse ' +
-    'relation and every registry schema, and a group is satisfied when its pairs stand in at least one; planning ' +
+    'relation and every registry schema, and a group is satisfied when the words it binds stand in at least ' +
+    'one (another word in the line relating does not count); planning ' +
     'draws none. Full figures and refused obligations remain explicit. The working order that produces ' +
     'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you want the shape ' +
     'to be (`want`, a filter) and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +

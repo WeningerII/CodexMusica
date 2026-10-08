@@ -3,12 +3,16 @@
 //
 // codex.html is the shipped browser app. The DEFAULT build (since the lazy-load
 // migration) is the LAZY SHELL: an HTML shell (src/index.template.html) with the
-// non-tradition catalog data embedded as JS const declarations and the
+// catalog data the first view needs embedded as JS const declarations and the
 // application code appended, while the two tradition tables (~66% of the
-// embedded bytes) stay OUT of the page — the app's Catalog layer boots them from
-// api/browse.json (one fetch) and pulls each tradition's import payload from
-// api/traditions/{id}.json on demand. The shell therefore deploys NEXT TO the
-// committed api/ directory (GitHub Pages serves both from the repo root).
+// embedded bytes) and the instrument engine stay OUT of the page — the app's
+// Catalog layer boots the traditions from api/browse_boot.json (one fetch),
+// reads the genres' prose from api/browse_prose.json after the first paint,
+// and pulls each tradition's import payload from api/traditions/{id}.json on
+// demand; the engine's eight tables come from api/engine.json, at the first
+// paint or from <head> when a saved session needs them. The shell therefore
+// deploys NEXT TO the committed api/ directory (GitHub Pages serves both from
+// the repo root).
 // `--embedded` builds the historical fully-self-contained single-file variant
 // (every table in the page; works from file:// with no api/). check_lazy_app.js
 // gates the two variants to behave identically. This script:
@@ -52,6 +56,8 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+// The page-only data strip and the instrument engine's tables (see there).
+const P = require('./_page_tables.js');
 
 const SKILL_ROOT = path.join(__dirname, '..');
 const REFS = path.join(SKILL_ROOT, 'references');
@@ -123,7 +129,8 @@ const outputPath = flags.out || DEFAULT_OUTPUT;
 
 // Mode switch — the lazy shell is the DEFAULT. The two tradition tables —
 // 65%+ of the embedded data — stay OUT of the page; the app's Catalog layer
-// boots them from api/browse.json (one fetch) and pulls each tradition's
+// boots them from api/browse_boot.json (one fetch; the genres' prose follows
+// from api/browse_prose.json after the first paint) and pulls each tradition's
 // import payload from api/traditions/{id}.json on demand. The injected
 // CODEX_LAZY_API const is the switch src/app.js keys off. `--embedded` opts
 // into the fully-embedded single-file build (all tables in the page; the
@@ -134,14 +141,25 @@ if (flags.embedded && flags.lazy) {
   process.exit(2);
 }
 const LAZY = !flags.embedded;
-const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js']);
+// Files the lazy shell leaves out whole: the two tradition tables (read from
+// api/browse_boot.json and api/browse_prose.json), and the references files
+// whose every table is an instrument-engine table (scripts/_page_tables.js).
+const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js', ...(LAZY ? P.ENGINE_FILES : [])]);
 // Tables the lazy shell leaves out of a file it otherwise ships. NAV_GLYPH_SVGS
 // is the room and preface glyph artwork (~0.75 MB), drawn only in the editor's
 // Character and Environment tabs, the preface browser and the Instrument page's
 // character lists; the app fetches it from api/nav_glyphs.json on first use
 // (navGlyphSvg in src/app.js). Its lookup tables stay in the page, and so does
 // every picture first paint draws (scripts/_glyph_stores.js).
-const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS']) : new Set();
+//
+// The instrument-engine tables (ENGINE_TABLES in scripts/_page_tables.js) leave
+// the lazy page too: they were 92% of its inline data, gzipped, and the first
+// view reads none of them but instrument names and families, which it reads
+// from INSTRUMENT_INDEX. The page declares an empty slot for each and fetches
+// api/engine.json at its first paint, or from <head> when a saved session needs
+// it (Engine in src/app.js, src/engine_preload.js). The embedded build keeps
+// them inline.
+const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set();
 
 // ─────────────────────── templates are required source ───────────────────────
 // The HTML template and the app are first-class source files under src/. They
@@ -174,6 +192,39 @@ const themeCss = fs.readFileSync(path.join(SRC, 'theme.css'), 'utf8');
 const themeJs = fs.readFileSync(path.join(SRC, 'theme.js'), 'utf8');
 const THEME_BOOT_MARKER = '<!--@THEME_BOOT-->';
 const layoutCss = fs.readFileSync(path.join(SRC, 'layout.css'), 'utf8');
+// The lazy shell asks for its boot index from <head>, so the download starts
+// while the page's ~1.6 MB of inline script is still being parsed and run rather
+// than when app.js reaches its fetch, 46% of the way down the page. The app's
+// fetch() then reuses the preloaded response: `crossorigin` (anonymous) gives
+// the same mode and credentials as fetch()'s defaults, and a mismatch would
+// show as a second request. The embedded build has no fetch, so no preload.
+// Only the boot index: the genres' prose is read after the first paint and is
+// never preloaded (a preload would put it on the path to the largest paint).
+const BOOT_PRELOAD_MARKER = '<!--@BOOT_PRELOAD-->';
+const LAZY_API = 'api/';
+if (!template.includes(BOOT_PRELOAD_MARKER)) {
+  console.error(`build_html: template is missing the ${BOOT_PRELOAD_MARKER} marker — ${TEMPLATE}`);
+  process.exit(5);
+}
+// A saved session's head start, the lazy page's one other preload: with a
+// stored session that has cards, src/engine_preload.js asks for the instrument
+// data (api/engine.json) from <head>, so it travels with the page rather than
+// after app.js runs; the boot draws nothing until it is in. Emitted as a
+// <script> (it reads storage, so it cannot be a static link), with ENGINE_URL
+// replaced by the URL app.js's Engine fetches. The embedded build carries the
+// instrument data inline and gets nothing here.
+const ENGINE_PRELOAD_MARKER = '<!--@ENGINE_PRELOAD-->';
+const enginePreloadJs = fs.readFileSync(path.join(SRC, 'engine_preload.js'), 'utf8');
+if (!template.includes(ENGINE_PRELOAD_MARKER)) {
+  console.error(
+    `build_html: template is missing the ${ENGINE_PRELOAD_MARKER} marker — ${TEMPLATE}`
+  );
+  process.exit(5);
+}
+if (enginePreloadJs.split("'ENGINE_URL'").length !== 2) {
+  console.error("build_html: src/engine_preload.js must name 'ENGINE_URL' exactly once");
+  process.exit(5);
+}
 if (!template.includes(THEME_BOOT_MARKER)) {
   console.error(`build_html: template is missing the ${THEME_BOOT_MARKER} marker — ${TEMPLATE}`);
   process.exit(5);
@@ -214,6 +265,7 @@ const MAX_SCRIPT_BYTES = 1024 * 1024; // hard ceiling on actual emitted UTF-8 by
 // renderer's parse-memory limit, and this only adds headroom. Retuning it would
 // move every chunk boundary, which is a separate change with its own risk.
 const { minifyJs, minifyCss, topLevelStatements } = require('./_minify.js');
+const { readImageManifest, compactInstrumentImages } = require('./_image_tables.js');
 // Escape hatch for reading the shipped artifact by hand. NOT used by CI and not
 // used by sync-pages.yml, and it cannot leak into the committed page: that file
 // is byte-compared against a default build by check_artifact_fresh.js, so an
@@ -225,77 +277,10 @@ const squeeze = (code, label) => (MINIFY ? minifyJs(code, label) : code);
 const squeezeCss = (code, label) => (MINIFY ? minifyCss(code, label) : code);
 
 // ──────────────────────────── page-only data strip ────────────────────────────
-// references/ is the catalog for every consumer, and the page reads less of it
-// than the others. The tables and fields below exist for the Node side — the CLI
-// renderers, scoring, audits and the connector — and nothing the page runs reads
-// them: git grep --text over src/ and the snippets inlined below finds no reader
-// (no property access, and no generic read such as Object.keys over a catalog
-// object). Re-run that search before adding a field here. They are dropped from
-// the PAGE only: references/, api/, the connector and the CLI keep full data. The
-// built-page gates (app_recipe_regression, equivalence, check_lazy_app,
-// check_minified_equivalence) prove the page did not need them, and --check
-// asserts they are gone.
-//
-//   CHAIN_ARCHETYPES, PRODUCTION_AESTHETICS, ARRANGEMENTS — CLI-only renderer
-//     inputs (SKILL.md §9.1: "not levers for the Rich/browser recipe").
-//   match_tokens — the offline matcher's vocabulary; _card_descriptors.js pools
-//     descriptors only, and tandem.js fails if the page ever reads it.
-//   canonical_tags — scoring-only (entryRenderDescs omits them on purpose).
-//   surface, auto, pointer, stateKey, neg_anchor / pos_anchor, and rooms'
-//     default_chain_archetype / scale_tier / era / region — audit and CLI
-//     fields; families and room clusters are read for id and name only.
-const PAGE_DROP_TABLES = new Set(['CHAIN_ARCHETYPES', 'PRODUCTION_AESTHETICS', 'ARRANGEMENTS']);
-const VARIANT_DROP = ['match_tokens', 'canonical_tags', 'surface', 'auto'];
-const PAGE_DROP_FIELDS = {
-  // table -> [path from each element ('' = the element itself), fields]
-  INSTRUMENT_FAMILY_PARTS: [['*.variants', VARIANT_DROP]],
-  INSTRUMENT_FAMILIES: [['', ['note', 'descriptors', 'canonical_tags']]],
-  INSTRUMENTS: [
-    ['', ['surface']],
-    ['parts', ['surface']],
-    ['parts.variants', VARIANT_DROP],
-  ],
-  ROOMS: [['', ['canonical_tags', 'default_chain_archetype', 'scale_tier', 'era', 'region']]],
-  ROOM_CLUSTERS: [['', ['note', 'descriptors', 'canonical_tags']]],
-  CHAIN_SECTIONS: [
-    ['', ['stateKey']],
-    ['items', ['canonical_tags']],
-  ],
-  TUNINGS: [['', ['pointer', 'canonical_tags']]],
-  AXIS_DEFINITIONS: [['', ['neg_anchor', 'pos_anchor']]],
-  INSTRUMENT_AXIS_DEFINITIONS: [['', ['neg_anchor', 'pos_anchor']]],
-};
-// Objects reached from each element of a table by a dotted path; `*` expands an
-// object's values (INSTRUMENT_FAMILY_PARTS is family -> parts).
-function reach(elements, pathSpec) {
-  const flat = (list) => list.flatMap((n) => (Array.isArray(n) ? flat(n) : n == null ? [] : [n]));
-  let nodes = flat(elements);
-  for (const step of pathSpec ? pathSpec.split('.') : [])
-    nodes = flat(nodes.map((n) => (step === '*' ? Object.values(n) : n[step])));
-  return nodes;
-}
-const tableElements = (value) => (Array.isArray(value) ? value : [value]);
-// Re-emitting a table as JSON is exact only for JSON-safe data. Say so loudly
-// rather than letting undefined, NaN, -0 or a function change on the way.
-function assertJsonSafe(v, where) {
-  if (v === null || typeof v === 'string' || typeof v === 'boolean') return;
-  if (typeof v === 'number') {
-    if (!Number.isFinite(v) || Object.is(v, -0)) throw new Error(`page strip: ${where} is ${v}`);
-    return;
-  }
-  if (Array.isArray(v)) {
-    for (let i = 0; i < v.length; i++) {
-      if (!(i in v)) throw new Error(`page strip: ${where} has a hole at ${i}`);
-      assertJsonSafe(v[i], `${where}[${i}]`);
-    }
-    return;
-  }
-  if (typeof v === 'object') {
-    for (const k of Object.keys(v)) assertJsonSafe(v[k], `${where}.${k}`);
-    return;
-  }
-  throw new Error(`page strip: ${where} is a ${typeof v}`);
-}
+// The tables and fields the page never reads, and the strip itself, live in
+// scripts/_page_tables.js (with why each is dropped), shared with the builder of
+// api/engine.json and check_api.js.
+const { PAGE_DROP_TABLES, PAGE_DROP_FIELDS } = P;
 // The page's copy of one references file: evaluated, stripped, re-emitted as one
 // `const NAME = <json>;` per declaration in the file's own order. A file with
 // nothing to strip is returned byte-for-byte.
@@ -337,11 +322,7 @@ function stripForPage(file, source) {
   const out = [`// ${file}, page copy: see "page-only data strip" in scripts/build_html.js`];
   for (const name of names) {
     if (PAGE_DROP_TABLES.has(name) || LAZY_DROP_TABLES.has(name)) continue;
-    const value = vm.runInContext(name, ctx);
-    for (const [pathSpec, fields] of PAGE_DROP_FIELDS[name] || [])
-      for (const node of reach(tableElements(value), pathSpec))
-        for (const k of fields) delete node[k];
-    assertJsonSafe(value, name);
+    const value = P.stripTable(name, vm.runInContext(name, ctx));
     out.push(`const ${name} = ${JSON.stringify(value).replace(/<\//g, '<\\/')};`);
   }
   return out.join('\n') + '\n';
@@ -372,37 +353,59 @@ for (const f of SOURCE_FILES) {
     dataParts.push(squeeze(chunks[i].trimEnd(), label));
   }
 }
-// Instrument photographs: references/_image_manifest.json (openly licensed
-// image links, produced by scripts/fetch_image_manifest.js) reduced to what the
-// Instrument page shows — per instrument id the thumbnail, licence, credit and
-// source page, as [thumb, licence, credit, sourcePage, fullImage?] (the full
-// image only when it is not the thumb itself). Low-confidence matches
-// (a stand-in of the same kind, e.g. a generic frame drum for an obscure one)
-// are kept: the owner prefers a representative picture to the glyph. Picks a
-// review found wrong are dropped upstream via REJECTED in
-// scripts/fetch_image_manifest.js. No manifest yet: the constant is null and
-// the page shows glyphs.
-const IMAGE_MANIFEST = path.join(REFS, '_image_manifest.json');
-function compactImageManifest() {
-  if (!fs.existsSync(IMAGE_MANIFEST)) return null;
-  const m = JSON.parse(fs.readFileSync(IMAGE_MANIFEST, 'utf8'));
-  const out = {};
-  for (const e of Array.isArray(m.images) ? m.images : []) {
-    if (!e || e.kind !== 'instrument') continue;
-    const thumb = e.thumb_url || e.image_url;
-    if (typeof e.id !== 'string' || typeof thumb !== 'string' || !/^https:\/\//.test(thumb))
-      continue;
-    out[e.id] = [thumb, e.license_raw || e.license || '', e.credit || '', e.source_page || ''];
-    // The photo lightbox (uiLightbox) shows the full image when no larger
-    // Commons rendition of the thumb loads.
-    if (typeof e.image_url === 'string' && /^https:\/\//.test(e.image_url) && e.image_url !== thumb)
-      out[e.id].push(e.image_url);
-  }
-  const ids = Object.keys(out).sort();
-  return {
-    source: 'references/_image_manifest.json',
-    instruments: Object.fromEntries(ids.map((id) => [id, out[id]])),
-  };
+// The lazy shell's instrument engine block: an empty `let` slot per engine
+// table, the function that fills them all at once when api/engine.json has
+// loaded, the digest that file must carry, the digest of the merge code this
+// page inlines (the file's merge plan is used only by that code), and the
+// first view's instrument index ([id, name, family, short], which the file
+// leaves out of each instrument and the page fills back from here). INSTRUMENT_INDEX is read from
+// 02_instruments.js here, not from ENGINE_TABLES, so an edit to that list
+// cannot also drop the index.
+let ENGINE_SHA = null;
+let INSTRUMENT_INDEX_JSON = null;
+// What Engine (src/app.js) fetches: CODEX_LAZY_API + 'engine.json?v=' + the
+// first 12 of CODEX_ENGINE_SHA. The saved session's preload asks for exactly it.
+let ENGINE_URL = null;
+if (LAZY) {
+  ENGINE_SHA = P.engineSha(P.engineTables(REFS));
+  ENGINE_URL = `${LAZY_API}engine.json?v=${ENGINE_SHA.slice(0, 12)}`;
+  const ctx = vm.createContext({});
+  vm.runInContext(fs.readFileSync(path.join(REFS, '02_instruments.js'), 'utf8'), ctx, {
+    filename: '02_instruments.js',
+  });
+  INSTRUMENT_INDEX_JSON = JSON.stringify(P.instrumentIndex(vm.runInContext('INSTRUMENTS', ctx)));
+  const label =
+    'instrument engine: slots + first-view instrument index (tables via api/engine.json)';
+  openScript(label);
+  dataParts.push(
+    squeeze(
+      [
+        `let ${P.ENGINE_TABLES.join(', ')};`,
+        `function CODEX_ENGINE_COMMIT(t) { ${P.ENGINE_TABLES.map((n) => `${n} = t.${n};`).join(' ')} }`,
+        `const CODEX_ENGINE_SHA = '${ENGINE_SHA}';`,
+        `const CODEX_MERGE_SHA = '${P.mergeSha()}';`,
+        `const INSTRUMENT_INDEX = ${INSTRUMENT_INDEX_JSON.replace(/<\//g, '<\\/')};`,
+      ].join('\n'),
+      label
+    )
+  );
+}
+// Instrument photographs: references/_image_manifest.json reduced to what the
+// Instrument page shows (scripts/_image_tables.js, compactInstrumentImages).
+// Inlined only in the EMBEDDED build, which has no api/ to fetch from (it runs
+// on file:// and in the jsdom harnesses). The lazy shell leaves it out of the
+// page, 579 KB raw that the default Genre view never reads, and the Instrument
+// page fetches api/instrument_images.json the first time it draws, as
+// NAV_GLYPH_SVGS is fetched from api/nav_glyphs.json. No manifest yet: the
+// constant is null and the page shows glyphs.
+if (!LAZY) {
+  const imageManifest = compactInstrumentImages(
+    readImageManifest(path.join(REFS, '_image_manifest.json'))
+  );
+  openScript('instrument images (references/_image_manifest.json)');
+  dataParts.push(
+    `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
+  );
 }
 // Retired tradition ids (references/_tradition_aliases.json). The embedded page
 // carries the tradition tables, so it carries their aliases beside them; the lazy
@@ -419,11 +422,6 @@ if (!LAZY) {
   openScript('tradition aliases (references/_tradition_aliases.json)');
   dataParts.push(`const TRADITION_ALIASES = ${JSON.stringify(compact).replace(/</g, '\\u003c')};`);
 }
-const imageManifest = compactImageManifest();
-openScript('instrument images (references/_image_manifest.json)');
-dataParts.push(
-  `const CODEX_IMAGE_MANIFEST = ${JSON.stringify(imageManifest).replace(/</g, '\\u003c')};`
-);
 
 const dataBlock = dataParts.join('\n');
 
@@ -505,6 +503,10 @@ const RUNTIME_MODULES = [
     code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET,
   },
   { label: 'runtime: src/layout.js', code: layoutJs },
+  {
+    label: 'runtime: src/library-import.js',
+    code: fs.readFileSync(path.join(SRC, 'library-import.js'), 'utf8'),
+  },
   { label: 'runtime: src/app.js', code: appJs },
   { label: 'runtime: src/workbench.js', code: workbenchJs },
   ...PAGES.map((p) => ({ label: `runtime: src/pages/${p}.js`, code: pageFile(p, '.js') })),
@@ -524,8 +526,10 @@ const RUNTIME_MODULES = [
 const RUNTIME_SLOPPY_GUARD = ';';
 const runtimeParts = [];
 RUNTIME_MODULES.forEach(({ label, code }, i) => {
-  // Closes the block before it (the image manifest, for the first module). The
-  // last runtime block is closed by the template tail after the marker.
+  // Closes the block before it (for the first module, the last data block: the
+  // instrument image table in an embedded build, the nav-glyph lookups in a
+  // lazy one). The last runtime block is closed by the template tail after the
+  // marker.
   runtimeParts.push(`</script>`);
   // Each line below is its own line after the join. THE NEWLINE AFTER THE LABEL
   // IS LOAD-BEARING, and it cost an afternoon to learn why: minifying strips
@@ -538,14 +542,14 @@ RUNTIME_MODULES.forEach(({ label, code }, i) => {
   if (i === 0 && LAZY) {
     // The lazy-shell switch. src/app.js sees this const, skips the (absent)
     // embedded tables, and resolves its CATALOG_READY boot promise by fetching
-    // `${CODEX_LAZY_API}browse.json` before any UI init runs. It sits in the
+    // `${CODEX_LAZY_API}browse_boot.json` before any UI init runs. It sits in the
     // first runtime block so it is declared before app.js loads.
     // Emitted verbatim, NOT through squeeze(). It is already one short line, so
     // there is nothing to save, and ui_reachability_check.js tells the lazy shell
     // from the embedded build by looking for this exact substring — keeping the
     // builder the only thing that spells it means no minifier setting can rewrite
     // the detector out from under that gate.
-    runtimeParts.push(`const CODEX_LAZY_API = 'api/';`);
+    runtimeParts.push(`const CODEX_LAZY_API = '${LAZY_API}';`);
   }
   runtimeParts.push(squeeze(code, label));
 });
@@ -563,6 +567,19 @@ const html = template
     css.includes(WORKBENCH_STYLE_MARKER)
       ? block
       : '<style>' + squeezeCss(css, 'src/index.template.html <style>') + '</style>'
+  )
+  .replace(BOOT_PRELOAD_MARKER, () =>
+    LAZY ? `<link rel="preload" href="${LAZY_API}browse_boot.json" as="fetch" crossorigin>` : ''
+  )
+  .replace(ENGINE_PRELOAD_MARKER, () =>
+    LAZY
+      ? '<script>' +
+        squeeze(
+          enginePreloadJs.replace("'ENGINE_URL'", () => JSON.stringify(ENGINE_URL)),
+          'engine preload'
+        ) +
+        '</script>'
+      : ''
   )
   .replace(THEME_BOOT_MARKER, () => '<script>' + squeeze(themeJs, 'theme boot') + '</script>')
   .replace(WORKBENCH_STYLE_MARKER, () =>
@@ -667,6 +684,138 @@ if (flags.check) {
     console.error('check: FAIL — lazy build leaked embedded tradition tables into the page');
     process.exit(4);
   }
+  // The preloads: exactly the boot index in a lazy page (twice would download
+  // it twice), none in an embedded page, which never fetches it. The genres'
+  // prose and api/browse.json are read after the first paint, never preloaded.
+  {
+    const preloads = [...html.matchAll(/<link rel="preload" href="([^"]*)"[^>]*>/g)].map(
+      (m) => m[1]
+    );
+    const want = LAZY ? [LAZY_API + 'browse_boot.json'] : [];
+    if (JSON.stringify(preloads) !== JSON.stringify(want)) {
+      console.error(
+        `check: FAIL — preloads ${JSON.stringify(preloads)} in a ${LAZY ? 'lazy' : 'embedded'} page; expected ${JSON.stringify(want)} (only the boot index: the genre prose and api/browse.json are read after the first paint)`
+      );
+      process.exit(4);
+    }
+  }
+  // THE ONE DYNAMIC PRELOAD, a narrow exception to the list above: a lazy
+  // page with a saved session asks for the instrument data from <head>
+  // (src/engine_preload.js), because the boot cannot draw that session until
+  // it is in. Nothing else may preload by script. So: exactly one <script> in
+  // a lazy page names "preload" (none in an embedded page), it sits in <head>
+  // right after the boot index's link, and, run against stored states, it adds
+  // one link — rel=preload, as=fetch, crossorigin=anonymous, href the URL
+  // Engine fetches — when the first stored session (storedSessionText's order
+  // in src/app.js) has a card, and nothing otherwise, nor when storage throws,
+  // and it reads no key storedSessionText does not. check_lazy_app.js holds it
+  // to app.js's own decision (ENGINE_AT_BOOT).
+  {
+    const fail = (msg) => {
+      console.error('check: FAIL — ' + msg);
+      process.exit(4);
+    };
+    const all = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+    const naming = all.filter((m) => /(["'`])preload\1/.test(m[1]));
+    if (naming.length !== (LAZY ? 1 : 0))
+      fail(
+        `${naming.length} <script> block(s) in a ${LAZY ? 'lazy' : 'embedded'} page name "preload"; want ${LAZY ? '1 (src/engine_preload.js)' : '0'}`
+      );
+    if (LAZY) {
+      const m = naming[0];
+      const bootLink = html.indexOf(`<link rel="preload" href="${LAZY_API}browse_boot.json"`);
+      const between = html.slice(bootLink, m.index).replace(/^<link[^>]*>/, '');
+      if (bootLink < 0 || m.index > html.indexOf('</head>') || /<(script|link)\b/i.test(between))
+        fail("the engine preload is not the <script> right after the boot index's link in <head>");
+      // storedSessionText's keys, in its order: the recovery copy in
+      // sessionStorage, the rest in localStorage. The script may read no other:
+      // a key app.js does not read would preload the engine for a session the
+      // page never restores.
+      const KEYS = [
+        ['sessionStorage', 'codex-workbench-recovery'],
+        ['localStorage', 'codex-workbench-v1'],
+        ['localStorage', 'musica-workbench-v3'],
+        ['localStorage', 'musica-study-v1'],
+      ];
+      const WS = (cards) => JSON.stringify({ version: 1, name: 'T', cards });
+      const CARD = [{ id: 'c1', instrumentId: 'voice', traditionId: 'dub', parts: {} }];
+      // [stored, links wanted], by key (each in its own storage, as KEYS).
+      const STATES = [
+        [{}, 0],
+        [{ 'codex-workbench-v1': WS(CARD) }, 1],
+        [{ 'codex-workbench-recovery': WS(CARD) }, 1],
+        [{ 'musica-workbench-v3': JSON.stringify({ workspace: { cards: CARD } }) }, 1],
+        [{ 'musica-study-v1': WS(CARD) }, 1],
+        [{ 'codex-workbench-v1': WS([]) }, 0],
+        // The order: each key shadows the next, even with no card.
+        [{ 'codex-workbench-recovery': WS([]), 'codex-workbench-v1': WS(CARD) }, 0],
+        [{ 'codex-workbench-v1': WS([]), 'musica-workbench-v3': WS(CARD) }, 0],
+        [{ 'musica-workbench-v3': WS([]), 'musica-study-v1': WS(CARD) }, 0],
+        [{ 'codex-workbench-v1': '{not json' }, 0],
+        [{ 'codex-workbench-v1': JSON.stringify({ cards: { 0: CARD[0] } }) }, 0],
+        ['throw', 0],
+      ];
+      const want = { rel: 'preload', as: 'fetch', crossorigin: 'anonymous', href: ENGINE_URL };
+      const stray = new Set();
+      for (const [stored, n] of STATES) {
+        const links = [];
+        const store = (where) => ({
+          getItem(k) {
+            if (stored === 'throw') throw new Error('storage refused');
+            if (!KEYS.some(([s, key]) => s === where && key === k)) {
+              stray.add(`${where}.getItem(${JSON.stringify(k)})`);
+              return null;
+            }
+            return k in stored ? stored[k] : null;
+          },
+        });
+        const doc = {
+          head: { appendChild: (el) => links.push(el.attrs) },
+          createElement: (tag) => {
+            const el = { tag, attrs: {} };
+            el.setAttribute = (k, v) => (el.attrs[k] = String(v));
+            return el;
+          },
+        };
+        try {
+          vm.runInContext(
+            m[1],
+            vm.createContext({
+              document: doc,
+              sessionStorage: store('sessionStorage'),
+              localStorage: store('localStorage'),
+            }),
+            { timeout: 1000 }
+          );
+        } catch (e) {
+          fail(`the engine preload threw on stored state ${JSON.stringify(stored)}: ${e.message}`);
+        }
+        const canon = (a) =>
+          JSON.stringify(
+            Object.keys(a)
+              .sort()
+              .map((k) => [k, a[k]])
+          );
+        const bad = links.filter((a) => canon(a) !== canon(want));
+        if (links.length !== n || bad.length)
+          fail(
+            `the engine preload added ${JSON.stringify(links)} for stored state ${JSON.stringify(stored).slice(0, 120)}; want ${n ? JSON.stringify(want) : 'nothing'}`
+          );
+      }
+      if (stray.size)
+        fail(
+          `the engine preload reads ${[...stray].join(', ')}, which storedSessionText (src/app.js) does not; it may read only ${KEYS.map(([w, k]) => `${w} ${k}`).join(', ')}`
+        );
+    }
+  }
+  // The instrument photo table rides in api/instrument_images.json for the lazy
+  // shell; in the page it would be 579 KB the first view never reads.
+  if (LAZY && declared('CODEX_IMAGE_MANIFEST')) {
+    console.error(
+      'check: FAIL — lazy build shipped CODEX_IMAGE_MANIFEST in the page (it loads from api/)'
+    );
+    process.exit(4);
+  }
   // Named here rather than read from LAZY_DROP_TABLES, so an edit to the strip
   // cannot also switch off the check on it: the lazy page ships the nav glyph
   // artwork only through api/nav_glyphs.json.
@@ -676,13 +825,89 @@ if (flags.check) {
     );
     process.exit(4);
   }
+  // THE INSTRUMENT ENGINE. The eight engine tables are SPELLED OUT here, not
+  // read from scripts/_page_tables.js, so an edit to that list cannot also
+  // switch off the check on it. A lazy page declares an empty slot for each
+  // (the app fills them from api/engine.json) and carries no table; an
+  // embedded page carries every table, each with rows, and none of the lazy
+  // machinery (the index, the commit, the two digests).
+  {
+    const ENGINE = [
+      'INSTRUMENT_FAMILY_PARTS',
+      'INSTRUMENTS',
+      'ROOMS',
+      'ROOM_CLUSTERS',
+      'CHAIN_SECTIONS',
+      'TUNINGS',
+      'INSTRUMENT_AXIS_DEFINITIONS',
+      'PREFACE_LEXICON',
+    ];
+    const fail = (msg) => {
+      console.error('check: FAIL — ' + msg);
+      process.exit(4);
+    };
+    if (LAZY) {
+      for (const name of ENGINE) {
+        const slot = probe(
+          `(() => { try { return ${name} === undefined; } catch { return 'undeclared'; } })()`
+        );
+        if (slot === 'undeclared') fail(`the lazy page does not declare the engine slot ${name}`);
+        if (slot !== true)
+          fail(
+            `lazy page carries engine table ${name} (${countOf(name)} rows); it loads from api/engine.json`
+          );
+      }
+      if (probe('INSTRUMENT_INDEX.length') !== JSON.parse(INSTRUMENT_INDEX_JSON).length)
+        fail('INSTRUMENT_INDEX did not read back whole');
+      const want = JSON.stringify(P.instrumentIndex(P.engineTables(REFS).INSTRUMENTS));
+      if (probe('JSON.stringify(INSTRUMENT_INDEX)') !== want)
+        fail("INSTRUMENT_INDEX differs from the engine's instruments (scripts/_page_tables.js)");
+      if (probe('CODEX_ENGINE_SHA') !== P.engineSha(P.engineTables(REFS)))
+        fail('CODEX_ENGINE_SHA is not the digest of the engine tables api/engine.json carries');
+      if (probe('CODEX_MERGE_SHA') !== P.mergeSha())
+        fail(
+          'CODEX_MERGE_SHA is not the digest of the merge code this page inlines (scripts/_merge.js)'
+        );
+      // CODEX_ENGINE_COMMIT fills every slot, each from its own field: run in
+      // a second context so the slot checks above saw the page as shipped.
+      const ctx2 = vm.createContext({});
+      vm.runInContext(checkJs, ctx2, { filename: 'data-block.js', timeout: 5000 });
+      vm.runInContext(
+        `CODEX_ENGINE_COMMIT(${JSON.stringify(Object.fromEntries(ENGINE.map((n) => [n, 'sentinel:' + n])))})`,
+        ctx2,
+        { timeout: 5000 }
+      );
+      for (const name of ENGINE)
+        if (vm.runInContext(name, ctx2, { timeout: 5000 }) !== 'sentinel:' + name)
+          fail(`CODEX_ENGINE_COMMIT does not fill the engine slot ${name}`);
+    } else {
+      // Every table, read back with rows: INSTRUMENT_FAMILY_PARTS is the one
+      // object (family -> parts), the rest arrays.
+      for (const name of ENGINE) {
+        const rows = probe(
+          `typeof ${name} === 'undefined' || ${name} === null ? -1 : Array.isArray(${name}) ? ${name}.length : typeof ${name} === 'object' ? Object.keys(${name}).length : -1`
+        );
+        if (rows <= 0)
+          fail(
+            `the embedded page ${rows < 0 ? 'does not carry' : 'carries an empty'} engine table ${name}`
+          );
+      }
+      for (const name of [
+        'INSTRUMENT_INDEX',
+        'CODEX_ENGINE_COMMIT',
+        'CODEX_ENGINE_SHA',
+        'CODEX_MERGE_SHA',
+      ])
+        if (declared(name)) fail(`the embedded page declares ${name}, a lazy-shell name`);
+    }
+  }
   // The reverse of the leak guard, and the assertion that would have caught the
   // silent rewrite above: an EMBEDDED build must be able to read its tables back,
   // and every build must be able to read the ones it always carries. A table that
   // reads as absent here is either missing from the page or unreadable by this
   // gate, and both are build failures.
   const REQUIRED = LAZY
-    ? ['INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_SECTIONS', 'PREFACE_LEXICON']
+    ? ['INSTRUMENT_FAMILIES', 'AXIS_DEFINITIONS', 'TREE_NODES', 'INSTRUMENT_INDEX']
     : ['TRADITIONS', 'INSTRUMENTS', 'ROOMS', 'TUNINGS', 'CHAIN_SECTIONS', 'PREFACE_LEXICON'];
   const unreadable = REQUIRED.filter((name) => countOf(name) <= 0);
   if (unreadable.length) {
@@ -709,7 +934,9 @@ if (flags.check) {
   }
   const checks = [];
   if (LAZY)
-    checks.push(`mode:              lazy shell (traditions/extras and nav glyph art via api/)`);
+    checks.push(
+      `mode:              lazy shell (traditions/extras, the instrument engine and nav glyph art via api/)`
+    );
   const report = (label, name) => {
     const n = countOf(name);
     if (n >= 0) checks.push(`${(label + ':').padEnd(18)} ${n}`);
@@ -720,6 +947,10 @@ if (flags.check) {
   report('TUNINGS', 'TUNINGS');
   report('CHAIN_SECTIONS', 'CHAIN_SECTIONS');
   report('PREFACE_LEXICON', 'PREFACE_LEXICON');
+  report('INSTRUMENT_INDEX', 'INSTRUMENT_INDEX');
+  checks.push(
+    `page gzip-6:       ${require('zlib').gzipSync(Buffer.from(html, 'utf8'), { level: 6 }).length} B`
+  );
   checks.push(
     `page-only strip:   ${PAGE_DROP_TABLES.size} tables, ${Object.keys(PAGE_DROP_FIELDS).length} tables' unread fields`
   );

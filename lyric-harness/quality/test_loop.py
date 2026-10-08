@@ -1090,10 +1090,16 @@ def test_group_brief_carries_the_situation():
     # lyric is 3,244 tokens under the corrected tokenizer.
     # 2026-09-15: (4, 3244) -> (10, 3244) after preserving apparatus-only
     # material outside the lyric population; the restoration reads this range.
+    # 2026-10-04: (10, 3244) -> (4, 3244), the Otterbein / M-25 closing
+    # sitting's re-adoption. The 4-token item is a Lovelace epigraph citation
+    # the two passes left as sung after marking the rest of its title page
+    # (`MISSING.md` M-25, residue paragraph; `test_floor.py` pins the same
+    # fact on the coverage side). Once the residue is read the low end is
+    # expected at 9 tokens (a real verse translation), not 10.
     check("...and the perturbation is restored, so no later section "
           "inherits a narrowed floor",
           [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
-          .band() == (10, 3244) and _sec.lo == 28,
+          .band() == (4, 3244) and _sec.lo == 28,
           (_sheet.band(), _sec.lo))
     check("8 groups proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
@@ -1491,7 +1497,16 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
 
     D = ["the kitchen light is burning at half past four",
          "and nobody came back to climb the stairs"]
-    ANSWER = {1: "the kitchen light is on their chairs",
+    # REPINNED 2026-10-02 (M-317, the bound-word rule). ~~1: "the kitchen
+    # light is on their chairs"~~ -- four/stairs used to HOLD through other
+    # words of the two lines, so L1 was in no violated group, earned no
+    # candidate field, and RULE 3 had nothing to hold 'chairs' against. The
+    # pair now has to relate its BOUND words, four/stairs is a violation, L1
+    # is briefed with the field for 'stairs', and 'chairs' is the head of its
+    # ban -- the modal pair this section's own 2026-08-17 note named. The
+    # scripted answer moves to a word the field OFFERS; the subject (the
+    # re-brief) is unchanged.
+    ANSWER = {1: "the kitchen light was never theirs",
               2: "and no one came back up the stairs"}
     # THE BLUEPRINT IS LOAD-BEARING FOR THIS SECTION, not decoration. Without
     # it only L2 is flagged (a pair violation is filed on the higher line), L1
@@ -1521,15 +1536,16 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
     # converged pair (chairs/stairs) is itself modal, mandatory pursuit holds
     # it open, and the scripted proposer has no further answer. The subject
     # of this section is the re-brief, and that is unchanged.
-    # REPINNED 2026-10-04 from ~~no_progress~~: the modal chairs/stairs pair
-    # is reported, not pursued (owner's ruling), so converging on it is SUCCESS.
-    check("the loop converges on this pair and stops there",
+    # RESTATED 2026-10-02 (M-317): theirs/stairs is offered, not modal, so
+    # nothing holds the pair open and the stop is SUCCESS in one round.
+    # superseded: res.stop_reason == "no_progress".
+    check("the loop converges on this pair",
           res.stop_reason == "success"
           and list(res.lines) == [ANSWER[1], ANSWER[2]],
           f"{res.stop_reason} -> {list(res.lines)}")
     check("L2 is told to rhyme with the word L1 ACTUALLY ENDS ON after L1 "
           "was fixed -- not the word L1 had when the round opened",
-          bool(l2) and "L1 ('chairs')" in l2[0]
+          bool(l2) and "L1 ('theirs')" in l2[0]
           and "L1 ('four')" not in l2[0],
           [x.strip() for x in l2[0].splitlines()
            if "relation with" in x] if l2 else "L2 never briefed")
@@ -2390,8 +2406,13 @@ def test_the_rebrief_carries_to_the_rest_of_the_round():
                       tuple(f.code for f in brief.findings)))
         # Answer L1 with a line that clears ITS OWN flag and, because the
         # mandate binds L1 to L3, clears L3's too.
+        # REPINNED 2026-10-02 (`MISSING.md` M-317, the bound words):
+        # ~~"...above the stair"~~ -- stair/desire held only through other
+        # words of the two lines; at the bound end words it is a
+        # SCHEME_VIOLATION, so the answer was refused. `hour` is on L1's own
+        # offered field and clears both flags.
         if brief.line_no == 1:
-            return "The candle guttered out above the stair"
+            return "The candle guttered out within the hour"
         return None
 
     R = Reviser()

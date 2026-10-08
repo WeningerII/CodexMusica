@@ -1,0 +1,90 @@
+{
+  "counts": {
+    "PASS": 7,
+    "FAIL": 0,
+    "CANNOT RUN": 0
+  },
+  "rows": [
+    {
+      "suite": "quality/test_mandate_language.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_mandate_relation.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 44.1,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_matrix.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.4,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_melody.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 3.4,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_meter.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 3.8,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_meter_bands.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 21.3,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_msa_fin.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 40.3,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    }
+  ],
+  "partial": false,
+  "not_reached": [],
+  "appeared_during_run": [],
+  "head_at_start": "08ba431e",
+  "head_at_end": "08ba431e",
+  "tree_moved_during_run": false,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) against the pinned baseline. ~~It has no pass/fail of its own to read, so a verdict here would be this module inventing one.~~ STRUCK 2026-09-26: since 9396946 (2026-08-11) `assert_pinned` exits 1 on drift, so it does carry a verdict. It stays out because it is not in this glob and `quality/counters.py` runs it as the `sonnet battery` counter.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

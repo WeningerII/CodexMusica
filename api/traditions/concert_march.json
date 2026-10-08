@@ -3,9 +3,9 @@
   "name": "March (concert and military band)",
   "family": "classical",
   "lineage": "The European and American wind-band march, standardized in 19th-century military service bands and codified for the concert stage by John Philip Sousa's US Marine Band from 1880 and by Kenneth Alford in Britain — duple time at 112-120 BPM, an unvarying alternating-bass snare-and-bass-drum tread, multi-strain AABBCC form with a modulating trio and a piccolo or cornet obbligato descant, scored for cornets, clarinets, low brass, and sousaphone with no strings.",
-  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass concert band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, silver plated British brass band ceremonial besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
-  "recipe_chars": 992,
-  "score": 159.726,
+  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass concert band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
+  "recipe_chars": 990,
+  "score": 157.587,
   "config": {
     "traditions": [
       "concert_march",
@@ -24,10 +24,10 @@
         },
         "scores": {
           "wind_articulation": 5.79,
-          "cornet_pitch": 10.183749999999998,
+          "cornet_pitch": 9.838749999999997,
           "cornet_context": 2.9899999999999998,
           "cornet_bell_metal": 9.749999999999998,
-          "cornet_maker_school": 9.862499999999999
+          "cornet_maker_school": 9.517499999999998
         }
       },
       {
@@ -61,9 +61,9 @@
         "scores": {
           "wind_articulation": 5.79,
           "trombone_type": 0,
-          "trombone_mouthpiece": 9.00375,
+          "trombone_mouthpiece": 8.95875,
           "trombone_mute": 2.05625,
-          "trombone_technique": 0.35,
+          "trombone_technique": 0.45499999999999996,
           "trombone_bell_metal": 2.9899999999999998,
           "trombone_maker_school": 4.1
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "sousaphone_bore": 2.9899999999999998,
-          "sousaphone_context": 9.2775
+          "sousaphone_context": 8.9325
         }
       },
       {
@@ -85,15 +85,15 @@
           "wind_articulation": "wind_continuous_legato",
           "euph_use": "euph_orchestral",
           "euphonium_pitch": "euphonium_bb",
-          "euphonium_bell_metal": "euphonium_silver_plated",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
           "wind_articulation": 5.79,
-          "euph_use": 8.548749999999998,
-          "euphonium_pitch": 9.577499999999999,
-          "euphonium_bell_metal": 10.32875,
-          "euphonium_maker_school": 9.862499999999999
+          "euph_use": 8.503749999999998,
+          "euphonium_pitch": 9.232499999999998,
+          "euphonium_bell_metal": 10.139999999999999,
+          "euphonium_maker_school": 9.517499999999998
         }
       },
       {
@@ -105,7 +105,7 @@
         },
         "scores": {
           "wind_articulation": 5.79,
-          "piccolo_material": 2.59625,
+          "piccolo_material": 2.35625,
           "piccolo_context": 3.9499999999999997
         }
       },

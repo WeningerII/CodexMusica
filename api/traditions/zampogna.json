@@ -5,7 +5,7 @@
   "lineage": "Southern Italian double-chantered mouth-blown bagpipe tradition of Molise, Abruzzo, Campania, Calabria and Sicily, documented from the 17th century and carried by shepherd-pipers (zampognari) who descend to towns for the Christmas novena, playing paired-chanter harmony with two drones against the ciaramella shawm at brisk 6/8 pastorale tempi, with untempered scales and heavy nasal reed-driven ornamentation.",
   "recipe": "classic early-1940s zampogna, drone Modal, wind pipe branch, European carnival processional, christian gospel ritual devotional ethiopian debtera liturgical incantation coptic orthodox liturgical chant. thick, breath veiled tone, straight note core, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral zampogna, ciaramella, piffero appenninico, tambourine orch. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 552,
-  "score": 241.132,
+  "score": 240.232,
   "config": {
     "traditions": [
       "zampogna",
@@ -24,7 +24,7 @@
           "zampogna_bag": "zampogna_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 0.5499999999999999,
+          "wind_articulation": 0.595,
           "zampogna_region": 3.6399999999999997,
           "zampogna_context": 5.379999999999999,
           "zampogna_chanter_wood": 5.71,
@@ -76,20 +76,20 @@
         },
         "scores": {
           "voice_register": 6.675000000000001,
-          "voice_quality": 31.460000000000004,
+          "voice_quality": 31.310000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.03,
+          "voice_vibrato": 4.075,
           "voice_articulation": 21.384999999999998,
           "voice_microtone": 38.83749999999999,
           "voice_tradition": 12.154999999999998,
-          "voice_mechanism_compound": 13.475000000000001,
-          "voice_estill_quality": 9.97,
+          "voice_mechanism_compound": 13.130000000000003,
+          "voice_estill_quality": 9.625,
           "voice_speech_song": 22.685,
           "voice_ensemble_config": 23.789999999999996,
           "voice_ornament_system": 7.574999999999999,
           "voice_pitch_organization": 6.91,
-          "voice_processing_chain": 11.515000000000002,
+          "voice_processing_chain": 11.365000000000002,
           "voice_multitrack_stack": 3.9000000000000012
         }
       },

@@ -1,0 +1,71 @@
+{
+  "id": "griot",
+  "name": "Griot",
+  "family": "global",
+  "lineage": "Griots sustain West African oral-history, praise and musical traditions through inherited professional knowledge. Regional practices include Mandé jali lineages and other singer-historian traditions, combining remembered genealogies and narratives with sung praise and instrumental accompaniment.",
+  "recipe": "classic griot, ballad Poetry, west African griot branch. oral history narrative recitation sung praise interludes griot voice, balafon. live tracking.",
+  "recipe_chars": 150,
+  "score": 14.721,
+  "config": {
+    "traditions": [
+      "griot"
+    ],
+    "instruments": [
+      {
+        "id": "griot_voice",
+        "slots": {
+          "griot_origin": "griot_mande",
+          "griot_voice_context": "griot_voice_narrative_recital"
+        },
+        "scores": {
+          "griot_origin": 0.39,
+          "griot_voice_context": 7.554499999999999
+        }
+      },
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_mandinka",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 6.3865,
+          "balafon_resonator": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "griot_voice": [
+        "griot_origin",
+        "griot_voice_context"
+      ],
+      "balafon": [
+        "balafon_tuning",
+        "balafon_resonator"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "griot_origin": "griot_mande",
+      "griot_voice_context": "griot_voice_narrative_recital",
+      "balafon_tuning": "balafon_mandinka",
+      "balafon_resonator": "balafon_gourd"
+    },
+    "pin_parts": true
+  }
+}

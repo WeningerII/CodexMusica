@@ -5,7 +5,7 @@
   "lineage": "Goeika are Japanese Buddhist hymns on waka verses, first sung by pilgrims on the temple circuits such as the Saigoku and Shikoku pilgrimages and now practised by lay singing groups organised by sect schools, among them the Shingon Kongō-ryū based at Kōyasan and the Sōtō school's Baika-ryū. Singers keep time on a handbell (rei) and a small struck bowl bell (shōkin); the rin card stands in for the bowl bell and the temple-bell card for the handbell.",
   "recipe": "classic modern goeika, ritual Devotional, buddhist branch. many notes per syllable, single lead single track no stacking. rin singing bowl, credited temple bells. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 5.303,
+  "score": 5.093,
   "config": {
     "traditions": [
       "goeika_pilgrim_hymn"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.378,
-          "voice_multitrack_stack": 1.8375,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.7325,
           "voice_tessitura": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Tuvan Republic (Russian-Federation Southern-Siberia, ethnically and linguistically Turkic-Mongolic) throat-singing tradition with five canonical styles — khöömei middle-register-resonance, sygyt high-isolated-whistle-overtone, kargyraa low-deep-undertone-style, borbangnadyr rolling-modulated-overtone, ezenggileer rhythmic-broken-overtone (horse-riding-mimetic). Distinct from the parallel Mongolian khoomei lineage despite the shared ethnographic-Turkic-Mongolic heritage; Tuvan technique tends toward higher-pitched sygyt isolation versus Mongolian deeper kharkhiraa. Embedded in nomadic herder-pastoralist work-song repertoire and in shamanic-trance ritual practice. The 1990s-onward post-Soviet international-touring exposure (initial European-and-American world-music-circuit) catalyzed contemporary-revival and academic-research interest.",
   "recipe": "classic Northeast Asian mid-1990s tuvan throat singing, drone Modal, overtone branch, buddhist ritual devotional, central Asian hunting song tuvan folk music central asian folk. sygyt, false fold engaged, breath pulsed, interlocked note trading. wood larch canonical tuvan khoomei accompaniment igil, traditional mongolian tuvan tradition tovshuur, long song morin khuur traditional horsehide morin khuur. steppe outdoor mongolian. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 494,
-  "score": 360.585,
+  "score": 360.93,
   "config": {
     "traditions": [
       "tuvan_throat",
@@ -41,7 +41,7 @@
           "voice_vibrato": 7.599999999999999,
           "voice_articulation": 21.514999999999997,
           "voice_microtone": 26.324999999999996,
-          "voice_tradition": 38.364999999999995,
+          "voice_tradition": 38.51499999999999,
           "voice_mechanism_compound": 35.309999999999995,
           "voice_estill_quality": 3.9650000000000007,
           "voice_speech_song": 28.794999999999998,
@@ -91,7 +91,7 @@
         },
         "scores": {
           "bowed_technique": 5.705,
-          "morin_khuur_use": 16.669999999999998,
+          "morin_khuur_use": 16.865,
           "morin_khuur_construction": 1.3,
           "morin_khuur_body_wood": 4.845,
           "morin_khuur_strings": 5.2299999999999995

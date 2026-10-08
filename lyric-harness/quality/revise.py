@@ -126,6 +126,27 @@ RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
                   "HOMEOTELEUTON"}
 
+
+def held_note_standing(codes):
+    """-> the standing a mandate line prints for a group whose pair HOLDS but
+    carries a pursued NOTE (`Brief.noted_groups`, 2026-10-02).
+
+    It was printed as "VIOLATED" until 2026-10-02: on read/bed the report
+    said "0 FLAG, 1 NOTE" and the line said "— VIOLATED". The pair holds;
+    what is true is that its rhyme is a predictable one (or another pursued
+    note) and the loop still asks for this word to change (doctrine 9).
+    `Brief.__str__` and the `brief` verb's report print this; the writer
+    prompt (`quality/propose.py`, which imports nothing from here) says the
+    same in its own words.
+    """
+    codes = tuple(codes)
+    named = ", ".join(codes)
+    if {"MODAL_RHYME", "PREDICTABLE_RHYME"} & set(codes):
+        return (f" — HOLDS, but its rhyme is a predictable one (NOTE "
+                f"{named}), which the loop still asks to change")
+    return (f" — HOLDS, but carries NOTE {named}, which the loop still "
+            f"asks to change")
+
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
 #: disappearance is a repair; these name something RIGHT, so their
@@ -524,6 +545,17 @@ class Brief:
     #: empty when neither names a group (e.g. only PREDICTABLE_RHYME),
     #: in which case `slot` is the first group's.
     violated_groups: tuple = ()
+    #: THE GROUPS IN `violated_groups` WHOSE PAIR HOLDS (2026-10-02):
+    #: `{label: (note codes)}` for a group attributed only by NOTE findings
+    #: (MODAL_RHYME, PREDICTABLE_RHYME, HOMEOTELEUTON, SHARED_SUFFIX — the
+    #: pursued notes in `RHYME_FINDINGS`) and by no flag and no incident
+    #: graded violation. `violated_groups` still carries them, because the
+    #: loop still asks for that word to change (doctrine 9) and the place,
+    #: the field and `verify()` are unchanged; this is what lets a renderer
+    #: say the pair HOLDS instead of calling it VIOLATED. Measured on
+    #: read/bed under `--groups=1,2;3,4`: "0 FLAG, 1 NOTE", and the brief
+    #: said "group A [1, 2]: L1 ('read') — VIOLATED".
+    noted_groups: dict = field(default_factory=dict)
     #: The labels of the groups that bind at `slot` — the groups a tier-2
     #: backtrack may rewrite for this pivot. Tier 2 used to walk EVERY group
     #: of the line and intersect their calls across places.
@@ -758,9 +790,12 @@ class Brief:
             _sk = self.group_slots.get(lab, None) if self.group_slots else None
             place = f" at {_sk}" if _sk is not None else ""
             standing = ""
+            _noted = (self.noted_groups or {}).get(lab)
             if lab in self.unjudged_groups:
                 standing = (" — VIOLATED; also UNJUDGED" if lab in self.violated_groups
-                            else " — UNJUDGED")
+                            and not _noted else " — UNJUDGED")
+            elif _noted:
+                standing = held_note_standing(_noted)
             elif self.violated_groups:
                 standing = (" — VIOLATED" if lab in self.violated_groups
                             else " — HOLDS")
@@ -1073,6 +1108,12 @@ def field_memo_clear():
         _FIELD_MEMO_TALLY[k] = 0
 
 
+#: `Reviser._bound_token_schemas`' answers, keyed on the pair's own two lines
+#: (M-317). Bounded like `relations._RESOLVE_MEMO`, oldest out first.
+_BOUND_TOKEN_MEMO = {}
+_BOUND_TOKEN_MEMO_CAP = 50_000
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -1127,6 +1168,12 @@ class Reviser:
             relation=s["relations"], min_score=THETA_COLLISION,
             profile=profile, promote=self._promote(),
             quantifier="all") is not False
+
+    #: Set by `quality.loop`'s deferred-path proxy for the length of one
+    #: `brief(target_lines=...)` call, and None otherwise: a callable
+    #: `(lines, line, place, build) -> SlotField` that returns `build()` or a
+    #: saved copy of it. Nothing else reads it (LOOP_REDESIGN.md §2.3b).
+    place_hook = None
 
     def for_revision(self, lines):
         """Scope retirement to this input without changing its readings or caller."""
@@ -1575,7 +1622,7 @@ class Reviser:
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None, *,
-              _only_groups=None, _verdicts_only=False):
+              _only_groups=None, _verdicts_only=False, _moot=None):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -2254,8 +2301,11 @@ class Reviser:
         # second half of the instruction whose first half widened the admit
         # set to all four classes on 2026-08-22 (`MISSING.md` M-116, task
         # #86). A mandated pair that declared NO relation and NO structure is
-        # satisfied when its two lines stand in ANY schema the vocabulary
-        # names, judged by the SAME instrument the declared route uses —
+        # satisfied when ~~its two lines~~ THE TWO WORDS ITS GROUP BINDS
+        # stand in ANY schema the vocabulary names (AMENDED 2026-10-02 by
+        # owner ruling, `MISSING.md` M-317: two lines relating at words the
+        # group does not bind no longer satisfy it), judged by the SAME
+        # instrument the declared route uses —
         # `relations.line_pairs_for` over one shared stream — so there is no
         # second judge to drift from (doctrine 1). Declaring a relation
         # remains the NARROWING move and is untouched: a group that says
@@ -2271,7 +2321,7 @@ class Reviser:
         # relation, read here and by `brief()`.
         # EVERY GRADED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY — not
         # only the pairs the coarse relations failed. Each verdict's relation
-        # set gains every schema its two lines stand in; in a group whose
+        # set gains every schema its BOUND WORDS stand in; in a group whose
         # route is open (nothing narrowed or declared), a pair is satisfied
         # when ANY relation in that set holds.
         _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
@@ -2283,20 +2333,48 @@ class Reviser:
         _asked = ([v for v in _open
                    if v["why"] and "REPEAT" not in v["relations"]]
                   if _verdicts_only else verdicts)
+        # `_moot` (a trial grade only): obligations (i, j, group) whose
+        # answer the caller reads the same satisfied or undecided -- it left
+        # them undecided on the draft before the change, and the change was
+        # not asked to answer them. One that cannot end FAILED is left
+        # undecided without the search (`can_stay_open`). Conjunctive only:
+        # the disjunctive rule reads per-line answers across obligations.
+        if not (_verdicts_only and self.rdecl.overlap_rule == "conjunctive"):
+            _moot = None
         if _asked:
             from quality import relations as _RF
-            _wvp = _RF.whole_vocabulary_pairs(
-                lines, self._relation_phonology(), sections=sections,
-                bearing={ln - 1 for g in m.groups for ln in g
-                         if 1 <= ln <= len(lines)},
-                requested_pairs={tuple(sorted(v["lines"]))
-                                 for v in _asked},
-                # A trial grade reads pass/fail only: stop asking a pair
-                # once one satisfier holds it (the answer cannot move).
-                settle=_verdicts_only)
+            # THE BOUND WORDS (owner ruling 2026-10-02): a group binds a
+            # word on each line (its slot; the last word by default), and a
+            # pair stands in a schema only through an instance covering both
+            # bound words. Two groups can bind one line pair at different
+            # words, so each distinct binding of a pair is asked on its own.
+            _rounds = []
+            for v in _asked:
+                i, j = sorted(v["lines"])
+                b = (_SL.token_of(m.slot_of(v["group"], i)),
+                     _SL.token_of(m.slot_of(v["group"], j)))
+                for rnd in _rounds:
+                    if rnd.get((i, j), b) == b:
+                        rnd[(i, j)] = b
+                        v["_round"] = rnd
+                        break
+                else:
+                    _rounds.append({(i, j): b})
+                    v["_round"] = _rounds[-1]
+            _wvps = {}
+            for rnd in _rounds:
+                _wvps[id(rnd)] = _RF.whole_vocabulary_pairs(
+                    lines, self._relation_phonology(), sections=sections,
+                    bearing={ln - 1 for g in m.groups for ln in g
+                             if 1 <= ln <= len(lines)},
+                    requested_pairs=set(rnd),
+                    # A trial grade reads pass/fail only: stop asking a pair
+                    # once one satisfier holds it (the answer cannot move).
+                    settle=_verdicts_only, bound=rnd)
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:
+                _wvp = _wvps[id(v.pop("_round"))]
                 _hit = sorted(_wvp.get(tuple(sorted(v["lines"]))) or ())
                 v["schemas"] = _hit
                 v["relations"] = sorted(set(v["relations"]) | set(_hit))
@@ -2314,6 +2392,45 @@ class Reviser:
                     if v["why"] and "REPEAT" not in v["relations"]:
                         v["why"] = None
                 elif v["why"] and "REPEAT" not in v["relations"]:
+                    if _moot and (*v["lines"], v["group"]) in _moot:
+                        _open_n = [n for n in (getattr(_wvp, "undecided", {})
+                                               .get(tuple(sorted(v["lines"])))
+                                               or ())
+                                   if _RF.REGISTRY[n].normative
+                                   not in ("forbidden", "deprecated")]
+                        if (_open_n and hasattr(_wvp, "can_stay_open")
+                                and _wvp.can_stay_open(v["lines"], _open_n)):
+                            i, j = v["lines"]
+                            k = v["group"]
+                            refusals.append({"lines": (i, j), "endwords": v["endwords"],
+                                             "unreadable": [], "groups": [m.labels[k]],
+                                             "reason": "the default relation remains unresolved in schema(s): "
+                                             + ", ".join(sorted(_open_n))})
+                            refused.add((i, j, k))
+                            unknown.update(((i, k), (j, k)))
+                            _fan_unknown.add(id(v))
+                            continue
+                    # A GROUP BOUND AWAY FROM THE LINE END (owner ruling
+                    # 2026-10-02, the bound words): most schemas stand only
+                    # at the line's last word, so the instance route above
+                    # cannot reach a head or `T<n>` word with them. Each
+                    # schema one token can bind is also asked AT the two
+                    # bound words (`pair_satisfies_any`, the declared-token
+                    # route's judge, any-reading rule and all).
+                    _tsat, _tund = self._bound_token_schemas(
+                        _RF, m, v, lines, sections, first=_verdicts_only)
+                    if _tsat:
+                        v["schemas"] = sorted(set(v["schemas"]) | set(_tsat))
+                        v["relations"] = sorted(set(v["relations"])
+                                                | set(_tsat))
+                        v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                                   | set(v["admitted"])
+                                                   | set(_tsat))
+                        if any(_tsat.values()):
+                            v["readings"] = {n: w for n, w in _tsat.items()
+                                             if w}
+                        v["why"] = None
+                        continue
                     # Refuse only on an undecided schema that COULD satisfy
                     # the group: a disowned one (forbidden / deprecated)
                     # never satisfies, so its indecision cannot move the
@@ -2343,6 +2460,7 @@ class Reviser:
                             v["readings"] = _rsat
                             v["why"] = None
                             continue
+                    _undecided = sorted(set(_undecided) | set(_tund))
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]
@@ -2691,7 +2809,11 @@ class Reviser:
             raise ValueError(
                 f"ReviseDeclaration.group_merge must be 'report' or 'off', "
                 f"got {self.rdecl.group_merge!r}")
-        rep = self.grade(lines, m, profile=profile)
+        # THE SAME GRADE `inspect` RAN, sections and all: the collision set
+        # reads no section, but a grade asked under other coordinates misses
+        # every memo and resolves the whole draft's readings again (M-317;
+        # measured 34 s of a 24-line revise's first 71).
+        rep = self.grade(lines, m, profile=profile, sections=sections)
         _, endwords, _, matrix = self._matrix(lines, profile=profile)
         edges = {tuple(c["lines"]) for c in rep["collisions"]}
         th = self.decl.theta_rhyme
@@ -2769,6 +2891,78 @@ class Reviser:
                                "cannot state a return")})
         return out
 
+    def _bound_token_schemas(self, R, m, v, lines, sections, first=False):
+        """-> ({schema: witness}, [undecided schemas]) for a verdict whose
+        group binds a word away from either line's end, asked AT the two
+        bound words; ({}, []) for an end-to-end pair, which the instance
+        route already answers at the words it binds.
+
+        Every schema one token can bind (`relations.pair_bindable`) that the
+        registry does not disown is judged by `relations.pair_satisfies_any`
+        at the bound tokens -- the judge the declared-token route uses, so
+        the default and a declared `schema:` relation read a slot alike. A
+        witness is the readings that satisfied it ([] when the dictionary's
+        first reading did). `first` stops at the first schema that holds.
+        A schema the judge leaves at None (an anchor with no referent in the
+        bound word, which the any-reading search could not supply) does not
+        apply to these words: it does not hold, and it holds nothing open,
+        as the instance route forms no instance there.
+        """
+        k = v["group"]
+        i, j = v["lines"]
+        si, sj = m.slot_of(k, i), m.slot_of(k, j)
+        if _SL.is_default(si) and _SL.is_default(sj):
+            return {}, []
+        ti, tj = _SL.token_of(si), _SL.token_of(sj)
+        if ti is None or tj is None:
+            return {}, []
+        box = getattr(self, "_bound_tok_box", None)
+        key = (tuple(lines), tuple(sections) if sections else None,
+               tuple(sorted({ln - 1 for g in m.groups for ln in g
+                             if 1 <= ln <= len(lines)})))
+        if box is None or box[0] != key:
+            def _b(ph):
+                st = R.build_stream(
+                    lines, ph, sections=sections,
+                    stanzas=R.stanzas_from_sections(sections),
+                    stanza_source="declared_sections" if sections else "",
+                    declaration={"language": "eng"})
+                if key[2]:
+                    R.mark_refrain_tail(st, lines=list(key[2]))
+                return st
+            build = R.cached_builder(_b)
+            box = self._bound_tok_box = (key, build(self._relation_phonology()),
+                                         build)
+        _, st, build = box
+        sat, und = {}, []
+        # An answer at two bound tokens reads only their two lines, so it is
+        # remembered under the pair's own lines (`relations.
+        # _local_stream_digest`): a trial draft that moved another line asks
+        # nothing again (M-317).
+        ld = R._local_stream_digest(st, (i, j))
+        for name in sorted(R.REGISTRY):
+            sch = R.REGISTRY[name]
+            if (sch.normative in ("forbidden", "deprecated")
+                    or not R.pair_bindable(sch)):
+                continue
+            mk = ("bound-token", ld, name, i, j, ti, tj) if ld else None
+            got = _BOUND_TOKEN_MEMO.get(mk) if mk else None
+            if got is None:
+                got = R.pair_satisfies_any(sch, st, (i - 1, ti), (j - 1, tj),
+                                           build)
+                if mk:
+                    if len(_BOUND_TOKEN_MEMO) >= _BOUND_TOKEN_MEMO_CAP:
+                        _BOUND_TOKEN_MEMO.pop(next(iter(_BOUND_TOKEN_MEMO)))
+                    _BOUND_TOKEN_MEMO[mk] = got
+            ans, wit = got
+            if isinstance(ans, R.Refusal):
+                continue
+            if ans is True:
+                sat[name] = list(wit or ())
+                if first:
+                    break
+        return sat, und
+
     def _schema_satisfies(self, lines, m, pairs, sections=None, among=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
@@ -2816,11 +3010,13 @@ class Reviser:
             from quality import relations as _RF
             if len(hit) > 8:
                 hit.clear()
+            # Cross pairs of two end-rhyme groups: their bound words are the
+            # line ends, as `grade()` binds a default group's.
             hit[key] = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
                          for ln in g if 1 <= ln <= len(lines)},
-                requested_pairs=asked)
+                requested_pairs=asked, bound={p: (-1, -1) for p in asked})
         wvp = hit[key]
         return all(tuple(sorted(p)) in wvp for p in pairs)
 
@@ -3966,7 +4162,9 @@ class Reviser:
                 whole.append(Finding(
                     "MANDATE_GROUPS_INDISTINGUISHABLE", "note",
                     f"groups {la} {ma} and {lb} {mb} would pass as ONE group "
-                    f"— every cross pair rhymes — so the mandate splits a "
+                    f"— every cross pair scores at or above the collision "
+                    f"cut ({THETA_COLLISION}), rhyme or near rhyme alike "
+                    f"(the edges below name which) — so the mandate splits a "
                     f"group the graph does not, and each of the "
                     f"{len(mg['edges'])} cross pairs is reported as a "
                     f"collision purely because the letters differ",
@@ -4267,7 +4465,7 @@ class Reviser:
                             (i, j, k) in requested_obligations)
                        for i, j, k in obligations)
 
-        baseline_bad = baseline_unknown = None
+        baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
             text = swap_at_slot(lines[line - 1], slot, word)
@@ -4297,8 +4495,14 @@ class Reviser:
                                       _verdicts_only=True)
                 baseline_bad = failures(baseline)
                 baseline_unknown = set(map(tuple, baseline.get("refused_obligations", ())))
+                # An obligation the draft already left undecided and this
+                # word was not asked to answer is no regression whether the
+                # trial holds it or leaves it undecided: only FAILED moves
+                # the verdict below, so `grade` skips the search there.
+                moot = {o for o in baseline_unknown if not demanded((o,))}
             graded = self.grade(trial, m, profile=profile, sections=sections,
-                                _only_groups=relevant, _verdicts_only=True)
+                                _only_groups=relevant, _verdicts_only=True,
+                                _moot=moot)
             bad = failures(graded)
             unknown = set(map(tuple, graded.get("refused_obligations", ())))
             unanswered = demanded(bad | unknown)
@@ -4673,7 +4877,8 @@ class Reviser:
             # time of `test_revise.py` §24, whose field this is.
             wvp = _RL.whole_vocabulary_pairs(carriers, phon,
                                              requested_pairs={(1, 2)},
-                                             schemas=found)
+                                             schemas=found,
+                                             bound={(1, 2): (-1, -1)})
             found &= set(wvp.get((1, 2)) or ())
         out = frozenset(found)
         store[("end-pair",) + key] = out
@@ -5630,9 +5835,267 @@ class Reviser:
         """
         return self.joint_field([call_word], exclude=exclude, profile=profile)
 
+    def _place_field(self, lines, m, ln, sk, ks, groups, endwords, viol_slots,
+                     sl, profile=None, blueprint=None,
+                     _verify_fields_only=False):
+        """-> `SlotField`: the offer, the forbidden head and everything the
+        brief records about line `ln` at ONE place (`sk`, slot `sl`), bound
+        there by the groups `ks`, against the draft as it stands.
+
+        FACTORED OUT OF `brief()` UNCHANGED (LOOP_REDESIGN.md §2.8 G,
+        2026-10-02), so that the group question's one-move menu for a member
+        (`member_place_field`) is computed by exactly this code and never by a
+        copy of part of it: widening, the anchorless filter and the ban's
+        exclusions included.
+        """
+        _sl = sl
+        _calls = [self._slot_word(lines, m, k, x, endwords)
+                  for k in ks for x in dict(groups)[k]]
+        _calls = [c for c in dict.fromkeys(_calls) if c]
+        _cur = self._incumbent(lines, ln, _sl)
+        _schema_ref = []
+        _widened = 0
+        if _calls:
+            _off, _forb, _drop = self.joint_field_screened(
+                _calls, exclude=(_cur,), profile=profile)
+            # VERIFY READS NO OFFER (LOOP_REDESIGN.md §2.6, 2026-10-02).
+            # `verify()` asks this brief for `slot`,
+            # `forbidden_incumbent` and `forbidden_modal` only. The
+            # forbidden head below is computed by exactly the code
+            # a full brief runs; the OFFER and every search that
+            # only fills it (schema widening, the whole-lexicon
+            # pool, the per-call fallback) are skipped. MEASURED
+            # before this: the offer was ~2/3 of a warm acceptance
+            # check on the same line and ~94% on another line of
+            # the 24-line fixture (261.1 s vs 89.4 s; 1,832.4 s vs
+            # 112.1 s, the latter without rule 3's head).
+            if _verify_fields_only:
+                _off = []
+            # THE OFFER IS JUDGED BY THE JUDGE THAT WILL JUDGE
+            # IT (`MISSING.md` M-204). Every group binding this
+            # line HERE is asked of the MANDATE for its declared
+            # relation — never inferred from the words — and a
+            # `schema:` one narrows the field to what
+            # `pair_satisfies` accepts. On a group declaring no
+            # schema this is a no-op and the field is the one it
+            # always was.
+            # Heuristic fields supply candidates only. Actual
+            # declaration, orientation and locus are checked by
+            # declared_offer below on the complete proposed text.
+            _sref = []
+            # THE VOWEL-BAND DOOR (`MISSING.md` M-257, round
+            # 24). A relation that DIFFERs on the nucleus or
+            # the coda refuses the whole rhyme band by
+            # construction, so an empty offer here is neither
+            # the ban's nor the lexicon's: the words that answer
+            # it share the call's vowel and not its rhyme, and
+            # they were never in `_field`'s population. Asked
+            # only when the screened offer is empty and such a
+            # relation binds this place; screened by every
+            # schema bound here, so a word offered answers them
+            # all (M-204's promise, kept).
+            _bound_schemas = []
+            for _k in ks:
+                try:
+                    _r2s = _relations_of(m, _k)
+                except Exception:
+                    _r2s = ()
+                _bound_schemas.extend(
+                    str(_r2) for _r2 in _r2s
+                    if str(_r2).startswith("schema:"))
+            if not _off and not _verify_fields_only and any(
+                    self.schema_refuses_rhyme_band(_r2)
+                    for _r2 in _bound_schemas):
+                _off = self.schema_widened_field(
+                    _calls, _bound_schemas, exclude=(_cur,),
+                    profile=profile)
+                _widened = len(_off)
+            # ITS OWN COUNT, NOT `screened_out` (doctrine 79).
+            # Folding these into the ban's drop list was this
+            # repair's own first draft and it made the renderer
+            # LIE: `screened_out` prints "the call word sits in
+            # their own modal head", which is true of the ban and
+            # false of a schema refusal. "The band admitted these
+            # and the declared relation does not" is a different
+            # fact and gets a different field.
+            _schema_ref = list(dict.fromkeys(_sref))
+        else:
+            _off, _forb, _drop = [], [], []
+        _explicit = any(m.relation_of(k) or
+                        not self.schema_route_open(m, k) for k in ks)
+        _sections = None
+        if _calls and blueprint is not None:
+            _song, _ = GR.song_from_blueprint(blueprint)
+            _sections = [row.section for row in _song.lines]
+        _grader_ref = []
+        if _explicit and _calls:
+            _off, _rejected = self.declared_offer(
+                _off, lines, m, ln, _sl, ks,
+                profile=profile, sections=_sections)
+            _forb, _bad_ban = self.declared_offer(
+                _forb, lines, m, ln, _sl, ks,
+                profile=profile, sections=_sections)
+            _schema_ref.extend(_rejected + _bad_ban)
+            if not _off and not _verify_fields_only:
+                # The named relation may live below the scalar
+                # rhyme cut. Search the declared finite ranking
+                # without that cut, then ask the same grade.
+                _pool = [word for word, _anchor, _rank in
+                         sorted(self.engine.index, key=lambda row: (row[2], row[0]))
+                         if word not in {_cur, *_forb}]
+                for _call in _calls:
+                    if any(str(_w).startswith("schema:") for k in ks
+                           for _w in _relations_of(m, k)):
+                        _pool.extend(self._widen_pool(_call, profile=profile))
+                    _raw = self.engine.candidates(
+                        _call, n=len(self.engine.index))
+                    _pool.extend(row["word"] for row in _raw.get("candidates", ())
+                                 if row["word"] not in {_cur, *_forb})
+                _cand = [w for w in dict.fromkeys(_pool)
+                         if w not in {_cur, *_forb, *_drop}]
+                # THE WIDENING INDEX (2026-09-28). The pool is the
+                # whole lexicon; every word in it is still looked
+                # at, and the ones each declared relation's own
+                # definition says cannot stand in it are not
+                # graded (`_widening_filter`). The words kept go
+                # through the same full grade in the same order.
+                _keep = self._widening_filter(lines, m, ln, _sl,
+                                              ks, endwords,
+                                              profile=profile)
+                if _keep is not None:
+                    _cand = [w for w in _cand if _keep(w)]
+                _extra, _no = self.declared_offer(
+                    _cand,
+                    lines, m, ln, _sl, ks,
+                    profile=profile, sections=_sections,
+                    limit=self.rdecl.offered)
+                _off = _extra[:self.rdecl.offered]
+                _widened += len(_off)
+            _off = [w for w in _off if w not in {_cur, *_forb, *_drop}]
+        # A WORD THE SLOT CANNOT ANCHOR IS NOT AN ANSWER (song
+        # run A, 2026-09-30). At a declared token the grade asks
+        # `slots.resolve` for an anchor and REFUSES the pair when
+        # there is none (`_anchorless` in `grade()`): `on`, `by`
+        # and `in` carry no stress there, so a writer who took
+        # `on` off this menu — it was offered FIRST — was
+        # rejected for turning a judged pair into a refused one.
+        # The same predicate, asked of the word spliced in, keeps
+        # the menu to words the grade can compare; the rest are
+        # `grader_refused`, whose published sentence ("with one
+        # of them here the grader could no longer judge this
+        # pair") is exactly what happens.
+        if _off and not _SL.is_default(_sl):
+            _unanch = [w for w in _off
+                       if not self._anchors_at(lines[ln - 1], _sl, w)]
+            if _unanch:
+                _off = [w for w in _off if w not in _unanch]
+                _grader_ref = list(dict.fromkeys(
+                    [*_grader_ref, *_unanch]))
+        # THE JOINT OFFER IS NOT SCREENED HERE, AND THE REASON IS
+        # THE REFUSAL'S OWN TRIGGER RATHER THAN ITS COST
+        # (`MISSING.md` M-315). A word in the joint offer answers
+        # EVERY call at this place, so every pair it makes passes
+        # the coarse relations, `v["why"]` is None, and `grade()`
+        # never reaches the whole-vocabulary schema fan that files
+        # "the default relation remains unresolved in schema(s)".
+        # The refusal is reachable only where the coarse relations
+        # FAIL and a satisfying schema comes back undecided —
+        # which is the per-call fallback's own population, one
+        # call answered and the rest failing. So the screen goes
+        # exactly there, and MEASURED on the live seed-7 brief it
+        # is also where every published-but-unusable word was.
+        _jc = (len(_calls) > 1 and not _off and not _forb)
+        # THE PER-CALL FALLBACK (`MISSING.md` M-202). Run ONLY
+        # when the conjunction came back empty at a place with
+        # more than one call, and run through the SAME screened
+        # door the joint offer uses, so a word reachable here is
+        # a word the joint offer would have been allowed to name.
+        # A call nothing answers contributes NO entry rather than
+        # an empty one: "asked and nothing came back" and "not
+        # asked" are the same answer here, because every call is
+        # asked, and an empty tuple in the list would be read as
+        # a menu (doctrine 20 is satisfied by the count of
+        # entries against the count of calls, printed by the
+        # renderers).
+        _bycall = []
+        if _jc and not _verify_fields_only:
+            for _c1 in _calls:
+                _o1, _f1, _d1 = self.joint_field_screened(
+                    [_c1], exclude=(_cur,), profile=profile)
+                if _o1:
+                    # A fallback answers one call, but under the
+                    # same declared relation and actual locus as
+                    # the joint menu. Scalar rhyme alone is not
+                    # evidence for a named consonance offer.
+                    # ASKED WHETHER A RELATION IS DECLARED OR NOT
+                    # (`MISSING.md` M-315): this is the menu the
+                    # live run published and the menu whose every
+                    # word the grader rejected, and the screen was
+                    # skipped on exactly the mandate a caller gets
+                    # by declaring nothing.
+                    _obligations = {
+                        (min(ln, x), max(ln, x), k)
+                        for k in ks for x in dict(groups)[k]
+                        if self._slot_word(lines, m, k, x, endwords) == _c1}
+                    # Every word on the menu goes through the grade. `limit` stops the
+                    # screen once the menu is full; it never stops it short of that.
+                    _o1, _no = self.declared_offer(
+                        _o1,
+                        lines, m, ln, _sl, ks,
+                        profile=profile, sections=_sections,
+                        limit=self.rdecl.offered,
+                        requested_obligations=_obligations)
+                    if not _explicit:
+                        _grader_ref = list(
+                            dict.fromkeys([*_grader_ref, *_no]))
+                if _o1:
+                    _bycall.append((_c1, tuple(_o1)))
+        return SlotField(
+            slot=_sl, labels=tuple(m.labels[k] for k in ks),
+            calls=tuple(_calls), incumbent=_cur or "",
+            offered=_off, forbidden=_forb,
+            violated=sk in viol_slots,
+            joint_conflict=_jc,
+            dropped=tuple(_drop),
+            by_call=tuple(_bycall),
+            schema_refused=tuple(_schema_ref),
+            grader_refused=tuple(_grader_ref),
+            widened=_widened)
+
+    def member_place_field(self, lines, mandate, line, group_index,
+                           profile=None, blueprint=None):
+        """-> the `SlotField` for `line` at the place group `group_index`
+        binds it, with every OTHER line keeping its words, or None when that
+        group does not bind the line.
+
+        THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4 and §2.8 G, 2026-10-02). A
+        group question used to search a member's menu only against its OTHER
+        groups, so a member of one group (every plain couplet) was printed
+        `(none offered)` — defect 4, reproduced in Phase 1. This is the menu
+        a line question would offer at that place: computed by `brief()`'s
+        own per-place code (`_place_field`), with the pivot's current word
+        among the calls. It works for a member with no per-line finding,
+        which `brief()` would not brief at all.
+        """
+        m = self.mandate(lines, mandate)
+        groups = m.partners(line)
+        if not any(k == group_index for k, _ in groups):
+            return None
+        _slotted = m.slots_declared()
+        slot_of = {k: (m.slot_of(k, line) if _slotted else None)
+                   for k, _ in groups}
+        skey = {k: (None if _SL.is_default(sl) else str(sl))
+                for k, sl in slot_of.items()}
+        sk = skey[group_index]
+        ks = [k for k, _ in groups if skey[k] == sk]
+        _, endwords, _, _ = self._matrix(lines, profile=profile)
+        return self._place_field(lines, m, line, sk, ks, groups, endwords,
+                                 (), slot_of[ks[0]], profile=profile,
+                                 blueprint=blueprint)
+
     def brief(self, lines, mandate=None, profile=None, blueprint=None,
               subdivision=None, assume=None, *, include_offers=True,
-              target_lines=None):
+              target_lines=None, _verify_fields_only=False):
         """-> [Brief], one per line that needs work. Lines with no findings are
         absent, because the loop revises FLAGGED LINES ONLY.
 
@@ -5796,6 +6259,25 @@ class Reviser:
             _violated.update(k for k, _ in groups if m.labels[k] in _incident)
             b.violated_groups = tuple(m.labels[k] for k, _ in groups
                                       if k in _violated)
+            # A GROUP ATTRIBUTED ONLY BY NOTES STILL HOLDS. It stays in
+            # `violated_groups` above — the loop still asks for that word
+            # to change — and is recorded here with its note codes so the
+            # renderers can say so (flags and notes kept apart, never
+            # summed: doctrine 79).
+            _flagged = self._violated_groups(
+                m, ln, groups, [f for f in fs
+                                 if getattr(f, "severity", "flag") != "note"])
+            _flagged.update(k for k, _ in groups
+                            if m.labels[k] in _incident)
+            _noted = {}
+            for f in fs:
+                if getattr(f, "severity", "flag") != "note":
+                    continue
+                for k in self._violated_groups(m, ln, groups, [f]):
+                    if k not in _flagged and f.code not in _noted.get(k, ()):
+                        _noted[k] = _noted.get(k, ()) + (f.code,)
+            b.noted_groups = {m.labels[k]: _noted[k] for k, _ in groups
+                              if k in _noted}
             _by_slot = {}
             for k, _mates in groups:
                 _by_slot.setdefault(_skey[k], []).append(k)
@@ -5848,206 +6330,22 @@ class Reviser:
                 # always was, over the same calls in the same order —
                 # byte-identical (test_revise.py pins the field).
                 for sk, ks in _by_slot.items():
-                    _sl = _slot_of[ks[0]]
-                    _calls = [self._slot_word(lines, m, k, x, endwords)
-                              for k in ks for x in dict(groups)[k]]
-                    _calls = [c for c in dict.fromkeys(_calls) if c]
-                    _cur = self._incumbent(lines, ln, _sl)
-                    _schema_ref = []
-                    _widened = 0
-                    if _calls:
-                        _off, _forb, _drop = self.joint_field_screened(
-                            _calls, exclude=(_cur,), profile=profile)
-                        # THE OFFER IS JUDGED BY THE JUDGE THAT WILL JUDGE
-                        # IT (`MISSING.md` M-204). Every group binding this
-                        # line HERE is asked of the MANDATE for its declared
-                        # relation — never inferred from the words — and a
-                        # `schema:` one narrows the field to what
-                        # `pair_satisfies` accepts. On a group declaring no
-                        # schema this is a no-op and the field is the one it
-                        # always was.
-                        # Heuristic fields supply candidates only. Actual
-                        # declaration, orientation and locus are checked by
-                        # declared_offer below on the complete proposed text.
-                        _sref = []
-                        # THE VOWEL-BAND DOOR (`MISSING.md` M-257, round
-                        # 24). A relation that DIFFERs on the nucleus or
-                        # the coda refuses the whole rhyme band by
-                        # construction, so an empty offer here is neither
-                        # the ban's nor the lexicon's: the words that answer
-                        # it share the call's vowel and not its rhyme, and
-                        # they were never in `_field`'s population. Asked
-                        # only when the screened offer is empty and such a
-                        # relation binds this place; screened by every
-                        # schema bound here, so a word offered answers them
-                        # all (M-204's promise, kept).
-                        _bound_schemas = []
-                        for _k in ks:
-                            try:
-                                _r2s = _relations_of(m, _k)
-                            except Exception:
-                                _r2s = ()
-                            _bound_schemas.extend(
-                                str(_r2) for _r2 in _r2s
-                                if str(_r2).startswith("schema:"))
-                        if not _off and any(
-                                self.schema_refuses_rhyme_band(_r2)
-                                for _r2 in _bound_schemas):
-                            _off = self.schema_widened_field(
-                                _calls, _bound_schemas, exclude=(_cur,),
-                                profile=profile)
-                            _widened = len(_off)
-                        # ITS OWN COUNT, NOT `screened_out` (doctrine 79).
-                        # Folding these into the ban's drop list was this
-                        # repair's own first draft and it made the renderer
-                        # LIE: `screened_out` prints "the call word sits in
-                        # their own modal head", which is true of the ban and
-                        # false of a schema refusal. "The band admitted these
-                        # and the declared relation does not" is a different
-                        # fact and gets a different field.
-                        _schema_ref = list(dict.fromkeys(_sref))
-                    else:
-                        _off, _forb, _drop = [], [], []
-                    _explicit = any(m.relation_of(k) or
-                                    not self.schema_route_open(m, k) for k in ks)
-                    _sections = None
-                    if _calls and blueprint is not None:
-                        _song, _ = GR.song_from_blueprint(blueprint)
-                        _sections = [row.section for row in _song.lines]
-                    _grader_ref = []
-                    if _explicit and _calls:
-                        _off, _rejected = self.declared_offer(
-                            _off, lines, m, ln, _sl, ks,
-                            profile=profile, sections=_sections)
-                        _forb, _bad_ban = self.declared_offer(
-                            _forb, lines, m, ln, _sl, ks,
-                            profile=profile, sections=_sections)
-                        _schema_ref.extend(_rejected + _bad_ban)
-                        if not _off:
-                            # The named relation may live below the scalar
-                            # rhyme cut. Search the declared finite ranking
-                            # without that cut, then ask the same grade.
-                            _pool = [word for word, _anchor, _rank in
-                                     sorted(self.engine.index, key=lambda row: (row[2], row[0]))
-                                     if word not in {_cur, *_forb}]
-                            for _call in _calls:
-                                if any(str(_w).startswith("schema:") for k in ks
-                                       for _w in _relations_of(m, k)):
-                                    _pool.extend(self._widen_pool(_call, profile=profile))
-                                _raw = self.engine.candidates(
-                                    _call, n=len(self.engine.index))
-                                _pool.extend(row["word"] for row in _raw.get("candidates", ())
-                                             if row["word"] not in {_cur, *_forb})
-                            _cand = [w for w in dict.fromkeys(_pool)
-                                     if w not in {_cur, *_forb, *_drop}]
-                            # THE WIDENING INDEX (2026-09-28). The pool is the
-                            # whole lexicon; every word in it is still looked
-                            # at, and the ones each declared relation's own
-                            # definition says cannot stand in it are not
-                            # graded (`_widening_filter`). The words kept go
-                            # through the same full grade in the same order.
-                            _keep = self._widening_filter(lines, m, ln, _sl,
-                                                          ks, endwords,
-                                                          profile=profile)
-                            if _keep is not None:
-                                _cand = [w for w in _cand if _keep(w)]
-                            _extra, _no = self.declared_offer(
-                                _cand,
-                                lines, m, ln, _sl, ks,
-                                profile=profile, sections=_sections,
-                                limit=self.rdecl.offered)
-                            _off = _extra[:self.rdecl.offered]
-                            _widened += len(_off)
-                        _off = [w for w in _off if w not in {_cur, *_forb, *_drop}]
-                    # A WORD THE SLOT CANNOT ANCHOR IS NOT AN ANSWER (song
-                    # run A, 2026-09-30). At a declared token the grade asks
-                    # `slots.resolve` for an anchor and REFUSES the pair when
-                    # there is none (`_anchorless` in `grade()`): `on`, `by`
-                    # and `in` carry no stress there, so a writer who took
-                    # `on` off this menu — it was offered FIRST — was
-                    # rejected for turning a judged pair into a refused one.
-                    # The same predicate, asked of the word spliced in, keeps
-                    # the menu to words the grade can compare; the rest are
-                    # `grader_refused`, whose published sentence ("with one
-                    # of them here the grader could no longer judge this
-                    # pair") is exactly what happens.
-                    if _off and not _SL.is_default(_sl):
-                        _unanch = [w for w in _off
-                                   if not self._anchors_at(lines[ln - 1], _sl, w)]
-                        if _unanch:
-                            _off = [w for w in _off if w not in _unanch]
-                            _grader_ref = list(dict.fromkeys(
-                                [*_grader_ref, *_unanch]))
-                    # THE JOINT OFFER IS NOT SCREENED HERE, AND THE REASON IS
-                    # THE REFUSAL'S OWN TRIGGER RATHER THAN ITS COST
-                    # (`MISSING.md` M-315). A word in the joint offer answers
-                    # EVERY call at this place, so every pair it makes passes
-                    # the coarse relations, `v["why"]` is None, and `grade()`
-                    # never reaches the whole-vocabulary schema fan that files
-                    # "the default relation remains unresolved in schema(s)".
-                    # The refusal is reachable only where the coarse relations
-                    # FAIL and a satisfying schema comes back undecided —
-                    # which is the per-call fallback's own population, one
-                    # call answered and the rest failing. So the screen goes
-                    # exactly there, and MEASURED on the live seed-7 brief it
-                    # is also where every published-but-unusable word was.
-                    _jc = (len(_calls) > 1 and not _off and not _forb)
-                    # THE PER-CALL FALLBACK (`MISSING.md` M-202). Run ONLY
-                    # when the conjunction came back empty at a place with
-                    # more than one call, and run through the SAME screened
-                    # door the joint offer uses, so a word reachable here is
-                    # a word the joint offer would have been allowed to name.
-                    # A call nothing answers contributes NO entry rather than
-                    # an empty one: "asked and nothing came back" and "not
-                    # asked" are the same answer here, because every call is
-                    # asked, and an empty tuple in the list would be read as
-                    # a menu (doctrine 20 is satisfied by the count of
-                    # entries against the count of calls, printed by the
-                    # renderers).
-                    _bycall = []
-                    if _jc:
-                        for _c1 in _calls:
-                            _o1, _f1, _d1 = self.joint_field_screened(
-                                [_c1], exclude=(_cur,), profile=profile)
-                            if _o1:
-                                # A fallback answers one call, but under the
-                                # same declared relation and actual locus as
-                                # the joint menu. Scalar rhyme alone is not
-                                # evidence for a named consonance offer.
-                                # ASKED WHETHER A RELATION IS DECLARED OR NOT
-                                # (`MISSING.md` M-315): this is the menu the
-                                # live run published and the menu whose every
-                                # word the grader rejected, and the screen was
-                                # skipped on exactly the mandate a caller gets
-                                # by declaring nothing.
-                                _obligations = {
-                                    (min(ln, x), max(ln, x), k)
-                                    for k in ks for x in dict(groups)[k]
-                                    if self._slot_word(lines, m, k, x, endwords) == _c1}
-                                # Every word on the menu goes through the grade. `limit` stops the
-                                # screen once the menu is full; it never stops it short of that.
-                                _o1, _no = self.declared_offer(
-                                    _o1,
-                                    lines, m, ln, _sl, ks,
-                                    profile=profile, sections=_sections,
-                                    limit=self.rdecl.offered,
-                                    requested_obligations=_obligations)
-                                if not _explicit:
-                                    _grader_ref = list(
-                                        dict.fromkeys([*_grader_ref, *_no]))
-                            if _o1:
-                                _bycall.append((_c1, tuple(_o1)))
-                    b.fields_by_slot[sk] = SlotField(
-                        slot=_sl, labels=tuple(m.labels[k] for k in ks),
-                        calls=tuple(_calls), incumbent=_cur or "",
-                        offered=_off, forbidden=_forb,
-                        violated=sk in _viol_slots,
-                        joint_conflict=_jc,
-                        dropped=tuple(_drop),
-                        by_call=tuple(_bycall),
-                        schema_refused=tuple(_schema_ref),
-                        grader_refused=tuple(_grader_ref),
-                        widened=_widened)
+                    def _build(sk=sk, ks=ks):
+                        return self._place_field(
+                            lines, m, ln, sk, ks, groups, endwords,
+                            _viol_slots, _slot_of[ks[0]], profile=profile,
+                            blueprint=blueprint,
+                            _verify_fields_only=_verify_fields_only)
+                    # ONE PLACE AT A TIME, WHEN A CALLER IS SAVING THEM
+                    # (LOOP_REDESIGN.md §2.3b; owner ruling 2026-10-03,
+                    # option B). `place_hook` is set only by the deferred
+                    # loop's reviser proxy, which saves each place's field
+                    # by draft, line and place and may stop the call between
+                    # two places. What the hook returns is this same field.
+                    _hook = (None if _verify_fields_only
+                             else getattr(self, "place_hook", None))
+                    b.fields_by_slot[sk] = (_build() if _hook is None
+                                            else _hook(lines, ln, sk, _build))
                 _pf = b.fields_by_slot.get(_primary)
                 calls = list(_pf.calls) if _pf else []
                 # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the
@@ -6067,7 +6365,7 @@ class Reviser:
                     b.field_computed = True
                     # WHICH CAUSE, when the head is empty (doctrine 28):
                     # read off the same memoised ranking, never guessed.
-                    if not _pf.forbidden:
+                    if not _pf.forbidden and not _verify_fields_only:
                         b.empty_head_cause = self.empty_head_cause(
                             list(_pf.calls), _pf.offered, profile=profile)
                     # A CONJUNCTION IS EMPTY AT ONE PLACE, never across
@@ -6169,12 +6467,17 @@ class Reviser:
                     f"lines {sorted(stray)} were changed but not targeted; "
                     f"revise flagged lines only")
                 return out
+        # RULE 3 READS `slot`, `forbidden_incumbent` AND `forbidden_modal`
+        # OFF THIS BRIEF, AND NOTHING ELSE. `_verify_fields_only` computes
+        # those three by the full brief's own code and skips the offer
+        # (LOOP_REDESIGN.md §2.6; pinned equal by quality/test_loop_redesign.py).
         b_before = {b.line_no: b for b in self.brief(before, m,
                                                     profile=profile,
                                                     blueprint=blueprint,
                                                     subdivision=subdivision,
                                                     assume=assume,
-                                                    target_lines=changed)}
+                                                    target_lines=changed,
+                                                    _verify_fields_only=True)}
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
                                 assume=assume)

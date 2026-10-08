@@ -6,7 +6,7 @@
   "lineage": "Bavarian and Austrian village wind band tradition that took its modern form in the 19th century out of military and church wind ensembles and was standardized by Ernst Mosch's Egerländer model after 1956 — flugelhorn and clarinet leads in parallel thirds, trombone and tenor horn counterlines, tuba with off-beat tenor horns on oom-pah, playing polkas at 110-130 BPM, waltzes and processional marches in civic halls, church festivals and beer tents.",
   "recipe": "classic North American mid-1950s blaskapelle, drinking Song, European branch, European carnival processional, europop functional song pasodoble airs de gilles. thick, breath veiled tone, straight note core, interlocked note trading. brass yellow brass flugelhorn, yellow brass canonical 70 30 bach stradivarius student friendly ensemble trumpet, dense hardwood grenadilla African blackwood traditional clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba, silver plated British brass band ceremonial besson sovereign canonical British brass band euphonium, bass drum. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
   "recipe_chars": 917,
-  "score": 184.606,
+  "score": 184.514,
   "config": {
     "traditions": [
       "blaskapelle",
@@ -66,7 +66,7 @@
           "clarinet_body": 2.6999999999999997,
           "clarinet_size": 0.195,
           "clarinet_reed": 0.105,
-          "clarinet_articulation": 0.15
+          "clarinet_articulation": 0.255
         }
       },
       {
@@ -101,8 +101,8 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": -0.05,
-          "tuba_pitch": 3.7340000000000004,
+          "wind_articulation": -0.035,
+          "tuba_pitch": 3.5390000000000006,
           "tuba_context": 4.42,
           "tuba_bell_metal": 1.8850000000000002,
           "tuba_valve_system": 0.39,
@@ -119,8 +119,8 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": -0.05,
-          "euph_use": 5.265,
+          "wind_articulation": -0.035,
+          "euph_use": 5.233499999999999,
           "euphonium_pitch": 3.9650000000000003,
           "euphonium_bell_metal": 4.16,
           "euphonium_maker_school": 3.9650000000000003

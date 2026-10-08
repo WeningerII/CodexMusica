@@ -3,53 +3,55 @@
   "name": "Oldschool Jungle",
   "family": "electronic",
   "lineage": "Formed in London and Bristol 1992-94 out of hardcore rave's acceleration, codified by Rebel MC, Shy FX, Congo Natty and DJ Hype on white-label 12-inches — 155-170 BPM chopped Amen and Apache breakbeats time-stretched over halftime 80 BPM sub-bass and Jamaican dancehall samples, with ragga toasting and pitched-up diva vocals cut to dubplate for pirate-radio play.",
-  "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass german techno. vocal fry, breath veiled tone, straight note core, interlocked note trading. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 516,
-  "score": 189.08,
+  "recipe": "classic Western European early-1990s oldschool jungle, bass System, uk soundsystem branch, dub descendants bass system, techno electronic dance, Afro-diasporic MC rhythm techno bass funk consciente. rap, toasting deejay flow, pitched rhythmic chat, solo with instrumental accompaniment. chopped sampler, sampler drum machine, turntable, low sub bass analog poly synth, low sub bass monosynth acid bass. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 542,
+  "score": 106.5,
   "config": {
     "traditions": [
       "oldschool_jungle",
       "techno_bass",
-      "german_techno"
+      "funk_consciente"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "jamaican_dancehall_toasting_tradition",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_toasting_deejay_chat",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 0.975,
-          "voice_quality": 3.1850000000000014,
+          "voice_register": 0,
+          "voice_quality": 6.78,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.64,
-          "voice_articulation": 19.174999999999997,
-          "voice_microtone": 18.589999999999993,
-          "voice_tradition": 2.6650000000000005,
-          "voice_mechanism_compound": 3.1500000000000004,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 18.979999999999997,
-          "voice_ensemble_config": 20.279999999999994,
-          "voice_ornament_system": 2.8600000000000003,
-          "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 15.79,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_vibrato": 0,
+          "voice_articulation": 0.195,
+          "voice_microtone": 0,
+          "voice_tradition": 7.335,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 6.045,
+          "voice_ensemble_config": 3.575,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 10.264999999999999,
+          "voice_multitrack_stack": 0.845,
+          "voice_tessitura": 0
         }
       },
       {
@@ -62,11 +64,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.7599999999999998,
-          "sampler_archetypes": 1.0699999999999998,
-          "sampler_bit_depth": 0.49499999999999994,
-          "sampler_workflow": 4.725,
-          "sampler_classic_context": 19.955
+          "electronic_technique": 2.935,
+          "sampler_archetypes": 1.5949999999999998,
+          "sampler_bit_depth": 0.345,
+          "sampler_workflow": 5.25,
+          "sampler_classic_context": 19.889999999999997
         }
       },
       {
@@ -78,9 +80,9 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 1.7599999999999998,
+          "electronic_technique": 2.935,
           "sample_bitdepth": 0.65,
-          "sample_swing": 13.125,
+          "sample_swing": 8.25,
           "sample_processing": 3.4
         }
       },
@@ -91,8 +93,8 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 1.7599999999999998,
-          "turntable_technique": 0.6824999999999999
+          "electronic_technique": 2.935,
+          "turntable_technique": 1.3649999999999998
         }
       },
       {
@@ -101,31 +103,57 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 8.6775,
+          "electronic_technique": 10.854999999999997,
           "poly_archetypes": 0.915,
           "poly_voices": 0.915,
-          "poly_maker_lineage": -0.7350000000000001
+          "poly_maker_lineage": -1.7199999999999998
         }
       },
       {
         "id": "monosynth_acid_bass",
         "slots": {
-          "electronic_technique": "electronic_acid_squelch",
+          "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "heavy_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 12.295,
+          "electronic_technique": 10.854999999999997,
           "wave_acid": 0,
-          "filter_acid": 2.34,
-          "accent_acid": 1.625
+          "filter_acid": 2.145,
+          "accent_acid": 0.545
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "analog_poly_synth": [
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ]
+    },
     "room": "brent_black_community_studio_london",
     "archetype": "arch_uk_jungle_dubplate",
     "inline_chain": {
@@ -145,6 +173,29 @@
   "source": {
     "tuning": "caribbean_jamaican_riddim_one_drop_and_steppers",
     "room": "brent_black_community_studio_london",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "rap_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "jamaican_dancehall_toasting_tradition",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_toasting_deejay_chat",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_stutter_edit",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "poly_archetypes": "jupiter_8",
+      "poly_voices": "poly_8_voice",
+      "poly_maker_lineage": "poly_roland_jupiter"
+    },
+    "pin_parts": true,
     "chain_mic": "mic_sm58_dynamic_shure",
     "chain_pre": "pre_console_inline_strip",
     "chain_comp": "comp_dbx_160_vca",

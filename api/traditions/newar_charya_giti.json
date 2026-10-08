@@ -5,7 +5,7 @@
   "lineage": "Esoteric Buddhist ritual songs of the Newar Vajracharya priests of the Kathmandu Valley, descending from the medieval carya songs of the Buddhist siddhas, sung in ritual and to accompany the charya nritya dances that embody deities. The songs are set to ragas and talas and sung to small cymbals; Ratna Kazi Vajracharya taught the repertoire, and Richard Widdess has written on it. The cymbals card stands in for the small Newar cymbals.",
   "recipe": "classic modern charya giti, ritual Devotional, buddhist branch. single lead single track no stacking. credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 2.456,
+  "score": 2.246,
   "config": {
     "traditions": [
       "newar_charya_giti"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.378,
-          "voice_multitrack_stack": 1.8375,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.7325,
           "voice_tessitura": 0
         }
       },

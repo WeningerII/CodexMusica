@@ -5,7 +5,7 @@
   "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern Carnaval de Oruro continuous practice",
   "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno raíces. thick, forward-resonance, straight onset, interlocked note trading. bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled brushes-and-sticks drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 674,
-  "score": 286.018,
+  "score": 286.153,
   "config": {
     "traditions": [
       "bolivian_diablada_oruro",
@@ -43,7 +43,7 @@
           "voice_microtone": 12.414999999999996,
           "voice_tradition": 35.90624999999999,
           "voice_mechanism_compound": 4.809999999999999,
-          "voice_estill_quality": 20.649999999999995,
+          "voice_estill_quality": 20.694999999999997,
           "voice_speech_song": 14.299999999999997,
           "voice_ensemble_config": 22.669999999999998,
           "voice_ornament_system": 27.450999999999993,
@@ -82,7 +82,7 @@
           "wind_articulation": "wind_continuous_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
-          "brass_mute": "no_mute_brass",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_yamaha_xeno"
@@ -91,7 +91,7 @@
           "wind_articulation": 4.664375,
           "brass_size": 0.195,
           "trumpet_mouthpiece": 5.219500000000001,
-          "brass_mute": 0.105,
+          "brass_mute": 0.045,
           "trumpet_technique": 1.0399999999999998,
           "trumpet_bell_metal": 1.8200000000000003,
           "trumpet_maker_school": 2.535
@@ -120,7 +120,7 @@
         },
         "scores": {
           "tarka_form": 12.790124999999996,
-          "tarka_context": 22.775624999999994,
+          "tarka_context": 22.925624999999993,
           "tarka_consort_voice": 0.745125,
           "tarka_body_wood": 1.4300000000000002
         }

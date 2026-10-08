@@ -3,53 +3,51 @@
   "name": "Son istmeño (Oaxaca Isthmus)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Isthmus of Tehuantepec (southeastern Oaxaca), the Zapotec-cultural-region southern-Mexican-Pacific lowland. Zapotec-language vocal repertoire alongside Spanish, characteristic 6/8 alternating-with-3/4, and Tehuana-feminine cultural register. Marimba ensemble (parallel to but distinct from Guatemalan Maya marimba), acoustic-guitar, voice. La Sandunga (Andrés Gutiérrez 1853) is the unofficial Zapotec anthem.",
-  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode roda de samba. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 411,
-  "score": 120.465,
+  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion. solo with instrumental accompaniment, unprocessed natural acoustic. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 390,
+  "score": 20.745,
   "config": {
     "traditions": [
-      "son_istmeno",
-      "pagode",
-      "roda_de_samba"
+      "son_istmeno"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.0799999999999996,
-          "voice_quality": 24.43999999999999,
+          "voice_register": -0.5499999999999999,
+          "voice_quality": -0.3,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8775,
-          "voice_articulation": 14.169999999999996,
-          "voice_microtone": 11.244999999999994,
-          "voice_tradition": 6.0125,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 4.5825000000000005,
-          "voice_speech_song": 13.259999999999996,
-          "voice_ensemble_config": 13.649999999999995,
-          "voice_ornament_system": 3.2,
-          "voice_pitch_organization": 1.8199999999999998,
-          "voice_processing_chain": 5.655000000000001,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 0.38999999999999996,
+          "voice_articulation": 0,
+          "voice_microtone": -0.21,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": -0.10500000000000001,
+          "voice_speech_song": 0.435,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.69,
+          "voice_multitrack_stack": 0.435
         }
       },
       {
@@ -57,12 +55,12 @@
         "slots": {
           "marimba_centroamericana_form": "marimba_centroamericana_chiapaneca",
           "marimba_centroamericana_ensemble": "marimba_centroamericana_son_istmeno",
-          "marimba_centroamericana_material": "marimba_centroamericana_hormigo"
+          "marimba_centroamericana_material": "marimba_centroamericana_granadillo"
         },
         "scores": {
           "marimba_centroamericana_form": 8,
           "marimba_centroamericana_ensemble": 6.999999999999999,
-          "marimba_centroamericana_material": 0.375
+          "marimba_centroamericana_material": -0.035
         }
       },
       {
@@ -70,19 +68,43 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood_parlor": "cedar_p",
+          "top_wood_parlor": "sitka_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
           "acoustic_technique": 2.05,
           "string_tuning": 0,
-          "top_wood_parlor": 0.39,
+          "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.39
+          "string_acoustic_parlor": 0.195
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "acoustic_guitar_parlor": [
+        "acoustic_technique",
+        "top_wood_parlor",
+        "back_sides_parlor",
+        "string_acoustic_parlor"
+      ]
+    },
     "room": "mexico_bolero_xochimilco_studio",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
@@ -106,7 +128,7 @@
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
+      "voice_tradition": "voice_tradition_source_unspecified",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
@@ -115,12 +137,14 @@
       "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_oral_twang",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood_parlor": "sitka_p",
       "back_sides_parlor": "mahogany_bs_p",
-      "string_acoustic_parlor": "phosphor_p"
+      "string_acoustic_parlor": "phosphor_p",
+      "voice_articulation": "voice_articulation_source_unspecified"
     },
+    "pin_parts": true,
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
     "chain_medium": "digital_high",

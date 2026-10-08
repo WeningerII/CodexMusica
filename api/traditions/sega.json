@@ -2,10 +2,10 @@
   "id": "sega",
   "name": "Séga (Mauritian creole dance song)",
   "family": "global",
-  "lineage": "Creole dance song of Mauritius, Rodrigues and Réunion with slave-era roots, professionalized on record from the late 1950s by Ti Frère and Serge Lebrasse, built on the goatskin ravanne frame drum's driving triplet-inflected 6/8, the kayamb or maravanne rattle and triangle, a fast accelerando toward the closing 'séga tipik' break, and light strophic Kreol verses with call-and-response chorus.",
-  "recipe": "classic East African 1957-1959 séga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, tropical song functional song fann at-tanbura nyahbinghi. light, breath veiled tone, slow rate, interlocked note trading. kayamba, parlor acoustic guitar, alder pyramid pure nickel bass British mid 60s era electric bass, maracas, snappy to palm hand clap. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
-  "recipe_chars": 541,
-  "score": 154.393,
+  "lineage": "Continuing Mauritian creole dance-song and recorded séga practice, 1950-present. Creole dance song of Mauritius, Rodrigues and Réunion with slave-era roots, professionalized on record from the late 1950s by Ti Frère and Serge Lebrasse, built on the goatskin ravanne frame drum's driving triplet-inflected 6/8, the kayamb or maravanne rattle and triangle, a fast accelerando toward the closing 'séga tipik' break, and light strophic Kreol verses with call-and-response chorus.",
+  "recipe": "classic East African modern séga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, tropical song functional song fann at-tanbura nyahbinghi. light, breath veiled tone, slow rate, interlocked note trading. kayamba, parlor acoustic guitar, alder pyramid pure nickel bass British mid 60s era electric bass, maracas, snappy to palm hand clap. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 538,
+  "score": 161.893,
   "config": {
     "traditions": [
       "sega",
@@ -39,13 +39,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.73,
-          "voice_articulation": 17.874999999999996,
-          "voice_microtone": 19.077499999999993,
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 20.377499999999998,
           "voice_tradition": 12.1875,
           "voice_mechanism_compound": 4.29,
           "voice_estill_quality": 2.7950000000000004,
-          "voice_speech_song": 23.399999999999995,
-          "voice_ensemble_config": 18.199999999999996,
+          "voice_speech_song": 25.999999999999996,
+          "voice_ensemble_config": 19.499999999999996,
           "voice_ornament_system": 7.225000000000001,
           "voice_pitch_organization": 3.6000000000000005,
           "voice_processing_chain": 4.484999999999999,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "kayamba_fill": 1.9095,
-          "kayamba_technique": 4.79
+          "kayamba_technique": 5.79
         }
       },
       {

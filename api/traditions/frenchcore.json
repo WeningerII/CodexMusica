@@ -3,14 +3,14 @@
   "name": "Frenchcore",
   "family": "electronic",
   "lineage": "Formed in the mid-1990s French free-party and teknival circuit around Micropoint, Radium and the Audiogenic label, and revived commercially in the 2010s by Dr Peacock and Sefa — running 190-220 BPM with a long, pitch-bent, heavily overdriven kick whose tail supplies the bassline, offbeat hoover stabs, acid-derived 303 lines, and cinematic breakdown-to-drop arrangements adapted from Dutch hardcore.",
-  "recipe": "classic 1994-1996 frenchcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric peak-time techno. thick, breath veiled tone, slow rate, interlocked note trading. TR-909, classic acid monosynth acid bass, analog mono synth, field textural sampler, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-  "recipe_chars": 526,
-  "score": 233.647,
+  "recipe": "classic 1994-1996 frenchcore, electronic Dance, hardstyle branch, techno electronic dance, industrial noise experimental electric industrial hardcore. no pitch organization speech, solo with instrumental accompaniment, stutter edit cut as instrument, chopped vocal sample rhythmic bed. TR-909, classic acid monosynth acid bass, analog mono synth, field textural sampler, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 600,
+  "score": 110.92,
   "config": {
     "traditions": [
       "frenchcore",
-      "peak_techno",
-      "industrial"
+      "industrial",
+      "industrial_hardcore"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 1.265,
-          "drum_machine_909_context": 1.9174999999999995,
+          "tr909_voice": -0.035,
+          "drum_machine_909_context": 1.3649999999999998,
           "tr909_production_origin": 0.43499999999999994
         }
       },
@@ -35,27 +35,27 @@
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.4,
+          "electronic_technique": 6.4,
           "wave_acid": 0,
-          "filter_acid": 1.78,
-          "accent_acid": 4.015
+          "filter_acid": 1.6300000000000001,
+          "accent_acid": 3.49
         }
       },
       {
         "id": "analog_mono_synth",
         "slots": {
           "electronic_technique": "electronic_acid_squelch",
-          "mono_oscillator": "mono_digitally_controlled",
+          "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_roland_kakehashi"
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 11.4,
-          "mono_oscillator": 0,
+          "electronic_technique": 6.4,
+          "mono_oscillator": -1,
           "mono_filter": 1.04,
           "mono_archetypes": 1.69,
-          "mono_maker_lineage": -0.7350000000000001
+          "mono_maker_lineage": -1.785
         }
       },
       {
@@ -65,53 +65,55 @@
           "sampler_archetypes": "fairlight_cmi",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 5.699999999999999,
+          "electronic_technique": 7.725,
           "sampler_archetypes": 0.045,
           "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 7.775,
-          "sampler_classic_context": 21.677499999999995
+          "sampler_workflow": 9.799999999999997,
+          "sampler_classic_context": 28.249999999999996
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 2.3400000000000007,
-          "voice_quality": 12.479999999999993,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 17.484999999999992,
-          "voice_microtone": 16.89999999999999,
-          "voice_tradition": 6.38,
-          "voice_mechanism_compound": 9.594999999999999,
-          "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 19.824999999999992,
-          "voice_ensemble_config": 19.369999999999994,
-          "voice_ornament_system": 2.0799999999999996,
-          "voice_pitch_organization": 1.395,
-          "voice_processing_chain": 17.025,
-          "voice_multitrack_stack": 10.984999999999996
+          "voice_vibrato": 0,
+          "voice_articulation": 0.39,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 2.34,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 14.995000000000001,
+          "voice_multitrack_stack": 1.04,
+          "voice_tessitura": 0
         }
       },
       {
@@ -122,12 +124,42 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 1.885,
+          "electronic_technique": 0.19500000000000003,
           "va_archetypes": 0,
-          "digital_subtractive_context": 17.289999999999996
+          "digital_subtractive_context": 19.76
         }
       }
     ],
+    "pinned": {
+      "drum_machine_909": [
+        "tr909_voice"
+      ],
+      "analog_mono_synth": [
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
     "room": "studio_auteur_home_pro",
     "archetype": "arch_festival_edm_itb",
     "inline_chain": {
@@ -147,6 +179,31 @@
   "source": {
     "tuning": "twelve_tet",
     "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "spoken_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_stutter_edit",
+      "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "tr909_voice": "tr909_kick",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert"
+    },
+    "pin_parts": true,
     "chain_mic": "condenser_fet",
     "chain_pre": "pre_500_series_modern",
     "chain_comp": "comp_pumping",

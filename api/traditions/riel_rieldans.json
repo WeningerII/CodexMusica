@@ -5,7 +5,7 @@
   "lineage": "Fast social dance of Khoi- and San-descended communities of the Western and Northern Cape, regarded as one of South Africa's oldest indigenous dance forms and known to the Nama as ikhapara, in which dancers in pairs or groups perform rapid, low footwork that raises dust. It is danced to riel songs played on guitar and fiddle, sometimes with banjo, accordion or drums, amid clapping and shouts. The ATKV runs a national rieldans competition, and groups such as the Nuwe Graskoue Trappers of Wupperthal in the Cederberg carry it on.",
   "recipe": "classic modern riel, functional Song, central east south African groove percussion. solo with instrumental accompaniment. parlor acoustic guitar, fiddle, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 4.58,
+  "score": 4.73,
   "config": {
     "traditions": [
       "riel_rieldans"
@@ -83,7 +83,7 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.045,
+          "fiddle_mute": 0.195,
           "fiddle_articulation": 0.26999999999999996,
           "fiddle_string_configuration": 0
         }

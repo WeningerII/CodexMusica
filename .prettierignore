@@ -90,6 +90,9 @@ lyric-harness/quality/results/computational_audit_2026-09-14
 
 # Raw audit regression receipts/logs: SHA-indexed evidence, not authored inputs.
 docs/production-audit-evidence
+# Same class: evidence/sha256.json names hook_probe.json, hook_probe311.json and
+# result.json by their SHA256, so a reflow would falsify the index it ships with.
+docs/pr-479-integration/evidence
 
 # Exact public creation I/O and SHA-indexed calibration evidence.
 lyric-harness/quality/results/capacity_followup_2026-09-21
@@ -100,3 +103,9 @@ assets/earth-tiles
 # lyric-harness/map: trace.json and ran.json are written by map/trace.mjs and
 # map/build.py and byte-compared by `map/build.py --check`; a reflow would churn them.
 lyric-harness/map/*.json
+
+# Generated immutable Library transport artifacts and identity contracts.
+/lyric-harness/library/snapshot/
+/lyric-harness/data/library_identity_registry.json.gz
+/lyric-harness/library/methods.json
+/lyric-harness/library/schema.json

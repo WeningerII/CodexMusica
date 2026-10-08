@@ -954,7 +954,23 @@ def cmd_fit(a):
 # capacity / song_profile_calibration --check pattern, M-239)
 # ---------------------------------------------------------------------------
 
-SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "CK",
+# REPINNED 2026-10-04 AS A SET, by the registered pick (fewest free parameters
+# passing every bin, LENGTH_CURVE_PREREGISTRATION.md §4), over the 8,609-work
+# population of the Otterbein + M-25(a) batch:
+#   fwr ~~C1~~ -> C2: C1 fails bin 20 (480-752 tokens), held-out 9.09% against
+#       U 8.08%; C2 passes 22/22. E3: C2 turns at N=406, inside the range,
+#       disclosed by the fit.
+#   cv  ~~CK~~ -> C2: C1 fails bin 0 (9-45 tokens), 9.25% against U 8.12%; C2
+#       now passes 22/22 and has fewer parameters than the knot table, so the
+#       rule prefers it. E3: C2 turns at N=2888, disclosed.
+# mattr C1, anaphora C2 and predictability CK (the recorded §4 deviation) hold.
+# Measurement: quality/results/otterbein_m25_2026-10-04/curves-measurement.txt.
+# REPINNED AGAIN THE SAME DAY over the final tree of the batch (the label and
+# apparatus pass removed 1,344 rows and stripped 348 label prefixes; 8,597
+# works, 21 bins): fwr ~~C2~~ -> C1, because C1 now passes all 21 bins and the
+# rule takes the fewest parameters; cv stays C2 (C1 fails 2 of 21). Measurement:
+# quality/results/otterbein_m25_2026-10-04/final/curves-measurement.txt.
+SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "C2",
                  "predictability": "CK"}
 KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
           "anaphora": "anaphora_max", "cv": "line_length_cv_min",

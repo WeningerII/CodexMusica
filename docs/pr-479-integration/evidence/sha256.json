@@ -1,0 +1,20 @@
+{
+  "repro311-projected.log": "367db3701202bc9fffdebf2aab9cda8462256351bfd2b54fcbb9072ee92d3137",
+  "hook_probe311.json": "e2655a6128033fa4b07daf2ae762643cc57b8a0c347666b8a05e278a8761c384",
+  "trace_candidate_work.log": "8d201cef09ee254c424d62cbb17cc9fb910f9a7f88cbed5da2f801fa8e6d334a",
+  "projection-existing.log": "e6305d5211a7ccd3a52225df77a4f8c8a68783d7b963e722fb65c816f8c9799b",
+  "projection-tests.log": "f185db3019203a4b3fe37a8b533de1dc02d77c55328b2dba1dbbc0df2e8f8c31",
+  "deps311.log": "43402d1209fbdadbdd9fb2991780560e020fb4b665706df30656045e8f79cbf8",
+  "projection-mutant.log": "a35825c81cf4fc75e2f48cb49a44ea38467d2359448af640935ebc572fd568b8",
+  "repro311-projected.py": "2db93fa776521c669b9690fa94468fce4e25e66c582f556ddff856868ae9763a",
+  "hook_probe.py": "91764b4d9cb8403ed2b76741dc45c2e833dad99162597f852f8152118ac30839",
+  "full-production-revision.log": "f3392b372121abeb085dc360ed7508370c07e33a45646aad7f5dd25dd681d8c4",
+  "repro311.log": "88055b59c20325da76fc8ab3968c6d67e2d348e1f949223fc1ed84f403edf39a",
+  "repro.log": "918f4b9b40eb9c4540a6413bf25109f4412d19118596f93990483288317ea5da",
+  "result.json": "6870dade7debd5a221e81193eae2f5528339b001b22e41a50644d8f5614b3e0b",
+  "repro.py": "e1505c2ce93241e03748770a154179085e3eef8f2d85ff8ff0c9bce6499acb62",
+  "hook_probe.json": "e2655a6128033fa4b07daf2ae762643cc57b8a0c347666b8a05e278a8761c384",
+  "trace_candidate_work.py": "3d9b3dd8251198f01edc328832b20cd11bcdc9e299bc3ac1ca7f2a9c18d64bef",
+  "repro311.py": "d988da88d6689737e653eb60a1f4731d570226ba043a641031297df2cacd6a67",
+  "reporting-grade-guard.patch": "33832bf6ada37a5d6d61b1b0c0f5dcaa47d40a3a6b216bf8e2d1d162a7de43cc"
+}

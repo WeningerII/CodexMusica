@@ -1,0 +1,261 @@
+{
+  "id": "software_virtual_analog_synth",
+  "name": "Software virtual-analog synthesizer",
+  "short": "software VA synthesizer",
+  "family": "electronic",
+  "class": "software_virtual_analog_synth",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "description": "Software oscillator, filter and envelope synthesis modelling analogue-style circuitry or waveforms. Represents this documented software branch without asserting that a plugin has only this method, uses a specific hardware chassis, or shares another model’s fixed oscillator count.",
+  "sources": [
+    "https://u-he.com/products/plug-ins/diva/index.html",
+    "https://static.reveal-sound.com/downloads/manuals/Spire_Manual_ENG.pdf"
+  ],
+  "parts": [
+    {
+      "id": "software_va_engine",
+      "name": "Software synthesis architecture",
+      "variants": [
+        {
+          "id": "software_va_analog_modelling",
+          "name": "Software analogue-style oscillator/filter/envelope modelling",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_va_oscillator",
+      "name": "Oscillator model",
+      "variants": [
+        {
+          "id": "software_va_oscillator_unspecified",
+          "name": "Modelled waveform and oscillator combination unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_va_filter",
+      "name": "Software filter model",
+      "variants": [
+        {
+          "id": "software_va_filter_unspecified",
+          "name": "Software filter topology, cutoff and resonance unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_va_voice_allocation",
+      "name": "Voice allocation",
+      "variants": [
+        {
+          "id": "software_va_voices_unspecified",
+          "name": "Voice count and mono/poly setting unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_va_envelope",
+      "name": "Amplitude envelope",
+      "variants": [
+        {
+          "id": "software_va_held_envelope",
+          "name": "Authored held notes with gradual release",
+          "default": true,
+          "descriptors": [
+            "sustained"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        },
+        {
+          "id": "software_va_short_envelope",
+          "name": "Authored short-decay notes",
+          "default": false,
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_va_gesture",
+      "name": "Programmed musical gesture",
+      "variants": [
+        {
+          "id": "software_va_layered_pad",
+          "name": "Authored sustained atmospheric layer",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "layered"
+          ],
+          "match_tokens": [
+            "electronic",
+            "ambient"
+          ]
+        },
+        {
+          "id": "software_va_melodic_line",
+          "name": "Authored melodic line",
+          "default": false,
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "software_va_engine",
+      "name": "Software synthesis architecture",
+      "variants": [
+        {
+          "id": "software_va_analog_modelling",
+          "name": "Software analogue-style oscillator/filter/envelope modelling",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic",
+            "synthesized"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_va_oscillator",
+      "name": "Oscillator model",
+      "variants": [
+        {
+          "id": "software_va_oscillator_unspecified",
+          "name": "Modelled waveform and oscillator combination unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_va_filter",
+      "name": "Software filter model",
+      "variants": [
+        {
+          "id": "software_va_filter_unspecified",
+          "name": "Software filter topology, cutoff and resonance unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_va_voice_allocation",
+      "name": "Voice allocation",
+      "variants": [
+        {
+          "id": "software_va_voices_unspecified",
+          "name": "Voice count and mono/poly setting unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "software_va_envelope",
+      "name": "Amplitude envelope",
+      "variants": [
+        {
+          "id": "software_va_held_envelope",
+          "name": "Authored held notes with gradual release",
+          "default": true,
+          "descriptors": [
+            "sustained"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        },
+        {
+          "id": "software_va_short_envelope",
+          "name": "Authored short-decay notes",
+          "default": false,
+          "descriptors": [
+            "plucked",
+            "short-envelope"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software_va_gesture",
+      "name": "Programmed musical gesture",
+      "variants": [
+        {
+          "id": "software_va_layered_pad",
+          "name": "Authored sustained atmospheric layer",
+          "default": true,
+          "descriptors": [
+            "sustained",
+            "layered"
+          ],
+          "match_tokens": [
+            "electronic",
+            "ambient"
+          ]
+        },
+        {
+          "id": "software_va_melodic_line",
+          "name": "Authored melodic line",
+          "default": false,
+          "descriptors": [
+            "lead"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lead-melody"
+          ]
+        }
+      ]
+    }
+  ]
+}

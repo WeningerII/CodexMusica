@@ -5,7 +5,7 @@
   "lineage": "Pre-contact and continuing repertoire across the Polynesian triangle — Tonga, Sāmoa, Hawaiʻi, Aotearoa, Tahiti and the Cooks — documented ethnographically from Cook's voyages onward and systematically from the mid-20th century by researchers such as Mervyn McLean and Adrienne Kaeppler: sung poetry over sharp-edged idiophone percussion (slit gong, sharkskin pahu, struck bamboo, body slaps), narrow-range recitational melody widening into stacked polyphony after mission contact, conch-shell calls framing ceremony, and rhythm organised in fast even subdivisions rather than harmonic cycles.",
   "recipe": "classic Oceanian early-1940s polynesian traditional music, praise Song, oceania pacific branch, oceania pacific funeral lament, central east south African groove percussion séga māori waiata tangi. extended whistle, breath veiled tone, fast rate, interlocked note trading. coconut log carved hollow sharkskin head hand struck canonical hawaiian sacred hula kahiko accompaniment pahu mele song drum pahu, high pitched fast dance interlocking pacific slit gong, call ritual conch shell horn, flat sharp hand clap, foot stomp, two dried gourds joined necks canonical hula kahiko percussion ground strike palm slap canonical hula kahiko rhythm ipu heke. tongan outdoor village green. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 754,
-  "score": 176.557,
+  "score": 183.007,
   "config": {
     "traditions": [
       "polynesian_traditional",
@@ -39,13 +39,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.4450000000000003,
-          "voice_articulation": 17.354999999999997,
-          "voice_microtone": 15.53499999999999,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 16.18499999999999,
           "voice_tradition": 11.602500000000001,
           "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 22.749999999999996,
-          "voice_ensemble_config": 17.289999999999992,
+          "voice_speech_song": 24.049999999999997,
+          "voice_ensemble_config": 17.939999999999998,
           "voice_ornament_system": 12.215,
           "voice_pitch_organization": 2.265,
           "voice_processing_chain": 3.9,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "pahu_construction": 2.9899999999999998,
-          "pahu_role": 8.125
+          "pahu_role": 8.775
         }
       },
       {
@@ -71,8 +71,8 @@
           "pacific_slit_gong_wood": "pacific_slit_gong_toa"
         },
         "scores": {
-          "pacific_slit_gong_form": 6.76,
-          "pacific_slit_gong_role": 5.8,
+          "pacific_slit_gong_form": 7.41,
+          "pacific_slit_gong_role": 7.05,
           "pacific_slit_gong_wood": 0.295
         }
       },
@@ -86,7 +86,7 @@
         "scores": {
           "wind_articulation": 3.5100000000000002,
           "conch_use": 0.3,
-          "conch_shell_horn_region": 17.159999999999997
+          "conch_shell_horn_region": 17.81
         }
       },
       {

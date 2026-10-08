@@ -3,14 +3,14 @@
   "name": "Afro R&B",
   "family": "pop",
   "lineage": "Continental and diasporic African R&B consolidated from the mid-2000s onward in Lagos, Accra and London through artists such as Banky W, Wizkid's slower material, Bisa Kdei and Tems — 85-105 BPM programmed grooves marrying American contemporary-R&B chord vocabulary and stacked melisma-light harmonies to shaker-and-log-drum Afrobeats percussion, with lead vocals moving between English, Pidgin, Twi and Yoruba.",
-  "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance congolese rumba naija old school. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-  "recipe_chars": 588,
-  "score": 286.42,
+  "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance congolese rumba isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 568,
+  "score": 291.752,
   "config": {
     "traditions": [
       "afro_rnb",
       "congolese_rumba",
-      "naija_old_school"
+      "isicathamiya"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 20.595,
-          "voice_quality": 8.190000000000001,
+          "voice_register": 19.069999999999997,
+          "voice_quality": 14.884999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.19,
-          "voice_articulation": 23.465,
-          "voice_microtone": 23.269999999999996,
-          "voice_tradition": 26.194999999999997,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 4.545000000000001,
-          "voice_speech_song": 30.16,
-          "voice_ensemble_config": 22.75,
-          "voice_ornament_system": 1.2674999999999998,
-          "voice_pitch_organization": 3.5750000000000006,
-          "voice_processing_chain": 7.995,
-          "voice_multitrack_stack": 6.45
+          "voice_vibrato": 8.565,
+          "voice_articulation": 22.749999999999996,
+          "voice_microtone": 22.359999999999992,
+          "voice_tradition": 31.929999999999993,
+          "voice_mechanism_compound": 3.055,
+          "voice_estill_quality": 5.795000000000001,
+          "voice_speech_song": 29.639999999999997,
+          "voice_ensemble_config": 22.7825,
+          "voice_ornament_system": 2.9099999999999997,
+          "voice_pitch_organization": 3.7700000000000005,
+          "voice_processing_chain": 6.7275,
+          "voice_multitrack_stack": 6.95
         }
       },
       {
@@ -61,23 +61,23 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 13.64,
-          "poly_archetypes": 0.33,
-          "poly_voices": 1.945,
-          "poly_maker_lineage": -1.12
+          "electronic_technique": 11.14,
+          "poly_archetypes": 0.39,
+          "poly_voices": 2.0949999999999998,
+          "poly_maker_lineage": -1.015
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 2.1125,
-          "drum_machine_808_context": 1.6249999999999998,
-          "tr808_production_origin": 0.39
+          "tr808_voice": 0.7149999999999999,
+          "drum_machine_808_context": 2.145,
+          "tr808_production_origin": 0.7800000000000001
         }
       },
       {
@@ -91,11 +91,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 12.575,
-          "rhodes_model": 6.145,
-          "rhodes_use": 3.705,
-          "rhodes_tine_material": 0.39,
-          "rhodes_hammer_tip": -0.175,
+          "keyboard_technique": 10.075,
+          "rhodes_model": 5.645,
+          "rhodes_use": 4.095,
+          "rhodes_tine_material": 0.585,
+          "rhodes_hammer_tip": -0.6299999999999999,
           "rhodes_pickup_position": 0.39
         }
       },
@@ -112,11 +112,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.855,
-          "body_wood": 2.535,
-          "pickup_config": 0.39,
-          "string_type": 5.715,
-          "scale_length_b": 2.325,
+          "amp_make": 6.955,
+          "body_wood": 1.885,
+          "pickup_config": 0.585,
+          "string_type": 5.515,
+          "scale_length_b": 1.825,
           "fretted_or_not": 0.195,
           "bass_technique": 3.65,
           "electric_bass_string_configuration": 0
@@ -126,17 +126,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_mpc",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.925,
-          "sampler_archetypes": 1.2675,
-          "sampler_bit_depth": 1.485,
-          "sampler_workflow": 1.4625,
-          "sampler_classic_context": 26
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 1.4625,
+          "sampler_bit_depth": 0.975,
+          "sampler_workflow": 0.5199999999999999,
+          "sampler_classic_context": 26.909999999999993
         }
       }
     ],

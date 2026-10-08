@@ -3,9 +3,9 @@
   "name": "Choro",
   "family": "global",
   "lineage": "Brazilian instrumental urban-popular-music tradition originating 1870s-onward in Rio de Janeiro from European salon-dance (polka, schottische, waltz, mazurka) re-rhythmicized through Afro-Brazilian syncopation (especially habanera-derived). The canonical regional-choro ensemble: solo lead (flute, clarinet, or mandolin), seven-string guitar (violão-de-sete) providing baixaria walking-bass-line, six-string guitar accompanying-harmony, cavaquinho four-double-course soprano-guitar rhythmic-strum, and pandeiro frame-drum-with-jingles. The repertoire layers virtuosic compositional pieces (often modulating through multiple keys with rapid 16th-note arpeggios) with roda-de-choro participatory jam-session-tradition. Three historical phases: foundational late-19th-century, golden-age 1920s-1940s, and bossa-nova-and-modern-revival 1950s-onward.",
-  "recipe": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba pagode. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, low mid rich spectrum broken in fast cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, powell boston canonical American orchestral flute, softer tone ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 770,
-  "score": 215.57,
+  "recipe": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba pagode. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, classical nylon-string guitar, samba foundation jacaranda rosewood canonical Portuguese strummed cavaquinho, powell boston canonical American orchestral flute, softer tone ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 746,
+  "score": 188.987,
   "config": {
     "traditions": [
       "choro",
@@ -50,19 +50,19 @@
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
-          "top_wood_classical": "cedar_cl",
-          "bracing_classical": "double_top_cl",
-          "string_classical": "gut_cl",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_high_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 1.2674999999999998,
+          "acoustic_technique": 0.44999999999999996,
           "string_tuning": 0,
-          "top_wood_classical": 3.445,
-          "bracing_classical": 0.78,
-          "string_classical": 0.585,
+          "top_wood_classical": 0.15,
+          "bracing_classical": 0.195,
+          "string_classical": 0.15,
           "attack_technique_cl": 3.625
         }
       },
@@ -72,30 +72,30 @@
           "plucked_traditional_technique": "plucked_folk_strummed",
           "cavaquinho_origin": "cavaquinho_brazilian",
           "cavaquinho_context": "cavaquinho_choro",
-          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
           "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
           "plucked_traditional_technique": 4.8425,
           "cavaquinho_origin": 12.999999999999998,
           "cavaquinho_context": 26.584999999999994,
-          "cavaquinho_body_wood": 9.165,
+          "cavaquinho_body_wood": 1.2349999999999999,
           "cavaquinho_strings": 0.65
         }
       },
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_bebop_runs",
           "flute_size": "concert_flute",
-          "flute_material": "gold_flute",
+          "flute_material": "silver_flute",
           "flute_technique": "classical_flute",
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 1.7999999999999998,
+          "wind_articulation": -0.05,
           "flute_size": 0.585,
-          "flute_material": 0.49499999999999994,
+          "flute_material": -0.35,
           "flute_technique": 0.21,
           "flute_maker_school": 1.69
         }
@@ -103,14 +103,14 @@
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_dixieland_lead",
+          "wind_articulation": "wind_bebop_runs",
           "clarinet_body": "ebonite_clarinet",
           "clarinet_size": "contra_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.5,
+          "wind_articulation": -0.05,
           "clarinet_body": 4.745,
           "clarinet_size": 1,
           "clarinet_reed": 0.15,
@@ -122,7 +122,7 @@
         "slots": {
           "percussion_technique": "percussion_hands_layered",
           "pandeiro_size": "pandeiro_medio",
-          "pandeiro_context": "pandeiro_capoeira",
+          "pandeiro_context": "pandeiro_choro",
           "pandeiro_head": "pandeiro_goatskin_canonical",
           "pandeiro_shell_wood": "pandeiro_eucalyptus",
           "pandeiro_jingles": "pandeiro_brass_platinelas"
@@ -130,7 +130,7 @@
         "scores": {
           "percussion_technique": 2.45,
           "pandeiro_size": 10.464999999999998,
-          "pandeiro_context": 6.78,
+          "pandeiro_context": 0,
           "pandeiro_head": 10.269999999999998,
           "pandeiro_shell_wood": 10.269999999999998,
           "pandeiro_jingles": 10.269999999999998
@@ -139,15 +139,66 @@
       {
         "id": "choro_group",
         "slots": {
-          "members": "choro_cavaquinho_member",
-          "choro_group_era": "choro_group_revival"
+          "members": "choro_solo",
+          "choro_group_era": "choro_group_classic"
         },
         "scores": {
-          "members": 2.275,
-          "choro_group_era": 2.795
+          "members": 1.885,
+          "choro_group_era": 1.69
         }
       }
     ],
+    "pinned": {
+      "bandolim": [
+        "bandolim_body",
+        "bandolim_top_wood",
+        "bandolim_back_wood",
+        "bandolim_strings",
+        "bandolim_technique"
+      ],
+      "violao_7_cordas": [
+        "violao_7_string7",
+        "violao_7_strings",
+        "violao_7_body_wood",
+        "violao_7_top_wood",
+        "violao_7_role"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "cavaquinho": [
+        "plucked_traditional_technique",
+        "cavaquinho_origin",
+        "cavaquinho_context",
+        "cavaquinho_body_wood",
+        "cavaquinho_strings"
+      ],
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique"
+      ],
+      "clarinet": [
+        "wind_articulation"
+      ],
+      "pandeiro": [
+        "percussion_technique",
+        "pandeiro_size",
+        "pandeiro_context",
+        "pandeiro_head",
+        "pandeiro_shell_wood",
+        "pandeiro_jingles"
+      ],
+      "choro_group": [
+        "members",
+        "choro_group_era"
+      ]
+    },
     "room": "parlor",
     "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
@@ -201,6 +252,7 @@
       "bandolim_strings": "bandolim_steel_courses",
       "bandolim_technique": "bandolim_pick_tremolo"
     },
+    "pin_parts": true,
     "chain_mic": "mic_rca_77dx_ribbon",
     "chain_pre": "tube_pre",
     "chain_medium": "shellac_78",

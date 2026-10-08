@@ -3452,10 +3452,15 @@ def test_substituted_end_word_reaches_the_loop():
     # asks is unanswered and the run certifies. MEASURED: success, 0 rounds,
     # 1 mandated = 1 judged + 0 refused. superseded: no_progress after 1
     # round with L1/L2/L3 unjudged and coverage uncertified.
+    # 2026-10-02 (MISSING.md M-317, owner ruling: a group is judged at the
+    # words it binds): bay~pier shares no sound, and it held only through
+    # other words of the two lines. It is a violation now, so the stub
+    # repairs L2 in one round (`pier` -> `yea`) before the run certifies.
+    # superseded: success in 0 rounds.
     lr = revise_loop(R, draft, m12)
     check("on the free-L4 mandate nothing the mandate asks is unknown any "
           "more, so the run stops SUCCESS and certifies",
-          lr.stop_reason == "success" and len(lr.rounds) == 0
+          lr.stop_reason == "success" and len(lr.rounds) == 1
           and lr.unresolved == [] and lr.coverage["certified"] is True
           and (lr.coverage["pairs_mandated"], lr.coverage["pairs_judged"],
                lr.coverage["pairs_refused"]) == (1, 1, 0),
@@ -3465,11 +3470,13 @@ def test_substituted_end_word_reaches_the_loop():
     # dictionary reads, still a refusal under rule 5 -- holds the pair
     # unjudged. MEASURED: no_progress after 1 round, L4 unresolved and
     # unjudged with notes only, rhyme:3:4 refused, coverage uncertified.
+    # 2026-10-02 (M-317): the bay~pier repair above costs this run its
+    # first round too, so it stops after 2. superseded: 1 round.
     m34 = SC.mandate([[1, 2], [3, 4]], n_lines=4)
     lr34 = revise_loop(R, draft, m34)
     check("text-dependent unknowns receive a repair pass without turning "
           "notes into violations or certifying incomplete coverage",
-          lr34.stop_reason == "no_progress" and len(lr34.rounds) == 1
+          lr34.stop_reason == "no_progress" and len(lr34.rounds) == 2
           and lr34.unresolved == lr34.unresolved_unjudged
           and [b.line_no for b in lr34.unresolved] == [4]
           and not any(f.severity == 'flag' for b in lr34.unresolved
@@ -4996,6 +5003,104 @@ def test_a_pair_finding_names_its_own_group():
           FL.Finding("X", "note", "m", "e", [1, 2]).groups == ())
 
 
+def test_a_holding_pair_with_a_pursued_note_is_not_violated():
+    """2026-10-02 — a pair that HOLDS and carries a MODAL_RHYME note was
+    labelled VIOLATED.
+
+    THE DEFECT, measured from `lyric-harness/` with
+    `brief FILE "--groups=1,2;3,4"` on read/bed + mic/bike: the report said
+    "0 FLAG, 1 NOTE", the note was MODAL_RHYME on L1/L2, and the L2 block
+    said "must answer group A [1, 2]: L1 ('read') — VIOLATED". The cause is
+    `Reviser._violated_groups`, which attributes every RHYME_FINDINGS code
+    whatever its severity; MODAL_RHYME, PREDICTABLE_RHYME, HOMEOTELEUTON and
+    SHARED_SUFFIX are pursued NOTES in that set. Three renderers printed the
+    label: `Brief.__str__`, the `brief` verb's report, and the writer prompt
+    ("VIOLATED, this is the word to change").
+
+    WHAT DOES NOT MOVE, and this section pins it beside the label: the group
+    stays in `violated_groups`, so the place, the offered field and the
+    forbidden modal head are what they were, and `verify()` still rejects a
+    revision that lands on a modal word (doctrine 9). Only the LABEL says
+    the pair holds.
+    """
+    print("\n70. a holding pair with a pursued note is not labelled VIOLATED")
+    from quality import propose as PR
+    lines = ["I sat down with a book to read",
+             "and fell asleep across the bed",
+             "she stepped up close and grabbed the mic",
+             "then rode away upon her bike"]
+    m = SC.mandate([[1, 2], [3, 4]], n_lines=4)
+    R = RV.Reviser()
+    found = R.inspect(lines, m)
+    flags = [f for f in found["per_line"].get(2, []) + found["whole"]
+             if f.severity == "flag"]
+    b = [x for x in R.brief(lines, m) if x.line_no == 2]
+    check("the premise: L2 is briefed, carries MODAL_RHYME as a NOTE, and "
+          "no flag stands on it",
+          bool(b) and any(f.code == "MODAL_RHYME" and f.severity == "note"
+                          for f in b[0].findings) and not flags,
+          ([(f.code, f.severity) for f in b[0].findings] if b else
+           "not briefed", [f.code for f in flags]))
+    b = b[0]
+    check("the loop still asks for the word: group A stays in "
+          "`violated_groups`, the field is offered, and the modal head is "
+          "forbidden (doctrine 9)",
+          b.violated_groups == ("A",) and b.candidates
+          and "bed" in b.forbidden_modal,
+          (b.violated_groups, b.candidates[:4], b.forbidden_modal[:6]))
+    check("...and the group is recorded as HOLDING with its note — flags and "
+          "notes apart, never summed (doctrine 79)",
+          getattr(b, "noted_groups", None) == {"A": ("MODAL_RHYME",)},
+          getattr(b, "noted_groups", "no such field"))
+    text = str(b)
+    check("`Brief.__str__` says the pair holds and the rhyme is predictable, "
+          "and does not say VIOLATED",
+          "group A [1, 2]: L1 ('read') — HOLDS, but its rhyme is a "
+          "predictable one (NOTE MODAL_RHYME), which the loop still asks "
+          "to change" in text and "VIOLATED" not in text, text)
+    prompt = PR.render_line(b, lines)
+    check("the writer prompt says the same and still names this as the word "
+          "to change, without calling it VIOLATED",
+          "— HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), "
+          "which the loop still asks to change: this is the word to change"
+          in prompt and "VIOLATED" not in prompt, prompt[:600])
+    with tempfile.TemporaryDirectory() as tmp:
+        path = os.path.join(tmp, "rb.txt")
+        with open(path, "w") as fh:
+            fh.write("\n".join(lines) + "\n")
+        run = subprocess.run(
+            [sys.executable, os.path.join(HERE, "..", "lyric_harness.py"),
+             "brief", path, "--groups=1,2;3,4"],
+            capture_output=True, text=True, cwd=os.path.join(HERE, ".."))
+    out = run.stdout
+    check("the `brief` verb's report: 0 FLAG, 1 NOTE, and the group line "
+          "says HOLDS rather than VIOLATED",
+          run.returncode == 0 and "0 FLAG, 1 NOTE" in out
+          and "must answer group A [1, 2]: L1 ('read') — HOLDS, but its "
+              "rhyme is a predictable one (NOTE MODAL_RHYME)" in out
+          and "— VIOLATED" not in out,
+          (run.returncode, [ln for ln in out.splitlines()
+                            if "must answer" in ln or "REPORT" in ln]))
+    after = list(lines)
+    after[1] = "and fell asleep across the dead"
+    v = R.verify(lines, after, m, targeted=[2])
+    check("verify() still rejects a revision that takes a modal candidate",
+          not v["accepted"]
+          and (2, "dead") in list(v.get("modal_violations") or ()),
+          (v["accepted"], v.get("modal_violations"), v["reasons"][:2]))
+    # A TRUE VIOLATION KEEPS ITS LABEL: the same renderer on a pair that does
+    # not hold still prints VIOLATED and records no note.
+    bad = list(lines)
+    bad[1] = "and fell asleep across the floor"
+    bv = [x for x in R.brief(bad, m) if x.line_no == 2][0]
+    check("a pair that does NOT hold is still VIOLATED, with no note "
+          "recorded",
+          bv.violated_groups == ("A",)
+          and not getattr(bv, "noted_groups", None)
+          and "L1 ('read') — VIOLATED" in str(bv),
+          (bv.violated_groups, getattr(bv, "noted_groups", None)))
+
+
 def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
     """`MISSING.md` M-202 — the conjunction is empty; the grader flags PAIRS.
 
@@ -5423,6 +5528,7 @@ if __name__ == "__main__":
                test_the_offer_is_screened_from_the_offered_words_own_side,
                test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
                test_a_pair_finding_names_its_own_group,
+               test_a_holding_pair_with_a_pursued_note_is_not_violated,
                test_the_ban_is_the_same_field_as_the_offer,
                test_a_differ_coda_relation_is_offered_from_the_vowel_band,
                test_the_hook_is_read_from_the_slot_not_the_snapshot,

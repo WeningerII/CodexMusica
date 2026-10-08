@@ -4,64 +4,66 @@
   "name": "Coco brasileiro (NE Brazilian work-song)",
   "family": "global",
   "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
-  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion pagode roda de samba. thick, breath veiled tone, straight note core, interlocked note trading. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 444,
-  "score": 194.172,
+  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion tambor de crioula bumba-meu-boi do maranhão. group vocals, live take. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 419,
+  "score": 38.695,
   "config": {
     "traditions": [
       "coco_brasileiro",
-      "pagode",
-      "roda_de_samba"
+      "tambor_de_crioula",
+      "bumba_meu_boi_maranhao"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": 8.149999999999995,
-          "voice_quality": 21.059999999999995,
+          "voice_register": 0,
+          "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.84,
-          "voice_articulation": 19.239999999999995,
-          "voice_microtone": 18.004999999999992,
-          "voice_tradition": 9.555,
-          "voice_mechanism_compound": 7.344999999999999,
-          "voice_estill_quality": 7.15,
-          "voice_speech_song": 28.339999999999996,
-          "voice_ensemble_config": 18.719999999999995,
-          "voice_ornament_system": 3.185000000000001,
-          "voice_pitch_organization": 2.4050000000000002,
-          "voice_processing_chain": 7.22,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.435,
+          "voice_ensemble_config": 0.845,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.525,
+          "voice_tessitura": 0
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_mixed",
-          "tambourine_orch_context": "tambourine_orch_pop"
+          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.65,
-          "tambourine_orch_context": 0.5199999999999999
+          "tambourine_orch_jingle": -0.035,
+          "tambourine_orch_context": 0.045
         }
       },
       {
@@ -75,15 +77,48 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": -0.1,
-          "pandeiro_size": 4.809999999999999,
-          "pandeiro_context": 4.225,
-          "pandeiro_head": 11.05,
-          "pandeiro_shell_wood": 11.05,
-          "pandeiro_jingles": 11.05
+          "percussion_technique": 1.2,
+          "pandeiro_size": 2.669999999999999,
+          "pandeiro_context": 3.3799999999999994,
+          "pandeiro_head": 10.53,
+          "pandeiro_shell_wood": 10.53,
+          "pandeiro_jingles": 10.53
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "tambourine_orch": [
+        "tambourine_orch_jingle",
+        "tambourine_orch_context"
+      ],
+      "pandeiro": [
+        "percussion_technique",
+        "pandeiro_size",
+        "pandeiro_context",
+        "pandeiro_head",
+        "pandeiro_shell_wood",
+        "pandeiro_jingles"
+      ]
+    },
     "room": "estudio_rozenblit_recife",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
@@ -104,19 +139,6 @@
     "tuning": "baiao_2_4_beat_one_bass",
     "room": "estudio_rozenblit_recife",
     "parts": {
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_tradition": "modern_pop_vocal_training",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "voice_microtone": "tempered_voice",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
       "tambourine_orch_jingle": "tambourine_orch_brass",
       "tambourine_orch_context": "tambourine_orch_orch",
       "percussion_technique": "percussion_hands_layered",
@@ -124,8 +146,26 @@
       "pandeiro_context": "pandeiro_samba",
       "pandeiro_head": "pandeiro_goatskin_canonical",
       "pandeiro_shell_wood": "pandeiro_eucalyptus",
-      "pandeiro_jingles": "pandeiro_brass_platinelas"
+      "pandeiro_jingles": "pandeiro_brass_platinelas",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
     },
+    "pin_parts": true,
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
     "chain_medium": "digital_high",

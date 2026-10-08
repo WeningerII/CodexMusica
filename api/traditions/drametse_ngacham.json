@@ -5,7 +5,7 @@
   "lineage": "Sacred masked dance of Drametse village in Mongar district, eastern Bhutan, performed twice a year at the festival of the Ogyen Tegchok Namdroel Choeling monastery in honour of Padmasambhava; UNESCO proclaimed it a Masterpiece of the Oral and Intangible Heritage of Humanity and later inscribed it on the Representative List. Sixteen masked male dancers in monastic robes, wearing masks of real and mythical animals, move from a calm, contemplative part to a rapid, athletic one, accompanied by ten musicians on cymbals, trumpets and drums including the cylindrical bang nga, the hand-held lag nga and the nga chen beaten with a bent stick. Generic membrane-drum, frame-drum, cymbal and long-trumpet cards stand in for the bang nga, lag nga, cymbals and trumpets.",
   "recipe": "classic modern drametse ngacham, ritual Devotional, buddhist branch. nga chen, membrane drum pulse resonant acoustic membrane drum, credited frame drums, credited cymbals, dung chen contemporary. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 275,
-  "score": 8.873,
+  "score": 8.526,
   "config": {
     "traditions": [
       "drametse_ngacham"
@@ -31,7 +31,7 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 4.0874999999999995,
+          "acoustic_membrane_drum_form": 3.7409999999999997,
           "acoustic_membrane_drum_gesture": 2.9899999999999998
         }
       },

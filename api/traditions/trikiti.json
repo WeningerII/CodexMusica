@@ -5,7 +5,7 @@
   "lineage": "Basque dance music built on the diatonic button accordion introduced to Gipuzkoa and Bizkaia by Alpine railway and forestry workers in the 1880s, formalized as the trikitixa-and-pandero duo and modernized from the 1980s by Joseba Tapia, Elena Bergara and Kepa Junkera — fast fandango in 6/8 followed by arin-arin in 2/4 at 130-170 BPM, right-hand melody in parallel thirds with bisonoric bellows articulation, left-hand tonic-dominant bass, tambourine keeping continuous rolls and thumb accents, with optional shouted irrintzi and sung couplets.",
   "recipe": "classic Iberian mid-1880s trikiti, wedding, European branch, European carnival processional, European drinking song, iberian functional song galician folk jota aragonesa. sygyt, breath veiled tone, fast rate, interlocked note trading. two row diatonic dance driven pandero paired trikitixa, tambourine orch, traditional dance driving modern build alboka, snappy to palm hand clap. iberian kantautor basque galician club. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 483,
-  "score": 218.282,
+  "score": 218.237,
   "config": {
     "traditions": [
       "trikiti",
@@ -22,8 +22,8 @@
           "trikitixa_reed_voicing": "trikitixa_reed_voicing_wet"
         },
         "scores": {
-          "free_reed_technique": 0.6499999999999999,
-          "trikitixa_form": 10.475000000000001,
+          "free_reed_technique": 0.695,
+          "trikitixa_form": 10.430000000000001,
           "trikitixa_dantza_setting": 15.675,
           "trikitixa_reed_voicing": -0.035
         }
@@ -74,7 +74,7 @@
           "voice_ensemble_config": 22.034999999999993,
           "voice_ornament_system": 6.795,
           "voice_pitch_organization": 3.065000000000001,
-          "voice_processing_chain": 7.89,
+          "voice_processing_chain": 7.695,
           "voice_multitrack_stack": 6.890000000000001
         }
       },
@@ -87,7 +87,7 @@
         },
         "scores": {
           "alboka_form": 13.87,
-          "alboka_repertoire": 11.299999999999999,
+          "alboka_repertoire": 11.45,
           "alboka_material": 7.669999999999999
         }
       },

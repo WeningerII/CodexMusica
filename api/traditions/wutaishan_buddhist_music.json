@@ -5,7 +5,7 @@
   "lineage": "Temple music of the Buddhist monasteries of Mount Wutai in Shanxi, carried in two strands, the Han Chinese 'blue temple' (qingmiao) monasteries and the Tibetan-Mongolian 'yellow temple' (huangmiao) lamaseries, and entered on China's national intangible heritage list in 2006. Beside the sung liturgy, monks play a northern wind-and-percussion ensemble led by the guanzi double-reed pipe with sheng mouth organ and dizi flute (the generic bamboo-flute card stands in for it), over the yunluo gong-chime, drum and cymbals, preserving old qupai melodies.",
   "recipe": "classic mid-2000s wutaishan fojiao yinyue, ritual Devotional, buddhist branch. single lead single track no stacking. guanzi, bamboo pipes copper brass free reeds canonical Chinese sheng, bamboo credited bamboo flute unspecified, yunluo, naobo, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 376,
-  "score": 11.4,
+  "score": 11.232,
   "config": {
     "traditions": [
       "wutaishan_buddhist_music"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.378,
-          "voice_multitrack_stack": 1.8375,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.7325,
           "voice_tessitura": 0
         }
       },
@@ -60,9 +60,9 @@
           "guanzi_style": "guanzi_beijing"
         },
         "scores": {
-          "guanzi_size": 0.3315,
+          "guanzi_size": 0.3,
           "guanzi_body": 0.1365,
-          "guanzi_style": 0.3315
+          "guanzi_style": 0.3
         }
       },
       {
@@ -76,7 +76,7 @@
         "scores": {
           "free_reed_technique": -0.10500000000000001,
           "sheng_size": 0.105,
-          "sheng_context": 0.45149999999999996,
+          "sheng_context": 0.5565,
           "sheng_pipe_material": 2.6
         }
       },

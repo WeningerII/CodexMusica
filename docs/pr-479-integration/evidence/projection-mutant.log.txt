@@ -1,0 +1,25 @@
+test_trial_obligation_projection_preserves_asked_answers (quality.test_production_revision.ProductionRevisionTests.test_trial_obligation_projection_preserves_asked_answers) ... FAIL
+
+======================================================================
+FAIL: test_trial_obligation_projection_preserves_asked_answers (quality.test_production_revision.ProductionRevisionTests.test_trial_obligation_projection_preserves_asked_answers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/test_production_revision.py", line 791, in test_trial_obligation_projection_preserves_asked_answers
+    self.assertEqual(projected[key], expected)
+AssertionError: Lists differ: [{'lines': (1, 2), 'group': 0, 'label': 'A', 'members': [4638 chars]et"}] != [{'lines': (1, 3), 'group': 0, 'label': 'A', 'members': [1394 chars]one}]
+
+First differing element 0:
+{'lines': (1, 2), 'group': 0, 'label': 'A', 'members': [1550 chars]set"}
+{'lines': (1, 3), 'group': 0, 'label': 'A', 'members': [1393 chars]None}
+
+First list contains 2 additional elements.
+First extra element 1:
+{'lines': (1, 3), 'group': 0, 'label': 'A', 'members': [1, 2, 3], 'endwords': ('seed', 'road'), 'score': 0.622, 'relations': ['CONSONANCE'], 'admitted': [], 'satisfied_by': ['class:CONSONANCE'], 'spans': {'a': {'words': ['seed'], 'text': 'seed', 'widx': [0], 'runs': [{'widx': 0, 'word': 'seed', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 1, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}, 'b': {'words': ['road'], 'text': 'road', 'widx': [0], 'runs': [{'widx': 0, 'word': 'road', 'first_syllable': 1, 'word_syllables': 1, 'read': (), 'unread': (), 'syllables': 1}], 'syllables': 1, 'partial_word': False, 'substituted': False, 'unread': (), 'endword_only': True}, 'anchor_a': [{'onset': ['S'], 'nucleus': 'IY', 'stress': 1, 'coda': ['D'], 'widx': 0, 'word': 'seed', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('S',)}], 'anchor_b': [{'onset': ['R'], 'nucleus': 'OW', 'stress': 1, 'coda': ['D'], 'widx': 0, 'word': 'road', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('R',)}], 'search_k': 1, 'candidates_a': 1, 'candidates_b': 1, 'tied_at_max': 1, 'mosaic_a': False, 'mosaic_b': False, 'mosaic': False, 'substituted_a': False, 'substituted_b': False, 'substituted': False, 'kind_a': 'exact', 'kind_b': 'exact'}, 'attribution': '', 'structure': None, 'flags': [], 'why': None}
+
+Diff is 9356 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 3.217s
+
+FAILED (failures=1)
+EXPECTED_MUTANT_DETECTED True

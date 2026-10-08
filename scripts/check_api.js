@@ -22,6 +22,15 @@
 //     catches the published snapshot drifting from references/.
 //   • index.json counts match the catalog.
 //   • nav_glyphs.json is exactly NAV_GLYPH_SVGS (the art the lazy shell fetches).
+//   • tradition_images.json and instrument_images.json are exactly what
+//     scripts/_image_tables.js derives from references/_image_manifest.json.
+//   • browse.json, browse_boot.json and browse_prose.json are exactly what
+//     scripts/_browse_tables.js derives from the catalog (the lazy app boots
+//     from the second and reads the third after its first paint; the first
+//     stays published).
+//   • engine.json (the instrument engine the lazy shell fetches) is exactly what
+//     scripts/_page_tables.js derives from references/: one element per line,
+//     unmerged, page-stripped, its digest the digest of its tables.
 //
 // Usage:
 //   node scripts/check_api.js                 # check the committed api/
@@ -34,6 +43,13 @@
 const fs = require('fs');
 const path = require('path');
 const C = require('./_loader.js');
+const {
+  readImageManifest,
+  compactInstrumentImages,
+  compactTraditionImages,
+} = require('./_image_tables.js');
+const B = require('./_browse_tables.js');
+const P = require('./_page_tables.js');
 const {
   buildResolver,
   recordProblems,
@@ -237,7 +253,7 @@ if (all) {
   }
 }
 
-// ───────────────────────── browse.json (Tier-1 index for the lazy-loaded app) ─────────────────────────
+// ───────────────────────── browse.json (the published Tier-1 index) ─────────────────────────
 const browse = readJson('browse.json');
 if (browse) {
   if (browse.count !== C.TRADITIONS.length)
@@ -269,8 +285,10 @@ if (browse) {
         .map((x) => x.id)
         .join(', ')})`
     );
-  // The lazy-loaded app boots ENTIRELY from this index — every field its browse
-  // surfaces read (search rank/render, tree leaves, find-similar) must be here.
+  // Published for agents: every field the browse surfaces read (search
+  // rank/render, tree leaves, find-similar) must be here. The app boots from
+  // browse_boot.json and reads browse_prose.json (below), which split this
+  // file exactly.
   const badFields = items.filter(
     (x) =>
       typeof x.name !== 'string' ||
@@ -289,6 +307,109 @@ if (browse) {
     );
 }
 
+// ───────────────────────── the browse tables, against the catalog ─────────────────────────
+// browse.json is published and no longer read by the app, so this is what holds
+// it now; browse_boot.json and browse_prose.json are what the lazy shell reads.
+// All three are exactly what scripts/_browse_tables.js derives from the catalog.
+{
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const want = C.TRADITIONS.map((t) => B.browseItem(t, C.TRADITION_EXTRAS[t.id] || {}));
+  const report = (file, ids) =>
+    ids.length &&
+    fail(
+      `${file}: ${ids.length} item(s) differ from what scripts/_browse_tables.js derives from the catalog (e.g. ${ids
+        .slice(0, 5)
+        .join(', ')}); run npm run build:api`
+    );
+  if (browse) {
+    report(
+      'browse.json',
+      want.filter((w, i) => !same(w, (browse.items || [])[i])).map((w) => w.id)
+    );
+    if (!same(browse.axisKeys, B.AXIS_KEYS))
+      fail('browse.json: axisKeys differ from scripts/_browse_tables.js');
+  }
+  const boot = readJson('browse_boot.json');
+  if (boot) {
+    const items = Array.isArray(boot.items) ? boot.items : [];
+    if (boot.count !== want.length || items.length !== want.length)
+      fail(
+        `browse_boot.json: count=${boot.count}, items=${items.length}, catalog has ${want.length}`
+      );
+    if (!same(boot.axisKeys, B.AXIS_KEYS))
+      fail('browse_boot.json: axisKeys differ from scripts/_browse_tables.js');
+    const prosed = new Set(items.filter((it) => it && 'description' in it).map((it) => it.id));
+    report(
+      'browse_boot.json',
+      want
+        .filter(
+          (w, i) => !same(B.bootItem(w, C.TRADITION_EXTRAS[w.id], prosed.has(w.id)), items[i])
+        )
+        .map((w) => w.id)
+    );
+    const bootAliases = Object.fromEntries(
+      Object.keys(C.TRADITION_ALIASES)
+        .sort()
+        .map((id) => [id, { of: C.TRADITION_ALIASES[id].of, name: C.TRADITION_ALIASES[id].name }])
+    );
+    if (!same(boot.aliases, bootAliases)) fail('browse_boot.json aliases != registry');
+    if (prosed.size < 1 || prosed.size > B.BOOT_PROSE_MAX)
+      fail(
+        `browse_boot.json carries the prose of ${prosed.size} genres; it carries only the Genre page's starters (1..${B.BOOT_PROSE_MAX}; check_lazy_app.js holds the exact set)`
+      );
+  }
+  const prose = readJson('browse_prose.json');
+  if (prose) {
+    const items = Array.isArray(prose.items) ? prose.items : [];
+    if (prose.count !== want.length || items.length !== want.length)
+      fail(
+        `browse_prose.json: count=${prose.count}, items=${items.length}, catalog has ${want.length}`
+      );
+    report(
+      'browse_prose.json',
+      want.filter((w, i) => !same(B.proseItem(w), items[i])).map((w) => w.id)
+    );
+  }
+}
+
+// ───────────────────────── engine.json (the instrument engine, fetched by the lazy shell) ─────────────────────────
+// The page refuses a file whose digest is not its own CODEX_ENGINE_SHA, so a
+// stale copy here breaks every recipe action in the shipped page; and the file
+// is internal, so nothing but this check reads it as a whole.
+{
+  const f = path.join(API, 'engine.json');
+  if (!fs.existsSync(f)) fail('missing file: engine.json');
+  else {
+    const text = fs.readFileSync(f, 'utf8');
+    if (text !== P.engineText(path.join(ROOT, 'references')))
+      fail(
+        'engine.json differs from what scripts/_page_tables.js derives from references/; run npm run build:api'
+      );
+    try {
+      // The file leaves each instrument's index fields to INSTRUMENT_INDEX,
+      // which the page derives from the same instruments; fill them back.
+      const index = P.instrumentIndex(P.engineTables(path.join(ROOT, 'references')).INSTRUMENTS);
+      const { header, tables, plan } = P.readEngineText(text, index);
+      if (!plan || plan.merge_sha1 !== P.mergeSha())
+        fail('engine.json: its merge plan was not written by the merge code in scripts/_merge.js');
+      if (JSON.stringify(header.tables) !== JSON.stringify(P.ENGINE_TABLES))
+        fail('engine.json: its header does not list ENGINE_TABLES (scripts/_page_tables.js)');
+      if (header.tables_sha1 !== P.engineSha(tables))
+        fail('engine.json: tables_sha1 is not the digest of the tables it carries');
+      for (const [name, specs] of Object.entries(P.PAGE_DROP_FIELDS)) {
+        if (!(name in tables)) continue;
+        const t = JSON.stringify(tables[name]);
+        for (const [, fields] of specs)
+          for (const k of fields)
+            if (t.includes(`"${k}":`))
+              fail(`engine.json: ${name} keeps the page-dropped field ${k}`);
+      }
+    } catch (e) {
+      fail('engine.json: ' + e.message);
+    }
+  }
+}
+
 // ───────────────────────── nav_glyphs.json (room and preface glyph art, fetched on demand) ─────────────────────────
 // The lazy shell draws every room and preface glyph not in an eager store from
 // this file, so it must be exactly NAV_GLYPH_SVGS: a stale copy draws the wrong
@@ -304,6 +425,45 @@ if (navGlyphs) {
         .slice(0, 5)
         .join(', ')}), count=${navGlyphs.count}; run npm run build:api`
     );
+}
+
+// ───────────────────────── the two photo tables (fetched by the Genre and Instrument pages) ─────────────────────────
+// Each must be exactly what scripts/_image_tables.js derives from the committed
+// manifest: a stale copy shows the wrong photo or credit, or none, and nothing
+// else would say so. Re-derived here from references/, not trusted from api/.
+{
+  const manifest = readImageManifest(
+    path.join(__dirname, '..', 'references', '_image_manifest.json')
+  );
+  const tables = [
+    [
+      'tradition_images.json',
+      'traditions',
+      compactTraditionImages(
+        manifest,
+        C.TRADITIONS.map((t) => t.id)
+      ).traditions,
+    ],
+    [
+      'instrument_images.json',
+      'instruments',
+      (compactInstrumentImages(manifest) || { instruments: {} }).instruments,
+    ],
+  ];
+  for (const [file, key, want] of tables) {
+    const got = readJson(file);
+    if (!got) continue;
+    const have = got[key] || {};
+    const wrong = Object.keys({ ...want, ...have }).filter(
+      (id) => JSON.stringify(want[id]) !== JSON.stringify(have[id])
+    );
+    if (wrong.length || got.count !== Object.keys(want).length)
+      fail(
+        `${file}: ${wrong.length} id(s) differ from references/_image_manifest.json (e.g. ${wrong
+          .slice(0, 5)
+          .join(', ')}), count=${got.count}; run npm run build:api`
+      );
+  }
 }
 
 // ───────────────────────── instruments ─────────────────────────
@@ -341,6 +501,9 @@ if (iindex) {
 
 // ───────────────────────── top-level index ─────────────────────────
 const index = readJson('index.json');
+// engine.json is the app's own data, like nav_glyphs.json: not an endpoint.
+if (index && JSON.stringify(index).includes('engine.json'))
+  fail('index.json lists engine.json, which is internal to the lazy app, not a published endpoint');
 if (index) {
   const c = index.counts || {};
   if (c.traditions !== C.TRADITIONS.length)

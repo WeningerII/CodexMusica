@@ -645,6 +645,7 @@ surface: Instrument discovery surface
 implementation: openModal('modal-add') routes to the Instrument page (uiOpenSurface); renderInstrumentDiscovery populates
 status: reachable
 precondition: instrument picker open
+notes: In the lazy shell the instruments arrive with the instrument data (api/engine.json), asked for at the first paint, or sooner by an action that needs it or a saved session. Until then the page says "Loading the instruments…" (data-engine-pending="instruments"), or "Couldn’t load the instruments." with Retry, never a count or "No instruments match"; check_lazy_app.js gates that state. This presence check runs on the embedded build, which has the data at load.
 ```
 
 ```yaml
@@ -1248,8 +1249,8 @@ precondition: 'instrument search: no results'
 name: toast-action-undo
 kind: data-action
 selector: '#toast .toast-action'
-surface: import toast — Undo (only while the import is still the latest change); Retry after a failed catalog fetch
-implementation: showToast(message, kind, action) and importTraditionWithFeedback in src/app.js
+surface: import toast — Undo (only while the import is still the latest change); Retry after a failed catalog fetch or a failed load of the instrument data, Reload when the instrument data is out of date (lazy shell)
+implementation: showToast(message, kind, action), importTraditionWithFeedback and engineReady in src/app.js
 status: reachable
 precondition: 'genre just imported'
 ```
@@ -2064,8 +2065,8 @@ precondition: empty
 name: genre-detail-background-references
 kind: widget
 selector: '#genre-detail #gp-panel-background'
-surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold
-implementation: gpBackground in src/pages/genre.js
+surface: Genre detail — Background: About, Lineage, Classification (primary path and cross-listings, "not a claim of historical descent"), Recordings & references (the catalog's exemplar artists with Listen searches; catalog status). Nothing is added that the catalog does not hold; in the lazy shell, until the descriptions arrive, About and Recordings say they are loading (or could not be loaded, with Retry), never that the catalog has none
+implementation: gpBackground, gpBgAboutHTML, gpBgRecordingsHTML and gpApplyProse in src/pages/genre.js
 status: reachable
 precondition: empty
 ```
@@ -2084,8 +2085,8 @@ precondition: genre list layout
 name: genre-media-photo-or-glyph
 kind: widget
 selector: '#surface-genre .gp-media'
-surface: Genre — a genre's picture in List rows and details (a Rows card's picture is uiTile's; see "Browse rows"). When references/_image_manifest.json is served (PR #389), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details), and the photo is a button that enlarges it (photo-enlarge); in a row it sits beside the row's name button, never inside it; without an entry, without the manifest (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
-implementation: gpLoadOptional / gpIndexImages / gpImage / gpMedia and the image error listener in src/pages/genre.js
+surface: Genre — a genre's picture in List rows and details (a Rows card's picture is uiTile's; see "Browse rows"). When api/tradition_images.json is served (the tradition rows of PR #389's references/_image_manifest.json, derived by scripts/_image_tables.js compactTraditionImages and fetched once after the first paint and, in the lazy shell, after the instrument data's bytes (Engine.fetched), its photos then put into the rows and details already drawn without rebuilding them), a tradition with an entry shows its thumb_url with "Photo: <credit> · <licence>" (linked to the source page in the details), and the photo is a button that enlarges it (photo-enlarge); in a row it sits beside the row's name button, never inside it; without an entry, without the table (a 404 is one quiet request, no script error), or when the image fails to load, the tradition's glyphs show whole and no credit is left behind
+implementation: gpLoadOptional / gpIndexImages / gpApplyPhotos / gpImage / gpMedia and the image error listener in src/pages/genre.js; scripts/_image_tables.js compactTraditionImages builds the table
 status: reachable
 precondition: empty
 notes: Presence check only (the glyph fallback always renders). The photo path was exercised in Chromium with PR #389's manifest served and the thumbnails stubbed, since the sandbox cannot reach Wikimedia.
@@ -2270,7 +2271,7 @@ notes: check_layout_usability.js loads atlas.html standalone at every width; che
 
 ## Instrument page (src/pages/instrument.js)
 
-The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit(card, part, { quiet: true })`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. Photos come from `CODEX_IMAGE_MANIFEST`, inlined by `scripts/build_html.js` from `references/_image_manifest.json` (the file is on main since #389), each with its credit and licence; a click on one enlarges it (see "Photo lightbox"). The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
+The Instrument route is the reference layout: categories and sound properties, the catalogue, and an inspector that configures an instrument **before** it is added, over the Your recipe dock (`recipe: 'dock'`). The inspector works on a preview card built by the canonical engine (`makeCard` with the destination's `traditionCardOpts`, the seed `addInstrumentFromPicker` uses); choices run through `applyPartEdit(card, part, { quiet: true })`, `inverseConfigureForPreface` and the editor's plain environment/chain writes. Photos come from `references/_image_manifest.json` (on main since #389) through `scripts/_image_tables.js` `compactInstrumentImages`: the embedded build inlines the table as `CODEX_IMAGE_MANIFEST`, and the lazy shell fetches `api/instrument_images.json` the first time the Instrument page draws, once the instrument data's bytes are in (`ipEnsureManifest`, with backoff), showing glyphs until it arrives and then putting the photos into what is already drawn, rebuilding nothing else (`ipApplyPhotos`, `uiTilesPhotos`). Each photo comes with its credit and licence; a click on one enlarges it (see "Photo lightbox"). The preview never enters `app.cards`. Its inspector entries use the `instrument picker open, similar drill-down active` precondition, which opens it on `voice` (via `uiOpenSurface`).
 
 ```yaml
 name: instrument-categories
@@ -2466,7 +2467,7 @@ name: photo-lightbox
 kind: modal
 selector: '#ui-lightbox[open][role="dialog"][aria-modal="true"]'
 surface: Photo lightbox — the photo as large as the viewport allows over the dimmed page, never cropped and never past its natural size, with "Photo: <credit> · <licence>" linked to the source page and "Click anywhere to close" ("Tap" on a touch screen). The thumb shows at once, scaled up; a 1280px Commons rendition, else the full image, replaces it when it loads, and if none loads the thumb stays. Nothing larger is requested before the click. A click anywhere (the photo, its frame, the dimmed page), Escape or Back closes it and focus returns to the photo
-implementation: uiLightbox, uiCloseLightbox and uiPhotoSources in src/workbench.js; .cm-lightbox in src/workbench.css; the full image is the fifth field of CODEX_IMAGE_MANIFEST (scripts/build_html.js) and image_url in references/_image_manifest.json
+implementation: uiLightbox, uiCloseLightbox and uiPhotoSources in src/workbench.js; .cm-lightbox in src/workbench.css; the full image is the fifth field of the instrument and tradition photo tables (scripts/_image_tables.js; CODEX_IMAGE_MANIFEST in the embedded build, api/instrument_images.json and api/tradition_images.json in the lazy shell) and image_url in references/_image_manifest.json
 status: reachable
 precondition: photo enlarged
 notes: The topmost layer — it owns its Escape, so nothing under it closes on the same key. The page underneath is inert and neither moves nor scrolls. Back is a history entry pushed on open (http and https only) and taken back when it closes any other way. check_ui_foundation.js O, on a desktop and a phone, in Light and Dark.

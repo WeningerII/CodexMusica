@@ -189,6 +189,10 @@ class B:
         self.fields_by_slot = kw.get("fields_by_slot", {})
         self.group_slots = kw.get("group_slots", {})
         self.violated_groups = kw.get("violated_groups", ())
+        #: THE HOLDING-BUT-NOTED GROUPS (2026-10-02): read by
+        #: `_mandate_block` so a pair that holds with a pursued note is not
+        #: labelled VIOLATED.
+        self.noted_groups = kw.get("noted_groups", {})
         self.slot_groups = kw.get("slot_groups", ())
         #: THE SCREENED-OUT RHYMES (M-185, the same day): read by
         #: `render_line` to say why the menu is short.
@@ -1095,7 +1099,15 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             "whole", "pivot_slot",
             # `prior` — the last round's rejection of THIS group, read by
             # `render_group` and quoted in its ATTEMPT block (M-253).
-            "prior", "whole_repair", "mandate_description"}
+            "prior", "whole_repair", "mandate_description",
+            # `path` and the three `pivot_line_*` lists — the escalation
+            # path's own block (LOOP_REDESIGN.md §2.4). `PB` leaves them at
+            # `render_group`'s defaults, so no case here prints that block;
+            # `test_loop_redesign.py` (a) renders it through the REAL verb
+            # and asserts the cited line question and the group-first path's
+            # absence of it.
+            "path", "pivot_line_offered", "pivot_line_forbidden",
+            "pivot_line_question"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",
@@ -1105,7 +1117,12 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
     # as an EMPTY BLOCK — no error, no red — which is exactly the failure
     # mode the `B`/`Brief` guard below was written for after it happened.
     a_declared = {f.name for f in dataclasses.fields(AnchorSlot)}
-    a_used = {"line_no", "text", "word", "offered", "calls", "slot"}
+    a_used = {"line_no", "text", "word", "offered", "calls", "slot",
+              # `one_move` — the one-move menu (LOOP_REDESIGN.md §2.8 G).
+              # Rendered and asserted in `test_loop_redesign.py` (a); an `AS`
+              # without it takes `render_group`'s `None`, which prints no
+              # block, as an anchor with no menu should.
+              "one_move"}
     check("every field this suite builds an `AS` out of is a real "
           "`AnchorSlot` field", a_used <= a_declared,
           sorted(a_used - a_declared))
@@ -1234,12 +1251,17 @@ def test_model_proposer_serves_a_real_tier_2():
     # every reading, mind/dream holds under one and names it. Still no
     # definite joint conflict, so the declared coarse question below stays.
     # superseded: "the historical default remains explicitly unjudged".
-    check("the historical default is now judged, and the pass that rests on "
-          "a reading names it",
+    # 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner ruling):
+    # mind/dream held only through other words of the two lines under one
+    # reading. A group now holds when its BOUND words relate, and mind/dream
+    # share no relation, so both pairs are judged and both violate. The
+    # readings witness lives on in `test_production_revision.py` (palm/calm,
+    # history/eye). superseded: (2, 3) held and named its readings.
+    check("the historical default is judged at its end words: both pairs "
+          "answered, both violated, nothing refused",
           not broad['refusals'] and broad['pairs_refused'] == 0
-          and [tuple(v['lines']) for v in broad['violations']] == [(1, 3)]
-          and any(tuple(v['lines']) == (2, 3) and v['why'] is None
-                  and v.get('readings') for v in broad['verdicts']))
+          and [tuple(v['lines']) for v in broad['violations']]
+          == [(1, 3), (2, 3)])
     declared = mandate([[1, 3], [2, 3]], n_lines=3,
                        default_relation='class:RHYME')
     res = revise_loop(R, SILVER_MIND, declared,

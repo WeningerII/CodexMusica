@@ -5,7 +5,7 @@
   "lineage": "Panthi is the devotional song-dance of the Satnami community of Chhattisgarh, performed in praise of Guru Ghasidas, the founder of the Satnami sect, especially around his birth anniversary. Male dancers sing his teachings in a circle to the mandar barrel drum and the jhanjh cymbals as the tempo builds to a fast climax; here a generic membrane drum card stands in for the mandar. Devdas Banjare took Panthi to stages across India and abroad.",
   "recipe": "classic modern panthi, praise Song, indian subcontinent branch. membrane drum pulse resonant acoustic membrane drum, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 214,
-  "score": 6.539,
+  "score": 6.602,
   "config": {
     "traditions": [
       "panthi_satnami"
@@ -59,8 +59,8 @@
           "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
         },
         "scores": {
-          "acoustic_membrane_drum_form": 3.59375,
-          "acoustic_membrane_drum_gesture": 2.55625
+          "acoustic_membrane_drum_form": 3.62525,
+          "acoustic_membrane_drum_gesture": 2.5877499999999998
         }
       },
       {

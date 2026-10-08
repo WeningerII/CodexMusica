@@ -1,3 +1,4 @@
+import { resumeStopped } from './test_resume_stopped.mjs';
 import assert from 'node:assert/strict';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
@@ -194,7 +195,14 @@ try {
   // ties rhymes only at line ends and the record cap rose to 1 MiB (owner's
   // ruling), so no group pivot precedes the door, which opens on continuation
   // 0 with eleven independent briefs, all admitted (118608 state bytes).
-  const originalIndependent = [1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
+  // ~~[1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23]~~ REPINNED 2026-10-07 for the
+  // bound-word rule (owner ruling 2026-10-02; measured, CI run 37695281044):
+  // group A [1, 8, 9, 10, 11] is judged at the words it binds, so L1 is a
+  // group pivot asked before the door again -- the group, then L1 at
+  // attempts 0, 1 and 2 -- and the door opens on continuation 4 with the
+  // other ten, all admitted (125291 state bytes on main; ~~125291~~ 304438
+  // with PR #479's revise-loop redesign, same walk, measured 2026-10-08).
+  const originalIndependent = [2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -210,10 +218,13 @@ try {
   // 21 are re-asked on the second batch at continuation 4 and folded after
   // 5; 23 rides the third batch at continuation 8 and is folded after 9.
   const TAIL_BOUND = 10;
-  const splitCall = (args) =>
-    a.callTool({ name: 'lyric_revise', arguments: args }, undefined, {
-      timeout: TOOL_BUDGET_MS + 30000,
-    });
+  const splitOptions = { timeout: TOOL_BUDGET_MS + 30000 };
+  const splitCall = async (args) =>
+    resumeStopped(
+      a,
+      await a.callTool({ name: 'lyric_revise', arguments: args }, undefined, splitOptions),
+      splitOptions
+    );
   let split = verdict(
     await splitCall({
       seed: 1,
@@ -284,7 +295,9 @@ try {
   // ~~[1, 14, 15, 17, 19, 21, 23]~~ [2, 14, 15, 17, 19, 21, 23] (2026-10-01,
   // any-reading rule; measured): L1 is asked as a pivot before the door.
   // ~~[2, 14, 15, 17, 19, 21, 23]~~ -> all eleven (2026-10-04; measured).
-  assert.deepEqual(firstSubset, [1, 2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
+  // ~~all eleven~~ -> the ten after L1 (2026-10-07, bound-word rule;
+  // measured): L1 is asked as a pivot before the door, as on 2026-10-01.
+  assert.deepEqual(firstSubset, [2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)
@@ -335,13 +348,14 @@ try {
           assert.equal(row.verdict, 'rejected');
           assert.equal(row.source, 'outcome');
         } else {
+          // REPINNED 2026-10-02 (LOOP_REDESIGN.md §2.2 option B): ~~'unknown',
+          // 'unverified', no reasons~~ — pending, and still never accepted.
           assert.equal(
             row.verdict,
-            'unknown',
+            'pending',
             'unused attempts cannot label an unvisited answer accepted'
           );
-          assert.equal(row.source, 'unverified');
-          assert.deepEqual(row.reasons, []);
+          assert.equal(row.source, 'waiting');
         }
       }
     }

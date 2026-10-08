@@ -14,10 +14,12 @@
       {
         "id": "software_sample_playback",
         "slots": {
-          "software_sample_playback_identity": "software_sample_playback_digital"
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
         },
         "scores": {
-          "software_sample_playback_identity": 0
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
         }
       },
       {
@@ -32,7 +34,8 @@
     ],
     "pinned": {
       "software_sample_playback": [
-        "software_sample_playback_identity"
+        "software_sample_playback_identity",
+        "software_sample_editing"
       ],
       "credited_programmed_drums_unspecified": [
         "credited_programmed_drums_identity"
@@ -56,7 +59,8 @@
     "room": "treated_studio",
     "parts": {
       "software_sample_playback_identity": "software_sample_playback_digital",
-      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified",
+      "software_sample_editing": "software_sample_editing_unspecified"
     },
     "pin_parts": true
   }

@@ -471,9 +471,10 @@
   }
 
   // The image manifest is optional and comes from a separate pipeline. It is
-  // read with the Genre page's rules (src/pages/genre.js gpIndexImages and
-  // gpImage), so a tradition shows the same photo, credit and licence in both
-  // places: tradition entries by id; an https or page-relative thumbnail only;
+  // read with the Genre page's rules (scripts/_image_tables.js
+  // compactTraditionImages, which builds the Genre page's table, and
+  // src/pages/genre.js gpImage), so a tradition shows the same photo, credit
+  // and licence in both places: tradition entries by id; an https or page-relative thumbnail only;
   // the credit and licence always travel with the photo, and a missing one is
   // said to be missing rather than left out.
   function indexImages(m) {

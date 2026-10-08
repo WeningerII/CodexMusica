@@ -65,31 +65,56 @@ export function instrumentChildren(pid) {
     // UNIDENTIFIED rather than dropped, invented, or allowed to poison its
     // siblings.
     try {
-      const argv = fs.readFileSync(`/proc/${child}/cmdline`, 'utf8').split('\0');
-      const cwd = fs.readlinkSync(`/proc/${child}/cwd`);
-      const status = fs.readFileSync(`/proc/${child}/status`, 'utf8');
-      const rss = /^VmRSS:\s+(\d+)\s+kB$/m.exec(status);
-      const cli = fileURLToPath(new URL('../lyric-harness/lyric_harness.py', import.meta.url));
-      const worker = fileURLToPath(new URL('../mcp/worker.py', import.meta.url));
-      const slot = argv.findIndex((arg, index) => index > 0 && path.resolve(cwd, arg) === cli);
-      const kind =
-        slot > 0 && ['song', 'finish'].includes(argv[slot + 1])
-          ? 'cli-' + argv[slot + 1]
-          : argv.some((arg, index) => index > 0 && path.resolve(cwd, arg) === worker)
-            ? 'worker'
-            : 'other';
-      // A RESIDENT SET OF ZERO IS NOT A MEASUREMENT. `VmRSS: 0 kB` is a
-      // process that has released every page — it cannot evidence the memory
-      // overlap this record exists to prove, and recording it as 0 would let a
-      // process that is gone in all but name satisfy that proof. Unknown is
-      // the conservative direction: it makes the overlap harder to show, never
-      // easier.
-      const bytes = rss ? Number(rss[1]) * 1024 : 0;
-      return { pid: child, kind, rss: bytes > 0 ? bytes : null };
+      return childRow(
+        child,
+        fs.readFileSync(`/proc/${child}/cmdline`, 'utf8').split('\0'),
+        fs.readlinkSync(`/proc/${child}/cwd`),
+        fs.readFileSync(`/proc/${child}/status`, 'utf8')
+      );
     } catch {
       return { pid: child, kind: null, rss: null };
     }
   });
+}
+
+// One child's row from the three /proc reads `instrumentChildren` took for it.
+// Pure, so the half-sampled states a live process cannot be held in on demand
+// can be tested directly (`scripts/test_capacity_children.mjs`).
+export function childRow(pid, argv, cwd, status) {
+  const rss = /^VmRSS:\s+(\d+)\s+kB$/m.exec(status);
+  // A RESIDENT SET OF ZERO IS NOT A MEASUREMENT. `VmRSS: 0 kB` is a process
+  // that has released every page, and a `status` with no `VmRSS` line is one
+  // that is exiting: in exit teardown the kernel releases a process's memory
+  // before its `cwd`, so for tens of milliseconds on a large child every read
+  // succeeds, `cmdline` is empty and `status` has no `VmRSS`. Neither can
+  // evidence the memory overlap this record exists to prove, and recording 0
+  // would let a process that is gone in all but name satisfy that proof.
+  // Unknown is the conservative direction: it makes the overlap harder to
+  // show, never easier.
+  //
+  // AND UNKNOWN MEMORY IS RECORDED AS A WHOLLY UNKNOWN CHILD, kind included
+  // (`MISSING.md` M-290, amended 2026-10-05). The row contract is "identified
+  // with real bytes, or declared unknown — never half": the validator
+  // (`scripts/lyrics_capacity_runtime.py`) refuses a kind without an rss, and
+  // this file's own test pins the same rule. Until 2026-10-05 this function
+  // kept the kind beside `rss: null`, the one half-declared shape that
+  // contract refuses, and an exiting child sampled that way turned a capacity
+  // cell red with `{'pid': 41, 'kind': 'other', 'rss': None}` after every
+  // measured verb had run to completion. A child whose memory is unknown
+  // cannot count as a lyric child either way, so declaring it unknown whole
+  // drops no evidence the validator could use.
+  const bytes = rss ? Number(rss[1]) * 1024 : 0;
+  if (!(bytes > 0)) return { pid, kind: null, rss: null };
+  const cli = fileURLToPath(new URL('../lyric-harness/lyric_harness.py', import.meta.url));
+  const worker = fileURLToPath(new URL('../mcp/worker.py', import.meta.url));
+  const slot = argv.findIndex((arg, index) => index > 0 && path.resolve(cwd, arg) === cli);
+  const kind =
+    slot > 0 && ['song', 'finish'].includes(argv[slot + 1])
+      ? 'cli-' + argv[slot + 1]
+      : argv.some((arg, index) => index > 0 && path.resolve(cwd, arg) === worker)
+        ? 'worker'
+        : 'other';
+  return { pid, kind, rss: bytes };
 }
 function payload(bytes, index) {
   const overhead = Buffer.byteLength(JSON.stringify(['--help', '']));
