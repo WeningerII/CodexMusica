@@ -119,7 +119,8 @@ NEVER LEAVES A MUTATED FILE ON DISK
 No mutation is ever written into the working tree. ONE frozen snapshot of the
 repo is taken per run, and each mutation gets a private SHADOW TREE copied from
 it and removed in a `finally`. Everything writable is COPIED and only the bulk
-read-only data is SYMLINKED, because `open(path, "w")` FOLLOWS a symlink: with
+read-only data is LINKED (whole directories symlinked; big files hard-linked
+since 2026-10-08, see COPY_MAX_BYTES), because `open(path, "w")` FOLLOWS a symlink: with
 `data/` linked whole, a mutant's `feature_cache.json` would land in the real
 repo and be read back by the next honest run. The snapshot is taken once rather
 than per mutation so that thirty mutations are thirty readings of ONE codebase
@@ -197,8 +198,18 @@ ROOT = os.path.dirname(HERE)
 SYMLINK_DIRS = (os.path.join("data", "labels"),
                 os.path.join("data", "authority_src"),
                 os.path.join("data", "nltk"))
-#: Files at or below this are copied; above it they are symlinked. The 16 files
-#: over the line are dictionaries and label tables, none of them written.
+#: Files at or below this are copied; above it they are ~~symlinked~~ HARD-LINKED
+#: (a copy across filesystems). The 16 files over the line are dictionaries and
+#: label tables, none of them written.
+#:
+#: HARD LINKS, NOT SYMLINKS (2026-10-08). `quality/release_assets.verify_asset`
+#: now refuses a symlinked lexical asset as missing, so a symlinked
+#: `cmudict.dict` made every shadow `Lexicon()` raise LEXICAL_ASSET_UNREADABLE:
+#: every mutation baseline errored, and all 16 mutation components of
+#: qualification run 37732316510 failed. A hard link is a regular file to that
+#: check and costs no bytes; like the symlink it replaces, it is read-only in the
+#: suite's paths. Whole directories (SYMLINK_DIRS) stay symlinked: the files
+#: inside them are not links themselves.
 COPY_MAX_BYTES = 2 * 1024 * 1024
 SKIP_NAMES = {"__pycache__", ".git", ".pytest_cache", ".mypy_cache",
               # a dependency tree is not the repo: mcp/ carries its own
@@ -1546,8 +1557,31 @@ def discover_tests(only=None):
 # Shadow tree — the copy every mutation is applied to
 # ---------------------------------------------------------------------------
 
+def _link_or_copy(src, dst):
+    """A hard link to `src` (see COPY_MAX_BYTES), or a copy across filesystems."""
+    try:
+        os.link(os.path.realpath(src), dst)
+    except OSError:
+        shutil.copy2(src, dst)
+    return dst
+
+
+def _shadow_copy(src, dst):
+    """`copytree`'s copy for a mutant: a file the snapshot hard-linked is linked
+    again rather than paying its bytes once per mutant; everything else, the
+    `.py` above all, is copied."""
+    try:
+        if os.stat(src).st_nlink > 1:
+            os.link(src, dst)
+            return dst
+    except OSError:
+        pass
+    return shutil.copy2(src, dst)
+
+
 def _mirror(src_dir, dst_dir, links):
-    """Real directories all the way down; copy small files, symlink big ones."""
+    """Real directories all the way down; copy small files, ~~symlink~~
+    hard-link big ones (COPY_MAX_BYTES)."""
     os.makedirs(dst_dir, exist_ok=True)
     for name in sorted(os.listdir(src_dir)):
         if name in SKIP_NAMES:
@@ -1569,7 +1603,7 @@ def _mirror(src_dir, dst_dir, links):
                   or os.path.getsize(s) <= COPY_MAX_BYTES):
                 shutil.copy2(s, d)
             else:
-                os.symlink(os.path.realpath(s), d)
+                _link_or_copy(s, d)
                 links.append(rel)
         except FileNotFoundError:
             continue
@@ -1614,7 +1648,8 @@ def snapshot(base):
 
 
 def build_shadow(base):
-    """A private tree: everything writable COPIED, bulk data SYMLINKED.
+    """A private tree: everything writable COPIED, bulk data ~~SYMLINKED~~
+    LINKED (symlinked directories, hard-linked files; see COPY_MAX_BYTES).
 
     Copying the Python is what makes a run reproducible while sibling sessions
     edit the repo. Copying the small NON-Python files is what stops a mutant's
@@ -1623,7 +1658,7 @@ def build_shadow(base):
     src = snapshot(base)
     dst = tempfile.mkdtemp(prefix="mutant-", dir=base)
     shutil.rmtree(dst)
-    shutil.copytree(src, dst, symlinks=True)
+    shutil.copytree(src, dst, symlinks=True, copy_function=_shadow_copy)
     return os.path.join(dst, HARNESS_DIRNAME)
 
 
