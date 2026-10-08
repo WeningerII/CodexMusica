@@ -1,0 +1,46 @@
+{
+  "gutenberg_id": "21300",
+  "title": "Cowboy Songs and Other Frontier Ballads",
+  "editor": "John A. Lomax",
+  "publication_year": 1929,
+  "edition": "New York: The Macmillan Company, February 1929 printing. Copyright notice 1910, 1916 belongs to earlier publication history; it is not the supplied printing date.",
+  "ebook_url": "https://www.gutenberg.org/ebooks/21300",
+  "source_url": "https://www.gutenberg.org/files/21300/21300-h/21300-h.htm",
+  "mirror_url": "https://raw.githubusercontent.com/GITenberg/Cowboy-Songs-and-Other-Frontier-Ballads_21300/c315b326df197c08297094c6af833ca4dc82926a/21300-h/21300-h.htm",
+  "mirror_commit": "c315b326df197c08297094c6af833ca4dc82926a",
+  "source_sha256": "797f2b2296c9d3ca4182ab71cf62510d4f6c1721887b216a19387b0820c047e2",
+  "source_bytes": 401673,
+  "retrieved_on": "2026-10-08",
+  "edition_evidence": {
+    "url": "https://www.gutenberg.org/files/21300/21300-h/21300-h.htm",
+    "excerpt": "New York / THE MACMILLAN COMPANY / 1929. Reissued January, 1927. Reprinted February, 1929."
+  },
+  "rights_evidence": {
+    "url": "https://www.gutenberg.org/ebooks/21300",
+    "excerpt": "Copyright: Public domain in the USA.",
+    "jurisdiction": "United States",
+    "scope": "English lyric text in the exact supplied historical printing; Gutenberg metadata checked 2026-10-08. This record does not claim worldwide public-domain status.",
+    "publication_year_used": 1929
+  },
+  "counts": {
+    "contents_entries": 153,
+    "supplemental_titled_entries": 0,
+    "candidate_units": 153,
+    "eligible_before_deduplication": 152,
+    "excluded_before_deduplication": 1
+  },
+  "deduplication": "Deferred to common integration across these ten collections and the existing corpus; eligibility counts are not import counts.",
+  "notes": [
+    "The printed contents points The U. S. A. Recruit to page247, but the title and text begin at page249. Both index_anchor and actual source_locator are recorded.",
+    "California Joe is excluded as an extended framed narrative poem. Ordinary song ballads, including the fourteen short-lined stanzas of Her White Bosom Bare, remain intact; no numeric length ceiling is imposed.",
+    "Single-line choruses, abbreviated refrains printed as 'etc.', and the supplied song titled A Fragment are preserved without expansion or invented reconstruction.",
+    "Compiler John A. Lomax is not credited as author of anonymous songs. Named and qualified author attributions are taken from explicit headings/footnotes.",
+    "Printed chorus/refrain headings are structural [CHORUS]/[REFRAIN] markers. Omission marks and performance instructions use # APPARATUS comments; they remain auditable but are excluded from sung verse line counts. Spoken labels are apparatus; the source speech words remain intact."
+  ],
+  "validation": {
+    "contents_coverage": "asserted by adapter",
+    "source_pin": "Pinned mirror bytes compared byte-for-byte against initially retrieved source",
+    "stanza_boundaries": "HTML br line endings and source stanza/paragraph blocks preserved",
+    "structural_labels": "Six offline boundary tests across these two collections pass, including unsung omission/performance labels."
+  }
+}

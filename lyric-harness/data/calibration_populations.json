@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "snapshot": "2026-10-04",
-  "manifest_sha256": "0a16b6899e17565215d7565c185aaa8bc8ac2f19fcb5e4e07abf0b085a5d2500",
+  "snapshot": "2026-10-08",
+  "manifest_sha256": "b6f11ea95c1880fc2cc0f80448cf18e4d2d1d9a4a0f963ba519ff60da705f546",
   "reader_fingerprint": "73efe9cd7528670b3802c97c24c38376f49d584fedf47efca5e382af09568c8d",
   "populations": {
     "quality.meter_bands": [

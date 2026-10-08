@@ -1,0 +1,57 @@
+{
+  "gutenberg_id": "76941",
+  "title": "Naval Songs and Ballads",
+  "edition_year": 1908,
+  "edition_imprint": "Printed for the Navy Records Society, MDCCCCVIII (1908), volume XXXIII",
+  "source_url": "https://www.gutenberg.org/ebooks/76941",
+  "text_url": "https://www.gutenberg.org/ebooks/76941.txt.utf-8",
+  "retrieved_on": "2026-10-08",
+  "source_sha256": "16030c9d72c40a55cbc4ed8af90816a338d811d423fe770f2cd79752336c0375",
+  "rights": {
+    "jurisdiction": "United States",
+    "status": "public_domain",
+    "basis": "Exact supplied print edition published 1908, before 1931. Project Gutenberg catalog explicitly identifies Public domain in the USA.",
+    "evidence_url": "https://www.gutenberg.org/ebooks/76941",
+    "evidence_excerpt": "Public domain in the USA.",
+    "edition_evidence_url": "https://www.gutenberg.org/cache/epub/76941/pg76941-images.html",
+    "edition_evidence_excerpt": "PRINTED FOR THE NAVY RECORDS SOCIETY MDCCCCVIII"
+  },
+  "candidate_count": 199,
+  "eligible_before_deduplication": 191,
+  "excluded_before_deduplication": 8,
+  "duplicate_count": "assigned by integration across existing corpus and all ten collections",
+  "exclusion_counts": {
+    "long_narrative_poem": 2,
+    "long_non_lyric_poem": 1,
+    "incomplete_source_text": 5
+  },
+  "source_format": "Gutenberg plain-text lines 0–23063 reconstructed through browser numbered-line extraction; overlapping windows merged by line id, all23064 lines present. Hash is reconstructed text, not original download bytes.",
+  "contents_entry_count": 204,
+  "verse_contents_count": 199,
+  "editorial_contents_exclusions": {
+    "Notes": 1,
+    "Indexes": 4
+  },
+  "contents_reconciliation": "199 verse headings correspond in source order to all199 verse entries; Notes and four indexes are editorial matter excluded outside verse counts.",
+  "translation_review": "Only translation mention is endnote p4: a modern translation of Pilgrims Sea Voyage exists elsewhere. The anthology supplies the Middle English original, retained. French-title Les Espagnols sur Mer is an English original by Minot. France Cover’d with Glory is English satire, not a French lyric translation.",
+  "publication_year": 1908,
+  "edition": "Printed for the Navy Records Society, MDCCCCVIII (1908), volume XXXIII",
+  "offline_source": "source.txt.gz; gzip decoded SHA256 equals source_sha256. Browser-reconstructed transcription, not a claim of original HTTP byte identity.",
+  "apparatus_transformations": {
+    "policy": "Standalone ornaments and speaker/prose headings become # APPARATUS: comments; printed chorus labels become [CHORUS], preserving words after the label. Per-candidate transformations record exact input/output at the stated extraction stage.",
+    "annotated_line_count": 177,
+    "eligible_annotated_line_count": 173,
+    "bracket_normalization": "Remove supplied-word square brackets, preserving their enclosed verse text; remove editorial [sic] and [?] tags. Every changed extracted line has exact before/after evidence.",
+    "bracket_normalized_lines": 122,
+    "sic_removed_lines": 6
+  },
+  "apparatus_review": "apparatus-review.json",
+  "reader_validation": {
+    "reader": "normalized-lyrics-v1",
+    "method": "Generate each eligible item with integration marked_text into a temporary staged file, then compare every lyric row from normalized_rows with all intended non-apparatus candidate lines, in exact order.",
+    "eligible_items_checked": 191,
+    "verse_rows_matched": 9928,
+    "missing_or_altered_rows": 0,
+    "candidates_sha256": "c6397e08879c467ec6c69eccdb1188c7fdcf41b11cf345ac612ce543584d12c2"
+  }
+}

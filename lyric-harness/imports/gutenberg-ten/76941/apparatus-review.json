@@ -1,0 +1,40 @@
+{
+  "review_scope": "All eligible candidate single-line stanzas, all uppercase/title-like lines, all parenthetical/bracketed lines and tune/byline/prose-label prefixes. All eligible lines also screened for unusual length (110+ characters).",
+  "eligible_candidates_reviewed": 191,
+  "single_line_stanzas_retained": [
+    {
+      "candidate_id": "pg76941-074",
+      "text": "What is it, neighbour? Pray, to me unfold.",
+      "decision": "retain_verse",
+      "reason": "Actual spoken/sung dialogue response within the ballad; speaker heading annotated separately."
+    },
+    {
+      "candidate_id": "pg76941-074",
+      "text": "The sadest news that ever mortal told.",
+      "decision": "retain_verse",
+      "reason": "Actual spoken/sung dialogue response within the ballad; speaker heading annotated separately."
+    },
+    {
+      "candidate_id": "pg76941-078",
+      "text": "Then hark, etc.",
+      "decision": "retain_verse",
+      "reason": "Sung refrain or abbreviated refrain explicitly printed in the source."
+    },
+    {
+      "candidate_id": "pg76941-153",
+      "text": "God Save the King!",
+      "decision": "retain_verse",
+      "reason": "Closing acclamation printed after the last stanza. Retained because source does not explicitly mark it as editorial prose; its sung-versus-printer-motto function is uncertain."
+    },
+    {
+      "candidate_id": "pg76941-177",
+      "text": "Think of Jefferys the seaman’s hard fate.",
+      "decision": "retain_verse",
+      "reason": "Sung refrain or abbreviated refrain explicitly printed in the source."
+    }
+  ],
+  "verse_lines_110_characters_or_longer": 0,
+  "remaining_uncertainty": [
+    "pg76941-153 closing God Save the King! is retained verbatim; source typography does not establish whether sung acclamation or printer motto. No other apparatus uncertainty identified by this review."
+  ]
+}

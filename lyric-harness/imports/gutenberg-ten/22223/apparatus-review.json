@@ -1,0 +1,14 @@
+{
+  "review_scope": "All eligible candidate single-line stanzas, all uppercase/title-like lines, all parenthetical/bracketed lines and tune/byline/prose-label prefixes. All eligible lines also screened for unusual length (110+ characters).",
+  "eligible_candidates_reviewed": 258,
+  "single_line_stanzas_retained": [
+    {
+      "candidate_id": "pg22223-138",
+      "text": "Lassie wi' the lint-white locks . . .",
+      "decision": "retain_verse",
+      "reason": "Sung refrain or abbreviated refrain explicitly printed in the source."
+    }
+  ],
+  "verse_lines_110_characters_or_longer": 0,
+  "remaining_uncertainty": []
+}
