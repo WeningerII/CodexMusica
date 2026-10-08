@@ -36,8 +36,9 @@ THE THREE THINGS THIS FILE HAS TO SHOW, IN THIS ORDER
      sonnet battery ~~still prints~~ printed 1064 / 1014 / 50 / 81 when this
      landed. (RE-DATED 2026-09-26: that was the oracle of its day, not a
      claim about it now; the pin is `quality/battery_pin.py`, mandated 1064 /
-     judged 936 / refused 128 / violations 9 on that date and 1007 / 57 / 15
-     since the any-reading rule of 2026-10-01, moved by later changes that
+     judged 936 / refused 128 / violations 9 on that date, 1007 / 57 / 15
+     after the any-reading rule of 2026-10-01 and 1012 / 52 / 40 since the
+     bound-word rule of 2026-10-02, moved by later changes that
      argue themselves in `battery.py`.)
   3. THE TWO MODULES THAT GENUINELY HAVE HOMOGRAPHS, and what each now returns
      — with the honest answer about whether that is an IMPROVEMENT or merely a

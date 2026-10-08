@@ -441,9 +441,10 @@ class ProductionRelations(unittest.TestCase):
         # M-316, the owner's scope: the declared-pair figure is read ONLY where
         # a mandate names chain rhyme. An UNDECLARED group (the whole-vocabulary
         # default, `battery.py`'s route) keeps the REGISTRY figure, so Sonnet
-        # 105's L10/L12 words~affords stays flagged. The mutation proves the
+        # 105's L10/L12 words~affords stays flagged. ~~The mutation proves the
         # check live: with the declared figure in the REGISTRY, chain rhyme
-        # would rescue exactly that pair.
+        # would rescue exactly that pair.~~ Since 2026-10-02 (M-317) the swap
+        # rescues nothing: the bound words keep the pair flagged either way.
         import lyric_harness as lh
         with open(os.path.join(os.path.dirname(os.path.dirname(
                 os.path.abspath(__file__))), 'corpus', 'sonnets.txt'),
@@ -462,7 +463,15 @@ class ProductionRelations(unittest.TestCase):
         self.assertIn((10, 12), flagged())
         R.REGISTRY['chain rhyme (rap)'] = R.declared_pair_schema(sch)
         try:
-            self.assertNotIn((10, 12), flagged())
+            # REPINNED 2026-10-02 (`MISSING.md` M-317, the bound words): the
+            # declared figure used to rescue words~affords through spans
+            # elsewhere in L10/L12. A pair now has to relate its BOUND words,
+            # and the figure's instance there does not cover both end words,
+            # so the pair stays flagged under either figure -- the bound rule
+            # now stops this rescue on its own. MEASURED over the whole
+            # battery: 40 violations with the swap and without it.
+            # superseded: assertNotIn((10, 12), flagged()).
+            self.assertIn((10, 12), flagged())
         finally:
             R.REGISTRY['chain rhyme (rap)'] = sch
             R._WVP_MEMO.clear()

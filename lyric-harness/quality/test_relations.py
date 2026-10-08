@@ -3484,6 +3484,69 @@ def test_a_remembered_reading_answer_is_the_computed_one():
     RT._RESOLVE_MEMO.clear()
 
 
+def test_a_pair_local_answer_is_keyed_on_its_two_lines():
+    """X9g. A pair-local schema's any-reading answer is remembered under the
+    pair's OWN two lines (`relations._local_stream_digest`, 2026-10-02,
+    M-317): every trial draft `declared_offer` grades moves one line, and
+    the pairs it does not touch were being re-resolved from scratch -- 16
+    resolutions of about 1.4 s per trial on a 24-line revise. The claims: an
+    edit to another line reuses the answer, the reused answer is the one a
+    cold memo computes for EVERY pair of the edited draft, and a pair that
+    contains the edited line is computed again.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("we carry the morning to the stone",
+             "we carry the morning to the rain",
+             "we carry the morning to the door",
+             "we carry the morning to the light")
+    every = {(i, j) for i in range(1, 5) for j in range(i + 1, 5)}
+    bound = {p: (3, 5) for p in every}
+
+    def resolve_all(text):
+        w = RT.whole_vocabulary_pairs(text, phon, requested_pairs=every,
+                                      bound=bound)
+        return {p: w.resolve_readings(p, n)
+                for p, n in sorted(w.undecided.items()) if n}
+    calls, real = [], RT.resolve_line_pair
+
+    def spy(*a, **k):
+        calls.append(a[2])
+        return real(*a, **k)
+    edited = list(lines)
+    edited[3] = "we carry the evening to the light"
+    RT._WVP_MEMO.clear()
+    RT._RESOLVE_MEMO.clear()
+    RT.resolve_line_pair = spy
+    try:
+        first = resolve_all(lines)
+        n_first = len(calls)
+        RT._WVP_MEMO.clear()
+        warm = resolve_all(edited)
+        warm_calls = list(calls[n_first:])
+        RT._WVP_MEMO.clear()
+        RT._RESOLVE_MEMO.clear()
+        cold = resolve_all(edited)
+    finally:
+        RT.resolve_line_pair = real
+        RT._WVP_MEMO.clear()
+        RT._RESOLVE_MEMO.clear()
+    untouched = [p for p in first if 4 not in p]
+    check("the comparison examines real undecided pairs on both sides of the "
+          "edit", bool(untouched) and any(4 in p for p in cold),
+          f"{len(first)} undecided pair(s), {n_first} resolution(s)")
+    check("an edit to another line reuses a pair's answer: no pair without "
+          "L4 is resolved again",
+          not any(4 not in tuple(sorted(p)) for p in warm_calls),
+          sorted({tuple(sorted(p)) for p in warm_calls}))
+    check("the reused answers are the ones a cold memo computes, for every "
+          "pair of the edited draft", warm == cold,
+          [p for p in cold if warm.get(p) != cold[p]])
+    check("...and a pair containing the edited line is computed again",
+          any(4 in tuple(sorted(p)) for p in warm_calls))
+
+
 def test_a_whole_song_schema_is_asked_last():
     """X9f. `resolve_readings` asks the pair-local schemas first and a
     whole-song one only while none has held (2026-10-02): every caller
@@ -3506,7 +3569,8 @@ def test_a_whole_song_schema_is_asked_last():
     asked, real = [], RT.resolve_line_pair
 
     def stub(answers):
-        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP):
+        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP,
+                bound=None):
             asked.append(schema.name)
             return answers[schema.name]
         return spy
@@ -3639,6 +3703,57 @@ def test_a_remembered_edge_is_the_evaluated_one():
           "slot, and the draft's own stream still does",
           pinned is not None and trial is None and own is not None,
           f"pinned built: {pinned is not None}, trial slot: {trial!r:.40}")
+    # BUT THE EDGE MEMO READS THE DRAFT'S OWN SLOT FOR IT (2026-10-07): each
+    # pair a pinned word sits on re-asks a whole-song figure under the same
+    # combination, and re-evaluating every edge killed PR #460's 24-line
+    # revise at the deadline. The claims: the trial is handed the draft's
+    # slot and no other, edges are served to it, and every edge and every
+    # whole-song verdict under the pinned reading is the uncached one.
+    saved = os.environ.get("LYRIC_PAIR_MEMO")
+    RT.assemble = spy
+    try:
+        os.environ["LYRIC_PAIR_MEMO"] = "1"
+        RT.pair_memo_clear()
+        tst = (RT.build_stream(lines, pinned, declaration={"language": "eng"})
+               if pinned is not None else None)
+        orphan = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], tst,
+                                     base_ok=True)
+                  if tst is not None else "unbuilt")
+        own = RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], st)
+        based = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], tst,
+                                    base_ok=True)
+                 if tst is not None else None)
+        for n in names:
+            RT.line_pairs_for(RT.REGISTRY[n], st)
+        hits = RT._EDGE_MEMO_TALLY["hit"]
+        seen.clear()
+        warm = ({n: snap(RT.line_pairs_for(RT.REGISTRY[n], tst))
+                 for n in names} if tst is not None else {})
+        warm_edges, hits = list(seen), RT._EDGE_MEMO_TALLY["hit"] - hits
+        os.environ["LYRIC_PAIR_MEMO"] = "0"
+        seen.clear()
+        cold = ({n: snap(RT.line_pairs_for(RT.REGISTRY[n], tst))
+                 for n in names} if tst is not None else {})
+        cold_edges = list(seen)
+    finally:
+        RT.assemble = real
+        if saved is None:
+            os.environ.pop("LYRIC_PAIR_MEMO", None)
+        else:
+            os.environ["LYRIC_PAIR_MEMO"] = saved
+        RT.pair_memo_clear()
+    check("a pinned stream's edge memo is the draft's own slot, and none "
+          "before the draft has one",
+          tst is not None and orphan is None and based is own,
+          f"orphan {orphan!r:.40}, same slot {based is own}")
+    check("edges are served to the pinned stream, and every one is the edge "
+          "a fresh realise finds",
+          hits > 0 and warm_edges == cold_edges,
+          f"{hits} pair(s) served; {sum(map(len, warm_edges))} against "
+          f"{sum(map(len, cold_edges))}")
+    check("every whole-song verdict under the pinned reading is the "
+          "uncached one", bool(warm) and warm == cold,
+          f"{[n for n in names if warm.get(n) != cold.get(n)]}")
 
 
 # ---------------------------------------------------------------------------
@@ -4039,6 +4154,7 @@ if __name__ == "__main__":
     test_a_schema_subset_is_the_full_answer_restricted()
     test_a_settled_question_has_the_full_answer()
     test_a_remembered_reading_answer_is_the_computed_one()
+    test_a_pair_local_answer_is_keyed_on_its_two_lines()
     test_a_whole_song_schema_is_asked_last()
     test_a_remembered_edge_is_the_evaluated_one()
     test_the_pair_guard_refuses_before_it_evaluates()

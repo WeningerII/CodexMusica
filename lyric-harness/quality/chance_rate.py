@@ -181,7 +181,9 @@ def measure(sampler, lex, decl, phon=None, schema=True):
     """-> dict. THREE COUNTS NEVER SUMMED: drawn / refused / judged. Every
     pair is counted in EVERY relation it stands in — each coarse relation it
     holds at its own cut and each registry schema its two lines stand in —
-    and `any` is the default door: at least one of them."""
+    and `any` is the default door: at least one of them. (The sampled pair
+    is two one-word lines, so its two lines ARE its two bound words, and
+    this arm reads the bound-word door of `MISSING.md` M-317 unchanged.)"""
     from collections import Counter
     wide = frozenset(decl.admit)
     out = {"sampler": sampler, "drawn": 0, "refused": 0, "judged": 0,
@@ -457,8 +459,15 @@ NULL_LINES = 14
 # ~~all 0.5114/0.5332/0.5490, mandated 0.9226/0.5268/0.5595~~.
 # And after the ASSONANCE cut moved 0.82 -> 0.75 (2026-09-23): ~~all
 # 0.5009/0.5227/0.5408, mandated median 0.5208, max 0.5417~~; verdicts held.
+# REPINNED 2026-10-07 from ~~all median 0.5236~~: the scheduled nightly went
+# red on this one figure from run 36991653043 (90909d3f8, 2026-10-02), the
+# first scheduled run since 2026-09-18, and `--null --check` measures 0.5238
+# again at bf1ba4f34 locally. Every other figure held to the fourth decimal,
+# and so did both verdicts (`all` -2.11 pp under its null median, p 0.8571;
+# `mandated` +38.69 pp over the median, +36.31 pp over the MAX). Not
+# bisected: the commit range 2026-09-23..10-02 carries no nightly between.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.5027, "median": 0.5236, "max": 0.5421},
+    "all": {"r_obs": 0.5027, "median": 0.5238, "max": 0.5421},
     "mandated": {"r_obs": 0.9107, "median": 0.5238, "max": 0.5476},
 }
 
@@ -534,7 +543,15 @@ def _answered(lines, phon, RF, lex=None, decl=None):
 
     A pair is ANSWERED when it stands in ANY relation the default consults:
     an admitted coarse relation at its cut, or any registry schema. Every
-    pair is asked both; neither is a rescue for the other."""
+    pair is asked both; neither is a rescue for the other.
+
+    THE SCHEMA HALF READS TWO WHOLE LINES (any word of each). Since
+    2026-10-02 a mandated group is judged at the words it BINDS (`MISSING.md`
+    M-317), a narrower door, and `recover` reads its line-end edges the same
+    way, so this arm's `mandated` rate is the pre-M-317 door's and is kept,
+    pinned, as that record (doctrine 17). ~~which is the reading the
+    GENERATORS take (`recover`, `--cliques`)~~ -- `--cliques` reads the
+    rhyme graph alone (M-145), and `recover` binds its end words."""
     n = len(lines)
     got = set(RF.whole_vocabulary_pairs(list(lines), phon))
     if lex is not None:

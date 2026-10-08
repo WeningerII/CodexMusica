@@ -189,6 +189,10 @@ class B:
         self.fields_by_slot = kw.get("fields_by_slot", {})
         self.group_slots = kw.get("group_slots", {})
         self.violated_groups = kw.get("violated_groups", ())
+        #: THE HOLDING-BUT-NOTED GROUPS (2026-10-02): read by
+        #: `_mandate_block` so a pair that holds with a pursued note is not
+        #: labelled VIOLATED.
+        self.noted_groups = kw.get("noted_groups", {})
         self.slot_groups = kw.get("slot_groups", ())
         #: THE SCREENED-OUT RHYMES (M-185, the same day): read by
         #: `render_line` to say why the menu is short.
@@ -1234,12 +1238,17 @@ def test_model_proposer_serves_a_real_tier_2():
     # every reading, mind/dream holds under one and names it. Still no
     # definite joint conflict, so the declared coarse question below stays.
     # superseded: "the historical default remains explicitly unjudged".
-    check("the historical default is now judged, and the pass that rests on "
-          "a reading names it",
+    # 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner ruling):
+    # mind/dream held only through other words of the two lines under one
+    # reading. A group now holds when its BOUND words relate, and mind/dream
+    # share no relation, so both pairs are judged and both violate. The
+    # readings witness lives on in `test_production_revision.py` (palm/calm,
+    # history/eye). superseded: (2, 3) held and named its readings.
+    check("the historical default is judged at its end words: both pairs "
+          "answered, both violated, nothing refused",
           not broad['refusals'] and broad['pairs_refused'] == 0
-          and [tuple(v['lines']) for v in broad['violations']] == [(1, 3)]
-          and any(tuple(v['lines']) == (2, 3) and v['why'] is None
-                  and v.get('readings') for v in broad['verdicts']))
+          and [tuple(v['lines']) for v in broad['violations']]
+          == [(1, 3), (2, 3)])
     declared = mandate([[1, 3], [2, 3]], n_lines=3,
                        default_relation='class:RHYME')
     res = revise_loop(R, SILVER_MIND, declared,

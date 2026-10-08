@@ -14594,7 +14594,10 @@ Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
 in the default now" — the second half of the instruction whose first half
 widened `Declaration.admit` to all four classes on 2026-08-22, M-59; task
 #86). A mandated pair that declares NO relation and NO structure is now
-satisfied when its two lines stand in ANY schema the vocabulary names.
+satisfied when ~~its two lines stand in ANY schema the vocabulary names~~
+**the words it binds stand in ANY schema the vocabulary names — narrowed
+2026-10-02 by the owner's bound-word ruling, M-317, which reverses the
+"its two lines" half of this entry and keeps the "ANY schema" half.**
 **ONE JUDGE, TWO READERS**: `relations.whole_vocabulary_pairs` realises the
 whole registry over one stream and both graders — `quality.revise.grade`
 and `lyric_harness.check_scheme`, whose two-copy chain has been "the
@@ -16727,6 +16730,7 @@ first measured.
 |---|---|---|
 | 2026-08-22 | M-59 | `Declaration.admit` widened from the historical `{RHYME, RIME_RICHE}` to all FOUR of `ADMITTABLE_RELATIONS` |
 | 2026-08-25 | M-116 | ALL 77 SCHEMAS joined the default — a mandated pair declaring no relation is satisfied when its lines stand in ANY schema the vocabulary names, judged by `relations.whole_vocabulary_pairs` |
+| 2026-10-02 | M-317 | the schema half NARROWED to the bound words — the pair is satisfied only when the words its group binds stand in a schema; a relation elsewhere in the two lines no longer counts (added after this table's heading was written; the heading's "twice" is that day's count) |
 
 So the complete default is **`admits(s, theta, decl.admit)` OR
 `whole_vocabulary_pairs`**, and a site reading only the first is not slightly
@@ -26717,7 +26721,7 @@ Full scope and verification: `quality/RESULTS_M279_2026-09-17.md`.
 
 **THE RED.** `capacity-matrix / cells pole` failed on PR #284 at `b2192eb4` with `{"failures": ["instrument child process measurements are invalid"], "production_qualified": false}`. Every cell had run to completion — 31/20260910 and 24/20260909, cold and worker, all four sub-runs — and only the record's self-validation refused. **The same job on the same commit PASSED in the concurrent push run 34985217641 while failing in the pull-request run**, which is what established it as a race rather than a property of the tree, and it cleared on re-run.
 
-**THE MECHANISM, MEASURED NOT ASSUMED.** `instrumentChildren()` in `scripts/lyrics_capacity_queue.mjs` samples three `/proc` files per child — `cmdline`, a `cwd` readlink, and `status` — and they are not atomic. Driven against a real forked-and-unreaped process on this box: a zombie **is still listed** in `/proc/<pid>/task/<pid>/children`, its `cmdline` reads empty, **its `cwd` readlink throws ENOENT**, and its `status` exists **with no `VmRSS` line**. The loop's only `try` sat OUTSIDE it, so that one ENOENT returned `null` for the WHOLE inventory — every sibling discarded, including the long-running lyric child the proof is about. A capacity shard runs a 250-second `revise`; the processes that die inside a microsecond-wide sampling window are incidental ones. So an irrelevant process, by exiting, destroyed the evidence for the relevant one.
+**THE MECHANISM, MEASURED NOT ASSUMED.** `instrumentChildren()` in `scripts/lyrics_capacity_queue.mjs` samples three `/proc` files per child — `cmdline`, a `cwd` readlink, and `status` — and they are not atomic. Driven against a real forked-and-unreaped process on this box: a zombie **is still listed** in `/proc/<pid>/task/<pid>/children`, its `cmdline` reads empty, **its `cwd` readlink throws ENOENT**, and its `status` exists **with no `VmRSS` line**. The loop's only `try` sat OUTSIDE it, so that one ENOENT returned `null` for the WHOLE inventory — every sibling discarded, including the long-running lyric child the proof is about. ~~A capacity shard runs a 250-second `revise`; the processes that die inside a microsecond-wide sampling window are incidental ones.~~ (struck 2026-10-05: an exiting child's teardown window lasts tens of milliseconds on a large child, and the child sampled in it can be the lyric child itself; see the amendment below) So an irrelevant process, by exiting, destroyed the evidence for the relevant one.
 
 A second, narrower path reaches the same refusal without any exception: a child alive through `cwd` but dying before `status` is read yields a `status` with no `VmRSS`, and the producer recorded that as `rss: null`, which `number(child.get('rss'), 1)` rejects. `VmRSS: 0 kB` — a process that has released every page — reached it too, as `0`.
 
@@ -26732,6 +26736,57 @@ A second, narrower path reaches the same refusal without any exception: a child 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~344~~ -> **345**.
 
 **345** with this entry (2026-09-15).
+
+**AMENDED 2026-10-05: the sampler could still emit the half-declared shape, and
+the capacity matrix measured it.** A `status` with no `VmRSS` gave a row that
+kept the `kind` it had already computed beside `rss: null`. That was so before
+this entry, and fix (2) left it so while making `VmRSS: 0 kB` a `null` too.
+It is the "kind without an rss" shape fix (3) keeps malformed and
+`scripts/test_capacity_children.mjs` pins as "never half", so the producer could
+still emit a row the validator refuses. The real-zombie fixture never reaches
+it, because a zombie's `cwd` readlink throws first. It reached
+`capacity-matrix / cells upper` in attempt 1 of Production qualification run
+37357749476 (2026-10-05), dispatched on `claude/youthful-hopper-m22xhv` at
+`9f82a087`, a commit of PR #497, as `instrument child process measurements are
+invalid: [{'pid': 41, 'kind': 'other', 'rss': None}]`, after every measured
+verb of both seeds had run to completion.
+
+**WHICH STATE PRODUCED IT IS NOT PROVEN, and the likelier one is not the one
+this entry named.** Two states give that row with every read succeeding. One
+is the path named above, a child dying between its `cwd` and `status` reads.
+The other is exit teardown: the kernel releases a process's memory before its
+`cwd`, so `cmdline` reads empty (hence `other`), the readlink resolves and
+`status` has no `VmRSS`. Measured 2026-10-05 on this container's 6.18 kernel,
+with an unreaped child holding 500 MB told to exit and the three reads in a
+tight loop: 2,293, 1,397 and 1,330 samples per exit caught teardown, against
+one sample in one trial of the between-reads state. The CI row's empty-command
+`other` fits teardown, and teardown lasts longest for the largest children, so
+it may have been the lyric child itself exiting. That qualifies the sentence
+struck in **THE MECHANISM** above. The fix below covers both states.
+
+**The fix keeps the contract and moves the producer to it.** The row builder is
+now the pure, exported `childRow` in `scripts/lyrics_capacity_queue.mjs`, and a
+child whose resident set reads empty or zero is declared unknown whole:
+`{pid, kind: null, rss: null}`. Nothing the validator reads is lost. It uses a
+child's kind only to count lyric children, and it excludes every child of
+unknown memory from that count either way. The validator is unchanged except
+for its comment.
+
+**VERIFIED:** `scripts/test_capacity_children.mjs` gains three checks that
+drive `childRow` with the `/proc` reads themselves (no `VmRSS`, `VmRSS: 0 kB`,
+and a live control). A fourth samples a real 300 MB child through
+`instrumentChildren` as it exits, for up to five exits, and FAILS on any
+half-declared row. Whether teardown was observed is reported apart from it, and
+a run that never saw it prints NOT OBSERVED, never PASS. The check first
+required an observation. On 2026-10-05 a CI runner executing every regression
+leaf at once took 2,093 samples of a 100 MB exit without one landing in
+teardown, and that requirement failed a correct fix. It moved to the report,
+and the `childRow` checks are the deterministic guard for that state. With the
+old behaviour restored, the first two checks and the fourth fail and the
+control passes. With the fix, all nine checks in the file pass, and teardown was
+observed on the first exit here, including with the CPU saturated.
+`scripts/test_lyrics_capacity.py` refuses the CI's exact row by name, beside a
+good lyric child (34 tests, all green).
 
 ### M-291 · A repository-wide dead-code sweep: three unreferenced symbols and two rename shims removed, TWO CANDIDATES DECLINED because the record conditions their removal on work that has not landed — and one bucket entry that a static sweep calls dead is reached by name through `hasattr` `CLOSED` 2026-09-15 (built; `counters.py --check` and the gate set measure) — under the owner's order, verbatim: *"fix whatever the hunts turn up"*
 
@@ -28922,6 +28977,24 @@ its own M-311 and #398 takes M-312.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~370~~ -> **371**.
 
+### M-317 · A default rhyme group passed when ANY word of each of its two lines stood in ANY schema, so most random, unrelated line pairs passed a planned end-rhyme group; a group is now judged at the words it binds `CLOSED` 2026-10-02 — found verifying the song-run findings (`tonight`/`stone` passed because `We` opening one line rhymes with `the` read as `thee` in the other); the rule is the owner's ruling of 2026-10-02
+
+**THE DEFECT.** M-116 (2026-08-25) let a group that declares no relation pass when its two LINES stand in any schema the vocabulary names, and `relations.line_pairs_for` read that literally: an instance anywhere in the two lines answered for the group, whichever words it covered. A planned end-rhyme group binds the END words, so a pair whose end words share nothing passed on an internal rhyme, an opening alliteration, or a whole-line figure. MEASURED by a scratch script over 400 random corpus line pairs on two seeds (commit `4c8fd262`'s message; the script is not in the tree, so this figure is a one-off and is not re-derivable — standing rule 3 says so): **85–88% passed a planned end-rhyme group, 59% only through words the group did not bind.**
+
+**THE RULE, the owner's words:** *"go with your recommendation on the bound words"* — a group passes only when the words it BINDS share a relation; every kind of relation still counts. It reverses the "its two lines" half of M-116 and keeps the "ANY schema" half (M-116's sentence is struck in place).
+
+**WHAT CARRIES IT.** `relations.line_pairs_for(..., bound={pair: (tok_i, tok_j)})` in the slots' `token_of` coordinates (`-1` the last readable token): an instance counts only if its span on each line covers that line's bound token, a schema whose every span is the whole line binds no word, the pair memo keys on the bound tokens, and an unreadable or undecided word holds a bound pair open only when it IS the bound word or a span covering the bound word reaches it. `whole_vocabulary_pairs`, `resolve_line_pair` and the any-reading resolver pass it through. Readers: `Reviser.grade` (each group's own bound words, so two groups binding one line pair at different words are asked separately), `lyric_harness.check_scheme`, the merge check (`MANDATE_GROUPS_INDISTINGUISHABLE`'s cross pairs), the candidate field's end-pair screen, and `recover`'s line-end edges, so a recovered cover handed back as `--groups=` is judged the way it was found. A group bound away from a line end also asks each schema one token can bind at the two bound words (`Reviser._bound_token_schemas`, the declared-token judge `relations.pair_satisfies_any`), so a mid-line assonance (`sea` ~ `reach` at T3) still holds.
+
+**SIX SCHEMAS CAN NO LONGER SATISFY A BOUND GROUP**, because every span they declare is the whole line: `parechesis / general consonance`, `holorhyme`, `平仄 tonal template`, `blues AAB stanza`, `refrain by reference`, `incremental repetition`. They still realise, and a writer may still declare them; what they cannot do is stand in for the relation of two bound words.
+
+**MEASURED ON THIS TREE.** The sonnet battery (`battery.py`, `quality/battery_pin.py`): ~~1064 / 1007 / 57 / 15~~ -> **mandated 1064, judged 1012, refused 52, violations 40**. 25 pairs newly violate: 20 held only through other words, and 5 were refusals now judged at their end words (sonnet 12 herd/beard, 72 and 102 forth/worth, 114 accidents/intents, 140 ornaments/rents) — an unread word elsewhere in the lines no longer holds a pair open. The 52 refusals are 50 lexical gaps and 2 unresolved schema answers (sonnet 1 ornament/content, 95 privilege/edge), each a multi-word span covering the end word and reaching an unread word. `quality/audit_spans.py` PINNED judged 1012, claimed 633, ties 121, violations_claimed 9, violation_ties 5; `quality/schema_end_reading.py` ~~its earlier pin~~ -> **(949, 2, 21)**; both oracle files rewritten by `audit_spans.py --only=battery --check --write-oracle`. Targeted verdicts, each re-run: `tonight`/`stone` and `When`/`And` (head) fail; `on`/`gone`, `read`/`bed`, `bright`/`night`, `May`/`away`, `night`/`boat` (consonance), `night`/`light` at T2, `Summer`/`Somebody's` at the head (alliteration) and `sea`/`reach` endword~T3 (assonance) hold.
+
+**TESTS REPINNED, each with a dated note keeping the old figure visible (doctrine 17):** `test_loop.py` §18 and §25 (scripted answers moved to words the field offers: `theirs`, `hour`), `test_verbs.py` §20 (four/own judged and violated, exit 3), `test_propose.py`, `test_slots.py` §8, `test_mandate_relation.py` E-2 (the witness moves from cat/hat rescuing spoon/orange to tip/top in pararhyme, and cat/hat is now pinned as the rule's counterexample), `test_production_relations.py` (M-316's chain-rhyme swap rescues nothing now — 40 violations with and without it, so the bound words stop that rescue on their own), `test_production_revision.py` (the real-unknown case moves to sonnet 10 hate/ruinate), `test_readability.py`, `test_revise.py`, `test_g2p.py`, `test_homograph.py`, `test_replay_memo.py` (the four/own fixture now suspends on a real repair of L3 against `four`, inventing nothing), and `test_relations.py` (a stub's signature).
+
+**NOT CLAIMED.** That laziness at these relations is calibrated — it is not, as M-116 said. That the chance rate is re-measured: `chance_rate.py`'s mandated arm reads two whole lines and is kept, pinned, as the pre-M-317 door's record. The time the token route costs on long drafts is measured by CI's capacity cells, not here.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~371~~ -> **372**.
+
 ### M-318 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and ~~nothing applies them~~ nothing applies their percentiles, but their bands still set CLICHE_PAIR's flag range `OPEN` — parked 2026-10-04 by the owner
 
 **RENUMBERED 2026-10-05: this entry was opened as ~~M-317~~ and is M-318.**
@@ -29013,4 +29086,4 @@ Either one changes verdicts on every song that holds such a pair, and neither is
 
 **IMPACT, from the run and not re-measured:** a writer who takes an offered word can satisfy a declared perfect-rhyme mandate with a stressed-against-promoted pair, and the verdict certifies it.
 
-**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~372~~ -> **373**.
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~372~~ -> ~~373~~ -> **374** (2026-10-08: PR #460's M-317 reached `main` first; this branch merged it).
