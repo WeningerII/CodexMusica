@@ -14187,7 +14187,9 @@ verbs.
 measured coordinate, FPR-stated per doctrine 22) and a calibrated draft gate:
 `STACKED_DRAFT`, a whole-draft FLAG of the floor's own species, fires when
 the stacked-line fraction reaches the p99 of a fixed-protocol 500-song human
-calibration (0.125; 1.4% of the canon sits there). Per-line `STACKED_LINE`
+calibration (0.125; 1.4% of the canon sits there; 2026-10-08: re-measured
+over every marked song of >= 8 lines after PR #497's new files redrew the
+500-song sample, p99 still 0.125, 1.48% at or over). Per-line `STACKED_LINE`
 notes name the lines so the brief can say WHERE. Wired into
 `Reviser.inspect` on the seam `readability.report` already rides; an
 environment with no tagger gets `sentencehood_checked=False` and zero
