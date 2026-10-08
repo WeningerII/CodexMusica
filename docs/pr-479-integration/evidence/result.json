@@ -1,0 +1,116 @@
+{
+  "production_edits": true,
+  "warm_hook_probe": {
+    "python_versions": [
+      "3.12.14",
+      "3.11.16"
+    ],
+    "result": "pass",
+    "confirmed": [
+      "finally clears place_hook on SafePointStop",
+      "resumed call builds only missing place",
+      "warm replay memo hit returns identical output without rebuilding"
+    ]
+  },
+  "full_fixture_probe": {
+    "exit_code": 139,
+    "first_grade_seconds": 18.92,
+    "completed_places": 0,
+    "observed_stack": "declared_offer -> grade -> resolve_readings -> resolve_line_pair -> line_pairs_for -> realise/evaluate",
+    "warm_continuation_reached": false,
+    "limitation": "Instrumented system-Python3.12 trial segfaulted during third 90-second stack sample; exact original 599-second warm-only cause remains unproven."
+  },
+  "next_supported_route": "Exact3.11.16 interpreter and hash-verified runtime dependencies are available; preserve the already-running real connector test before deciding another reproduction.",
+  "python311_fixture_probe": {
+    "deadline_seconds": 599,
+    "first_grade_seconds": 21.57,
+    "completed_places": 0,
+    "unfinished_place": {
+      "line": 1,
+      "place": "end-word"
+    },
+    "conclusion": "First atomic place already outlives its available574.43s. No warm continuation is required to reproduce current integrated timeout. Diagnostic terminated after exceeding deadline; no candidate judgement changed.",
+    "observed_elapsed_lower_bound_seconds": 606
+  },
+  "projection_repair": {
+    "commit": "1f7dcab33566ce0df6fd8cf365f450d4aa0a9d10",
+    "production_edits": true,
+    "files": [
+      "lyric-harness/quality/revise.py",
+      "lyric-harness/quality/test_production_revision.py"
+    ],
+    "targeted_tests_passed": 8,
+    "test_seconds": [
+      7.524,
+      10.146
+    ],
+    "mutation_control": "Ignoring _only_obligations causes expected new equality failure; one failure, zero errors.",
+    "invariants": [
+      "Full draft/schema frames preserved",
+      "Full collateral comparison for admitted candidates preserved",
+      "Disjunctive grade projection disabled",
+      "No threshold/cap/reading rule changed"
+    ],
+    "performance_status": "Insufficient: matched first L1/endword place unfinished after610s elapsed;599s deadline exceeded, zero places saved. Diagnostic terminated."
+  },
+  "baseline_source_commit": "e130221176a83952ad54d2e6a7eb65ec9971da13",
+  "bounded_candidate_trace": {
+    "completed": true,
+    "seconds": 75.714,
+    "grade_calls": 10,
+    "first_pool_candidates": 24,
+    "requested_obligation": [
+      1,
+      8,
+      0
+    ],
+    "demanded_grade_seconds": [
+      0.018511954998757574,
+      0.016536365999854752,
+      0.021661139000570984,
+      0.029380701000263798,
+      0.01727087299877894
+    ],
+    "baseline": {
+      "pairs": 10,
+      "bad": 9,
+      "unknown": 0,
+      "seconds": 0.08381097500023316
+    },
+    "collateral_grade_seconds": [
+      9.768628909001563,
+      10.91937227299968,
+      11.358361937000154,
+      11.784816295999917
+    ],
+    "collateral_each": {
+      "pairs": 10,
+      "bad": 9,
+      "unknown": 0
+    },
+    "conclusion": "Remaining time is in required full collateral evaluation, whose unknown-regression gate cannot be removed. First-pass optimization is semantically validated but insufficient to qualify the600-second connector flow. No further source change without a demonstrated equivalent optimization or authorized finer checkpoint design.",
+    "measurement_conditions": "Bounded trace ran alongside the full production-revision suite; timings are observations, not isolated capacity certification."
+  },
+  "full_production_revision_suite": {
+    "status": "passed",
+    "session": 86277,
+    "python": "3.11.16",
+    "head_at_recording": "94f84c44165ec52f77e400ba7f88c97b2433305f",
+    "source_sha256": {
+      "lyric-harness/quality/revise.py": "d413a6ebfdf575737f506c374872412980d32764a4e4aa9f0559cc7d76cc4b2d",
+      "lyric-harness/quality/test_production_revision.py": "1c6466761db50645eadc3b170059f5061f753883172700b24d3c1f05e763deab"
+    },
+    "command": "python3 -m unittest quality.test_production_revision -v",
+    "pythonpath": "/tmp/codex-integration-python311",
+    "log": "/workspace/integration-460-479-evidence/warm-diagnosis/full-production-revision.log",
+    "exit_code": 0,
+    "tests": 46,
+    "seconds": 576.494
+  },
+  "final_disposition": {
+    "original_pr479_modified": false,
+    "optimization": "Preserved separately; semantic tests pass, connector-budget regression remains unresolved.",
+    "next_step": "No further change justified within bounded pass; proving equivalent resolver optimization or choosing finer-than-place checkpointing requires additional work/design decision.",
+    "pending_local_change": "Three-line normal/reporting-grade coverage equality guard; passed full suite, patch preserved for coordinator commit."
+  }
+}

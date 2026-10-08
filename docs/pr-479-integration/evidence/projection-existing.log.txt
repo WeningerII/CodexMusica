@@ -1,0 +1,8 @@
+test_named_relation_offers_match_exact_grade (quality.test_production_revision.ProductionRevisionTests.test_named_relation_offers_match_exact_grade) ... ok
+test_requested_pair_grading_matches_full_stream_answers (quality.test_production_revision.ProductionRevisionTests.test_requested_pair_grading_matches_full_stream_answers) ... ok
+test_failed_requested_offer_does_not_evaluate_collateral_fan (quality.test_production_revision.ProductionRevisionTests.test_failed_requested_offer_does_not_evaluate_collateral_fan) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 10.146s
+
+OK

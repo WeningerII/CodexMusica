@@ -1,0 +1,18 @@
+
+18. a line is briefed against the draft AS IT NOW STANDS, not against the round's opening snapshot
+  PASS  the loop converges on this pair
+          success -> ['the kitchen light was never theirs', 'and no one came back up the stairs']
+  PASS  L2 is told to rhyme with the word L1 ACTUALLY ENDS ON after L1 was fixed -- not the word L1 had when the round opened
+          ["group A [1, 2] at its end word — this line must stand in at least one relation with: L1 ('theirs')"]
+  PASS  ...and its SCHEME_VIOLATION evidence no longer quotes the deleted word either -- the whole brief moved, not one line of it
+  PASS  the fix changes GUIDANCE and not ACCEPTANCE: the stub-driven run is unchanged in stop reason, rounds and emitted draft
+          whole_draft_unresolved/1 rounds
+  PASS  L3 opened the round and was NEVER ASKED ABOUT, because fixing L2 closed it -- the stale snapshot would have spent an attempt on a finding that was already gone
+          asked=[2] resolved_elsewhere=[3]
+  PASS  ...and it is NOT a `LineAttempt`: no attempt was made, so a record with accepted=False would be a failure that never happened, and len(attempts) would stop counting attempts (doctrine 79)
+          1 attempt(s): [2]
+  PASS  ...and the report SAYS so, under its own marker rather than the dead-end one
+          ['[==] L3 — opened this round and NOT asked about: an earlier ']
+  PASS  a barren round performs one assessment; lazy per-line menus are not re-assessments
+          1 assessments, 1 targeted menus
+PASS conflict-resolved rebrief section; no recorded failures

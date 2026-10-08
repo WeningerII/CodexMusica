@@ -3412,6 +3412,7 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       TEST_REVISE_SHARD: ${{ matrix.shard }}/4
       TEST_LOOP_SHARD: ${{ matrix.shard }}/4
+      TEST_LOOP_REDESIGN_SHARD: ${{ matrix.shard }}/4
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
@@ -3451,7 +3452,9 @@ jobs:
           set -e
           rm -f /tmp/rl-failed /tmp/rl-times
           rm -rf /tmp/rl-logs && mkdir -p /tmp/rl-logs
-          for f in revise loop; do
+          # loop_redesign joined 2026-10-02 with the revise-loop redesign
+          # (quality/LOOP_REDESIGN.md); the job now names 3, not 2.
+          for f in revise loop loop_redesign; do
             { _t0=$(date +%s)
               python3 -u "quality/test_$f.py" 2>&1 | tee "/tmp/rl-logs/$f.log"
               _rc=${PIPESTATUS[0]}
@@ -3461,7 +3464,7 @@ jobs:
           done
           wait
           echo "=============================================="
-          echo "THE TWO SUITES, EACH TIMED (the job's wall is their MAX now):"
+          echo "THE SUITES, EACH TIMED (the job's wall is their MAX now):"
           sort /tmp/rl-times
           if [ -f /tmp/rl-failed ]; then
             echo "=============================================="
