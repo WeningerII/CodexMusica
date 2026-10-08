@@ -316,7 +316,6 @@ const readerReadiness = () => {
   }
   return { ready: false, durable: false, enabled: false, reason: readerFailure, provider_calls: 0 };
 };
-process.once('SIGTERM', () => readerScheduler?.stop());
 let jobStore;
 try {
   jobStore = new JobStore(runtimeDir('jobs'));
@@ -623,8 +622,44 @@ const notAllowed = (_req, res) =>
 app.get(mcpPaths, notAllowed);
 app.delete(mcpPaths, notAllowed);
 
-app.listen(PORT, () => {
+const httpServer = app.listen(PORT, () => {
   console.error(
     `codex-musica MCP server (stateless Streamable HTTP) listening on :${PORT}${MCP_PATH}`
   );
 });
+
+let shuttingDown = false;
+function shutdown() {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  readerScheduler?.stop();
+  const closed = new Promise((resolve) => httpServer.close(resolve));
+  httpServer.closeIdleConnections();
+  // A reader stops at its next fsynced checkpoint. A blocked native judge
+  // cannot hold process shutdown forever; its last acknowledged generation
+  // remains the restart point if this grace expires.
+  const readerDeadline = Date.now() + 4000;
+  const force = setTimeout(() => {
+    void readerPythonBridge.internals.kill();
+    httpServer.closeAllConnections();
+    setImmediate(() => process.exit(0));
+  }, 8000);
+  void (async () => {
+    while (readerScheduler?.active && Date.now() < readerDeadline)
+      await new Promise((resolve) => setTimeout(resolve, 25));
+    // Reap the shared warm worker, including its process-group helpers.
+    await readerPythonBridge.internals.kill();
+    // Remaining raw MCP requests already cancel their workers on disconnect.
+    httpServer.closeAllConnections();
+    await closed;
+    await new Promise((resolve) => setImmediate(resolve));
+    clearTimeout(force);
+    process.exit(0);
+  })().catch((error) => {
+    console.error('[mcp] shutdown cleanup failed:', error.message);
+    void readerPythonBridge.internals.kill();
+    httpServer.closeAllConnections();
+  });
+}
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);

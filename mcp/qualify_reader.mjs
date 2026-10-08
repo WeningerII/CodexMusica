@@ -68,7 +68,7 @@ const resolver = createCatalogResolver({
   resourceFingerprint: assets.assets_sha256,
 });
 const catalog = await resolver.probe();
-const pinnedSnapshot = '193be7001cca175046c9f1105ce82025fce292c0434ce11f9595f0f6e1800d30';
+const pinnedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
 assert.equal(
   catalog.snapshot_id,
   pinnedSnapshot,

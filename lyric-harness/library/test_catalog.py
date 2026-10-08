@@ -3,6 +3,7 @@ import copy
 import gzip
 import json
 from pathlib import Path
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -14,6 +15,53 @@ from library.catalog_site_export import compact_summary, export_snapshot, verify
 
 
 class CatalogTests(unittest.TestCase):
+    def test_export_schema_accepts_producer_metadata_and_refuses_malformed_metadata(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / "harness"; (root / "corpus/song").mkdir(parents=True); (root / "data").mkdir()
+            (root / "corpus/song/eng_fixture.txt").write_text("--- TITLE: Schema witness\nAllowed source.\n")
+            (root / "data/sources.tsv").write_text("source_id\tlicence\tpd_affirmed\tevidence\nlocal:corpus/song/eng_fixture.txt\tpublic domain\ttrue\trecorded\n")
+            canonical_dir = root / "library/snapshot"
+            built = build(root, canonical_dir, "a" * 40)
+            without_labels = export_snapshot(canonical_dir, Path(temp) / "without-labels")
+            self.assertEqual(without_labels["derived_metadata"], {"version": 1, "label_registry_sha256": None})
+            label_bytes = canonical({"version": 1, "prefixes": []})
+            (root / "data/lyric_label_prefixes.json").write_bytes(label_bytes)
+            with_labels = export_snapshot(canonical_dir, Path(temp) / "with-labels")
+            self.assertEqual(with_labels["derived_metadata"], {"version": 1, "label_registry_sha256": sha(label_bytes)})
+            self.assertEqual(with_labels["snapshot_id"], built["snapshot_id"])
+            cases = [{"name": "observed null registry", "value": without_labels, "valid": True},
+                     {"name": "observed hashed registry", "value": with_labels, "valid": True}]
+            malformed = [{"version": 2, "label_registry_sha256": sha(label_bytes)},
+                         {"version": 1}, {"label_registry_sha256": sha(label_bytes)},
+                         {"version": 1, "label_registry_sha256": "a" * 63},
+                         {"version": 1, "label_registry_sha256": "A" * 64},
+                         {"version": 1, "label_registry_sha256": 1},
+                         {"version": 1, "label_registry_sha256": None, "unregistered": True},
+                         None, []]
+            for i, metadata in enumerate(malformed):
+                value = copy.deepcopy(with_labels); value["derived_metadata"] = metadata
+                cases.append({"name": "malformed metadata " + str(i), "value": value, "valid": False})
+            extra = copy.deepcopy(with_labels); extra["unregistered"] = True
+            cases.append({"name": "unregistered descriptor field", "value": extra, "valid": False})
+            schema = json.loads(Path(__file__).with_name("catalog_export.schema.json").read_text())
+            # Ajv 6 is an existing repository dev dependency. This schema uses
+            # shared Draft 7/2020 assertions and local JSON Pointer references;
+            # remove only the dialect header, not any validation assertion.
+            script = """const fs=require('fs'),Ajv=require('ajv');
+const input=JSON.parse(fs.readFileSync(0,'utf8'));
+delete input.schema.$schema;
+const validate=new Ajv({allErrors:true}).compile(input.schema);
+for(const item of input.cases) {
+  if(validate(item.value)!==item.valid) {
+    console.error(item.name,JSON.stringify(validate.errors));process.exit(1);
+  }
+}
+"""
+            checked = subprocess.run(["node", "-e", script],
+                                     input=json.dumps({"schema": schema, "cases": cases}), text=True,
+                                     capture_output=True, timeout=15, cwd=Path(__file__).resolve().parents[2])
+            self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
+
     def test_gzip_seed_preserves_plain_snapshot_identity_and_explicit_loading(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp) / "harness"; (root / "corpus/song").mkdir(parents=True); (root / "data").mkdir()

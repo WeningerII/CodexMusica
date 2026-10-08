@@ -20,6 +20,17 @@
     "snapshot_id": { "$ref": "#/$defs/hash" },
     "canonical_manifest_sha256": { "$ref": "#/$defs/hash" },
     "counts": { "type": "object" },
+    "derived_metadata": {
+      "type": "object",
+      "required": ["version", "label_registry_sha256"],
+      "properties": {
+        "version": { "const": 1 },
+        "label_registry_sha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
     "references": {
       "type": "object",
       "additionalProperties": {
