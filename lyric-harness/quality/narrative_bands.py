@@ -92,14 +92,40 @@ P2_INVARIANT_RETURNS = ("burden", "chorus", "hook", "refrain", "tag")
 #:   0.0042, songs_refused_unmarked 0 -- unchanged.
 #: The excess over the null median goes 0.0047 -> 0.0046; P1 still sits above
 #: every null draw (0.5832-0.5886), and no threshold is adopted.
+#:
+#: REPINNED 2026-10-08 for PR #497's corpus pass (merged as 04d53f113), found
+#: by the nightly of that day at ceab2d61; held at f165dab4, its first parent.
+#: The CODE is unchanged; each figure moves with a documented corpus edit,
+#: bisected by swapping the corpus at each #497 commit:
+#:   songs_measured         ~~8652~~ 8714  (+73 Otterbein refrain hymns,
+#:                          62b4fb87; -11 below)
+#:   songs_refused_unmarked ~~0~~ 11       (the label pass, 5b3ba18c, annotated
+#:                          eleven wholly editorial items -- a biography, a cast
+#:                          list, textual notes, footnotes, index entries -- so
+#:                          they carry no blocks; none is a song that lost its
+#:                          marks. Removing those shells is M-25's open
+#:                          false-unit work, not this check's)
+#:   seams                  ~~40697~~ 39161 (Otterbein +299; M-25(a)'s 1,642
+#:                          one-line verse blocks, fc3844e6, -1525; the label
+#:                          pass -310)
+#:   p1_nonzero_rate        ~~0.5914~~ 0.6213 (the annotated one-line apparatus
+#:                          blocks were low-overlap seams)
+#:   p1_null_median_rate    ~~0.5868~~ 0.6142
+#:   p2_pairs               ~~1653~~ 1617  (false return marks annotated:
+#:                          Shelley "Cyclops" speaker labels 37 -> 2, three
+#:                          more; +5 from the hymns)
+#:   p2_back_to_back_rate   ~~0.0042~~ 0.0043 (about 7 pairs, as before; only the
+#:                          denominator moved)
+#: The excess over the null median goes 0.0046 -> 0.0071; P1 still sits above
+#: every null draw (0.6126-0.6198), and no threshold is adopted.
 PINNED = {
-    "songs_measured": 8652,
-    "songs_refused_unmarked": 0,
-    "seams": 40697,
-    "p1_nonzero_rate": 0.5914,
-    "p1_null_median_rate": 0.5868,
-    "p2_pairs": 1653,
-    "p2_back_to_back_rate": 0.0042,
+    "songs_measured": 8714,
+    "songs_refused_unmarked": 11,
+    "seams": 39161,
+    "p1_nonzero_rate": 0.6213,
+    "p1_null_median_rate": 0.6142,
+    "p2_pairs": 1617,
+    "p2_back_to_back_rate": 0.0043,
 }
 
 

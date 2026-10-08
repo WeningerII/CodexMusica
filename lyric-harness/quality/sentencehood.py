@@ -17,7 +17,8 @@ Two modes were measured (all figures re-derived by `--check`):
 
   - THE FLAGRANT MODE — the noun stack: verbless AND function-word-poor AND
     comma-dense. Separable at line grain: `long_bridge` carries 4 such lines
-    in 25 where the 500-song human calibration sample runs a p99 of 0.125
+    in 25 where the human calibration (every marked song of 8+ lines since
+    2026-10-08; ~~a 500-song sample~~ before) runs a p99 of 0.125
     stacked-line fraction per song. THIS GATES (`STACKED_DRAFT`, a flag).
   - THE SUBTLE MODE — merely verbless lines, even two adjacent: REFUSED AS A
     GATE BY MEASUREMENT. Human songs carry a verbless line in 33% of lines
@@ -58,9 +59,20 @@ if ROOT not in sys.path:
 #:     with the tightest human false-positive rate that still reads
 #:     `long_bridge`'s stacked lines: 1.17% of 3,000 human song lines, 0.80%
 #:     of 1,500 sonnet lines (doctrine 22 — the threshold IS the FPR).
-#:   STACKED_FRACTION_MAX — the p99 of per-song stacked-line fraction over a
-#:     fixed-seed 500-song sample of `corpus/song/eng_*` (1.4% of human songs
-#:     sit at or above it; `long_bridge` reads 0.16).
+#:   STACKED_FRACTION_MAX — the p99 of per-song stacked-line fraction over
+#:     ~~a fixed-seed 500-song sample~~ EVERY marked song of >= 8 lines of
+#:     `corpus/song/eng_*` (~~1.4%~~ about 1.5% of human songs sit at or above
+#:     it; `long_bridge` reads 0.16).
+#:     RE-MEASURED, NOT RE-ADOPTED, 2026-10-08: the 500-song draw was a
+#:     seeded shuffle of the sorted file list, so PR #497's 47 new Otterbein
+#:     files (1,297 -> 1,344) redrew the whole sample (129 of 500 songs
+#:     shared) and its p99 read 0.200 although no sampled song's fraction
+#:     changed (the old sample on the new text still reads 0.125; across
+#:     1,000 seeds the 500-song p99 spans 0.0625-0.25 in both trees). Over
+#:     every song of >= 8 lines the p99 is 0.125 before and after #497
+#:     (8,306 songs, 1.50% at or over; 8,355 songs, 1.48%), so the ceiling
+#:     stands and the protocol is the whole population, which adding a file
+#:     can extend but never redraw.
 #:   MIN_LINES — the calibration sample admitted songs of >= 8 lines, so the
 #:     gate asks nothing of drafts shorter than its own population.
 #:   MIN_TOKENS — a line of one to three tokens ("Almost.", "Hands up.") is
@@ -169,8 +181,8 @@ def report(lines):
             "STACKED_DRAFT", "flag",
             f"{len(stacked)} of {len(lines)} lines are word stacks "
             f"({frac:.0%}) — at or above the calibrated ceiling "
-            f"({ADOPTED['STACKED_FRACTION_MAX']:.1%}, the p99 of 500 human "
-            f"songs; 1.4% of the canon sits there)",
+            f"({ADOPTED['STACKED_FRACTION_MAX']:.1%}, the p99 of every human "
+            f"song of 8+ lines; about 1.5% of the canon sits there)",
             "lines " + ", ".join(map(str, stacked)) + ". This is the failure "
             "no sound-layer check can hear: every rhyme and bar can be "
             "satisfied by lines that are lists. Rewrite the named lines as "
@@ -182,10 +194,12 @@ def report(lines):
 
 
 # ------------------------------------------------------------ calibration
-def _calibration(n_songs=500, seed=20260825):
+def _calibration(n_songs=None, seed=20260825):
     """Re-derive every ADOPTED figure on the fixed protocol. Deterministic:
-    sorted file list, seeded shuffle, first `n_songs` marked songs of >= 8
-    lines."""
+    sorted file list and every marked song of >= 8 lines. ~~n_songs=500~~ was
+    the default until 2026-10-08 (see ADOPTED): a seeded shuffle and the first
+    `n_songs` songs, kept for re-reading the adoption record, but a sample a
+    new corpus file redraws whole."""
     import glob
     import random
     from quality import grid as GR
@@ -193,19 +207,19 @@ def _calibration(n_songs=500, seed=20260825):
     if tag is None:
         return None
     files = sorted(glob.glob(os.path.join(ROOT, "corpus/song/eng_*.txt")))
-    rng = random.Random(seed)
-    rng.shuffle(files)
+    if n_songs is not None:
+        random.Random(seed).shuffle(files)
     fracs, lines_seen, stacked_lines = [], 0, 0
     n = 0
     for p in files:
-        if n >= n_songs:
+        if n_songs is not None and n >= n_songs:
             break
         try:
             marked = GR.read_marked_songs(p)
         except Exception:                                 # noqa: BLE001
             continue
         for ms in marked:
-            if n >= n_songs:
+            if n_songs is not None and n >= n_songs:
                 break
             ls = [l for b in ms.blocks for l in b.lines]
             if len(ls) < ADOPTED["MIN_LINES"]:
@@ -246,7 +260,8 @@ def main(argv=None):
         print(f"  per-song fraction p99 {cal['p99']:.4f} "
               f"(adopted ceiling {ADOPTED['STACKED_FRACTION_MAX']})")
         print(f"  songs at/over ceiling {cal['song_fpr']:.4f} "
-              f"(adopted claim ~0.014)")
+              f"(claim ~0.015 over every song; ~~0.014~~ on the 500-song "
+              f"draw, 2026-08-25)")
         if abs(cal["p99"] - ADOPTED["STACKED_FRACTION_MAX"]) > 1e-9:
             ok = False
             print("  DRIFT: the sample's p99 no longer equals the adopted "

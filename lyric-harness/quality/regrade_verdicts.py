@@ -131,7 +131,20 @@ REGRADE_MOVED = {
         "2026-09-14 from ~~(47, 25, 22)~~: wide/Pylons' default relation "
         "stays unresolved in schema(s) (a75da39f, 2026-09-08)"),
     "the_frost_ledger.txt": (
-        (71, 71, 0),
+        (71, 68, 3),
+        "MOVED AGAIN 2026-10-08 from ~~(71, 71, 0)~~, THE BOUND-WORD RULE "
+        "(M-317, PR #460, commit 4c8fd262, owner ruling 2026-10-02): group C "
+        "binds L7 at T3 (`in`), so L3~L7 the/in, L7~L9 in/blaze and L7~L10 "
+        "in/the are asked at those words and no longer pass through words "
+        "the group does not bind. `compound / phrasal rhyme` and "
+        "`multisyllabic rhyme` stay undecided there: their spans covering "
+        "`in` reach `spring`, `is` and `the` (and `Every` on L9), and the "
+        "any-reading search needs 72, 144 and 72 reading combinations "
+        "against relations.READING_COMBO_CAP 64, which standing rule 5 "
+        "keeps undecided rather than half-searched, so the three REFUSE "
+        "(every combination tried is False; with the cap lifted all three "
+        "answer False, i.e. judged violations, not passes). Found by the "
+        "nightly of 2026-10-08 at ceab2d61; held at daa74216 and 83f46f44. "
         "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): a small word at a declared slot is sung stressed on a whole dictionary reading, so the NO ANCHOR sites anchor, and readings that disagreed are judged one whole reading at a time; every pair is judged (was (71, 35, 36)). "
         "M-144, same cause and the larger share: 35 of 71 mandated pairs "
         "touch a binding site resolving to NO ANCHOR. MOVED AGAIN 2026-09-23 "

@@ -674,6 +674,17 @@ def test_end_to_end():
 #     nucleus       36521           0            0     343892  (was right)
 #     prominence    33795           0            0     343892  (was right)
 #   Still every move a confident verdict onto a refusal, none the other way.
+#   REPINNED AGAIN 2026-10-08 for PR #497's corpus pass (47 Otterbein refrain
+#   hymn files, M-25(a) and the label/apparatus pass): 1,344 files, 341,454
+#   pairs (`--eng` on ceab2d61, the nightly of that day):
+#     channel      exposed  True->None  False->None  untouched
+#     onset          6711         106          390     340958
+#     coda           6642          73         1536     339845
+#     consonants    12872         115          167     341172
+#     phones        45474         500          275     340679
+#     nucleus       36200           0            0     341454  (was right)
+#     prominence    33556           0            0     341454  (was right)
+#   Still every move a confident verdict onto a refusal, none the other way.
 #
 #   corpus/song/ltc_huajianji.txt  花間集, 3,732 adjacent line-final pairs
 #     onset            517           1           14       3717
@@ -808,10 +819,15 @@ def test_corpus_counts():
 #: COUNTS ARE PINNED BESIDE THE MOVES (doctrine 58): every move count is a
 #: coordinate of the corpus it was taken over, so a changed corpus now fails
 #: as a CORPUS change, named as one, rather than as a mystery in the channels.
-ENG_CORPUS_FILES = 1297
-ENG_CORPUS_PAIRS = 343892
-ENG_CORPUS_MOVES = {"onset": (104, 387), "coda": (72, 1536),
-                    "consonants": (112, 169), "phones": (499, 274),
+#: REPINNED AGAIN 2026-10-08, a corpus change and named as one: PR #497
+#: (04d53f113) added 47 Otterbein files and its M-25(a)/label passes edited
+#: existing ones. ~~1297 files, 343892 pairs: onset (104, 387), coda (72,
+#: 1536), consonants (112, 169), phones (499, 274)~~. Every move is still a
+#: confident verdict onto a refusal (§8b's own two invariants hold).
+ENG_CORPUS_FILES = 1344
+ENG_CORPUS_PAIRS = 341454
+ENG_CORPUS_MOVES = {"onset": (106, 390), "coda": (73, 1536),
+                    "consonants": (115, 167), "phones": (500, 275),
                     "nucleus": (0, 0), "prominence": (0, 0)}
 
 
