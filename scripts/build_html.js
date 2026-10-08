@@ -488,6 +488,10 @@ const RUNTIME_MODULES = [
     code: FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET,
   },
   { label: 'runtime: src/layout.js', code: layoutJs },
+  {
+    label: 'runtime: src/library-import.js',
+    code: fs.readFileSync(path.join(SRC, 'library-import.js'), 'utf8'),
+  },
   { label: 'runtime: src/app.js', code: appJs },
   { label: 'runtime: src/workbench.js', code: workbenchJs },
   ...PAGES.map((p) => ({ label: `runtime: src/pages/${p}.js`, code: pageFile(p, '.js') })),

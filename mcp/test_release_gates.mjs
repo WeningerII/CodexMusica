@@ -9,6 +9,7 @@ import { archiveBeforeDispatch } from '../scripts/battery_remote.mjs';
 import { openArchive } from '../scripts/battery_archive.mjs';
 import { allSongsExpected, sha256 } from '../scripts/battery_verdict.mjs';
 import { qualifyBattery } from '../scripts/check_battery_acceptance.mjs';
+import { runInNewContext } from 'node:vm';
 
 const repository = 'owner/repo',
   sha = 'a'.repeat(40);
@@ -23,6 +24,109 @@ const run = {
   conclusion: 'success',
 };
 const jobs = REQUIRED_JOBS.map((name) => ({ name, status: 'completed', conclusion: 'success' }));
+
+test('CI completion dispatches only an exact trusted head and preserves existing qualification findings', async () => {
+  const yml = readFileSync(
+    join(import.meta.dirname, '..', '.github', 'workflows', 'qualification-backstop.yml'),
+    'utf8'
+  );
+  const section = yml.slice(yml.indexOf('  dispatch-after-ci:'), yml.indexOf('  backstop:'));
+  assert(!section.includes('actions/checkout'), 'dispatch must execute no repository checkout');
+  const script = section.match(/ {10}script: \|\n((?: {12}.*\n|\n)+)/)?.[1];
+  assert(script, 'the actual dispatch script must be present');
+  const code = `(async () => {\n${script.replace(/^ {12}/gm, '')}\n})()`;
+  const invoke = async ({
+    patch = {},
+    existing = [],
+    main = sha,
+    created = true,
+    createdPatch = {},
+  } = {}) => {
+    const source = { ...run, name: 'CI', workflow_id: 101, ...patch };
+    let dispatches = 0;
+    const qualificationRun = {
+      id: 42,
+      workflow_id: 202,
+      event: 'workflow_dispatch',
+      head_sha: sha,
+      head_branch: 'main',
+      head_repository: { full_name: repository },
+      created_at: new Date().toISOString(),
+      ...createdPatch,
+    };
+    await runInNewContext(code, {
+      context: {
+        eventName: 'workflow_run',
+        repo: { owner: 'owner', repo: 'repo' },
+        payload: { workflow_run: source },
+      },
+      core: { info() {} },
+      setTimeout: (fn) => fn(),
+      github: {
+        rest: {
+          repos: { getBranch: async () => ({ data: { commit: { sha: main } } }) },
+          actions: {
+            getWorkflow: async ({ workflow_id }) => ({
+              data:
+                workflow_id === 'ci.yml'
+                  ? { id: 101, name: 'CI', path: '.github/workflows/ci.yml' }
+                  : {
+                      id: 202,
+                      name: 'Production qualification',
+                      path: '.github/workflows/production-qualification.yml',
+                    },
+            }),
+            listWorkflowRuns: async () => ({
+              data: { workflow_runs: dispatches && created ? [qualificationRun] : existing },
+            }),
+            createWorkflowDispatch: async ({ ref, workflow_id }) => {
+              assert.equal(ref, 'main');
+              assert.equal(workflow_id, 202);
+              dispatches++;
+            },
+          },
+        },
+      },
+    });
+    return dispatches;
+  };
+  assert.equal(await invoke(), 1);
+  for (const patch of [
+    { name: 'Other workflow' },
+    { workflow_id: 303 },
+    { event: 'pull_request' },
+    { head_branch: 'other' },
+    { head_repository: { full_name: 'fork/repo' } },
+    { status: 'in_progress' },
+    { conclusion: 'failure' },
+    { head_sha: 'invalid' },
+  ])
+    await assert.rejects(invoke({ patch }));
+  assert.equal(await invoke({ main: 'b'.repeat(40) }), 0);
+  for (const conclusion of ['success', 'failure', null]) {
+    assert.equal(
+      await invoke({
+        existing: [
+          {
+            workflow_id: 202,
+            head_sha: sha,
+            head_branch: 'main',
+            head_repository: { full_name: repository },
+            event: 'workflow_dispatch',
+            conclusion,
+          },
+        ],
+      }),
+      0,
+      'an existing failed or running finding must not be buried by redispatch'
+    );
+  }
+  await assert.rejects(invoke({ created: false }), /no exact-head qualification/);
+  await assert.rejects(
+    invoke({ createdPatch: { head_sha: 'b'.repeat(40) } }),
+    /no exact-head qualification/
+  );
+});
 
 test('release CI requires actual successful jobs at the exact trusted main push', () => {
   assert.equal(validateCI(run, jobs, { repository, sha }).run_id, 12);

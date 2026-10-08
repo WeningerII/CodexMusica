@@ -1,5 +1,5 @@
 /* exported uiLyricsWaiting, lyDraftForWriter */
-/* global $ui, UI, UILayout, CHAT_BACKEND, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
+/* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
    THE DRAFT IS THE ONE SOURCE OF TRUTH. Everything this page shows is read
@@ -1818,6 +1818,242 @@ function lyMetaSaved() {
   clearTimeout(lyMetaTimer);
   lyMetaTimer = setTimeout(() => uiAutosave(), 250);
 }
+// Imported Library readings are separate draft records. Preserve the exact
+// singleton and its private continuation before activating another record.
+let lyLibraryReceiver = null;
+let lyLibraryStore = null;
+let lyLibrarySaveTimer = 0;
+let lyLibraryRecord = null;
+let lyLibraryLoadingId = '';
+let lyLibraryDrafts = [];
+let lyLibraryLock = null;
+const lyLibraryCopy = (value) => JSON.parse(JSON.stringify(value));
+function lyLibraryCapture() {
+  const meta = lyricMetaOf(app.lyricMeta);
+  const draftId = meta.draftId || 'draft:' + crypto.randomUUID();
+  const currentDomain =
+    chatState.task?.domain ||
+    ($ui('chat-domain')?.value.startsWith('lyrics') ? 'lyrics' : 'recipe');
+  const writer =
+    currentDomain === 'lyrics'
+      ? _chatPersistedState()
+      : uiChatSessions.get('lyrics')?.state || null;
+  return {
+    draftId,
+    text: lyDraft().value,
+    title: lyTitleOf(lyParse(lyDraft().value)) || 'Untitled song',
+    meta: { ...meta, draftId },
+    writer: lyLibraryCopy(writer),
+    writerInput:
+      currentDomain === 'lyrics'
+        ? $ui('chat-input')?.value || ''
+        : uiChatSessions.get('lyrics')?.input || '',
+    savedAt: Date.now(),
+    pageReview: lyLibraryCopy({
+      run: LY.run,
+      past: LY.past || [],
+      analysis: LY.analysis,
+      outcomes: LY.outcomes,
+      results: LY.results,
+    }),
+    originalText: lyLibraryRecord?.draftId === draftId ? lyLibraryRecord.originalText : null,
+  };
+}
+function lyLibraryAcquire() {
+  if (lyLibraryLock) return;
+  const surface = $ui('surface-lyrics'),
+    draft = lyDraft();
+  lyLibraryLock = { inert: surface?.inert || false, readOnly: draft.readOnly };
+  if (surface) surface.inert = true;
+  draft.readOnly = true;
+  // A writer reply delivered during the commit cannot overwrite an edit
+  // being preserved. Its request/continuation remains retrievable in History.
+  UI.lyricRevision++;
+}
+function lyLibraryRelease() {
+  if (!lyLibraryLock) return;
+  const surface = $ui('surface-lyrics');
+  if (surface) surface.inert = lyLibraryLock.inert;
+  lyDraft().readOnly = lyLibraryLock.readOnly;
+  lyLibraryLock = null;
+}
+function lyLibraryDetachWriter() {
+  const neutral = {
+    history: null,
+    workspace: null,
+    lyric: null,
+    task: null,
+    sig: null,
+    continuationId: null,
+    pending: null,
+    archives: [],
+    retryAt: 0,
+  };
+  const currentDomain =
+    chatState.task?.domain ||
+    ($ui('chat-domain')?.value.startsWith('lyrics') ? 'lyrics' : 'recipe');
+  // The archived continuation remains intact in IndexedDB. Increasing only
+  // the local delivery generation prevents an old reply replacing this copy.
+  // Do not abort its request or reset the backend writer run.
+  if (currentDomain === 'lyrics') {
+    _chatPollStop();
+    Object.assign(chatState, neutral, {
+      generation: chatState.generation + 1,
+      busy: false,
+      controller: null,
+      progress: null,
+      disconnected: null,
+    });
+    _chatSave();
+    if ($ui('chat-log')) $ui('chat-log').innerHTML = '';
+  }
+  uiChatSessions.set('lyrics', { state: neutral, input: '' });
+  localStorage.setItem(CHAT_STORAGE_KEY + ':lyrics', JSON.stringify(neutral));
+}
+async function lyLibraryActivate(record, { restored = false, preservedDraftId } = {}) {
+  lyLibraryDetachWriter();
+  if (preservedDraftId)
+    app.lyricMeta = { ...lyricMetaOf(app.lyricMeta), draftId: preservedDraftId };
+  pushHistory();
+  app.lyrics = record.text;
+  app.lyricMeta = lyricMetaOf(record.meta);
+  lyLibraryRecord = lyLibraryCopy(record);
+  LY.metaRef = null;
+  Object.assign(LY, {
+    run: null,
+    past: [],
+    analysis: null,
+    progress: null,
+    outcomes: {},
+    results: {},
+    gate: null,
+    conflict: null,
+    text: null,
+    tab: 'tools',
+    tool: '',
+  });
+  if (restored && record.writer) {
+    // Restoring a saved draft restores its private continuation, never sends
+    // a request. Interrupted work is recovered only by an explicit action.
+    const state = lyLibraryCopy(record.writer);
+    if (state.domain && !state.task) state.task = { domain: state.domain, phase: state.phase };
+    uiChatSessions.set('lyrics', {
+      state,
+      input: record.writerInput || '',
+      log: document.createDocumentFragment(),
+    });
+    localStorage.setItem(CHAT_STORAGE_KEY + ':lyrics', JSON.stringify(state));
+    if (chatState.task?.domain !== 'recipe') {
+      Object.assign(chatState, state, {
+        busy: false,
+        controller: null,
+        generation: chatState.generation + 1,
+        progress: null,
+        disconnected: state.pending?.request_id || null,
+      });
+      _chatSave();
+    }
+    Object.assign(LY, record.pageReview || {});
+  }
+  lyDraft().value = record.text;
+  UI.lyricRevision++;
+  UI.lyricRequest = null;
+  pushHistory();
+  uiAutosave();
+  uiNavigate('lyrics');
+  if (restored && record.writerInput && $ui('chat-input')) {
+    $ui('chat-input').value = record.writerInput;
+    _chatSyncCount();
+  }
+  lyRefresh(true);
+  lyLibraryDrafts = await lyLibraryStore.listDrafts();
+  showToast(
+    restored
+      ? 'Saved draft restored. No writing request was sent.'
+      : 'Library working copy imported. Your previous draft is under History.',
+    'success'
+  );
+  return { persisted: !UI.saveFailed && !UI.storageConflict };
+}
+async function lyLibraryStart() {
+  if (lyLibraryReceiver || typeof CMLibraryImport === 'undefined') return;
+  lyLibraryStore = CMLibraryImport.createIndexedDBStore();
+  lyLibraryReceiver = CMLibraryImport.createReceiver({
+    window,
+    store: lyLibraryStore,
+    captureCurrent: async () => {
+      lyLibraryAcquire();
+      const previous = lyLibraryCapture();
+      if (previous.meta.libraryOrigin && previous.originalText === null) {
+        const stored = await lyLibraryStore.getDraft(previous.draftId);
+        if (stored) previous.originalText = stored.originalText;
+      }
+      return previous;
+    },
+    releaseCurrent: lyLibraryRelease,
+    activate: lyLibraryActivate,
+    devOrigin: window.CODEX_LIBRARY_DEV_ORIGIN,
+    onError: (error) => showToast('Library import failed: ' + error.message, 'error'),
+  });
+  try {
+    await lyLibraryReceiver.start();
+    lyLibraryDrafts = await lyLibraryStore.listDrafts();
+    const id = lyMeta().draftId;
+    if (id) lyLibraryRecord = await lyLibraryStore.getDraft(id);
+    if (LY.tab === 'history') lyRenderHistory();
+  } catch (error) {
+    const requested = new URL(location.href).searchParams.has('cm_library_nonce');
+    if (requested) showToast('Library import unavailable: ' + error.message, 'error');
+  }
+}
+function lyLibraryPersist() {
+  if (!UI.ready || !lyLibraryStore || !lyMeta().draftId) return;
+  if (lyLibraryRecord?.draftId !== lyMeta().draftId && lyLibraryLoadingId !== lyMeta().draftId) {
+    const id = lyMeta().draftId;
+    lyLibraryLoadingId = id;
+    lyLibraryStore
+      .getDraft(id)
+      .then((record) => {
+        if (lyMeta().draftId === id && record) {
+          lyLibraryRecord = record;
+          lyRefresh(true);
+        }
+      })
+      .catch(() =>
+        showToast(
+          'Saved source details could not be read. Export this session before closing it.',
+          'error'
+        )
+      );
+    return;
+  }
+  clearTimeout(lyLibrarySaveTimer);
+  const origin = lyMeta().libraryOrigin;
+  if (origin && lyLibraryRecord?.draftId === lyMeta().draftId) {
+    const adapted = lyDraft().value !== lyLibraryRecord.originalText;
+    if (origin.adapted !== adapted) {
+      origin.adapted = adapted;
+      uiAutosave();
+    }
+  }
+  lyLibrarySaveTimer = setTimeout(async () => {
+    try {
+      await lyLibraryStore.saveDraft(lyLibraryCapture());
+      lyLibraryDrafts = await lyLibraryStore.listDrafts();
+    } catch {
+      showToast(
+        'The Library working copy could not be saved. Export this session to keep its text and credits.',
+        'error'
+      );
+    }
+  }, 300);
+}
+function lyLibrarySourceMarkup() {
+  const origin = lyMeta().libraryOrigin;
+  if (!origin) return '';
+  const eligibility = CMLibraryImport.eligibleForWriter(lyDraft().value, origin.language || 'eng');
+  return `<section class="ly-card" aria-label="Library source"><p>${icon('book-open', 16)} <strong>${esc(origin.title || 'Library working copy')}</strong> · ${origin.scope === 'excerpt' ? 'Excerpt' : 'Complete reading'}${origin.adapted ? ' · Adapted' : ''}</p><p class="ly-help">Source credits and coordinate lineage are preserved separately from sung lines.</p>${eligibility.reasons.map((reason) => `<p class="ly-help">${esc(reason)}</p>`).join('')}<div class="ly-actions">${lyBtn('ly-library-provenance', 'Export source details', 'download', { cls: 'cm-btn cm-btn-outline ly-sm' })}</div></section>`;
+}
 const lyNoteOf = (s) => lyMeta().notes[s.title] || '';
 function lyBriefLine() {
   const b = lyMeta().brief.trim();
@@ -2466,6 +2702,7 @@ function lyMountMarkup() {
   </aside>
   <main class="ly-main" id="ly-main" aria-label="Song">
     <div class="ly-brief" id="ly-brief"></div>
+    <div id="ly-library-source" hidden></div>
     <div class="ly-main-scroll" id="ly-main-scroll">
       <div class="ly-section-nav" id="ly-section-nav"></div>
       <div class="ly-toolbar" role="toolbar" aria-label="Document" id="ly-toolbar">
@@ -2496,7 +2733,7 @@ function lyMountMarkup() {
 </div>
 <nav class="ly-mnav" id="ly-mnav" aria-label="Lyrics views"><div role="tablist" aria-label="Lyrics views">${mobileTabs}</div></nav>
 <div class="ly-sheet-scrim" id="ly-scrim" hidden data-ui="ly-outline-toggle"></div>
-<input type="file" id="ly-file" accept=".txt,.md,text/plain" hidden>
+<input type="file" id="ly-file" accept=".txt,.md,.json,text/plain,application/json" hidden>
 </div>`;
 }
 
@@ -3542,6 +3779,16 @@ function lyRenderHistory() {
   if (!box) return;
   const model = LY.model;
   let html = `<h3 class="ly-h3">History</h3>`;
+  html += lyLibrarySourceMarkup();
+  if (lyLibraryDrafts.length)
+    html += `<h4 class="ly-h4">Saved Lyrics drafts on this device</h4><ul class="ly-hist">${lyLibraryDrafts
+      .slice()
+      .sort((a, b) => b.savedAt - a.savedAt)
+      .map(
+        (draft) =>
+          `<li><span><strong>${esc(draft.meta?.libraryOrigin?.title || draft.title || 'Untitled song')}</strong><small>${esc(new Date(draft.savedAt).toLocaleString())}${draft.draftId === lyMeta().draftId ? ' · Current draft' : ''}${draft.writer ? ' · Writer continuation preserved' : ''}</small></span>${draft.draftId !== lyMeta().draftId ? lyBtn('ly-library-restore', 'Open draft', 'file', { id: draft.draftId, cls: 'cm-btn cm-btn-outline ly-sm' }) : ''}</li>`
+      )
+      .join('')}</ul>`;
   const runs = [...(LY.past || [])].reverse();
   if (LY.run) runs.unshift(LY.run);
   html += runs.length
@@ -3624,10 +3871,23 @@ function lyRefresh(now = false) {
       if (out.state === 'failed') delete LY.outcomes[id];
   }
   if (!LY.model) LY.model = lyParse(draft.value);
+  lyLibraryPersist();
   if (LY.activeLine > LY.model.sung.length) LY.activeLine = 0;
   LY.items = lyItems();
   lyRenderHead();
   lyRenderBrief();
+  const source = $ui('ly-library-source');
+  if (source) {
+    source.innerHTML = lyLibrarySourceMarkup();
+    source.hidden = !lyMeta().libraryOrigin;
+  }
+  const download = document.querySelector('[data-ui="ly-download"]');
+  if (download)
+    download.innerHTML =
+      icon('download', 16) +
+      '<span>' +
+      (lyMeta().libraryOrigin ? 'Download text and sources' : 'Download text') +
+      '</span>';
   lyRenderOutline();
   lyRenderMainTool();
   lyRenderEditor();
@@ -3804,6 +4064,17 @@ function lyLiveWork() {
 }
 async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   lyCloseMenus();
+  const origin = lyMeta().libraryOrigin;
+  if (origin) {
+    const eligibility = CMLibraryImport.eligibleForWriter(
+      lyDraft().value,
+      origin.language || 'eng'
+    );
+    if (!eligibility.eligible) {
+      showToast(eligibility.reasons[0], 'error');
+      return false;
+    }
+  }
   if (chatState.busy) {
     showToast('Writer is working. You can keep editing.', 'error');
     return false;
@@ -4048,7 +4319,7 @@ const LY_ACTIONS = {
     $ui('ly-doc-note').hidden = true;
     $ui('ly-doc-note').innerHTML = '';
   },
-  'ly-download'() {
+  async 'ly-download'() {
     lyCloseMenus();
     const name =
       (
@@ -4058,8 +4329,22 @@ const LY_ACTIONS = {
       )
         .replace(/[^\w\- ]+/g, '')
         .trim() || 'lyrics';
-    uiDownload(name + '.txt', lyDraft().value, 'text/plain;charset=utf-8');
-    showToast('Text download started', 'success');
+    if (lyMeta().libraryOrigin) {
+      try {
+        const envelope = await CMLibraryImport.makeWorkingCopyEnvelope(lyDraft().value, lyMeta());
+        uiDownload(
+          name + '.library-working-copy.json',
+          JSON.stringify(envelope, null, 2),
+          'application/json'
+        );
+        showToast('Text and mandatory source details downloaded together.', 'success');
+      } catch (error) {
+        showToast('Download failed: ' + error.message, 'error');
+      }
+    } else {
+      uiDownload(name + '.txt', lyDraft().value, 'text/plain;charset=utf-8');
+      showToast('Text download started', 'success');
+    }
   },
   'ly-export-session'() {
     lyCloseMenus();
@@ -4068,6 +4353,31 @@ const LY_ACTIONS = {
   'ly-import'() {
     lyCloseMenus();
     $ui('ly-file').click();
+  },
+  'ly-library-provenance'() {
+    uiDownload(
+      'codex-musica-library-source.json',
+      JSON.stringify(
+        { version: 1, draftId: lyMeta().draftId, libraryOrigin: lyMeta().libraryOrigin },
+        null,
+        2
+      ),
+      'application/json'
+    );
+  },
+  async 'ly-library-restore'(draftId) {
+    try {
+      const record = await lyLibraryStore.getDraft(draftId);
+      if (!record) throw new Error('That saved draft is unavailable.');
+      lyLibraryAcquire();
+      const previous = lyLibraryCapture();
+      await lyLibraryStore.saveDraft(previous);
+      await lyLibraryActivate(record, { restored: true, preservedDraftId: previous.draftId });
+    } catch (error) {
+      showToast('Draft could not be opened: ' + error.message, 'error');
+    } finally {
+      lyLibraryRelease();
+    }
   },
   'ly-blank'() {
     lyCloseMenus();
@@ -4776,7 +5086,15 @@ function lyWire(surface) {
     e.target.value = '';
     if (!file) return;
     try {
-      const text = (await file.text()).replace(/\r\n?/g, '\n');
+      const raw = await file.text();
+      if (/\.json$/i.test(file.name) || file.type === 'application/json') {
+        const envelope = JSON.parse(raw);
+        if (!lyLibraryReceiver) await lyLibraryStart();
+        if (!lyLibraryReceiver) throw new Error('The Library import receiver is unavailable.');
+        await lyLibraryReceiver.importEnvelope(envelope);
+        return;
+      }
+      const text = raw.replace(/\r\n?/g, '\n');
       lyCommit(text, `Imported ${file.name}. Undo restores the previous draft.`);
     } catch (err) {
       showToast('Import failed: ' + err.message, 'error');
@@ -4962,6 +5280,7 @@ uiRegisterPage({
     LY.model = lyParse(lyDraft().value);
     LY.text = lyDraft().value;
     lyRefresh(true);
+    setTimeout(lyLibraryStart, 0);
   },
   render() {
     // Replies recovered on load are the writer's latest state, shown without

@@ -36,7 +36,10 @@ import {
 } from './job_store.js';
 import { withExecutionContext } from './execution_context.js';
 import { HTTP_REQUEST_BYTES } from './payload_limits.js';
-import { lyricCapacity, lyricWorkerState } from './lyric_tools.js';
+import { lyricCapacity, lyricWorkerState, readerPythonBridge } from './lyric_tools.js';
+import { ReaderJobStore } from './reader_job_store.js';
+import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
+import { createReaderRouter } from './reader_routes.js';
 import { createOperationBudget } from './paid_budget.js';
 import { effectiveConfiguration } from './runtime_config.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -202,7 +205,14 @@ app.use((req, res, next) => {
 // headers would be, and compressing them would make them bigger.
 app.use(compression());
 
-app.use(express.json({ limit: HTTP_REQUEST_BYTES }));
+app.use(
+  express.json({
+    limit: HTTP_REQUEST_BYTES,
+    verify: (req, _res, bytes) => {
+      if (req.originalUrl?.startsWith('/internal/reader/')) req.readerRawBody = Buffer.from(bytes);
+    },
+  })
+);
 
 // Supplied browser origins are checked before any dispatch, including preflights.
 // Native clients without Origin follow the public endpoint's access policy.
@@ -244,6 +254,68 @@ app.use((req, res, next) => {
 const buildIdentity = runtimeBuildIdentity();
 const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
+let readerScheduler;
+let readerFailure;
+try {
+  const readerStore = new ReaderJobStore({
+    directory: process.env.READER_RUNTIME_DIR || runtimeDir('reader-jobs'),
+    maxBytes: Number(process.env.READER_STORAGE_MAX_BYTES) || 256 * 1024 * 1024,
+  });
+  if (
+    !process.env.READER_BRIDGE_SECRET ||
+    Buffer.byteLength(process.env.READER_BRIDGE_SECRET) < 32 ||
+    !process.env.READER_SITE_ID ||
+    !process.env.READER_CATALOG_DIR
+  )
+    throw new Error(
+      'Reader requires its private bridge secret, Site identity, pinned catalog and durable directory.'
+    );
+  const resolver = createCatalogResolver({
+    directory: process.env.READER_CATALOG_DIR,
+    engineCommit: buildIdentity.commit,
+    resourceFingerprint:
+      process.env.READER_RESOURCE_FINGERPRINT ||
+      runtimeAssets().assets_sha256 ||
+      buildIdentity.commit ||
+      'unidentified',
+  });
+  const readerCatalog = await resolver.probe();
+  readerScheduler = new ReaderScheduler({
+    store: readerStore,
+    bridge: readerPythonBridge,
+    ...resolver,
+  });
+  readerScheduler.catalog = readerCatalog;
+  app.use(
+    createReaderRouter({
+      store: readerStore,
+      scheduler: readerScheduler,
+      secret: process.env.READER_BRIDGE_SECRET,
+      site: process.env.READER_SITE_ID,
+      resolveIdentity: resolver.resolveIdentity,
+    })
+  );
+  readerScheduler.kick();
+} catch (error) {
+  readerFailure = error.message;
+  app.use('/internal/reader', (_req, res) =>
+    res.status(503).json({
+      error: {
+        code: 'READER_UNAVAILABLE',
+        message: 'The durable private reader is unavailable.',
+        remedy: 'Configure and verify the reader storage, pinned catalog and private bridge.',
+      },
+    })
+  );
+}
+const readerReadiness = () => {
+  try {
+    if (readerScheduler) return readerScheduler.readiness();
+  } catch {
+    readerFailure = 'Reader persistence is unavailable.';
+  }
+  return { ready: false, durable: false, enabled: false, reason: readerFailure, provider_calls: 0 };
+};
 let jobStore;
 try {
   jobStore = new JobStore(runtimeDir('jobs'));
@@ -305,6 +377,7 @@ app.get('/health', (_req, res) =>
     service: 'codex-musica-mcp',
     lyrics: chatRouter.readiness(),
     queue: lyricCapacity(),
+    reader: readerReadiness(),
     // WHY THIS FIELD EXISTS (M-187(a)). Nothing measured whether the warm
     // worker is ENGAGED on the deployed box. check_live.mjs compares the
     // ADVERTISED surface, not the process answering it, and a warm answer and
@@ -354,10 +427,17 @@ app.get('/health', (_req, res) =>
 app.get('/ready', (_req, res) => {
   const lyrics = chatRouter.readiness();
   const assets = runtimeAssets();
-  const ready = lyrics.ready === true && !jobStore.failure && !sessionStore.failure && assets.ok;
+  const reader = readerReadiness();
+  const ready =
+    lyrics.ready === true &&
+    !jobStore.failure &&
+    !sessionStore.failure &&
+    assets.ok &&
+    (process.env.READER_REQUIRED !== '1' || reader.ready === true);
   res.status(ready ? 200 : 503).json({
     ready,
-    capabilities: { recipe: true, lyrics: ready },
+    capabilities: { recipe: true, lyrics: ready, reader: reader.ready === true },
+    reader,
     lyrics,
     recovery: {
       durable: jobStore.durable,
@@ -542,8 +622,44 @@ const notAllowed = (_req, res) =>
 app.get(mcpPaths, notAllowed);
 app.delete(mcpPaths, notAllowed);
 
-app.listen(PORT, () => {
+const httpServer = app.listen(PORT, () => {
   console.error(
     `codex-musica MCP server (stateless Streamable HTTP) listening on :${PORT}${MCP_PATH}`
   );
 });
+
+let shuttingDown = false;
+function shutdown() {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  readerScheduler?.stop();
+  const closed = new Promise((resolve) => httpServer.close(resolve));
+  httpServer.closeIdleConnections();
+  // A reader stops at its next fsynced checkpoint. A blocked native judge
+  // cannot hold process shutdown forever; its last acknowledged generation
+  // remains the restart point if this grace expires.
+  const readerDeadline = Date.now() + 4000;
+  const force = setTimeout(() => {
+    void readerPythonBridge.internals.kill();
+    httpServer.closeAllConnections();
+    setImmediate(() => process.exit(0));
+  }, 8000);
+  void (async () => {
+    while (readerScheduler?.active && Date.now() < readerDeadline)
+      await new Promise((resolve) => setTimeout(resolve, 25));
+    // Reap the shared warm worker, including its process-group helpers.
+    await readerPythonBridge.internals.kill();
+    // Remaining raw MCP requests already cancel their workers on disconnect.
+    httpServer.closeAllConnections();
+    await closed;
+    await new Promise((resolve) => setImmediate(resolve));
+    clearTimeout(force);
+    process.exit(0);
+  })().catch((error) => {
+    console.error('[mcp] shutdown cleanup failed:', error.message);
+    void readerPythonBridge.internals.kill();
+    httpServer.closeAllConnections();
+  });
+}
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);

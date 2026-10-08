@@ -207,6 +207,7 @@ async function stubPhotos(ctx) {
   const thumb = fs.readFileSync(path.join(ROOT, 'assets/icon-192.png'));
   const large = fs.readFileSync(path.join(ROOT, 'assets/icon-1024.png'));
   const seen = [];
+  const refused = [];
   let mode = 'ok',
     gate = null,
     open = () => {};
@@ -216,12 +217,16 @@ async function stubPhotos(ctx) {
     seen.push(u);
     if (/\/\d+px-[^/]+$/.test(u) && !/\/1280px-/.test(u))
       return route.fulfill({ contentType: 'image/png', body: thumb });
-    if (mode === 'fail') return route.fulfill({ status: 404, body: '' });
+    if (mode === 'fail') {
+      refused.push(u);
+      return route.fulfill({ status: 404, body: '' });
+    }
     if (gate) await gate;
     return route.fulfill({ contentType: 'image/png', body: large });
   });
   return {
     requested: () => seen.slice(),
+    failed: () => refused.slice(),
     hold() {
       gate = new Promise((resolve) => (open = resolve));
     },
@@ -1266,6 +1271,9 @@ async function loadDelta(page) {
       const row = '#genre-list .gp-row[data-gp-id="delta_blues"] [data-ui="lightbox"]';
       await page.waitForSelector(row, { timeout: 15000 });
       await loaded(row + ' img');
+      // Refuse this source before its first enlargement: a successfully
+      // loaded row copy could otherwise satisfy the detail probe from cache.
+      photos.fail();
       await page.click(row);
       const fromRow = await page.evaluate(() => ({
         open: document.getElementById('ui-lightbox').open,
@@ -1283,11 +1291,14 @@ async function loadDelta(page) {
       const detailPhoto = '#genre-detail .gp-media [data-ui="lightbox"]';
       await page.waitForSelector(detailPhoto, { timeout: 10000 });
       await loaded(detailPhoto + ' img');
-      photos.fail();
       await page.click(detailPhoto);
       await page.waitForTimeout(600);
       const failed = await lightbox();
       const detailThumb = await page.$eval(detailPhoto + ' img', (i) => i.getAttribute('src'));
+      check(
+        photos.failed().length > 0,
+        'O. the fallback test received no refused larger photo request'
+      );
       check(
         failed.open && failed.src === detailThumb && failed.natural[0] > 0,
         `O. with no larger copy loading, the enlarged genre photo did not keep its thumb (${JSON.stringify(failed)})`

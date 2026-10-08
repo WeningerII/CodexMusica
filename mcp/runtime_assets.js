@@ -192,6 +192,7 @@ export function createRuntimeAssetReader({
         : null,
       python: inventory?.python || null,
       nltk: inventory?.nltk || null,
+      ...(inventory?.reader ? { reader: inventory.reader } : {}),
     });
     return cached;
   };
