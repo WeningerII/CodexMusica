@@ -93,8 +93,9 @@ python3 quality/corpus_manifest.py --check
 To regenerate this batch after an explicitly reviewed candidate change, run
 `integrate.py` without `--check`, then `prepare_catalog.py` in this directory.
 The latter updates only the ten source registry rows and the batch's complete
-byte-pinned `source_manifest.json`. It preserves the previous Library snapshot's
-source manifest. Recheck population impact before publishing a new all-file
+byte-pinned `source_manifest.json`. The production manifest at `library/catalog_sources.json` separately pins
+the admitted corpus to commit `b4ca30857412b554f1c5708579d52719bf0ae933`;
+its matching Docker build pin uses those exact approved bytes. Recheck population impact before publishing a new all-file
 integrity snapshot.
 
 To build a complete Library snapshot using the existing machinery, run from

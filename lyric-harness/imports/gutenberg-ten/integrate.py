@@ -259,7 +259,7 @@ def build(allow_partial=False):
     return files, summary
 
 
-def main():
+def _main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--allow-partial', action='store_true')
@@ -280,4 +280,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    _main()
