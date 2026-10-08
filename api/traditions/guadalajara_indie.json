@@ -5,7 +5,7 @@
   "lineage": "Troker — complete four-piece NPR Tiny Desk concert published19May2017, including the guest-vocal selection. Producer credits name Frankie Mares drums, Christian Jimenez keys, Diego Franco saxophone, Samo Gonzalez bass, Chay Flores trumpet, DJ Sonicko turntable and Solange Prat vocals. Seven people and all seven credited musical families retained; one separately credited live singer, with embedded turntable media voice count unspecified. The full concert includes Principe Charro, One Thousand Million Eyes, Chapala Blues and Tequila Death. This is the complete dated concert union, not a claim all seven play every moment or the same roster appears on every Troker album. Authored jazz-fusion rendition preserves generic keys with the existing architecture-neutral keyboard owner. Source bass is unspecified; a coherent alder/maple dual-single-coil electric bass with fingerstyle roundwounds is an explicitly authored physical realization, not identification of original bass construction. Tenor sax, Bb trumpet without mute and bebop articulation are compatible authored choices, not source make/register/gesture measurements. Actual turntable credit plus artist description of scratching supports the existing scratch owner; chopped sample gesture remains authored, with embedded source material unspecified. Drumkit physical controls are deliberately authored. All seventeen voice controls preserve unknown physiology; solo-accompanied configuration refers to one credited guest singer, not exclusion of unknown recorded voices. Controlled live room is an authored setting rather than NPR room measurement; no optional apparatus or global tuning asserted.",
   "recipe": "classic guadalajara indie, improv On Frame, fusion branch. solo with instrumental accompaniment, single lead single track no stacking. maple bronze bell bronze machine hammered symmetric pattern drum kit, electronic keyboard unspecified, tenor selmer mark vi canonical 1954 1974 jazz paris saxophone, alder fingerstyle locked electric bass, bach stradivarius 180 canonical American orchestral trumpet, turntable. live tracking.",
   "recipe_chars": 427,
-  "score": 85.921,
+  "score": 85.96,
   "config": {
     "traditions": [
       "guadalajara_indie"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 8.264,
+          "voice_ensemble_config": 8.45,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 2.9315,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 2.9630000000000005,
           "voice_tessitura": 0
         }
       },
@@ -73,7 +73,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 6.499999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 0.8294999999999999,
+          "bearing_edges": 0.8609999999999999,
           "snare_wires": 0,
           "cymbal_alloy": 22.5,
           "cymbal_hammering": 1.4,
@@ -88,8 +88,8 @@
           "keyboard_technique": "electronic_keyboard_melodic_chordal"
         },
         "scores": {
-          "electronic_keyboard_identity": 0.1365,
-          "keyboard_technique": 0.168
+          "electronic_keyboard_identity": 0.3465,
+          "keyboard_technique": 0.1995
         }
       },
       {
@@ -131,7 +131,7 @@
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.3,
-          "fretted_or_not": 0.147,
+          "fretted_or_not": 0.0735,
           "bass_technique": 1.255,
           "electric_bass_string_configuration": 0
         }
@@ -149,11 +149,11 @@
         },
         "scores": {
           "wind_articulation": 3.25,
-          "brass_size": 0.5145,
+          "brass_size": 0.5459999999999999,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 1.3,
           "trumpet_technique": 3.25,
-          "trumpet_bell_metal": 0.5775,
+          "trumpet_bell_metal": 0.40950000000000003,
           "trumpet_maker_school": 1.95
         }
       },
@@ -164,7 +164,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 1.305,
+          "electronic_technique": 1.2,
           "turntable_technique": -0.07
         }
       }

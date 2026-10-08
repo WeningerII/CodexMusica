@@ -3,21 +3,21 @@
   "name": "Late Romantic symphonic",
   "family": "classical",
   "lineage": "Western orchestral classical music tradition spanning the Classical period (Haydn, Mozart symphonic forms ca. 1760-1800), Romantic period (Beethoven through Mahler, ca. 1800-1910), and twentieth-century continuation — characterized by the standardized symphony orchestra ensemble of strings-winds-brass-percussion, the multi-movement symphony, concerto, and tone-poem forms, and the conductor-led-large-ensemble performance model",
-  "recipe": "classic British early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music african-american classical american 21st century classical. silver wound lamb gut core carpathian spruce European maple sycamore maple violin mallets marimba orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, mallets timpani, French orchestra glotin var French cane continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba.",
-  "recipe_chars": 940,
-  "score": 679.027,
+  "recipe": "classic British early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music türk beşleri nacionalismo musical argentino. synthetic carpathian spruce European maple sycamore maple oil varnish violin mallets marimba orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, mallets timpani, French orchestra glotin var French cane continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral yellow brass canonical orchestral rotary valves canonical German orchestral miraphone canonical German orchestral continuous-airflow tuba.",
+  "recipe_chars": 935,
+  "score": 634.493,
   "config": {
     "traditions": [
       "symphonic",
-      "african_american_classical",
-      "american_21st_century_classical"
+      "turkish_five_composers",
+      "argentine_nationalist_art_music"
     ],
     "instruments": [
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_pizzicato",
-          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
@@ -28,16 +28,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 22.124999999999993,
-          "orch_strings": 1.49,
-          "orch_top_wood": 18.994999999999994,
-          "orch_back_wood": 24.449999999999992,
-          "orch_varnish": 23.624999999999993,
-          "orch_setup_period": 22.604999999999997,
+          "bowed_technique": 21.75,
+          "orch_strings": 1.7312499999999997,
+          "orch_top_wood": 15.369999999999997,
+          "orch_back_wood": 20.825,
+          "orch_varnish": 20,
+          "orch_setup_period": 19.26982142857143,
           "orch_bow": 3.4249999999999994,
-          "orch_bow_stick": 25.80999999999999,
-          "orch_articulation": 1.6899999999999997,
-          "orch_rosin": 23.624999999999993
+          "orch_bow_stick": 22.01321428571428,
+          "orch_articulation": 2.795,
+          "orch_rosin": 20
         }
       },
       {
@@ -54,15 +54,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 18.124999999999993,
-          "grand_piano_size": 4.159999999999999,
-          "grand_piano_brand": 4.8,
-          "piano_hammer": 27.57999999999999,
-          "piano_rim": 26.769999999999996,
-          "piano_soundboard": 23.624999999999993,
-          "piano_pinblock": 24.624999999999993,
-          "piano_plate": 25.069999999999993,
-          "piano_pitch_standard": 28.429999999999993
+          "keyboard_technique": 14.499999999999998,
+          "grand_piano_size": 6.870178571428571,
+          "grand_piano_brand": 6.125,
+          "piano_hammer": 23.783214285714287,
+          "piano_rim": 23.144999999999996,
+          "piano_soundboard": 20.198214285714283,
+          "piano_pinblock": 21,
+          "piano_plate": 20.99375,
+          "piano_pitch_standard": 26.89660714285714
         }
       },
       {
@@ -73,9 +73,9 @@
           "celesta_context": "celesta_orch"
         },
         "scores": {
-          "keyboard_technique": 18.124999999999993,
-          "celesta_model": 1.645,
-          "celesta_context": 5.084999999999999
+          "keyboard_technique": 14.499999999999998,
+          "celesta_model": 3.3651785714285714,
+          "celesta_context": 5.745714285714285
         }
       },
       {
@@ -86,9 +86,9 @@
           "glockenspiel_mallet": "glockenspiel_brass"
         },
         "scores": {
-          "percussion_technique": 4,
-          "glockenspiel_size": 1.195,
-          "glockenspiel_mallet": 5.540000000000001
+          "percussion_technique": 7.25,
+          "glockenspiel_size": 1.3,
+          "glockenspiel_mallet": 8.793214285714285
         }
       },
       {
@@ -99,8 +99,8 @@
           "marimba_orchestral_bar": "marimba_orchestral_padauk"
         },
         "scores": {
-          "percussion_technique": 4,
-          "marimba_size": 9.184999999999999,
+          "percussion_technique": 7.25,
+          "marimba_size": 7.539999999999998,
           "marimba_orchestral_bar": 0.045
         }
       },
@@ -109,12 +109,12 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "xylophone_size": "xylophone_grand",
-          "xylophone_bar": "xylophone_synth"
+          "xylophone_bar": "xylophone_padauk"
         },
         "scores": {
-          "percussion_technique": 4,
-          "xylophone_size": 1.395,
-          "xylophone_bar": 0.195
+          "percussion_technique": 7.25,
+          "xylophone_size": 1.59375,
+          "xylophone_bar": 0.045
         }
       },
       {
@@ -125,9 +125,9 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": 4,
-          "timpani_size": 10.784999999999998,
-          "timpani_head": 0.8950000000000002
+          "percussion_technique": 7.25,
+          "timpani_size": 10.883392857142855,
+          "timpani_head": 0.9100000000000003
         }
       },
       {
@@ -140,11 +140,11 @@
           "bassoon_context": "bassoon_chamber"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "bassoon_school": 2.14,
-          "bassoon_body_wood": 0.9749999999999999,
-          "bassoon_reed": 1.215,
-          "bassoon_context": 3.3799999999999994
+          "wind_articulation": 14.749999999999998,
+          "bassoon_school": 3.4650000000000003,
+          "bassoon_body_wood": 0.7799999999999999,
+          "bassoon_reed": 1.02,
+          "bassoon_context": 3.5749999999999993
         }
       },
       {
@@ -156,24 +156,24 @@
           "contrabassoon_body_wood": "contrabassoon_maple_canonical"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
+          "wind_articulation": 14.749999999999998,
           "contrabassoon_school": 0.3,
-          "contrabassoon_context": 1.495,
-          "contrabassoon_body_wood": 0.9749999999999999
+          "contrabassoon_context": 2.145,
+          "contrabassoon_body_wood": 0.7799999999999999
         }
       },
       {
         "id": "english_horn",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "english_horn_school": "english_horn_american",
-          "english_horn_context": "english_horn_chamber",
+          "english_horn_school": "english_horn_french",
+          "english_horn_context": "english_horn_film",
           "english_horn_body_wood": "english_horn_resin_composite"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "english_horn_school": 0.9100000000000003,
-          "english_horn_context": 2.1449999999999996,
+          "wind_articulation": 14.749999999999998,
+          "english_horn_school": 1.4482142857142857,
+          "english_horn_context": 0.9100000000000003,
           "english_horn_body_wood": 0.9100000000000003
         }
       },
@@ -187,11 +187,11 @@
           "oboe_maker_school": "oboe_loree_paris"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "oboe_reed": 1.6,
-          "oboe_class": 2.395,
-          "oboe_body_wood": 7.214999999999997,
-          "oboe_maker_school": 1.8850000000000002
+          "wind_articulation": 14.749999999999998,
+          "oboe_reed": 3.3201785714285714,
+          "oboe_class": 4.313928571428571,
+          "oboe_body_wood": 5.329999999999998,
+          "oboe_maker_school": 1.3
         }
       },
       {
@@ -202,9 +202,9 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "french_horn_bore": 1.6,
-          "french_horn_metal": 1.585
+          "wind_articulation": 14.749999999999998,
+          "french_horn_bore": 3.3201785714285714,
+          "french_horn_metal": 1.5882142857142856
         }
       },
       {
@@ -212,18 +212,18 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "tuba_pitch": "tuba_cc",
-          "tuba_context": "tuba_brass_band",
+          "tuba_context": "tuba_concerto",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_rotary_german",
-          "tuba_maker_school": "tuba_besson_british"
+          "tuba_maker_school": "tuba_miraphone_german"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "tuba_pitch": 3.35,
-          "tuba_context": 6.549999999999999,
-          "tuba_bell_metal": 3.7700000000000005,
-          "tuba_valve_system": 2.08,
-          "tuba_maker_school": 2.4699999999999998
+          "wind_articulation": 14.749999999999998,
+          "tuba_pitch": 3.6201785714285712,
+          "tuba_context": 7.67,
+          "tuba_bell_metal": 5.643392857142857,
+          "tuba_valve_system": 3.77,
+          "tuba_maker_school": 3.77
         }
       },
       {
@@ -236,11 +236,11 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "euph_use": 1.645,
-          "euphonium_pitch": 1.9449999999999998,
-          "euphonium_bell_metal": 2.4699999999999998,
-          "euphonium_maker_school": 2.4699999999999998
+          "wind_articulation": 14.749999999999998,
+          "euph_use": 1.8432142857142857,
+          "euphonium_pitch": 2.1432142857142855,
+          "euphonium_bell_metal": 2.6649999999999996,
+          "euphonium_maker_school": 2.6649999999999996
         }
       },
       {
@@ -251,8 +251,8 @@
           "piccolo_context": "piccolo_solo"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "piccolo_material": 1.55,
+          "wind_articulation": 14.749999999999998,
+          "piccolo_material": 3.2701785714285716,
           "piccolo_context": 2.47
         }
       },
@@ -264,9 +264,9 @@
           "alto_flute_context": "alto_flute_flute_choir"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "alto_flute_school": 0.8950000000000002,
-          "alto_flute_context": 3.3799999999999994
+          "wind_articulation": 14.749999999999998,
+          "alto_flute_school": 0.9100000000000003,
+          "alto_flute_context": 3.5749999999999993
         }
       },
       {
@@ -277,8 +277,8 @@
           "bass_flute_context": "bass_flute_flute_choir"
         },
         "scores": {
-          "wind_articulation": 18.374999999999993,
-          "bass_flute_pitch": 2.3949999999999996,
+          "wind_articulation": 14.749999999999998,
+          "bass_flute_pitch": 4.824107142857143,
           "bass_flute_context": 2.885
         }
       }

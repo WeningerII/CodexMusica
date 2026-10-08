@@ -1,16 +1,17 @@
 {
-  "id": "rumba_lingala",
-  "name": "Rumba Lingala",
+  "id": "congolese_rumba",
+  "merged_from": "rumba_lingala",
+  "name": "Congolese rumba",
   "family": "global",
-  "lineage": "The Lingala-language dance-song idiom of Léopoldville and Brazzaville from the late 1940s to the mid-1960s, codified by Joseph Kabasele's African Jazz and Franco's O.K. Jazz out of Cuban son records circulating on the GV series, setting sweet paired-tenor Lingala vocals over clean single-coil guitar arpeggios, clave-locked congas and a mid-tempo 4/4 that opens into an accelerating seben instrumental section.",
-  "recipe": "classic Central African 1947-1949 rumba lingala, functional Song, congolese rumba branch, son salsa Cuban, tropical song functional song boogaloo salsa peruana. thick, breath veiled tone, straight onset, interlocked note trading. orange amp British heavy crunch mahogany rosewood clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, claves, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, vintage ambassador asymmetric brushes-and-sticks drum kit. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
-  "recipe_chars": 803,
-  "score": 272.142,
+  "lineage": "1940s-1960s Congolese-Kinshasa-and-Brazzaville Cuban-rumba-influenced urban dance music — codified through Joseph Kabasele (Grand Kallé) and African Jazz (Indépendance Cha-Cha 1960, the de facto anthem of Congolese independence) and Luambo Makiadi (Franco) and OK Jazz; built on the GV series Cuban son 78 records that came to the Congo through Belgian colonial trade in the 1930s-40s, then reinterpreted through Congolese guitar-and-voice ensembles into a distinct genre",
+  "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song soukous goombay. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
+  "recipe_chars": 739,
+  "score": 285.407,
   "config": {
     "traditions": [
-      "rumba_lingala",
-      "boogaloo",
-      "salsa_peruana"
+      "congolese_rumba",
+      "soukous",
+      "bahamian_goombay_calypso"
     ],
     "instruments": [
       {
@@ -28,28 +29,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 11.844999999999997,
-          "voice_quality": 12.857499999999995,
+          "voice_register": 15.034999999999997,
+          "voice_quality": 18.00499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.82,
-          "voice_articulation": 17.159999999999997,
-          "voice_microtone": 16.964999999999993,
-          "voice_tradition": 9.760000000000002,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 3.640000000000001,
-          "voice_speech_song": 23.984999999999992,
-          "voice_ensemble_config": 16.444999999999997,
-          "voice_ornament_system": 0.7,
-          "voice_pitch_organization": 1.7499999999999998,
-          "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 7.8100000000000005
+          "voice_vibrato": 8.204999999999998,
+          "voice_articulation": 19.955000000000002,
+          "voice_microtone": 19.759999999999998,
+          "voice_tradition": 24.53749999999999,
+          "voice_mechanism_compound": 2.6,
+          "voice_estill_quality": 4.562500000000001,
+          "voice_speech_song": 28.145000000000003,
+          "voice_ensemble_config": 21.19,
+          "voice_ornament_system": 1.4874999999999998,
+          "voice_pitch_organization": 2.0250000000000004,
+          "voice_processing_chain": 3.835,
+          "voice_multitrack_stack": 7.07375
         }
       },
       {
@@ -60,36 +61,36 @@
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
-          "string_material": "nickel_plated",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
-          "string_tuning": "drop_d",
+          "finish": "nitro",
+          "string_tuning": "drop_c",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6,
-          "amp_make": 3.9900000000000007,
-          "body_wood": 3.54,
-          "neck_wood": 3.54,
-          "fretboard": 3.49,
-          "pickup_magnet": 0.54,
-          "string_material": 0.54,
-          "string_gauge": 3.54,
-          "bridge": 1.15,
-          "scale_length": 3.9299999999999997,
-          "finish": 0.15,
-          "string_tuning": 1.2750000000000001,
+          "electric_technique": 6.575625000000001,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 2.26375,
+          "neck_wood": 2.26375,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.195,
+          "string_material": 0,
+          "string_gauge": 2.26375,
+          "bridge": 0.845,
+          "scale_length": 2.275,
+          "finish": 0,
+          "string_tuning": 0.585,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
@@ -98,14 +99,27 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.517500000000001,
-          "body_wood": 3.9299999999999997,
-          "pickup_config": 0.195,
-          "string_type": 6.37,
-          "scale_length_b": 4.04,
-          "fretted_or_not": 0.3,
-          "bass_technique": 5.875,
+          "amp_make": 2.0149999999999997,
+          "body_wood": 2.73,
+          "pickup_config": 0.65,
+          "string_type": 7.909999999999998,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0.39,
+          "bass_technique": 7.624999999999998,
           "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.985000000000003,
+          "drumhead": 7.619999999999999,
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -117,67 +131,65 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 3.39,
-          "conga_set": 0.585,
-          "conga_skin": 6.045,
-          "conga_shell_wood": 6.045
+          "percussion_technique": 4.29,
+          "conga_set": 1.17,
+          "conga_skin": 3.499999999999999,
+          "conga_shell_wood": 3.499999999999999
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0.18,
+          "maracas_filling": 0.32999999999999996
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "french_musette",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
+        },
+        "scores": {
+          "free_reed_technique": 1.9599999999999997,
+          "accordion_reed_material": 2.26375,
+          "musette_offset": 1.25,
+          "reed_config": 3.0949999999999993,
+          "bellows": 0.135,
+          "voicing_chamber": 0.315,
+          "accordion_maker_school": 3.965
         }
       },
       {
         "id": "claves",
         "slots": {
-          "claves_pattern": "claves_rumba",
-          "claves_wood": "claves_cuban_hardwood"
+          "claves_pattern": "claves_bembe",
+          "claves_wood": "claves_rosewood"
         },
         "scores": {
-          "claves_pattern": 9.035,
-          "claves_wood": 0.345
-        }
-      },
-      {
-        "id": "saxophone",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "sax_size": "baritone_sax",
-          "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_selmer_mark_vi"
-        },
-        "scores": {
-          "wind_articulation": 6.797499999999999,
-          "sax_size": 3.54,
-          "sax_reed": 0.54,
-          "sax_body_alloy": 5.875,
-          "sax_mouthpiece": 0.54,
-          "sax_technique": 5.875,
-          "sax_maker_school": 7.0550000000000015
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
-        },
-        "scores": {
-          "drum_technique": 19.239999999999995,
-          "drumhead": 6.770000000000001,
-          "drum_kit_kick_pedal": 0
+          "claves_pattern": 7.539999999999998,
+          "claves_wood": 0.12999999999999998
         }
       }
     ],
     "room": "kinshasa_african_jazz_studio",
     "archetype": "arch_kinshasa_merchant_rumba",
     "inline_chain": {
-      "mic": "mic_u47_tube_neumann",
-      "pre": "tube_pre",
+      "mic": "ribbon_passive",
+      "pre": "pre_tube_german_v72",
       "console": "console_german_tube_50s",
-      "comp": "comp_la2a_optical",
-      "eq": null,
-      "amp": null,
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
       "medium": "tape_15ips"
     },
     "tuning": "soukous_rumba_seben_4_4",
@@ -188,10 +200,50 @@
   "source": {
     "tuning": "soukous_rumba_seben_4_4",
     "room": "kinshasa_african_jazz_studio",
-    "chain_mic": "mic_u47_tube_neumann",
-    "chain_pre": "tube_pre",
-    "chain_comp": "comp_la2a_optical",
+    "parts": {
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "conga_set": "conga_proper",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds",
+      "claves_pattern": "claves_rumba",
+      "claves_wood": "claves_cuban_hardwood",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "ribbon_passive",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_german_tube_50s"
+    "chain_console": "console_german_tube_50s",
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

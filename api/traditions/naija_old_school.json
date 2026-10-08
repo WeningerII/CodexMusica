@@ -5,7 +5,7 @@
   "lineage": "Nigerian urban pop of roughly 1995-2008, formed in Lagos and Ajegunle out of galala, reggae-dancehall and imported hip-hop and codified by Daddy Showkey, Plantashun Boiz, Tony Tetuila, P-Square and Kennis Music radio — mid-tempo 100-115 BPM keyboard-and-drum-machine tracks with dancehall-derived bounce, talking-drum accents, sung Pidgin choruses over rapped verses, and thin bright General MIDI-era synth timbres.",
   "recipe": "classic African mid-2000s naija old school, functional Song, African pop branch, African dance electronic dance, Afro-diasporic MC rhythm, reggae diaspora bass system kaneka afroswing. thick, rap, slow rate, interlocked note trading. TR-808, melodic pitched sampler, plucked short envelope analog poly synth, iroko alternative west African talking drum, orange amp British heavy crunch alder pyramid pure nickel bass electric bass. large tropical 1965-1985 mid-major EMI. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 613,
-  "score": 230.893,
+  "score": 229.332,
   "config": {
     "traditions": [
       "naija_old_school",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.609999999999992,
-          "voice_quality": 7.444999999999999,
+          "voice_register": 12.414999999999992,
+          "voice_quality": 7.1,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.12,
           "voice_articulation": 19.889999999999997,
           "voice_microtone": 20.734999999999992,
-          "voice_tradition": 12.325,
+          "voice_tradition": 11.919999999999998,
           "voice_mechanism_compound": 4.42,
           "voice_estill_quality": 3.835000000000001,
           "voice_speech_song": 23.205,
           "voice_ensemble_config": 19.174999999999997,
           "voice_ornament_system": 2.7950000000000017,
-          "voice_pitch_organization": 2.0749999999999997,
-          "voice_processing_chain": 7.204999999999999,
+          "voice_pitch_organization": 1.8349999999999997,
+          "voice_processing_chain": 7.205,
           "voice_multitrack_stack": 2.3724999999999996
         }
       },
@@ -77,8 +77,8 @@
         "scores": {
           "electronic_technique": 2.14,
           "sampler_archetypes": 2.69,
-          "sampler_bit_depth": 2.1800000000000006,
-          "sampler_workflow": 3.1900000000000004,
+          "sampler_bit_depth": 2.1350000000000007,
+          "sampler_workflow": 3.3400000000000003,
           "sampler_classic_context": 22.489999999999995
         }
       },
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 11.499999999999998,
+          "electronic_technique": 11.349999999999998,
           "poly_archetypes": 0.54,
           "poly_voices": 0.54,
           "poly_maker_lineage": -1.355
@@ -125,10 +125,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.2250000000000005,
+          "amp_make": 3.1800000000000006,
           "body_wood": 3.38,
           "pickup_config": 0.5399999999999999,
-          "string_type": 7.279999999999999,
+          "string_type": 6.994999999999999,
           "scale_length_b": 2.975,
           "fretted_or_not": 0.045,
           "bass_technique": 9.2,

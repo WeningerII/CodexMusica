@@ -3,53 +3,53 @@
   "name": "Emoviolence",
   "family": "rock_punk",
   "lineage": "Coined by In/Humanity in mid-1990s Columbia, South Carolina and realized by Orchid, Usurp Synapso and Jeromes Dream — the fusion of powerviolence's blast-beat/slow-crawl whiplash with screamo's dissonant chordal guitar, songs typically 30-90 seconds, tempos alternating 240+ BPM blasts with half-time sludge, vocals uniformly shrieked, recorded cheap and mastered hot on split 7-inches.",
-  "recipe": "classic North American 1994-1996 emoviolence, distorted Rock, emo branch, punk distorted rock, sludge metal mincecore. thick, larynx lowered, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 534,
-  "score": 318.691,
+  "recipe": "classic North American 1994-1996 emoviolence, distorted Rock, emo branch, punk distorted rock, sludge metal mincecore crack rock steady. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 555,
+  "score": 295.229,
   "config": {
     "traditions": [
       "emoviolence",
-      "sludge",
-      "mincecore"
+      "mincecore",
+      "crack_rock_steady"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 18.49,
-          "voice_quality": 7.500000000000001,
+          "voice_register": 14.614999999999997,
+          "voice_quality": 5.005000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.42,
-          "voice_articulation": 20.214999999999993,
-          "voice_microtone": 18.500000000000004,
-          "voice_tradition": 3.5750000000000006,
-          "voice_mechanism_compound": 20.99925,
-          "voice_estill_quality": 4.874750000000001,
-          "voice_speech_song": 15.924999999999994,
-          "voice_ensemble_config": 16.57499999999999,
-          "voice_ornament_system": 0.325,
-          "voice_pitch_organization": 3.640000000000001,
-          "voice_processing_chain": 4.874999999999999,
-          "voice_multitrack_stack": 2.4049999999999994
+          "voice_vibrato": 4.875,
+          "voice_articulation": 19.889999999999997,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 3.380000000000001,
+          "voice_mechanism_compound": 16.8025,
+          "voice_estill_quality": 5.219750000000001,
+          "voice_speech_song": 16.444999999999997,
+          "voice_ensemble_config": 16.834999999999994,
+          "voice_ornament_system": 0.35,
+          "voice_pitch_organization": 3.5950000000000006,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 3.25
         }
       },
       {
@@ -70,25 +70,25 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.445,
-          "amp_make": 22.295,
-          "body_wood": 6.5649999999999995,
-          "neck_wood": 3.185,
-          "fretboard": 3.1200000000000006,
+          "electric_technique": 15.015,
+          "amp_make": 21.319999999999997,
+          "body_wood": 6.89,
+          "neck_wood": 3.5995,
+          "fretboard": 3.5495,
           "pickup_magnet": 1.3,
           "pickup_winding": 1.195,
           "string_material": 0.09,
-          "bridge": 3.185,
-          "scale_length": 4.615,
-          "string_gauge": 4.485,
+          "bridge": 3.5995,
+          "scale_length": 4.095,
+          "string_gauge": 4.7945,
           "finish": 0.195,
-          "string_tuning": 14.365
+          "string_tuning": 11.830000000000002
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
@@ -98,26 +98,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.404500000000002,
-          "body_wood": 3.185,
+          "amp_make": 8.970000000000002,
+          "body_wood": 3.6399999999999997,
           "pickup_config": 0.39,
-          "string_type": 24.117000000000008,
-          "scale_length_b": 3.185,
+          "string_type": 19.337500000000002,
+          "scale_length_b": 3.5995,
           "fretted_or_not": 0.045,
-          "bass_technique": 26.17000000000001,
+          "bass_technique": 23.17,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.750000000000007,
-          "drumhead": 3.185,
+          "drum_technique": 18.492499999999996,
+          "drumhead": 3.5995,
           "drum_kit_kick_pedal": 0
         }
       }

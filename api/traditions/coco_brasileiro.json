@@ -3,14 +3,14 @@
   "name": "Coco brasileiro (NE Brazilian work-song)",
   "family": "global",
   "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
-  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion samba de roda carimbó. group vocals, live take. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 411,
-  "score": 37.61,
+  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion tambor de crioula bumba-meu-boi do maranhão. group vocals, live take. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 419,
+  "score": 38.695,
   "config": {
     "traditions": [
       "coco_brasileiro",
-      "samba_de_roda",
-      "carimbo"
+      "tambor_de_crioula",
+      "bumba_meu_boi_maranhao"
     ],
     "instruments": [
       {
@@ -46,10 +46,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.435,
-          "voice_ensemble_config": 0.7050000000000001,
+          "voice_ensemble_config": 0.845,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.195,
+          "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0.525,
           "voice_tessitura": 0
         }
@@ -76,12 +76,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 3.3250000000000006,
-          "pandeiro_size": 0.78,
-          "pandeiro_context": 4.29,
-          "pandeiro_head": 10.79,
-          "pandeiro_shell_wood": 10.79,
-          "pandeiro_jingles": 10.79
+          "percussion_technique": 1.2,
+          "pandeiro_size": 2.669999999999999,
+          "pandeiro_context": 3.3799999999999994,
+          "pandeiro_head": 10.53,
+          "pandeiro_shell_wood": 10.53,
+          "pandeiro_jingles": 10.53
         }
       }
     ],

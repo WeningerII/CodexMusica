@@ -3,14 +3,14 @@
   "name": "Doom Blues",
   "family": "rock",
   "lineage": "Slow, minor-key blues rendered through doom metal weight, formed in Birmingham 1969-1972 when Black Sabbath recast Delta twelve-bars in tritone-heavy riffs, and revived from the 1990s by Down and Orange Goblin — 55-85 BPM, downtuned humbucker guitar through cranked valve heads, blues pentatonic bends stretched over sustained power chords, and a keening or bellowed vocal riding a lurching half-time drum feel.",
-  "recipe": "classic Midwestern American 1969-1972 doom blues, distorted Rock, doom branch, sludge metal, blues electric functional song, classic distorted rock atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood low output no compression power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 722,
-  "score": 446.47,
+  "recipe": "classic Midwestern American 1969-1972 doom blues, distorted Rock, doom branch, sludge metal, blues electric functional song, classic distorted rock german blues freakbeat. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 700,
+  "score": 381.358,
   "config": {
     "traditions": [
       "doom_blues",
-      "sludge",
-      "atmospheric_sludge"
+      "german_blues",
+      "freakbeat"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 32.325,
-          "voice_quality": 22.239999999999995,
+          "voice_register": 34.22500000000002,
+          "voice_quality": 11.794999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.495,
-          "voice_articulation": 15.729999999999997,
-          "voice_microtone": 21.674999999999997,
-          "voice_tradition": 9.522499999999999,
-          "voice_mechanism_compound": 28.974999999999998,
-          "voice_estill_quality": 4.450000000000001,
-          "voice_speech_song": 17.094999999999995,
-          "voice_ensemble_config": 16.509999999999998,
-          "voice_ornament_system": 1.57,
-          "voice_pitch_organization": 2.295,
-          "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 5.565
+          "voice_vibrato": 17.645000000000003,
+          "voice_articulation": 14.234999999999996,
+          "voice_microtone": 17.885,
+          "voice_tradition": 8.97,
+          "voice_mechanism_compound": 14.27,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 16.769999999999996,
+          "voice_ensemble_config": 14.754999999999995,
+          "voice_ornament_system": 0.09,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 4.8950000000000005,
+          "voice_multitrack_stack": 3.615
         }
       },
       {
@@ -61,36 +61,36 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.874999999999996,
-          "amp_make": 27.044999999999998,
-          "body_wood": 6.434999999999999,
-          "neck_wood": 0.195,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.045,
-          "pickup_winding": 1.04,
-          "string_material": 0.045,
-          "bridge": 0.845,
-          "scale_length": 6.629999999999998,
-          "string_gauge": 2.275,
-          "finish": 0,
-          "string_tuning": 20.605
+          "electric_technique": 15.77,
+          "amp_make": 17.28,
+          "body_wood": 2.6,
+          "neck_wood": 0.135,
+          "fretboard": 0.59,
+          "pickup_magnet": 0.09,
+          "pickup_winding": 1.66,
+          "string_material": 0.09,
+          "bridge": 0.65,
+          "scale_length": 2.795,
+          "string_gauge": 2.08,
+          "finish": 0.045,
+          "string_tuning": 14.040000000000001
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 27.044999999999998,
-          "body_wood": 0.195,
-          "pickup_config": 0,
-          "string_type": 24.195,
-          "scale_length_b": 1.3299999999999998,
+          "amp_make": 17.28,
+          "body_wood": 0.59,
+          "pickup_config": 0.5,
+          "string_type": 17.880000000000003,
+          "scale_length_b": 1.18,
           "fretted_or_not": 0.135,
-          "bass_technique": 22.795,
+          "bass_technique": 15.840000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.82,
-          "drumhead": 0.7149999999999999,
+          "drum_technique": 15.570000000000002,
+          "drumhead": 0.96,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,12 +132,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.5399999999999999,
-          "harmonica_comb": 13.264999999999997,
-          "harmonica_reed": 12.229999999999997,
-          "harmonica_technique": 14.389999999999999,
-          "harmonica_maker_school": 12.494999999999997,
-          "harmonica_tuning": 5.9799999999999995
+          "harmonica_type": 0.39,
+          "harmonica_comb": 19.57,
+          "harmonica_reed": 17.885,
+          "harmonica_technique": 20.54,
+          "harmonica_maker_school": 20.025,
+          "harmonica_tuning": 9.1
         }
       }
     ],

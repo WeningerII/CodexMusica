@@ -5,7 +5,7 @@
   "lineage": "Jazz trombone spans ensemble brass writing and agile solo improvisation. Modern players such as Steve Turre carry the instrument’s broad vocal-like tone into small groups with other horns and a responsive rhythm section.",
   "recipe": "classic modern jazz trombone, improv On Frame, American jazz branch. yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore single line trombone, yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 599,
-  "score": 107.216,
+  "score": 106.932,
   "config": {
     "traditions": [
       "jazz_trombone"
@@ -25,7 +25,7 @@
         "scores": {
           "wind_articulation": -0.05,
           "trombone_type": 12.3865,
-          "trombone_mouthpiece": 3.167,
+          "trombone_mouthpiece": 2.957,
           "trombone_mute": 0.147,
           "trombone_technique": 12.481,
           "trombone_bell_metal": 1.4365,
@@ -47,8 +47,8 @@
           "wind_articulation": -0.05,
           "sax_size": -0.035,
           "sax_reed": 0.1785,
-          "sax_body_alloy": 4.3485,
-          "sax_mouthpiece": 0,
+          "sax_body_alloy": 4.275,
+          "sax_mouthpiece": 0.1365,
           "sax_technique": -0.05,
           "sax_maker_school": 1.3
         }
@@ -69,10 +69,10 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.168,
-          "piano_hammer": 3.154,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": 3.185,
           "piano_rim": 3.185,
-          "piano_soundboard": 2.59775,
+          "piano_soundboard": 2.49275,
           "piano_pinblock": 2.45,
           "piano_plate": 2.45,
           "piano_pitch_standard": 4.9399999999999995
@@ -85,7 +85,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.23099999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 11.25
         }
       },
@@ -106,16 +106,16 @@
         },
         "scores": {
           "drum_technique": 9.49,
-          "drumhead": 0.063,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.252,
+          "shell_wood": 0.2835,
           "shell_thickness": 0,
-          "bearing_edges": 0.16149999999999998,
+          "bearing_edges": 0.22449999999999998,
           "snare_wires": 0.147,
-          "cymbal_alloy": 11.246999999999998,
+          "cymbal_alloy": 11.351999999999999,
           "cymbal_hammering": 11.641,
-          "cymbal_lathing": 2.78925,
-          "cymbal_finish": 0.063
+          "cymbal_lathing": 2.68425,
+          "cymbal_finish": 0
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Dreamo connects emo-related songwriting with dreamy, reverberant guitar textures. Bands balance direct emotional delivery with softer or hazier approaches to recording and arrangement.",
   "recipe": "classic dreamo, distorted Rock, emo branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 312,
-  "score": 19.97,
+  "score": 20.054,
   "config": {
     "traditions": [
       "dreamo"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.867,
+          "voice_ensemble_config": 2.9299999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.25,
-          "voice_multitrack_stack": 0.3045,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.6824999999999999,
-          "neck_wood": 0.5459999999999999,
+          "body_wood": 0.7139999999999999,
+          "neck_wood": 0.5774999999999999,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 1.0919999999999999,
+          "scale_length": 1.155,
           "string_gauge": 0.3045,
           "finish": 0.063,
-          "string_tuning": 0.1365
+          "string_tuning": 0.0315
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6824999999999999,
+          "body_wood": 0.7139999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,

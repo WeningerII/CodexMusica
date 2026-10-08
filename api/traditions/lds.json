@@ -5,7 +5,7 @@
   "lineage": "Latter-day Saint sacred music — hymns, testimony songs and devotional repertoire.",
   "recipe": "classic lds, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 229,
-  "score": 2.359,
+  "score": 2.462,
   "config": {
     "traditions": [
       "lds"
@@ -67,12 +67,12 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.294,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.39,
           "piano_hammer": -0.1,
           "piano_rim": 0.26,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
         }

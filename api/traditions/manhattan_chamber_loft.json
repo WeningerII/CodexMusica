@@ -3,14 +3,14 @@
   "name": "Manhattan-chamber loft-recording",
   "family": "global",
   "lineage": "Manhattan-loft-school chamber-recording aesthetic codified through 1970s-1980s minimalist composers recording in downtown Manhattan converted-warehouse loft spaces — Steve Reich (Music for 18 Musicians 1976), Philip Glass (Glassworks 1982), Meredith Monk, and the Knitting Factory-adjacent ecosystem; characterized by ensemble close-tracking, dry-room aesthetic, and minimalist compositional architecture",
-  "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant indeterminacy and aleatoric second viennese school. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, yellow brass modern standard yamaha custom 875ex modern Japanese premium multiphonic saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 729,
-  "score": 220.11,
+  "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant nacionalismo musical argentino afrocubanismo. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 735,
+  "score": 236.292,
   "config": {
     "traditions": [
       "manhattan_chamber_loft",
-      "indeterminacy_aleatoric",
-      "second_viennese_school"
+      "argentine_nationalist_art_music",
+      "afrocubanismo_concert"
     ],
     "instruments": [
       {
@@ -19,7 +19,7 @@
           "keyboard_technique": "keyboard_minimalist_repeated",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -28,21 +28,21 @@
         },
         "scores": {
           "keyboard_technique": 5,
-          "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 11.875,
+          "grand_piano_size": 3.0549999999999997,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 11.540000000000001,
           "piano_rim": 9.185,
-          "piano_soundboard": 8.75,
+          "piano_soundboard": 8.9,
           "piano_pinblock": 8.75,
           "piano_plate": 11,
-          "piano_pitch_standard": 9.440000000000001
+          "piano_pitch_standard": 12.240000000000002
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "silver_wound_lamb_gut_violin",
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
@@ -53,22 +53,22 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 3.4,
-          "orch_strings": 1.625,
-          "orch_top_wood": 7.125,
-          "orch_back_wood": 12.415000000000001,
+          "bowed_technique": 7.375,
+          "orch_strings": 0.9099999999999999,
+          "orch_top_wood": 7.475,
+          "orch_back_wood": 11.96,
           "orch_varnish": 8.75,
           "orch_setup_period": 11,
-          "orch_bow": 1.145,
+          "orch_bow": 1.445,
           "orch_bow_stick": 10.2,
-          "orch_articulation": 1,
-          "orch_rosin": 12.415000000000001
+          "orch_articulation": 1.15,
+          "orch_rosin": 13.260000000000002
         }
       },
       {
         "id": "cello",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
+          "bowed_technique": "bowed_pizzicato",
           "cello_strings": "cello_synthetic",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
@@ -79,7 +79,7 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 3.4,
+          "bowed_technique": 7.375,
           "cello_strings": 3.7700000000000005,
           "cello_top_wood": 5.5,
           "cello_back_wood": 9.14,
@@ -93,21 +93,21 @@
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_multiphonic_avant",
+          "wind_articulation": "wind_continuous_legato",
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_multiphonic_avant",
+          "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 4.875,
-          "sax_size": 0.195,
+          "wind_articulation": 3.2,
+          "sax_size": 0.65,
           "sax_reed": 0.9099999999999999,
-          "sax_body_alloy": 11.24,
+          "sax_body_alloy": 12.040000000000001,
           "sax_mouthpiece": 0.6299999999999999,
-          "sax_technique": 3.375,
+          "sax_technique": 2.5,
           "sax_maker_school": 2.8600000000000003
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Softer-romantic style of salsa developed in mid-1980s Miami and New York from older salsa dura. Reduced rhythmic-aggression, simpler arrangements, slower-mid-tempo, explicit romantic-love-and-relationship lyric content. Emerged through Latin-Caribbean commercial-radio-targeting and became dominant late-1980s-and-1990s salsa-mainstream. RMM Records and producer Sergio George consolidated canonical sound.",
   "recipe": "classic North American 1984-1986 salsa romántica, groove Percussion, son salsa branch, Latin am troubadour ballad poetry milonga folklore surero. thick, close mic intimate, slow rate, interlocked note trading. cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 826,
-  "score": 219.652,
+  "score": 217.44,
   "config": {
     "traditions": [
       "salsa_romantica",
@@ -38,7 +38,7 @@
           "voice_quality": 8.8725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.752499999999999,
+          "voice_vibrato": 5.384999999999999,
           "voice_articulation": 19.304999999999993,
           "voice_microtone": 19.304999999999993,
           "voice_tradition": 6.532500000000001,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 19.174999999999994,
           "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 8.059999999999999,
-          "voice_multitrack_stack": 8.035
+          "voice_processing_chain": 8.105,
+          "voice_multitrack_stack": 8.425
         }
       },
       {
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": 2.95,
-          "grand_piano_size": 3.8799999999999994,
-          "grand_piano_brand": 7.914999999999999,
-          "piano_hammer": 3.7549999999999994,
+          "grand_piano_size": 3.6849999999999996,
+          "grand_piano_brand": 7.719999999999999,
+          "piano_hammer": 3.5599999999999996,
           "piano_rim": 4.8100000000000005,
           "piano_soundboard": 2.45,
           "piano_pinblock": 0.7149999999999999,
           "piano_plate": 0.45,
-          "piano_pitch_standard": 1.96
+          "piano_pitch_standard": 1.81
         }
       },
       {
@@ -90,12 +90,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.68,
-          "body_wood": 4.419999999999999,
+          "amp_make": 3.4850000000000003,
+          "body_wood": 4.119999999999999,
           "pickup_config": 0.345,
-          "string_type": 5.329999999999999,
-          "scale_length_b": 3.8799999999999994,
-          "fretted_or_not": 0.435,
+          "string_type": 5.1499999999999995,
+          "scale_length_b": 3.6849999999999996,
+          "fretted_or_not": 0.39,
           "bass_technique": 0.12999999999999998,
           "electric_bass_string_configuration": 0
         }
@@ -129,8 +129,8 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 12.185,
-          "timbales_shell": 5.589999999999999,
+          "percussion_technique": 11.945,
+          "timbales_shell": 5.439999999999999,
           "timbales_context": 0.195
         }
       },
@@ -143,7 +143,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 12.185,
+          "percussion_technique": 11.945,
           "conga_set": 0.24,
           "conga_skin": 4.29,
           "conga_shell_wood": 4.29

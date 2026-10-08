@@ -5,7 +5,7 @@
   "lineage": "Peruvian coastal courtship dance with three regional variants (norteña, limeña, serrana) and characteristic guitarra-cajón-vocal ensemble",
   "recipe": "classic Andean mid-1930s marinera peruana, groove Percussion, Latin am branch, Latin am troubadour ballad poetry filipino harana milonga. thick, breath veiled tone, slow rate, interlocked note trading. fingerpicked acoustic guitar, open back Afro peruvian tradition marinera tradition cajon peruano, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. andean altiplano outdoor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 531,
-  "score": 160.252,
+  "score": 160.102,
   "config": {
     "traditions": [
       "marinera",
@@ -91,7 +91,7 @@
         "scores": {
           "choir_size": 9.425,
           "choir_polyphonic_configuration": 3.185,
-          "choir_regional_canonical_configuration": 5.0045,
+          "choir_regional_canonical_configuration": 4.8545,
           "choir_ensemble_repertoire": 8.384999999999998
         }
       }

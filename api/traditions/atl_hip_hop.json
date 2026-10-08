@@ -5,7 +5,7 @@
   "lineage": "Atlanta hip-hop scenes; selected OutKast / Organized Noize soul-funk branch",
   "recipe": "classic modern atl hip hop, mc Rhythm, southern branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, pocket fingerstyle locked electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 439,
-  "score": 48.524,
+  "score": 48.941,
   "config": {
     "traditions": [
       "atl_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 9.75,
+          "voice_quality": 9.705,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.4135,
-          "voice_ensemble_config": 1.155,
+          "voice_speech_song": 9.382,
+          "voice_ensemble_config": 1.365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -59,7 +59,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.7775,
+          "electronic_technique": 5.746,
           "sample_bitdepth": 0.39,
           "sample_swing": 9.1,
           "sample_processing": 0.1365
@@ -79,7 +79,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": -0.07,
           "scale_length_b": 0.1365,
@@ -101,7 +101,7 @@
         "scores": {
           "keyboard_technique": 5,
           "rhodes_model": -0.035,
-          "rhodes_use": 1.7010000000000005,
+          "rhodes_use": 1.9110000000000005,
           "rhodes_tine_material": -0.77,
           "rhodes_hammer_tip": -0.77,
           "rhodes_pickup_position": 1.17

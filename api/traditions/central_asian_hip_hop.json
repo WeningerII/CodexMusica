@@ -5,7 +5,7 @@
   "lineage": "A multi-country Central Asian rap field with local-language and Russian-language branches. Kazakhstan’s Skryptonite supplies the selected Pavlodar-rooted producer-rapper branch.",
   "recipe": "classic modern central asian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler, analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 19.489,
+  "score": 19.472,
   "config": {
     "traditions": [
       "central_asian_hip_hop"
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": -0.035,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.213,
+          "sampler_bit_depth": 0.321,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 6.954999999999999
         }
@@ -79,9 +79,9 @@
         "scores": {
           "electronic_technique": -0.035,
           "oscillator": 0,
-          "filter_topology": 0.159,
+          "filter_topology": 0.108,
           "envelope": 0,
-          "modulation": 0.0735
+          "modulation": 0
         }
       }
     ],

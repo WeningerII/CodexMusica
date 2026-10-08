@@ -3,14 +3,14 @@
   "name": "Vintage Italian Soundtrack",
   "family": "global",
   "lineage": "Vintage Italian soundtrack music draws on the film and studio archives of the 1960s–80s, where jazz, orchestral writing, pop, funk and psychedelic textures served comedy, crime, horror and other screen genres. Reissue and licensing communities around CAM Sugar and Sonor Music Editions have renewed circulation of this repertoire. Alongside orchestral scores, studio groups such as I Marc 4 supplied compact, groove-led themes built from guitar, organ, bass and drums.",
-  "recipe": "classic mid-1960s vintage italian soundtrack, groove Percussion, funk percussive branch, art music khmer pinpeat royal-court ensemble canadian contemporary classical. alnico nickel clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato tonewheel organ. treated studio.",
-  "recipe_chars": 491,
-  "score": 71.765,
+  "recipe": "classic mid-1960s vintage italian soundtrack, groove Percussion, funk percussive branch, art music canadian contemporary classical modern chamber music. alnico nickel clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched ostinato tonewheel organ. treated studio.",
+  "recipe_chars": 477,
+  "score": 74.585,
   "config": {
     "traditions": [
       "vintage_italian_soundtrack",
-      "khmer_pinpeat",
-      "canadian_contemporary_classical"
+      "canadian_contemporary_classical",
+      "modern_chamber_music"
     ],
     "instruments": [
       {
@@ -35,11 +35,11 @@
           "amp_make": 0,
           "body_wood": 0.75,
           "neck_wood": 0.135,
-          "fretboard": 0.78,
-          "pickup_magnet": 2.65,
+          "fretboard": 0.12999999999999998,
+          "pickup_magnet": 2.15,
           "string_material": 2.045,
-          "string_gauge": 1.2599999999999998,
-          "bridge": 1.8199999999999998,
+          "string_gauge": 1.04,
+          "bridge": 2.535,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0.845,
@@ -63,7 +63,7 @@
           "body_wood": 0.75,
           "pickup_config": 0,
           "string_type": 0.42,
-          "scale_length_b": 0.8300000000000001,
+          "scale_length_b": 0.195,
           "fretted_or_not": 1.59,
           "bass_technique": 6.8999999999999995,
           "electric_bass_string_configuration": 0
@@ -86,15 +86,15 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 3.78,
+          "drumhead": 3.28,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.69,
+          "shell_wood": 1.235,
           "shell_thickness": 0.51,
-          "bearing_edges": 0.975,
+          "bearing_edges": 2.34,
           "snare_wires": 0.42,
-          "cymbal_alloy": 4.260000000000001,
-          "cymbal_hammering": 4.5200000000000005,
-          "cymbal_lathing": 4.505,
+          "cymbal_alloy": 4.11,
+          "cymbal_hammering": 7.1450000000000005,
+          "cymbal_lathing": 7.28,
           "cymbal_finish": 2
         }
       },
@@ -110,11 +110,11 @@
         },
         "scores": {
           "keyboard_technique": 6.994999999999999,
-          "drawbar_setting": 4.335000000000001,
+          "drawbar_setting": 3.8350000000000004,
           "rotary_speed": -0.07,
           "percussion_setting": 3.25,
-          "tonewheel_model": 9.695,
-          "leslie_cabinet_model": 5.65
+          "tonewheel_model": 8.395,
+          "leslie_cabinet_model": 5
         }
       }
     ],

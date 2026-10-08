@@ -5,7 +5,7 @@
   "lineage": "Irish techno includes dance-floor production and experimental electronic work that draws on sampling, sound design and repetition. Lakker connects the scene with an exploratory approach to rhythm and recorded sound.",
   "recipe": "classic irish techno, electronic Dance, techno branch. drum machine analog, glitched textural modular synth, field textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 231,
-  "score": 22.388,
+  "score": 22.23,
   "config": {
     "traditions": [
       "irish_techno"
@@ -22,7 +22,7 @@
         "scores": {
           "kick_voice": 0,
           "snare_voice": 0,
-          "hat_voice": 0.2415,
+          "hat_voice": 0.21,
           "shuffle_quantize": -0.035
         }
       },
@@ -53,8 +53,8 @@
         "scores": {
           "electronic_technique": 3.2,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
-          "sampler_workflow": 7.7405,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 7.677499999999999,
           "sampler_classic_context": 6.24
         }
       }

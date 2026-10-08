@@ -3,14 +3,14 @@
   "name": "Bongo flava (Tanzanian)",
   "family": "global",
   "lineage": "Tanzanian Swahili-language hip-hop and R&B hybrid tradition codified through Diamond Platnumz, Ali Kiba, Professor Jay, and Lady Jaydee — emerging late 1990s from Dar es Salaam street hip-hop scene, then evolving into mainstream Swahili-pop with R&B crossover; characterized by Swahili vocals over hip-hop and afropop production",
-  "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm uk alternative hip hop gengetone. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, la bella flats Detroit soul bass canon electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 431,
-  "score": 223.272,
+  "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm uk alternative hip hop arbantone. extended whistle, rap, straight onset, interlocked note trading. TR-808, pitched chopped sampler, sub bass analog poly synth, heavy gauge flatwound la bella flats Detroit soul bass canon electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 468,
+  "score": 222.538,
   "config": {
     "traditions": [
       "bongo_flava",
       "uk_alternative_hip_hop",
-      "gengetone"
+      "arbantone"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.175,
-          "voice_quality": 23.09,
+          "voice_register": 7.265000000000001,
+          "voice_quality": 23.107499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.455,
-          "voice_articulation": 10.990000000000002,
-          "voice_microtone": 10.334999999999994,
-          "voice_tradition": 15.989999999999998,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 21.165,
-          "voice_ensemble_config": 10.659999999999995,
-          "voice_ornament_system": 5.395000000000001,
-          "voice_pitch_organization": 2.9900000000000015,
-          "voice_processing_chain": 13.370000000000001,
-          "voice_multitrack_stack": 3.3475
+          "voice_vibrato": 2.56,
+          "voice_articulation": 11.894999999999996,
+          "voice_microtone": 11.699999999999992,
+          "voice_tradition": 13.65,
+          "voice_mechanism_compound": 3.12,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 21.325,
+          "voice_ensemble_config": 11.829999999999995,
+          "voice_ornament_system": 4.485000000000001,
+          "voice_pitch_organization": 2.3400000000000003,
+          "voice_processing_chain": 13.719999999999999,
+          "voice_multitrack_stack": 2.2099999999999995
         }
       },
       {
@@ -60,26 +60,26 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 10.530000000000003,
-          "drum_machine_808_context": 2.925,
-          "tr808_production_origin": 0.3
+          "tr808_voice": 10.49,
+          "drum_machine_808_context": 2.08,
+          "tr808_production_origin": 0.36
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "emu_sp1200",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 9.925,
-          "sampler_archetypes": 18.5575,
-          "sampler_bit_depth": 1.075,
-          "sampler_workflow": 10.560000000000002,
-          "sampler_classic_context": 23.692500000000003
+          "electronic_technique": 9.549999999999999,
+          "sampler_archetypes": 16.38,
+          "sampler_bit_depth": 0.72,
+          "sampler_workflow": 10.275,
+          "sampler_classic_context": 24.375
         }
       },
       {
@@ -91,9 +91,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.430000000000001,
+          "electronic_technique": 10.389999999999999,
           "poly_archetypes": 0.3,
-          "poly_voices": 0.435,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -1.435
         }
       },
@@ -110,11 +110,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.7224999999999997,
-          "body_wood": 0,
-          "pickup_config": 0.845,
-          "string_type": 1.4624999999999997,
-          "scale_length_b": 0.255,
+          "amp_make": 2.3725,
+          "body_wood": 0.845,
+          "pickup_config": 0.9,
+          "string_type": 2.957499999999999,
+          "scale_length_b": 0.40499999999999997,
           "fretted_or_not": 0,
           "bass_technique": 0.9249999999999998,
           "electric_bass_string_configuration": 0

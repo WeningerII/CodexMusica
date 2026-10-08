@@ -5,7 +5,7 @@
   "lineage": "Espírito Santo regional funk from Vitória and Serra, taking shape from about 2018 through DJ Deivinho ES and local Vila Velha producers — mid-130s BPM tracks over a dry, heavily gated kick-clap pattern with rimshot-driven off-beats, low-passed sub, sparse pitched sirens and looped erotic or provocative MC hooks, often released as long DJ-mixed 'set' files rather than discrete singles.",
   "recipe": "classic Southern American late-2010s funk capixaba, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente cameroonian hip hop. vocal fry, rap, slow rate, interlocked note trading. TR-808, melodic pitched sampler, low sub bass analog poly synth, low sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 433,
-  "score": 138.43,
+  "score": 138.415,
   "config": {
     "traditions": [
       "funk_capixaba",
@@ -38,7 +38,7 @@
           "voice_quality": 11.115,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8950000000000005,
+          "voice_vibrato": 2.805,
           "voice_articulation": 12.349999999999998,
           "voice_microtone": 11.959999999999994,
           "voice_tradition": 3.9000000000000004,
@@ -47,7 +47,7 @@
           "voice_speech_song": 12.544999999999996,
           "voice_ensemble_config": 12.089999999999996,
           "voice_ornament_system": 3.1200000000000014,
-          "voice_pitch_organization": 1.435,
+          "voice_pitch_organization": 1.48,
           "voice_processing_chain": 9.899999999999997,
           "voice_multitrack_stack": 2.0799999999999996
         }
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.685,
+          "tr808_voice": 4.7749999999999995,
           "drum_machine_808_context": 3.575,
           "tr808_production_origin": 0.195
         }
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.415,
-          "sampler_archetypes": 1.9949999999999999,
+          "electronic_technique": 2.2649999999999997,
+          "sampler_archetypes": 1.95,
           "sampler_bit_depth": 2.035,
-          "sampler_workflow": 2.95,
+          "sampler_workflow": 2.9050000000000002,
           "sampler_classic_context": 15.534999999999997
         }
       },
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.93,
+          "electronic_technique": 6.02,
           "poly_archetypes": 0.045,
           "poly_voices": 0.09,
           "poly_maker_lineage": -2.05
@@ -106,7 +106,7 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.93,
+          "electronic_technique": 6.02,
           "wave_acid": 0,
           "filter_acid": 2.525,
           "accent_acid": 0.9500000000000001

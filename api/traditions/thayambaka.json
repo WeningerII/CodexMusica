@@ -1,0 +1,84 @@
+{
+  "id": "thayambaka",
+  "name": "Thayambaka (Kerala solo chenda improvisation)",
+  "family": "classical",
+  "lineage": "Thayambaka is a virtuoso chenda genre of Kerala temples in which a lead drummer improvises on the uruttu chenda against a group of accompanists who keep a steady beat on the veekku chenda and ilathalam cymbals. Usually performed in the evening at temple festivals, it moves through set stages of increasing tempo from a slow opening to fast improvised passages, and double and triple thayambaka share the lead between two or three drummers.",
+  "recipe": "classic modern thayambaka, improv On Frame, indian classical improv branch. jackwood shell layered cowhide canonical kerala chenda, elathalam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 222,
+  "score": 6.781,
+  "config": {
+    "traditions": [
+      "thayambaka"
+    ],
+    "instruments": [
+      {
+        "id": "chenda",
+        "slots": {
+          "chenda_form": "chenda_uruttu",
+          "chenda_repertoire": "chenda_thayambaka",
+          "chenda_construction": "chenda_jackwood_cowhide"
+        },
+        "scores": {
+          "chenda_form": 0.5814999999999999,
+          "chenda_repertoire": 0.95,
+          "chenda_construction": 1.95
+        }
+      },
+      {
+        "id": "elathalam",
+        "slots": {
+          "elathalam_stroke": "elathalam_closed",
+          "elathalam_ensemble": "elathalam_melam"
+        },
+        "scores": {
+          "elathalam_stroke": 0,
+          "elathalam_ensemble": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "chenda": [
+        "chenda_form",
+        "chenda_repertoire",
+        "chenda_construction"
+      ],
+      "elathalam": [
+        "elathalam_stroke",
+        "elathalam_ensemble"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "chenda_form": "chenda_uruttu",
+      "chenda_repertoire": "chenda_thayambaka",
+      "chenda_construction": "chenda_jackwood_cowhide",
+      "elathalam_stroke": "elathalam_closed",
+      "elathalam_ensemble": "elathalam_melam"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Zimbabwean hip-hop developed through local rappers, DJs and producers, including Harare’s independent recording networks.",
   "recipe": "classic modern zim hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 307,
-  "score": 33.706,
+  "score": 33.737,
   "config": {
     "traditions": [
       "zim_hip_hop"
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 5.5855,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.1365,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

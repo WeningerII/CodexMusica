@@ -5,7 +5,7 @@
   "lineage": "Brazilian doom-metal discovery field represented by São Paulo’s HellLight, founded in 1996 and documented by its labels as atmospheric funeral doom and doom/death metal. The chosen keyboard-bearing trio branch is one part of the wider national doom field.",
   "recipe": "classic mid-1990s brazilian doom metal, distorted Rock, doom branch. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 403,
-  "score": 93.75,
+  "score": 92.384,
   "config": {
     "traditions": [
       "brazilian_doom_metal"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -29,17 +29,17 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 16.10875,
-          "amp_make": 18.429125,
+          "electric_technique": 15.96175,
+          "amp_make": 18.156125,
           "body_wood": 6.24,
-          "neck_wood": 0.44175,
+          "neck_wood": 0.30525,
           "fretboard": 0.30525,
-          "pickup_magnet": 0.173625,
-          "pickup_winding": 0.47887500000000005,
-          "string_material": 0.2625,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.342375,
+          "string_material": 0.126,
           "bridge": 0.9099999999999999,
           "scale_length": 6.24,
-          "string_gauge": 0.8049999999999999,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
           "string_tuning": 8.84
         }
@@ -57,8 +57,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 18.429125,
-          "body_wood": 0.915,
+          "amp_make": 18.156125,
+          "body_wood": 0.6419999999999999,
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.7049999999999998,
@@ -131,7 +131,7 @@
           "electronic_technique": 0.6499999999999999,
           "poly_archetypes": 1.95,
           "poly_voices": 0.78,
-          "poly_maker_lineage": -1.435
+          "poly_maker_lineage": -1.4934999999999998
         }
       }
     ],

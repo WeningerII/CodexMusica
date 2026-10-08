@@ -5,7 +5,7 @@
   "lineage": "Canadian post-rock connects experimental bands and independent recording networks, with Montréal an important center. Extended ensemble compositions combine amplified rock instruments, bowed strings and manipulated recorded sound.",
   "recipe": "classic modern canadian post-rock, distorted Rock, experimental branch. maple nickel plated steel nickel nickel plated steel single coil electric guitar, violin orchestral, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay electro-harmonix big muff pi.",
   "recipe_chars": 519,
-  "score": 52.285,
+  "score": 52.357,
   "config": {
     "traditions": [
       "canadian_post_rock"
@@ -29,7 +29,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.575,
+          "electric_technique": 0.6109999999999999,
           "amp_make": 0,
           "body_wood": 0.39,
           "neck_wood": 1.3,
@@ -119,7 +119,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 11.244499999999999,
-          "cymbal_lathing": 11.481499999999999,
+          "cymbal_lathing": 11.5175,
           "cymbal_finish": 0
         }
       },
@@ -133,7 +133,7 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 0.32499999999999996,
+          "electronic_technique": 0.325,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.492,
           "sampler_workflow": 7.3875,

@@ -2321,6 +2321,32 @@ if (want('38', 'toast-action-lingers')) {
   );
 }
 
+// A retired tradition id stops resolving -> check_aliases.js
+//     The defect this gate exists for: a merged duplicate's old id no longer
+//     answers with the tradition it was merged into, so a saved link, workspace
+//     or connector call that names it silently stops working. Planted at the one
+//     place every surface resolves through (scripts/_loader.js
+//     resolveTraditionId), and caught by name: the gate's resolver assertion.
+if (want('retired-id-unresolved')) {
+  const d = mkenv(['scripts', 'references', 'data', 'src', 'mcp']);
+  const f = path.join(d, 'scripts/_loader.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const marker = '  return alias ? alias.of : id;';
+  if (!src.includes(marker)) {
+    record('retired-id-unresolved -> check_aliases.js', {
+      code: 0,
+      out: 'FAULT NOT PLANTED: resolveTraditionId return not found in scripts/_loader.js',
+    });
+  } else {
+    fs.writeFileSync(f, src.replace(marker, '  return id;'));
+    record(
+      'retired-id-unresolved -> check_aliases.js',
+      gate(d, ['scripts/check_aliases.js']),
+      /: resolver/
+    );
+  }
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so

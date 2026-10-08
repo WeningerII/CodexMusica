@@ -5,7 +5,7 @@
   "lineage": "Late-1960s onward American art-music movement characterized by repetitive cells, gradual processual change, sustained tonal centers, and rejection of post-Webern serialism — codified through La Monte Young (early drone works), Terry Riley (In C 1964), Steve Reich (Music for 18 Musicians 1976, Music for Mallet Instruments Voices and Organ), Philip Glass (Music in Twelve Parts 1971-74, Einstein on the Beach 1976), and continuing through John Adams (Shaker Loops 1978)",
   "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric brain waves. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 353,
-  "score": 75.46,
+  "score": 76.435,
   "config": {
     "traditions": [
       "minimalist",
@@ -29,12 +29,12 @@
         "scores": {
           "keyboard_technique": 5.450000000000001,
           "grand_piano_size": 0.7,
-          "grand_piano_brand": 1.7400000000000002,
-          "piano_hammer": 9.235,
+          "grand_piano_brand": 1.7850000000000001,
+          "piano_hammer": 9.475,
           "piano_rim": 7.26,
-          "piano_soundboard": 6.9,
+          "piano_soundboard": 7.050000000000001,
           "piano_pinblock": 6.595000000000001,
-          "piano_plate": 7.48,
+          "piano_plate": 7.78,
           "piano_pitch_standard": 8.785
         }
       },
@@ -64,7 +64,7 @@
         },
         "scores": {
           "wind_articulation": 2.5,
-          "bass_flute_pitch": 0.045,
+          "bass_flute_pitch": 0.285,
           "bass_flute_context": 1.95
         }
       }

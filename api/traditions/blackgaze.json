@@ -5,7 +5,7 @@
   "lineage": "2010s heavy-metal subgenre integrating black-metal extreme-vocal-and-percussion aggression with shoegaze-and-post-rock textural-and-melodic-arrangement. Alcest (France, 2000-onward) inaugurated the canonical sound; Deafheaven's Sunbather (2013) consolidated international visibility and the broader 2010s blackgaze wave through Bosse-de-Nage, Astronoid, Underling, and adjacent acts. Distinguished from atmospheric black metal by blackgaze's explicit shoegaze-textural-influence and major-key/melodic-emphasis.",
   "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 620,
-  "score": 382.077,
+  "score": 382.767,
   "config": {
     "traditions": [
       "blackgaze",
@@ -42,7 +42,7 @@
           "voice_articulation": 18.004999999999995,
           "voice_microtone": 22.874999999999996,
           "voice_tradition": 3.6725000000000008,
-          "voice_mechanism_compound": 24.319999999999997,
+          "voice_mechanism_compound": 24.274999999999995,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 18.004999999999995,
           "voice_ensemble_config": 17.939999999999998,
@@ -70,16 +70,16 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 30.66,
+          "electric_technique": 30.615000000000002,
           "amp_make": 13.357499999999998,
           "body_wood": 15.534999999999998,
           "neck_wood": 0.845,
-          "fretboard": 0.8,
+          "fretboard": 0.845,
           "pickup_magnet": 0.195,
           "pickup_winding": 1.02,
-          "string_material": 0.8,
+          "string_material": 0.845,
           "bridge": 0.845,
-          "scale_length": 14.634999999999998,
+          "scale_length": 15.325,
           "string_gauge": 0.845,
           "finish": 0,
           "string_tuning": 27.56

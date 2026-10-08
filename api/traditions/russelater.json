@@ -5,7 +5,7 @@
   "lineage": "Norwegian commissioned-party-music practice in which graduating 'russ' bus groups pay producers for a custom track, industrialized from roughly 2010 onward around Oslo and Bergen production houses and released in a compressed pre-May-17 season — 145-155 BPM, hardstyle-derived reverse-bass or jumpstyle offbeat kick, sawtooth lead riffs, Norwegian-language rap or shouted gang vocals naming the bus, and a build-drop-build architecture optimized for onboard soundsystems.",
   "recipe": "classic early-2010s russelåter, electronic Dance, hardstyle branch, eurodance electronic dance, intl hip hop MC rhythm frauenrap tagalog rap. thick, rap, straight note core, interlocked note trading. sub bass digital subtractive, TR-909, sub bass analog poly synth, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
   "recipe_chars": 512,
-  "score": 178.837,
+  "score": 178.867,
   "config": {
     "traditions": [
       "russelater",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 2.890000000000002,
-          "voice_quality": 17.135,
+          "voice_quality": 17.18,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4299999999999997,
@@ -44,11 +44,11 @@
           "voice_tradition": 7.3450000000000015,
           "voice_mechanism_compound": 0.975,
           "voice_estill_quality": 1.4299999999999997,
-          "voice_speech_song": 17.49,
+          "voice_speech_song": 17.58,
           "voice_ensemble_config": 14.494999999999994,
-          "voice_ornament_system": 3.340000000000001,
-          "voice_pitch_organization": 2.9400000000000013,
-          "voice_processing_chain": 13.395000000000003,
+          "voice_ornament_system": 3.235000000000001,
+          "voice_pitch_organization": 3.180000000000001,
+          "voice_processing_chain": 13.245000000000003,
           "voice_multitrack_stack": 7.507499999999999
         }
       },
@@ -74,7 +74,7 @@
         },
         "scores": {
           "tr909_voice": 0,
-          "drum_machine_909_context": 1.14,
+          "drum_machine_909_context": 1.095,
           "tr909_production_origin": 0.5
         }
       },
@@ -104,7 +104,7 @@
         "scores": {
           "electronic_technique": 6.240000000000001,
           "sample_bitdepth": 1.9500000000000002,
-          "sample_swing": 8.345,
+          "sample_swing": 8.3,
           "sample_processing": 0.59
         }
       }

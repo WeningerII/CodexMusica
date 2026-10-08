@@ -3,27 +3,29 @@
   "name": "Candombe uruguayo",
   "family": "global",
   "lineage": "Afro-Uruguayan drum-procession tradition traced to 18th-century African slave processions through Montevideo — performed by the cuerda de tambores ensemble of three drum sizes (chico small high-pitched lead-rhythm, repique medium-pitched conversational, piano deep bass) carried on shoulder straps and played with one hand and one stick; the annual Desfile de Llamadas during Carnival brings comparsas through Barrio Sur, Palermo, and Cordón Montevideo neighborhoods with their costumed dancers and full cuerda batteries — figures Pedro Ferreira, Romero Ferreira, the modern Hugo Fattoruso extensions",
-  "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 598,
-  "score": 63.257,
+  "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional winti prei candomblé ceremonial. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 583,
+  "score": 77.471,
   "config": {
     "traditions": [
-      "candombe_uruguayan"
+      "candombe_uruguayan",
+      "winti_prei",
+      "candomble_ceremonial"
     ],
     "instruments": [
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
-          "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
-          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 5.2,
-          "choir_polyphonic_configuration": 3.82125,
-          "choir_regional_canonical_configuration": 2.6625,
-          "choir_ensemble_repertoire": 1.95
+          "choir_size": 7.734999999999999,
+          "choir_polyphonic_configuration": 2.535,
+          "choir_regional_canonical_configuration": 2.535,
+          "choir_ensemble_repertoire": 4.29
         }
       },
       {
@@ -31,12 +33,12 @@
         "slots": {
           "atabaque_role": "atabaque_rum",
           "atabaque_skin": "atabaque_cowhide",
-          "atabaque_shell_wood": "atabaque_cedrillo"
+          "atabaque_shell_wood": "atabaque_jacaranda"
         },
         "scores": {
-          "atabaque_role": 1.3,
+          "atabaque_role": 1.6899999999999997,
           "atabaque_skin": 1.3,
-          "atabaque_shell_wood": 0.15
+          "atabaque_shell_wood": 0.585
         }
       },
       {
@@ -48,10 +50,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 14.8075,
-          "conga_set": 4.54375,
-          "conga_skin": 1.29,
-          "conga_shell_wood": 1.29
+          "percussion_technique": 22.688999999999997,
+          "conga_set": 5.0889999999999995,
+          "conga_skin": 0.9450000000000001,
+          "conga_shell_wood": 0.9450000000000001
         }
       },
       {
@@ -62,8 +64,8 @@
           "candombe_tamboriles_build": "candombe_tamboriles_synthetic"
         },
         "scores": {
-          "candombe_tamboriles_drum": 15.907499999999999,
-          "candombe_tamboriles_context": 6.11,
+          "candombe_tamboriles_drum": 18.904,
+          "candombe_tamboriles_context": 8.0045,
           "candombe_tamboriles_build": 2.5
         }
       }

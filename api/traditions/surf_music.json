@@ -1,87 +1,49 @@
 {
-  "id": "surf_music",
-  "name": "Surf Music",
+  "id": "surf_rock",
+  "merged_from": "surf_music",
+  "name": "Surf rock",
   "family": "rock_punk",
-  "lineage": "Southern California style of 1961-1965 spanning Dick Dale's Rendezvous Ballroom instrumentals and the vocal surf of The Beach Boys and Jan & Dean, recorded at Western, Gold Star and United in Los Angeles — reverb-tank guitar with fast alternate picking, saxophone honks, driving tom-and-snare shuffles at 140-180 BPM, and stacked falsetto-topped close harmony over car-and-beach lyrics.",
-  "recipe": "classic Los Angeles 1961-1965 surf music, distorted Rock, surf rock branch, pop rock functional song, classic distorted rock skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany ebony tremolo single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, block chord upright piano, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 783,
-  "score": 446.315,
+  "lineage": "Early-1960s southern California instrumental rock genre built on reverb-drenched single-coil-guitar lead lines and the wet-spring-reverb-tank sound — codified through Dick Dale (Surfer's Choice 1962, Misirlou), The Ventures (Walk Don't Run 1960), The Surfaris (Wipe Out 1963), The Chantays (Pipeline 1963), and the surfing-subculture commercial scene around Hermosa Beach and the South Bay",
+  "recipe": "classic North American 1960-1963 surf rock, distorted Rock, surf rock branch, classic distorted rock, pop rock functional song new wave yacht rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips spring reverb tremolo.",
+  "recipe_chars": 692,
+  "score": 266.717,
   "config": {
     "traditions": [
-      "surf_music",
-      "skiffle",
+      "surf_rock",
+      "new_wave",
       "yacht_rock"
     ],
     "instruments": [
       {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
-        },
-        "scores": {
-          "voice_register": 54.35500000000002,
-          "voice_quality": 14.29999999999999,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 9.774999999999999,
-          "voice_articulation": 19.955,
-          "voice_microtone": 45.97500000000001,
-          "voice_tradition": 14.267499999999997,
-          "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 23.074999999999996,
-          "voice_ensemble_config": 21.449999999999996,
-          "voice_ornament_system": 0.345,
-          "voice_pitch_organization": 1.5299999999999998,
-          "voice_processing_chain": 7.452500000000001,
-          "voice_multitrack_stack": 4.875
-        }
-      },
-      {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_tremolo_picking",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.499999999999998,
-          "amp_make": 17.5825,
-          "body_wood": 1.625,
-          "neck_wood": 1.625,
-          "fretboard": 1.1949999999999998,
-          "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 1.235,
-          "bridge": 1.1949999999999998,
-          "scale_length": 1.235,
-          "finish": 0.39,
-          "string_tuning": 16.380000000000003,
+          "electric_technique": 16.82,
+          "amp_make": 26.91,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.9328125,
+          "string_material": 0.585,
+          "string_gauge": 2.925,
+          "bridge": 0.5,
+          "scale_length": 2.275,
+          "finish": 0.45,
+          "string_tuning": 22.685,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +60,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.5825,
-          "body_wood": 2.73,
-          "pickup_config": 1.1949999999999998,
-          "string_type": 35.885000000000005,
-          "scale_length_b": 1.235,
-          "fretted_or_not": 0.045,
-          "bass_technique": 28.915000000000003,
+          "amp_make": 21.384999999999998,
+          "body_wood": 3.055,
+          "pickup_config": 0.6,
+          "string_type": 47.3271875,
+          "scale_length_b": 2.275,
+          "fretted_or_not": 0,
+          "bass_technique": 44.61843749999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,12 +74,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.147500000000004,
-          "drumhead": 9.04,
+          "drum_technique": 39.9678125,
+          "drumhead": 16.142812499999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,64 +95,69 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.2999999999999998,
-          "sax_size": 1.235,
-          "sax_reed": 0.39,
-          "sax_body_alloy": 7.839999999999999,
-          "sax_mouthpiece": 0.39,
-          "sax_technique": 7.499999999999998,
-          "sax_maker_school": 9.344999999999997
-        }
-      },
-      {
-        "id": "upright_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_concert"
-        },
-        "scores": {
-          "keyboard_technique": 9.825,
-          "upright_use": 1.625,
-          "upright_piano_size": 0.39
-        }
-      },
-      {
-        "id": "tambourine_orch",
-        "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_mixed",
-          "tambourine_orch_context": "tambourine_orch_pop"
-        },
-        "scores": {
-          "tambourine_orch_jingle": 1.04,
-          "tambourine_orch_context": 0.6824999999999999
+          "wind_articulation": 1.5249999999999997,
+          "sax_size": 2.275,
+          "sax_reed": 0.585,
+          "sax_body_alloy": 3.4250000000000003,
+          "sax_mouthpiece": 0.9328125,
+          "sax_technique": 2.75,
+          "sax_maker_school": 3.5100000000000002
         }
       }
     ],
-    "room": "studio_small_la_chambers",
-    "archetype": "arch_60s_la_smallroom_chambers",
+    "room": "studio_early_tape_us_small",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "mic_u67_tube_neumann",
       "pre": "pre_ua_610_tube",
-      "console": "console_quad_eight_la_70s",
+      "console": "colored",
       "comp": "comp_la2a_optical",
       "eq": "eq_passive_program_pultec",
-      "amp": null,
+      "amp": "amp_american_blackface",
       "medium": "tape_15ips"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "spring_reverb",
+      "tremolo_pedal"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_small_la_chambers",
+    "room": "studio_early_tape_us_small",
+    "parts": {
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "electric_technique": "electric_tremolo_picking",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
+      "wind_articulation": "wind_bebop_runs",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "string_tuning": "standard_tuning"
+    },
     "chain_mic": "mic_u67_tube_neumann",
     "chain_pre": "pre_ua_610_tube",
     "chain_comp": "comp_la2a_optical",
     "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_quad_eight_la_70s"
+    "chain_console": "colored",
+    "chain_fx": [
+      "spring_reverb",
+      "tremolo_pedal"
+    ],
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

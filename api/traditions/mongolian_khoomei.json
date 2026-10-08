@@ -3,21 +3,21 @@
   "name": "Mongolian khoomei overtone singing",
   "family": "global",
   "lineage": "Mongolian khoomei overtone-singing tradition. The technique produces a sustained chest-register fundamental while shaping the vocal tract to amplify upper partials of the harmonic series, generating a clearly audible whistle-tone melody floating above the fundamental. Khalkh-Mongol vocabulary distinguishes several techniques: kharkhiraa (low-register subharmonic kargyraa-equivalent), iisgerekh (mid-register sygyt-equivalent whistle-tone), shakhaa (constricted-throat variant), bagalzuuriin (deep throat-tension), and uyangiin (a singing-leaning lyrical variant). Performance contexts span solo concert, pastoral solo (a shepherd alone on the steppe), morin-khuur-accompanied ensemble, and the contemporary international touring circuit. Sundui, Tserendavaa, and Ganbold are the canonical twentieth-century khoomei masters; the post-1990 Mongolian state cultural-revival has produced a major export of khoomei performers internationally. The Smithsonian Folkways field recordings provide the principal Western-distributed documentation. Distinguished from Tuvan khoomei by Mongolian-Khalkh dialect-specific technique nomenclature and Mongolian-state-cultural-context performance framework (vs Tuvan-state-cultural-context); distinguished from Xhosa umngqokolo by Mongolian khoomei's throat-tension fundamental production (vs Xhosa's chest-register relaxed-fundamental); distinguished from Tibetan multiphonic yang chant by Mongolian khoomei's solo (vs ensemble-monastic) and secular (vs liturgical) configurations.",
-  "recipe": "classic Northeast Asian early-1990s mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, breath veiled tone, slow rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 622,
-  "score": 485.905,
+  "recipe": "classic Northeast Asian early-1990s mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal toyuk northern sámi luohti yoik. sygyt, false fold engaged, slow rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 607,
+  "score": 440.21,
   "config": {
     "traditions": [
       "mongolian_khoomei",
-      "sami_northern_luohti",
-      "sami_southern_vuelie"
+      "sakha_toyuk",
+      "sami_northern_luohti"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "false_fold_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 38.88,
-          "voice_quality": 44.08500000000003,
+          "voice_register": 37.155,
+          "voice_quality": 36.51,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.915,
-          "voice_articulation": 26.975,
-          "voice_microtone": 31.004999999999995,
+          "voice_vibrato": 6.415000000000001,
+          "voice_articulation": 20.8,
+          "voice_microtone": 24.83,
           "voice_tradition": 38.89000000000001,
-          "voice_mechanism_compound": 34.135000000000005,
-          "voice_estill_quality": 7.67,
-          "voice_speech_song": 31.005000000000003,
-          "voice_ensemble_config": 25.22,
-          "voice_ornament_system": 14.32,
-          "voice_pitch_organization": 42.42499999999999,
-          "voice_processing_chain": 14.689999999999996,
-          "voice_multitrack_stack": 8.775
+          "voice_mechanism_compound": 32.41,
+          "voice_estill_quality": 8.32,
+          "voice_speech_song": 25.479999999999997,
+          "voice_ensemble_config": 19.694999999999997,
+          "voice_ornament_system": 9.62,
+          "voice_pitch_organization": 40.69999999999999,
+          "voice_processing_chain": 13.259999999999996,
+          "voice_multitrack_stack": 8.58
         }
       },
       {
@@ -63,8 +63,8 @@
         },
         "scores": {
           "bowed_technique": 4.680000000000001,
-          "morin_khuur_use": 33.855,
-          "morin_khuur_construction": 6.89,
+          "morin_khuur_use": 35.505,
+          "morin_khuur_construction": 6.24,
           "morin_khuur_body_wood": 10.06,
           "morin_khuur_strings": 2.795
         }
@@ -76,8 +76,8 @@
           "tovshuur_body": "tovshuur_carved_wood_hide"
         },
         "scores": {
-          "tovshuur_strings": 16.17,
-          "tovshuur_body": 3.0199999999999996
+          "tovshuur_strings": 15.02,
+          "tovshuur_body": 3.1699999999999995
         }
       },
       {
@@ -88,9 +88,9 @@
           "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
         },
         "scores": {
-          "throat_mechanism_root": 21.384999999999998,
-          "throat_overtone_target_region": 10.325,
-          "throat_singing_voice_region": 8.06
+          "throat_mechanism_root": 21.19,
+          "throat_overtone_target_region": 9.174999999999999,
+          "throat_singing_voice_region": 7.1850000000000005
         }
       }
     ],

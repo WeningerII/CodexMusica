@@ -5,7 +5,7 @@
   "lineage": "German dark minimal techno developed through a 2010s independent-label network including Klangrecords, Darker Sounds, Subwoofer and Toxic Recordings, linking hard-minimal producers such as Timao with the darker industrial sound of Klangtronik.",
   "recipe": "classic mid-2010s german dark minimal techno, electronic Dance, techno branch, industrial noise experimental electric. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 165,
-  "score": 0.09,
+  "score": 0.24,
   "config": {
     "traditions": [
       "german_dark_minimal_techno"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.09
+          "dj_playback_mixing_identity": 0.24
         }
       }
     ],

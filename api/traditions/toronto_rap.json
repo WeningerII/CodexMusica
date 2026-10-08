@@ -5,7 +5,7 @@
   "lineage": "Toronto’s hip-hop scene joins MCs, independent beatmakers and local studio networks, spanning underground and commercially prominent rap.",
   "recipe": "classic modern toronto rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 307,
-  "score": 33.589,
+  "score": 33.778,
   "config": {
     "traditions": [
       "toronto_rap"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.719,
+          "voice_speech_song": 13.905,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 4,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": -0.05,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

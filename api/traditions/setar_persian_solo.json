@@ -5,7 +5,7 @@
   "lineage": "Intimate solo tradition for the small four-string Iranian long-necked lute plucked with the nail of the right index finger, historically the instrument of Sufi khaneqah practice and of private radif study, brought to the concert stage by Ahmad Ebadi, Dariush Talai and Mohammad Reza Lotfi in 20th-century Tehran — extremely low volume, sympathetic-resonating open strings, a continuous nail tremolo for sustain, and long unmetred avaz explorations of a single dastgah with minimal metric material.",
   "recipe": "classic European early-1970s setar, drone Modal, string branch, Sufi ritual devotional, Persian arab improv improv on frame, heterophonic drone modal ney taksim oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bowl canonical Persian gut historical pre modern radif radif setar persian, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, Sufi mystical arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney. parlor. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 656,
-  "score": 264.376,
+  "score": 262.624,
   "config": {
     "traditions": [
       "setar_persian_solo",
@@ -24,11 +24,11 @@
           "setar_tradition": "setar_radif_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 8.553214285714287,
+          "plucked_traditional_technique": 8.508214285714287,
           "setar_strings": 4.910714285714286,
           "setar_pluck": 2.9899999999999998,
           "setar_body_wood": 4.745,
-          "setar_string_material": 2.2045535714285713,
+          "setar_string_material": 2.159553571428571,
           "setar_tradition": 4.840625
         }
       },
@@ -60,13 +60,13 @@
           "voice_vibrato": 5.2,
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 26.877499999999998,
-          "voice_tradition": 21.189821428571427,
-          "voice_mechanism_compound": 12.870000000000001,
+          "voice_tradition": 20.229821428571427,
+          "voice_mechanism_compound": 12.675,
           "voice_estill_quality": 6.955000000000001,
           "voice_speech_song": 18.687499999999996,
           "voice_ensemble_config": 16.509999999999994,
-          "voice_ornament_system": 13.744821428571429,
-          "voice_pitch_organization": 15.539285714285715,
+          "voice_ornament_system": 13.51982142857143,
+          "voice_pitch_organization": 15.314285714285713,
           "voice_processing_chain": 4.874999999999999,
           "voice_multitrack_stack": 5.655000000000001
         }
@@ -113,7 +113,7 @@
           "ney_use": 3.055,
           "ney_pitch": 1.2999999999999998,
           "ney_body_material": 4.745,
-          "ney_lineage": 10.725
+          "ney_lineage": 10.667410714285714
         }
       }
     ],

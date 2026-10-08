@@ -3,14 +3,14 @@
   "name": "Cumbia sureña",
   "family": "global",
   "lineage": "Southern-cone cumbia of southern Chile and Argentine Patagonia consolidated in the 1990s–2000s around Chiloé, Osorno and Neuquén dance circuits — brisk 100–110 BPM cumbia with brass or synth-brass hooks, accordion, snare-heavy kit and shouted call-and-response choruses for large open-air bailes.",
-  "recipe": "classic mid-1990s cumbia sureña, groove Percussion, Latin am branch, tropical song functional song, andean carnival processional lambada lambadão. vocal fry, breath veiled tone, fast rate, interlocked note trading. low overtone rich low onset attack brass accordion, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright large cup large rim orchestral bottom heavy trumpet, yellow brass canonical 70 30 bach 42 standard bass leaning trombone, alder la bella flats Detroit soul bass canon sub heavy electric bass, guiro, ride-driven brushes-and-sticks drum kit, lead open slap hand drum congas. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
-  "recipe_chars": 732,
-  "score": 185.641,
+  "recipe": "classic mid-1990s cumbia sureña, groove Percussion, Latin am branch, tropical song functional song, andean carnival processional pujllay and ayarichi lambada. extended whistle, breath veiled tone, slow rate, interlocked note trading. low overtone rich low onset attack brass accordion, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright heavy one piece matched to monette horn ensemble trumpet, yellow brass canonical 70 30 bach 42 standard bass leaning trombone, alder la bella flats Detroit soul bass canon sub heavy electric bass, guiro, ride-driven brushes-and-sticks drum kit, open slap hand drum congas. festival stage. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 751,
+  "score": 195.356,
   "config": {
     "traditions": [
       "cumbia_surena",
-      "lambada",
-      "lambadao"
+      "pujllay_ayarichi_yampara",
+      "lambada"
     ],
     "instruments": [
       {
@@ -19,19 +19,19 @@
           "free_reed_technique": "free_reed_chromatic_jazz",
           "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
-          "reed_config": "lmmh",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": 1.625,
-          "accordion_reed_material": 3.2499999999999996,
+          "free_reed_technique": 0.78,
+          "accordion_reed_material": 2.7499999999999996,
           "musette_offset": 0.78,
-          "reed_config": 0.65,
+          "reed_config": 0.8,
           "bellows": 0.78,
-          "voicing_chamber": 0.435,
-          "accordion_maker_school": 0.845
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 0.7799999999999999
         }
       },
       {
@@ -39,20 +39,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 1.0399999999999998,
+          "wind_articulation": 2.2275,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 2.8400000000000003,
+          "trumpet_mouthpiece": 3.99,
           "brass_mute": 0.15,
-          "trumpet_technique": 1.0399999999999998,
-          "trumpet_bell_metal": 3.8349999999999995,
-          "trumpet_maker_school": 2.34
+          "trumpet_technique": 2.2275,
+          "trumpet_bell_metal": 3.3349999999999995,
+          "trumpet_maker_school": 1.4949999999999999
         }
       },
       {
@@ -67,12 +67,12 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.0399999999999998,
+          "wind_articulation": 2.2275,
           "trombone_type": 0.195,
-          "trombone_mouthpiece": 4.42,
+          "trombone_mouthpiece": 4.225,
           "trombone_mute": 0,
-          "trombone_technique": 1.95,
-          "trombone_bell_metal": 3.8349999999999995,
+          "trombone_technique": 1.3,
+          "trombone_bell_metal": 3.3349999999999995,
           "trombone_maker_school": 0.8249999999999998
         }
       },
@@ -89,13 +89,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.34,
+          "amp_make": 1.6899999999999997,
           "body_wood": 1.3,
           "pickup_config": 0.65,
-          "string_type": 3.7050000000000005,
+          "string_type": 2.21,
           "scale_length_b": 0.65,
           "fretted_or_not": 0,
-          "bass_technique": 1.945,
+          "bass_technique": 1.145,
           "electric_bass_string_configuration": 0
         }
       },
@@ -114,12 +114,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.599999999999994,
-          "drumhead": 0.65,
+          "drum_technique": 17.419999999999998,
+          "drumhead": 0.78,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,8 +132,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 7.06125,
-          "conga_set": 1.69,
+          "percussion_technique": 5.83625,
+          "conga_set": 0.845,
           "conga_skin": 0.8249999999999998,
           "conga_shell_wood": 0.8249999999999998
         }
@@ -141,40 +141,40 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.3,
-          "voice_quality": 10.075,
+          "voice_register": 1.0725,
+          "voice_quality": 15.729999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 15.339999999999995,
-          "voice_microtone": 14.94999999999999,
-          "voice_tradition": 5.98,
-          "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 4.290000000000001,
-          "voice_speech_song": 22.684999999999995,
-          "voice_ensemble_config": 16.249999999999993,
-          "voice_ornament_system": 1.9399999999999997,
+          "voice_vibrato": 0.975,
+          "voice_articulation": 17.159999999999997,
+          "voice_microtone": 16.769999999999992,
+          "voice_tradition": 5.2325,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 4.940000000000001,
+          "voice_speech_song": 21.644999999999996,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 3.8150000000000004,
           "voice_pitch_organization": 1.6174999999999997,
-          "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 4.875
+          "voice_processing_chain": 4.745,
+          "voice_multitrack_stack": 3.2500000000000004
         }
       }
     ],

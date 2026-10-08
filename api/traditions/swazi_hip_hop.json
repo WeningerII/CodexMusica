@@ -5,7 +5,7 @@
   "lineage": "Eswatini hip-hop recording is represented by Mbabane’s Swazi Jive compilation Love Hurts Vol1. Defaults are a present-day authored realization, not a historical session reconstruction.",
   "recipe": "classic modern swazi hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 347,
-  "score": 35.531,
+  "score": 35.97,
   "config": {
     "traditions": [
       "swazi_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.685,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0.108
         }
       }
     ],

@@ -1,14 +1,15 @@
 {
-  "id": "sunset_lounge",
-  "name": "Sunset Lounge",
+  "id": "chill_lounge",
+  "merged_from": "sunset_lounge",
+  "name": "Chill Lounge",
   "family": "electronic",
-  "lineage": "Sunset lounge connects Ibiza sunset listening with later chill-out radio and compilation culture. Selectors combine relaxed house, ambient music and lounge songs, adapting the atmosphere to evening gatherings and quieter listening.",
-  "recipe": "classic sunset lounge, electronic Dance, house branch. dj playback mixing unspecified. parlor.",
-  "recipe_chars": 94,
-  "score": 0,
+  "lineage": "Contemporary chill-lounge listening draws on downtempo electronica, Balearic curation and smooth lounge grooves. Producers, radio programmes and hospitality channels connect spacious electronic textures with relaxed melodic and vocal material.",
+  "recipe": "classic chill lounge, experimental Elec. dj playback mixing unspecified. parlor.",
+  "recipe_chars": 80,
+  "score": 0.105,
   "config": {
     "traditions": [
-      "sunset_lounge"
+      "chill_lounge"
     ],
     "instruments": [
       {
@@ -17,7 +18,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0
+          "dj_playback_mixing_identity": 0.105
         }
       }
     ],

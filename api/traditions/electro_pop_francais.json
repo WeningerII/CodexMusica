@@ -5,7 +5,7 @@
   "lineage": "French-language electronic pop represented by Yelle’s sung/spoken lyrical hooks, synthesizer-led harmony and designed rhythmic production. The model follows the documented vocal, keyboard and percussion roles while its synthesizer and sample-machine choices are contemporary authorial realizations.",
   "recipe": "classic modern electro-pop francais, functional Song, europop branch. one note per syllable, solo with instrumental accompaniment. singing lead analog poly synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 330,
-  "score": 10.784,
+  "score": 11.063,
   "config": {
     "traditions": [
       "electro_pop_francais"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.51,
-          "voice_ensemble_config": 1.032375,
+          "voice_ensemble_config": 1.105875,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.2415
+          "voice_multitrack_stack": 0.378
         }
       },
       {
@@ -62,7 +62,7 @@
           "electronic_technique": 8.392375,
           "poly_archetypes": 0,
           "poly_voices": 0.03712499999999999,
-          "poly_maker_lineage": -1.5039999999999998
+          "poly_maker_lineage": -1.435
         }
       },
       {

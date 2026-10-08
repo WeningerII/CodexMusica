@@ -1,0 +1,118 @@
+{
+  "id": "gandrang_pakarena",
+  "name": "Gandrang pakarena (Gowa court dance drumming)",
+  "family": "classical",
+  "lineage": "Music of the pakarena, the women's dance of the former Gowa court of the Makassar in South Sulawesi. Two drummers on the gandrang, a double-headed barrel drum struck with a stick and the hand (the Malay gendang card and the generic membrane-drum card stand in), play fast, forceful patterns with the puik-puik shawm (the serunai card stands in) and a gong, while the dancers move with slow, restrained grace; that contrast is the form's hallmark.",
+  "recipe": "classic modern gandrang pakarena, art Music, southeast Asian branch. gendang melayu, membrane drum pulse resonant acoustic membrane drum, serunai shawm, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 245,
+  "score": 7.901,
+  "config": {
+    "traditions": [
+      "gandrang_pakarena"
+    ],
+    "instruments": [
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_ibu",
+          "gendang_melayu_stroke": "gendang_melayu_stick",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0.105,
+          "gendang_melayu_stroke": 0,
+          "gendang_melayu_head": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.478125,
+          "acoustic_membrane_drum_gesture": 2.478125
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_kelantan",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.3,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.415125,
+          "gong_striker": 0
+        }
+      }
+    ],
+    "pinned": {
+      "gendang_melayu": [
+        "gendang_melayu_role",
+        "gendang_melayu_stroke",
+        "gendang_melayu_head"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "gendang_melayu_role": "gendang_melayu_ibu",
+      "gendang_melayu_stroke": "gendang_melayu_stick",
+      "gendang_melayu_head": "gendang_melayu_goat",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "serunai_form": "serunai_kelantan",
+      "serunai_bell": "serunai_bell_wood",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

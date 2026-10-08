@@ -5,7 +5,7 @@
   "lineage": "Polish viral rap is a discovery category for internet-amplified Polish rap, represented here by Mata’s breakthrough around Patointeligencja. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
   "recipe": "classic modern polish viral rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 39.876,
+  "score": 40.502,
   "config": {
     "traditions": [
       "polish_viral_rap"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.318999999999997,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 15.504999999999997,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0.108
         }
       }
     ],

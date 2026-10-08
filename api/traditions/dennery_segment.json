@@ -5,7 +5,7 @@
   "lineage": "Saint Lucian dance style that emerged around 2013-2015 out of the fishing village of Dennery, codified by Motto, Subance, and Ricky T over 100-115 BPM programmed patterns that graft dancehall kick-and-snare placement onto soca's offbeat iron, with sparse synth-brass stabs, a thin repeated melodic hook and terse Kwéyòl chants rather than sung verses.",
   "recipe": "classic 2013-2015 dennery segment, carnival Processional, Caribbean branch, reggae diaspora bass system, African dance electronic dance shatta brazilian reggae. extended whistle, breath veiled tone, slow rate, interlocked note trading. TR-808, sub bass analog poly synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, agogo, sampler drum machine. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 537,
-  "score": 146.877,
+  "score": 146.74,
   "config": {
     "traditions": [
       "dennery_segment",
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 4.095000000000001,
           "drum_machine_808_context": 4.16,
-          "tr808_production_origin": 0.28500000000000003
+          "tr808_production_origin": 0.43500000000000005
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 3.9650000000000007,
-          "poly_archetypes": 0.8099999999999999,
+          "poly_archetypes": 0.5549999999999999,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.435
         }
@@ -85,7 +85,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -106,12 +106,12 @@
       {
         "id": "agogo",
         "slots": {
-          "agogo_bell": "agogo_double",
+          "agogo_bell": "agogo_single",
           "agogo_context": "agogo_bateria"
         },
         "scores": {
-          "agogo_bell": 0.7799999999999999,
-          "agogo_context": 3.431875
+          "agogo_bell": 0.78,
+          "agogo_context": 3.445
         }
       },
       {
@@ -124,7 +124,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.09,
+          "sample_bitdepth": 0.045,
           "sample_swing": 1.7499999999999998,
           "sample_processing": 1.885
         }

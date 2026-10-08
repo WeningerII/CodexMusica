@@ -1,111 +1,73 @@
 {
-  "id": "fijiri",
-  "name": "Fijiri",
+  "id": "bahraini_fjiri",
+  "merged_from": "fijiri",
+  "name": "Bahraini fjiri (pearl-divers' song)",
   "family": "global",
-  "lineage": "The pearl-divers' song of Bahrain, Kuwait and the eastern Arabian coast, performed since at least the nineteenth century by crews in shore-side dūr houses through the off-season, led by a nahhām soloist who improvises long melismatic maqām-based lines answered by a seated male chorus over hand claps, clay jahla water-jar drums struck with the palms, and frame drums in slow compound cycles of the ʿadsānī, bahrī and ḥaddādī suites.",
-  "recipe": "classic Middle Eastern modern fijiri, sea Shanty, islamic ritual devotional, middle eastern funeral lament latmiya zikir. vocal fry, breath veiled tone, slow rate, interlocked note trading. communal group massed hand clap, udu, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, clay pre modern traditional iraqi maqam zarb drier finger darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 456,
-  "score": 142.07,
+  "lineage": "Bahraini fjiri pearl-divers' work-song tradition, performed by the all-male crews of dhow boats conducting the annual ghaws pearl-diving season in the Persian Gulf during the pre-petroleum era (eighteenth-mid-twentieth centuries). Repertoire structured around the diving voyage cycle: departure songs, anchor-hauling songs, noon-prayer-pause songs, diver-hauling songs, homeward-return songs. Architecture features male lead singer (nahham) with chorus response, hand-clapping, tar frame-drum, and jahla clay-jar percussion. The 1930s-1950s closure of natural-pearl industry terminated functional context.",
+  "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry aïta pontic greek music. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 118.502,
   "config": {
     "traditions": [
-      "fijiri",
-      "latmiya",
-      "zikir"
+      "bahraini_fjiri",
+      "aita_cheikhat",
+      "pontic_greek"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0.615,
-          "voice_quality": 19.43499999999999,
+          "voice_register": 3.2950000000000013,
+          "voice_quality": 18.069999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7500000000000004,
-          "voice_articulation": 11.959999999999997,
-          "voice_microtone": 19.239999999999995,
-          "voice_tradition": 8.254999999999999,
-          "voice_mechanism_compound": 3.125,
-          "voice_estill_quality": 1.4299999999999997,
-          "voice_speech_song": 14.364999999999997,
-          "voice_ensemble_config": 13.779999999999998,
-          "voice_ornament_system": 11.08,
-          "voice_pitch_organization": 6.15,
-          "voice_processing_chain": 6.825,
-          "voice_multitrack_stack": 7.215000000000001
-        }
-      },
-      {
-        "id": "hand_clap",
-        "slots": {
-          "clap_technique": "clap_group_massed",
-          "clap_capture": "clap_close_dry"
-        },
-        "scores": {
-          "clap_technique": 1.69,
-          "clap_capture": 0.5399999999999999
-        }
-      },
-      {
-        "id": "udu",
-        "slots": {
-          "udu_form": "udu_abang",
-          "udu_technique": "udu_igbo_ceremony",
-          "udu_clay": "udu_stoneware"
-        },
-        "scores": {
-          "udu_form": 0.8999999999999999,
-          "udu_technique": 0.7149999999999999,
-          "udu_clay": 0.585
+          "voice_vibrato": 3.895,
+          "voice_articulation": 9.295,
+          "voice_microtone": 12.967499999999998,
+          "voice_tradition": 15.794999999999995,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 14.234999999999996,
+          "voice_ensemble_config": 9.035,
+          "voice_ornament_system": 3.5400000000000005,
+          "voice_pitch_organization": 3.5400000000000005,
+          "voice_processing_chain": 10.659999999999997,
+          "voice_multitrack_stack": 4.615
         }
       },
       {
         "id": "tar_frame_drum",
         "slots": {
           "percussion_technique": "percussion_hands_layered",
-          "tar_size": "tar_large",
-          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_size": "tar_small",
+          "tar_frame_drum_context": "tar_frame_drum_wedding",
           "tar_frame_shell_wood": "tar_frame_walnut",
           "tar_frame_head": "tar_frame_goat_skin"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "tar_size": 1.3,
-          "tar_frame_drum_context": 2.9899999999999998,
+          "percussion_technique": -0.1,
+          "tar_size": 0.39,
+          "tar_frame_drum_context": 1.4949999999999999,
           "tar_frame_shell_wood": 2.535,
-          "tar_frame_head": 1.3
-        }
-      },
-      {
-        "id": "darbuka",
-        "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "darbuka_material": "darbuka_clay_traditional",
-          "darbuka_skin": "darbuka_synthetic_mylar",
-          "darbuka_regional_style": "darbuka_iraqi_zarb"
-        },
-        "scores": {
-          "percussion_technique": 2.0149999999999997,
-          "darbuka_material": 1.69,
-          "darbuka_skin": 0.8400000000000001,
-          "darbuka_regional_style": 1.04
+          "tar_frame_head": 0.63
         }
       }
     ],
@@ -118,7 +80,7 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
     "tuning": "maqam_24edo",
     "aesthetic": null,
@@ -128,9 +90,29 @@
   "source": {
     "tuning": "maqam_24edo",
     "room": "qat_chew_majlis_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_tradition": "persian_dastgah_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_persian_tahrir",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+      "percussion_technique": "percussion_hands_layered",
+      "tar_size": "tar_large",
+      "tar_frame_drum_context": "tar_frame_drum_art",
+      "tar_frame_shell_wood": "tar_frame_walnut",
+      "tar_frame_head": "tar_frame_goat_skin"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

@@ -1,0 +1,150 @@
+{
+  "id": "mon_piphat_mon",
+  "name": "Mon traditional music (piphat mon ensemble)",
+  "family": "classical",
+  "lineage": "Music of the Mon of Lower Myanmar, around Mawlamyine in Mon State, and of the Mon communities of central Thailand such as those of Pathum Thani and Phra Pradaeng. Its emblem is the piphat mon ensemble, led by the large pi mon oboe with a flared metal bell, with khong mon gong circles set in upright crescent-shaped frames, ranat xylophones, the poeng mang khok frame of tuned drums and a barrel drum; in Thai custom it is the ensemble played at funerals. Mon chamber music also uses the kyam crocodile zither. The Thai khong wong yai card stands in for the khong mon, a generic membrane-drum card for the poeng mang khok and the taphon card for the Mon barrel drum.",
+  "recipe": "classic modern mon traditional music, art Music, Thai classical branch, east Asian funeral lament kantaoming sayeerhe. pi mon, khong wong yai, ranat ek, central Thai ching chap open and damped bronze ching, jackwood barrel canonical Thai piphat taphon, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 385,
+  "score": 92.98,
+  "config": {
+    "traditions": [
+      "mon_piphat_mon",
+      "khmer_kantaoming",
+      "tujia_sayeerhe"
+    ],
+    "instruments": [
+      {
+        "id": "pi_mon",
+        "slots": {
+          "pi_mon_build": "pi_mon_wood_metal_bell",
+          "pi_mon_context": "pi_mon_funeral"
+        },
+        "scores": {
+          "pi_mon_build": 0.80325,
+          "pi_mon_context": 0.195
+        }
+      },
+      {
+        "id": "khong_wong_yai",
+        "slots": {
+          "khong_wong_yai_role": "khong_wong_yai_main_melody"
+        },
+        "scores": {
+          "khong_wong_yai_role": 13.75
+        }
+      },
+      {
+        "id": "ranat_ek",
+        "slots": {
+          "ranat_ek_technique": "ranat_ek_kep"
+        },
+        "scores": {
+          "ranat_ek_technique": 14.151250000000001
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 16.076,
+          "ching_stroke": 11.114999999999998,
+          "ching_alloy": 1.6315
+        }
+      },
+      {
+        "id": "taphon",
+        "slots": {
+          "taphon_technique": "taphon_hand_struck",
+          "taphon_shell_wood": "taphon_jackwood_canonical",
+          "taphon_head": "taphon_calfskin_canonical"
+        },
+        "scores": {
+          "taphon_technique": 13.75,
+          "taphon_shell_wood": 9.267,
+          "taphon_head": 0.045
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 7.95525,
+          "acoustic_membrane_drum_gesture": 6.29025
+        }
+      }
+    ],
+    "pinned": {
+      "pi_mon": [
+        "pi_mon_build",
+        "pi_mon_context"
+      ],
+      "khong_wong_yai": [
+        "khong_wong_yai_role"
+      ],
+      "ranat_ek": [
+        "ranat_ek_technique"
+      ],
+      "ching": [
+        "ching_form",
+        "ching_stroke",
+        "ching_alloy"
+      ],
+      "taphon": [
+        "taphon_technique",
+        "taphon_shell_wood",
+        "taphon_head"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "thai_seven_equal",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "thai_seven_equal",
+    "room": "field_recording",
+    "parts": {
+      "pi_mon_build": "pi_mon_wood_metal_bell",
+      "pi_mon_context": "pi_mon_funeral",
+      "khong_wong_yai_role": "khong_wong_yai_main_melody",
+      "ranat_ek_technique": "ranat_ek_kep",
+      "ching_form": "ching_thai",
+      "ching_stroke": "ching_open_closed",
+      "ching_alloy": "ching_bronze",
+      "taphon_technique": "taphon_hand_struck",
+      "taphon_shell_wood": "taphon_jackwood_canonical",
+      "taphon_head": "taphon_calfskin_canonical",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

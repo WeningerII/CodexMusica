@@ -5,7 +5,7 @@
   "lineage": "South African country encompasses local approaches to country song and acoustic roots music. Alongside its broader popular-country audience, an alternative-country strand combines close vocal harmonies and guitar-led songwriting with instruments associated with country and folk ensembles.",
   "recipe": "classic south african country, functional Song, americana branch. unprocessed natural acoustic. dreadnought acoustic guitar, castagnari Italian premium folk music straight accordion, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 391,
-  "score": 142.807,
+  "score": 142.971,
   "config": {
     "traditions": [
       "south_african_country"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.063,
+          "voice_ensemble_config": 0.19949999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.5310000000000001,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.19949999999999998,
           "voice_tessitura": 0
         }
       },
@@ -58,7 +58,7 @@
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "maple_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
@@ -77,7 +77,7 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
@@ -86,7 +86,7 @@
           "musette_offset": 0.3,
           "reed_config": 0.0315,
           "bellows": 0,
-          "voicing_chamber": 0,
+          "voicing_chamber": 0.063,
           "accordion_maker_school": 2.6
         }
       },
@@ -103,14 +103,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 20.774999999999995,
-          "amp_make": 19.982499999999998,
-          "pickup_steel": 0.1365,
+          "electric_technique": 20.711999999999996,
+          "amp_make": 19.877499999999998,
+          "pickup_steel": 0.168,
           "string_setup": 10.14,
           "bar_material": 0.39,
           "pedal_steel_brand": 19.8595,
-          "pedal_steel_neck_config": 23.0595,
-          "pedal_steel_strings": 19.8675
+          "pedal_steel_neck_config": 23.028000000000002,
+          "pedal_steel_strings": 19.836
         }
       },
       {
@@ -121,7 +121,7 @@
         },
         "scores": {
           "upright_strings": 0.39,
-          "upright_play": 0.363
+          "upright_play": 0.39
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Indie emo rock",
   "family": "rock_punk",
   "lineage": "Indie emo rock brings melodic emo songwriting into expanded independent-rock arrangements.",
-  "recipe": "classic indie emo rock, distorted Rock, emo branch. marshall plexi amp British rock amp arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 345,
-  "score": 45.488,
+  "recipe": "classic indie emo rock, distorted Rock, emo branch. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 46.175,
   "config": {
     "traditions": [
       "indie_emo_rock"
@@ -29,9 +29,9 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.089,
+          "electric_technique": 5.299,
           "amp_make": 5.720000000000001,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "neck_wood": 0.168,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -39,7 +39,7 @@
           "string_material": 0.168,
           "bridge": 0.1365,
           "scale_length": 0,
-          "string_gauge": 0.276,
+          "string_gauge": 0.222,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -113,7 +113,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.39,
+          "voice_ensemble_config": 0.354,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

@@ -5,7 +5,7 @@
   "lineage": "Freeform hardcore is represented here by Kevin Energy with Desire. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic freeform hardcore, electronic Dance, trance branch. digital subtractive, rompler workstation, sampler drum machine. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 9.44,
+  "score": 9.485,
   "config": {
     "traditions": [
       "freeform_hardcore"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "electronic_technique": -0.05,
-          "rompler_preset_bank": -0.05,
+          "rompler_preset_bank": -0.035,
           "rompler_context": -0.035,
           "rompler_lineage": 0
         }
@@ -48,7 +48,7 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "sample_bitdepth": 0,
           "sample_swing": 6.25,
           "sample_processing": -0.035

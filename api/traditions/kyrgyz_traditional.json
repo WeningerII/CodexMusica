@@ -3,14 +3,14 @@
   "name": "Kyrgyz Traditional Music",
   "family": "global",
   "lineage": "Tien Shan mountain-nomad tradition of Kyrgyzstan, transmitted by manaschy epic reciters of the Manas cycle and by küü composers such as Toktogul Satylganov, Karamoldo Orozov and Muratali Kurenkeev — unaccompanied hypnotic recitation in fast trochaic verse alternating with three-string fretless komuz pieces whose right hand throws the instrument in the air mid-phrase, plus kyl kyiak horsehair fiddle laments and temir komuz jaw-harp overtone melodies.",
-  "recipe": "classic Central Asian modern kyrgyz traditional music, hunting Song, central Asian branch, overtone drone modal, string drone modal, Slavic bard ballad poetry kazakh traditional music yodel. sygyt, breath veiled tone, breath pulsed, interlocked note trading. apricot juniper wood three gut strings canonical kyrgyz song accompaniment secondary epic tellers komuz, temir komuz, kyl kyiak fiddle, sybyzgy. kyrgyz manaschi outdoor or state theater. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 508,
-  "score": 196.41,
+  "recipe": "classic Central Asian modern kyrgyz traditional music, hunting Song, central Asian branch, overtone drone modal, string drone modal, Slavic bard ballad poetry siberian folk music throat singing. sygyt, breath veiled tone, breath pulsed, interlocked note trading. apricot juniper wood three gut strings canonical kyrgyz song accompaniment secondary epic tellers komuz, temir komuz, kyl kyiak fiddle, sybyzgy. kyrgyz manaschi outdoor or state theater. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 512,
+  "score": 216.438,
   "config": {
     "traditions": [
       "kyrgyz_traditional",
-      "kazakh_traditional",
-      "yodel"
+      "siberian_folk",
+      "throat_singing"
     ],
     "instruments": [
       {
@@ -20,8 +20,8 @@
           "komuz_tradition": "komuz_song_accompaniment"
         },
         "scores": {
-          "komuz_body": 4.195,
-          "komuz_tradition": 6.4350000000000005
+          "komuz_body": 3.38,
+          "komuz_tradition": 6.240000000000001
         }
       },
       {
@@ -32,8 +32,8 @@
           "kyl_kyiak_style": "kyl_kyiak_kuu"
         },
         "scores": {
-          "bowed_technique": 1.3324999999999998,
-          "kyl_kyiak_body": 5.785,
+          "bowed_technique": 0.12999999999999998,
+          "kyl_kyiak_body": 5.85,
           "kyl_kyiak_style": 0.3
         }
       },
@@ -44,7 +44,7 @@
           "temir_komuz_technique": "temir_komuz_rhythmic"
         },
         "scores": {
-          "temir_komuz_size": 0.7350000000000001,
+          "temir_komuz_size": 0.65,
           "temir_komuz_technique": 0
         }
       },
@@ -58,33 +58,33 @@
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "khoomei_tuvan_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.847500000000002,
-          "voice_quality": 16.18499999999999,
+          "voice_register": 17.875,
+          "voice_quality": 13.389999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.720000000000001,
-          "voice_articulation": 17.614999999999995,
-          "voice_microtone": 21.352499999999992,
-          "voice_tradition": 11.764999999999997,
-          "voice_mechanism_compound": 12.025,
-          "voice_estill_quality": 4.907500000000001,
-          "voice_speech_song": 21.449999999999996,
-          "voice_ensemble_config": 18.654999999999994,
-          "voice_ornament_system": 1.3949999999999998,
-          "voice_pitch_organization": 16.217499999999998,
-          "voice_processing_chain": 8.515,
-          "voice_multitrack_stack": 3.5750000000000006
+          "voice_vibrato": 6.695,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 19.824999999999992,
+          "voice_tradition": 18.3625,
+          "voice_mechanism_compound": 20.605,
+          "voice_estill_quality": 4.225,
+          "voice_speech_song": 20.539999999999996,
+          "voice_ensemble_config": 16.834999999999997,
+          "voice_ornament_system": 4.485000000000001,
+          "voice_pitch_organization": 21.255000000000003,
+          "voice_processing_chain": 7.215,
+          "voice_multitrack_stack": 4.615
         }
       },
       {
@@ -94,8 +94,8 @@
           "sybyzgy_technique": "sybyzgy_plain"
         },
         "scores": {
-          "sybyzgy_material": 5.785,
-          "sybyzgy_technique": 4.68
+          "sybyzgy_material": 5.85,
+          "sybyzgy_technique": 4.225
         }
       }
     ],

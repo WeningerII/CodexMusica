@@ -5,7 +5,7 @@
   "lineage": "Melbourne hip hop spans independent sample rap and radio-facing electronic songwriting. Illy’s melodic electronic/pop-rap branch supplies this selected model.",
   "recipe": "classic modern melbourne hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 32.539,
+  "score": 32.836,
   "config": {
     "traditions": [
       "melbourne_hip_hop"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 17.177,
+          "voice_quality": 17.224999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,21 +60,21 @@
         },
         "scores": {
           "electronic_technique": 5.6499999999999995,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 5.75,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_arpeggiated",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": -0.05,
-          "va_archetypes": 0.1365,
+          "va_archetypes": 0.054,
           "digital_subtractive_context": 2.08
         }
       }

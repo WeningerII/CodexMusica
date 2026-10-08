@@ -5,7 +5,7 @@
   "lineage": "Slovak folk music encompasses regional singing, dance and pastoral instrumental traditions. Central Slovakia’s shepherd culture is closely associated with the fujara, while other local traditions use different ensembles and vocal styles.",
   "recipe": "classic slovak folk, drone Modal, wind pipe branch. agile brighter pastoral ornamented fujara. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 193,
-  "score": 19.706,
+  "score": 19.675,
   "config": {
     "traditions": [
       "slovak_folk"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "fujara_form": 6.709999999999999,
-          "fujara_repertoire": 13.0315,
+          "fujara_repertoire": 13,
           "fujara_wood": -0.035
         }
       }

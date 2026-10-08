@@ -5,7 +5,7 @@
   "lineage": "Voidgrind groups underground extreme-metal discoveries, including death-metal bands with dense riffs and forceful rhythmic interplay. The listening cohort overlaps cavernous, technical and grinding metal practices rather than requiring a single playing technique.",
   "recipe": "classic voidgrind, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 282,
-  "score": 40.608,
+  "score": 39.959,
   "config": {
     "traditions": [
       "voidgrind"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.08549999999999999,
-          "voice_multitrack_stack": 1.6495,
+          "voice_processing_chain": 0.11699999999999999,
+          "voice_multitrack_stack": 1.5955,
           "voice_tessitura": 0
         }
       },
@@ -70,17 +70,17 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 11.835999999999999,
+          "electric_technique": 11.62,
           "amp_make": 0,
-          "body_wood": 0.222,
+          "body_wood": 0.168,
           "neck_wood": 0.105,
-          "fretboard": 0.222,
+          "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.9099999999999999,
+          "bridge": 0.868,
           "scale_length": 0,
-          "string_gauge": 0.6315000000000001,
+          "string_gauge": 0.5775,
           "finish": 0,
           "string_tuning": 5.85
         }
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.222,
+          "body_wood": 0.168,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.222,
+          "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": 4.108,
+          "bass_technique": 4.0315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,13 +127,13 @@
           "drum_technique": 3.75,
           "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0.39,
-          "shell_wood": 0.222,
+          "shell_wood": 0.168,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 3.7865,
+          "cymbal_lathing": 3.8180000000000005,
           "cymbal_finish": 0
         }
       }

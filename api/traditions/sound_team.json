@@ -1,58 +1,195 @@
 {
-  "id": "sound_team",
-  "name": "Sound team",
-  "family": "classical",
-  "lineage": "Sound Team connects game-audio departments, staff composers and their associated soundtrack repertoire. Company ensembles and individual composers circulate music through games, albums, concerts and arranged editions.",
-  "recipe": "classic sound team, art Music. upright piano. shoebox concert hall.",
-  "recipe_chars": 67,
-  "score": 2.531,
+  "id": "video_game_music",
+  "merged_from": "sound_team",
+  "name": "Video game music",
+  "family": "electronic",
+  "lineage": "Interactive score composed for game hardware, from the 1980 arcade and 1983-1994 console chip era — Koichi Sugiyama, Nobuo Uematsu, Koji Kondo and Yuzo Koshiro writing three-to-eight-voice PSG and FM parts under strict polyphony and memory limits — through the CD and streamed-audio era after 1995; the persistent markers are short seamlessly loopable cues, fast arpeggiated pseudo-chords standing in for missing voices, wide leaps and rapid modal modulation to stay memorable at 120-160 BPM, and layered or branching arrangements that respond to player state.",
+  "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music metropopolis post-minimalism. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yamaha xeno modern Japanese standard rim orchestral balance legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 889,
+  "score": 222.83,
   "config": {
     "traditions": [
-      "sound_team"
+      "video_game_music",
+      "metropopolis",
+      "post_minimalism"
     ],
     "instruments": [
       {
-        "id": "upright_piano",
+        "id": "fm_synth",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_standard"
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "keyboard_technique": 2.5,
-          "upright_use": 0.0315,
-          "upright_piano_size": 0
+          "electronic_technique": 9.959999999999999,
+          "fm_algorithm": 2.145,
+          "fm_modulator_ratio": 0,
+          "fm_polyphony": 1.3,
+          "fm_model_lineage": 8.775000000000002
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_industrial",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 9.959999999999999,
+          "wt_position": 2.4050000000000002,
+          "wt_family": 1.8850000000000002,
+          "wt_polyphony": 1.3
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 9.959999999999999,
+          "poly_archetypes": 5.2,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": 2.535
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "novation_supernova",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 9.959999999999999,
+          "va_archetypes": 0.35,
+          "digital_subtractive_context": 21.97
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 4.575,
+          "sampler_archetypes": 4.09,
+          "sampler_bit_depth": 3.185,
+          "sampler_workflow": 5.205,
+          "sampler_classic_context": 25.024999999999995
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "magic_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.375,
+          "orch_strings": 1.2799999999999998,
+          "orch_top_wood": 8.035,
+          "orch_back_wood": 10.27,
+          "orch_varnish": 5.430000000000001,
+          "orch_setup_period": 6.800000000000001,
+          "orch_bow": 0.65,
+          "orch_bow_stick": 5.2,
+          "orch_articulation": 0.65,
+          "orch_rosin": 6.085000000000001
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "straight_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 1.25,
+          "brass_size": 0.65,
+          "trumpet_mouthpiece": 5.7,
+          "brass_mute": 1.25,
+          "trumpet_technique": 1.25,
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 2.43
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": 1.625,
+          "timpani_size": 0.95,
+          "timpani_head": 1.735
+        }
+      },
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+        },
+        "scores": {
+          "choir_size": 8.58,
+          "choir_polyphonic_configuration": 2.525,
+          "choir_regional_canonical_configuration": 3.6399999999999997,
+          "choir_ensemble_repertoire": 2.4499999999999997
         }
       }
     ],
-    "pinned": {
-      "upright_piano": [
-        "keyboard_technique",
-        "upright_use",
-        "upright_piano_size"
-      ]
-    },
-    "room": "concert_hall_shoebox",
+    "room": "untreated_bedroom",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
+      "mic": "condenser_fet",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
-    "parts": {
-      "upright_use": "upright_studio",
-      "upright_piano_size": "upright_piano_standard",
-      "keyboard_technique": "keyboard_classical_legato"
-    },
-    "pin_parts": true
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "chain_mic": "condenser_fet",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

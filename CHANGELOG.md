@@ -6,6 +6,207 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed — tradition signatures leave the lazy page's first view
+
+`TRADITION_SIGNATURES` used to be a generated block inside `src/app.js`, about 450 KB
+raw once the gap fill grew it. It is now `references/10_tradition_signatures.js`,
+still generated from `references/_tradition_signatures.json` by
+`scripts/build_signatures.js`, and it is an engine table (`scripts/_page_tables.js`).
+
+- **Embedded page:** the table is inline beside the other engine tables.
+- **Lazy page:** it arrives in `api/engine.json`. Signatures are read only when a card
+  is configured, which already waits for the engine.
+- **Node:** the loader reads the same file.
+- **Why:** after the gap fill and the merge, the first view (`codex.html` plus
+  `api/browse_boot.json`) was 51 KB gzipped over its 778,240 B budget, and the
+  `src/app.js` script block was 1028 KiB against its 1024 KiB ceiling. Both now pass
+  without raising a budget.
+- **Readers updated:** `check_signature_tokens.js` (it reads the generated file and
+  `api/engine.json`) and `tandem.js`.
+
+### Changed — merged 649 duplicate traditions; every retired id stays an alias
+
+The duplicate pass's merge map was applied. 649 traditions were retired into 512
+survivors: 316 were one tradition under two names, and 333 were era, market or mood
+slices with no documented difference. That took this branch from 8362 to 7713; merged <!-- check_docs:ignore -->
+with `main`'s 43 reviewed genres it is 7755. <!-- check_docs:ignore -->
+
+Merging `main` raised two reconciliations:
+
+- **`pop_minang`.** `main` added it while the gap fill also added it. One record
+  remains, the gap-fill one that `scripts/check_gap_fill.js` holds.
+- **Seven retired records `main` had repaired.** `lambada_carimbo`,
+  `shona_mbira_praise`, `aggrotech`, `coco`, `dancehall_queen_style`,
+  `merengue_de_calle` and `deep_eurodance` had their voice parts pinned on `main`. They
+  now resolve to their survivors, and those repairs leave with the records.
+
+**Held back.**
+
+- 18 pairs that `scripts/_duplicate_rulings.json` had ruled distinct.
+- 15 pairs whose survivor would have been an umbrella record.
+
+**Which record survives.** For a "same" pair it is the better-documented record. In
+138 clusters that overrides the pass's own pick, so hand-researched chains such as
+`surf_rock`'s spring reverb are not lost. For a slice, the broader entry survives. No
+surviving record was edited.
+
+**Aliases.**
+
+- **The registry.** `references/_tradition_aliases.json` maps each retired id to its
+  survivor, and `scripts/_loader.js` exposes `resolveTraditionId`.
+- **Every surface resolves it:** the CLIs, seeding and search, the connector's
+  `start_recipe`, `add_tradition`, `remove_tradition` and `get_tradition` (which adds
+  `merged_from`), saved workspaces, and the app's import, search, `?trad=` links and
+  the atlas.
+- **Static API.** `api/traditions/<alias>.json` serves the survivor's record plus
+  `merged_from`, and the index files, `all.json` and `browse.json` carry the alias map.
+- **Gates.** The new `scripts/check_aliases.js` (`npm run check:aliases`) checks every
+  alias on every surface. `check_api.js` checks the alias files and now also fails on
+  stale files in `api/traditions/`. `validate.js` and `placement_check.js` keep a
+  retired id from shadowing or being reused. The `retired-ids-resolve` promise is
+  documented in AGENTS.md.
+
+**The retired records' side data.**
+
+- **Removed:** their pins, signatures, signature rulings, images, review-list entries
+  and voice overrides.
+- **Repointed:** atlas routes and threads.
+- **Carried over:** five distinct rulings now name the surviving pairs.
+- **Preface fixtures:** the five on retired ids were repointed (two dropped as
+  duplicates, one re-recorded).
+
+**Effect on surviving recipes.**
+
+- 876 recipe texts change through neighbour adjacency.
+- No instrument, room, tuning or chain moved, and two archetypes were re-picked.
+- 269 regression fixtures are re-recorded.
+- The pairs are in `docs/geographic-attribution-audit/merge-recipe-changes.csv`.
+
+### Changed — Arbitrary-pin review: 43 atlas pins moved to a documented origin
+
+The rest of the geographic attribution audit's first recommendation is done. Every pin it called
+arbitrary was reviewed, along with 4 that its reverse checks flagged: 1157 in all. Each
+entry was classified, every proposed move was reviewed independently, and disputes
+went to a tie-break.
+
+- **43 moved** to a single documented origin. Examples: karaoke to Kobe, opera to
+  Florence, popping to Fresno, the prepared piano to Seattle, goregrind to Liverpool,
+  the handpan to Bern, Afro-soul to Johannesburg.
+- **1058 have no single right place** and keep their pins: 893 placeless and 165
+  multi-origin.
+- **The moves run mostly into** North America (+6) and Europe (+2), because these are
+  genres born there but pinned at one member's home abroad.
+
+`deboxe` is also corrected. Its lineage and description named Rio Grande do Sul, but
+sources place the brand in Brasília and Goiás, so the pin moves to Brasília. The ledger is
+`docs/geographic-attribution-audit/arbitrary-pins.csv`.
+
+### Added — Duplicate pass: a verified merge map (no entries merged)
+
+The audit's 988 near-duplicate flags and 279 name-similarity pairs were judged, with a
+skeptic re-check of every merge candidate.
+
+- **Verdicts:** 339 same, 370 slice, 399 variant worth keeping, 156 distinct.
+- **The merge map:** the confirmed pairs form 529 clusters, which would retire 681
+  entries (371 Every Noise, 310 core).
+
+No catalog data changed. The pairs and clusters are in
+`docs/geographic-attribution-audit/duplicates.csv` and `duplicate-clusters.csv`.
+
+### Added — Geographic gap fill, batch 3: Rodrigues and San Andrés
+
+The atlas basemap's island supplement is renamed
+`references/_natural_earth_10m_islands.json`. Next to Onotoa, it now adds the
+Natural Earth 1:10m polygons for Rodrigues (Mauritius) and for San Andrés and
+Providencia (Colombia). `scripts/build_atlas_basemap.js` promotes a single-Polygon
+country to a MultiPolygon so the island can join it.
+
+With the islands drawn, the two batch-2 candidates held back for want of a pin are
+added at their true locations: `rodrigues_accordion_dances` and
+`raizal_san_andres_providencia`.
+
+Catalog totals: 8362 traditions and 1667 instruments. <!-- check_docs:ignore -->
+
+### Added — Geographic gap fill, batch 2: 922 traditions from the remaining 21 regions
+
+Batch 2 adds the rest of the audit's verified gap list. It covers:
+
+- the 13 remaining regional sweeps;
+- Western, Nordic and Southern Europe, and Japan and Korea;
+- the two control regions;
+- the Jewish/Roma and settler/diaspora sweeps.
+
+The largest additions are the Caribbean, Mexico, Colombia and Venezuela (85), India (71),
+West Africa (67), Russia's peoples and Siberia (61), and Brazil and the Southern Cone (57).
+The new entries are pinned in 146 countries and territories.
+
+The method is the same as batch 1: author, independent review, pinned
+source-unspecified parts, sound-word signatures, and a render sweep that retuned 33
+entries.
+
+Nine candidates were not added. Four were duplicates, three lacked documentation, and
+two islands, Rodrigues and San Andrés, are missing from the basemap.
+
+Through neighbour adjacency, 659 existing static recipes move. No instrument, room,
+tuning or chain changed, and 217 regression fixtures are re-recorded. Every pair is in
+`docs/geographic-gap-fill/batch2-existing-recipe-changes.csv`.
+
+Catalog totals: 8360 traditions and 1667 instruments. <!-- check_docs:ignore -->
+
+### Added — Geographic gap fill, batch 1: 360 traditions from the five worst-covered regions
+
+The geographic attribution audit's verified gap list is being added region by region,
+worst-covered first. This batch covers:
+
+- Maritime Southeast Asia: 115
+- China, Hong Kong, Macao and Taiwan: 102
+- Mainland Southeast Asia: 57
+- Pakistan, Bangladesh, Nepal, Sri Lanka, Bhutan and Maldives: 45
+- Central Africa and Angola: 41
+
+How the entries were made and checked:
+
+- **Sources and instruments.** Each entry was authored from its candidate's recording
+  evidence using existing instrument cards. 185 lineages name a stand-in card.
+- **Review.** An independent reviewer checked facts, duplicates, instruments, pins and
+  rendered wording.
+- **Pinned parts and signatures.** Every entry carries pinned, mostly
+  source-unspecified part settings and a sound-word-only signature.
+- **Wording sweep.** A final render sweep retuned 22 entries whose automatic preface
+  named an unrelated culture.
+- **Excluded candidates.** Two were merged into siblings and one was dropped as
+  unverifiable. All three are recorded in the ledger.
+
+The ledger is `docs/geographic-gap-fill.json` and the write-up is
+`docs/geographic-gap-fill.md`. `scripts/check_gap_fill.js` joins `npm run test:geography`
+and checks every row: anchor, pinned parts, seed/search survival, and browser/connector
+parity in all four formats. Catalog totals: 7438 traditions and 1667 instruments. <!-- check_docs:ignore -->
+
+### Changed — Atlas: 263 misattributed pins moved to where their traditions are
+
+The geographic attribution audit (`docs/geographic-attribution-audit.md`) confirmed
+264 pins as sitting in the wrong place. Most were Every Noise national labels pinned
+at one sample artist's or label's city: "Indian classical" in Fairfax, Virginia,
+"Algerian folk" in Paris, "Ethiopian pop" in Krems.
+
+- **How each move was checked.** An adversarial verifier with web search confirmed
+  every move, and an independent reviewer then checked each target against the
+  atlas's own conventions: cultural centres, place-only labels and the contested
+  region rulings.
+- **What changed.** 259 moved to the audit's target and 4 to a better place the
+  review found, e.g. a national label went to its main scene city (Bangui, Kyiv,
+  Karachi). 1 stays put (`deboxe`): its Goiânia pin is right, and its lineage text
+  is what needs fixing.
+- **Coordinates.** 234 of the moves reuse the coordinate already in `data/geo.json`
+  for that city. The other 29 go to places new to the atlas: 28 were looked up from
+  web sources, and the tie-break reviewer supplied Bangui's.
+- **Net change by sidebar region:** North America −53, Europe −48, Latin America &
+  Caribbean +29, Africa +21, East Asia +17, South Asia +16, Middle East +13.
+- **Records.** Every old and new coordinate is in
+  `docs/geographic-attribution-audit/repins.csv`. `data/atlas-geo.json` is
+  regenerated. The `data/geo-meta.json` note records that 28 of the moved ids are
+  on its 2026-09-09 `reviewed` list.
+
 ### Changed — the instrument engine leaves the lazy page: codex.html is 0.50 MB gzipped, not 1.16 MB
 
 The instrument engine is `INSTRUMENTS` with their parts and variants, the family parts,
@@ -307,6 +508,7 @@ first view. The prose is 85% of that, and the first view shows one genre's.
 - **Measured** (Lighthouse 13.5 mobile, simulated throttling, gzip served, 5 runs
   each, interleaved against the previous head): largest contentful paint 17.1 s →
   7.9 s in every run; total transfer 3,737 → 3,728 KiB; layout shift unchanged.
+
 
 ### Changed — Connector audit: the service writer is chat-only, and every tool says what it does
 

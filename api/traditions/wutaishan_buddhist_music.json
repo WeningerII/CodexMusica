@@ -1,0 +1,241 @@
+{
+  "id": "wutaishan_buddhist_music",
+  "name": "Wutaishan fojiao yinyue (Mount Wutai Buddhist music)",
+  "family": "global",
+  "lineage": "Temple music of the Buddhist monasteries of Mount Wutai in Shanxi, carried in two strands, the Han Chinese 'blue temple' (qingmiao) monasteries and the Tibetan-Mongolian 'yellow temple' (huangmiao) lamaseries, and entered on China's national intangible heritage list in 2006. Beside the sung liturgy, monks play a northern wind-and-percussion ensemble led by the guanzi double-reed pipe with sheng mouth organ and dizi flute (the generic bamboo-flute card stands in for it), over the yunluo gong-chime, drum and cymbals, preserving old qupai melodies.",
+  "recipe": "classic mid-2000s wutaishan fojiao yinyue, ritual Devotional, buddhist branch. single lead single track no stacking. guanzi, bamboo pipes copper brass free reeds canonical Chinese sheng, bamboo credited bamboo flute unspecified, yunluo, naobo, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 376,
+  "score": 11.232,
+  "config": {
+    "traditions": [
+      "wutaishan_buddhist_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_unison_octaves",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.7325,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "guanzi",
+        "slots": {
+          "guanzi_size": "guanzi_zhongyin",
+          "guanzi_body": "guanzi_hardwood",
+          "guanzi_style": "guanzi_beijing"
+        },
+        "scores": {
+          "guanzi_size": 0.3,
+          "guanzi_body": 0.1365,
+          "guanzi_style": 0.3
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_court",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "sheng_size": 0.105,
+          "sheng_context": 0.5565,
+          "sheng_pipe_material": 2.6
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 1,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "yunluo",
+        "slots": {
+          "yunluo_size": "yunluo_ten",
+          "yunluo_mallet": "yunluo_hardwood"
+        },
+        "scores": {
+          "yunluo_size": 0.24149999999999996,
+          "yunluo_mallet": 0
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.44099999999999995,
+          "naobo_stroke": 0.0315
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.69,
+          "acoustic_membrane_drum_gesture": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "guanzi": [
+        "guanzi_size",
+        "guanzi_body",
+        "guanzi_style"
+      ],
+      "sheng": [
+        "free_reed_technique",
+        "sheng_size",
+        "sheng_context",
+        "sheng_pipe_material"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "yunluo": [
+        "yunluo_size",
+        "yunluo_mallet"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_unison_octaves",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "guanzi_size": "guanzi_zhongyin",
+      "guanzi_body": "guanzi_hardwood",
+      "guanzi_style": "guanzi_beijing",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "sheng_size": "sheng_traditional_17",
+      "sheng_context": "sheng_court",
+      "sheng_pipe_material": "sheng_bamboo_canonical",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "yunluo_size": "yunluo_ten",
+      "yunluo_mallet": "yunluo_hardwood",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

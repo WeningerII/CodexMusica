@@ -5,7 +5,7 @@
   "lineage": "Khandeshi pop brings Ahirani and Khandeshi-language songs into contemporary regional recording and video circulation. Singers and producers combine local melodic and lyrical expression with studio programming, duets and dance-oriented refrains.",
   "recipe": "classic khandeshi pop, functional Song. credited programming unspecified. treated studio.",
   "recipe_chars": 89,
-  "score": 0.893,
+  "score": 1.03,
   "config": {
     "traditions": [
       "khandeshi_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.35925,
+          "voice_speech_song": 0.49575,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

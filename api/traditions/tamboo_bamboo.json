@@ -1,0 +1,63 @@
+{
+  "id": "tamboo_bamboo",
+  "name": "Tamboo bamboo (Trinidad bamboo-tube band)",
+  "family": "global",
+  "lineage": "Trinidadian carnival bands that took the place of skin drums after the colonial authorities restricted drumming in the late nineteenth century, using lengths of bamboo of different sizes (boom, foulé and cutter) stamped on the ground or struck with sticks, often joined by bottle-and-spoon. The steel band grew out of them and displaced them, but tamboo bamboo bands are still revived at carnival; the bamboo stamping-tube card stands in for the Trinidadian bamboos.",
+  "recipe": "classic modern tamboo bamboo, carnival Processional, Caribbean branch. tagunggak. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 161,
+  "score": 0.45,
+  "config": {
+    "traditions": [
+      "tamboo_bamboo"
+    ],
+    "instruments": [
+      {
+        "id": "tagunggak",
+        "slots": {
+          "tagunggak_set": "tagunggak_low",
+          "tagunggak_technique": "tagunggak_stamped"
+        },
+        "scores": {
+          "tagunggak_set": 0.6,
+          "tagunggak_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "tagunggak": [
+        "tagunggak_set",
+        "tagunggak_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "tagunggak_set": "tagunggak_low",
+      "tagunggak_technique": "tagunggak_stamped"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

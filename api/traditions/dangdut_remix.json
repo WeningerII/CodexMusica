@@ -5,7 +5,7 @@
   "lineage": "Indonesian dance-remix practice reshaping dangdut recordings through digital editing, rhythmic replacement and sampled cross-genre additions. It developed within the cassette and studio-production economy of the 1990s and continues in electronic dance circulation.",
   "recipe": "classic mid-1990s dangdut remix, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
   "recipe_chars": 104,
-  "score": 0.063,
+  "score": 0.095,
   "config": {
     "traditions": [
       "dangdut_remix"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

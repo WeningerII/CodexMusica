@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s onward online-distributed instrumental-hip-hop genre characterized by tape-saturated downtempo beat-tape production, jazz-and-soul sample foundations, and study-and-relax-targeted use context — codified through Nujabes (Modal Soul 2005, posthumously canonical), J Dilla (Donuts 2006, the lineage-bearing predecessor), and developed through ChilledCow and Lofi Girl YouTube live-streams, with countless bedroom-producer contributors",
   "recipe": "classic 2014-2016 lo-fi hip hop, experimental Elec, lofi branch, us hip hop modern cloud rap dark plugg. chopped sampler, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, roland tr 8s modern aira digital recreation TR-808, modern bright beech laminated maple laminated European tradition Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 588,
-  "score": 187.155,
+  "score": 187.227,
   "config": {
     "traditions": [
       "lofi_hiphop",
@@ -23,10 +23,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.575,
+          "electronic_technique": 8.610999999999999,
           "sampler_archetypes": 15.469999999999999,
           "sampler_bit_depth": 3.5100000000000002,
-          "sampler_workflow": 9.024999999999999,
+          "sampler_workflow": 9.060999999999998,
           "sampler_classic_context": 24.277499999999996
         }
       },
@@ -42,7 +42,7 @@
         },
         "scores": {
           "keyboard_technique": 5.7,
-          "rhodes_model": 5.185,
+          "rhodes_model": 5.221,
           "rhodes_use": 2.795,
           "rhodes_tine_material": 3.705,
           "rhodes_hammer_tip": 0.6824999999999998,
@@ -67,7 +67,7 @@
           "pickup_config": 4.8100000000000005,
           "string_type": 7.999999999999999,
           "scale_length_b": 3.5100000000000002,
-          "fretted_or_not": 0.18,
+          "fretted_or_not": 0.135,
           "bass_technique": 6.54,
           "electric_bass_string_configuration": 0
         }
@@ -100,12 +100,12 @@
         },
         "scores": {
           "keyboard_technique": 6.700000000000001,
-          "grand_piano_size": 1.935,
+          "grand_piano_size": 1.95,
           "grand_piano_brand": 2.145,
           "piano_hammer": 7.085000000000001,
           "piano_rim": 6.340000000000001,
-          "piano_soundboard": 5.840000000000001,
-          "piano_pinblock": 5.795000000000001,
+          "piano_soundboard": 5.984000000000001,
+          "piano_pinblock": 5.645000000000001,
           "piano_plate": 8.97,
           "piano_pitch_standard": 11.05
         }

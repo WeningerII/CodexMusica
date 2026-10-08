@@ -5,7 +5,7 @@
   "lineage": "Fast melodic punk keeps melodic vocal hooks and coordinated ensemble playing at a rapid pace.",
   "recipe": "classic fast melodic punk, distorted Rock, punk branch. group vocals, live take. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit, bach stradivarius 180 canonical American orchestral ensemble trumpet. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 52.926,
+  "score": 51.697,
   "config": {
     "traditions": [
       "fast_melodic_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 13.129999999999999,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.386,
           "neck_wood": 0.063,
           "fretboard": 2.573,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.386,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 1.105,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 1,
           "voice_tessitura": 0
         }
@@ -136,10 +136,10 @@
           "wind_articulation": 3.591,
           "brass_size": 0.063,
           "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0.273,
+          "brass_mute": 0.1365,
           "trumpet_technique": 3.591,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 1.6275
+          "trumpet_maker_school": 1.3545
         }
       }
     ],

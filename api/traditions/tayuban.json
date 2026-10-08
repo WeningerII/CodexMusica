@@ -1,0 +1,216 @@
+{
+  "id": "tayuban",
+  "name": "Tayuban (Javanese tayub dance-party gamelan)",
+  "family": "global",
+  "lineage": "Javanese social dance event in which female singer-dancers (ledhek or waranggana) sing with a gamelan and invite men to dance with them in turn. It is held at village cleansing ceremonies, harvest feasts and weddings in regions such as Blora and Nganjuk.",
+  "recipe": "classic modern tayuban, art Music, southeast Asian branch. solo with instrumental accompaniment. lively gamelan javanese buffalo hide rattan lacing canonical javanese kendang indonesian, saron gamelan, bonang, kenong, kempul. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 17.082,
+  "config": {
+    "traditions": [
+      "tayuban"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.49349999999999994,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_ciblon",
+          "kendang_context": "kendang_javanese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "kendang_buffalo_hide_canonical"
+        },
+        "scores": {
+          "kendang_size": 3.3799999999999994,
+          "kendang_context": 5.59,
+          "kendang_shell_wood": 0,
+          "kendang_head": 2.6
+        }
+      },
+      {
+        "id": "saron_gamelan",
+        "slots": {
+          "saron_size": "saron_demung",
+          "saron_tuning_system": "saron_slendro"
+        },
+        "scores": {
+          "saron_size": 0,
+          "saron_tuning_system": 0.5985
+        }
+      },
+      {
+        "id": "bonang",
+        "slots": {
+          "bonang_tuning": "bonang_full_set",
+          "bonang_register": "bonang_barung"
+        },
+        "scores": {
+          "bonang_tuning": -0.035,
+          "bonang_register": 0
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 0.5985
+        }
+      },
+      {
+        "id": "kempul",
+        "slots": {
+          "kempul_build": "kempul_forged_bronze",
+          "kempul_tuning": "kempul_slendro_set",
+          "kempul_role": "kempul_midcycle"
+        },
+        "scores": {
+          "kempul_build": 0.303,
+          "kempul_tuning": 0.5145,
+          "kempul_role": 0.168
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "saron_gamelan": [
+        "saron_size",
+        "saron_tuning_system"
+      ],
+      "bonang": [
+        "bonang_tuning",
+        "bonang_register"
+      ],
+      "kenong": [
+        "kenong_tuning"
+      ],
+      "kempul": [
+        "kempul_build",
+        "kempul_tuning",
+        "kempul_role"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pelog_slendro_javanese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_javanese",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "kendang_size": "kendang_ciblon",
+      "kendang_context": "kendang_javanese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "kendang_buffalo_hide_canonical",
+      "saron_size": "saron_demung",
+      "saron_tuning_system": "saron_slendro",
+      "bonang_tuning": "bonang_full_set",
+      "bonang_register": "bonang_barung",
+      "kenong_tuning": "kenong_slendro",
+      "kempul_build": "kempul_forged_bronze",
+      "kempul_tuning": "kempul_slendro_set",
+      "kempul_role": "kempul_midcycle"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

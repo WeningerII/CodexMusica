@@ -5,7 +5,7 @@
   "lineage": "Mid-fifteenth-century compositional school centered on the courts of the Dukes of Burgundy (Philip the Good, Charles the Bold) at Dijon and Brussels. Guillaume Dufay (c.1397-1474) and Gilles Binchois (c.1400-1460) are the principal composers. Developed the Mass cycle (cyclic Mass based on a single cantus firmus), the rondeau and ballade chanson forms, and the smoother-consonant fauxbourdon harmonic style. Direct precursor of the Franco-Flemish polyphonic school.",
   "recipe": "classic early-1390s burgundian school, art Music, western early branch, christian gospel ritual devotional sacred steel jubilee quartet. thick, breath veiled tone, slow rate, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble, single rank treble piping single line portative organ. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 473,
-  "score": 195.375,
+  "score": 195.205,
   "config": {
     "traditions": [
       "burgundian_school",
@@ -45,11 +45,11 @@
           "voice_mechanism_compound": 2.4,
           "voice_estill_quality": 16.474999999999998,
           "voice_speech_song": 16.379999999999995,
-          "voice_ensemble_config": 17.549999999999997,
+          "voice_ensemble_config": 17.505,
           "voice_ornament_system": 8.025,
           "voice_pitch_organization": 3.2500000000000004,
           "voice_processing_chain": 7.149999999999999,
-          "voice_multitrack_stack": 2.065
+          "voice_multitrack_stack": 2.02
         }
       },
       {
@@ -63,8 +63,8 @@
         "scores": {
           "choir_size": 2.535,
           "choir_polyphonic_configuration": 3.445,
-          "choir_regional_canonical_configuration": 2.8475,
-          "choir_ensemble_repertoire": 4.1525
+          "choir_regional_canonical_configuration": 2.8600000000000003,
+          "choir_ensemble_repertoire": 4.225
         }
       },
       {
@@ -77,7 +77,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "portative_organ_form": 1.56,
+          "portative_organ_form": 1.395,
           "portative_organ_repertoire": 2.145,
           "portative_organ_pipework": -0.1
         }

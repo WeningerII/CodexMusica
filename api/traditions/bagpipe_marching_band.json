@@ -5,7 +5,7 @@
   "lineage": "Bagpipe marching band: U.S. Coast Guard Pipe Band — pipes-and-drums practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic bagpipe marching band, drone Modal, wind pipe branch. synthetic drone reeds ezeedrone selbie highland bagpipes, rudimental pipe band pipe band snare, pipe band flourishing kevlar aramid extreme tension tenor bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 38.433,
+  "score": 38.261,
   "config": {
     "traditions": [
       "bagpipe_marching_band"
@@ -22,12 +22,12 @@
           "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 0.18150000000000002,
-          "highland_drones": 0.6509999999999999,
+          "wind_articulation": 0.15000000000000002,
+          "highland_drones": 0.6824999999999999,
           "highland_chanter": 0.325,
           "highland_drone_reeds": 1.95,
           "highland_chanter_reed": 0.3045,
-          "highland_bag": 0.45149999999999996
+          "highland_bag": 0.21
         }
       },
       {
@@ -37,7 +37,7 @@
           "pipe_snare_play": "pipe_snare_rudimental_ensemble"
         },
         "scores": {
-          "pipe_snare_head": 0.325,
+          "pipe_snare_head": 0.25,
           "pipe_snare_play": 7.865
         }
       },
@@ -50,7 +50,7 @@
           "tenor_drum_shell": "tenor_drum_corps_shell"
         },
         "scores": {
-          "tenor_drum_form": 8.84,
+          "tenor_drum_form": 8.7425,
           "tenor_drum_head": 5.699999999999999,
           "tenor_drum_beater": 5.75,
           "tenor_drum_shell": 5.699999999999999
@@ -63,7 +63,7 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0,
+          "bass_drum_size": 0.2415,
           "bass_drum_beater": 0.39
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Uruguay's traditional repertory joining the pampa's guitar forms — milonga and cifra sung over a syncopated 2/4 ostinato — with Afro-Uruguayan candombe from Montevideo's Barrio Sur conventillos, whose three drums chico, repique and piano play interlocking clave-anchored patterns behind carnival comparsas, codified in song by Alfredo Zitarrosa, Los Olimareños and Rubén Rada from the 1960s.",
   "recipe": "classic South American mid-1960s folklore uruguayo, carnival Processional, river plate branch, Latin am troubadour milonga, iberian Latin protest song raíces. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, full cuerda street parade staved wood cowhide head flame tuned candombe tamboriles, syncopated rim accented bombo leguero, kolstein bass specific double bass. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 540,
-  "score": 175.827,
+  "score": 176.415,
   "config": {
     "traditions": [
       "folklore_uruguayo",
@@ -40,8 +40,8 @@
           "candombe_tamboriles_build": "candombe_tamboriles_wood_cowhide"
         },
         "scores": {
-          "candombe_tamboriles_drum": 10.34,
-          "candombe_tamboriles_context": 14.435,
+          "candombe_tamboriles_drum": 10.4765,
+          "candombe_tamboriles_context": 14.8865,
           "candombe_tamboriles_build": 3.5500000000000003
         }
       },

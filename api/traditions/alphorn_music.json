@@ -3,14 +3,14 @@
   "name": "Alphorn Music",
   "family": "global",
   "lineage": "Repertoire of the Swiss and Austrian wooden alphorn, a valveless 3-4 metre conical natural horn documented from the 16th century, revived from near-extinction in the 1820s by Ferdinand Fürchtegott Huber and the Unspunnen festivals and standardized to F-sharp and G-flat instruments in the 20th century — slow ceremonial Betruf and Kuhreihen melodies restricted to harmonics 2-12, including the characteristic eleventh partial (alphorn fa) sitting between F and F-sharp, often played in two- and three-horn consorts.",
-  "recipe": "classic mid-1820s alphorn music, drone Modal, wind pipe branch, overtone drone modal, vocal drone modal, European carnival processional yodel naturjodel. vocal fry, breath veiled tone, slow rate, interlocked note trading. f long alphorn, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 465,
-  "score": 216.88,
+  "recipe": "classic mid-1820s alphorn music, drone Modal, wind pipe branch, overtone drone modal, vocal drone modal, European carnival processional naturjodel siberian folk music. sygyt, breath veiled tone, breath pulsed, interlocked note trading. f long alphorn, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 479,
+  "score": 208.627,
   "config": {
     "traditions": [
       "alphorn_music",
-      "yodel",
-      "naturjodel"
+      "naturjodel",
+      "siberian_folk"
     ],
     "instruments": [
       {
@@ -20,18 +20,18 @@
           "alphorn_material": "alphorn_carved_spruce"
         },
         "scores": {
-          "alphorn_length": 5.8149999999999995,
+          "alphorn_length": 6.45,
           "alphorn_material": 0.195
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "sygyt_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -39,28 +39,28 @@
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.8349999999999995,
-          "voice_quality": 17.744999999999994,
+          "voice_register": 7.507499999999999,
+          "voice_quality": 16.054999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.16,
-          "voice_articulation": 22.619999999999994,
-          "voice_microtone": 29.509999999999994,
-          "voice_tradition": 14.689999999999996,
+          "voice_vibrato": 4.419999999999999,
+          "voice_articulation": 21.839999999999996,
+          "voice_microtone": 28.274999999999995,
+          "voice_tradition": 13.162499999999998,
           "voice_mechanism_compound": 7.865,
-          "voice_estill_quality": 6.629999999999999,
-          "voice_speech_song": 24.374999999999996,
-          "voice_ensemble_config": 21.904999999999998,
-          "voice_ornament_system": 2.0149999999999997,
-          "voice_pitch_organization": 12.804999999999996,
-          "voice_processing_chain": 6.305000000000001,
-          "voice_multitrack_stack": 3.1849999999999996
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 23.595,
+          "voice_ensemble_config": 20.474999999999998,
+          "voice_ornament_system": 2.600000000000001,
+          "voice_pitch_organization": 13.682499999999997,
+          "voice_processing_chain": 5.655000000000001,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
@@ -72,10 +72,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 10.205,
-          "choir_polyphonic_configuration": 8.97,
-          "choir_regional_canonical_configuration": 15.014999999999999,
-          "choir_ensemble_repertoire": 4.135
+          "choir_size": 9.36,
+          "choir_polyphonic_configuration": 8.060000000000002,
+          "choir_regional_canonical_configuration": 12.155,
+          "choir_ensemble_repertoire": 3.3799999999999994
         }
       }
     ],

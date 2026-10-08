@@ -5,7 +5,7 @@
   "lineage": "Deep happy hardcore gathers a contemporary hardcore producer and DJ cohort around fast dance beats, buoyant melodic hooks and energetic vocal refrains. Label mixes and club performances connect established UK hardcore practices with internationally circulating releases.",
   "recipe": "classic deep happy hardcore, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 93,
-  "score": 0.032,
+  "score": 0.063,
   "config": {
     "traditions": [
       "deep_happy_hardcore"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "dj_playback_mixing_identity": 0.063
         }
       }
     ],

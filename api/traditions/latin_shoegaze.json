@@ -5,7 +5,7 @@
   "lineage": "Latin American shoegaze scenes combine dense electric-guitar textures with melodic and atmospheric song forms.",
   "recipe": "classic latin shoegaze, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 30.364,
+  "score": 30.304,
   "config": {
     "traditions": [
       "latin_shoegaze"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 3.1200000000000006,
-          "body_wood": 1.1969999999999998,
+          "body_wood": 1.302,
           "neck_wood": 0.39,
           "fretboard": 0.325,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.1992500000000001,
-          "scale_length": 0.651,
-          "string_gauge": 1.19925,
+          "bridge": 1.09425,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 1.09425,
           "finish": 0,
           "string_tuning": 0.21375
         }
@@ -61,7 +61,7 @@
           "body_wood": 0.39,
           "pickup_config": 0.1365,
           "string_type": 8.125,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.378,
+          "drumhead": 0.35025,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.45224999999999993
         }
       }

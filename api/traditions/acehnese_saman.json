@@ -3,14 +3,14 @@
   "name": "Acehnese saman",
   "family": "global",
   "lineage": "Acehnese saman seated-rhythmic-dance-and-song tradition of the Gayo people of central Aceh province, northern Sumatra, Indonesia. Performance configuration: a tightly packed row of 10-20 male dancers seated cross-legged on the floor, performing extremely fast and precise synchronized hand-clapping, chest-slapping, thigh-slapping, and arm-movement choreography while singing Islamic-devotional verse in the Gayo language. The form emerged in the thirteenth-fourteenth century with Islamic missionary activity in Aceh; the canonical genre features rapid acceleration through the performance and characteristic call-and-response between the leader-syech and the body of dancers.",
-  "recipe": "classic Southeast Asian modern acehnese saman, ritual Devotional, islamic branch, west African groove percussion fújì sabar drumming. vocal fry, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 359,
-  "score": 170.707,
+  "recipe": "classic Southeast Asian modern acehnese saman, ritual Devotional, islamic branch, west African groove percussion atsiagbekor swange. vocal fry, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 146.205,
   "config": {
     "traditions": [
       "acehnese_saman",
-      "fuji",
-      "sabar_drumming_wolof"
+      "atsiagbekor_ewe",
+      "swange_tiv"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.2349999999999999,
-          "voice_quality": 23.595000000000002,
+          "voice_register": 1.4249999999999998,
+          "voice_quality": 22.815,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3150000000000004,
-          "voice_articulation": 18.849999999999994,
-          "voice_microtone": 18.654999999999994,
-          "voice_tradition": 32.8575,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 4.875,
-          "voice_speech_song": 20.539999999999992,
-          "voice_ensemble_config": 17.09499999999999,
-          "voice_ornament_system": 7.7749999999999995,
-          "voice_pitch_organization": 9.415,
-          "voice_processing_chain": 9.295000000000002,
-          "voice_multitrack_stack": 2.08
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 18.525,
+          "voice_microtone": 18.329999999999995,
+          "voice_tradition": 20.995000000000005,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 20.604999999999997,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 6.899999999999999,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 11.764999999999997,
+          "voice_multitrack_stack": 1.74
         }
       }
     ],

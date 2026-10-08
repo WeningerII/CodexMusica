@@ -5,7 +5,7 @@
   "lineage": "Women performers have shaped Mexican regional song through ranchera, mariachi, banda, norteño and grupera traditions. Recorded repertoire, touring bills and broadcast programmes connect established interpreters with newer singers across Mexico and its diaspora.",
   "recipe": "classic regional mexicano femenil, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. classical nylon-string guitar. live tracking.",
   "recipe_chars": 165,
-  "score": 3.598,
+  "score": 3.544,
   "config": {
     "traditions": [
       "regional_mexicano_femenil"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.594,
-          "voice_multitrack_stack": 0.354,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Latin American post-rock links instrumental-band scenes through layered guitars, electronic textures and evolving arrangements.",
   "recipe": "classic post-rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 37.471,
+  "score": 36.686,
   "config": {
     "traditions": [
       "post_rock_latinoamericano"
@@ -32,13 +32,13 @@
           "electric_technique": -0.07,
           "amp_make": 4.42,
           "body_wood": 0.5565,
-          "neck_wood": 0.5579999999999999,
-          "fretboard": 0.5579999999999999,
+          "neck_wood": 0.417,
+          "fretboard": 0.417,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.3045,
-          "string_material": 0.5579999999999999,
+          "pickup_winding": 0.4345,
+          "string_material": 0.417,
           "bridge": 0.45625,
-          "scale_length": 1.1774999999999998,
+          "scale_length": 1.0365,
           "string_gauge": 0.39325,
           "finish": 0.1365,
           "string_tuning": 0.08174999999999999
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.5579999999999999,
+          "drumhead": 0.417,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -91,9 +91,9 @@
         },
         "scores": {
           "electronic_technique": 0.19500000000000003,
-          "oscillator": 0.8025,
+          "oscillator": 0.5535,
           "filter_topology": 0.39,
-          "envelope": 0.5927499999999999,
+          "envelope": 0.6317499999999999,
           "modulation": 0.105
         }
       }

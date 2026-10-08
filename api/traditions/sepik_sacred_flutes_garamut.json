@@ -1,0 +1,88 @@
+{
+  "id": "sepik_sacred_flutes_garamut",
+  "name": "Sepik sacred flutes and garamut (Iatmul and Abelam men's ritual music)",
+  "family": "global",
+  "lineage": "Ritual music of the Sepik region: among the Iatmul and Abelam, long side-blown bamboo flutes are played in pairs by initiated men, the two players interlocking to build melodies on the flutes' overtones, and ensembles of large carved wooden slit drums (garamut) beaten with heavy pounders sound signals, rhythms and ceremonial pieces. The credited bamboo-flute card stands in for the sacred flutes.",
+  "recipe": "classic modern sepik sacred flutes and garamut, ritual Devotional, indigenous branch. bamboo credited bamboo flute unspecified, massive carved pacific slit gong. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 241,
+  "score": 11.701,
+  "config": {
+    "traditions": [
+      "sepik_sacred_flutes_garamut"
+    ],
+    "instruments": [
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 2.5414999999999996,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "pacific_slit_gong",
+        "slots": {
+          "pacific_slit_gong_form": "pacific_slit_gong_garamut",
+          "pacific_slit_gong_role": "pacific_slit_gong_ceremonial",
+          "pacific_slit_gong_wood": "pacific_slit_gong_toa"
+        },
+        "scores": {
+          "pacific_slit_gong_form": 1.56,
+          "pacific_slit_gong_role": 7.8,
+          "pacific_slit_gong_wood": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "pacific_slit_gong": [
+        "pacific_slit_gong_form",
+        "pacific_slit_gong_role",
+        "pacific_slit_gong_wood"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "pacific_slit_gong_form": "pacific_slit_gong_garamut",
+      "pacific_slit_gong_role": "pacific_slit_gong_ceremonial",
+      "pacific_slit_gong_wood": "pacific_slit_gong_toa"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Peruvian trap connects MC collectives and producers, with Lima serving as an important performance and recording center.",
   "recipe": "classic modern trap peruano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 284,
-  "score": 23.701,
+  "score": 23.735,
   "config": {
     "traditions": [
       "trap_peruano"
@@ -58,8 +58,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_voice": 2.43,
+          "drum_machine_808_context": 0.348,
           "tr808_production_origin": 0.159
         }
       },

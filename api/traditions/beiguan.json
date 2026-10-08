@@ -1,0 +1,220 @@
+{
+  "id": "beiguan",
+  "name": "Beiguan (Taiwanese temple ensemble and luantan theatre)",
+  "family": "global",
+  "lineage": "Loud ensemble and theatre music of Taiwan's Hoklo communities, also called luantan, transmitted by amateur clubs attached to temples, notably in Yilan and Changhua, and heard at temple festivals, processions and funerals. Its paizi suites set paired suona over drum, gongs and cymbals, while its theatre arias, sung in stylized guanhua, are accompanied by hard-bowed fiddles led by the coconut-shell kezaixian; clubs are divided between the rival xipi and fulu schools.",
+  "recipe": "classic modern beiguan, carnival Processional, east Asian branch. suona, cutting coconut shell bright piercing kezaixian, danpigu, gong tamtam, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 230,
+  "score": 5.714,
+  "config": {
+    "traditions": [
+      "beiguan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.22249999999999998,
+          "voice_multitrack_stack": 0.27299999999999996,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "suona",
+        "slots": {
+          "suona_size": "suona_zhongyin",
+          "suona_context": "suona_guchui_band",
+          "suona_body": "suona_rosewood_copper"
+        },
+        "scores": {
+          "suona_size": -0.1,
+          "suona_context": 2.21,
+          "suona_body": -0.05
+        }
+      },
+      {
+        "id": "kezaixian",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kezaixian_shell": "kezaixian_shell_thin",
+          "kezaixian_strings": "dutar_strings_unspecified",
+          "kezaixian_context": "kezaixian_context_luantan"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "kezaixian_shell": 1.9945,
+          "kezaixian_strings": 0,
+          "kezaixian_context": -0.07
+        }
+      },
+      {
+        "id": "danpigu",
+        "slots": {
+          "danpigu_stroke": "danpigu_center",
+          "danpigu_context": "danpigu_jingju"
+        },
+        "scores": {
+          "danpigu_stroke": 0.0315,
+          "danpigu_context": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_chau",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5775,
+          "gong_striker": 0.0315
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.20700000000000002,
+          "naobo_stroke": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "suona": [
+        "suona_size",
+        "suona_context",
+        "suona_body"
+      ],
+      "kezaixian": [
+        "bowed_technique",
+        "kezaixian_shell",
+        "kezaixian_strings",
+        "kezaixian_context"
+      ],
+      "danpigu": [
+        "danpigu_stroke",
+        "danpigu_context"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "suona_size": "suona_zhongyin",
+      "suona_context": "suona_guchui_band",
+      "suona_body": "suona_rosewood_copper",
+      "bowed_technique": "bowed_legato_classical",
+      "kezaixian_shell": "kezaixian_shell_thin",
+      "kezaixian_strings": "dutar_strings_unspecified",
+      "kezaixian_context": "kezaixian_context_luantan",
+      "danpigu_stroke": "danpigu_center",
+      "danpigu_context": "danpigu_jingju",
+      "gong_type": "gong_chau",
+      "gong_striker": "gong_soft_mallet",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

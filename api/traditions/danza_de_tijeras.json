@@ -1,0 +1,125 @@
+{
+  "id": "danza_de_tijeras",
+  "name": "Danza de tijeras (Andean scissors dance music)",
+  "family": "global",
+  "lineage": "Danza de tijeras is the competitive ritual dance of the danzaq of Huancavelica, Ayacucho and Apurímac, inscribed on UNESCO's Representative List in 2010, in which each dancer clashes two loose metal blades held in one hand while performing feats of strength and agility in contests called atipanakuy. Every dancer is accompanied by his own harpist and violinist, and the rival harp-and-violin pairs answer one another tune for tune through the contest. The metal-spoons card stands in for the scissor blades.",
+  "recipe": "classic early-2010s danza de tijeras, ritual Devotional, indigenous branch. arpa peruana, fiddle, spoons metal paired hand spoons. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 210,
+  "score": 9.229,
+  "config": {
+    "traditions": [
+      "danza_de_tijeras"
+    ],
+    "instruments": [
+      {
+        "id": "arpa_peruana",
+        "slots": {
+          "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+          "arpa_peruana_wood": "cedar",
+          "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+          "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+          "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking"
+        },
+        "scores": {
+          "arpa_peruana_form": 0.1365,
+          "arpa_peruana_wood": 0.1365,
+          "arpa_peruana_configuration": 0,
+          "arpa_peruana_tuning": 0,
+          "arpa_peruana_gesture": 0.3
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 2.5725,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.37799999999999995,
+          "fiddle_mute": 0.0315,
+          "fiddle_articulation": 0.9239999999999998,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "spoons",
+        "slots": {
+          "spoons_material": "spoons_metal",
+          "spoons_playing": "spoons_paired_hand"
+        },
+        "scores": {
+          "spoons_material": 3.9,
+          "spoons_playing": 1
+        }
+      }
+    ],
+    "pinned": {
+      "arpa_peruana": [
+        "arpa_peruana_form",
+        "arpa_peruana_wood",
+        "arpa_peruana_configuration",
+        "arpa_peruana_tuning",
+        "arpa_peruana_gesture"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "spoons": [
+        "spoons_material",
+        "spoons_playing"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+      "arpa_peruana_wood": "cedar",
+      "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+      "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+      "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "spoons_material": "spoons_metal",
+      "spoons_playing": "spoons_paired_hand"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

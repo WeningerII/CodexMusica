@@ -1,0 +1,166 @@
+{
+  "id": "joropo_central_tuyero",
+  "name": "Joropo central (Tuy valleys harp joropo)",
+  "family": "global",
+  "lineage": "Joropo central, or joropo tuyero, is the harp joropo of the Tuy valleys of Miranda and of Aragua in north-central Venezuela, distinct from the plains joropo llanero. Its arpa central (arpa tuyera or mirandina) has metal strings in the treble, and the usual group is only harp and maracas, the maraquero often being the singer, in pasajes and in the revuelta, a linked suite of sections. The arpa llanera card stands in for the arpa central.",
+  "recipe": "classic modern joropo central, groove Percussion, Latin am branch, Latin am troubadour ballad poetry huapango arribeño. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. diatonic only joropo tradition fast runs arpa llanera, maracas. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 369,
+  "score": 26.305,
+  "config": {
+    "traditions": [
+      "joropo_central_tuyero",
+      "huapango_arribeno"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.7049999999999996,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.02,
+          "voice_multitrack_stack": 0.545,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "arpa_llanera",
+        "slots": {
+          "arpa_llanera_strings": "arpa_llanera_32",
+          "arpa_llanera_body_wood": "arpa_llanera_mahogany",
+          "arpa_llanera_string_material": "bandura_wire",
+          "arpa_llanera_role": "arpa_llanera_bass_and_treble"
+        },
+        "scores": {
+          "arpa_llanera_strings": 12.284999999999998,
+          "arpa_llanera_body_wood": 0,
+          "arpa_llanera_string_material": 0.7,
+          "arpa_llanera_role": 8.775
+        }
+      },
+      {
+        "id": "maracas",
+        "slots": {
+          "maracas_construction": "maracas_gourd",
+          "maracas_filling": "maracas_seeds"
+        },
+        "scores": {
+          "maracas_construction": 0,
+          "maracas_filling": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "arpa_llanera": [
+        "arpa_llanera_strings",
+        "arpa_llanera_body_wood",
+        "arpa_llanera_string_material",
+        "arpa_llanera_role"
+      ],
+      "maracas": [
+        "maracas_construction",
+        "maracas_filling"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "arpa_llanera_strings": "arpa_llanera_32",
+      "arpa_llanera_body_wood": "arpa_llanera_mahogany",
+      "arpa_llanera_string_material": "bandura_wire",
+      "arpa_llanera_role": "arpa_llanera_bass_and_treble",
+      "maracas_construction": "maracas_gourd",
+      "maracas_filling": "maracas_seeds"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

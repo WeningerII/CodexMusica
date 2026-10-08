@@ -5,7 +5,7 @@
   "lineage": "Blackened screamo joins dense blackened guitar passages and urgent vocal expression with spacious, contrasting textures.",
   "recipe": "classic blackened screamo, distorted Rock, emo branch. solo with instrumental accompaniment. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 347,
-  "score": 21.927,
+  "score": 21.885,
   "config": {
     "traditions": [
       "blackened_screamo"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.8199999999999998,
-          "body_wood": 1.5225,
+          "body_wood": 1.4805000000000001,
           "neck_wood": 0.168,
-          "fretboard": 0.105,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.168,
           "string_material": 0.168,
-          "bridge": 0.2415,
+          "bridge": 0.273,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.105
+          "string_tuning": 0.0315
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.5225,
+          "body_wood": 1.4805000000000001,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.3045,
+          "drumhead": 0.5459999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -95,7 +95,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.1365,
+          "grand_piano_size": 0.063,
           "grand_piano_brand": 0.1365,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 1.8199999999999998,
@@ -120,7 +120,7 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.16799999999999998,
+          "cello_strings": 0.0945,
           "cello_top_wood": -0.07,
           "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
@@ -167,7 +167,7 @@
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.1995,
+          "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }
       }

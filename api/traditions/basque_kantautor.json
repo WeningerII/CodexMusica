@@ -3,14 +3,14 @@
   "name": "Basque kantautor",
   "family": "global",
   "lineage": "Basque-language (Euskera) singer-songwriter tradition emerging from underground anti-Franco protest culture in the late-1960s — codified through Mikel Laboa (the Basque kantautor founder, his 1969 Bost urte and 1974 Gernika releases the founding statements), Benito Lertxundi, Imanol Larzabal, Antton Valverde, Lourdes Iriondo, Xabier Lete; deeply engaged with Basque cultural-linguistic revival under and after Franco-era cultural suppression, with parallel post-1980s extensions through Ruper Ordorika (the post-Franco-era Basque cantautor voice)",
-  "recipe": "classic Iberian 1967-1969 basque kantautor, functional Song, iberian branch, chanson fado ballad poetry, European protest song greek éntechno greek éntechno politicized. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic guitar, gaita galega three drone African blackwood modern premium gaita galega, dance driven pandero paired straight trikitixa, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass. iberian kantautor basque galician club. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 595,
-  "score": 170.935,
+  "recipe": "classic Iberian 1967-1969 basque kantautor, functional Song, iberian branch, chanson fado ballad poetry, European protest song greek éntechno chanson classique. thick, breath veiled tone, slow rate, interlocked note trading. walnut fingerpicked acoustic guitar, gaita galega three drone synthetic reeds modern stable synthetic bag modern stable gaita galega, dance driven pandero paired straight trikitixa, pyramid pure nickel bass British mid 60s era sub heavy electric bass. iberian kantautor basque galician club. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 604,
+  "score": 158.88,
   "config": {
     "traditions": [
       "basque_kantautor",
       "greek_entechno",
-      "greek_entechno_politicized"
+      "chanson_classique"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.695,
-          "voice_quality": 12.024999999999993,
+          "voice_register": 5.095,
+          "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 10.464999999999996,
-          "voice_microtone": 12.837499999999993,
-          "voice_tradition": 27.066249999999997,
-          "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 5.655000000000001,
-          "voice_speech_song": 20.7025,
-          "voice_ensemble_config": 11.894999999999996,
-          "voice_ornament_system": 4.62,
-          "voice_pitch_organization": 3.4699999999999998,
-          "voice_processing_chain": 4.16,
-          "voice_multitrack_stack": 7.60125
+          "voice_vibrato": 3.6075,
+          "voice_articulation": 9.359999999999998,
+          "voice_microtone": 10.952499999999993,
+          "voice_tradition": 20.247499999999995,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 6.2075000000000005,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 10.594999999999994,
+          "voice_ornament_system": 3.745,
+          "voice_pitch_organization": 3.5100000000000007,
+          "voice_processing_chain": 4.921250000000001,
+          "voice_multitrack_stack": 6.10125
         }
       },
       {
@@ -58,15 +58,15 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
-          "string_acoustic": "martin_lifespan_om",
+          "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.8400000000000001,
-          "back_sides": 0.735,
+          "top_wood": 0.845,
+          "back_sides": 1.04,
           "string_acoustic": 0.845,
-          "acoustic_om_technique": 7.72
+          "acoustic_om_technique": 9.370000000000001
         }
       },
       {
@@ -81,11 +81,11 @@
         },
         "scores": {
           "wind_articulation": 2.6500000000000004,
-          "gaita_galega_drones": 2.9149999999999996,
+          "gaita_galega_drones": 2.565,
           "gaita_galega_use": 0.975,
-          "gaita_galega_chanter_wood": 1.2349999999999999,
-          "gaita_galega_reed": 0.845,
-          "gaita_galega_bag": 0.845
+          "gaita_galega_chanter_wood": 0.975,
+          "gaita_galega_reed": 1.04,
+          "gaita_galega_bag": 1.04
         }
       },
       {
@@ -97,7 +97,7 @@
           "trikitixa_reed_voicing": "trikitixa_reed_voicing_wet"
         },
         "scores": {
-          "free_reed_technique": 4.15,
+          "free_reed_technique": 5.050000000000001,
           "trikitixa_form": 0.325,
           "trikitixa_dantza_setting": 2.5675,
           "trikitixa_reed_voicing": -0.035
@@ -116,13 +116,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.7149999999999999,
-          "body_wood": 1.38,
-          "pickup_config": 0.845,
-          "string_type": 5.41,
-          "scale_length_b": 0.845,
+          "amp_make": 0.9099999999999999,
+          "body_wood": 0.845,
+          "pickup_config": 1.04,
+          "string_type": 4.41,
+          "scale_length_b": 1.04,
           "fretted_or_not": 0.345,
-          "bass_technique": 1.625,
+          "bass_technique": 2,
           "electric_bass_string_configuration": 0
         }
       }

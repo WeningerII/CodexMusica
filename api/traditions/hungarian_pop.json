@@ -5,7 +5,7 @@
   "lineage": "Hungarian pop encompasses melodic popular songwriting across guitar-based, independent and other contemporary styles.",
   "recipe": "classic hungarian pop, functional Song, europop branch. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 21.918,
+  "score": 22.264,
   "config": {
     "traditions": [
       "hungarian_pop"
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.08549999999999999,
+          "voice_ensemble_config": 0.1905,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.08549999999999999
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.1905
         }
       }
     ],

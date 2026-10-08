@@ -3,14 +3,14 @@
   "name": "Hokkien Pop (Taiyu)",
   "family": "pop",
   "lineage": "Taiwanese-Hokkien language popular song, formed in 1930s Taipei under Japanese rule with Columbia label recordings and revived commercially from the 1970s-90s by Chiang Hui, Ye Chi-tien and Wu Bai — pentatonic-leaning melodies with heavy vibrato and enka-style bending, backed first by moon lute and small orchestra, later by electric organ, saxophone obbligato, electric bass and shuffle or ballad kit at 70-110 BPM.",
-  "recipe": "classic East Asian mid-1930s hokkien pop, functional Song, east Asian pop branch, east Asian pop enka, chanson fado ballad poetry. thick, breath veiled tone, straight note core, interlocked note trading. yueqin, yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, psychedelic foregrounded organ driven rock block chord combo organ, python skin snake skin steel modern bamboo stick horsehair erhu. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 745,
-  "score": 348.11,
+  "recipe": "classic East Asian mid-1930s hokkien pop, functional Song, east Asian pop branch, east Asian pop enka, chanson fado ballad poetry greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. silk traditional yueqin, yellow brass modern standard yamaha custom 875ex modern Japanese premium rubber saxophone, pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, psychedelic foregrounded organ driven rock block chord combo organ, python skin snake skin bamboo stick horsehair threaded between strings erhu. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 797,
+  "score": 339.988,
   "config": {
     "traditions": [
       "hokkien_pop",
       "enka",
-      "chanson"
+      "greek_entechno"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 20.569999999999993,
-          "voice_quality": 11.504999999999992,
+          "voice_register": 22.34499999999999,
+          "voice_quality": 7.6049999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1525000000000003,
-          "voice_articulation": 23.92000000000001,
-          "voice_microtone": 23.92000000000001,
-          "voice_tradition": 27.072500000000005,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 6.825,
-          "voice_speech_song": 34.90500000000001,
-          "voice_ensemble_config": 24.505000000000006,
-          "voice_ornament_system": 5.000000000000001,
-          "voice_pitch_organization": 2.920000000000001,
+          "voice_vibrato": 4.9075,
+          "voice_articulation": 18.915000000000006,
+          "voice_microtone": 21.3525,
+          "voice_tradition": 29.575000000000003,
+          "voice_mechanism_compound": 5.654999999999999,
+          "voice_estill_quality": 5.719999999999999,
+          "voice_speech_song": 33.31250000000001,
+          "voice_ensemble_config": 19.045000000000005,
+          "voice_ornament_system": 4.850000000000001,
+          "voice_pitch_organization": 2.915,
           "voice_processing_chain": 7.41,
-          "voice_multitrack_stack": 5.395
+          "voice_multitrack_stack": 6.597500000000001
         }
       },
       {
@@ -61,16 +61,16 @@
           "yueqin_strings": "yueqin_silk_traditional"
         },
         "scores": {
-          "plucked_traditional_technique": 0.44499999999999995,
-          "yueqin_use": 3.1200000000000006,
-          "yueqin_construction": 3.445,
-          "yueqin_strings": 0.975
+          "plucked_traditional_technique": 2.6199999999999997,
+          "yueqin_use": 3.445,
+          "yueqin_construction": 2.9899999999999998,
+          "yueqin_strings": 1.8199999999999998
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_cool_lyrical",
+          "wind_articulation": "wind_continuous_legato",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "yellow_brass_sax",
@@ -79,19 +79,19 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 0.78,
+          "wind_articulation": 2.1199999999999997,
           "sax_size": 0.845,
           "sax_reed": 0.15,
-          "sax_body_alloy": 1.17,
-          "sax_mouthpiece": 0.975,
+          "sax_body_alloy": 5.29,
+          "sax_mouthpiece": 1.8199999999999998,
           "sax_technique": 0.78,
-          "sax_maker_school": 3.7049999999999996
+          "sax_maker_school": 4.549999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
@@ -101,13 +101,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.2800000000000007,
+          "amp_make": 1.8849999999999996,
           "body_wood": 0.845,
-          "pickup_config": 0.65,
-          "string_type": 4.68,
+          "pickup_config": 0.845,
+          "string_type": 3.575,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.345,
-          "bass_technique": 0.95,
+          "bass_technique": 2.625,
           "electric_bass_string_configuration": 0
         }
       },
@@ -119,8 +119,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.49750000000001,
-          "drumhead": 18.71,
+          "drum_technique": 19.337500000000006,
+          "drumhead": 19.135,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -134,17 +134,17 @@
           "amp_make": "amp_british_60s_vox_ac"
         },
         "scores": {
-          "keyboard_technique": 18.575,
-          "combo_organ_model": 19.45,
-          "combo_organ_voicing": 22.005,
+          "keyboard_technique": 17.325,
+          "combo_organ_model": 18.2,
+          "combo_organ_voicing": 20.255,
           "combo_organ_context": 1.6899999999999997,
-          "amp_make": 0.5999999999999999
+          "amp_make": 0.10000000000000002
         }
       },
       {
         "id": "erhu",
         "slots": {
-          "bowed_technique": "bowed_microtonal_inflected",
+          "bowed_technique": "bowed_legato_classical",
           "erhu_skin": "erhu_python",
           "erhu_use": "erhu_classical",
           "erhu_body_wood": "erhu_mahogany_body",
@@ -152,12 +152,12 @@
           "erhu_bow": "erhu_bamboo_horsehair"
         },
         "scores": {
-          "bowed_technique": 0.45500000000000007,
-          "erhu_skin": 4.549999999999999,
+          "bowed_technique": 2.32,
+          "erhu_skin": 5.849999999999999,
           "erhu_use": 0.845,
           "erhu_body_wood": 0.845,
-          "erhu_strings": 1.0650000000000002,
-          "erhu_bow": 1.4300000000000002
+          "erhu_strings": 0.845,
+          "erhu_bow": 1.04
         }
       }
     ],

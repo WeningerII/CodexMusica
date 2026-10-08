@@ -1,0 +1,261 @@
+{
+  "id": "suzhou_daoist_music",
+  "name": "Suzhou daojiao yinyue (Suzhou Zhengyi Daoist ritual music)",
+  "family": "global",
+  "lineage": "Ritual music of the Zhengyi Daoist priests of Suzhou, centred on the Xuanmiao Guan temple and listed as national intangible heritage. Sung hymns and recited scripture alternate with a large instrumental repertoire of wind-and-string qupai and gong-and-drum pieces, related to the region's Jiangnan sizhu and shifan luogu and played by the priests themselves.",
+  "recipe": "classic modern suzhou daojiao yinyue, ritual Devotional. bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical dizi, jiangnan suited traditional sheng, erhu, yunluo, danpigu, muyu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 313,
+  "score": 8.463,
+  "config": {
+    "traditions": [
+      "suzhou_daoist_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_metrical_chant",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.23999999999999996,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.1365,
+          "voice_multitrack_stack": 0.25049999999999994,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_with_membrane",
+          "dizi_pitch": "dizi_f",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "dizi_membrane": 0,
+          "dizi_pitch": 0.0315,
+          "dizi_body_material": 4.2375,
+          "dizi_regional_style": 1
+        }
+      },
+      {
+        "id": "sheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "sheng_size": "sheng_traditional_17",
+          "sheng_context": "sheng_court",
+          "sheng_pipe_material": "sheng_bamboo_canonical"
+        },
+        "scores": {
+          "free_reed_technique": -0.11850000000000002,
+          "sheng_size": 1.225,
+          "sheng_context": 0.40950000000000003,
+          "sheng_pipe_material": 0.475
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_classical",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "dutar_strings_unspecified",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "erhu_skin": 0.19949999999999998,
+          "erhu_use": 0,
+          "erhu_body_wood": -0.05,
+          "erhu_strings": 0,
+          "erhu_bow": 0.2375
+        }
+      },
+      {
+        "id": "yunluo",
+        "slots": {
+          "yunluo_size": "yunluo_ten",
+          "yunluo_mallet": "yunluo_hardwood"
+        },
+        "scores": {
+          "yunluo_size": 0.105,
+          "yunluo_mallet": 0
+        }
+      },
+      {
+        "id": "danpigu",
+        "slots": {
+          "danpigu_stroke": "danpigu_center",
+          "danpigu_context": "danpigu_jingju"
+        },
+        "scores": {
+          "danpigu_stroke": 0.03599999999999999,
+          "danpigu_context": 0
+        }
+      },
+      {
+        "id": "muyu",
+        "slots": {
+          "muyu_size": "muyu_small",
+          "muyu_beater": "muyu_wood_beater"
+        },
+        "scores": {
+          "muyu_size": 0.372,
+          "muyu_beater": 0.03599999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "dizi": [
+        "wind_articulation",
+        "dizi_membrane",
+        "dizi_pitch",
+        "dizi_body_material",
+        "dizi_regional_style"
+      ],
+      "sheng": [
+        "free_reed_technique",
+        "sheng_size",
+        "sheng_context",
+        "sheng_pipe_material"
+      ],
+      "erhu": [
+        "bowed_technique",
+        "erhu_skin",
+        "erhu_use",
+        "erhu_body_wood",
+        "erhu_strings",
+        "erhu_bow"
+      ],
+      "yunluo": [
+        "yunluo_size",
+        "yunluo_mallet"
+      ],
+      "danpigu": [
+        "danpigu_stroke",
+        "danpigu_context"
+      ],
+      "muyu": [
+        "muyu_size",
+        "muyu_beater"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "dizi_membrane": "dizi_with_membrane",
+      "dizi_pitch": "dizi_f",
+      "dizi_body_material": "dizi_bitter_bamboo",
+      "dizi_regional_style": "dizi_qudi_southern",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "sheng_size": "sheng_traditional_17",
+      "sheng_context": "sheng_court",
+      "sheng_pipe_material": "sheng_bamboo_canonical",
+      "bowed_technique": "bowed_legato_classical",
+      "erhu_skin": "erhu_python",
+      "erhu_use": "erhu_classical",
+      "erhu_body_wood": "erhu_red_sandalwood",
+      "erhu_strings": "dutar_strings_unspecified",
+      "erhu_bow": "erhu_bamboo_horsehair",
+      "yunluo_size": "yunluo_ten",
+      "yunluo_mallet": "yunluo_hardwood",
+      "danpigu_stroke": "danpigu_center",
+      "danpigu_context": "danpigu_jingju",
+      "muyu_size": "muyu_small",
+      "muyu_beater": "muyu_wood_beater"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

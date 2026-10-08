@@ -5,7 +5,7 @@
   "lineage": "Finnish hip-hop scenes; selected Don Johnson Big Band multi-instrument studio branch",
   "recipe": "classic modern finnish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. rompler workstation, clean strummed single coil electric guitar, electric bass, drum kit, saxophone, flute. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 391,
-  "score": 28.444,
+  "score": 29.185,
   "config": {
     "traditions": [
       "finnish_hip_hop"
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.39,
+          "rompler_preset_bank": 0.37424999999999997,
           "rompler_context": 0,
           "rompler_lineage": 0
         }
@@ -168,7 +168,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.18524999999999997,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.1365
+          "sax_maker_school": 0.5145
         }
       },
       {
@@ -185,7 +185,7 @@
           "flute_size": 0.042749999999999996,
           "flute_material": 0.2415,
           "flute_technique": 0,
-          "flute_maker_school": 0.34725000000000006
+          "flute_maker_school": 0.72525
         }
       }
     ],

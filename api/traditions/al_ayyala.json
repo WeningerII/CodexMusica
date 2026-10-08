@@ -5,7 +5,7 @@
   "lineage": "Al-Ayyala of Oman and the UAE; facing rows chant poetry to large and small drums, tambourines and brass cymbals. The anchor represents a shared cross-border practice.",
   "recipe": "classic modern al-ayyala, praise Song, middle east n African branch. ayyala percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 167,
-  "score": 15.271,
+  "score": 16.989,
   "config": {
     "traditions": [
       "al_ayyala"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 0.258,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.21,
           "voice_multitrack_stack": 0.1605
         }
       },
@@ -56,7 +56,7 @@
           "ayyala_percussion_form": "ayyala_percussion_documented"
         },
         "scores": {
-          "ayyala_percussion_form": 15.002500000000001
+          "ayyala_percussion_form": 16.51
         }
       }
     ],

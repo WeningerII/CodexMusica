@@ -5,7 +5,7 @@
   "lineage": "Neo-druidic ritual invocation is a modern revival practice descending from the eighteenth- and nineteenth-century Druid revival, notably Iolo Morganwg's Barddas and the Gorsedd of Bards founded in 1792, and organized today through bodies such as the Ancient Order of Druids and the Order of Bards, Ovates and Druids. Ritual centers on spoken invocation of the quarters, the Druid's Prayer, and the sustained chanting of Awen (the three-syllable 'aah-ee-en' inspiration-sound) in an open-air ceremonial circle. While the ancient Iron-Age druids left no liturgical texts (their teaching being oral, per Caesar's Gallic War), the contemporary tradition draws on Welsh and Brythonic bardic material and eisteddfod ceremony. Delivery is declamatory heightened speech in English or Welsh, often responsorial with a group.",
   "recipe": "classic early-1790s druidic / neo-druid ritual invocation, ritual Devotional, indigenous branch ethiopian debtera liturgical incantation mapuche tayil genealogical chant. thick, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 220.63,
+  "score": 221.26,
   "config": {
     "traditions": [
       "druidic_invocation",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo"
         },
         "scores": {
           "voice_register": 4.050000000000001,
@@ -42,14 +42,14 @@
           "voice_articulation": 25.480000000000008,
           "voice_microtone": 27.625000000000004,
           "voice_tradition": 18.134999999999998,
-          "voice_mechanism_compound": 7.1065000000000005,
+          "voice_mechanism_compound": 7.3615,
           "voice_estill_quality": 5.98,
           "voice_speech_song": 27.430000000000007,
           "voice_ensemble_config": 26.26000000000001,
           "voice_ornament_system": 10.025000000000002,
-          "voice_pitch_organization": 7.303,
+          "voice_pitch_organization": 7.6375,
           "voice_processing_chain": 19.694999999999997,
-          "voice_multitrack_stack": 2.535
+          "voice_multitrack_stack": 2.5755
         }
       }
     ],

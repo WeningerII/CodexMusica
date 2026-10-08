@@ -1,0 +1,97 @@
+{
+  "id": "khmer_kantaoming",
+  "name": "Kantaoming (Khmer funeral gong ensemble of Siem Reap)",
+  "family": "global",
+  "lineage": "Funeral ensemble (kantoam ming) of Siem Reap province and its surroundings, also commonly called trai leak, played for cremations and other funeral rites. It joins the sralai oboe in its toam ming form with a gong chime of eight or nine bossed gongs set on a frame and struck with mallets, and percussion; its repertoire is of post-Angkorian origin, and the gong chime, long kept alive in Khmer funeral rites, is now taught in Siem Reap classes run by Cambodian Living Arts. A generic gong card stands in for the gong chime and a generic drum card for the percussion.",
+  "recipe": "classic modern kantaoming, funeral Lament, east Asian branch. palm leaf quadruple reed conical bore canonical khmer sralai, gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 269,
+  "score": 5.233,
+  "config": {
+    "traditions": [
+      "khmer_kantaoming"
+    ],
+    "instruments": [
+      {
+        "id": "sralai",
+        "slots": {
+          "sralai_reed": "sralai_palm_leaf_quadruple",
+          "sralai_role": "sralai_pinpeat_lead_melodic"
+        },
+        "scores": {
+          "sralai_reed": 2.0315,
+          "sralai_role": 0.6465
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.105,
+          "gong_striker": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.3,
+          "acoustic_membrane_drum_gesture": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "sralai": [
+        "sralai_reed",
+        "sralai_role"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "sralai_reed": "sralai_palm_leaf_quadruple",
+      "sralai_role": "sralai_pinpeat_lead_melodic",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

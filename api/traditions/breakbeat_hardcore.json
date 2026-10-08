@@ -1,18 +1,71 @@
 {
-  "id": "breakbeat_hardcore",
-  "name": "Breakbeat Hardcore",
+  "id": "uk_hardcore_breakbeat",
+  "merged_from": "breakbeat_hardcore",
+  "name": "UK hardcore (pre-jungle 91-93)",
   "family": "electronic",
-  "lineage": "UK rave style of 1990-1993 built at Shut Up and Dance, Suburban Base and Reinforced by The Prodigy, 4hero, Acen and Altern-8 — 125-145 BPM Amen and Think breaks chopped on Akai S950 samplers, sped-up soul and ragga vocal snippets, Hoover and piano riffs, and 808/909 sub-bass, cut to dubplate for pirate radio and warehouse sound systems.",
-  "recipe": "classic Western European 1990-1993 breakbeat hardcore, bass System, uk soundsystem branch, bass descendants bass system, techno electronic dance, dub descendants bass system funky breaks jump-up. thick, breath veiled tone, slow rate, interlocked note trading. chopped sampler, TR-909, behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, sampled chopped turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 543,
-  "score": 261.643,
+  "lineage": "Early-1990s UK electronic subgenre developed in 1990-1993 London through synthesis of Belgian new-beat, Detroit techno, and US house with chopped-Amen-break percussion, ragga-MC vocal-sampling, and rapidly-accelerating tempo (138-150 BPM and rising toward jungle's 170+). The 1991 Acen \"Trip to the Moon\", 1992 SL2 \"On a Ragga Tip\", and the broader Production House and Suburban Base label rosters consolidated the canonical sound. Direct ancestor of jungle and drum-and-bass.",
+  "recipe": "classic British 1990-1993 uk hardcore, bass System, bass descendants branch, eurodance electronic dance freestyle music hi-nrg. thick, breath veiled tone, straight note core, interlocked note trading. TR-808, chopped sampler, low sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 471,
+  "score": 244.535,
   "config": {
     "traditions": [
-      "breakbeat_hardcore",
-      "funky_breaks",
-      "jump_up"
+      "uk_hardcore_breakbeat",
+      "freestyle_music",
+      "hi_nrg"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 6.0150000000000015,
+          "voice_quality": 10.789999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 19.044999999999998,
+          "voice_microtone": 18.264999999999997,
+          "voice_tradition": 6.142499999999999,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 4.105,
+          "voice_speech_song": 19.305,
+          "voice_ensemble_config": 18.784999999999997,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 4.030000000000001,
+          "voice_processing_chain": 20.025,
+          "voice_multitrack_stack": 5.265
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 8.725,
+          "drum_machine_808_context": 8.29,
+          "tr808_production_origin": 0.39
+        }
+      },
       {
         "id": "sampler_classic",
         "slots": {
@@ -23,128 +76,77 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 4.005,
-          "sampler_archetypes": 1.9649999999999999,
-          "sampler_bit_depth": 1.7549999999999994,
-          "sampler_workflow": 5.38,
-          "sampler_classic_context": 31.037500000000016
+          "electronic_technique": 1.865,
+          "sampler_archetypes": 2.125,
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 10.864999999999998,
+          "sampler_classic_context": 35.035000000000004
         }
       },
       {
-        "id": "drum_machine_909",
-        "slots": {
-          "tr909_voice": "tr909_clap",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
-          "tr909_production_origin": "tr909_behringer_rd_9"
-        },
-        "scores": {
-          "tr909_voice": 3.25,
-          "drum_machine_909_context": 2.275,
-          "tr909_production_origin": 0.195
-        }
-      },
-      {
-        "id": "drum_machine_808",
-        "slots": {
-          "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
-        },
-        "scores": {
-          "tr808_voice": 18.2975,
-          "drum_machine_808_context": 16.64,
-          "tr808_production_origin": 1.195
-        }
-      },
-      {
-        "id": "analog_poly_synth",
+        "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
-          "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 18.1675,
-          "poly_archetypes": 0.585,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": -0.7350000000000001
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
-        },
-        "scores": {
-          "voice_register": 2.7700000000000005,
-          "voice_quality": 5.330000000000002,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999996,
-          "voice_articulation": 25.870000000000008,
-          "voice_microtone": 26.715000000000003,
-          "voice_tradition": 5.07,
-          "voice_mechanism_compound": 3.7050000000000005,
-          "voice_estill_quality": 2.99,
-          "voice_speech_song": 26.52000000000001,
-          "voice_ensemble_config": 25.80500000000001,
-          "voice_ornament_system": 7.085,
-          "voice_pitch_organization": 2.9899999999999998,
-          "voice_processing_chain": 9.674999999999999,
-          "voice_multitrack_stack": 5.460000000000001
-        }
-      },
-      {
-        "id": "turntable",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_scratch"
-        },
-        "scores": {
-          "electronic_technique": 4.005,
-          "turntable_technique": 1.7874999999999996
+          "electronic_technique": 8.91,
+          "oscillator": 8.44,
+          "filter_topology": 8.874999999999998,
+          "envelope": 0.195,
+          "modulation": 0.195
         }
       }
     ],
-    "room": "brent_black_community_studio_london",
-    "archetype": "arch_uk_jungle_dubplate",
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
-      "mic": "mic_sm58_dynamic_shure",
-      "pre": "transformer_solid_state",
-      "console": "console_uk_community_studio_80s",
-      "comp": "comp_adr_compex",
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
       "amp": null,
-      "medium": "medium_dat_pro_late80s_90s"
+      "medium": "digital_high"
     },
-    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "hip_hop_breakbeat_sample_collage_boom_bap",
-    "room": "brent_black_community_studio_london",
-    "chain_mic": "mic_sm58_dynamic_shure",
-    "chain_pre": "transformer_solid_state",
-    "chain_comp": "comp_adr_compex",
-    "chain_medium": "medium_dat_pro_late80s_90s",
-    "chain_console": "console_uk_community_studio_80s"
+    "tuning": "twelve_tet",
+    "room": "studio_british_class_a_commercial",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_vocoder_16_band",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "electronic_technique": "electronic_pad_drone"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
+    "chain_medium": "digital_high",
+    "chain_console": "console_british_inline_80s"
   }
 }

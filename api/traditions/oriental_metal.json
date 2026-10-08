@@ -5,7 +5,7 @@
   "lineage": "Oriental metal is a term used by artists such as Orphaned Land for Middle Eastern-inflected metal.",
   "recipe": "classic modern oriental metal, distorted Rock, folk metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 399,
-  "score": 36.19,
+  "score": 36.411,
   "config": {
     "traditions": [
       "oriental_metal"
@@ -78,9 +78,9 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.0315,
           "string_material": 0.0315,
-          "bridge": 0.42,
+          "bridge": 0.4935,
           "scale_length": 0,
-          "string_gauge": 0.252,
+          "string_gauge": 0.3255,
           "finish": 0,
           "string_tuning": 0.0945
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 0.7244999999999999,
+          "drumhead": 0.7979999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

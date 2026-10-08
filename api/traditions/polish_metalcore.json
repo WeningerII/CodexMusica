@@ -5,7 +5,7 @@
   "lineage": "Polish metalcore combines tightly synchronized metal riffing with hardcore-derived attack and breakdowns.",
   "recipe": "classic modern polish metalcore, distorted Rock, metal branch, punk distorted rock, death metal peruvian death metal portuguese death metal. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 524,
-  "score": 85.605,
+  "score": 85.41,
   "config": {
     "traditions": [
       "polish_metalcore",
@@ -41,7 +41,7 @@
           "string_material": 0.09,
           "bridge": 0.9099999999999999,
           "scale_length": 0,
-          "string_gauge": 0.585,
+          "string_gauge": 0.39,
           "finish": 0,
           "string_tuning": 11.440000000000001
         }

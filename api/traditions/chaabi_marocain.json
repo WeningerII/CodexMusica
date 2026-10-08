@@ -1,176 +1,115 @@
 {
-  "id": "chaabi_marocain",
-  "name": "Chaabi marocain (Moroccan wedding chaabi)",
+  "id": "chaabi_moroccan",
+  "merged_from": "chaabi_marocain",
+  "name": "Chaabi (Moroccan)",
   "family": "global",
-  "lineage": "Popular dance music of Moroccan towns and wedding halls, consolidated in Casablanca studios from the 1960s-70s around Nass El Ghiwane, Jil Jilala and the aita-derived cheikhat orchestras — Darija or Amazigh verse in call-and-response over lotar/banjo and mandole ostinatos, bendir and taarija hand drums, with an accelerating final section that shifts from a swung 6/8 aita meter into a fast straight 4/4 danceable coda, and gritty unamplified chest-voice leads.",
-  "recipe": "classic North African mid-1960s chaabi marocain, functional Song, mid east n African pop branch, middle eastern wedding, middle east n African praise song dabke lezginka. thick, breath veiled tone, slow rate, interlocked note trading. chaabi melodic single line mandole, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, goat skin tacked canonical Sufi bendir, Egyptian sombaty canonical mid east darbuka, hand clap, carpathian spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, guembri. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 732,
-  "score": 250.07,
+  "lineage": "Moroccan-Arabic-language popular wedding-and-celebration music built on the rural Moroccan dance rhythms (haoussa from Casablanca, aita from the Atlantic plains, houara from the Souss valley) with the urban ensemble of oud, violin, the Moroccan-invented banjo (late 1960s), darbuka, voice — codified through Cheikha Rimitti (raï predecessor and chaabi crossover), Najat Aatabou, Stati, Daoudi",
+  "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 617,
+  "score": 164.505,
   "config": {
     "traditions": [
-      "chaabi_marocain",
-      "dabke",
-      "lezginka"
+      "chaabi_moroccan",
+      "malhun_maghrebi",
+      "iraqi_maqam"
     ],
     "instruments": [
       {
-        "id": "mandole",
-        "slots": {
-          "mandole_form": "mandole_chaabi",
-          "mandole_role": "mandole_melodic",
-          "mandole_strings": "mandole_steel"
-        },
-        "scores": {
-          "mandole_form": 9.765,
-          "mandole_role": 4.16,
-          "mandole_strings": -0.05
-        }
-      },
-      {
-        "id": "banjo_5_string",
-        "slots": {
-          "banjo_back": "resonator",
-          "tone_ring": "tubaphone",
-          "banjo_head": "fiberskyn",
-          "banjo_pot": "pot_11",
-          "banjo_play": "two_finger",
-          "banjo_rim_wood": "banjo_walnut_rim",
-          "banjo_neck_wood": "banjo_walnut_neck",
-          "banjo_strings": "banjo_light_clawhammer",
-          "banjo_bridge": "banjo_maple_ebony_bridge",
-          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
-        },
-        "scores": {
-          "banjo_back": 0.195,
-          "tone_ring": 0,
-          "banjo_head": 20.475,
-          "banjo_pot": 0.24,
-          "banjo_play": 1.4949999999999999,
-          "banjo_rim_wood": 1.17,
-          "banjo_neck_wood": 2.165,
-          "banjo_strings": 0,
-          "banjo_bridge": 0.12999999999999998,
-          "banjo_setup_period": 20.41
-        }
-      },
-      {
-        "id": "bendir",
-        "slots": {
-          "bendir_snares": "bendir_no_snares",
-          "bendir_context": "bendir_folk",
-          "bendir_shell_wood": "bendir_juniper_canonical",
-          "bendir_head": "bendir_goat_skin_canonical"
-        },
-        "scores": {
-          "bendir_snares": 0.39,
-          "bendir_context": 0.195,
-          "bendir_shell_wood": 0.195,
-          "bendir_head": 1.6949999999999996
-        }
-      },
-      {
-        "id": "darbuka",
-        "slots": {
-          "percussion_technique": "percussion_open_slap",
-          "darbuka_material": "darbuka_brass",
-          "darbuka_skin": "darbuka_goat_skin",
-          "darbuka_regional_style": "darbuka_egyptian_sombaty"
-        },
-        "scores": {
-          "percussion_technique": 2.0149999999999997,
-          "darbuka_material": 0.28500000000000003,
-          "darbuka_skin": 0.48,
-          "darbuka_regional_style": 6.37
-        }
-      },
-      {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_tradition": "persian_dastgah_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 6.865000000000001,
-          "voice_quality": 10.724999999999993,
+          "voice_register": 4.180000000000001,
+          "voice_quality": 8.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.68,
-          "voice_articulation": 21.124999999999996,
-          "voice_microtone": 26.942499999999995,
-          "voice_tradition": 14.105000000000002,
-          "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 3.835,
-          "voice_speech_song": 24.6025,
-          "voice_ensemble_config": 22.099999999999994,
-          "voice_ornament_system": 5.385000000000001,
-          "voice_pitch_organization": 5.970000000000001,
-          "voice_processing_chain": 4.925,
-          "voice_multitrack_stack": 7.085000000000001
+          "voice_vibrato": 7.3125,
+          "voice_articulation": 6.630000000000001,
+          "voice_microtone": 17.842499999999998,
+          "voice_tradition": 15.080000000000002,
+          "voice_mechanism_compound": 10.995000000000001,
+          "voice_estill_quality": 5.9799999999999995,
+          "voice_speech_song": 8.58,
+          "voice_ensemble_config": 8.645,
+          "voice_ornament_system": 16.12,
+          "voice_pitch_organization": 16.315,
+          "voice_processing_chain": 2.0149999999999997,
+          "voice_multitrack_stack": 5.005000000000001
         }
       },
       {
-        "id": "hand_clap",
+        "id": "oud",
         "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "clap_technique": 0.48000000000000004,
-          "clap_capture": 0.045
+          "plucked_traditional_technique": 4.215,
+          "oud_school": 4.095,
+          "oud_strings": 2.145,
+          "oud_pick": 1.95,
+          "oud_body_wood": 2.585,
+          "oud_soundboard_wood": 0.65,
+          "oud_string_material": 4.16
         }
       },
       {
-        "id": "violin_orchestral",
+        "id": "darbuka",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
-          "orch_strings": "plain_beef_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "oil_amber_varnish_violin",
-          "orch_setup_period": "baroque_setup_violin",
-          "orch_bow": "baroque_bow",
-          "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "pizz_orch",
-          "orch_rosin": "liebenzeller_metal_rosin_orch"
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "bowed_technique": 1.5,
-          "orch_strings": 0.585,
-          "orch_top_wood": 4.29,
-          "orch_back_wood": 2.3075,
-          "orch_varnish": 1.125,
-          "orch_setup_period": 0.45499999999999996,
-          "orch_bow": 3.9650000000000003,
-          "orch_bow_stick": 1.3975,
-          "orch_articulation": 0.345,
-          "orch_rosin": 1.125
+          "percussion_technique": -0.07,
+          "darbuka_material": 1.04,
+          "darbuka_skin": 1.3,
+          "darbuka_regional_style": 4.9399999999999995
         }
       },
       {
-        "id": "guembri",
+        "id": "electric_bass",
         "slots": {
-          "guembri_size": "guembri_small",
-          "guembri_sersera": "guembri_sersara_off",
-          "guembri_strings": "guembri_gut"
+          "amp_make": "amp_british_orange",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "guembri_size": 2.165,
-          "guembri_sersera": 0.045,
-          "guembri_strings": 0
+          "amp_make": 1.6899999999999997,
+          "body_wood": 1.95,
+          "pickup_config": 0.09,
+          "string_type": 1.95,
+          "scale_length_b": 1.95,
+          "fretted_or_not": 0.24,
+          "bass_technique": -0.035,
+          "electric_bass_string_configuration": 0
         }
       }
     ],
@@ -178,24 +117,55 @@
     "archetype": "arch_maghreb_state_radio",
     "inline_chain": {
       "mic": "dynamic_mic",
-      "pre": "transformer_solid_state",
-      "console": "colored",
-      "comp": null,
-      "eq": null,
-      "amp": null,
-      "medium": "cassette_medium"
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_transformer_70s",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_ampeg_b15_bass",
+      "medium": "tape_15ips"
     },
-    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "tuning": "maqam_24edo",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "tuning": "maqam_24edo",
     "room": "casablanca_chaabi_moroccan_studio",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "arabic_maqam_tradition",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty"
+    },
     "chain_mic": "dynamic_mic",
-    "chain_pre": "transformer_solid_state",
-    "chain_medium": "cassette_medium",
-    "chain_console": "colored"
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_british_transformer_70s",
+    "chain_amp": "amp_ampeg_b15_bass",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

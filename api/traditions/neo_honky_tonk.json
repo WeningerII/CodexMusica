@@ -5,7 +5,7 @@
   "lineage": "Starline Rhythm Boys — documented core trio practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic neo honky tonk, functional Song, neo trad branch. unprocessed natural acoustic. dreadnought acoustic conventional tuning standard pitch single coil electric guitar, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 285,
-  "score": 14.903,
+  "score": 14.837,
   "config": {
     "traditions": [
       "neo_honky_tonk"
@@ -94,7 +94,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 1.69,
+          "string_gauge": 1.624,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,

@@ -3,14 +3,14 @@
   "name": "Khalījī (Gulf dance song)",
   "family": "global",
   "lineage": "Popular song of the Arabian Gulf states shaped from the 1950s onward by Kuwaiti and Bahraini radio and by Saudi singers such as Talal Maddah and Mohammed Abdu, setting Gulf dialect lyrics over the distinctive limping khalījī 2/4 and 6/8 patterns played on mirwās and ṭabl with hand claps, an oud-led maqām melody doubled by massed violins and qānūn, and an ornamented but relatively unforced solo vocal.",
-  "recipe": "classic North African mid-1950s khalījī, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, Egyptian sombaty canonical mid east darbuka, walnut bent frame canonical Iranian tar frame drum, group massed hand clap. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 826,
-  "score": 341.336,
+  "recipe": "classic North African mid-1950s khalījī, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song dān and ṣawt ḥaḍramī. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian tar frame drum, group massed hand clap. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 846,
+  "score": 333.127,
   "config": {
     "traditions": [
       "khaliji",
       "khaleeji_iraqi",
-      "andalusian_classical"
+      "hadrami_dan_sawt"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 5.173125000000001,
-          "voice_quality": 11.049999999999994,
+          "voice_quality": 15.664999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.942499999999997,
-          "voice_articulation": 19.825000000000003,
-          "voice_microtone": 26.975,
-          "voice_tradition": 18.589999999999996,
-          "voice_mechanism_compound": 14.645,
-          "voice_estill_quality": 10.160624999999998,
-          "voice_speech_song": 25.61,
-          "voice_ensemble_config": 18.85,
-          "voice_ornament_system": 18.27875,
-          "voice_pitch_organization": 18.473749999999995,
-          "voice_processing_chain": 5.329999999999999,
-          "voice_multitrack_stack": 3.835000000000001
+          "voice_vibrato": 12.025,
+          "voice_articulation": 22.880000000000003,
+          "voice_microtone": 30.03,
+          "voice_tradition": 16.4775,
+          "voice_mechanism_compound": 12.870000000000001,
+          "voice_estill_quality": 8.460625,
+          "voice_speech_song": 30.16,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 16.380000000000003,
+          "voice_pitch_organization": 16.380000000000003,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -64,12 +64,12 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.620624999999999,
-          "oud_school": 4.9399999999999995,
-          "oud_strings": 4.3549999999999995,
+          "plucked_traditional_technique": 8.145625,
+          "oud_school": 4.745,
+          "oud_strings": 3.5100000000000002,
           "oud_pick": 3.055,
           "oud_body_wood": 3.055,
-          "oud_soundboard_wood": 2.8600000000000003,
+          "oud_soundboard_wood": 3.5100000000000002,
           "oud_string_material": 2.145
         }
       },
@@ -85,10 +85,10 @@
           "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
-          "plucked_traditional_technique": 9.620624999999999,
-          "qanun_strings": 4.3549999999999995,
+          "plucked_traditional_technique": 8.145625,
+          "qanun_strings": 3.5100000000000002,
           "qanun_levers": -1.455,
-          "qanun_pick": 4.3549999999999995,
+          "qanun_pick": 3.5100000000000002,
           "qanun_body_wood": 2.0799999999999996,
           "qanun_bridge_skin": 0.195,
           "qanun_string_material": 0
@@ -109,16 +109,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.565,
-          "orch_strings": 0.325,
-          "orch_top_wood": 11.563125,
-          "orch_back_wood": 8.37,
-          "orch_varnish": 8.325,
-          "orch_setup_period": 6.959999999999999,
+          "bowed_technique": 7.090000000000001,
+          "orch_strings": 0.5199999999999999,
+          "orch_top_wood": 10.438125000000001,
+          "orch_back_wood": 6.745000000000001,
+          "orch_varnish": 6.700000000000001,
+          "orch_setup_period": 5.335000000000001,
           "orch_bow": 1.245625,
-          "orch_bow_stick": 10.388124999999999,
+          "orch_bow_stick": 8.645000000000001,
           "orch_articulation": 0.195,
-          "orch_rosin": 8.57
+          "orch_rosin": 6.945000000000001
         }
       },
       {
@@ -130,7 +130,7 @@
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
-          "percussion_technique": 2.1687500000000006,
+          "percussion_technique": 3.968750000000001,
           "darbuka_material": 0.975,
           "darbuka_skin": 0.65,
           "darbuka_regional_style": 6.4350000000000005
@@ -148,7 +148,7 @@
         "scores": {
           "percussion_technique": -0.1,
           "tar_size": 0.46499999999999997,
-          "tar_frame_drum_context": 2.4049999999999994,
+          "tar_frame_drum_context": 1.5600000000000003,
           "tar_frame_shell_wood": 1.3649999999999998,
           "tar_frame_head": 0.57
         }
@@ -161,7 +161,7 @@
         },
         "scores": {
           "clap_technique": 1,
-          "clap_capture": 0.15
+          "clap_capture": 0
         }
       }
     ],

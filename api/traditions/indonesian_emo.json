@@ -3,9 +3,9 @@
   "name": "Indonesian emo",
   "family": "rock_punk",
   "lineage": "Indonesian emo includes melodic guitar bands in regional alternative-music scenes.",
-  "recipe": "classic indonesian emo, distorted Rock, emo branch. humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 220,
-  "score": 15.514,
+  "recipe": "classic indonesian emo, distorted Rock, emo branch. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 238,
+  "score": 16.027,
   "config": {
     "traditions": [
       "indonesian_emo"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "neck_wood": 0.168,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -113,7 +113,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.162,
+          "voice_ensemble_config": 0.108,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

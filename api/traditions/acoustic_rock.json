@@ -3,9 +3,9 @@
   "name": "Acoustic rock",
   "family": "rock_punk",
   "lineage": "Acoustic rock is represented here by Plumes. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic acoustic rock, distorted Rock, alternative branch. unprocessed natural acoustic. low mid rich spectrum responsive cedar dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 344,
-  "score": 35.291,
+  "recipe": "classic acoustic rock, distorted Rock, alternative branch. unprocessed natural acoustic. low mid rich spectrum responsive cedar dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 353,
+  "score": 35.921,
   "config": {
     "traditions": [
       "acoustic_rock"
@@ -23,9 +23,9 @@
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 1.0605,
+          "top_wood": 1.1655,
           "back_sides": 0.27299999999999996,
-          "string_acoustic": 0.5775
+          "string_acoustic": 0.6825000000000001
         }
       },
       {
@@ -42,10 +42,10 @@
         },
         "scores": {
           "amp_make": 5.265,
-          "body_wood": 0.8820000000000001,
-          "pickup_config": 0.273,
+          "body_wood": 1.0920000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 12.35,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.546,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -60,7 +60,7 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.601125,
+          "drumhead": 0.632625,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -96,10 +96,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 3.6679999999999993,
+          "voice_processing_chain": 3.636499999999999,
           "voice_multitrack_stack": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Australian emo combines direct, emotionally focused singing with independent guitar-band writing.",
   "recipe": "classic aussie emo, distorted Rock, emo branch. one note per syllable, solo with instrumental accompaniment. basswood ceramic humbucker electric dreadnought acoustic guitar, basswood electric bass, sticks backbeat drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 385,
-  "score": 27.366,
+  "score": 26.756,
   "config": {
     "traditions": [
       "aussie_emo"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.8199999999999998,
-          "body_wood": 1.764,
+          "body_wood": 1.5120000000000002,
           "neck_wood": 0.168,
           "fretboard": 0.168,
           "pickup_magnet": 1,
@@ -41,7 +41,7 @@
           "scale_length": 0,
           "string_gauge": 0.3045,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0.0315
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 1.764,
+          "body_wood": 1.5120000000000002,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 1.063,
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.3045,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -136,7 +136,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.168,
+          "grand_piano_size": 0.16799999999999998,
           "grand_piano_brand": 1.168,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 1.8199999999999998,
@@ -160,7 +160,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0.0315,
-          "string_acoustic": 0.7454999999999999
+          "string_acoustic": 0.7769999999999999
         }
       }
     ],

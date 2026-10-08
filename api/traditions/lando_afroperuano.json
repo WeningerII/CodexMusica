@@ -3,14 +3,14 @@
   "name": "Landó (Afro-Peruvian slow groove)",
   "family": "global",
   "lineage": "Afro-Peruvian slow-tempo groove-based form characterized by slow 12/8 with strong off-beat accent and characteristic syncopated cajón pattern. Distinguished from festejo by landó's slower-meditative-melancholic register. Addresses melancholy-romance, the experience of enslavement and its memory (canonical \"María Landó\" by Chabuca Granda with poetry of César Calvo, recorded by Susana Baca).",
-  "recipe": "classic Andean modern landó, groove Percussion, Latin am branch, Brazilian groove percussion baião bloco. chest mix belt, speech quality modal neutral larynx, one note per syllable, solo with instrumental accompaniment. mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas, articulate midrange-forward sitka spruce spruce parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition boiled sun dried loose teeth quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 641,
-  "score": 68.362,
+  "recipe": "classic Andean modern landó, groove Percussion, Latin am branch, Brazilian groove percussion baião tambor de crioula. chest mix belt, one note per syllable, solo with instrumental accompaniment, equal tempered 12 fixed pitch. mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas, parlor acoustic guitar, open back Afro peruvian tradition festejo tradition cajon peruano, donkey jawbone Afro peruvian tradition stick drawn lando tradition boiled sun dried loose teeth quijada. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 599,
+  "score": 53.165,
   "config": {
     "traditions": [
       "lando_afroperuano",
       "baiao",
-      "bloco"
+      "tambor_de_crioula"
     ],
     "instruments": [
       {
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 1.3999999999999997,
+          "voice_quality": 0.7499999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.38999999999999996,
@@ -43,13 +43,13 @@
           "voice_microtone": -0.21,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
-          "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 3.5349999999999997,
-          "voice_ensemble_config": 5.719999999999999,
-          "voice_ornament_system": 2.7499999999999996,
-          "voice_pitch_organization": 1.9500000000000002,
-          "voice_processing_chain": 0.845,
-          "voice_multitrack_stack": 4.4849999999999985
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.65,
+          "voice_ensemble_config": 5.915,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.435
         }
       },
       {
@@ -61,7 +61,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 9.875,
+          "percussion_technique": 10.75,
           "conga_set": 0,
           "conga_skin": 1.69,
           "conga_shell_wood": 1.69
@@ -79,8 +79,8 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_parlor": 1.8599999999999999,
-          "back_sides_parlor": 0,
+          "top_wood_parlor": 0.21,
+          "back_sides_parlor": 0.15,
           "string_acoustic_parlor": 0.195
         }
       },
@@ -91,7 +91,7 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 8.06,
+          "cajon_peruano_construction": 8.515,
           "cajon_peruano_role": 3.575
         }
       },
@@ -103,8 +103,8 @@
           "quijada_preparation": "quijada_boiled_sundried"
         },
         "scores": {
-          "quijada_form": 6.37,
-          "quijada_context": 14.105,
+          "quijada_form": 6.825,
+          "quijada_context": 13.455,
           "quijada_preparation": 1.69
         }
       }

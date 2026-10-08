@@ -1,135 +1,51 @@
 {
-  "id": "deep_filthstep",
-  "name": "Deep Filthstep",
+  "id": "filthstep",
+  "merged_from": "deep_filthstep",
+  "name": "Filthstep",
   "family": "electronic",
-  "lineage": "Deep filthstep draws together heavy bass-music production and forceful electronic performance. Rock-related gestures can intersect with dubstep textures and sharply contrasted sections.",
-  "recipe": "classic deep filthstep, bass System, bass descendants branch. humbucker electric guitar, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 196,
-  "score": 1.703,
+  "lineage": "Filthstep circulates within heavy dubstep and bass-music communities, emphasizing abrasive electronic textures, forceful drops and contrasting rhythmic passages. Producer releases, label compilations and DJ programmes connect the term with brostep, drumstep and related bass styles.",
+  "recipe": "classic filthstep, bass System, bass descendants branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 103,
+  "score": 0,
   "config": {
     "traditions": [
-      "deep_filthstep"
+      "filthstep"
     ],
     "instruments": [
       {
-        "id": "electric_guitar_humbucker",
+        "id": "dj_playback_mixing_unspecified",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
-          "amp_make": "amp_unspecified",
-          "body_wood": "mahogany_maple_cap",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_2_h",
-          "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
-          "bridge": "vibrato_arm",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "standard_tuning"
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "electric_technique": -0.07,
-          "amp_make": 0,
-          "body_wood": 0.40950000000000003,
-          "neck_wood": 0.40950000000000003,
-          "fretboard": -0.035,
-          "pickup_magnet": 0,
-          "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0,
-          "scale_length": 0.8190000000000002,
-          "string_gauge": 0,
-          "finish": 0,
-          "string_tuning": 0
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_loop_layered",
-          "sampler_classic_context": "sampler_classic_post"
-        },
-        "scores": {
-          "electronic_technique": -0.07,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
-          "sampler_workflow": -0.1,
-          "sampler_classic_context": 0.39
+          "dj_playback_mixing_identity": 0
         }
       }
     ],
     "pinned": {
-      "electric_guitar_humbucker": [
-        "electric_technique",
-        "amp_make",
-        "body_wood",
-        "neck_wood",
-        "fretboard",
-        "pickup_magnet",
-        "pickup_winding",
-        "string_material",
-        "bridge",
-        "scale_length",
-        "string_gauge",
-        "finish",
-        "string_tuning"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
       ]
     },
-    "room": "treated_studio",
+    "room": "live_room",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": null
     },
-    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "live_room",
     "parts": {
-      "electric_technique": "electric_fuzz_riff",
-      "amp_make": "amp_unspecified",
-      "body_wood": "mahogany_maple_cap",
-      "neck_wood": "mahogany_neck_h",
-      "fretboard": "rosewood_fb_h",
-      "pickup_magnet": "alnico_2_h",
-      "pickup_winding": "mid_wind",
-      "string_material": "pure_nickel_h",
-      "bridge": "vibrato_arm",
-      "scale_length": "scale_gibson_h",
-      "string_gauge": "g_10_hum",
-      "finish": "nitro_hum",
-      "string_tuning": "standard_tuning",
-      "electronic_technique": "electronic_sample_chopped",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_twentyfour_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_post"
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "pin_parts": true
   }
 }

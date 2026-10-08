@@ -5,7 +5,7 @@
   "lineage": "Deep downtempo fusion connects relaxed electronic production with contrasting instrumental and vocal colours. Layered textures and measured rhythmic movement allow acoustic timbres to interact with synthesized sound.",
   "recipe": "classic deep downtempo fusion, experimental Elec, ambient branch. solo with instrumental accompaniment, unprocessed natural acoustic. sustained pad analog poly synth, drum machine analog, koto. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 9.743,
+  "score": 10.037,
   "config": {
     "traditions": [
       "deep_downtempo_fusion"
@@ -36,9 +36,9 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.1785,
+          "snare_voice": 0.252,
           "hat_voice": 0,
-          "shuffle_quantize": 0.1785
+          "shuffle_quantize": 0.252
         }
       },
       {
@@ -53,10 +53,10 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
-          "koto_strings": 0,
-          "koto_picks": 0.3045,
+          "koto_strings": 0.105,
+          "koto_picks": 0.4095,
           "koto_body_wood": 0.21,
-          "koto_strings_material": 0.1785,
+          "koto_strings_material": 0.252,
           "koto_bridge_material": -0.05
         }
       },
@@ -93,7 +93,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.819,
+          "voice_ensemble_config": 3.6825,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.0945,

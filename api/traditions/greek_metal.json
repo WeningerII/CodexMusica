@@ -5,7 +5,7 @@
   "lineage": "Greek metal encompasses multiple national scenes and styles, including the melodic heavy and power metal associated with Firewind.",
   "recipe": "classic modern greek metal, distorted Rock, metal branch, power metal italian power metal japanese power metal. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 650,
-  "score": 79.875,
+  "score": 79.53,
   "config": {
     "traditions": [
       "greek_metal",
@@ -113,11 +113,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.0350000000000001,
+          "voice_speech_song": 0.7350000000000001,
           "voice_ensemble_config": 1.6899999999999997,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.135,
+          "voice_processing_chain": 0.09,
           "voice_multitrack_stack": 0.195
         }
       },

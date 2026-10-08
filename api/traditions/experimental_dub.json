@@ -5,7 +5,7 @@
   "lineage": "Experimental dub extends dub mixing and rhythmic space into exploratory electronic composition. Synthesized sound, repetition and effects can become as important as a conventional song structure.",
   "recipe": "classic experimental dub, bass System, dub descendants branch. digital subtractive, fm synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital tape echo spring reverb.",
   "recipe_chars": 237,
-  "score": 1.628,
+  "score": 1.723,
   "config": {
     "traditions": [
       "experimental_dub"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "electronic_technique": 0.2315,
-          "va_archetypes": 0.054,
+          "va_archetypes": 0,
           "digital_subtractive_context": -0.05
         }
       },
@@ -36,9 +36,9 @@
         "scores": {
           "electronic_technique": 0.2315,
           "fm_algorithm": -0.05,
-          "fm_modulator_ratio": 0,
-          "fm_polyphony": 0.0315,
-          "fm_model_lineage": 0.0315
+          "fm_modulator_ratio": 0.18,
+          "fm_polyphony": 0,
+          "fm_model_lineage": 0.08549999999999999
         }
       },
       {
@@ -50,7 +50,7 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.08549999999999999,
+          "kick_voice": 0.0315,
           "snare_voice": 1.063,
           "hat_voice": 0,
           "shuffle_quantize": 0

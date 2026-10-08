@@ -5,7 +5,7 @@
   "lineage": "Kenyan hip-hop brings together multilingual MC scenes and varied local production networks. Khaligraph Jones and Nairobi beatmakers exemplify contemporary exchanges between rap delivery and digitally programmed accompaniment.",
   "recipe": "classic modern kenyan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, TR-808. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 42.498,
+  "score": 42.612,
   "config": {
     "traditions": [
       "kenyan_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.319,
+          "voice_speech_song": 13.505,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -64,7 +64,7 @@
           "electronic_technique": 5.2,
           "sample_bitdepth": 0.39,
           "sample_swing": 0.75,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {
@@ -75,7 +75,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.697,
+          "tr808_voice": 5.7299999999999995,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }

@@ -5,7 +5,7 @@
   "lineage": "Straight edge links hardcore punk with an ethical and community identity.",
   "recipe": "classic straight edge, distorted Rock, punk branch. solo with instrumental accompaniment. basswood humbucker electric guitar, basswood electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 29.565,
+  "score": 29.019,
   "config": {
     "traditions": [
       "straight_edge"
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

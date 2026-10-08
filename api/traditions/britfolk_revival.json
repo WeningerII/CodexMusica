@@ -3,14 +3,14 @@
   "name": "Britfolk revival",
   "family": "global",
   "lineage": "1960s-70s UK folk-revival singer-songwriter movement codified through Bert Jansch and John Renbourn (the Pentangle nexus), Davey Graham (the DADGAD-tuning innovator), Anne Briggs, Shirley Collins, Nic Jones, June Tabor, the Watersons family ensemble, the Carthy family (Martin and Eliza), Fairport Convention, Steeleye Span — drawing heavily on the Cecil Sharp / Vaughan Williams field-collected canon and the Child ballad corpus",
-  "recipe": "classic Northern European mid-1960s britfolk revival, ballad Poetry, britfolk branch, Celtic balladic ballad poetry child ballad revival newfoundland outport balladry. thick, incomplete closure resting, straight note core, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, flute, ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk drone like modal autoharp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 616,
-  "score": 251.756,
+  "recipe": "classic Northern European mid-1960s britfolk revival, ballad Poetry, britfolk branch, Celtic balladic ballad poetry child ballad revival newfoundland traditional song and dance music. thick, incomplete closure resting, straight note core, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, flute, ernie ball slinky fingerpicked electric bass, natural material resonance calfskin brushes-and-sticks drum kit, folk drone like modal autoharp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 643,
+  "score": 264.715,
   "config": {
     "traditions": [
       "britfolk_revival",
       "child_ballad_revival",
-      "newfoundland_outport"
+      "newfoundland_folk"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 12.925625,
+          "voice_register": 10.600000000000001,
           "voice_quality": 14.889999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7037500000000003,
-          "voice_articulation": 11.504999999999995,
-          "voice_microtone": 12.089999999999991,
-          "voice_tradition": 28.535,
+          "voice_vibrato": 2.9050000000000002,
+          "voice_articulation": 15.47,
+          "voice_microtone": 16.054999999999996,
+          "voice_tradition": 28.0475,
           "voice_mechanism_compound": 2.4050000000000002,
-          "voice_estill_quality": 4.878125,
-          "voice_speech_song": 15.989999999999995,
-          "voice_ensemble_config": 11.439999999999994,
-          "voice_ornament_system": 11.974999999999996,
-          "voice_pitch_organization": 0.9499999999999998,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 3.0100000000000007
+          "voice_estill_quality": 4.515000000000001,
+          "voice_speech_song": 18.85,
+          "voice_ensemble_config": 15.795,
+          "voice_ornament_system": 14.744999999999997,
+          "voice_pitch_organization": 1.045,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 3.8550000000000004
         }
       },
       {
@@ -57,16 +57,16 @@
         "slots": {
           "string_tuning": "dadgad",
           "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
+          "back_sides": "rosewood_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 25.325,
+          "string_tuning": 24.374999999999996,
           "top_wood": 0.195,
-          "back_sides": 0.195,
-          "string_acoustic": 2.145,
-          "acoustic_om_technique": 27.715625
+          "back_sides": 0.585,
+          "string_acoustic": 2.04,
+          "acoustic_om_technique": 26.325
         }
       },
       {
@@ -74,17 +74,17 @@
         "slots": {
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "gut_wound",
-          "fiddle_bow": "dark_rosin",
+          "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 9.975,
-          "fiddle_strings": 0.045,
-          "fiddle_bow": 0.045,
+          "bowed_technique": 8.83,
+          "fiddle_strings": 0.43499999999999994,
+          "fiddle_bow": 0.195,
           "fiddle_mute": 0.195,
-          "fiddle_articulation": 1.40375,
+          "fiddle_articulation": 0.84,
           "fiddle_string_configuration": 0
         }
       },
@@ -99,10 +99,10 @@
         },
         "scores": {
           "wind_articulation": -0.05,
-          "flute_size": 0.8099999999999999,
-          "flute_material": 0,
-          "flute_technique": 0.045,
-          "flute_maker_school": 0.69
+          "flute_size": 0.65,
+          "flute_material": 0.195,
+          "flute_technique": 0.195,
+          "flute_maker_school": 0.78
         }
       },
       {
@@ -110,21 +110,21 @@
         "slots": {
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.18,
+          "amp_make": 2.555,
           "body_wood": 0.195,
-          "pickup_config": 0,
-          "string_type": 3.3637500000000005,
-          "scale_length_b": 0.65,
-          "fretted_or_not": 0.8099999999999999,
-          "bass_technique": 3.835,
+          "pickup_config": 0.39,
+          "string_type": 2.1399999999999997,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0.65,
+          "bass_technique": 4.3225,
           "electric_bass_string_configuration": 0
         }
       },
@@ -132,12 +132,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "calfskin_drum",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.374999999999995,
-          "drumhead": 1.755,
+          "drum_technique": 15.34,
+          "drumhead": 1.44,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -146,16 +146,16 @@
         "slots": {
           "acoustic_technique": "acoustic_drone_modal",
           "autoharp_chord_bars": "autoharp_15_chord",
-          "autoharp_context": "autoharp_folk_revival",
+          "autoharp_context": "autoharp_appalachian",
           "autoharp_strings": "autoharp_phosphor_bronze",
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 16.56,
-          "autoharp_chord_bars": 5.135,
-          "autoharp_context": 4.29,
+          "acoustic_technique": 17.07,
+          "autoharp_chord_bars": 4.485,
+          "autoharp_context": 3.055,
           "autoharp_strings": 0,
-          "autoharp_body_wood": -0.7
+          "autoharp_body_wood": -1.05
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Cincinnati Rap",
   "family": "hip_hop",
   "lineage": "Cincinnati rap develops through local artists and independent communities within the wider Ohio and American hip-hop landscape. Its recordings and performances range across personal storytelling, battle-ready verses and melodic approaches.",
-  "recipe": "classic cincinnati rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. live tracking.",
-  "recipe_chars": 180,
-  "score": 39.176,
+  "recipe": "classic cincinnati rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. live tracking.",
+  "recipe_chars": 218,
+  "score": 39.302,
   "config": {
     "traditions": [
       "cincinnati_rap"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 13.259999999999998,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.197,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },
@@ -61,8 +61,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 4,
-          "sample_bitdepth": 0.1365,
+          "electronic_technique": 4.0315,
+          "sample_bitdepth": 0.0315,
           "sample_swing": 6.5,
           "sample_processing": 0
         }

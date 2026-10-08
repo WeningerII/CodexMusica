@@ -3,14 +3,14 @@
   "name": "Donsongoni hunter's harp (Mande)",
   "family": "global",
   "lineage": "Mande donsongoni (\"hunter's harp\") vocal-and-instrumental tradition of the Wassoulou region of southern Mali and adjacent eastern Guinea, performed by initiated hunters at hunter-society gatherings and at funerals. The donsongoni is a six-string calabash harp distinct from the larger courtly kora — associated with the rural-egalitarian hunter's society (donso-tòn) rather than the hereditary griot caste. Repertoire spans hunting-praise, ancestor-evocation, and esoteric hunter-society initiation material. The Wassoulou modernization brought the donsongoni into popular music through Oumou Sangaré.",
-  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, mid strong calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 493,
-  "score": 304.025,
+  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional mongolian böö shamanic invocation mapuche tayil genealogical chant. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 520,
+  "score": 289.925,
   "config": {
     "traditions": [
       "donsongoni_hunter_harp",
-      "shipibo_icaros",
-      "mongolian_boo_invocation"
+      "mongolian_boo_invocation",
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.34,
-          "voice_quality": 37.18000000000001,
+          "voice_quality": 31.460000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.495,
-          "voice_articulation": 21.905,
-          "voice_microtone": 21.71,
-          "voice_tradition": 33.279999999999994,
-          "voice_mechanism_compound": 13.895000000000001,
-          "voice_estill_quality": 4.68,
-          "voice_speech_song": 22.75,
-          "voice_ensemble_config": 23.335,
-          "voice_ornament_system": 8.025000000000002,
+          "voice_articulation": 21.255000000000003,
+          "voice_microtone": 20.864999999999995,
+          "voice_tradition": 33.085,
+          "voice_mechanism_compound": 11.270000000000001,
+          "voice_estill_quality": 5.525000000000001,
+          "voice_speech_song": 21.905,
+          "voice_ensemble_config": 22.035,
+          "voice_ornament_system": 7.3675,
           "voice_pitch_organization": 1.1699999999999995,
-          "voice_processing_chain": 14.235,
+          "voice_processing_chain": 11.244999999999996,
           "voice_multitrack_stack": 4.420000000000001
         }
       },
@@ -62,22 +62,22 @@
           "donso_ngoni_string_material": "donso_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 34.12500000000001,
-          "donso_ngoni_strings": 7.32,
-          "donso_ngoni_use": 11.505000000000003,
-          "donso_ngoni_resonator": 5.029999999999999,
+          "plucked_traditional_technique": 32.63,
+          "donso_ngoni_strings": 7.82,
+          "donso_ngoni_use": 12.74,
+          "donso_ngoni_resonator": 4.68,
           "donso_ngoni_string_material": 1.625
         }
       },
       {
         "id": "inverted_calabash",
         "slots": {
-          "inverted_calabash_size": "inverted_calabash_medium",
+          "inverted_calabash_size": "inverted_calabash_large",
           "inverted_calabash_technique": "inverted_calabash_hands"
         },
         "scores": {
-          "inverted_calabash_size": 2.145,
-          "inverted_calabash_technique": 0.65
+          "inverted_calabash_size": 2.34,
+          "inverted_calabash_technique": 0.375
         }
       },
       {
@@ -89,8 +89,8 @@
         },
         "scores": {
           "bolon_form": 14.045,
-          "bolon_repertoire": 17.96,
-          "bolon_strings": 1.475
+          "bolon_repertoire": 20.4175,
+          "bolon_strings": -0.035
         }
       }
     ],

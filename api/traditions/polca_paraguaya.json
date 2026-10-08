@@ -5,7 +5,7 @@
   "lineage": "Paraguay's national dance form, crystallized in the late nineteenth century after the Triple Alliance war from European polka rhythms reworked in Guaraní-speaking bandsmanship and codified on record by José Asunción Flores' contemporaries and by Luis Alberto del Paraná from the 1950s — a fast 6/8 melody riding a 3/4 accompaniment (sesquiáltera), 120-160 BPM, arpa paraguaya arpeggiating over strummed guitar, with paired tenor voices in parallel thirds singing bilingual Spanish-Guaraní texts.",
   "recipe": "classic North American mid-1950s polca paraguaya, functional Song, tropical song branch, Latin am troubadour ballad poetry, iberian functional song folklore surero milonga. thick, breath veiled tone, slow rate, interlocked note trading. arpa paraguaya, cedar fingerpicked classical nylon-string guitar, castagnari Italian premium folk music bellows articulated accordion. live tracking. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 481,
-  "score": 158.547,
+  "score": 158.477,
   "config": {
     "traditions": [
       "polca_paraguaya",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "arpa_paraguaya_strings": 0,
-          "arpa_paraguaya_technique": 0.6975,
+          "arpa_paraguaya_technique": 0.6525,
           "arpa_paraguaya_body": 0.3525
         }
       },
@@ -81,7 +81,7 @@
           "voice_ornament_system": 2.5749999999999993,
           "voice_pitch_organization": 1.3649999999999998,
           "voice_processing_chain": 6.044999999999999,
-          "voice_multitrack_stack": 3.2099999999999995
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -100,7 +100,7 @@
           "accordion_reed_material": 1.04,
           "musette_offset": 0.8225,
           "reed_config": 0.39,
-          "bellows": 0.42250000000000004,
+          "bellows": 0.22750000000000004,
           "voicing_chamber": 0,
           "accordion_maker_school": 1.235
         }

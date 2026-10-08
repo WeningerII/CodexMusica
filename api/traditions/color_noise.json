@@ -5,7 +5,7 @@
   "lineage": "Color noise organizes sound around broad noise spectra rather than conventional melodies. Different spectral balances and layered noise textures form sustained listening environments.",
   "recipe": "classic color noise, experimental Elec, ambient branch. layered sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 181,
-  "score": 9.019,
+  "score": 9.229,
   "config": {
     "traditions": [
       "color_noise"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 5.981,
+          "electronic_technique": 6.0125,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.4515,
-          "sampler_workflow": 0.9314999999999999,
+          "sampler_bit_depth": 0.5985,
+          "sampler_workflow": 0.9629999999999999,
           "sampler_classic_context": 1.69
         }
       }

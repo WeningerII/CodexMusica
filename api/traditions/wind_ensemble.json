@@ -3,14 +3,14 @@
   "name": "Wind Ensemble",
   "family": "classical",
   "lineage": "The one-player-per-part symphonic wind medium founded by Frederick Fennell with the Eastman Wind Ensemble in 1952 as a deliberate reform of the doubled concert band, giving composers a transparent chamber-scaled wind palette exploited by Schoenberg, Stravinsky's Symphonies of Wind Instruments as ancestor, and by Husa, Karel Husa's Music for Prague 1968, Dahl, Maslanka and Joan Tower; variable instrumentation drawn from the full woodwind, brass and percussion families, fully notated, often in extended tonality or serial and aleatoric idioms with mixed and shifting metres.",
-  "recipe": "classic British early-1950s wind ensemble, art Music, western modern branch, western common practice art music, American marching groove percussion late romantic era concert band. silver powell boston canonical American orchestral continuous-airflow legato flute, loree paris canonical American school continuous-airflow legato oboe, grenadilla African blackwood traditional continuous-airflow legato clarinet, low c classical legato bass clarinet, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, brass continuous-airflow legato french horn, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 930,
-  "score": 163.02,
+  "recipe": "classic British early-1950s wind ensemble, art Music, western modern branch, western common practice art music, American marching groove percussion concert band drum and bugle corps. silver powell boston canonical American orchestral continuous-airflow legato flute, loree paris canonical American school continuous-airflow legato oboe, grenadilla African blackwood traditional continuous-airflow legato clarinet, low c classical legato bass clarinet, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, brass continuous-airflow legato french horn, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 935,
+  "score": 154.54,
   "config": {
     "traditions": [
       "wind_ensemble",
-      "late_romantic_era",
-      "concert_band"
+      "concert_band",
+      "drum_corps"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "flute_size": 2.1574999999999998,
-          "flute_material": 2.7950000000000004,
+          "wind_articulation": 3.9400000000000004,
+          "flute_size": 1.495,
+          "flute_material": 2.1450000000000005,
           "flute_technique": 0.4550000000000001,
-          "flute_maker_school": 2.0149999999999997
+          "flute_maker_school": 5.135
         }
       },
       {
@@ -36,15 +36,15 @@
           "wind_articulation": "wind_continuous_legato",
           "oboe_reed": "oboe_american_scrape",
           "oboe_class": "oboe_modern",
-          "oboe_body_wood": "oboe_boxwood_baroque",
+          "oboe_body_wood": "oboe_grenadilla_canonical",
           "oboe_maker_school": "oboe_loree_paris"
         },
         "scores": {
-          "wind_articulation": 5.8525,
+          "wind_articulation": 3.9400000000000004,
           "oboe_reed": 0.195,
-          "oboe_class": 1.95,
-          "oboe_body_wood": 0.65,
-          "oboe_maker_school": 2.8599999999999994
+          "oboe_class": 2.145,
+          "oboe_body_wood": 0.3900000000000001,
+          "oboe_maker_school": 5.425000000000001
         }
       },
       {
@@ -57,10 +57,10 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "clarinet_body": 9.92375,
-          "clarinet_size": 2.8525,
-          "clarinet_reed": 2.1574999999999998,
+          "wind_articulation": 3.9400000000000004,
+          "clarinet_body": 8.475000000000001,
+          "clarinet_size": 2.34,
+          "clarinet_reed": 1.495,
           "clarinet_articulation": 0
         }
       },
@@ -71,8 +71,8 @@
           "bass_clarinet_style": "bass_clarinet_classical_legato"
         },
         "scores": {
-          "bass_clarinet_range": 2.535,
-          "bass_clarinet_style": 2.6
+          "bass_clarinet_range": 1.69,
+          "bass_clarinet_style": 1.95
         }
       },
       {
@@ -85,11 +85,11 @@
           "bassoon_context": "bassoon_chamber"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "bassoon_school": 3.51,
-          "bassoon_body_wood": 0.39,
-          "bassoon_reed": 0.39,
-          "bassoon_context": 4.419999999999999
+          "wind_articulation": 3.9400000000000004,
+          "bassoon_school": 2.8600000000000003,
+          "bassoon_body_wood": 0.585,
+          "bassoon_reed": 0.585,
+          "bassoon_context": 5.66
         }
       },
       {
@@ -101,10 +101,10 @@
           "contrabassoon_body_wood": "contrabassoon_maple_canonical"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "contrabassoon_school": 2.8049999999999997,
-          "contrabassoon_context": 6.06125,
-          "contrabassoon_body_wood": 0.39
+          "wind_articulation": 3.9400000000000004,
+          "contrabassoon_school": 1.48,
+          "contrabassoon_context": 5.735000000000001,
+          "contrabassoon_body_wood": 0.585
         }
       },
       {
@@ -115,30 +115,30 @@
           "french_horn_metal": "horn_yellow_brass"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "french_horn_bore": 0.78,
-          "french_horn_metal": 4.485
+          "wind_articulation": 3.9400000000000004,
+          "french_horn_bore": 0.195,
+          "french_horn_metal": 5.135
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "bach_trumpet_mp_3c",
           "brass_mute": "straight_mute",
-          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "brass_size": 2.1574999999999998,
-          "trumpet_mouthpiece": 11.705,
-          "brass_mute": 5,
-          "trumpet_technique": 5,
-          "trumpet_bell_metal": 2.145,
-          "trumpet_maker_school": 2.0149999999999997
+          "wind_articulation": 5.330000000000001,
+          "brass_size": 1.495,
+          "trumpet_mouthpiece": 10.605,
+          "brass_mute": 3.75,
+          "trumpet_technique": 5.330000000000001,
+          "trumpet_bell_metal": 3.445,
+          "trumpet_maker_school": 5.135
         }
       },
       {
@@ -151,11 +151,11 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": 5.8525,
-          "euph_use": 10.875,
-          "euphonium_pitch": 5.915,
-          "euphonium_bell_metal": 5.915,
-          "euphonium_maker_school": 5.915
+          "wind_articulation": 3.9400000000000004,
+          "euph_use": 11.174999999999999,
+          "euphonium_pitch": 7.6049999999999995,
+          "euphonium_bell_metal": 7.6049999999999995,
+          "euphonium_maker_school": 7.6049999999999995
         }
       },
       {
@@ -166,8 +166,8 @@
           "timpani_head": "timpani_synthetic"
         },
         "scores": {
-          "percussion_technique": -0.05,
-          "timpani_size": 2.6,
+          "percussion_technique": 0.375,
+          "timpani_size": 2.145,
           "timpani_head": 0.4550000000000001
         }
       }

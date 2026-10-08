@@ -5,7 +5,7 @@
   "lineage": "SLC hardcore develops through Salt Lake City’s independent hardcore-band community.",
   "recipe": "classic slc hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 355,
-  "score": 30.135,
+  "score": 30.261,
   "config": {
     "traditions": [
       "slc_hardcore"
@@ -33,11 +33,11 @@
           "amp_make": 9.620000000000001,
           "body_wood": 0.39,
           "neck_wood": 0.063,
-          "fretboard": 0.3,
+          "fretboard": 0.39,
           "pickup_magnet": 0.054,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.354,
+          "bridge": 0.39,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,

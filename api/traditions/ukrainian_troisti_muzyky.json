@@ -1,0 +1,117 @@
+{
+  "id": "ukrainian_troisti_muzyky",
+  "name": "Troisti muzyky (Ukrainian fiddle, tsymbaly and drum trio)",
+  "family": "global",
+  "lineage": "Instrumental village dance band of Ukraine, named for its classic three players, fiddle, tsymbaly dulcimer and drum (buben or baraban), sometimes joined or replaced by sopilka, a bass fiddle (basolia) or, later, accordion. It played kolomyiky, the kozachok and hopak, polkas and wedding marches for weddings and village dances across Galicia, Podillia and central Ukraine, and was carried to North America by emigrants, where the fiddler Pawlo Humeniuk recorded it on 78 rpm discs between the world wars. The hammered-dulcimer card stands in for the tsymbaly and the frame-drum card for the buben.",
+  "recipe": "classic modern troisti muzyky, wedding, European branch. fiddle, hammered dulcimer, credited frame drums. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 0.364,
+  "config": {
+    "traditions": [
+      "ukrainian_troisti_muzyky"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.41999999999999993,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0,
+          "fiddle_articulation": 0.0315,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "hammered_dulcimer",
+        "slots": {
+          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_material": "wood_bare",
+          "hammered_dulcimer_body_wood": "hd_cherry_alternative",
+          "hammered_dulcimer_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "hammer_dulcimer_courses": 0.0315,
+          "hammer_material": 0.0315,
+          "hammered_dulcimer_body_wood": 0,
+          "hammered_dulcimer_strings": 0
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "hammered_dulcimer": [
+        "hammer_dulcimer_courses",
+        "hammer_material",
+        "hammered_dulcimer_body_wood",
+        "hammered_dulcimer_strings"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "hammer_dulcimer_courses": "hd_15_15",
+      "hammer_material": "wood_bare",
+      "hammered_dulcimer_body_wood": "hd_cherry_alternative",
+      "hammered_dulcimer_strings": "dutar_strings_unspecified",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

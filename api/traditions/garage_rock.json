@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s American teenage-band rock-and-roll tradition characterized by raw production, basic three-chord songwriting, and amateur-virtuoso instrumental performance — codified through the original garage-rock canon documented on Nuggets (Lenny Kaye compilation, 1972): The Sonics, The Standells, ? and the Mysterians, The Seeds, Count Five, The Electric Prunes, with the form serving as the protopunk template",
   "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 697,
-  "score": 448.088,
+  "score": 446.796,
   "config": {
     "traditions": [
       "garage_rock",
@@ -47,7 +47,7 @@
           "voice_speech_song": 18.264999999999993,
           "voice_ensemble_config": 15.534999999999993,
           "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 2.99,
+          "voice_pitch_organization": 2.894375,
           "voice_processing_chain": 7.57375,
           "voice_multitrack_stack": 4.7125
         }
@@ -62,7 +62,7 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -71,16 +71,16 @@
         },
         "scores": {
           "electric_technique": 11.749999999999998,
-          "amp_make": 29.521874999999994,
-          "body_wood": 2.145,
-          "neck_wood": 2.145,
-          "fretboard": 2.0799999999999996,
+          "amp_make": 29.326874999999994,
+          "body_wood": 2.05875,
+          "neck_wood": 2.05875,
+          "fretboard": 2.00875,
           "pickup_magnet": 0.09,
           "string_material": 0.09,
           "string_gauge": 2.145,
           "bridge": 0.39,
           "scale_length": 2.145,
-          "finish": 1.7950000000000002,
+          "finish": 1.6,
           "string_tuning": 17.225,
           "single_coil_pickup_construction": 0
         }
@@ -101,8 +101,8 @@
           "amp_make": 14.9175,
           "body_wood": 2.145,
           "pickup_config": 0.39,
-          "string_type": 33.661874999999995,
-          "scale_length_b": 2.145,
+          "string_type": 33.466875,
+          "scale_length_b": 2.05875,
           "fretted_or_not": 0.195,
           "bass_technique": 38.200624999999995,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 27.5,
-          "drumhead": 2.145,
+          "drumhead": 2.05875,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,7 +132,7 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 3.499375,
+          "keyboard_technique": 3.3043750000000003,
           "drawbar_setting": 27.700625,
           "rotary_speed": 27.84,
           "percussion_setting": 14.3,

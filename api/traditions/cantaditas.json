@@ -5,7 +5,7 @@
   "lineage": "Cantaditas is a Spanish dance-music repertoire centered on memorable sung hooks and familiar club anthems. Remember parties and festivals carry late-1990s and early-2000s recordings into contemporary DJ culture, linking vocal dance songs across related electronic styles.",
   "recipe": "classic 1997-1999 cantaditas, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 94,
-  "score": 0.063,
+  "score": 0.095,
   "config": {
     "traditions": [
       "cantaditas"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

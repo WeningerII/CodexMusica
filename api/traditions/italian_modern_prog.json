@@ -5,7 +5,7 @@
   "lineage": "Modern Italian progressive rock — contemporary developments of the country’s 1970s progressive-rock tradition.",
   "recipe": "classic mid-1970s italian modern prog, distorted Rock, progressive rock branch. one note per syllable. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 407,
-  "score": 120.433,
+  "score": 120.25,
   "config": {
     "traditions": [
       "italian_modern_prog"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825,
+          "voice_speech_song": 0.714,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -67,14 +67,14 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.3315,
-          "grand_piano_brand": 0.168,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.1995,
           "piano_hammer": 15.6,
           "piano_rim": 15.6,
           "piano_soundboard": 5.826,
           "piano_pinblock": 5.794499999999999,
           "piano_plate": 5.699999999999999,
-          "piano_pitch_standard": 6.805999999999999
+          "piano_pitch_standard": 6.637999999999999
         }
       },
       {
@@ -98,7 +98,7 @@
           "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0,
-          "neck_wood": 0.7769999999999999,
+          "neck_wood": 0.6719999999999999,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0.2415,
@@ -157,7 +157,7 @@
           "bearing_edges": 2.9899999999999998,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 21.7545,
+          "cymbal_hammering": 21.723,
           "cymbal_lathing": 21.4815,
           "cymbal_finish": 0
         }

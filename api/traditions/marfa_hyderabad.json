@@ -1,0 +1,113 @@
+{
+  "id": "marfa_hyderabad",
+  "name": "Marfa (Hyderabadi Afro-Arab drum band)",
+  "family": "global",
+  "lineage": "Marfa is the fast celebratory drum music and dance of Hyderabad's Muslim communities, adapted from the Afro-Arab music of Hadhramawt in Yemen; it was brought to Hyderabad State by Siddis of East African descent, who served as cavalry guards in the Asaf Jahi Nizams' irregular army, and by the Hadhrami diaspora, and the Nizams patronised it at official ceremonies. Kept by the Chaush community, above all in Barkas, it is played at weddings and processions on marfa drums with daff, dhol, sticks, steel pots and wooden strips (thapi). The drum cards stand in for the marfa and the daff.",
+  "recipe": "classic modern marfa, wedding, south Asian branch. membrane drum pulse acoustic membrane drum, hand drum source unspecified, dhol. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 210,
+  "score": 19.034,
+  "config": {
+    "traditions": [
+      "marfa_hyderabad"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.8729999999999998,
+          "acoustic_membrane_drum_gesture": 0.1695
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0.31124999999999997,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_punjabi",
+          "dhol_repertoire": "dhol_baraat",
+          "dhol_shell": "dhol_sheesham"
+        },
+        "scores": {
+          "dhol_form": 8.775,
+          "dhol_repertoire": 5.12525,
+          "dhol_shell": -0.07
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ],
+      "dhol": [
+        "dhol_form",
+        "dhol_repertoire",
+        "dhol_shell"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified",
+      "dhol_form": "dhol_punjabi",
+      "dhol_repertoire": "dhol_baraat",
+      "dhol_shell": "dhol_sheesham"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

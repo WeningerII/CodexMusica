@@ -5,7 +5,7 @@
   "lineage": "European gay-club dance music of 1982-1990 built on the San Francisco Hi-NRG template and codified in London by Stock Aitken Waterman and in Italy by producers for ZYX, running 128-140 BPM with a hammering octave-jumping synth bass, four-on-the-floor kick with sixteenth open hats, orchestra-hit stabs and belted, heavily double-tracked female lead vocals.",
   "recipe": "classic North American mid-1980s euro hi-nrg, electronic Dance, continental branch, eurodance electronic dance, europop functional song chasidic pop muzică etno. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, classic source linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum, TR-909, octave double single performer stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, wide horn like brass string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 710,
-  "score": 189.475,
+  "score": 189.547,
   "config": {
     "traditions": [
       "euro_hi_nrg",
@@ -38,7 +38,7 @@
         "scores": {
           "linndrum_voice": 2.375,
           "linndrum_context": 5.135,
-          "linndrum_production_origin": 1.8399999999999999
+          "linndrum_production_origin": 1.885
         }
       },
       {
@@ -82,14 +82,14 @@
           "voice_vibrato": 0.7799999999999998,
           "voice_articulation": 18.33,
           "voice_microtone": 16.89999999999999,
-          "voice_tradition": 14.742499999999998,
+          "voice_tradition": 14.822499999999998,
           "voice_mechanism_compound": 4.29,
           "voice_estill_quality": 5.3950000000000005,
           "voice_speech_song": 20.539999999999996,
           "voice_ensemble_config": 19.824999999999996,
           "voice_ornament_system": 0.7749999999999999,
           "voice_pitch_organization": 1.1699999999999995,
-          "voice_processing_chain": 12.077499999999999,
+          "voice_processing_chain": 12.024999999999999,
           "voice_multitrack_stack": 4.5825000000000005
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Chilean adaptation of Cuban mambo taken up by Santiago dance orchestras after Perez Prado's South American tours of the early 1950s, carried by Orquesta Huambaly and Orquesta Ritmo y Juventud — 2/3 clave-based 4/4 at brisk dance tempo, riffing saxophone sections answered by high-screaming trumpets, piano guajeo, upright bass tumbao, congas and timbales, with Spanish vocal refrains and shouted interjections",
   "recipe": "classic South American 1950-1953 mambo chileno, groove Percussion, son salsa branch, charanga danza Cuban, American jazz Latin jazz afro-cuban jazz. thick, breath veiled tone, straight onset, interlocked note trading. bach stradivarius 180 canonical American orchestral jazz balance trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, maracas. large tracking room 1920-1965 mid tier odeon rca buenos aires. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 884,
-  "score": 533.209,
+  "score": 533.163,
   "config": {
     "traditions": [
       "mambo_chileno",
@@ -93,7 +93,7 @@
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.65,
           "grand_piano_brand": 0.195,
-          "piano_hammer": 5.743125,
+          "piano_hammer": 5.606625,
           "piano_rim": 4.94,
           "piano_soundboard": 1.305,
           "piano_pinblock": 1.355,
@@ -121,7 +121,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 15.451499999999998,
+          "percussion_technique": 15.496499999999997,
           "conga_set": 1.0315,
           "conga_skin": 8.125,
           "conga_shell_wood": 8.125
@@ -135,7 +135,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 15.451499999999998,
+          "percussion_technique": 15.496499999999997,
           "timbales_shell": 13.260000000000003,
           "timbales_context": 6.24
         }

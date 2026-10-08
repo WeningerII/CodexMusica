@@ -3,14 +3,14 @@
   "name": "Folk rock",
   "family": "rock_punk",
   "lineage": "Mid-1960s through 1970s amplified folk-rock fusion codified by The Byrds Mr. Tambourine Man (1965), Buffalo Springfield, Crosby Stills Nash and Young, Simon and Garfunkel late-60s catalog",
-  "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock nashville sound. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 855,
-  "score": 683.731,
+  "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 858,
+  "score": 693.97,
   "config": {
     "traditions": [
       "folk_rock",
       "country_rock",
-      "nashville_sound"
+      "hot_country_2010s"
     ],
     "instruments": [
       {
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 86.56500000000001,
-          "voice_quality": 12.999999999999991,
+          "voice_register": 89.01499999999999,
+          "voice_quality": 11.634999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.765,
-          "voice_articulation": 17.15999999999999,
-          "voice_microtone": 43.91000000000001,
-          "voice_tradition": 30.63624999999999,
-          "voice_mechanism_compound": 2.6,
-          "voice_estill_quality": 24.199999999999996,
-          "voice_speech_song": 23.26999999999999,
-          "voice_ensemble_config": 17.87499999999999,
+          "voice_vibrato": 23.014999999999997,
+          "voice_articulation": 16.184999999999988,
+          "voice_microtone": 44.46000000000001,
+          "voice_tradition": 30.336249999999993,
+          "voice_mechanism_compound": 1.755,
+          "voice_estill_quality": 25.299999999999997,
+          "voice_speech_song": 22.09999999999999,
+          "voice_ensemble_config": 16.24999999999999,
           "voice_ornament_system": 0.585,
           "voice_pitch_organization": 0.80625,
           "voice_processing_chain": 8.995,
-          "voice_multitrack_stack": 9.348749999999997
+          "voice_multitrack_stack": 8.84875
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_d",
+          "string_tuning": "drop_d",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "silk_steel"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 42.49999999999999,
-          "string_tuning": 0.475,
-          "top_wood": 2.14,
+          "acoustic_technique": 44.249999999999986,
+          "string_tuning": 0.95,
+          "top_wood": 1.99,
           "back_sides": 0.045,
-          "string_acoustic": 2.4050000000000002
+          "string_acoustic": 2.535
         }
       },
       {
@@ -87,18 +87,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 21.144999999999996,
-          "amp_make": 22.8725,
-          "body_wood": 2.14,
-          "neck_wood": 2.14,
-          "fretboard": 2.09,
+          "electric_technique": 22.744999999999997,
+          "amp_make": 24.6225,
+          "body_wood": 1.99,
+          "neck_wood": 1.99,
+          "fretboard": 1.94,
           "pickup_magnet": 0.045,
-          "string_material": 1.56,
-          "string_gauge": 1.99,
-          "bridge": 0,
-          "scale_length": 2.275,
+          "string_material": 1.3649999999999998,
+          "string_gauge": 1.84,
+          "bridge": 0.5,
+          "scale_length": 2.08,
           "finish": 0.045,
-          "string_tuning": 16.81625,
+          "string_tuning": 17.31625,
           "single_coil_pickup_construction": 0
         }
       },
@@ -115,13 +115,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.4975,
-          "body_wood": 2.275,
-          "pickup_config": 0.045,
-          "string_type": 36.02,
-          "scale_length_b": 2.7675,
+          "amp_make": 23.247499999999995,
+          "body_wood": 2.08,
+          "pickup_config": 0.545,
+          "string_type": 37.27,
+          "scale_length_b": 2.6175,
           "fretted_or_not": 0.345,
-          "bass_technique": 33.95625,
+          "bass_technique": 35.20625,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,8 +133,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 33.68,
-          "drumhead": 10.844999999999999,
+          "drum_technique": 34.93,
+          "drumhead": 10.645,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -149,23 +149,23 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 11.195,
-          "drawbar_setting": 34.051249999999996,
-          "rotary_speed": 33.45,
-          "percussion_setting": 15.964999999999998,
-          "tonewheel_model": 15.014999999999997,
+          "keyboard_technique": 9.695,
+          "drawbar_setting": 35.301249999999996,
+          "rotary_speed": 34.7,
+          "percussion_setting": 16.465,
+          "tonewheel_model": 15.664999999999996,
           "leslie_cabinet_model": 2.925
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
-          "tambourine_orch_context": "tambourine_orch_pop"
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
+          "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.5812499999999999,
-          "tambourine_orch_context": 0.12999999999999998
+          "tambourine_orch_jingle": 0.285,
+          "tambourine_orch_context": 0
         }
       }
     ],

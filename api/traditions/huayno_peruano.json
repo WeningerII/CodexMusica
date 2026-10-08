@@ -5,7 +5,7 @@
   "lineage": "Peruvian branch of the Andean huayno, documented on commercial 78s from the 1910s-20s in Lima and codified regionally through Ayacucho, Cusco and Ancash recording scenes from the 1950s onward by singers such as Pastorita Huaracina and Jilguero del Huascarán, built on an anhemitonic pentatonic melody in duple 2/4 with the short-short-long iambic cell, sung in a high nasal Quechua or Spanish voice over harp, violin, mandolin, charango and guitar, and closing with an accelerated fuga.",
   "recipe": "classic Andean mid-1910s huayno peruano, carnival Processional, andean branch, andean field work, Latin am troubadour ballad poetry folklore ecuatoriano música andina. sygyt, forward-resonance, slow rate, interlocked note trading. harpa, plain gut sheep gut unsplit sitka spruce French Polish violin orchestral, naranjillo andean premium wood cedar andean andean classical charango, cedar plain gut sheep gut unsplit classical nylon-string guitar, adirondack red spruce parallel tone bars loar graduation k and k twin mandolin, quena. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 712,
-  "score": 288.16,
+  "score": 285.055,
   "config": {
     "traditions": [
       "huayno_peruano",
@@ -41,13 +41,13 @@
           "voice_vibrato": 0.975,
           "voice_articulation": 21.18999999999999,
           "voice_microtone": 19.629999999999992,
-          "voice_tradition": 29.710000000000004,
+          "voice_tradition": 28.120000000000005,
           "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 17.694999999999997,
+          "voice_estill_quality": 17.74,
           "voice_speech_song": 21.96999999999999,
           "voice_ensemble_config": 20.929999999999993,
-          "voice_ornament_system": 23.004999999999995,
-          "voice_pitch_organization": 1.9799999999999995,
+          "voice_ornament_system": 21.309999999999995,
+          "voice_pitch_organization": 2.1449999999999996,
           "voice_processing_chain": 4.615,
           "voice_multitrack_stack": 2.600000000000001
         }
@@ -82,11 +82,11 @@
           "orch_strings": 2.04,
           "orch_top_wood": 2.4699999999999998,
           "orch_back_wood": 0.7149999999999999,
-          "orch_varnish": 2.245,
+          "orch_varnish": 2.29,
           "orch_setup_period": 2.425,
           "orch_bow": 0.78,
-          "orch_bow_stick": 1.04,
-          "orch_articulation": 0.585,
+          "orch_bow_stick": 0.995,
+          "orch_articulation": 0.5399999999999999,
           "orch_rosin": 0.78
         }
       },
@@ -101,7 +101,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 1.7550000000000001,
-          "charango_back": 8.059999999999999,
+          "charango_back": 7.895,
           "charango_top_wood": 8.059999999999999,
           "charango_strings": 8.059999999999999,
           "charango_string_material": 7.344999999999999
@@ -115,15 +115,15 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
           "string_classical": "plain_sheep_gut_classical_guitar",
-          "attack_technique_cl": "tirando_cl"
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.94,
+          "acoustic_technique": 1.9849999999999999,
           "string_tuning": 0,
           "top_wood_classical": 6.5649999999999995,
           "bracing_classical": 1.4949999999999999,
           "string_classical": 2.04,
-          "attack_technique_cl": 0.345
+          "attack_technique_cl": 0.195
         }
       },
       {
@@ -139,9 +139,9 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 1.94,
+          "acoustic_technique": 1.9849999999999999,
           "mandolin_shape": 0.845,
-          "mandolin_top": 2.245,
+          "mandolin_top": 2.29,
           "mandolin_back": 0,
           "mandolin_bracing": 1.6249999999999998,
           "mandolin_strings": 0.95,
@@ -159,7 +159,7 @@
         "scores": {
           "wind_articulation": -0.07,
           "quena_material": 0.845,
-          "quena_pitch": 8.319999999999999
+          "quena_pitch": 8.514999999999999
         }
       }
     ],

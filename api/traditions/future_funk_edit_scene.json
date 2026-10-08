@@ -1,97 +1,19 @@
 {
-  "id": "future_funk_edit_scene",
-  "name": "Future funk (Japanese city-pop edit scene)",
+  "id": "future_funk_vaporwave",
+  "merged_from": "future_funk_edit_scene",
+  "name": "Future funk (vaporwave subgenre)",
   "family": "electronic",
-  "lineage": "Bandcamp and SoundCloud edit culture running from roughly 2013 through the 2020s in which producers such as Night Tempo, Macross 82-99, Yung Bae and Sailorwave-era Saint Pepsi filter-chopped 1970s-80s Japanese city pop and disco records into 110-125 BPM four-on-the-floor edits with sidechained bass, French-house band-pass sweeps, and looped Japanese vocal hooks left largely intact.",
-  "recipe": "classic mid-2020s future funk, groove Percussion, funk percussive branch, house electronic dance, retro aesthetic experimental electric new york garage house us garage. thick, breath veiled tone, slow rate, interlocked note trading. sampler, turntable, roland tr 8s modern aira digital recreation TR-909, singing lead analog poly synth, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser.",
-  "recipe_chars": 614,
-  "score": 275.1,
+  "lineage": "Mid-2010s vaporwave-derived electronic subgenre integrating French house, disco, and Japanese city-pop sampling into accessible, uplifting dance-music. Saint Pepsi (later Skylar Spence), Yung Bae, Macross 82-99, and the broader Business Casual and Local Business label rosters anchor the canonical future funk aesthetic. Distinguished from broader vaporwave by future funk's explicit dance-functional and uplifting (vs vaporwave's ironic-melancholic) emotional register.",
+  "recipe": "classic 2014-2016 future funk, groove Percussion, funk percussive branch, east Asian pop functional song, ambient experimental electric enka k-indie. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, fast decay focused low lead analog synth, mahogany ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 468,
+  "score": 247.12,
   "config": {
     "traditions": [
-      "future_funk_edit_scene",
-      "new_york_garage_house",
-      "us_garage"
+      "future_funk_vaporwave",
+      "enka",
+      "k_indie"
     ],
     "instruments": [
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_microsampling_glitch",
-          "sampler_classic_context": "sampler_classic_edm"
-        },
-        "scores": {
-          "electronic_technique": 1.8949999999999998,
-          "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.52,
-          "sampler_workflow": 1.9399999999999997,
-          "sampler_classic_context": 48.1325
-        }
-      },
-      {
-        "id": "turntable",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_chirp_baby"
-        },
-        "scores": {
-          "electronic_technique": 1.1999999999999997,
-          "turntable_technique": 1.545
-        }
-      },
-      {
-        "id": "drum_machine_909",
-        "slots": {
-          "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_hardcore",
-          "tr909_production_origin": "tr909_tr_8s_modern"
-        },
-        "scores": {
-          "tr909_voice": 21.675000000000004,
-          "drum_machine_909_context": 1.69,
-          "tr909_production_origin": 1.675
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
-        },
-        "scores": {
-          "electronic_technique": 7.484999999999999,
-          "poly_archetypes": 1,
-          "poly_voices": 0.3,
-          "poly_maker_lineage": -1.085
-        }
-      },
-      {
-        "id": "electric_bass",
-        "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
-          "pickup_config": "soapbar",
-          "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "slap_pop",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
-        },
-        "scores": {
-          "amp_make": 4.5600000000000005,
-          "body_wood": 1.235,
-          "pickup_config": 2.07,
-          "string_type": 4.945,
-          "scale_length_b": 1.83,
-          "fretted_or_not": 1.635,
-          "bass_technique": 9.295,
-          "electric_bass_string_configuration": 0
-        }
-      },
       {
         "id": "voice",
         "slots": {
@@ -101,60 +23,139 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.359999999999998,
-          "voice_quality": 9.814999999999998,
+          "voice_register": 23.92499999999999,
+          "voice_quality": 10.984999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 18.524999999999995,
-          "voice_microtone": 18.32999999999999,
-          "voice_tradition": 16.919999999999998,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 4.3500000000000005,
-          "voice_speech_song": 19.369999999999997,
-          "voice_ensemble_config": 23.269999999999992,
-          "voice_ornament_system": 0.39499999999999996,
-          "voice_pitch_organization": 1.3949999999999998,
-          "voice_processing_chain": 19.32,
-          "voice_multitrack_stack": 6.47
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 19.110000000000003,
+          "voice_microtone": 21.72,
+          "voice_tradition": 26.7475,
+          "voice_mechanism_compound": 1.7349999999999999,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 24.895000000000003,
+          "voice_ensemble_config": 20.085000000000004,
+          "voice_ornament_system": 4.925000000000001,
+          "voice_pitch_organization": 3.7375000000000007,
+          "voice_processing_chain": 14.909999999999998,
+          "voice_multitrack_stack": 9.847500000000002
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": 0.24,
+          "drum_machine_808_context": 5.882499999999999,
+          "tr808_production_origin": 0.195
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "noise_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pluck_env",
+          "modulation": "lfo_pitch"
+        },
+        "scores": {
+          "electronic_technique": 16.169999999999998,
+          "oscillator": 1.5,
+          "filter_topology": 2.08,
+          "envelope": 1.695,
+          "modulation": 0.845
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.4699999999999998,
+          "body_wood": 2.535,
+          "pickup_config": 0.195,
+          "string_type": 5.1,
+          "scale_length_b": 2.2800000000000002,
+          "fretted_or_not": 1.5,
+          "bass_technique": 14.25,
+          "electric_bass_string_configuration": 0
         }
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_french_touch_filter_house",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
-      "mic": "condenser_fet",
+      "mic": "condenser_ldc",
       "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_pumping",
-      "eq": null,
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
-    "tuning": "funk_one_drop_syncopated_4_4",
-    "aesthetic": null,
+    "tuning": "twelve_tet",
+    "aesthetic": "lofi_deliberate",
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "funk_one_drop_syncopated_4_4",
+    "tuning": "twelve_tet",
     "room": "studio_distributed_production",
-    "chain_mic": "condenser_fet",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_arpeggiated"
+    },
+    "chain_mic": "condenser_ldc",
     "chain_pre": "transformerless",
-    "chain_comp": "comp_pumping",
-    "chain_medium": "digital_std",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Deep CCM is a contemporary Christian listening field connecting worship songwriters, prayer-room musicians and independent devotional releases. Its network includes Jon Thurlow, Misty Edwards, United Pursuit and related worship communities, linking personal prayer with music shared in congregational gatherings.",
   "recipe": "classic deep ccm, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. upright piano. treated studio.",
   "recipe_chars": 130,
-  "score": 2.489,
+  "score": 2.503,
   "config": {
     "traditions": [
       "deep_ccm"
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0,
           "upright_piano_size": 0.49350000000000005
         }

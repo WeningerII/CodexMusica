@@ -5,7 +5,7 @@
   "lineage": "Telugu folk music comprises orally transmitted songs and regional performance traditions associated with Telugu-speaking communities. Contemporary musicians also bring folk melodies and vernacular expression into amplified popular music, including reggae-influenced and band-based arrangements.",
   "recipe": "classic telugu folk, functional Song, folk rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 376,
-  "score": 65.903,
+  "score": 65.945,
   "config": {
     "traditions": [
       "telugu_folk"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.2835,
-          "voice_multitrack_stack": 0.063,
+          "voice_processing_chain": 0.31499999999999995,
+          "voice_multitrack_stack": 0.1995,
           "voice_tessitura": 0
         }
       },
@@ -73,14 +73,14 @@
           "electric_technique": 6,
           "amp_make": 3.7700000000000005,
           "body_wood": 0.39,
-          "neck_wood": 0.231,
+          "neck_wood": 0.1995,
           "fretboard": 0.0945,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
           "string_material": 0.126,
           "bridge": 1.0530000000000002,
-          "scale_length": 0.46199999999999997,
-          "string_gauge": 0.9900000000000002,
+          "scale_length": 0.399,
+          "string_gauge": 1.0215,
           "finish": 0,
           "string_tuning": 3.9
         }
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 4.225,
-          "body_wood": 0.46199999999999997,
+          "body_wood": 0.399,
           "pickup_config": 0.39,
           "string_type": 9.75,
           "scale_length_b": 0.39,
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 7.5,
-          "drumhead": 6,
+          "drumhead": 6.1365,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,9 +130,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.637250000000001,
+          "electronic_technique": 5.6057500000000005,
           "poly_archetypes": 3.9,
-          "poly_voices": 1.62175,
+          "poly_voices": 1.51675,
           "poly_maker_lineage": -0.035
         }
       }

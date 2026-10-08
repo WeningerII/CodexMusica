@@ -5,7 +5,7 @@
   "lineage": "MPB gospel brings Brazilian popular songwriting into Christian devotional music. Performers such as Marcelo Dias e Fabiana connect personal reflection and everyday relationships with faith, alongside the wider Brazilian gospel recording circuit.",
   "recipe": "classic mpb gospel, ritual Devotional, christian gospel branch. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 191,
-  "score": 2.484,
+  "score": 2.494,
   "config": {
     "traditions": [
       "mpb_gospel"
@@ -65,8 +65,8 @@
           "acoustic_technique": -0.1,
           "string_tuning": 0.8499999999999999,
           "top_wood": 0,
-          "back_sides": 0.294,
-          "string_acoustic": 0.8400000000000001
+          "back_sides": 0.3675,
+          "string_acoustic": 0.777
         }
       }
     ],

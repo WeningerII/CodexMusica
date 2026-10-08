@@ -5,7 +5,7 @@
   "lineage": "Finnish EDM includes producers working across trance, house and other electronic dance styles. Studio production and live performance connect local musicians with an international club and festival field.",
   "recipe": "classic finnish edm, electronic Dance, trance branch. digital subtractive, sampler, organ preset rompler workstation, TR-909. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 31.267,
+  "score": 31.236,
   "config": {
     "traditions": [
       "finnish_edm"
@@ -36,7 +36,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "sampler_archetypes": 0,
-          "sampler_bit_depth": 0.063,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": -0.035,
           "sampler_classic_context": 14.43
         }

@@ -1,0 +1,123 @@
+{
+  "id": "drametse_ngacham",
+  "name": "Drametse ngacham (Bhutanese mask dance of the drums)",
+  "family": "global",
+  "lineage": "Sacred masked dance of Drametse village in Mongar district, eastern Bhutan, performed twice a year at the festival of the Ogyen Tegchok Namdroel Choeling monastery in honour of Padmasambhava; UNESCO proclaimed it a Masterpiece of the Oral and Intangible Heritage of Humanity and later inscribed it on the Representative List. Sixteen masked male dancers in monastic robes, wearing masks of real and mythical animals, move from a calm, contemplative part to a rapid, athletic one, accompanied by ten musicians on cymbals, trumpets and drums including the cylindrical bang nga, the hand-held lag nga and the nga chen beaten with a bent stick. Generic membrane-drum, frame-drum, cymbal and long-trumpet cards stand in for the bang nga, lag nga, cymbals and trumpets.",
+  "recipe": "classic modern drametse ngacham, ritual Devotional, buddhist branch. nga chen, membrane drum pulse resonant acoustic membrane drum, credited frame drums, credited cymbals, dung chen contemporary. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 275,
+  "score": 8.526,
+  "config": {
+    "traditions": [
+      "drametse_ngacham"
+    ],
+    "instruments": [
+      {
+        "id": "nga_chen",
+        "slots": {
+          "nga_chen_mount": "nga_chen_pole",
+          "nga_chen_beater": "nga_chen_curved_stick",
+          "nga_chen_head": "nga_chen_yak"
+        },
+        "scores": {
+          "nga_chen_mount": 0.39,
+          "nga_chen_beater": 0.39,
+          "nga_chen_head": 0.651
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.7409999999999997,
+          "acoustic_membrane_drum_gesture": 2.9899999999999998
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      },
+      {
+        "id": "dung_chen_contemporary",
+        "slots": {
+          "dung_chen_contemporary_identity": "dung_chen_contemporary_source_unspecified"
+        },
+        "scores": {
+          "dung_chen_contemporary_identity": 0.5145000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "nga_chen": [
+        "nga_chen_mount",
+        "nga_chen_beater",
+        "nga_chen_head"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ],
+      "dung_chen_contemporary": [
+        "dung_chen_contemporary_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "nga_chen_mount": "nga_chen_pole",
+      "nga_chen_beater": "nga_chen_curved_stick",
+      "nga_chen_head": "nga_chen_yak",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
+      "dung_chen_contemporary_identity": "dung_chen_contemporary_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

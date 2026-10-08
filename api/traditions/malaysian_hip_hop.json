@@ -5,7 +5,7 @@
   "lineage": "Malaysian hip-hop connects multilingual MC and producer networks across the country. Joe Flizzow, Altimet and SonaOne exemplify a collaborative electronic-production strand within this broader field.",
   "recipe": "classic modern malaysian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 266,
-  "score": 25.74,
+  "score": 25.741,
   "config": {
     "traditions": [
       "malaysian_hip_hop"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 0.2115,
+          "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.697,
+          "tr808_voice": 5.7299999999999995,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.159
         }

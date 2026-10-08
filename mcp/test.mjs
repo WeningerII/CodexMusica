@@ -353,7 +353,7 @@ await check('an environment edit that does not reach the output is not confirmed
   assert.equal(nr.environment_card, s.render_scope.environment_card);
   // Compressed out of a long blend.
   const big = E.startRecipe({
-    traditions: ['afrobeat', 'bluegrass', 'gamelan', 'zydeco', 'bossa_nova'],
+    traditions: ['afrobeat', 'bluegrass', 'javanese_gamelan', 'zydeco', 'bossa_nova'],
   });
   const r = E.editRecipe({
     workspace: thread(big.workspace),

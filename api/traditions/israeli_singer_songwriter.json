@@ -5,7 +5,7 @@
   "lineage": "Israeli performer-songwriters span acoustic, folk-pop and other recorded formats, including multiple languages. Chava Alberstein’s documented writing and guitar/voice work supplies the selected branch without claiming a single language or religious vocal school for the whole category.",
   "recipe": "classic modern israeli singer-songwriter, ballad Poetry. thick, slow rate, neutral third half flat, single source phonation. classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 293,
-  "score": 30.631,
+  "score": 30.411,
   "config": {
     "traditions": [
       "israeli_singer_songwriter"
@@ -26,7 +26,7 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_unprocessed",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
@@ -36,15 +36,15 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.858,
+          "voice_vibrato": 0.75,
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1,
-          "voice_estill_quality": 1.938,
+          "voice_estill_quality": 1.884,
           "voice_speech_song": 3.185,
           "voice_ensemble_config": 4.42,
-          "voice_ornament_system": 1.0839999999999999,
+          "voice_ornament_system": 1.0799999999999998,
           "voice_pitch_organization": 0.7499999999999998,
           "voice_processing_chain": 1.534,
           "voice_multitrack_stack": 3
@@ -61,7 +61,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 2.504,
+          "acoustic_technique": 2.45,
           "string_tuning": 0,
           "top_wood_classical": 0.273,
           "bracing_classical": 0.39,

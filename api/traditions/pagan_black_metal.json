@@ -5,7 +5,7 @@
   "lineage": "Pagan black metal is represented by Moonsorrow’s self-described pagan metal on Jumalten Aika, whose official account explicitly links the music to black-metal influence, folklore-inspired melodies, choir, keyboards and long-form writing. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern pagan black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 420,
-  "score": 47.263,
+  "score": 47.314,
   "config": {
     "traditions": [
       "pagan_black_metal"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.173625,
-          "voice_multitrack_stack": 0.24299999999999997,
+          "voice_multitrack_stack": 0.20587499999999997,
           "voice_tessitura": 0
         }
       },
@@ -75,13 +75,13 @@
           "body_wood": 9.099999999999998,
           "neck_wood": 0.483,
           "fretboard": 0.4095,
-          "pickup_magnet": 0.06862499999999999,
+          "pickup_magnet": 0.0315,
           "pickup_winding": 0.10012499999999999,
           "string_material": 0.4095,
           "bridge": 0.483,
           "scale_length": 9.099999999999998,
           "string_gauge": 0.693,
-          "finish": 0.205125,
+          "finish": 0.16799999999999998,
           "string_tuning": 0.39
         }
       },
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.9659999999999999,
-          "pickup_config": 0.273,
+          "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
           "scale_length_b": 0.483,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.209625,
+          "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,7 +133,7 @@
           "electronic_technique": -0.07,
           "rompler_preset_bank": 0.39,
           "rompler_context": 0.4620000000000001,
-          "rompler_lineage": 0.4725
+          "rompler_lineage": 0.5355
         }
       }
     ],

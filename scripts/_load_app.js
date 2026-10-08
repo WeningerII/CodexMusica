@@ -52,6 +52,9 @@ const EXPORTED = [
   // add_instrument {tradition} against these two.
   'traditionCardOpts',
   '_placeCardAfterTraditionRun',
+  // The tradition catalog layer, so check_aliases can confirm a retired id
+  // resolves inside the app itself (Catalog.resolve / Catalog.get).
+  'Catalog',
 ];
 
 function loadApp() {

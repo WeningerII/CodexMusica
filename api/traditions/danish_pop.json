@@ -5,7 +5,7 @@
   "lineage": "Danish popular recording scene represented by Aqua’s late1990s dance-pop branch. Contrasting sung and rhythmic duet parts sit over sequenced sample-ROM keyboard colors and programmed drums. The Danish-Norwegian group is one export strand within a broader national scene.",
   "recipe": "classic modern danish pop, functional Song, europop branch. one note per syllable, duet, live take. singing lead rompler workstation, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 301,
-  "score": 19.992,
+  "score": 20.098,
   "config": {
     "traditions": [
       "danish_pop"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.714
+          "voice_multitrack_stack": 0.9554999999999998
         }
       },
       {
@@ -62,7 +62,7 @@
           "electronic_technique": 7.6505,
           "rompler_preset_bank": 0.2,
           "rompler_context": 8.6995,
-          "rompler_lineage": -1.8084999999999998
+          "rompler_lineage": -1.9449999999999998
         }
       },
       {

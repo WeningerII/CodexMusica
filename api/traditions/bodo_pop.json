@@ -5,7 +5,7 @@
   "lineage": "Bodo pop connects Bodo-language singing with contemporary popular music, including rap and quieter song-based approaches.",
   "recipe": "classic bodo pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. ukulele, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 2.734,
+  "score": 2.598,
   "config": {
     "traditions": [
       "bodo_pop"
@@ -72,7 +72,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0.1365,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39

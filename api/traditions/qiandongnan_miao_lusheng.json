@@ -1,0 +1,71 @@
+{
+  "id": "qiandongnan_miao_lusheng",
+  "name": "Lusheng yue (Qiandongnan Miao mouth-organ ensembles)",
+  "family": "global",
+  "lineage": "Mouth-organ music of the Hmub (Miao) of Qiandongnan in south-east Guizhou, played by ensembles of lusheng in graded sizes, from small high instruments to bass lusheng with long pipes, while the players dance in circles at lusheng festivals, sacrifices and courting gatherings; tunes are tied to spoken texts that listeners recognise. Miao lusheng dance and the mangtong lusheng music of Danzhai are listed on China's national intangible-heritage register.",
+  "recipe": "classic modern lusheng yue, drone Modal, wind pipe branch. buzzy mid register six pipe lusheng. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 4.11,
+  "config": {
+    "traditions": [
+      "qiandongnan_miao_lusheng"
+    ],
+    "instruments": [
+      {
+        "id": "lusheng",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "lusheng_form": "lusheng_form_miao_six_pipe",
+          "lusheng_performance": "lusheng_performance_dance",
+          "lusheng_construction": "lusheng_construction_bronze_reed"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "lusheng_form": 3.185,
+          "lusheng_performance": -0.035,
+          "lusheng_construction": 0.7149999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "lusheng": [
+        "free_reed_technique",
+        "lusheng_form",
+        "lusheng_performance",
+        "lusheng_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "free_reed_technique": "free_reed_folk_first_position",
+      "lusheng_form": "lusheng_form_miao_six_pipe",
+      "lusheng_performance": "lusheng_performance_dance",
+      "lusheng_construction": "lusheng_construction_bronze_reed"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

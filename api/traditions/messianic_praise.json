@@ -5,7 +5,7 @@
   "lineage": "Contemporary praise music within Messianic Jewish worship communities.",
   "recipe": "classic messianic praise, ritual Devotional. dreadnought acoustic humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 11.017,
+  "score": 11.279,
   "config": {
     "traditions": [
       "messianic_praise"
@@ -86,7 +86,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.0945
+          "keyboard_technique": 0.063
         }
       },
       {
@@ -109,17 +109,17 @@
         "scores": {
           "electric_technique": 2.5445,
           "amp_make": 0,
-          "body_wood": 0.126,
+          "body_wood": 0.1575,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
-          "pickup_winding": 0.0735,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.9450000000000001,
+          "string_gauge": 0.966,
           "finish": 0,
-          "string_tuning": 0.5775000000000001
+          "string_tuning": 0.7455000000000002
         }
       },
       {
@@ -136,9 +136,9 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.126,
+          "body_wood": 0.1575,
           "pickup_config": 0,
-          "string_type": 0.0735,
+          "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.063,
           "bass_technique": -0.11850000000000002,
@@ -162,12 +162,12 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.546,
+          "drumhead": 0.7140000000000001,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.8400000000000001,
+          "shell_wood": 0.9345000000000002,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
-          "snare_wires": 0.0735,
+          "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 2.4000000000000004,
           "cymbal_lathing": 2.4945000000000004,

@@ -1,16 +1,17 @@
 {
-  "id": "japanese_city_pop",
-  "name": "Japanese City Pop",
-  "family": "pop",
-  "lineage": "Tokyo studio-pop idiom of roughly 1976-1986 grown out of Happy End's members and the Alfa and Canyon label rosters — Tatsuro Yamashita, Mariya Takeuchi, Taeko Onuki, Anri, Toshiki Kadomatsu, arranged by Haruomi Hosono and Masataka Matsutoya — built on AOR and Philly-soul harmony with major-seventh and altered chords, session players from the Tin Pan Alley and Parachute bands, Rhodes and DX7 keyboards, clean chorused guitar, brass and string overdubs, 100-120 BPM shuffled or straight backbeats, and pristine 24-track mixes cut for urban consumer-electronics playback.",
-  "recipe": "classic East Asian mid-1980s japanese city pop, functional Song, east Asian pop branch, pop rock yacht rock, soul R&B functional song doo-wop. thick, breath veiled tone, straight onset, interlocked note trading. neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, horn like brass string machine, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet.",
-  "recipe_chars": 976,
-  "score": 555.388,
+  "id": "city_pop",
+  "merged_from": "japanese_city_pop",
+  "name": "City pop",
+  "family": "global",
+  "lineage": "Japanese 1976-1986 sophisticated urban-adult-pop genre fusing late-1970s American AOR (adult-oriented rock), funk, fusion-jazz, and disco-soul into a distinct Tokyo-bubble-era mature-pop aesthetic. The instrumentation features electric-piano (Rhodes-and-Wurlitzer), fretless-bass, clean-electric-guitar (often with chorus pedal), brass section (often Roland JX-3P synth-brass), and breathy-intimate close-miked vocal-style. Lyrically focused on urban-leisure: nighttime-driving, summer-resort-and-beach, romantic-rendezvous-in-cafes-and-bars, and Tokyo-Yokohama-Shōnan coastal lifestyle. Originally a quiet commercial-niche aimed at the Japanese middle-class consumer-boom audience, city-pop gained massive 2010s-onward Western internet-re-discovery via vaporwave and YouTube-algorithmic-suggestion.",
+  "recipe": "classic East Asian mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop souldies. thick, breath veiled tone, straight onset, interlocked note trading. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright roasted maple maple single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre.",
+  "recipe_chars": 982,
+  "score": 564.065,
   "config": {
     "traditions": [
-      "japanese_city_pop",
+      "city_pop",
       "doo_wop",
-      "yacht_rock"
+      "souldies"
     ],
     "instruments": [
       {
@@ -30,26 +31,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 50.665000000000006,
-          "voice_quality": 17.22500000000001,
+          "voice_register": 45.05500000000001,
+          "voice_quality": 6.37,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.355,
-          "voice_articulation": 25.025,
-          "voice_microtone": 40.025000000000006,
-          "voice_tradition": 27.435,
-          "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 9.624999999999998,
-          "voice_speech_song": 30.810000000000002,
-          "voice_ensemble_config": 24.375,
+          "voice_vibrato": 8.965000000000002,
+          "voice_articulation": 25.740000000000002,
+          "voice_microtone": 31.599999999999994,
+          "voice_tradition": 26.199999999999996,
+          "voice_mechanism_compound": 3.6400000000000006,
+          "voice_estill_quality": 15.339999999999996,
+          "voice_speech_song": 32.11000000000001,
+          "voice_ensemble_config": 25.285000000000004,
           "voice_ornament_system": 2.345,
-          "voice_pitch_organization": 2.990000000000001,
-          "voice_processing_chain": 9.425,
-          "voice_multitrack_stack": 7.345000000000001
+          "voice_pitch_organization": 1.5925,
+          "voice_processing_chain": 10.299999999999999,
+          "voice_multitrack_stack": 10.27
         }
       },
       {
@@ -58,34 +59,17 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "rhodes_model": "rhodes_mark1_stage",
           "rhodes_use": "rhodes_soul",
-          "rhodes_tine_material": "rhodes_torrington_tine",
-          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_tine_material": "rhodes_raymac_tine",
+          "rhodes_hammer_tip": "rhodes_harder_neoprene_late",
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 23.875,
-          "rhodes_model": 4.66,
-          "rhodes_use": 5.719999999999999,
-          "rhodes_tine_material": -0.2800000000000001,
-          "rhodes_hammer_tip": 2.5349999999999997,
-          "rhodes_pickup_position": 2.0799999999999996
-        }
-      },
-      {
-        "id": "fm_synth",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "fm_algorithm": "fm_simple",
-          "fm_modulator_ratio": "fm_harmonic",
-          "fm_polyphony": "fm_mono",
-          "fm_model_lineage": "fm_yamaha_dx7"
-        },
-        "scores": {
-          "electronic_technique": 22.865,
-          "fm_algorithm": 1.3,
-          "fm_modulator_ratio": 0,
-          "fm_polyphony": 1.17,
-          "fm_model_lineage": 15.519999999999998
+          "keyboard_technique": 23.839999999999993,
+          "rhodes_model": 5.275,
+          "rhodes_use": 5.329999999999998,
+          "rhodes_tine_material": -0.28,
+          "rhodes_hammer_tip": 2.665000000000001,
+          "rhodes_pickup_position": 1.885
         }
       },
       {
@@ -94,54 +78,50 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "neck_wood": "roasted_maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "string_gauge": "g_12",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 24.424999999999997,
-          "amp_make": 12.284999999999998,
-          "body_wood": 1.4300000000000002,
-          "neck_wood": 1.4300000000000002,
-          "fretboard": 1.365,
-          "pickup_magnet": 0.39,
+          "electric_technique": 24.374999999999996,
+          "amp_make": 22.615,
+          "body_wood": 0.195,
+          "neck_wood": 1,
+          "fretboard": 0.39,
+          "pickup_magnet": 1,
           "string_material": 0.39,
-          "string_gauge": 1.4300000000000002,
-          "bridge": 0.44999999999999996,
-          "scale_length": 1.4300000000000002,
+          "string_gauge": 1.8249999999999997,
+          "bridge": 1,
+          "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 11.179999999999996,
+          "string_tuning": 3.7700000000000005,
           "single_coil_pickup_construction": 0
         }
       },
       {
-        "id": "electric_bass",
+        "id": "fretless_bass",
         "slots": {
+          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive",
-          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+          "fretless_use": "fretless_jazz",
+          "fretless_bass_construction": "fretless_bass_factory",
+          "fretless_fingerboard_wood": "fretless_ebony_unlined",
+          "fretless_bass_strings": "fretless_flatwound"
         },
         "scores": {
-          "amp_make": 13.644999999999998,
-          "body_wood": 1.4300000000000002,
-          "pickup_config": 0.645,
-          "string_type": 16.88,
-          "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0.105,
-          "bass_technique": 15.074999999999998,
-          "electric_bass_string_configuration": 0
+          "electric_technique": 15.95,
+          "amp_make": 20.669999999999998,
+          "fretless_use": 4.549999999999999,
+          "fretless_bass_construction": 1.195,
+          "fretless_fingerboard_wood": 8.4,
+          "fretless_bass_strings": 5.65
         }
       },
       {
@@ -152,8 +132,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.740000000000006,
-          "drumhead": 22.039999999999996,
+          "drum_technique": 33.93000000000001,
+          "drumhead": 22.544999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -162,56 +142,52 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
-          "sax_reed": "soft_reed",
+          "sax_reed": "hard_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 10.719999999999999,
-          "sax_size": 8.274999999999999,
-          "sax_reed": 0.39,
-          "sax_body_alloy": 2.75,
+          "wind_articulation": 15.854999999999999,
+          "sax_size": 13.149999999999999,
+          "sax_reed": 1.15,
+          "sax_body_alloy": 4.75,
           "sax_mouthpiece": 0.39,
-          "sax_technique": 8.274999999999999,
-          "sax_maker_school": 2.4050000000000002
+          "sax_technique": 12.649999999999999,
+          "sax_maker_school": 5.2
         }
       },
       {
-        "id": "string_machine",
+        "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "sm_voice_count": "sm_full_poly",
-          "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_brass"
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
-          "sm_voice_count": 0.105,
-          "sm_chorus": 2.0799999999999996,
-          "sm_voicing": 1.885
+          "electronic_technique": 23.329999999999995,
+          "poly_archetypes": 1.755,
+          "poly_voices": 1.04,
+          "poly_maker_lineage": 4.095
         }
       },
       {
-        "id": "trumpet",
+        "id": "wurlitzer_ep",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "wurlitzer_use": "wurlitzer_supertramp",
+          "wurlitzer_ep_voice": "wurlitzer_ep_overdrive",
+          "wurlitzer_model": "wurlitzer_200a_canonical",
+          "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "wind_articulation": 10.719999999999999,
-          "brass_size": 0.39,
-          "trumpet_mouthpiece": 3.8000000000000003,
-          "brass_mute": 0.195,
-          "trumpet_technique": 10.719999999999999,
-          "trumpet_bell_metal": 1.69,
-          "trumpet_maker_school": 2.34
+          "keyboard_technique": 23.839999999999993,
+          "wurlitzer_use": 0,
+          "wurlitzer_ep_voice": 1.755,
+          "wurlitzer_model": 3.77,
+          "wurlitzer_reed_material": 2.925
         }
       }
     ],
@@ -219,26 +195,69 @@
     "archetype": "arch_tokyo_city_pop",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
-      "pre": "pre_console_inline_strip",
+      "pre": "transformer_solid_state",
       "console": "console_sony_mxp3000",
-      "comp": "comp_la2a_optical",
-      "eq": "eq_api_550",
-      "amp": null,
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
+      "amp": "amp_american_blackface",
       "medium": "tape_30ips"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "chorus_pedal",
+      "fx_lexicon_224"
+    ]
   },
   "source": {
     "tuning": "twelve_tet",
     "room": "tokyo_studio_1970s_80s",
+    "parts": {
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "wind_articulation": "wind_bebop_runs",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_bebop_runs",
+      "electronic_technique": "electronic_pad_drone",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "fretless_use": "fretless_jazz",
+      "fretless_bass_construction": "fretless_bass_factory",
+      "fretless_fingerboard_wood": "fretless_ebony_lined",
+      "fretless_bass_strings": "fretless_groundwound",
+      "string_tuning": "standard_tuning"
+    },
     "chain_mic": "mic_u87_condenser_neumann",
-    "chain_pre": "pre_console_inline_strip",
-    "chain_comp": "comp_la2a_optical",
-    "chain_eq": "eq_api_550",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
     "chain_medium": "tape_30ips",
-    "chain_console": "console_sony_mxp3000"
+    "chain_console": "console_sony_mxp3000",
+    "chain_fx": [
+      "chorus_pedal",
+      "fx_lexicon_224"
+    ],
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface"
   }
 }

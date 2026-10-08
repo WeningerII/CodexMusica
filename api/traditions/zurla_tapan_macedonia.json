@@ -1,0 +1,92 @@
+{
+  "id": "zurla_tapan_macedonia",
+  "name": "Zurli i tapan (Macedonian shawm-and-drum music)",
+  "family": "global",
+  "lineage": "Outdoor music for weddings, saints' feasts and village dances across North Macedonia, Kosovo and southern Serbia, played mostly by professional Roma musicians. Zurlas, loud conical double-reed shawms, are played in pairs, one leading the ornamented melody with circular breathing while the other holds a drone, over the tapan, a large double-headed drum beaten with a heavy stick on one head and a thin switch on the other; it is the classic accompaniment of dances such as teškoto.",
+  "recipe": "classic modern zurli i tapan, wedding, European branch. medium lead melody ornamented wedding walnut body zurla, tapan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 199,
+  "score": 25.086,
+  "config": {
+    "traditions": [
+      "zurla_tapan_macedonia"
+    ],
+    "instruments": [
+      {
+        "id": "zurla",
+        "slots": {
+          "zurla_size": "zurla_jarababa",
+          "zurla_role": "zurla_lead",
+          "zurla_context": "zurla_tajfa_wedding",
+          "zurla_body_wood": "zurla_walnut"
+        },
+        "scores": {
+          "zurla_size": 3.5,
+          "zurla_role": 5.698499999999999,
+          "zurla_context": 8.125,
+          "zurla_body_wood": 2.6995
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_wood_goatskin"
+        },
+        "scores": {
+          "tapan_form": 3.9,
+          "tapan_role": 1.3629999999999998,
+          "tapan_build": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "zurla": [
+        "zurla_size",
+        "zurla_role",
+        "zurla_context",
+        "zurla_body_wood"
+      ],
+      "tapan": [
+        "tapan_form",
+        "tapan_role",
+        "tapan_build"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "zurla_size": "zurla_jarababa",
+      "zurla_role": "zurla_lead",
+      "zurla_context": "zurla_tajfa_wedding",
+      "zurla_body_wood": "zurla_walnut",
+      "tapan_form": "tapan_balkan",
+      "tapan_role": "tapan_zurna_pair",
+      "tapan_build": "tapan_wood_goatskin"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,41 +3,41 @@
   "name": "Techstep",
   "family": "electronic",
   "lineage": "London 1995-97, codified by Ed Rush, Trace, Nico and No U-Turn Records with Optical and Bad Company following — 170-175 BPM drum and bass stripped of samples and rebuilt from distorted Reese and Hoover synthesis, two-step drum patterns with heavily compressed processed snares, and bleak industrial-metallic sound design mixed loud onto DAT.",
-  "recipe": "classic mid-1990s techstep, bass System, bass descendants branch, uk soundsystem bass system, techno electronic dance, industrial noise experimental electric darkside jungle oldschool jungle. sampler drum machine, low sub bass analog poly low sub bass wavetable doepfer eurorack canonical 1995 present small format standardization sub bass modular synth, low sub bass monosynth acid bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 576,
-  "score": 61.759,
+  "recipe": "classic mid-1990s techstep, bass System, bass descendants branch, uk soundsystem bass system, techno electronic dance, industrial noise experimental electric oldschool jungle electro-grime. sampler drum machine, low sub bass analog poly low sub bass wavetable doepfer eurorack canonical 1995 present small format standardization sub bass modular synth, low sub bass monosynth acid bass, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 574,
+  "score": 71.017,
   "config": {
     "traditions": [
       "techstep",
-      "darkside_jungle",
-      "oldschool_jungle"
+      "oldschool_jungle",
+      "electro_grime"
     ],
     "instruments": [
       {
         "id": "sampler_drum_machine",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "sixteen_bit",
+          "sample_bitdepth": "twenty_four_bit",
           "sample_swing": "tight_swing",
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999999,
+          "electronic_technique": 1.6574999999999998,
           "sample_bitdepth": 0.195,
-          "sample_swing": 9.1,
-          "sample_processing": 1.845
+          "sample_swing": 9.25,
+          "sample_processing": 1.32
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 10.399999999999999,
+          "electronic_technique": 12.6425,
           "poly_archetypes": 0.15,
           "poly_voices": 0,
           "poly_maker_lineage": -1.085
@@ -49,13 +49,13 @@
           "electronic_technique": "electronic_bass_sub",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.399999999999999,
-          "wave_acid": 0.345,
-          "filter_acid": 1.3,
-          "accent_acid": 0.345
+          "electronic_technique": 12.6425,
+          "wave_acid": 0.24,
+          "filter_acid": 1.4949999999999999,
+          "accent_acid": 0.1995
         }
       },
       {
@@ -67,7 +67,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 10.399999999999999,
+          "electronic_technique": 12.6425,
           "wt_position": 4.42,
           "wt_family": 1.3,
           "wt_polyphony": 0.045
@@ -82,9 +82,9 @@
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 10.399999999999999,
+          "electronic_technique": 12.6425,
           "mod_voltage_source": 0.63,
-          "mod_patch_density": 0.3495,
+          "mod_patch_density": 0.39,
           "mod_lineage": 1.3
         }
       },
@@ -92,11 +92,11 @@
         "id": "turntable",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_chirp_baby"
+          "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999999,
-          "turntable_technique": 0
+          "electronic_technique": 1.6574999999999998,
+          "turntable_technique": 0.6824999999999999
         }
       }
     ],

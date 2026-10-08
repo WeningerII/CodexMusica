@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro funk carioca subgenre that emerged around 2014-2016 out of the North Zone baile circuit and the DJ Rennan da Penha and Baile da Gaiola scene — the tamborzão sample battery accelerated to roughly 150 BPM, snare and atabaque hits pushed into rapid stuttering triplet-feel rolls, an aggressive dry kick with almost no sub tail, minimal melodic content, and MC vocals delivered as short shouted or sung hooks looped over the pattern.",
   "recipe": "classic Southern American 2014-2016 funk 150 bpm, groove Percussion, Afro-diasporic electric branch, Latin electric electronic dance, footwork electronic dance funk paulista paracaná. vocal fry, breath veiled tone, straight note core, interlocked note trading. sampler drum machine, behringer rd 8 modern clone analog circuit reproduction TR-808, multi rod cluster canonical samba aluminum canonical rio escola tamborim, atabaque, sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 587,
-  "score": 146.795,
+  "score": 147.227,
   "config": {
     "traditions": [
       "funk_150_bpm",
@@ -43,12 +43,12 @@
           "voice_microtone": 14.94999999999999,
           "voice_tradition": 4.03,
           "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 2.2425000000000006,
+          "voice_estill_quality": 2.3800000000000003,
           "voice_speech_song": 16.444999999999993,
           "voice_ensemble_config": 15.274999999999993,
-          "voice_ornament_system": 2.195,
+          "voice_ornament_system": 2.4924999999999997,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 12.767500000000002,
+          "voice_processing_chain": 12.722500000000002,
           "voice_multitrack_stack": 4.095
         }
       },
@@ -61,7 +61,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.5175,
+          "electronic_technique": 1.56,
           "sample_bitdepth": 0.24,
           "sample_swing": 11,
           "sample_processing": 0.39

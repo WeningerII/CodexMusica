@@ -3,74 +3,74 @@
   "name": "Forró de Favela (forró eletrônico das periferias)",
   "family": "global",
   "lineage": "Peripheral-urban electronic forró that took shape in Rio and Northeastern favelas and periferias from the 2000s onward, built in home DAW setups on programmed baião and arrasta-pé patterns at 130-150 BPM with sampled zabumba and triangle, sub-heavy synthesized bass, keyboard-emulated sanfona lines and autotuned melodic-romantic or piseiro-style vocals distributed via WhatsApp and streaming rather than label release.",
-  "recipe": "classic Southern American mid-2000s forró de favela, functional Song, Brazilian song branch, Latin electric electronic dance, Afro-diasporic electric groove percussion freestyle tecnobrega. thick, breath veiled tone, straight note core, interlocked note trading. accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, roland tr 8s modern aira digital recreation TR-808, sub bass analog poly synth, melodic pitched sampler, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 678,
-  "score": 222.135,
+  "recipe": "classic Southern American mid-2000s forró de favela, functional Song, Brazilian song branch, Latin electric electronic dance, Afro-diasporic electric groove percussion tecnobrega cumbia 420. vocal fry, breath veiled tone, straight note core, interlocked note trading. accordion, wood baião tradition low stick with high bacalhau buzz zabumba, triangulo forro, TR-808, sub bass analog poly synth, melodic pitched sampler, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 639,
+  "score": 213.957,
   "config": {
     "traditions": [
       "forro_de_favela",
-      "freestyle",
-      "tecnobrega"
+      "tecnobrega",
+      "cumbia_420"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.5550000000000015,
-          "voice_quality": 5.850000000000002,
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 5.785000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.640000000000001,
-          "voice_articulation": 22.229999999999997,
-          "voice_microtone": 22.684999999999995,
-          "voice_tradition": 4.030000000000001,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 28.08,
-          "voice_ensemble_config": 23.399999999999995,
-          "voice_ornament_system": 2.0250000000000004,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 13.834999999999999,
-          "voice_multitrack_stack": 5.2325
+          "voice_vibrato": 3.835000000000001,
+          "voice_articulation": 19.824999999999996,
+          "voice_microtone": 20.279999999999994,
+          "voice_tradition": 4.1450000000000005,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 25.024999999999995,
+          "voice_ensemble_config": 21.644999999999996,
+          "voice_ornament_system": 2.34,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 13.459999999999999,
+          "voice_multitrack_stack": 5.704999999999999
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "brass_reeds",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "scottish_musette",
-          "reed_config": "lmm",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_petosa_seattle"
         },
         "scores": {
-          "free_reed_technique": 2.34,
-          "accordion_reed_material": 0.65,
+          "free_reed_technique": 2.5050000000000003,
+          "accordion_reed_material": 0.39,
           "musette_offset": 0.345,
-          "reed_config": 0.135,
+          "reed_config": 0.195,
           "bellows": 0.15,
           "voicing_chamber": 0.045,
-          "accordion_maker_school": 0.845
+          "accordion_maker_school": 0.78
         }
       },
       {
@@ -80,8 +80,8 @@
           "zabumba_technique": "zabumba_baiao_pattern"
         },
         "scores": {
-          "zabumba_shell": 3.0300000000000002,
-          "zabumba_technique": 4.029999999999999
+          "zabumba_shell": 2.88,
+          "zabumba_technique": 2.73
         }
       },
       {
@@ -91,7 +91,7 @@
           "triangulo_pattern": "triangulo_forro_pattern"
         },
         "scores": {
-          "triangulo_size": 0.545,
+          "triangulo_size": 0.045,
           "triangulo_pattern": 0
         }
       },
@@ -100,25 +100,25 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.265,
-          "drum_machine_808_context": 5.525,
-          "tr808_production_origin": 1.4949999999999999
+          "tr808_voice": 6.5,
+          "drum_machine_808_context": 6.5649999999999995,
+          "tr808_production_origin": 0.43500000000000005
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.135,
-          "poly_archetypes": 0.35,
+          "electronic_technique": 9.5225,
+          "poly_archetypes": 0.135,
           "poly_voices": 0,
           "poly_maker_lineage": -1.5099999999999998
         }
@@ -136,8 +136,8 @@
           "electronic_technique": 1.17,
           "sampler_archetypes": 0.75,
           "sampler_bit_depth": 0.48,
-          "sampler_workflow": 3.075,
-          "sampler_classic_context": 26.617499999999996
+          "sampler_workflow": 3.2250000000000005,
+          "sampler_classic_context": 25.285
         }
       },
       {
@@ -153,13 +153,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.68,
+          "amp_make": 3.965,
           "body_wood": 0.39,
-          "pickup_config": 0.435,
-          "string_type": 5.85,
+          "pickup_config": 0.845,
+          "string_type": 6.4350000000000005,
           "scale_length_b": 0.78,
           "fretted_or_not": 0,
-          "bass_technique": 3.9650000000000003,
+          "bass_technique": 5.005000000000001,
           "electric_bass_string_configuration": 0
         }
       }

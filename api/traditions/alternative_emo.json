@@ -5,7 +5,7 @@
   "lineage": "Alternative emo combines emotionally direct singing and intricate guitar writing with broader punk and independent-rock production.",
   "recipe": "classic alternative emo, distorted Rock, emo branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, rompler workstation, credited auxiliary percussion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 467,
-  "score": 34.973,
+  "score": 35.11,
   "config": {
     "traditions": [
       "alternative_emo"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 6.305000000000001,
-          "body_wood": 1.5225,
+          "body_wood": 1.4805000000000001,
           "neck_wood": 0.168,
-          "fretboard": 0.105,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.168,
           "string_material": 0.168,
-          "bridge": 0.2415,
+          "bridge": 0.273,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.105
+          "string_tuning": 0.0315
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 1.5225,
+          "body_wood": 1.4805000000000001,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": 8.75,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.3045,
+          "drumhead": 0.5459999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.042749999999999996,
-          "voice_multitrack_stack": 0.1995,
+          "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }
       },
@@ -131,7 +131,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.3,
+          "rompler_preset_bank": 0.3315,
           "rompler_context": 0.78,
           "rompler_lineage": 0
         }

@@ -1,135 +1,134 @@
 {
-  "id": "singeli",
-  "name": "Singeli",
+  "id": "singeli_tanzanian",
+  "merged_from": "singeli",
+  "name": "Singeli (Tanzanian high-tempo electronic)",
   "family": "electronic",
-  "lineage": "Dar es Salaam street-studio dance music formed in the Tandale and Manzese quarters in the late 2000s and pushed abroad from 2016 by Sisso Studios and Nyege Nyege — 180-300 BPM loops of sped-up taarab, mchiriku and Bongo Flava samples over a hammering kick, rapid-fire Swahili MCing recorded live in one take, and abrupt tempo escalations designed for street bashment sound systems.",
-  "recipe": "classic 2007-2009 singeli, electronic Dance, African dance branch, Afro-diasporic MC rhythm, lofi experimental electric merenrap merengue de calle. extended whistle, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, TR-808, wavetable synth, room natural to palm hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 423,
-  "score": 125.64,
+  "lineage": "Singeli ultra-high-tempo Tanzanian electronic dance music emerging in 2000s in the Manzese neighborhood of Dar es Salaam from convergence of traditional ngoma drumming with PC-software production. Runs typically at 180-300 BPM with chopped vocal samples, accelerated taarab loops, and aggressive synth riffs over hyper-fast machine-drum kicks. Performance contexts: street-corner sound-system parties, weddings, and post-2017 international festival circuit through Nyege Nyege Tapes Kampala. MC calls out hyper-fast Swahili-Bongo-slang lyrical phrases.",
+  "recipe": "classic East African mid-2000s singeli, electronic Dance, African dance branch, footwork electronic dance juke jersey club. vocal fry, declaimed, fast rate, interlocked note trading. chopped sampler, behringer rd 8 modern clone analog circuit reproduction TR-808. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 437,
+  "score": 128.525,
   "config": {
     "traditions": [
-      "singeli",
-      "merenrap",
-      "merengue_de_calle"
+      "singeli_tanzanian",
+      "juke_chicago",
+      "jersey_club"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.9099999999999999,
-          "voice_quality": 6.890000000000001,
+          "voice_register": 3.7700000000000005,
+          "voice_quality": 5.6495000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.095,
-          "voice_articulation": 17.224999999999994,
-          "voice_microtone": 16.57499999999999,
-          "voice_tradition": 6.630000000000001,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 18.784999999999993,
-          "voice_ensemble_config": 16.119999999999994,
-          "voice_ornament_system": 3.575000000000001,
-          "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 6.905,
-          "voice_multitrack_stack": 3.3550000000000004
+          "voice_vibrato": 2.7237499999999994,
+          "voice_articulation": 7.279999999999999,
+          "voice_microtone": 7.085,
+          "voice_tradition": 8.515,
+          "voice_mechanism_compound": 3.3526249999999997,
+          "voice_estill_quality": 3.5350000000000006,
+          "voice_speech_song": 7.475,
+          "voice_ensemble_config": 7.215,
+          "voice_ornament_system": 1.7865,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 24.288000000000004,
+          "voice_multitrack_stack": 10.660000000000002
         }
       },
       {
-        "id": "sampler_drum_machine",
+        "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sample_bitdepth": "twenty_four_bit",
-          "sample_swing": "tight_swing",
-          "sample_processing": "one_shots_layered"
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.7225,
-          "sample_bitdepth": 0.345,
-          "sample_swing": 6.25,
-          "sample_processing": 0.65
+          "electronic_technique": 4.264,
+          "sampler_archetypes": 1.238,
+          "sampler_bit_depth": 0.7149999999999999,
+          "sampler_workflow": 4.032500000000001,
+          "sampler_classic_context": 14.982499999999998
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "drum_machine_808_context": "drum_machine_808_miami",
+          "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.2925,
-          "drum_machine_808_context": 0.8550000000000001,
-          "tr808_production_origin": 0.195
-        }
-      },
-      {
-        "id": "wavetable_synth",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "wt_position": "wt_morphing",
-          "wt_family": "wt_vocal",
-          "wt_polyphony": "wt_mono"
-        },
-        "scores": {
-          "electronic_technique": 1.6999999999999997,
-          "wt_position": 2.8,
-          "wt_family": 0.195,
-          "wt_polyphony": 0.045
-        }
-      },
-      {
-        "id": "hand_clap",
-        "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
-        },
-        "scores": {
-          "clap_technique": 1.04,
-          "clap_capture": 2.0799999999999996
+          "tr808_voice": 1.1374999999999997,
+          "drum_machine_808_context": 3.6399999999999997,
+          "tr808_production_origin": 1.5550000000000002
         }
       }
     ],
-    "room": "tin_roofed_shack",
-    "archetype": "arch_minimal_daw_bedroom",
+    "room": "dar_es_salaam_zanzibar_taarab_culture_club",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
+      "mic": "mic_sm58_dynamic_shure",
       "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_pumping",
-      "eq": null,
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": "mp3_lossy_modern"
+      "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
-    "room": "tin_roofed_shack",
-    "chain_mic": "dynamic_mic",
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "room": "dar_es_salaam_zanzibar_taarab_culture_club",
+    "parts": {
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "chain_mic": "mic_sm58_dynamic_shure",
     "chain_pre": "transformerless",
-    "chain_comp": "comp_pumping",
-    "chain_medium": "mp3_lossy_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }
 }

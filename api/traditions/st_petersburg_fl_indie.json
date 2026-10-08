@@ -3,9 +3,9 @@
   "name": "St Petersburg FL indie",
   "family": "rock_punk",
   "lineage": "Fever Beam — Young Guns (2019), complete four-person recording. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
-  "recipe": "classic late-2010s st petersburg fl indie, distorted Rock, punk branch. one note per syllable, group vocals. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, tambourine orch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 379,
-  "score": 33.497,
+  "recipe": "classic late-2010s st petersburg fl indie, distorted Rock, punk branch. group vocals. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, tambourine orch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 356,
+  "score": 32.678,
   "config": {
     "traditions": [
       "st_petersburg_fl_indie"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 1.305,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 2.6000000000000005,
           "amp_make": 0,
-          "body_wood": 0.441,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 0.3045,
+          "neck_wood": 0.273,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 1,
           "finish": 0,
           "string_tuning": 1
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 0.3045,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

@@ -5,7 +5,7 @@
   "lineage": "Malian rap represented by Amkoullel’s documented contemporary live ensemble.",
   "recipe": "classic modern rap malien, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. drum kit, ngoni, talking drum. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 309,
-  "score": 34.079,
+  "score": 34.922,
   "config": {
     "traditions": [
       "rap_malien"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 11.7,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -76,10 +76,10 @@
         "scores": {
           "plucked_traditional_technique": 1.4299999999999997,
           "ngoni_strings": 0.105,
-          "ngoni_use": 2.402,
-          "ngoni_resonator": 0.273,
-          "ngoni_skin": 0.273,
-          "ngoni_string_material": 0.378
+          "ngoni_use": 2.507,
+          "ngoni_resonator": 0.4095,
+          "ngoni_skin": 0.4095,
+          "ngoni_string_material": 0.5145
         }
       },
       {

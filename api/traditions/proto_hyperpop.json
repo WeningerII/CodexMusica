@@ -5,7 +5,7 @@
   "lineage": "Proto-hyperpop gathers electronic-pop experimenters in an online discovery cohort spanning PC Music associates, digital pop producers and newer internet artists. Its repertoire connects exaggerated pop textures, electronic sound design and club mixing, with substantial overlap with hyperpop.",
   "recipe": "classic proto-hyperpop, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 88,
-  "score": 0.032,
+  "score": 0.063,
   "config": {
     "traditions": [
       "proto_hyperpop"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.0315
+          "dj_playback_mixing_identity": 0.063
         }
       }
     ],

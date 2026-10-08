@@ -5,7 +5,7 @@
   "lineage": "Arab alternative music brings regional and diasporic histories into independent musical expression. Palestinian-rooted projects such as DUNUMS connect memories of home, political experience and collaborative experimentation across places.",
   "recipe": "classic arab alternative, distorted Rock, alternative branch. mahogany modern alternative western red cedar pyramid nylon oud, mahogany ernie ball slinky electric bass, basswood humbucker electric guitar, analog poly synth, clarinet. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 29.817,
+  "score": 31.759,
   "config": {
     "traditions": [
       "arab_alternative"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
@@ -63,7 +63,7 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.15000000000000002,
-          "oud_school": 1.0080000000000002,
+          "oud_school": 1.0815000000000003,
           "oud_strings": 0.1365,
           "oud_pick": 0,
           "oud_body_wood": 4.55,
@@ -85,10 +85,10 @@
         },
         "scores": {
           "amp_make": -0.07,
-          "body_wood": 1.1550000000000002,
+          "body_wood": 1.3650000000000004,
           "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
-          "scale_length_b": 0.5775,
+          "scale_length_b": 0.6825000000000001,
           "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -101,7 +101,7 @@
           "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -114,15 +114,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": -0.07,
-          "body_wood": 2.6984999999999997,
-          "neck_wood": 0.5775,
-          "fretboard": 0.21000000000000002,
+          "body_wood": 3.1499999999999995,
+          "neck_wood": 0.6825000000000001,
+          "fretboard": 0.2415,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
-          "string_material": 0.105,
-          "bridge": 0.5775,
-          "scale_length": 1.8795000000000002,
-          "string_gauge": 0.5775,
+          "string_material": 0.2415,
+          "bridge": 0.6825000000000001,
+          "scale_length": 2.3625,
+          "string_gauge": 0.6825000000000001,
           "finish": 0,
           "string_tuning": 0
         }
@@ -147,16 +147,16 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "hanson_btr_clarinet",
-          "clarinet_size": "b_flat_clarinet",
+          "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": -0.1,
           "clarinet_body": -0.05,
-          "clarinet_size": 0.1365,
-          "clarinet_reed": 0.105,
-          "clarinet_articulation": 0.0735
+          "clarinet_size": 0.2415,
+          "clarinet_reed": 0.2415,
+          "clarinet_articulation": 0
         }
       }
     ],

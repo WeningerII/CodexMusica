@@ -5,7 +5,7 @@
   "lineage": "Arab trap connects trap production with Arabic-language rap and reworked Arabic musical repertoire. Producers such as DJ Kaboo draw older recordings and melodic material into contemporary electronic circulation alongside other approaches in the field.",
   "recipe": "classic arab trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, drum machine analog. treated studio.",
   "recipe_chars": 170,
-  "score": 29.361,
+  "score": 29.467,
   "config": {
     "traditions": [
       "arab_trap"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
+          "voice_articulation": 0.063,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -79,7 +79,7 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0.1785,
+          "snare_voice": 0.252,
           "hat_voice": 0,
           "shuffle_quantize": -0.05
         }

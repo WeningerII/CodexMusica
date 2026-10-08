@@ -5,7 +5,7 @@
   "lineage": "Thailand’s hip-hop field combines local-language MC writing, producer collaboration and international rap influences.",
   "recipe": "classic modern thai hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 346,
-  "score": 44.885,
+  "score": 45.51,
   "config": {
     "traditions": [
       "thai_hip_hop"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.319,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_speech_song": 13.505,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 9.49,
-          "sample_processing": 0.105
+          "sample_processing": 0.108
         }
       }
     ],

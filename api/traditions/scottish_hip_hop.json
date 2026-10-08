@@ -3,9 +3,9 @@
   "name": "Scottish hip hop",
   "family": "hip_hop",
   "lineage": "Scottish hip hop represented by Stanley Odd’s live-band and electronic production practice across the Glasgow–Edinburgh Central Belt.",
-  "recipe": "classic modern scottish hip hop, mc Rhythm, intl hip hop branch. rap. electric bass, drum kit, clean strummed single coil electric guitar, sub bass analog poly synth, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 340,
-  "score": 40.52,
+  "recipe": "classic modern scottish hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. electric bass, drum kit, clean strummed single coil electric guitar, sub bass analog poly synth, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 378,
+  "score": 41.411,
   "config": {
     "traditions": [
       "scottish_hip_hop"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.36849999999999994,
+          "voice_ensemble_config": 0.6025,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.38549999999999995
         }
       },
       {
@@ -56,18 +56,18 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.325,
+          "amp_make": 0.32425,
           "body_wood": 0,
-          "pickup_config": 0.105,
-          "string_type": 0.26,
-          "scale_length_b": 0.105,
+          "pickup_config": 0.4515,
+          "string_type": 0.315,
+          "scale_length_b": 0.1785,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -93,29 +93,29 @@
           "amp_make": "amp_modern_modeling",
           "body_wood": "basswood",
           "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "fretboard": "maple_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_fender",
-          "finish": "nitro",
-          "string_tuning": "drop_d",
+          "finish": "oil_satin",
+          "string_tuning": "open_g",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 0.26,
           "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "neck_wood": 0.2415,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
           "string_material": 0.1365,
           "string_gauge": 0.0735,
-          "bridge": 0.105,
+          "bridge": 0.1785,
           "scale_length": 0,
-          "finish": 0,
-          "string_tuning": 0.6825,
+          "finish": 0.1365,
+          "string_tuning": 0.6825000000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -123,14 +123,14 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.2067499999999995,
-          "poly_archetypes": 0,
-          "poly_voices": 0.3045,
+          "electronic_technique": 5.97425,
+          "poly_archetypes": 0.0315,
+          "poly_voices": 0.273,
           "poly_maker_lineage": -0.035
         }
       },
@@ -140,13 +140,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 5.6499999999999995,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.1785,
           "sample_swing": 9.879999999999999,
-          "sample_processing": 0.105
+          "sample_processing": 0.1365
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Modern psychedelic folk is a contemporary discovery cluster including Shana Cleveland. Her solo Manzanita work combines song and fingerpicked guitar with layered keyboard colors, distinguished in the label account from her band La Luz.",
   "recipe": "classic modern modern psychedelic folk, ballad Poetry, indie folk branch. thick, breath veiled tone, straight onset, neutral third half flat. fingerpicked acoustic guitar, mellotron m4000d modern digital reissue post 2007 mellotron. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 370,
-  "score": 54.892,
+  "score": 54.959,
   "config": {
     "traditions": [
       "modern_psychedelic_folk"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 1.755,
           "voice_pitch_organization": 0.105,
           "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 1.2535
+          "voice_multitrack_stack": 1.276
         }
       },
       {
@@ -63,8 +63,8 @@
           "string_tuning": 0,
           "top_wood": 0.45149999999999996,
           "back_sides": 0.2415,
-          "string_acoustic": 0.537,
-          "acoustic_om_technique": 12.695999999999998
+          "string_acoustic": 0.5595,
+          "acoustic_om_technique": 12.718499999999999
         }
       },
       {

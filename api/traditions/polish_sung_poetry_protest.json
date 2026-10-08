@@ -3,14 +3,14 @@
   "name": "Polish poezja śpiewana and Solidarność-era protest",
   "family": "global",
   "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
-  "recipe": "classic Central European mid-1960s polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry nouvelle chanson française. thick, breath veiled tone, straight note core, interlocked note trading. phosphor bronze bronze fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. dynamic moving-coil, tube pre. Walkman cassette.",
-  "recipe_chars": 478,
-  "score": 143.207,
+  "recipe": "classic Central European mid-1960s polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry nouvelle chanson française american folk-revival protest song. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 506,
+  "score": 137.922,
   "config": {
     "traditions": [
       "polish_sung_poetry_protest",
-      "chanson",
-      "nouvelle_chanson_francaise"
+      "nouvelle_chanson_francaise",
+      "american_folk_revival_protest"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -34,39 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.950000000000002,
-          "voice_quality": 12.80499999999999,
+          "voice_register": 5.275000000000001,
+          "voice_quality": 10.334999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 18.589999999999996,
-          "voice_microtone": 17.744999999999994,
-          "voice_tradition": 4.485,
-          "voice_mechanism_compound": 4.55,
-          "voice_estill_quality": 4.355,
-          "voice_speech_song": 27.884999999999998,
-          "voice_ensemble_config": 19.369999999999997,
-          "voice_ornament_system": 0.9099999999999998,
-          "voice_pitch_organization": 2.47,
-          "voice_processing_chain": 6,
-          "voice_multitrack_stack": 8.135
+          "voice_vibrato": 1.2024999999999997,
+          "voice_articulation": 14.494999999999994,
+          "voice_microtone": 14.29999999999999,
+          "voice_tradition": 6.532500000000001,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 26.779999999999994,
+          "voice_ensemble_config": 15.014999999999992,
+          "voice_ornament_system": 2.0149999999999997,
+          "voice_pitch_organization": 3.9800000000000004,
+          "voice_processing_chain": 5.25,
+          "voice_multitrack_stack": 8.885000000000002
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "standard_tuning",
+          "string_tuning": "drop_d",
           "top_wood": "mahogany_top_om",
           "back_sides": "mahogany_bs_om",
-          "string_acoustic": "phosphor_om",
+          "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0,
-          "top_wood": 0.6950000000000001,
-          "back_sides": 0.6950000000000001,
-          "string_acoustic": 1,
-          "acoustic_om_technique": 9.285
+          "string_tuning": 0.8750000000000001,
+          "top_wood": 0.8450000000000001,
+          "back_sides": 0.8450000000000001,
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 12.585000000000003
         }
       }
     ],

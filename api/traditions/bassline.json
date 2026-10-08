@@ -1,145 +1,122 @@
 {
-  "id": "bassline",
-  "name": "Bassline",
+  "id": "bassline_uk",
+  "merged_from": "bassline",
+  "name": "Bassline (UK Sheffield-Niche)",
   "family": "electronic",
-  "lineage": "Sheffield and the East Midlands, roughly 2002-2008, codified at the Niche club and by DJs Jamie Duggan, DJ Q and producers behind T2's 'Heartbroken' — a 4/4 UK garage derivative at 135-142 BPM built on a hard offbeat kick-and-clap grid, an aggressive square- or reese-toned mid-bass riff carrying the hook, and soulful female topline vocals or MC chat over sparse organ stabs.",
-  "recipe": "classic British mid-2000s bassline, bass System, uk soundsystem branch, garage house u s house, bass descendants bass system, intl hip hop MC rhythm jump-up ballroom. extended whistle, breath veiled tone, slow rate, interlocked note trading. sub bass monosynth acid bass, TR-909, sub bass analog poly synth, chopped sampler, psychedelic foregrounded organ driven rock combo organ. bedroom. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3.",
-  "recipe_chars": 463,
-  "score": 223.086,
+  "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active from 1992 to 2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
+  "recipe": "classic British 2004-2006 bassline, bass System, uk soundsystem branch, intl hip hop MC rhythm german deutschrap hungarian hip hop. vocal fry, rap, breath pulsed, interlocked note trading. TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 525,
+  "score": 139.787,
   "config": {
     "traditions": [
-      "bassline",
-      "jump_up",
-      "ballroom_house"
+      "bassline_uk",
+      "german_deutschrap",
+      "hungarian_hip_hop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "vocal_fry",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 1.56,
-          "voice_quality": 10.269999999999996,
+          "voice_register": 1.69,
+          "voice_quality": 15.892500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.965,
-          "voice_articulation": 19.435000000000002,
-          "voice_microtone": 20.279999999999998,
-          "voice_tradition": 5.915000000000001,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 1.8199999999999996,
-          "voice_speech_song": 20.28,
-          "voice_ensemble_config": 19.564999999999998,
-          "voice_ornament_system": 4.244375000000001,
-          "voice_pitch_organization": 2.2099999999999995,
-          "voice_processing_chain": 12.709375,
-          "voice_multitrack_stack": 6.17875
+          "voice_vibrato": 2.145,
+          "voice_articulation": 9.425,
+          "voice_microtone": 9.23,
+          "voice_tradition": 6.4750000000000005,
+          "voice_mechanism_compound": 0.195,
+          "voice_estill_quality": 1.8749999999999998,
+          "voice_speech_song": 13.2925,
+          "voice_ensemble_config": 9.75,
+          "voice_ornament_system": 2.925000000000001,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 6.570000000000001,
+          "voice_multitrack_stack": 6.142500000000001
         }
       },
       {
-        "id": "monosynth_acid_bass",
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_behringer_clone"
+        },
+        "scores": {
+          "tr808_voice": 8.290000000000001,
+          "drum_machine_808_context": 3.94,
+          "tr808_production_origin": 0.36
+        }
+      },
+      {
+        "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "wave_acid": "saw_acid",
-          "filter_acid": "closed_acid",
-          "accent_acid": "heavy_accent_acid"
+          "oscillator": "sine_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "gated_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 11.297499999999998,
-          "wave_acid": 0.18,
-          "filter_acid": 0.195,
-          "accent_acid": 0.12999999999999998
+          "electronic_technique": 9.865,
+          "oscillator": 3.49,
+          "filter_topology": 5.135,
+          "envelope": 1.345,
+          "modulation": 0.45499999999999996
         }
       },
       {
-        "id": "drum_machine_909",
+        "id": "electric_bass",
         "slots": {
-          "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "tr909_voice": 11.749999999999998,
-          "drum_machine_909_context": 2.34,
-          "tr909_production_origin": 0.3
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
-        },
-        "scores": {
-          "electronic_technique": 11.297499999999998,
-          "poly_archetypes": 0.195,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": -1.6149999999999998
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_edm"
-        },
-        "scores": {
-          "electronic_technique": 2.6999999999999997,
-          "sampler_archetypes": 2.7299999999999995,
-          "sampler_bit_depth": 3.78375,
-          "sampler_workflow": 2.79,
-          "sampler_classic_context": 36.66
-        }
-      },
-      {
-        "id": "combo_organ",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "combo_organ_model": "vox_continental_combo",
-          "combo_organ_voicing": "combo_organ_16_pedal",
-          "combo_organ_context": "combo_organ_doors_psych",
-          "amp_make": "amp_unspecified"
-        },
-        "scores": {
-          "keyboard_technique": -0.1,
-          "combo_organ_model": 1.625,
-          "combo_organ_voicing": 3.835,
-          "combo_organ_context": 1.4949999999999999,
-          "amp_make": 0
+          "amp_make": 3.9650000000000007,
+          "body_wood": 1.69,
+          "pickup_config": 0.9,
+          "string_type": 5.08,
+          "scale_length_b": 1.645,
+          "fretted_or_not": 0,
+          "bass_technique": -0.05,
+          "electric_bass_string_configuration": 0
         }
       }
     ],
-    "room": "untreated_bedroom",
-    "archetype": "arch_uk_grime_dubstep_pirate",
+    "room": "studio_british_class_a_commercial",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
-      "mic": "condenser_fet",
-      "pre": "pre_500_series_modern",
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
       "console": "console_in_the_box",
-      "comp": "comp_pumping",
-      "eq": null,
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -148,11 +125,37 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
-    "chain_mic": "condenser_fet",
-    "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_pumping",
-    "chain_medium": "digital_std",
+    "room": "studio_british_class_a_commercial",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "coated_nano_bass",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "sub_bass_synth_blend",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_bass_sub"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }
 }

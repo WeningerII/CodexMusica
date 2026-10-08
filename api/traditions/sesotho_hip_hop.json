@@ -5,7 +5,7 @@
   "lineage": "Sesotho hip hop centers rap in the Sesotho language and Basotho cultural reference, including Kommanda Obbs’s Ts’epe practice.",
   "recipe": "classic modern sesotho hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 242,
-  "score": 28.266,
+  "score": 28.332,
   "config": {
     "traditions": [
       "sesotho_hip_hop"
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.1905,
+          "sample_bitdepth": 0.27599999999999997,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0.08549999999999999
         }
       }
     ],

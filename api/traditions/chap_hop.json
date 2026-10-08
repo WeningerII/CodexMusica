@@ -3,14 +3,14 @@
   "name": "Chap Hop",
   "family": "hip_hop",
   "lineage": "British novelty rap microgenre established in London and Brighton around 2008-2010 by Mr. B The Gentleman Rhymer and Professor Elemental, delivering received-pronunciation battle verses about tea, cricket and colonial-adventure absurdity over mid-tempo 90-100 BPM boom-bap loops sampling music-hall piano, brass-band 78s and Edwardian parlour records, with banjolele strumming replacing the usual sample chops.",
-  "recipe": "classic 2008-2010 chap hop, mc Rhythm, intl hip hop branch, us hip hop east coast, retro aesthetic experimental electric mafioso rap golden age hip hop. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, gospel runs upright piano, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 625,
-  "score": 317.545,
+  "recipe": "classic 2008-2010 chap hop, mc Rhythm, intl hip hop branch, us hip hop east coast, retro aesthetic experimental electric mafioso rap boom bap. thick, rap, slow rate, interlocked note trading. sampled chopped turntable, chopped sampler, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, gospel runs upright piano, compact tuba brass yellow brass canonical orchestral besson sovereign British brass band tuba. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 615,
+  "score": 308.49,
   "config": {
     "traditions": [
       "chap_hop",
       "mafioso_rap",
-      "golden_age_hip_hop"
+      "boom_bap"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 5.69,
-          "voice_quality": 27.015,
+          "voice_register": 7.865,
+          "voice_quality": 24.24,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6650000000000005,
-          "voice_articulation": 17.679999999999993,
-          "voice_microtone": 17.484999999999992,
-          "voice_tradition": 10.610000000000001,
-          "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 4.03,
-          "voice_speech_song": 25.800000000000004,
-          "voice_ensemble_config": 16.964999999999993,
-          "voice_ornament_system": 5.785000000000001,
-          "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 18.625,
-          "voice_multitrack_stack": 4.0950000000000015
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 17.22499999999999,
+          "voice_tradition": 10.16,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 5.43,
+          "voice_speech_song": 22.375,
+          "voice_ensemble_config": 16.89999999999999,
+          "voice_ornament_system": 4.875000000000002,
+          "voice_pitch_organization": 0.8449999999999999,
+          "voice_processing_chain": 16.4,
+          "voice_multitrack_stack": 4.549999999999999
         }
       },
       {
@@ -59,8 +59,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 9.535,
-          "turntable_technique": 12.645000000000001
+          "electronic_technique": 8.934999999999999,
+          "turntable_technique": 13.62
         }
       },
       {
@@ -73,11 +73,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 9.535,
-          "sampler_archetypes": 15.86,
+          "electronic_technique": 8.934999999999999,
+          "sampler_archetypes": 14.819999999999999,
           "sampler_bit_depth": 3.9000000000000004,
-          "sampler_workflow": 12.745000000000001,
-          "sampler_classic_context": 31.134999999999998
+          "sampler_workflow": 12.145,
+          "sampler_classic_context": 30.289999999999996
         }
       },
       {
@@ -95,16 +95,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.39,
+          "banjo_back": 0.195,
           "tone_ring": 0.195,
-          "banjo_head": 17.874999999999996,
+          "banjo_head": 17.614999999999995,
           "banjo_pot": 0,
-          "banjo_play": 0.195,
-          "banjo_rim_wood": 0.78,
-          "banjo_neck_wood": 2.4,
+          "banjo_play": 0.44999999999999996,
+          "banjo_rim_wood": 0.585,
+          "banjo_neck_wood": 2.25,
           "banjo_strings": 0.345,
           "banjo_bridge": 0,
-          "banjo_setup_period": 17.159999999999997
+          "banjo_setup_period": 16.899999999999995
         }
       },
       {
@@ -115,7 +115,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 4,
+          "keyboard_technique": 5.25,
           "upright_use": 2.535,
           "upright_piano_size": 0.195
         }
@@ -132,11 +132,11 @@
         },
         "scores": {
           "wind_articulation": -0.05,
-          "tuba_pitch": 3.335,
-          "tuba_context": 3.965,
+          "tuba_pitch": 3.185,
+          "tuba_context": 4.8100000000000005,
           "tuba_bell_metal": 1.885,
           "tuba_valve_system": 0.195,
-          "tuba_maker_school": 5.265
+          "tuba_maker_school": 5.07
         }
       }
     ],

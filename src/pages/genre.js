@@ -303,9 +303,13 @@ function gpResults() {
             ? 1
             : e.name.includes(q)
               ? 2
-              : e.lineage.includes(q) || e.description.includes(q)
-                ? 3
-                : -1;
+              : e.aliases.some((a) => a === q || a.startsWith(q))
+                ? 1
+                : e.aliases.some((a) => a.includes(q))
+                  ? 2
+                  : e.lineage.includes(q) || e.description.includes(q)
+                    ? 3
+                    : -1;
       if (rank >= 0) rows.push({ t: e.t, rank });
     }
   } else rows = gpSorted().map((t) => ({ t, rank: 0 }));

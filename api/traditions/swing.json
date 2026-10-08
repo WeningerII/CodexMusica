@@ -5,7 +5,7 @@
   "lineage": "Swing developed through jazz dance bands and smaller improvising groups, becoming central to popular music in the 1930s and 1940s. Arranged ensemble passages and individual solos share a buoyant rhythmic feel.",
   "recipe": "classic mid-1930s swing, improv On Frame, early branch. clarinet, a 440 modern pitch us standard grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 269,
-  "score": 22.727,
+  "score": 22.801,
   "config": {
     "traditions": [
       "swing"
@@ -43,8 +43,8 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0945,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0.063,
+          "grand_piano_brand": 0.2415,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

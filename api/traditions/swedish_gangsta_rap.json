@@ -5,7 +5,7 @@
   "lineage": "A Swedish hip-hop field associated with neighborhood narratives, belonging and the contested label gangsterrap.",
   "recipe": "classic modern swedish gangsta rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 35.131,
+  "score": 35.242,
   "config": {
     "traditions": [
       "swedish_gangsta_rap"
@@ -56,13 +56,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0.108
         }
       }
     ],

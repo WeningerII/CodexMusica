@@ -5,7 +5,7 @@
   "lineage": "Country-hip-hop hybrid subgenre codified through Cowboy Troy, Big Smo, Colt Ford (Ride Through the Country 2008), and the broader Average Joes Entertainment label catalog — characterized by trap-derived 808 production with country-rapped vocals, banjo and steel-guitar accents, and rural-Americana lyrical subject matter",
   "recipe": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 656,
-  "score": 412.842,
+  "score": 412.377,
   "config": {
     "traditions": [
       "country_rap_hick_hop",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 27.374999999999996,
-          "voice_quality": 19.3475,
+          "voice_register": 27.569999999999997,
+          "voice_quality": 19.0625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.907499999999995,
+          "voice_vibrato": 22.772499999999994,
           "voice_articulation": 13.519999999999992,
           "voice_microtone": 12.93499999999999,
-          "voice_tradition": 12.499999999999996,
+          "voice_tradition": 12.844999999999997,
           "voice_mechanism_compound": 5.785,
-          "voice_estill_quality": 26.564999999999994,
-          "voice_speech_song": 18.0675,
+          "voice_estill_quality": 26.864999999999995,
+          "voice_speech_song": 18.022499999999997,
           "voice_ensemble_config": 13.454999999999993,
           "voice_ornament_system": 2.470000000000001,
           "voice_pitch_organization": 2.7300000000000004,
-          "voice_processing_chain": 13.069999999999999,
+          "voice_processing_chain": 13.024999999999999,
           "voice_multitrack_stack": 8.092500000000001
         }
       },
@@ -97,12 +97,12 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 21.144999999999996,
+          "electric_technique": 20.994999999999997,
           "amp_make": 24.57,
           "body_wood": 2.925,
           "neck_wood": 0.845,
           "fretboard": 0.845,
-          "pickup_magnet": 0.43499999999999994,
+          "pickup_magnet": 0.38999999999999996,
           "pickup_winding": 0.38999999999999996,
           "string_material": 2.535,
           "bridge": 0.845,
@@ -130,8 +130,8 @@
           "pickup_config": 0.39,
           "string_type": 4.3225,
           "scale_length_b": 0.845,
-          "fretted_or_not": 0.24,
-          "bass_technique": 21.144999999999996,
+          "fretted_or_not": 0.195,
+          "bass_technique": 20.994999999999997,
           "electric_bass_string_configuration": 0
         }
       },
@@ -143,7 +143,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 8.834999999999999,
+          "tr808_voice": 8.369999999999997,
           "drum_machine_808_context": 2.9899999999999998,
           "tr808_production_origin": 0.845
         }
@@ -158,10 +158,10 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.154999999999998,
+          "electronic_technique": 8.304999999999998,
           "sampler_archetypes": 14.819999999999999,
           "sampler_bit_depth": 1.365,
-          "sampler_workflow": 10.427499999999998,
+          "sampler_workflow": 10.337499999999999,
           "sampler_classic_context": 23.172499999999992
         }
       }

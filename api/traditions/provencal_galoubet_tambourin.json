@@ -1,0 +1,88 @@
+{
+  "id": "provencal_galoubet_tambourin",
+  "name": "Galoubet-tambourin (Provençal pipe and tabor)",
+  "family": "global",
+  "lineage": "Provençal pipe-and-tabor tradition in which a single musician, the tambourinaire, fingers the three-hole galoubet with one hand while beating the long, deep tambourin drum hung from the same arm with a stick held in the other. It accompanies the farandole and other processional dances, aubades and festivals of Provence, is kept up by tambourinaire associations and conservatoire classes in the region, and is documented in field recordings held by the CREM-CNRS sound archive.",
+  "recipe": "classic modern galoubet-tambourin, carnival Processional, European branch. galoubet, processional deep boom sustained tabor. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 204,
+  "score": 15.209,
+  "config": {
+    "traditions": [
+      "provencal_galoubet_tambourin"
+    ],
+    "instruments": [
+      {
+        "id": "galoubet",
+        "slots": {
+          "galoubet_pitch": "galoubet_c_standard",
+          "galoubet_material": "galoubet_boxwood"
+        },
+        "scores": {
+          "galoubet_pitch": 0.6945,
+          "galoubet_material": 0
+        }
+      },
+      {
+        "id": "tabor",
+        "slots": {
+          "tabor_form": "tabor_tambourin_provencal",
+          "tabor_context": "tabor_farandole",
+          "tabor_snare": "tabor_snare_batter",
+          "tabor_heads": "tabor_calfskin_slack"
+        },
+        "scores": {
+          "tabor_form": 5.265,
+          "tabor_context": 9.034999999999998,
+          "tabor_snare": -0.1,
+          "tabor_heads": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "galoubet": [
+        "galoubet_pitch",
+        "galoubet_material"
+      ],
+      "tabor": [
+        "tabor_form",
+        "tabor_context",
+        "tabor_snare",
+        "tabor_heads"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "galoubet_pitch": "galoubet_c_standard",
+      "galoubet_material": "galoubet_boxwood",
+      "tabor_form": "tabor_tambourin_provencal",
+      "tabor_context": "tabor_farandole",
+      "tabor_snare": "tabor_snare_batter",
+      "tabor_heads": "tabor_calfskin_slack"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

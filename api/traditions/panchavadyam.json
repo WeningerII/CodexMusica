@@ -1,0 +1,156 @@
+{
+  "id": "panchavadyam",
+  "name": "Panchavadyam (Kerala temple five-instrument orchestra)",
+  "family": "global",
+  "lineage": "Panchavadyam ('five instruments') is a Kerala temple orchestra of four percussion instruments, the timila hourglass drum, the suddha maddalam barrel drum, the idakka and the ilathalam cymbals, with one wind instrument, the kombu horn, and a conch blown at the outset. Played at temple festivals and processions in central Kerala, a performance builds by stages from a slow, long rhythmic cycle to a fast climax; the Madathil Varavu at Thrissur Pooram is its best-known setting.",
+  "recipe": "classic modern panchavadyam, carnival Processional, south Asian branch. thimila, suddha maddalam, ensemble melodic pitch bending idakka, elathalam, kombu kerala, sangu conch. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 254,
+  "score": 16.415,
+  "config": {
+    "traditions": [
+      "panchavadyam"
+    ],
+    "instruments": [
+      {
+        "id": "thimila",
+        "slots": {
+          "thimila_tension": "thimila_tight",
+          "thimila_context": "thimila_panchavadyam"
+        },
+        "scores": {
+          "thimila_tension": 0.10575,
+          "thimila_context": 0.0945
+        }
+      },
+      {
+        "id": "suddha_maddalam",
+        "slots": {
+          "maddalam_head": "maddalam_paste",
+          "maddalam_context": "maddalam_panchavadyam"
+        },
+        "scores": {
+          "maddalam_head": 0.0315,
+          "maddalam_context": 0.063
+        }
+      },
+      {
+        "id": "idakka",
+        "slots": {
+          "idakka_repertoire": "idakka_repertoire_panchavadyam",
+          "idakka_bend": "idakka_bend_melodic",
+          "idakka_stroke": "idakka_stroke_curved_light",
+          "idakka_build": "idakka_build_harmonic_canonical"
+        },
+        "scores": {
+          "idakka_repertoire": 8.125,
+          "idakka_bend": 2.3865,
+          "idakka_stroke": 2.3680000000000003,
+          "idakka_build": 2.2315
+        }
+      },
+      {
+        "id": "elathalam",
+        "slots": {
+          "elathalam_stroke": "elathalam_closed",
+          "elathalam_ensemble": "elathalam_panchavadyam"
+        },
+        "scores": {
+          "elathalam_stroke": 0.063,
+          "elathalam_ensemble": 0.39
+        }
+      },
+      {
+        "id": "kombu_kerala",
+        "slots": {
+          "kombu_material": "kombu_brass",
+          "kombu_style": "kombu_pattu"
+        },
+        "scores": {
+          "kombu_material": 0.3315,
+          "kombu_style": 0.37424999999999997
+        }
+      },
+      {
+        "id": "sangu_conch",
+        "slots": {
+          "sangu_shell": "sangu_large",
+          "sangu_use": "sangu_puja"
+        },
+        "scores": {
+          "sangu_shell": 0,
+          "sangu_use": 0
+        }
+      }
+    ],
+    "pinned": {
+      "thimila": [
+        "thimila_tension",
+        "thimila_context"
+      ],
+      "suddha_maddalam": [
+        "maddalam_head",
+        "maddalam_context"
+      ],
+      "idakka": [
+        "idakka_repertoire",
+        "idakka_bend",
+        "idakka_stroke",
+        "idakka_build"
+      ],
+      "elathalam": [
+        "elathalam_stroke",
+        "elathalam_ensemble"
+      ],
+      "kombu_kerala": [
+        "kombu_material",
+        "kombu_style"
+      ],
+      "sangu_conch": [
+        "sangu_shell",
+        "sangu_use"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "thimila_tension": "thimila_tight",
+      "thimila_context": "thimila_panchavadyam",
+      "maddalam_head": "maddalam_paste",
+      "maddalam_context": "maddalam_panchavadyam",
+      "idakka_repertoire": "idakka_repertoire_panchavadyam",
+      "idakka_bend": "idakka_bend_melodic",
+      "idakka_stroke": "idakka_stroke_curved_light",
+      "idakka_build": "idakka_build_harmonic_canonical",
+      "elathalam_stroke": "elathalam_closed",
+      "elathalam_ensemble": "elathalam_panchavadyam",
+      "kombu_material": "kombu_brass",
+      "kombu_style": "kombu_pattu",
+      "sangu_shell": "sangu_large",
+      "sangu_use": "sangu_puja"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

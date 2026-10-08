@@ -1,0 +1,81 @@
+{
+  "id": "british_theatre_organ",
+  "name": "Theatre organ (British cinema and ballroom organ)",
+  "family": "pop",
+  "lineage": "Light music played on the theatre organs installed in British cinemas and dance halls from the 1920s, mainly Wurlitzer and Compton unit organs whose tibia and string ranks, heavy tremulants and built-in percussion let one player sound like an orchestra. Reginald Dixon, organist at the Blackpool Tower Ballroom from 1930 to 1970, made it a dance-band sound with strict-tempo medleys and his signature tune 'I Do Like to Be Beside the Seaside', and Sandy MacPherson broadcast on the BBC Theatre Organ. The pipe organ card is set to its theatre voicing.",
+  "recipe": "classic mid-1920s theatre organ, functional Song, crooners branch. Wurlitzer theater canonical American silent film 1910s 1920s electric pneumatic canonical 20th century American pipe organ. shoebox concert hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 347,
+  "score": 10.075,
+  "config": {
+    "traditions": [
+      "british_theatre_organ"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_theater",
+          "pipe_organ_voicing_school": "pipe_organ_wurlitzer_theater",
+          "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+          "pipe_organ_temperament": "pipe_organ_equal_temperament",
+          "pipe_organ_action": "pipe_organ_electric_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 2.6180000000000003,
+          "pipe_organ_class": 0.36750000000000005,
+          "pipe_organ_context": 0.9869999999999999,
+          "pipe_organ_voicing_school": 1.9845,
+          "pipe_organ_pipe_alloy": 0.5459999999999999,
+          "pipe_organ_temperament": -3.1955,
+          "pipe_organ_action": 2.4675
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_network_radio_broadcast",
+    "inline_chain": {
+      "mic": "mic_coles_4038_ribbon",
+      "pre": "pre_tube_german_v72",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "pipe_organ_class": "pipe_organ_romantic",
+      "pipe_organ_context": "pipe_organ_theater",
+      "pipe_organ_voicing_school": "pipe_organ_wurlitzer_theater",
+      "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+      "pipe_organ_temperament": "pipe_organ_equal_temperament",
+      "pipe_organ_action": "pipe_organ_electric_pneumatic"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_coles_4038_ribbon",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
+  }
+}

@@ -78,7 +78,10 @@ export {
 
 class EngineError extends Error {}
 
-const tradById = (id) => (C.TRADITIONS || []).find((t) => t.id === id);
+// A retired (merged) tradition id resolves to the tradition it was merged into
+// (references/_tradition_aliases.json), everywhere a caller names a tradition.
+const liveTradId = (id) => C.resolveTraditionId(typeof id === 'string' ? id.trim() : id);
+const tradById = (id) => (C.TRADITIONS || []).find((t) => t.id === liveTradId(id));
 const instById = (id) => (C.INSTRUMENTS || []).find((i) => i.id === id);
 const labelOf = (x) => (x && (x.name || x.label || x.title)) || (typeof x === 'string' ? x : null);
 
@@ -92,10 +95,19 @@ function normWorkspace(ws, opName) {
       `${opName} needs a "workspace" — call start_recipe first and pass its workspace back.`
     );
   }
-  if (Array.isArray(ws)) return { cards: ws };
-  if (!Array.isArray(ws.cards))
+  const cards = Array.isArray(ws) ? ws : ws.cards;
+  if (!Array.isArray(cards))
     throw new EngineError('"workspace" must be { cards: [...] } from a previous recipe call.');
-  return { cards: ws.cards };
+  // A workspace saved before a merge may carry a retired tradition id on its
+  // cards; it is rewritten to the surviving id so headers, baselines and
+  // remove_tradition all see one tradition.
+  return {
+    cards: cards.map((c) =>
+      c && typeof c.traditionId === 'string' && liveTradId(c.traditionId) !== c.traditionId
+        ? { ...c, traditionId: liveTradId(c.traditionId) }
+        : c
+    ),
+  };
 }
 
 // What the model cannot otherwise see: which settings on a card are no longer
@@ -434,7 +446,8 @@ function wrap(fn) {
 // the app's Current Recipe). The first tradition is primary; the rest are
 // explicit staples (no auto-staple).
 export function startRecipe(params = {}) {
-  const ids = (params.traditions || []).map((s) => String(s).trim()).filter(Boolean);
+  const asked = (params.traditions || []).map((s) => String(s).trim()).filter(Boolean);
+  const ids = asked.map(liveTradId);
   if (ids.length === 0) {
     throw new EngineError(
       'start_recipe needs at least one tradition id — resolve names with search_catalog first.'
@@ -443,10 +456,14 @@ export function startRecipe(params = {}) {
   // A repeated id seeds every one of that tradition's cards twice — a doubled
   // roster the caller did not ask for and would have to remove card by card.
   const repeated = ids.find((id, i) => ids.indexOf(id) !== i);
-  if (repeated)
+  if (repeated) {
+    const merged = asked.filter((a, i) => ids[i] === repeated && a !== repeated);
     throw new EngineError(
-      `start_recipe lists "${repeated}" more than once, which would seed each of its cards twice. List each tradition once.`
+      `start_recipe lists "${repeated}" more than once` +
+        (merged.length ? ` ("${merged.join('", "')}" was merged into "${repeated}")` : '') +
+        ', which would seed each of its cards twice. List each tradition once.'
     );
+  }
   const ws = wrap(() => W.seed(ids));
   return { mode: ids.length > 1 ? 'blend' : 'single', ...shape(ws, params, { seeded: true }) };
 }
@@ -517,7 +534,7 @@ function envPatch(e) {
 function applyEdit(ws, e) {
   switch (e && e.action) {
     case 'add_tradition': {
-      const tid = req(ws, e, 'tradition');
+      const tid = liveTradId(req(ws, e, 'tradition'));
       // Adding a tradition that is already here seeds every one of its cards a
       // second time. The app lets a person re-import, and sees the doubled
       // group; a caller only gets a longer recipe with every instrument twice.
@@ -529,7 +546,7 @@ function applyEdit(ws, e) {
       return W.addTradition(ws, tid);
     }
     case 'remove_tradition': {
-      const tid = req(ws, e, 'tradition');
+      const tid = liveTradId(req(ws, e, 'tradition'));
       if (tradById(tid) && !ws.cards.some((c) => c.traditionId === tid))
         throw new EngineError(
           `Tradition "${tid}" is not in this recipe, so there is nothing to remove. ` +
@@ -877,6 +894,31 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   };
   for (const t of C.TRADITIONS || [])
     add('tradition', t.id, t.name, `${t.lineage || ''} ${t.family || ''}`);
+  // A retired id or name still finds the tradition it was merged into: scored
+  // as the alias, returned as the surviving id, and only where it beats that
+  // tradition's own row.
+  if (want.has('tradition')) {
+    const live = new Map(rows.filter((r) => r.type === 'tradition').map((r) => [r.id, r]));
+    for (const [aliasId, a] of Object.entries(C.TRADITION_ALIASES || {})) {
+      const score = scoreRecord(matchers, aliasId, a.name, '');
+      if (score <= 0) continue;
+      const t = tradById(a.of);
+      const row = live.get(a.of);
+      if (row && row.matched >= score) continue;
+      if (row) Object.assign(row, { matched: score, alias: aliasId });
+      else {
+        const r = {
+          type: 'tradition',
+          id: t.id,
+          name: t.name || t.id,
+          matched: score,
+          alias: aliasId,
+        };
+        rows.push(r);
+        live.set(t.id, r);
+      }
+    }
+  }
   for (const i of C.INSTRUMENTS || []) add('instrument', i.id, i.name, i.family || '');
   // One row per distinct variant, carrying the parts that accept it — the fact
   // set_variant needs and the old per-tuple rows withheld.
@@ -1092,9 +1134,10 @@ export function getTradition({ id } = {}) {
     throw new EngineError(
       `Unknown tradition id: "${id}" (use search_catalog types=["tradition"]).`
     );
-  const ext = (C.TRADITION_EXTRAS || {})[id] || {};
+  const ext = (C.TRADITION_EXTRAS || {})[t.id] || {};
   return {
     id: t.id,
+    ...(t.id !== id ? { merged_from: id } : {}),
     name: labelOf(t) || t.id,
     family: t.family || null,
     lineage: t.lineage || null,

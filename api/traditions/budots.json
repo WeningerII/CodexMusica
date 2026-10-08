@@ -1,0 +1,99 @@
+{
+  "id": "budots",
+  "name": "Budots (Davao street dance music)",
+  "family": "electronic",
+  "lineage": "Electronic dance music and dance craze from Davao City, named from Bisaya slang for a slacker or idle youth, built on house music and the tangonggo rhythms of the Sama-Bajau. Sherwin Tuna (DJ Love), a choreographer working in an internet cafe, turned the street dance into a musical genre in the late 2000s, producing tracks and remixes on home computer software for neighbourhood dance crews. The DAW source cards stand in for that software production.",
+  "recipe": "classic 2007-2009 budots, electronic Dance. daw percussion source daw bass source daw melodic source unspecified, software sample playback. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 247,
+  "score": 3.975,
+  "config": {
+    "traditions": [
+      "budots"
+    ],
+    "instruments": [
+      {
+        "id": "daw_percussion_source_unspecified",
+        "slots": {
+          "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_percussion_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_bass_source_unspecified",
+        "slots": {
+          "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_bass_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_melodic_source_unspecified",
+        "slots": {
+          "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_melodic_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital",
+          "software_sample_editing": "software_sample_editing_unspecified"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0,
+          "software_sample_editing": 0
+        }
+      }
+    ],
+    "pinned": {
+      "daw_percussion_source_unspecified": [
+        "daw_percussion_source_unspecified_identity"
+      ],
+      "daw_bass_source_unspecified": [
+        "daw_bass_source_unspecified_identity"
+      ],
+      "daw_melodic_source_unspecified": [
+        "daw_melodic_source_unspecified_identity"
+      ],
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ]
+    },
+    "room": "untreated_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "untreated_bedroom",
+    "parts": {
+      "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified",
+      "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified",
+      "daw_melodic_source_unspecified_identity": "daw_melodic_source_unspecified_architecture_unspecified",
+      "software_sample_playback_identity": "software_sample_playback_digital"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_pumping",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

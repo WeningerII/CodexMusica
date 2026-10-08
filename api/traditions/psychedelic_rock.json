@@ -5,7 +5,7 @@
   "lineage": "Mid-late 1960s through early 1970s rock genre informed by hallucinogenic-drug culture and Indian classical music influence — codified through The Beatles (Revolver 1966, Sgt Pepper 1967, Magical Mystery Tour 1967), The Jimi Hendrix Experience (Are You Experienced 1967, Axis Bold as Love 1967, Electric Ladyland 1968), Pink Floyd (the Syd Barrett era The Piper at the Gates of Dawn 1967), 13th Floor Elevators, Jefferson Airplane, the Grateful Dead (their early San Francisco psychedelic era), the Doors",
   "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock finnish psychedelic rock garage psych. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
   "recipe_chars": 893,
-  "score": 363.262,
+  "score": 363.776,
   "config": {
     "traditions": [
       "psychedelic_rock",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 5.96,
           "voice_articulation": 9.62,
-          "voice_microtone": 21.469999999999995,
+          "voice_microtone": 21.474499999999995,
           "voice_tradition": 9.1,
           "voice_mechanism_compound": 6.305000000000001,
           "voice_estill_quality": 4.995,
           "voice_speech_song": 11.439999999999996,
           "voice_ensemble_config": 9.945,
-          "voice_ornament_system": 5.280000000000001,
+          "voice_ornament_system": 5.235000000000001,
           "voice_pitch_organization": 3.9000000000000004,
-          "voice_processing_chain": 6.2700000000000005,
+          "voice_processing_chain": 6.555000000000001,
           "voice_multitrack_stack": 11.18
         }
       },
@@ -70,7 +70,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.394999999999998,
+          "electric_technique": 10.609499999999997,
           "amp_make": 10.075,
           "body_wood": 1.3900000000000001,
           "neck_wood": 1.3900000000000001,
@@ -119,7 +119,7 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 4.99,
+          "plucked_traditional_technique": 4.9945,
           "sitar_neck": 2.73,
           "sitar_resonator": 0.78,
           "sitar_jawari": 0.78,
@@ -149,7 +149,7 @@
           "pickup_config": 0.15,
           "string_type": 25.5125,
           "scale_length_b": 1.3900000000000001,
-          "fretted_or_not": 0.65,
+          "fretted_or_not": 0.6995,
           "bass_technique": 19.575,
           "electric_bass_string_configuration": 0
         }

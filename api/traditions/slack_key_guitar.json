@@ -1,126 +1,103 @@
 {
-  "id": "slack_key_guitar",
-  "name": "Slack-key guitar (kī hōʻalu instrumental)",
+  "id": "hawaiian_slack_key",
+  "merged_from": "slack_key_guitar",
+  "name": "Hawaiian slack-key (kī hōʻalu)",
   "family": "global",
-  "lineage": "Hawaiian fingerstyle guitar idiom developed after Mexican paniolo vaqueros brought guitars to the islands in the 1830s, kept largely within families until Gabby Pahinui's 1946 recordings and the 1970s Renaissance releases on Panini — the six strings slackened to open major or wahine tunings (taro-patch G, F-wahine, C-mauna-loa), thumb holding an alternating bass while the fingers pick melody above, chimed natural harmonics, slides and hammered ornaments imitating vocal ʻiʻi, at unhurried tempi in loose rubato.",
-  "recipe": "classic North American mid-1830s slack-key guitar, improv On Frame, string improv branch, anglo singer song laurel canyon, string drone modal arab folk. thick, breath veiled tone, straight note core, interlocked note trading. open g tuning steel silk fingerpicked acoustic open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, fingerpicked koa ukulele, upright bass. honolulu hawaiian slack key lanai. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 519,
-  "score": 145.827,
+  "lineage": "Hawaiian fingerstyle guitar tradition that emerged after 1832 when Spanish-Mexican vaquero cowboys brought to Hawaii by King Kamehameha III to manage the new ranching industry left their guitars behind as gifts to Hawaiian musicians — who slackened the strings (kī hōʻalu literally means loosen the key) into open tunings and developed the fingerstyle vocabulary; 20th-century figures Gabby Pahinui (1921-1980, the voice, his Sons of Hawaii ensemble preserving the tradition), Sonny Chillingworth, Atta Isaacs, Raymond Kane, Leonard Kwan, Keola Beamer, the modern Cyril Pahinui and Ledward Kaapana lineage",
+  "recipe": "classic North American early-1920s hawaiian slack-key, drone Modal, string branch, vocal drone modal lam siphandone lam khon savan. vocal fry, breath veiled tone, straight note core, interlocked note trading. low tension strings mellow parlor classic steel silk parlor acoustic steel silk drone like modal dreadnought acoustic guitar. honolulu hawaiian slack key lanai. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 516,
+  "score": 138.465,
   "config": {
     "traditions": [
-      "slack_key_guitar",
-      "laurel_canyon_70s",
-      "arab_folk"
+      "hawaiian_slack_key",
+      "lam_siphandone",
+      "lam_khon_savan"
     ],
     "instruments": [
       {
-        "id": "acoustic_guitar_om",
-        "slots": {
-          "string_tuning": "open_g",
-          "top_wood": "mahogany_top_om",
-          "back_sides": "mahogany_bs_om",
-          "string_acoustic": "silk_steel_om",
-          "acoustic_om_technique": "om_fingerpicked"
-        },
-        "scores": {
-          "string_tuning": 3.5600000000000005,
-          "top_wood": 0.21,
-          "back_sides": 0.21,
-          "string_acoustic": 1.69,
-          "acoustic_om_technique": 7.59
-        }
-      },
-      {
-        "id": "acoustic_guitar_parlor",
-        "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_g",
-          "top_wood_parlor": "mahogany_top_p",
-          "back_sides_parlor": "rosewood_bs_p",
-          "string_acoustic_parlor": "silk_steel_p"
-        },
-        "scores": {
-          "acoustic_technique": 7.59,
-          "string_tuning": 3.5600000000000005,
-          "top_wood_parlor": 0.21,
-          "back_sides_parlor": 0.12999999999999998,
-          "string_acoustic_parlor": 1.69
-        }
-      },
-      {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.575000000000001,
-          "voice_quality": 11.959999999999994,
+          "voice_register": 3.055,
+          "voice_quality": 16.054999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1775,
-          "voice_articulation": 12.674999999999995,
-          "voice_microtone": 12.67499999999999,
-          "voice_tradition": 10.2375,
-          "voice_mechanism_compound": 3.9,
-          "voice_estill_quality": 5.6875,
-          "voice_speech_song": 14.754999999999995,
-          "voice_ensemble_config": 9.814999999999998,
-          "voice_ornament_system": 2.7300000000000004,
-          "voice_pitch_organization": 6.460000000000001,
-          "voice_processing_chain": 4.88,
-          "voice_multitrack_stack": 5.025
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 11.309999999999997,
+          "voice_microtone": 15.274999999999991,
+          "voice_tradition": 16.694999999999993,
+          "voice_mechanism_compound": 5.59,
+          "voice_estill_quality": 6.89,
+          "voice_speech_song": 11.504999999999995,
+          "voice_ensemble_config": 11.894999999999996,
+          "voice_ornament_system": 1.8449999999999998,
+          "voice_pitch_organization": 5.005000000000001,
+          "voice_processing_chain": 4.420000000000002,
+          "voice_multitrack_stack": 3.6399999999999997
         }
       },
       {
-        "id": "ukulele",
+        "id": "acoustic_guitar_parlor",
         "slots": {
-          "ukulele_size": "ukulele_baritone",
-          "ukulele_style": "ukulele_fingerstyle",
-          "ukulele_wood": "ukulele_koa"
+          "acoustic_technique": "acoustic_bottleneck_slide",
+          "string_tuning": "open_g",
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "ukulele_size": 4.159999999999999,
-          "ukulele_style": 4.87,
-          "ukulele_wood": 4.765
+          "acoustic_technique": 2.125,
+          "string_tuning": 2.4700000000000006,
+          "top_wood_parlor": 0.54,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.495
         }
       },
       {
-        "id": "upright_bass",
+        "id": "acoustic_guitar_dread",
         "slots": {
-          "upright_strings": "steel_upright",
-          "upright_play": "slap_upright"
+          "acoustic_technique": "acoustic_drone_modal",
+          "string_tuning": "open_g",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
         },
         "scores": {
-          "upright_strings": 0.5399999999999999,
-          "upright_play": 0.22499999999999998
+          "acoustic_technique": 9.88,
+          "string_tuning": 2.4700000000000006,
+          "top_wood": 0.345,
+          "back_sides": 0.51,
+          "string_acoustic": 1.495
         }
       }
     ],
     "room": "honolulu_hawaiian_slack_key_lanai",
-    "archetype": "arch_early_tape_us_commercial",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
-      "mic": "condenser_ldc",
-      "pre": "pre_ua_610_tube",
-      "console": "clean",
-      "comp": "comp_la2a_optical",
-      "eq": null,
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_neve_1073_input",
+      "console": "colored",
+      "comp": "comp_dbx_160_vca",
+      "eq": "eq_inductor_iron",
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "tape_30ips"
     },
     "tuning": "slack_key_hawaiian",
     "aesthetic": null,
@@ -130,10 +107,34 @@
   "source": {
     "tuning": "slack_key_hawaiian",
     "room": "honolulu_hawaiian_slack_key_lanai",
-    "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_ua_610_tube",
-    "chain_comp": "comp_la2a_optical",
-    "chain_medium": "tape_15ips",
-    "chain_console": "clean"
+    "parts": {
+      "string_tuning": "open_g",
+      "voice_register": "chest_voice",
+      "voice_quality": "crooner_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "polynesian_oli_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_sob",
+      "voice_vibrato": "delayed_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "phosphor_p",
+      "top_wood": "sitka",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_dbx_160_vca",
+    "chain_eq": "eq_inductor_iron",
+    "chain_medium": "tape_30ips",
+    "chain_console": "colored"
   }
 }

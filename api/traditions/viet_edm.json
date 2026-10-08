@@ -5,7 +5,7 @@
   "lineage": "Việt EDM connects Vietnam’s electronic dance producers, DJs, training institutions and club audiences.",
   "recipe": "classic việt edm, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 82,
-  "score": 0.063,
+  "score": 0.095,
   "config": {
     "traditions": [
       "viet_edm"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

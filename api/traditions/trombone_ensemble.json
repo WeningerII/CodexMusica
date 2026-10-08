@@ -5,7 +5,7 @@
   "lineage": "Trombone ensembles extend brass chamber practice through composed works and arrangements.",
   "recipe": "classic trombone ensemble, art Music. yellow brass canonical 70 30 bach 42 standard tenor standard standard backbore trombone, bass trombone. shoebox concert hall. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 246,
-  "score": 7.837,
+  "score": 7.862,
   "config": {
     "traditions": [
       "trombone_ensemble"
@@ -26,8 +26,8 @@
           "wind_articulation": 2.45,
           "trombone_type": -0.035,
           "trombone_mouthpiece": 2.45,
-          "trombone_mute": 0.7314999999999999,
-          "trombone_technique": 0.3675,
+          "trombone_mute": 0.8574999999999999,
+          "trombone_technique": 0.294,
           "trombone_bell_metal": 1,
           "trombone_maker_school": 0.34650000000000003
         }
@@ -40,7 +40,7 @@
         },
         "scores": {
           "bass_trombone_valves": 0.1365,
-          "bass_trombone_context": 0.39
+          "bass_trombone_context": 0.363
         }
       }
     ],

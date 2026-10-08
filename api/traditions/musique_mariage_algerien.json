@@ -5,7 +5,7 @@
   "lineage": "Algerian wedding music brings regional song traditions into celebrations, from Chaâbi and Hawzi to Kabyle, Chaoui and contemporary popular repertories. Performers adapt ensemble size and repertoire to families and different stages of the festivities.",
   "recipe": "classic musique mariage algérien, wedding. solo with instrumental accompaniment. upright piano, bendir, qanun. live tracking.",
   "recipe_chars": 125,
-  "score": 3.741,
+  "score": 4.187,
   "config": {
     "traditions": [
       "musique_mariage_algerien"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.378,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "keyboard_technique": -0.09250000000000001,
-          "upright_use": 0.007499999999999999,
+          "upright_use": 0.031875,
           "upright_piano_size": 0
         }
       },
@@ -74,10 +74,10 @@
           "bendir_head": "bendir_goat_skin_canonical"
         },
         "scores": {
-          "bendir_snares": 0.014999999999999998,
+          "bendir_snares": 0.12,
           "bendir_context": 1.4365,
           "bendir_shell_wood": 0.39,
-          "bendir_head": 0.049999999999999996
+          "bendir_head": 0.155
         }
       },
       {
@@ -92,9 +92,9 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": -0.14250000000000002,
-          "qanun_strings": 0.007499999999999999,
-          "qanun_levers": 0,
+          "plucked_traditional_technique": -0.11100000000000002,
+          "qanun_strings": 0.039,
+          "qanun_levers": 0.1365,
           "qanun_pick": 0.0315,
           "qanun_body_wood": 0.049999999999999996,
           "qanun_bridge_skin": 0.049999999999999996,

@@ -3,9 +3,9 @@
   "name": "Martial Industrial",
   "family": "electronic",
   "lineage": "Central and Northern Europe from the early 1990s (Cold Meat Industry in Sweden, Der Blutharsch in Austria, Les Joyaux de la Princesse in France) — slow processional 60-80 BPM marching-snare and timpani patterns, synthesized brass and orchestral samples, tolling bells, male choir pads and archival wartime speech samples, mixed dark and reverberant in DIY studios onto CD.",
-  "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno deep downtempo fusion. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, mixed satb canonical 4 part western antiphonal double choir alternating choir ensemble, glitched textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 607,
-  "score": 72.405,
+  "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno deep downtempo fusion. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, a cappella small 3 to 8 one per part antiphonal double choir alternating choir ensemble, glitched textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 608,
+  "score": 72.455,
   "config": {
     "traditions": [
       "martial_industrial",
@@ -20,8 +20,8 @@
           "marching_gang_footwear": "marching_gang_heavy_boots"
         },
         "scores": {
-          "marching_gang_surface": 0.345,
-          "marching_gang_footwear": 0.345
+          "marching_gang_surface": 0.495,
+          "marching_gang_footwear": 0.495
         }
       },
       {
@@ -57,22 +57,22 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 6.38,
+          "electronic_technique": 6.29,
           "poly_archetypes": 1.8199999999999998,
-          "poly_voices": 0.18,
+          "poly_voices": 0.09,
           "poly_maker_lineage": 1.2349999999999999
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "mixed_4_part_satb",
+          "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.95,
+          "choir_size": 1.8199999999999998,
           "choir_polyphonic_configuration": 1.195,
           "choir_regional_canonical_configuration": 0.78,
           "choir_ensemble_repertoire": 4.620000000000001
@@ -102,7 +102,7 @@
           "gong_striker": "gong_soft_mallet"
         },
         "scores": {
-          "gong_type": 0.5249999999999999,
+          "gong_type": 0.585,
           "gong_striker": 1.3
         }
       }

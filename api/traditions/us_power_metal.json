@@ -5,7 +5,7 @@
   "lineage": "US power metal developed through heavy-metal and NWOBHM influences, emphasizing weighty riffs and strong melodic singing.",
   "recipe": "classic us power metal, distorted Rock, power branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 433,
-  "score": 33.687,
+  "score": 33.592,
   "config": {
     "traditions": [
       "us_power_metal"
@@ -29,18 +29,18 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.9629999999999999,
+          "electric_technique": 0.9944999999999999,
           "amp_make": 5.655000000000001,
           "body_wood": 5.85,
-          "neck_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0,
-          "bridge": 0.6204999999999999,
+          "string_material": 0.063,
+          "bridge": 0.5155,
           "scale_length": 0,
-          "string_gauge": 0.5575,
-          "finish": 0,
+          "string_gauge": 0.45249999999999996,
+          "finish": 0.0315,
           "string_tuning": 0.1965
         }
       },
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7319999999999999,
+          "voice_ensemble_config": 0.6584999999999999,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.43050000000000005,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.4620000000000001,
           "voice_tessitura": 0
         }
       },

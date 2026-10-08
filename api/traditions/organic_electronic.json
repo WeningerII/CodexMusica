@@ -5,7 +5,7 @@
   "lineage": "Organic electronic music emphasizes the interaction of played instruments and electronic production rather than a strict separation between acoustic and synthetic sound.",
   "recipe": "classic organic electronic, electronic Dance. analog poly synth, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 175,
-  "score": 1.159,
+  "score": 1.128,
   "config": {
     "traditions": [
       "organic_electronic"
@@ -35,7 +35,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.9629999999999999,
+          "drumhead": 0.9314999999999999,
           "drum_kit_kick_pedal": 0
         }
       }

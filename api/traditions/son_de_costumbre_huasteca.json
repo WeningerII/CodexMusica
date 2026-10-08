@@ -1,0 +1,104 @@
+{
+  "id": "son_de_costumbre_huasteca",
+  "name": "Son de costumbre (Huasteca Nahua and Teenek ritual sones)",
+  "family": "global",
+  "lineage": "Instrumental sones played on violin and jarana by Nahua and Teenek musicians of the Huasteca in Veracruz, Hidalgo and San Luis Potosí for the costumbre, the community and household rituals of the agricultural cycle such as the offerings to Chicomexóchitl, the spirit of the maize, and for Xantolo, the Days of the Dead. Sones are played at set moments of the offering, and the repertoire is distinct from the sung secular son of the Huasteca trio. INAH and CDI field recordings document the repertoire.",
+  "recipe": "classic modern son de costumbre, ritual Devotional, indigenous branch. fiddle, cedro rojo canonical huasteca jarana huasteca. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 7.842,
+  "config": {
+    "traditions": [
+      "son_de_costumbre_huasteca"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 2.3759999999999994,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.0315,
+          "fiddle_articulation": 0.8549999999999999,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "jarana_huasteca",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "jarana_huasteca_context": "jarana_huasteca_trio",
+          "jarana_huasteca_strings": "dutar_strings_unspecified",
+          "jarana_huasteca_body_wood": "jarana_huasteca_cedro"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.7149999999999999,
+          "jarana_huasteca_context": 0,
+          "jarana_huasteca_strings": 0,
+          "jarana_huasteca_body_wood": 3.5145
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "jarana_huasteca": [
+        "plucked_traditional_technique",
+        "jarana_huasteca_context",
+        "jarana_huasteca_strings",
+        "jarana_huasteca_body_wood"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "jarana_huasteca_context": "jarana_huasteca_trio",
+      "jarana_huasteca_strings": "dutar_strings_unspecified",
+      "jarana_huasteca_body_wood": "jarana_huasteca_cedro"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

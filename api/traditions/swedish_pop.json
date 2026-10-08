@@ -5,7 +5,7 @@
   "lineage": "Swedish pop connects songwriters and performers across varied popular styles and ensemble sizes. Chamber-like arrangements form one strand alongside guitar bands and electronic production.",
   "recipe": "classic swedish pop, functional Song. block chord grand piano, flugelhorn, bass clarinet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 188,
-  "score": 8.905,
+  "score": 9.013,
   "config": {
     "traditions": [
       "swedish_pop"
@@ -68,9 +68,9 @@
         "scores": {
           "keyboard_technique": 7.45,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.40950000000000003,
+          "grand_piano_brand": 0.4635,
           "piano_hammer": -0.1,
-          "piano_rim": 0.8999999999999999,
+          "piano_rim": 0.954,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,

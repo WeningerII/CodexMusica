@@ -519,6 +519,9 @@ function findClosestTraditionByAxis(target) {
 }
 
 function seedFromTradition(tradId, stapleIds = [], opts = {}) {
+  // A retired (merged) tradition id resolves to the tradition it was merged into.
+  tradId = C.resolveTraditionId(tradId);
+  stapleIds = (stapleIds || []).map(C.resolveTraditionId);
   const t = C.TRADITIONS.find((x) => x.id === tradId);
   if (!t) return null;
   // opts:

@@ -3,9 +3,9 @@
   "name": "Flint hip hop",
   "family": "hip_hop",
   "lineage": "Flint hip hop has a local history of rappers, producers, record shops, venues and radio, with MC Breed and the Dayton Family among its important earlier reference points. A later wave around Rio Da Yung OG, YN Jay, Bfb Da Packman and producer Enrgy brought renewed attention to the city’s collaborations and street-rap sound. Exchanges with Detroit and the wider Michigan scene remain central.",
-  "recipe": "classic flint hip hop, mc Rhythm, us hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
-  "recipe_chars": 174,
-  "score": 17.104,
+  "recipe": "classic flint hip hop, mc Rhythm, us hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. credited beat unspecified. treated studio.",
+  "recipe_chars": 212,
+  "score": 17.272,
   "config": {
     "traditions": [
       "flint_hip_hop"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },

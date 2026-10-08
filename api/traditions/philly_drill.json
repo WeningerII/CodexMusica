@@ -3,9 +3,9 @@
   "name": "Philly Drill",
   "family": "hip_hop",
   "lineage": "Philly drill developed within Philadelphia’s contemporary rap community through local MC networks and producers working both in the city and abroad. Sparse, ominous beats and forceful vocal delivery connect it to drill while choral and cinematic sampling give parts of the scene a distinctive atmosphere.",
-  "recipe": "classic philly drill, mc Rhythm, us hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment. software sample playback, produced 808 bass, credited programmed drums unspecified. treated studio.",
-  "recipe_chars": 230,
-  "score": 13.084,
+  "recipe": "classic philly drill, mc Rhythm, us hip hop branch. rhythmic, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. software sample playback, produced 808 bass, credited programmed drums unspecified. treated studio.",
+  "recipe_chars": 268,
+  "score": 13.315,
   "config": {
     "traditions": [
       "philly_drill"
@@ -38,17 +38,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.6405,
+          "voice_articulation": 0.6719999999999999,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 10.01,
-          "voice_ensemble_config": 1.1655,
+          "voice_ensemble_config": 1.197,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },

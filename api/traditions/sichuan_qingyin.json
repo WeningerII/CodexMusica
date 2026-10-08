@@ -1,0 +1,239 @@
+{
+  "id": "sichuan_qingyin",
+  "name": "Sichuan qingyin (Sichuan pure-tone song)",
+  "family": "global",
+  "lineage": "Sung quyi of Chengdu and Chongqing that grew from Ming and Qing popular little tunes, usually performed by a woman singer who keeps time on a small drum (zhugu) and sandalwood clappers (tanban), accompanied by pipa, yueqin and erhu; listed as national intangible cultural heritage in 2006 (the acoustic_membrane_drum card stands in for the zhugu and the paiban card for the tanban).",
+  "recipe": "classic mid-2000s sichuan qingyin, ballad Poetry. pipa, yueqin, erhu, membrane drum pulse acoustic membrane drum, paiban. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 4.971,
+  "config": {
+    "traditions": [
+      "sichuan_qingyin"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.33799999999999997,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "pipa",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "pipa_frets": "pipa_modern_frets",
+          "pipa_strings": "dutar_strings_unspecified",
+          "pipa_pick": "pipa_fingerpicks",
+          "pipa_body_wood": "pipa_red_sandalwood"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "pipa_frets": 0,
+          "pipa_strings": 0,
+          "pipa_pick": 0,
+          "pipa_body_wood": 0.95
+        }
+      },
+      {
+        "id": "yueqin",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "yueqin_use": "yueqin_solo",
+          "yueqin_construction": "yueqin_snake_skin",
+          "yueqin_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "yueqin_use": 0.4485,
+          "yueqin_construction": 0,
+          "yueqin_strings": 0
+        }
+      },
+      {
+        "id": "erhu",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "erhu_skin": "erhu_python",
+          "erhu_use": "erhu_classical",
+          "erhu_body_wood": "erhu_red_sandalwood",
+          "erhu_strings": "dutar_strings_unspecified",
+          "erhu_bow": "erhu_bamboo_horsehair"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "erhu_skin": 0,
+          "erhu_use": 0.03899999999999999,
+          "erhu_body_wood": 0.95,
+          "erhu_strings": 0,
+          "erhu_bow": 0.24999999999999994
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 1.69,
+          "acoustic_membrane_drum_gesture": 0
+        }
+      },
+      {
+        "id": "paiban",
+        "slots": {
+          "paiban_form": "paiban_three_slab"
+        },
+        "scores": {
+          "paiban_form": 0.03599999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "pipa": [
+        "plucked_traditional_technique",
+        "pipa_frets",
+        "pipa_strings",
+        "pipa_pick",
+        "pipa_body_wood"
+      ],
+      "yueqin": [
+        "plucked_traditional_technique",
+        "yueqin_use",
+        "yueqin_construction",
+        "yueqin_strings"
+      ],
+      "erhu": [
+        "bowed_technique",
+        "erhu_skin",
+        "erhu_use",
+        "erhu_body_wood",
+        "erhu_strings",
+        "erhu_bow"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "paiban": [
+        "paiban_form"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "pipa_frets": "pipa_modern_frets",
+      "pipa_strings": "dutar_strings_unspecified",
+      "pipa_pick": "pipa_fingerpicks",
+      "pipa_body_wood": "pipa_red_sandalwood",
+      "yueqin_use": "yueqin_solo",
+      "yueqin_construction": "yueqin_snake_skin",
+      "yueqin_strings": "dutar_strings_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "erhu_skin": "erhu_python",
+      "erhu_use": "erhu_classical",
+      "erhu_body_wood": "erhu_red_sandalwood",
+      "erhu_strings": "dutar_strings_unspecified",
+      "erhu_bow": "erhu_bamboo_horsehair",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_short",
+      "paiban_form": "paiban_three_slab"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "gumleaf_bands",
+  "name": "Gumleaf playing (Aboriginal gumleaf bands)",
+  "family": "global",
+  "lineage": "Leaf-blowing tradition of Aboriginal communities in south-eastern Australia, in which a eucalyptus leaf held against the lips is blown to play hymns, popular songs, marches and dance tunes. From the early twentieth century gumleaf bands from missions and reserves such as Wallaga Lake played at dances, sports carnivals and public events, and the Wallaga Lake Gumleaf Band walked to Sydney to play at the opening of the Harbour Bridge in 1932; the Australian Gumleaf Playing Championships at Maryborough, Victoria, continue the practice. The kazoo card stands in for the blown gum leaf.",
+  "recipe": "classic early-1930s gumleaf playing, functional Song. kazoo, snare bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 157,
+  "score": -0.25,
+  "config": {
+    "traditions": [
+      "gumleaf_bands"
+    ],
+    "instruments": [
+      {
+        "id": "kazoo",
+        "slots": {
+          "kazoo_construction": "kazoo_metal"
+        },
+        "scores": {
+          "kazoo_construction": -0.1
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 0
+        }
+      }
+    ],
+    "pinned": {
+      "kazoo": [
+        "kazoo_construction"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kazoo_construction": "kazoo_metal",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "bass_drum_size": "bass_drum_22_standard",
+      "bass_drum_beater": "bass_drum_felt_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Speed Up Türkçe gathers accelerated versions of Turkish-language recordings circulated through streaming releases and online remix culture. Rappers, singers and remix producers retain recognizable phrases while changing the temporal scale of the recorded song.",
   "recipe": "classic speed up türkçe, mc Rhythm. recorded music rate processing. treated studio.",
   "recipe_chars": 83,
-  "score": 1.152,
+  "score": 1.208,
   "config": {
     "traditions": [
       "speed_up_turkce"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "rate_process_vocal_material": 0.39,
-          "rate_process_backing_material": 0.408,
+          "rate_process_backing_material": 0.4634999999999999,
           "rate_process_speed": 0,
           "rate_process_phrase": 0.354,
           "rate_process_pitch_coupling": 0

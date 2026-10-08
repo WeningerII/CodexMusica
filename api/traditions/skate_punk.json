@@ -5,7 +5,7 @@
   "lineage": "Southern-Californian punk offshoot codified 1985-1998 around Epitaph and Fat Wreck Chords (Bad Religion, NOFX, Pennywise, Lagwagon), built on 180-230 BPM d-beat-derived skank and blast-adjacent single-stroke snare, downpicked palm-muted power chords over major-key diatonic riffs, octave-doubled bass following root motion, and stacked 'oozin' aah' three-part gang harmonies replacing the shouted unison of hardcore.",
   "recipe": "classic Los Angeles mid-1990s skate punk, distorted Rock, pop punk branch, thrash metal, alternative distorted rock crossover thrash. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit, a cappella small 3 to 8 one per part hocket interlocked single note distribution kakhetian three voice two soloists choral drone choir ensemble. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 887,
-  "score": 486.187,
+  "score": 484.735,
   "config": {
     "traditions": [
       "skate_punk",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 33.23875,
-          "amp_make": 41.491375000000005,
+          "amp_make": 41.101375000000004,
           "body_wood": 6.89,
           "neck_wood": 2.015,
           "fretboard": 1.95,
@@ -42,7 +42,7 @@
           "bridge": 2.015,
           "scale_length": 5.265,
           "string_gauge": 2.015,
-          "finish": 0.2445,
+          "finish": 0.0495,
           "string_tuning": 15.405
         }
       },
@@ -65,7 +65,7 @@
         },
         "scores": {
           "electric_technique": 33.23875,
-          "amp_make": 41.491375000000005,
+          "amp_make": 41.101375000000004,
           "body_wood": 2.015,
           "neck_wood": 2.015,
           "fretboard": 1.95,
@@ -74,7 +74,7 @@
           "string_gauge": 2.015,
           "bridge": 0.975,
           "scale_length": 2.015,
-          "finish": 0.2445,
+          "finish": 0.0495,
           "string_tuning": 10.53,
           "single_coil_pickup_construction": 0
         }
@@ -136,7 +136,7 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 21.394499999999994,
+          "voice_register": 21.589499999999994,
           "voice_quality": 6.305000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -144,10 +144,10 @@
           "voice_articulation": 15.599999999999993,
           "voice_microtone": 20.549999999999997,
           "voice_tradition": 6.7905,
-          "voice_mechanism_compound": 28.251375,
+          "voice_mechanism_compound": 28.446375,
           "voice_estill_quality": 2.0799999999999996,
           "voice_speech_song": 15.404999999999992,
-          "voice_ensemble_config": 34.528875,
+          "voice_ensemble_config": 34.333875,
           "voice_ornament_system": 0.65,
           "voice_pitch_organization": 3.380000000000001,
           "voice_processing_chain": 4.680000000000001,
@@ -165,8 +165,8 @@
         "scores": {
           "choir_size": 3.705,
           "choir_polyphonic_configuration": 1.95,
-          "choir_regional_canonical_configuration": 2.34,
-          "choir_ensemble_repertoire": 0.9750000000000001
+          "choir_regional_canonical_configuration": 2.25375,
+          "choir_ensemble_repertoire": 0.585
         }
       }
     ],

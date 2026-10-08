@@ -5,7 +5,7 @@
   "lineage": "Canadian stoner rock is represented here by Low Orbit. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic canadian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp alder mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 387,
-  "score": 56.688,
+  "score": 56.413,
   "config": {
     "traditions": [
       "canadian_stoner_rock"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.9099999999999999,
+          "electric_technique": 0.8875,
           "amp_make": 5.2,
           "body_wood": 1.69,
-          "neck_wood": 1.6435,
-          "fretboard": 1.5935000000000001,
+          "neck_wood": 1.612,
+          "fretboard": 1.562,
           "pickup_magnet": 0.12999999999999998,
           "pickup_winding": 1.69,
           "string_material": 0.105,
-          "bridge": 3.0420000000000003,
+          "bridge": 2.9370000000000003,
           "scale_length": 1.69,
-          "string_gauge": 1.69,
+          "string_gauge": 1.637,
           "finish": 0,
           "string_tuning": 0.33899999999999997
         }
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39
         }
       }

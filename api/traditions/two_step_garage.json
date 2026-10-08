@@ -3,14 +3,14 @@
   "name": "2-Step",
   "family": "electronic",
   "lineage": "The dominant UK garage variant of 1997-2001, codified by Steve Gurley, Zed Bias, El-B, Sunship and Groove Chronicles, defined by a syncopated kick pattern that omits beats two and four, skipping shuffled hi-hats and shakers at 130-135 BPM, a swung sub-bass locked to the gaps, and soulful female R&B vocals cut into stuttering fragments.",
-  "recipe": "classic 1997-2001 2-step, bass System, uk soundsystem branch, bass descendants bass system, garage house u s house new york garage house. thick, breath veiled tone, straight note core, interlocked note trading. sampler, roland tr 8s modern aira digital recreation TR-909, sub bass digital subtractive, gospel runs electric piano tine, room natural to palm hand clap. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 543,
-  "score": 230.928,
+  "recipe": "classic 1997-2001 2-step, bass System, uk soundsystem branch, bass descendants bass system, garage house u s house gospel house. thick, breath veiled tone, straight note core, interlocked note trading. sampler, TR-909, sub bass digital subtractive, gospel runs electric piano tine, snappy to palm hand clap. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 484,
+  "score": 234.425,
   "config": {
     "traditions": [
       "two_step_garage",
-      "new_york_garage_house",
-      "garage_house_paradise"
+      "garage_house_paradise",
+      "gospel_house"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.169999999999998,
-          "voice_quality": 12.024999999999993,
+          "voice_register": 7.795000000000001,
+          "voice_quality": 11.049999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0399999999999998,
-          "voice_articulation": 15.664999999999996,
-          "voice_microtone": 16.964999999999993,
-          "voice_tradition": 7.675625,
-          "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 8.060000000000002,
-          "voice_speech_song": 17.744999999999997,
-          "voice_ensemble_config": 20.214999999999996,
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 17.355,
+          "voice_microtone": 18.849999999999994,
+          "voice_tradition": 8.05,
+          "voice_mechanism_compound": 2.485,
+          "voice_estill_quality": 7.880000000000001,
+          "voice_speech_song": 19.174999999999997,
+          "voice_ensemble_config": 22.164999999999996,
           "voice_ornament_system": 2.8600000000000003,
-          "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 12.82,
-          "voice_multitrack_stack": 4.290000000000001
+          "voice_pitch_organization": 2.2099999999999995,
+          "voice_processing_chain": 11.725000000000001,
+          "voice_multitrack_stack": 5.9799999999999995
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "electronic_technique": 0.45499999999999996,
           "sampler_archetypes": 1.625,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 0.39,
-          "sampler_classic_context": 41.697500000000005
+          "sampler_bit_depth": 0.06499999999999999,
+          "sampler_workflow": 0.19500000000000003,
+          "sampler_classic_context": 41.989999999999995
         }
       },
       {
@@ -74,12 +74,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 19.215,
-          "drum_machine_909_context": 1.45,
-          "tr909_production_origin": 1
+          "tr909_voice": 17.84,
+          "drum_machine_909_context": 2.6,
+          "tr909_production_origin": 0.195
         }
       },
       {
@@ -90,9 +90,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.800000000000001,
-          "va_archetypes": 0.5,
-          "digital_subtractive_context": 16.314999999999998
+          "electronic_technique": 7.605,
+          "va_archetypes": 0.65,
+          "digital_subtractive_context": 17.550000000000004
         }
       },
       {
@@ -103,7 +103,7 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 7.625,
+          "keyboard_technique": 7.25,
           "tine_voicing": 0,
           "tine_effect": 0.40499999999999997
         }
@@ -115,8 +115,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 1.95,
-          "clap_capture": 1.3
+          "clap_technique": 1.45,
+          "clap_capture": 0.65
         }
       }
     ],

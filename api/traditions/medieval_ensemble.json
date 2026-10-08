@@ -1,14 +1,15 @@
 {
-  "id": "medieval_ensemble",
-  "name": "Medieval Ensemble",
+  "id": "medieval",
+  "merged_from": "medieval_ensemble",
+  "name": "Medieval",
   "family": "classical",
-  "lineage": "Modern ensemble performance and reconstruction of medieval repertories.",
-  "recipe": "classic medieval ensemble, art Music, western early branch. group vocals, live take. shoebox concert hall.",
-  "recipe_chars": 106,
-  "score": 4.421,
+  "lineage": "European medieval music, from liturgical chant to early polyphony and secular song.",
+  "recipe": "classic medieval, art Music, western early branch. shoebox concert hall.",
+  "recipe_chars": 72,
+  "score": 0.421,
   "config": {
     "traditions": [
-      "medieval_ensemble"
+      "medieval"
     ],
     "instruments": [
       {
@@ -24,7 +25,7 @@
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
           "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_ametrical_chant",
+          "voice_speech_song": "voice_melismatic_singing",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_system_source_unspecified",
           "voice_pitch_organization": "voice_pitch_source_unspecified",
@@ -44,11 +45,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 2,
+          "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 2,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }
@@ -101,7 +102,7 @@
       "voice_tradition": "voice_tradition_source_unspecified",
       "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
       "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_speech_song": "voice_ametrical_chant",
+      "voice_speech_song": "voice_melismatic_singing",
       "voice_ensemble_config": "voice_ensemble_live_group",
       "voice_ornament_system": "voice_ornament_system_source_unspecified",
       "voice_pitch_organization": "voice_pitch_source_unspecified",

@@ -3,14 +3,14 @@
   "name": "Dub poetry",
   "family": "global",
   "lineage": "Jamaican-British poetic-spoken-word performance tradition over reggae rhythm backing — codified through Linton Kwesi Johnson (UK Black-British, the figure, his 1978 Dread Beat an Blood the founding album), Mutabaruka (Jamaican), Oku Onuora (Jamaican, who coined the genre name in 1979), Mikey Smith (Jamaican), Benjamin Zephaniah (UK Black-British)",
-  "recipe": "classic Northern European late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry dark folk progressive folk. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, marshall plexi amp British rock amp pyramid pure nickel bass British mid 60s era electric bass, fiberskyn synthetic calf rim clicks drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 689,
-  "score": 188.06,
+  "recipe": "classic Northern European late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry progressive folk new weird america. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, marshall plexi amp British rock amp pyramid pure nickel bass British mid 60s era electric bass, fiberskyn synthetic calf rim clicks drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 697,
+  "score": 185.425,
   "config": {
     "traditions": [
       "dub_poetry",
-      "dark_folk",
-      "progressive_folk"
+      "progressive_folk",
+      "new_weird_america"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.845,
-          "voice_quality": 7.8,
+          "voice_register": 14.844999999999999,
+          "voice_quality": 8.645000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4000000000000001,
-          "voice_articulation": 14.559999999999995,
-          "voice_microtone": 16.50999999999999,
-          "voice_tradition": 10.464999999999998,
-          "voice_mechanism_compound": 3.769999999999999,
-          "voice_estill_quality": 3.1350000000000007,
-          "voice_speech_song": 18.654999999999994,
-          "voice_ensemble_config": 15.534999999999993,
-          "voice_ornament_system": 2.860000000000001,
-          "voice_pitch_organization": 0.8699999999999999,
-          "voice_processing_chain": 3.9499999999999993,
-          "voice_multitrack_stack": 4.4
+          "voice_vibrato": 1.345,
+          "voice_articulation": 13.519999999999996,
+          "voice_microtone": 15.079999999999993,
+          "voice_tradition": 16.509999999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.7750000000000004,
+          "voice_speech_song": 17.874999999999996,
+          "voice_ensemble_config": 13.454999999999995,
+          "voice_ornament_system": 3.7050000000000014,
+          "voice_pitch_organization": 1.3699999999999999,
+          "voice_processing_chain": 2.6,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6.525,
-          "amp_make": 5.85,
-          "body_wood": 0.8,
+          "electric_technique": 5.875,
+          "amp_make": 5.7,
+          "body_wood": 0.345,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.345,
           "pickup_magnet": 1.345,
-          "string_material": 1.4949999999999999,
-          "string_gauge": 1.4500000000000002,
-          "bridge": 0.15,
-          "scale_length": 0.8,
+          "string_material": 1.345,
+          "string_gauge": 0.345,
+          "bridge": 0,
+          "scale_length": 0.6900000000000001,
           "finish": 0.65,
-          "string_tuning": 3.7049999999999996,
+          "string_tuning": 3.4799999999999995,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.85,
-          "body_wood": 0.8,
+          "amp_make": 5.7,
+          "body_wood": 0.6900000000000001,
           "pickup_config": 0,
-          "string_type": 7.444999999999999,
-          "scale_length_b": 0.8,
+          "string_type": 6.930000000000001,
+          "scale_length_b": 0.345,
           "fretted_or_not": 0,
           "bass_technique": 15.499999999999996,
           "electric_bass_string_configuration": 0

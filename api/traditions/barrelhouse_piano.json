@@ -5,7 +5,7 @@
   "lineage": "Rough solo blues piano of southern juke joints, logging and turpentine camps and Texas-Louisiana barrelhouses from roughly 1900, first recorded in the late 1920s through Cow Cow Davenport, Little Brother Montgomery, Roosevelt Sykes and Cripple Clark Bell — heavy percussive left hand alternating walking bass, slow-drag 12/8 shuffle and eight-to-the-bar figures on badly maintained upright pianos, right hand playing blue-note tremolos and crushed seconds, hollered blues vocals over 12-bar forms and constant loud dynamics to carry over a drinking crowd.",
   "recipe": "classic 1927-1929 barrelhouse piano, improv On Frame, boogie woogie branch, blues acoustic functional song, blues narrative hokum blues hill country blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. stride upright stride tack piano, foot stomp. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 362,
-  "score": 215.3,
+  "score": 214.865,
   "config": {
     "traditions": [
       "barrelhouse_piano",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "keyboard_technique": 5.650000000000001,
-          "upright_use": 0.39,
+          "upright_use": 0.345,
           "upright_piano_size": 0.545
         }
       },
@@ -36,7 +36,7 @@
         "scores": {
           "keyboard_technique": 5.650000000000001,
           "tack_density": 2.9899999999999998,
-          "tack_piano_context": 3.3099999999999996
+          "tack_piano_context": 3.2649999999999997
         }
       },
       {
@@ -60,20 +60,20 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 33.36500000000002,
+          "voice_register": 33.215000000000025,
           "voice_quality": 12.869999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 27.75,
           "voice_articulation": 22.944999999999993,
-          "voice_microtone": 26.360000000000003,
+          "voice_microtone": 26.165000000000003,
           "voice_tradition": 13.455,
           "voice_mechanism_compound": 4.485,
-          "voice_estill_quality": 5.605,
+          "voice_estill_quality": 5.65,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 20.084999999999997,
           "voice_ornament_system": 1.885,
-          "voice_pitch_organization": 2.9299999999999997,
+          "voice_pitch_organization": 2.885,
           "voice_processing_chain": 3.77,
           "voice_multitrack_stack": 2.535
         }

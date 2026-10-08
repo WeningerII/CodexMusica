@@ -5,7 +5,7 @@
   "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
   "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, maple ribs Turkish school Lebanese cedar eastern Mediterranean la bella oud, cretan rhythmic laouto. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 587,
-  "score": 272.235,
+  "score": 271.642,
   "config": {
     "traditions": [
       "greek_tabachaniotika",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.075000000000001,
+          "voice_register": 4.225000000000001,
           "voice_quality": 12.349999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8750000000000004,
+          "voice_vibrato": 3.74,
           "voice_articulation": 18.13499999999999,
           "voice_microtone": 28.339999999999986,
-          "voice_tradition": 38.22,
-          "voice_mechanism_compound": 5.005,
-          "voice_estill_quality": 7.82,
+          "voice_tradition": 37.695,
+          "voice_mechanism_compound": 4.87,
+          "voice_estill_quality": 7.6850000000000005,
           "voice_speech_song": 29.50999999999999,
           "voice_ensemble_config": 19.04499999999999,
           "voice_ornament_system": 1.6899999999999997,
@@ -63,10 +63,10 @@
         },
         "scores": {
           "bowed_technique": 0.75,
-          "lyra_strings": 2.02,
+          "lyra_strings": 1.975,
           "lyra_use": 2.08,
-          "lyra_body_wood": 12.135000000000007,
-          "lyra_string_material": 12.425000000000004
+          "lyra_body_wood": 12.000000000000007,
+          "lyra_string_material": 12.185000000000006
         }
       },
       {
@@ -81,13 +81,13 @@
           "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 2.5674999999999994,
-          "oud_school": 1.63,
+          "plucked_traditional_technique": 2.53,
+          "oud_school": 1.78,
           "oud_strings": 2.08,
           "oud_pick": 0.845,
-          "oud_body_wood": 1.9000000000000001,
-          "oud_soundboard_wood": 3.5949999999999998,
-          "oud_string_material": 2.29
+          "oud_body_wood": 2.0500000000000003,
+          "oud_soundboard_wood": 3.745,
+          "oud_string_material": 2.4400000000000004
         }
       },
       {
@@ -100,7 +100,7 @@
         "scores": {
           "laouto_form": 22.250000000000007,
           "laouto_role": 20.247499999999995,
-          "laouto_strings": 6.125
+          "laouto_strings": 6.17
         }
       }
     ],

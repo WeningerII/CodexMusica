@@ -5,7 +5,7 @@
   "lineage": "Gospel singers is represented by The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
   "recipe": "classic early-2000s gospel singers, ritual Devotional, black gospel branch. blues slide open string slide resonance humbucker electric guitar, upright bass, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 265,
-  "score": 7.719,
+  "score": 8.003,
   "config": {
     "traditions": [
       "gospel_singers"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.204,
+          "voice_ensemble_config": 0.129,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.42,
-          "voice_multitrack_stack": 0.30900000000000005,
+          "voice_multitrack_stack": 0.23399999999999999,
           "voice_tessitura": 0
         }
       },
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 0.9549999999999998,
+          "amp_make": 1.1049999999999998,
           "body_wood": 0.39,
           "neck_wood": 0.0315,
           "fretboard": 0.11249999999999999,
@@ -82,7 +82,7 @@
           "scale_length": 0.39,
           "string_gauge": 1.0315,
           "finish": 0,
-          "string_tuning": 1.017
+          "string_tuning": 1.302
         }
       },
       {

@@ -3,14 +3,14 @@
   "name": "Karadeniz Türküleri",
   "family": "global",
   "lineage": "Folk-song and dance repertoire of Turkey's eastern Black Sea provinces — Trabzon, Rize, Artvin, Giresun — collected from the 1930s by Ankara Radio ekipleri and popularized nationally from the 1970s by Volkan Konak, Kâzım Koyuncu and Birol Topaloğlu, built on the three-string kemençe's fast bowed double-stops and the tulum bagpipe's drone over rapid 7/16 and 2/4 horon rhythms, with tight nasal shouted vocals and short repeated melodic cells.",
-  "recipe": "classic mid-1930s karadeniz türküleri, ballad Poetry, med east poetic branch, wind pipe drone modal, middle eastern wedding lezginka berber amazigh ahidus. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical black sea goat gut pre modern black sea kemence, eastern black sea dance pulse synthetic tulum, davul, zurna, juniper bowl eastern anatolian strummed saz baglama. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 502,
-  "score": 231.815,
+  "recipe": "classic mid-1930s karadeniz türküleri, ballad Poetry, med east poetic branch, wind pipe drone modal, middle eastern wedding lezginka dabke. thick, breath veiled tone, fast rate, interlocked note trading. horon foundational mulberry canonical black sea goat gut pre modern black sea kemence, eastern black sea dance pulse tulum, davul, zurna, juniper bowl eastern anatolian strummed saz baglama. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 486,
+  "score": 240.997,
   "config": {
     "traditions": [
       "karadeniz_turkuleri",
       "lezginka",
-      "berber_ahidus_wedding"
+      "dabke"
     ],
     "instruments": [
       {
@@ -18,16 +18,16 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "kemence_type": "pontic_kemence",
-          "kemence_context": "kemence_classical",
+          "kemence_context": "kemence_horon",
           "kemence_body_wood": "kemence_mulberry",
           "kemence_strings": "kemence_goat_gut_historical"
         },
         "scores": {
           "bowed_technique": -0.035,
-          "kemence_type": 1.54,
-          "kemence_context": 2.275,
+          "kemence_type": 1.7349999999999999,
+          "kemence_context": 1.795,
           "kemence_body_wood": 2.6,
-          "kemence_strings": 2.4850000000000003
+          "kemence_strings": 1.2449999999999999
         }
       },
       {
@@ -38,9 +38,9 @@
           "tulum_skin_reed": "tulum_synthetic"
         },
         "scores": {
-          "tulum_form": 12.319999999999999,
-          "tulum_play": 12.360000000000001,
-          "tulum_skin_reed": 2.0100000000000002
+          "tulum_form": 12.989999999999995,
+          "tulum_play": 12.86,
+          "tulum_skin_reed": 0.42249999999999993
         }
       },
       {
@@ -51,9 +51,9 @@
           "davul_head_material": "davul_synthetic"
         },
         "scores": {
-          "davul_form": 5.1675,
-          "davul_context": 35.655,
-          "davul_head_material": 1.625
+          "davul_form": 6.25,
+          "davul_context": 37.56999999999999,
+          "davul_head_material": 0.375
         }
       },
       {
@@ -66,11 +66,11 @@
           "zurna_reed": "zurna_arundo_canonical"
         },
         "scores": {
-          "wind_articulation": 0.5449999999999999,
-          "zurna_size": 4.78,
-          "zurna_context": 0.45499999999999996,
-          "zurna_body_wood": 0.69,
-          "zurna_reed": 0
+          "wind_articulation": 0.49999999999999994,
+          "zurna_size": 4.675,
+          "zurna_context": 0.36,
+          "zurna_body_wood": 0.885,
+          "zurna_reed": 0.195
         }
       },
       {
@@ -80,7 +80,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -88,28 +88,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.15,
-          "voice_quality": 11.699999999999992,
+          "voice_register": 4.474999999999999,
+          "voice_quality": 11.634999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8675000000000006,
-          "voice_articulation": 17.549999999999997,
-          "voice_microtone": 25.122499999999995,
-          "voice_tradition": 11.472499999999998,
-          "voice_mechanism_compound": 4.68,
-          "voice_estill_quality": 4.42,
-          "voice_speech_song": 18.849999999999994,
-          "voice_ensemble_config": 16.834999999999994,
-          "voice_ornament_system": 5.1,
-          "voice_pitch_organization": 5.6099999999999985,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 4.125000000000001
+          "voice_vibrato": 2.245,
+          "voice_articulation": 19.954999999999995,
+          "voice_microtone": 27.722499999999993,
+          "voice_tradition": 12.772499999999999,
+          "voice_mechanism_compound": 5.590000000000001,
+          "voice_estill_quality": 4.875000000000001,
+          "voice_speech_song": 21.514999999999997,
+          "voice_ensemble_config": 19.239999999999995,
+          "voice_ornament_system": 3.7450000000000006,
+          "voice_pitch_organization": 4.38,
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 3.7350000000000008
         }
       },
       {
@@ -123,12 +123,12 @@
           "saz_tradition": "saz_alevi_cem"
         },
         "scores": {
-          "plucked_traditional_technique": 7.345,
-          "saz_size": 1.69,
-          "saz_frets": 0.51,
+          "plucked_traditional_technique": 7.709999999999999,
+          "saz_size": 1.8849999999999998,
+          "saz_frets": 0.345,
           "saz_body_wood": 3.8,
           "saz_strings": 0,
-          "saz_tradition": 0.45499999999999996
+          "saz_tradition": 0.315
         }
       }
     ],

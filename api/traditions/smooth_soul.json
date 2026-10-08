@@ -5,7 +5,7 @@
   "lineage": "Smooth soul emphasizes melodic hooks, romantic vocal delivery and polished arrangements shaped by funk-derived rhythm. Performers such as Al Green connect expressive phrasing with supple rhythm sections and sustained keyboard colors.",
   "recipe": "classic modern smooth soul, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 452,
-  "score": 28.607,
+  "score": 28.743,
   "config": {
     "traditions": [
       "smooth_soul"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6659999999999999,
+          "voice_speech_song": 1.0125000000000002,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
@@ -70,7 +70,7 @@
         "scores": {
           "electric_technique": 5.287125,
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
+          "body_wood": 0.231,
           "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -97,7 +97,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
+          "body_wood": 0.231,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

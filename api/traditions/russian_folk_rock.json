@@ -5,7 +5,7 @@
   "lineage": "Russian folk rock combines rock-band songwriting with folk-related imagery, melodies and instrumental colours. Musicians draw on varied regional and international references rather than a single fixed traditional ensemble.",
   "recipe": "classic russian folk rock, distorted Rock, alternative branch. group vocals, live take. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, celtic harp, yamaha modern Japanese mid to premium flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 405,
-  "score": 59.846,
+  "score": 60.077,
   "config": {
     "traditions": [
       "russian_folk_rock"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 7.0200000000000005,
-          "body_wood": 1.3335,
-          "neck_wood": 0.3045,
+          "body_wood": 1.848,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 0.8287499999999999,
-          "scale_length": 0.7875000000000001,
-          "string_gauge": 0.8287499999999999,
+          "bridge": 0.5385,
+          "scale_length": 1.3335000000000001,
+          "string_gauge": 0.5385,
           "finish": 0,
-          "string_tuning": 0.12824999999999998
+          "string_tuning": 0.08549999999999999
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 7.475,
-          "body_wood": 0.609,
-          "pickup_config": 0.1365,
+          "body_wood": 0.546,
+          "pickup_config": 0.273,
           "string_type": 17.875,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.1425,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 13.75,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2730000000000001,
+          "voice_ensemble_config": 1.2415,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 1
         }
       },
@@ -144,9 +144,9 @@
         "scores": {
           "wind_articulation": -0.1,
           "flute_size": 0.1995,
-          "flute_material": 0.105,
-          "flute_technique": 0.0735,
-          "flute_maker_school": 1.6245000000000003
+          "flute_material": 0.2415,
+          "flute_technique": 0,
+          "flute_maker_school": 1.5127500000000005
         }
       }
     ],

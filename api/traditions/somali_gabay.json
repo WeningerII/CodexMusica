@@ -3,14 +3,14 @@
   "name": "Somali gabay poetic recitation",
   "family": "global",
   "lineage": "Recitation of the gabay, the most prestigious and formally demanding genre of Somali oral poetry — long, alliterative, quantitative-metre verse on weighty themes of politics, philosophy, war and reconciliation, composed by a named poet (abwaan) and transmitted verbatim by memoriser-reciters. Central to Somali public life across the Horn of Africa, the tradition produced figures such as Sayyid Mohammed Abdullah Hassan and sustained the twentieth-century 'chain' poem-debates (silsilad); every line must alliterate on a chosen consonant throughout the poem. Delivery is grave, measured, elevated speech in which the poem's argument and its exact wording carry the art.",
-  "recipe": "classic Middle Eastern modern somali gabay poetic recitation, ballad Poetry, med east poetic branch jeju haenyeo songs irish filí / bardic recitation. thick, breath veiled tone, breath pulsed, interlocked note trading. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic Middle Eastern modern somali gabay poetic recitation, ballad Poetry, med east poetic branch jeju haenyeo songs swedish kulning herding-call. thick, breath veiled tone, wide pitch sway, interlocked note trading. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 303,
-  "score": 203.192,
+  "score": 249.141,
   "config": {
     "traditions": [
       "somali_gabay",
       "jeju_haenyeo_songs",
-      "irish_fili_bardic"
+      "swedish_kulning"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.551500000000002,
-          "voice_quality": 41.40500000000002,
+          "voice_register": 10.8515,
+          "voice_quality": 41.79500000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.0079999999999996,
-          "voice_articulation": 21.449999999999996,
-          "voice_microtone": 21.254999999999992,
-          "voice_tradition": 17.972499999999997,
-          "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 7.02,
-          "voice_speech_song": 30.095,
-          "voice_ensemble_config": 20.539999999999996,
-          "voice_ornament_system": 10.205,
-          "voice_pitch_organization": 3.965,
-          "voice_processing_chain": 14.169999999999998,
-          "voice_multitrack_stack": 5.265000000000001
+          "voice_vibrato": 6.2065,
+          "voice_articulation": 30.679999999999996,
+          "voice_microtone": 30.939999999999998,
+          "voice_tradition": 21.124999999999996,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 7.407500000000001,
+          "voice_speech_song": 41.990000000000016,
+          "voice_ensemble_config": 29.769999999999996,
+          "voice_ornament_system": 3.445,
+          "voice_pitch_organization": 2.8600000000000008,
+          "voice_processing_chain": 11.894999999999996,
+          "voice_multitrack_stack": 8.255
         }
       }
     ],

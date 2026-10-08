@@ -5,7 +5,7 @@
   "lineage": "Israelite hip hop develops within contemporary Hebrew-Israelite music communities, combining rap culture with biblical themes, identity and devotional expression. Independent artists and community radio networks circulate the music through recordings and shared religious-cultural spaces.",
   "recipe": "classic israelite hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch human voice ensemble unspecified, chopped sampler. treated studio.",
   "recipe_chars": 155,
-  "score": 39.936,
+  "score": 40.146,
   "config": {
     "traditions": [
       "israelite_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.372499999999999,
+          "voice_speech_song": 12.562999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,9 +62,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.2540000000000004,
+          "electronic_technique": 5.2,
           "sampler_archetypes": 5.55,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.1785,
           "sampler_workflow": 5.15,
           "sampler_classic_context": 11.504999999999999
         }

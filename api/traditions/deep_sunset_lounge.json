@@ -1,14 +1,15 @@
 {
-  "id": "deep_sunset_lounge",
-  "name": "Deep Sunset Lounge",
+  "id": "chill_lounge",
+  "merged_from": "deep_sunset_lounge",
+  "name": "Chill Lounge",
   "family": "electronic",
-  "lineage": "Deep sunset lounge circulates relaxed electronic songs and instrumental selections through lounge compilations and online mixes. Its repertoire connects Balearic listening, downtempo grooves and soft jazz or soul colors.",
-  "recipe": "classic deep sunset lounge, electronic Dance. dj playback mixing unspecified. shoebox concert hall.",
-  "recipe_chars": 99,
-  "score": 0.085,
+  "lineage": "Contemporary chill-lounge listening draws on downtempo electronica, Balearic curation and smooth lounge grooves. Producers, radio programmes and hospitality channels connect spacious electronic textures with relaxed melodic and vocal material.",
+  "recipe": "classic chill lounge, experimental Elec. dj playback mixing unspecified. parlor.",
+  "recipe_chars": 80,
+  "score": 0.105,
   "config": {
     "traditions": [
-      "deep_sunset_lounge"
+      "chill_lounge"
     ],
     "instruments": [
       {
@@ -17,7 +18,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.08549999999999999
+          "dj_playback_mixing_identity": 0.105
         }
       }
     ],
@@ -26,7 +27,7 @@
         "dj_playback_mixing_identity"
       ]
     },
-    "room": "concert_hall_shoebox",
+    "room": "parlor",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -41,7 +42,7 @@
     "fx_extras": []
   },
   "source": {
-    "room": "concert_hall_shoebox",
+    "room": "parlor",
     "parts": {
       "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
     },

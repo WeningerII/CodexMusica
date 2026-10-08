@@ -1,0 +1,180 @@
+{
+  "id": "gamelan_semar_pagulingan",
+  "name": "Gamelan semar pagulingan (Balinese court chamber gamelan)",
+  "family": "classical",
+  "lineage": "Refined bronze gamelan of the old Balinese courts, named for Semara, god of love, and traditionally played near the royal sleeping chambers. The seven-tone form is led by a trompong kettle-gong row (here the reyong card in trompong form) with suling flutes over gangsa, jublag and jegogan metallophones, small kendang and ceng-ceng; ensembles in Teges and Kamasan are noted for it.",
+  "recipe": "classic modern gamelan semar pagulingan, art Music, southeast Asian branch. pelog tuned reyong, sweet toned refined ugal, jublag, bamboo rattan band fipple canonical javanese balinese suling, rapid interlocking gamelan balinese paired male female kendang indonesian, ceng ceng. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 26.05,
+  "config": {
+    "traditions": [
+      "gamelan_semar_pagulingan"
+    ],
+    "instruments": [
+      {
+        "id": "reyong",
+        "slots": {
+          "reyong_form": "reyong_trompong",
+          "reyong_technique": "reyong_norot",
+          "reyong_tuning": "reyong_pelog_selisir"
+        },
+        "scores": {
+          "reyong_form": 0.39,
+          "reyong_technique": 0.39,
+          "reyong_tuning": 1.03475
+        }
+      },
+      {
+        "id": "ugal",
+        "slots": {
+          "ugal_size": "ugal_semar",
+          "ugal_tuning": "ugal_pengumbang",
+          "ugal_technique": "ugal_melodic_lead"
+        },
+        "scores": {
+          "ugal_size": 1.51525,
+          "ugal_tuning": 0.39,
+          "ugal_technique": 0
+        }
+      },
+      {
+        "id": "jublag",
+        "slots": {
+          "jublag_build": "jublag_bronze_calung",
+          "jublag_mallet": "jublag_padded",
+          "jublag_role": "jublag_pokok"
+        },
+        "scores": {
+          "jublag_build": 0,
+          "jublag_mallet": 0.11024999999999997,
+          "jublag_role": 0.07424999999999998
+        }
+      },
+      {
+        "id": "suling",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "suling_use": "suling_gamelan",
+          "suling_tuning": "suling_pelog",
+          "suling_body_material": "suling_bamboo_canonical"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "suling_use": 1.3,
+          "suling_tuning": 2.6,
+          "suling_body_material": 2.6
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 3.9,
+          "kendang_context": 7.279999999999999,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "ceng_ceng",
+        "slots": {
+          "ceng_ceng_form": "ceng_ceng_ricik",
+          "ceng_ceng_technique": "ceng_ceng_kotekan",
+          "ceng_ceng_alloy": "ceng_ceng_perunggu"
+        },
+        "scores": {
+          "ceng_ceng_form": 0,
+          "ceng_ceng_technique": 0.39,
+          "ceng_ceng_alloy": 0
+        }
+      }
+    ],
+    "pinned": {
+      "reyong": [
+        "reyong_form",
+        "reyong_technique",
+        "reyong_tuning"
+      ],
+      "ugal": [
+        "ugal_size",
+        "ugal_tuning",
+        "ugal_technique"
+      ],
+      "jublag": [
+        "jublag_build",
+        "jublag_mallet",
+        "jublag_role"
+      ],
+      "suling": [
+        "wind_articulation",
+        "suling_use",
+        "suling_tuning",
+        "suling_body_material"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "ceng_ceng": [
+        "ceng_ceng_form",
+        "ceng_ceng_technique",
+        "ceng_ceng_alloy"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "gamelan_pelog",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "gamelan_pelog",
+    "room": "field_recording",
+    "parts": {
+      "reyong_form": "reyong_trompong",
+      "reyong_technique": "reyong_norot",
+      "reyong_tuning": "reyong_pelog_selisir",
+      "ugal_size": "ugal_semar",
+      "ugal_tuning": "ugal_pengumbang",
+      "ugal_technique": "ugal_melodic_lead",
+      "jublag_build": "jublag_bronze_calung",
+      "jublag_mallet": "jublag_padded",
+      "jublag_role": "jublag_pokok",
+      "wind_articulation": "wind_continuous_legato",
+      "suling_use": "suling_gamelan",
+      "suling_tuning": "suling_pelog",
+      "suling_body_material": "suling_bamboo_canonical",
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "ceng_ceng_form": "ceng_ceng_ricik",
+      "ceng_ceng_technique": "ceng_ceng_kotekan",
+      "ceng_ceng_alloy": "ceng_ceng_perunggu"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

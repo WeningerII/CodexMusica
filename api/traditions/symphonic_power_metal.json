@@ -5,7 +5,7 @@
   "lineage": "Symphonic power metal is represented here by Twilight Force. This selected branch has an authored present-day studio realization.",
   "recipe": "classic symphonic power metal, distorted Rock, power branch. lead plus third fifth harmony stack 3 part. Fender champ amp low wattage studio grit basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 474,
-  "score": 40.13,
+  "score": 39.961,
   "config": {
     "traditions": [
       "symphonic_power_metal"
@@ -17,30 +17,30 @@
           "electric_technique": "electric_overdriven_lead",
           "amp_make": "amp_american_fender_champ",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
-          "string_material": "pure_nickel_h",
+          "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "poly_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 6.045,
           "body_wood": 4.9399999999999995,
-          "neck_wood": 0,
+          "neck_wood": 0.063,
           "fretboard": 0.3,
           "pickup_magnet": 0.3045,
           "pickup_winding": 0.0735,
-          "string_material": 0,
-          "bridge": 1.69,
+          "string_material": 0.063,
+          "bridge": 1.6465,
           "scale_length": 4.9399999999999995,
-          "string_gauge": 1.6885,
-          "finish": 0,
+          "string_gauge": 1.5835,
+          "finish": 0.0315,
           "string_tuning": 0.39
         }
       },
@@ -61,7 +61,7 @@
           "body_wood": 0.168,
           "pickup_config": 0.168,
           "string_type": 4.875,
-          "scale_length_b": 0.0315,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0.19299999999999998,
           "bass_technique": 4.0360000000000005,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.5984999999999999
         }
       },
@@ -129,9 +129,9 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.46199999999999997,
-          "rompler_context": 0.47250000000000003,
-          "rompler_lineage": 1.573
+          "rompler_preset_bank": 0.49349999999999994,
+          "rompler_context": 0.36750000000000005,
+          "rompler_lineage": 1.468
         }
       }
     ],

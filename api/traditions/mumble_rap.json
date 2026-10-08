@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s Atlanta-and-Florida hip-hop subgenre characterized by sing-song melodic vocal delivery, slurred-and-melodic flow, autotune-saturated treatment, and emotional lyrical content — codified through Future (Dirty Sprite 2 2015, FUTURE 2017), Young Thug (Barter 6 2015), Migos (Culture 2017), Lil Uzi Vert (Luv Is Rage 2 2017), Playboi Carti, with the form serving as the late-2010s mainstream rap evolution",
   "recipe": "classic Southern American 2014-2016 mumble rap, mc Rhythm, experimental branch, us hip hop southern plugg pluggnb. vocal fry, rap, straight note core, interlocked note trading. TR-808, pitched chopped sampler, sub bass digital subtractive. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 433,
-  "score": 249.102,
+  "score": 248.262,
   "config": {
     "traditions": [
       "mumble_rap",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 5.719999999999999,
-          "voice_quality": 21.759999999999998,
+          "voice_quality": 21.475,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.33,
+          "voice_vibrato": 5.39,
           "voice_articulation": 13.519999999999996,
           "voice_microtone": 12.154999999999992,
-          "voice_tradition": 14.185,
+          "voice_tradition": 14.530000000000001,
           "voice_mechanism_compound": 4.615,
           "voice_estill_quality": 4.42,
-          "voice_speech_song": 21.08,
+          "voice_speech_song": 21.035,
           "voice_ensemble_config": 12.674999999999995,
           "voice_ornament_system": 4.420000000000002,
           "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 13.62,
+          "voice_processing_chain": 13.575,
           "voice_multitrack_stack": 15.177499999999997
         }
       },
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.285,
+          "tr808_voice": 8.82,
           "drum_machine_808_context": 2.4699999999999998,
           "tr808_production_origin": 0.845
         }
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.9,
+          "electronic_technique": 7.855,
           "sampler_archetypes": 11.7,
           "sampler_bit_depth": 1.365,
-          "sampler_workflow": 12.65,
+          "sampler_workflow": 12.754999999999999,
           "sampler_classic_context": 24.569999999999997
         }
       },
@@ -90,7 +90,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 14.805,
+          "electronic_technique": 14.34,
           "va_archetypes": 0.3,
           "digital_subtractive_context": 12.544999999999998
         }

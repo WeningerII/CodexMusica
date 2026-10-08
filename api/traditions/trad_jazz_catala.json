@@ -5,7 +5,7 @@
   "lineage": "Catalan traditional jazz sustains New Orleans and early-jazz repertoire through local bands, festivals and arrangements. Groups such as La Vella Dixieland connect this lineage with contemporary performance in Catalunya.",
   "recipe": "classic trad jazz catala, improv On Frame, early branch. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, front line clarinet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow legato saxophone, bach 42 canonical American orchestral tenor front line student commercial trombone, grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 539,
-  "score": 159.27,
+  "score": 160.363,
   "config": {
     "traditions": [
       "trad_jazz_catala"
@@ -24,11 +24,11 @@
         },
         "scores": {
           "wind_articulation": 4.2835,
-          "brass_size": 0,
+          "brass_size": 0.24149999999999996,
           "trumpet_mouthpiece": 17.875,
           "brass_mute": 0.0315,
           "trumpet_technique": 4.2835,
-          "trumpet_bell_metal": 0.51525,
+          "trumpet_bell_metal": 0.65175,
           "trumpet_maker_school": 1.95
         }
       },
@@ -37,15 +37,15 @@
         "slots": {
           "wind_articulation": "wind_dixieland_lead",
           "clarinet_body": "grenadilla_clarinet",
-          "clarinet_size": "contra_clarinet",
+          "clarinet_size": "e_flat_clarinet",
           "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
           "wind_articulation": 4.2835,
           "clarinet_body": 0.9864999999999999,
-          "clarinet_size": 0.105,
-          "clarinet_reed": 0.042749999999999996,
+          "clarinet_size": 0.24149999999999996,
+          "clarinet_reed": 0.31575,
           "clarinet_articulation": 0
         }
       },
@@ -54,7 +54,7 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "baritone_sax",
-          "sax_reed": "medium_reed",
+          "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
@@ -62,10 +62,10 @@
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
-          "sax_size": 0.168,
-          "sax_reed": 0,
+          "sax_size": 0.063,
+          "sax_reed": 0.27299999999999996,
           "sax_body_alloy": 13.75,
-          "sax_mouthpiece": 1.0315,
+          "sax_mouthpiece": 1.063,
           "sax_technique": 13.75,
           "sax_maker_school": 17.81
         }
@@ -87,7 +87,7 @@
           "trombone_mouthpiece": 13.731499999999999,
           "trombone_mute": 0.0315,
           "trombone_technique": 1,
-          "trombone_bell_metal": 0.51525,
+          "trombone_bell_metal": 0.65175,
           "trombone_maker_school": 1.95
         }
       },
@@ -108,7 +108,7 @@
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.063,
           "grand_piano_brand": 0.1365,
-          "piano_hammer": -0.07,
+          "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,

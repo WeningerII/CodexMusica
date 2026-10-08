@@ -5,7 +5,7 @@
   "lineage": "Tunisian rap includes the alternative freestyle and mixtape branch represented by KTYB; this is not a universal account of Tunisian vocal or tuning practices.",
   "recipe": "classic modern rap tunisien, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 292,
-  "score": 31.161,
+  "score": 31.164,
   "config": {
     "traditions": [
       "rap_tunisien"
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

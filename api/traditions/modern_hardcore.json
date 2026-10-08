@@ -5,7 +5,7 @@
   "lineage": "Modern hardcore is represented here by Civilized. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic modern hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 415,
-  "score": 57.655,
+  "score": 57.245,
   "config": {
     "traditions": [
       "modern_hardcore"
@@ -25,14 +25,14 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 9.620000000000001,
           "body_wood": 2.9899999999999998,
-          "neck_wood": 0.40950000000000003,
+          "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 2.7095,
           "pickup_winding": 2.4364999999999997,
@@ -40,7 +40,7 @@
           "bridge": 1.2730000000000001,
           "scale_length": 2.9899999999999998,
           "string_gauge": 1,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0.3
         }
       },
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_modern_modeling",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.3365,
-          "body_wood": 0.8190000000000002,
+          "body_wood": 0.546,
           "pickup_config": 2.4364999999999997,
           "string_type": 4.875,
           "scale_length_b": 2.4364999999999997,
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       }

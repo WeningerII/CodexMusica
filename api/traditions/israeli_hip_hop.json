@@ -5,7 +5,7 @@
   "lineage": "Israeli hip hop encompasses Hebrew, Arabic and multilingual scenes with diverse viewpoints and recording practices. Subliminal’s early TACT/Tel Aviv branch supplies the selected sparse, beat-led Hebrew-rap model.",
   "recipe": "classic modern israeli hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 311,
-  "score": 41.1,
+  "score": 41.184,
   "config": {
     "traditions": [
       "israeli_hip_hop"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.269,
+          "voice_speech_song": 12.35,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 5.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

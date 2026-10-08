@@ -5,7 +5,7 @@
   "lineage": "Belgian pop connects local songwriters and performers through melodic popular music and alternative approaches.",
   "recipe": "classic belgian pop, functional Song, europop branch. duet, live take. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, block chord grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 282,
-  "score": 24.225,
+  "score": 24.404,
   "config": {
     "traditions": [
       "belgian_pop"
@@ -38,7 +38,7 @@
           "pickup_winding": 0.2415,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.8505,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9869999999999999,
+          "voice_ensemble_config": 1.0919999999999999,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.9869999999999999
+          "voice_multitrack_stack": 1.0919999999999999
         }
       },
       {

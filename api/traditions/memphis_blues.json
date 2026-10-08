@@ -3,14 +3,14 @@
   "name": "Memphis Blues",
   "family": "blues_gospel",
   "lineage": "Beale Street blues of Memphis and the Tennessee-Mississippi corridor, named by W.C. Handy in 1912 and shaped 1927-1935 by the Memphis Jug Band, Cannon's Jug Stompers, Memphis Minnie and Furry Lewis before its 1950s electric revival at Sun — 90-140 BPM ragtime-tinged good-time repertoire on guitar, kazoo, harmonica and blown jug, with duet guitar interplay and a hokum-leaning lyric wit.",
-  "recipe": "classic Southern American mid-1930s memphis blues, ballad Poetry, jug band branch, blues narrative hokum blues, blues electric functional song louisiana blues. thick, blues-shouter, wide pitch sway, interlocked note trading. narrative fingerpicked parlor acoustic guitar, traditional ceramic clay jug inst, kazoo, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, adirondack red spruce thomastik flatwound jazz mandolin mandolin, and hand spoons. sun studios memphis 1950-1968 indie-commercial sun studios memphis 706 union. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 658,
-  "score": 418.653,
+  "recipe": "classic Southern American mid-1930s memphis blues, ballad Poetry, jug band branch, blues narrative hokum blues, blues electric functional song harmonica blues. thick, blues-shouter, wide pitch sway, interlocked note trading. narrative fingerpicked parlor acoustic guitar, traditional ceramic clay jug inst, kazoo, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, adirondack red spruce big leaf maple modern American thomastik mandolin, and hand spoons. sun studios memphis 1950-1968 indie-commercial sun studios memphis 706 union. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 665,
+  "score": 430.072,
   "config": {
     "traditions": [
       "memphis_blues",
       "hokum_blues_vaudeville",
-      "louisiana_blues"
+      "harmonica_blues"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 32.870000000000005,
-          "voice_quality": 15.892499999999991,
+          "voice_register": 34.49500000000002,
+          "voice_quality": 16.08749999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 33.21,
-          "voice_articulation": 16.054999999999996,
-          "voice_microtone": 30.35,
+          "voice_vibrato": 33.005,
+          "voice_articulation": 15.664999999999994,
+          "voice_microtone": 30.875,
           "voice_tradition": 17.192500000000003,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 3.835,
-          "voice_speech_song": 21.384999999999994,
-          "voice_ensemble_config": 16.379999999999992,
-          "voice_ornament_system": 1.165,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 4.517499999999999,
+          "voice_speech_song": 20.279999999999994,
+          "voice_ensemble_config": 16.184999999999995,
+          "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 0.845,
-          "voice_processing_chain": 5.055,
-          "voice_multitrack_stack": 2.145
+          "voice_processing_chain": 5.330000000000001,
+          "voice_multitrack_stack": 1.4300000000000002
         }
       },
       {
@@ -64,7 +64,7 @@
         "scores": {
           "acoustic_technique": 8.955,
           "string_tuning": 1.8699999999999999,
-          "top_wood_parlor": 0.195,
+          "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 0.65
         }
@@ -76,8 +76,8 @@
           "jug_technique": "jug_lips_buzzed"
         },
         "scores": {
-          "jug_material": 11.25,
-          "jug_technique": 5.625
+          "jug_material": 12.75,
+          "jug_technique": 6.375
         }
       },
       {
@@ -86,7 +86,7 @@
           "kazoo_construction": "kazoo_metal"
         },
         "scores": {
-          "kazoo_construction": 5.575
+          "kazoo_construction": 6.325
         }
       },
       {
@@ -100,12 +100,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.845,
-          "harmonica_comb": 35.665,
-          "harmonica_reed": 30.455000000000002,
-          "harmonica_technique": 33.06,
-          "harmonica_maker_school": 38.894999999999996,
-          "harmonica_tuning": 15.535000000000002
+          "harmonica_type": 1.04,
+          "harmonica_comb": 36.495000000000005,
+          "harmonica_reed": 30.635,
+          "harmonica_technique": 35.84,
+          "harmonica_maker_school": 39.86,
+          "harmonica_tuning": 16.575000000000003
         }
       },
       {
@@ -114,21 +114,21 @@
           "acoustic_technique": "acoustic_drone_modal",
           "mandolin_shape": "a_style",
           "mandolin_top": "adirondack_m",
-          "mandolin_back": "hard_rock_maple_mandolin",
+          "mandolin_back": "big_leaf_maple",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
           "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 0.52,
-          "mandolin_shape": 0.195,
+          "acoustic_technique": 0.7149999999999999,
+          "mandolin_shape": 0.39,
           "mandolin_top": 1.2349999999999999,
-          "mandolin_back": 0.495,
+          "mandolin_back": 1.4999999999999998,
           "mandolin_bracing": 0.12999999999999998,
-          "mandolin_strings": 1.5274999999999999,
-          "mandolin_fingerboard": 0.195,
-          "mandolin_pickup": 16.054999999999996
+          "mandolin_strings": 2.6649999999999996,
+          "mandolin_fingerboard": 0,
+          "mandolin_pickup": 15.664999999999996
         }
       },
       {
@@ -139,7 +139,7 @@
         },
         "scores": {
           "spoons_material": 0,
-          "spoons_playing": 16.054999999999996
+          "spoons_playing": 16.314999999999998
         }
       }
     ],

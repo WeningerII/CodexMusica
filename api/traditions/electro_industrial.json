@@ -3,14 +3,14 @@
   "name": "Electro-Industrial",
   "family": "electronic",
   "lineage": "Formed in Canada and Belgium circa 1987-1992 by Skinny Puppy, Front Line Assembly and the Antler-Subway roster, layering EBM's 120-135 BPM sequenced bass over multi-tracked sampler collage, dense atmospheric pads, snarled and heavily-effected vocals, and dialogue samples, tracked to DAT and Akai/Emulator sampler racks in mid-sized 1980s studios.",
-  "recipe": "classic North American mid-1990s electro-industrial, experimental Elec, industrial noise branch, techno electronic dance, idm glitch experimental electric, gothic rock distorted rock. thick, breath veiled tone, slow rate, interlocked note trading. low sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm modular modular synth, glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 662,
-  "score": 243.012,
+  "recipe": "classic North American mid-1990s electro-industrial, experimental Elec, industrial noise branch, techno electronic dance, idm glitch experimental electric, gothic rock distorted rock glitchbreak. thick, breath veiled tone, slow rate, interlocked note trading. sub bass analog poly yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm modular modular synth, glitched textural sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 670,
+  "score": 231.707,
   "config": {
     "traditions": [
       "electro_industrial",
       "glitch_hop",
-      "goth"
+      "glitchbreak"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.914999999999994,
-          "voice_quality": 8.385000000000002,
+          "voice_register": 3.240000000000001,
+          "voice_quality": 4.875000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 19.434999999999995,
-          "voice_microtone": 21.57999999999999,
-          "voice_tradition": 9.755,
-          "voice_mechanism_compound": 4.485000000000001,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 16.899999999999995,
+          "voice_microtone": 17.354999999999993,
+          "voice_tradition": 11.63,
+          "voice_mechanism_compound": 3.0550000000000006,
           "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 20.279999999999998,
-          "voice_ensemble_config": 20.149999999999995,
+          "voice_speech_song": 17.094999999999995,
+          "voice_ensemble_config": 17.614999999999995,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 12.239999999999998,
-          "voice_multitrack_stack": 6.465
+          "voice_processing_chain": 16.77,
+          "voice_multitrack_stack": 5.420000000000001
         }
       },
       {
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.035,
-          "poly_archetypes": 4.505,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": 0.78
+          "electronic_technique": 5.345000000000001,
+          "poly_archetypes": 1.8199999999999998,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -74,27 +74,27 @@
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_microsampling_glitch",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 14.375,
-          "sampler_archetypes": 2.0500000000000003,
+          "electronic_technique": 18.125,
+          "sampler_archetypes": 2.2600000000000002,
           "sampler_bit_depth": 1.17,
-          "sampler_workflow": 14.375,
-          "sampler_classic_context": 21.2875
+          "sampler_workflow": 18.125,
+          "sampler_classic_context": 22.5
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_hat",
+          "tr909_voice": "tr909_clap",
           "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 0,
-          "drum_machine_909_context": 0.65,
-          "tr909_production_origin": 1.17
+          "tr909_voice": 1.25,
+          "drum_machine_909_context": 1.3,
+          "tr909_production_origin": 1.8200000000000003
         }
       },
       {
@@ -107,11 +107,11 @@
           "fm_model_lineage": "fm_yamaha_tx81z"
         },
         "scores": {
-          "electronic_technique": 6.035,
-          "fm_algorithm": 2.875,
-          "fm_modulator_ratio": 0.345,
-          "fm_polyphony": 0.24,
-          "fm_model_lineage": 5.525
+          "electronic_technique": 5.345000000000001,
+          "fm_algorithm": 2,
+          "fm_modulator_ratio": 0.3,
+          "fm_polyphony": 0.285,
+          "fm_model_lineage": 5.330000000000001
         }
       },
       {
@@ -119,13 +119,13 @@
         "slots": {
           "electronic_technique": "electronic_modular_patch",
           "mod_voltage_source": "mod_sequencer",
-          "mod_patch_density": "mod_dense_patch",
+          "mod_patch_density": "mod_west_coast",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 14.375,
-          "mod_voltage_source": 1.2349999999999999,
-          "mod_patch_density": 0.39,
+          "electronic_technique": 18.125,
+          "mod_voltage_source": 1.795,
+          "mod_patch_density": 0.65,
           "mod_lineage": 0.975
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Serbian hip hop represented by Marčelo’s socially conscious lyrics and Napeti Quintet’s 2015 festival ensemble.",
   "recipe": "classic mid-2010s serbian hip hop, mc Rhythm, intl hip hop branch. rap. electric bass, drum kit, violin orchestral, trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 260,
-  "score": 14.989,
+  "score": 15.293,
   "config": {
     "traditions": [
       "serbian_hip_hop"
@@ -65,7 +65,7 @@
         "scores": {
           "amp_make": 0.325,
           "body_wood": 0,
-          "pickup_config": 0.235,
+          "pickup_config": 0.3715,
           "string_type": 0.26,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
@@ -122,7 +122,7 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_yamaha_xeno"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 0.9669999999999999,
@@ -130,8 +130,8 @@
           "trumpet_mouthpiece": 0.325,
           "brass_mute": 0.12999999999999998,
           "trumpet_technique": 0.9669999999999999,
-          "trumpet_bell_metal": 0.351,
-          "trumpet_maker_school": 0.5459999999999999
+          "trumpet_bell_metal": 0.48749999999999993,
+          "trumpet_maker_school": 0.5774999999999999
         }
       }
     ],

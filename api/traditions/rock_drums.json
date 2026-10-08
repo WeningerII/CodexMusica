@@ -5,7 +5,7 @@
   "lineage": "Anglo-American practice of the kit as lead voice, running from Sandy Nelson's 1959 tom-driven instrumental singles through the extended concert solos of Ginger Baker, John Bonham and Cozy Powell in 1966-1980 — large-shell kits tuned low and open, multi-mic close-and-room capture through transformer consoles to 15 ips tape, 4/4 backbeat frames at 100-160 BPM, and structured toms-and-cymbal improvisation over a minimal riff.",
   "recipe": "classic British mid-1970s rock drums, distorted Rock, classic branch, American marching groove percussion, jam free improv on frame experimental percussion american drumline. jazz-trained ride-driven brushes-and-sticks drum kit, bass drum, concert projecting nickel silver nickel silver tambourine orch, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder humbucker electric guitar. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 654,
-  "score": 92.49,
+  "score": 93.99,
   "config": {
     "traditions": [
       "rock_drums",
@@ -61,10 +61,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.665000000000001,
+          "amp_make": 6.890000000000001,
           "body_wood": 1.6,
           "pickup_config": 0.195,
-          "string_type": 11.375,
+          "string_type": 11.675,
           "scale_length_b": 1.945,
           "fretted_or_not": 0.195,
           "bass_technique": 11.864999999999998,
@@ -77,8 +77,8 @@
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "alder_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -90,18 +90,18 @@
         },
         "scores": {
           "electric_technique": 1.9,
-          "amp_make": 4.845000000000001,
-          "body_wood": 1.69,
-          "neck_wood": 1.45,
-          "fretboard": 1.45,
+          "amp_make": 5.1450000000000005,
+          "body_wood": 1.495,
+          "neck_wood": 1.645,
+          "fretboard": 1.645,
           "pickup_magnet": 0.78,
           "pickup_winding": 1.69,
-          "string_material": 1.45,
-          "bridge": 3.9449999999999994,
+          "string_material": 1.645,
+          "bridge": 3.7499999999999996,
           "scale_length": 1.625,
-          "string_gauge": 2.2099999999999995,
+          "string_gauge": 2.195,
           "finish": 0.15,
-          "string_tuning": 7.45
+          "string_tuning": 7.945
         }
       }
     ],

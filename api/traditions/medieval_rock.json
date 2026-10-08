@@ -3,14 +3,14 @@
   "name": "Medieval Rock (Mittelalter-Rock)",
   "family": "rock",
   "lineage": "German Mittelalter-Rock, formed in the 1990s when medieval-market ensembles such as Corvus Corax were joined to an amplified rock rhythm section by In Extremo and Subway to Sally — mid-tempo 4/4 riffs on downtuned humbucker guitars doubled by shawm, bagpipe and hurdy-gurdy playing modal Dorian and Aeolian melodies, thunderous davul and floor-tom patterns, and declaimed German or Middle-High-German lyrics.",
-  "recipe": "classic mid-1990s medieval rock, distorted Rock, folk metal branch, western early art music, wind pipe drone modal bagpipe marching band scottish smallpipe music. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit, petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, maple alternative German arundo donax wooden pirouette canonical renaissance shawm, synthetic drone reeds ezeedrone selbie melodic highland bagpipes, davul. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 826,
-  "score": 333.46,
+  "recipe": "classic mid-1990s medieval rock, distorted Rock, folk metal branch, western early art music, wind pipe drone modal cantigas de santa maría gaita mirandesa and pauliteiros. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, maple alternative German shawm, synthetic drone reeds ezeedrone selbie melodic highland bagpipes, davul. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 786,
+  "score": 373.342,
   "config": {
     "traditions": [
       "medieval_rock",
-      "bagpipe_marching_band",
-      "scottish_smallpipe_music"
+      "cantigas_de_santa_maria",
+      "gaita_mirandesa_pauliteiros"
     ],
     "instruments": [
       {
@@ -22,26 +22,26 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 10.795,
           "amp_make": 6.7,
-          "body_wood": 6.715,
-          "neck_wood": 1.645,
-          "fretboard": 1.595,
+          "body_wood": 6.765,
+          "neck_wood": 1.495,
+          "fretboard": 1.445,
           "pickup_magnet": 1.195,
-          "pickup_winding": 0.315,
+          "pickup_winding": 0.65,
           "string_material": 0.36,
-          "bridge": 1.885,
-          "scale_length": 4.874999999999999,
-          "string_gauge": 2.145,
+          "bridge": 2.145,
+          "scale_length": 5.329999999999999,
+          "string_gauge": 1.495,
           "finish": 0,
           "string_tuning": 11.659999999999998
         }
@@ -59,11 +59,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.185,
-          "body_wood": 2.0799999999999996,
-          "pickup_config": 0.195,
+          "amp_make": 8.684999999999999,
+          "body_wood": 1.69,
+          "pickup_config": 1.105,
           "string_type": 17.315,
-          "scale_length_b": 1.645,
+          "scale_length_b": 1.495,
           "fretted_or_not": 0,
           "bass_technique": 17.95,
           "electric_bass_string_configuration": 0
@@ -72,13 +72,13 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.299999999999997,
-          "drumhead": 2.54,
+          "drum_technique": 19.629999999999995,
+          "drumhead": 2.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -93,12 +93,12 @@
           "hurdy_tradition": "hurdy_french_bal_folk"
         },
         "scores": {
-          "bowed_technique": 0.09999999999999999,
-          "hurdy_strings": 7.984999999999999,
-          "hurdy_buzz": 6.034999999999999,
+          "bowed_technique": 1.25,
+          "hurdy_strings": 7.885,
+          "hurdy_buzz": 5.935,
           "hurdy_wheel_rosin": 1.215,
-          "hurdy_string_material": 2.295,
-          "hurdy_tradition": 2.19
+          "hurdy_string_material": 2.4949999999999997,
+          "hurdy_tradition": 2.04
         }
       },
       {
@@ -111,11 +111,11 @@
           "shawm_reed": "shawm_arundo_pirouette"
         },
         "scores": {
-          "wind_articulation": 1.8449999999999998,
-          "shawm_pitch": 2.84,
-          "shawm_context": 2.69,
+          "wind_articulation": -0.10500000000000002,
+          "shawm_pitch": 3.19,
+          "shawm_context": 3.19,
           "shawm_body_wood": 3.6449999999999996,
-          "shawm_reed": 1.8
+          "shawm_reed": 0.65
         }
       },
       {
@@ -123,18 +123,18 @@
         "slots": {
           "wind_articulation": "wind_folk_melodic",
           "highland_drones": "highland_3_drones",
-          "highland_chanter": "highland_blackwood",
+          "highland_chanter": "highland_polypenco",
           "highland_drone_reeds": "highland_synthetic_drone_reeds",
           "highland_chanter_reed": "highland_cane_chanter_reed",
           "highland_bag": "highland_synthetic_bag"
         },
         "scores": {
-          "wind_articulation": 7.405,
-          "highland_drones": 0.15,
-          "highland_chanter": 0.585,
-          "highland_drone_reeds": 4.095,
-          "highland_chanter_reed": 0.9749999999999999,
-          "highland_bag": 0.845
+          "wind_articulation": 5.73,
+          "highland_drones": 0,
+          "highland_chanter": 0.65,
+          "highland_drone_reeds": 3.3149999999999995,
+          "highland_chanter_reed": 0.195,
+          "highland_bag": 0.65
         }
       },
       {
@@ -145,9 +145,9 @@
           "davul_head_material": "davul_synthetic"
         },
         "scores": {
-          "davul_form": 0.745,
-          "davul_context": 18.069999999999997,
-          "davul_head_material": 0.375
+          "davul_form": 1.045,
+          "davul_context": 21.96999999999999,
+          "davul_head_material": 1.25
         }
       },
       {
@@ -162,31 +162,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 22.179999999999996,
-          "voice_quality": 7.540000000000001,
+          "voice_register": 23.129999999999995,
+          "voice_quality": 18.199999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7950000000000004,
-          "voice_articulation": 15.339999999999995,
-          "voice_microtone": 21.77,
-          "voice_tradition": 15.849999999999996,
+          "voice_vibrato": 4.907500000000001,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 22.845,
+          "voice_tradition": 12.725,
           "voice_mechanism_compound": 10.699999999999998,
-          "voice_estill_quality": 4.16,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 15.079999999999993,
-          "voice_ornament_system": 2.890000000000001,
-          "voice_pitch_organization": 8.93,
-          "voice_processing_chain": 4.65,
-          "voice_multitrack_stack": 3.5100000000000002
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 20.604999999999997,
+          "voice_ensemble_config": 18.849999999999994,
+          "voice_ornament_system": 1.95,
+          "voice_pitch_organization": 11.305,
+          "voice_processing_chain": 8.125,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       }
     ],

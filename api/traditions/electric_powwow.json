@@ -1,0 +1,180 @@
+{
+  "id": "electric_powwow",
+  "name": "Electric powwow (powwow-step)",
+  "family": "electronic",
+  "lineage": "Club music from Ottawa, where the DJ collective A Tribe Called Red, formed in 2007 and later renamed The Halluci Nation, ran Electric Pow Wow nights that mixed recordings of powwow drum groups with hip hop, moombahton and dubstep beats. This powwow-step sound set drum-group songs over bass-heavy electronic production; the group's records appeared on Tribal Spirit and Radicalized Records, and it won the 2014 Juno Award for Breakthrough Group of the Year. The powwow-drum and voice cards stand for the sampled drum-group recordings.",
+  "recipe": "classic late-2000s electric powwow, bass System, bass descendants branch, indigenous ritual devotional bodo kherai and bagurumba music. single leader group response, single lead single track no stacking. powwow drum circle, credited samples daw percussion source daw bass source unspecified. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 437,
+  "score": 15.185,
+  "config": {
+    "traditions": [
+      "electric_powwow",
+      "bodo_kherai_bagurumba"
+    ],
+    "instruments": [
+      {
+        "id": "powwow_drum_circle",
+        "slots": {
+          "members": "pw_lead_singer",
+          "style": "pw_northern"
+        },
+        "scores": {
+          "members": 0.585,
+          "style": 0.885
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 5.3950000000000005,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.15,
+          "voice_multitrack_stack": 1.8449999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "credited_samples_unspecified",
+        "slots": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        },
+        "scores": {
+          "credited_samples_identity": 0
+        }
+      },
+      {
+        "id": "daw_percussion_source_unspecified",
+        "slots": {
+          "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_percussion_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_bass_source_unspecified",
+        "slots": {
+          "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_bass_source_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "powwow_drum_circle": [
+        "members",
+        "style"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ],
+      "daw_percussion_source_unspecified": [
+        "daw_percussion_source_unspecified_identity"
+      ],
+      "daw_bass_source_unspecified": [
+        "daw_bass_source_unspecified_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "members": "pw_lead_singer",
+      "style": "pw_northern",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "credited_samples_identity": "credited_samples_source_unspecified",
+      "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified",
+      "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

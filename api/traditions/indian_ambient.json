@@ -3,9 +3,9 @@
   "name": "Indian ambient",
   "family": "electronic",
   "lineage": "Ambient work combining Indian classical melodic instruments and contemporary electronic production also operates across the diaspora. The selected sitar-led branch follows Al Gromer Khan’s documented Vilayat Khani training and sitar/synth recordings. This grouping does not imply a single religion, an exclusively Indian production location or one compulsory raga. Performer-relative tuning avoids asserting measured interval ratios; construction and recording settings remain authored choices.",
-  "recipe": "classic indian ambient, experimental Elec, ambient branch, overtone drone modal. sitar, pad like pad analog synth. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
-  "recipe_chars": 221,
-  "score": 25.595,
+  "recipe": "classic indian ambient, experimental Elec, ambient branch, overtone drone modal. bronze steel modern canon high tensile sitar, pad like pad analog synth. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
+  "recipe_chars": 260,
+  "score": 26.413,
   "config": {
     "traditions": [
       "indian_ambient"
@@ -26,15 +26,15 @@
           "sitar_gharana": "sitar_imdadkhani_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 3.9254285714285713,
+          "plucked_traditional_technique": 4.03,
           "sitar_neck": 0.39,
           "sitar_resonator": 1.3,
           "sitar_jawari": 0.9099999999999999,
-          "sitar_taraf": 0.435,
+          "sitar_taraf": 0.6544017857142856,
           "sitar_frets": 0.3,
           "sitar_pluck": 1,
-          "sitar_main_strings": 0.84,
-          "sitar_jawari_style": 0.15,
+          "sitar_main_strings": 1.0573124999999999,
+          "sitar_jawari_style": 0,
           "sitar_gharana": 0
         }
       },
@@ -48,10 +48,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 10.575428571428569,
-          "oscillator": 1.1999999999999997,
+          "electronic_technique": 10.713830357142855,
+          "oscillator": 0.9600000000000001,
           "filter_topology": 0.39,
-          "envelope": 4.179285714285714,
+          "envelope": 4.707419642857142,
           "modulation": 0
         }
       }

@@ -3,14 +3,14 @@
   "name": "Música Jíbara",
   "family": "global",
   "lineage": "The mountain peasant music of Puerto Rico's interior, descended from Andalusian and Canarian song brought in the seventeenth and eighteenth centuries and codified on record from the 1930s-50s by Ramito and Chuíto el de Bayamón — built on the seis and aguinaldo in duple and triple metres, sung as improvised décimas in ten-line espinela rhyme with a high nasal tenor, over strummed cuatro puertorriqueño, guitar, bordonúa, güiro and maracas.",
-  "recipe": "classic North American mid-1930s música jíbara, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian functional song música llanera polca paraguaya. nasal, straight note core, small note groups per syllable. mahogany puerto rican traditional strummed cuatro pr, cedar fingerpicked classical nylon-string guitar, bordonua, guiro, maracas. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 523,
-  "score": 28.317,
+  "recipe": "classic North American mid-1930s música jíbara, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian functional song polca paraguaya folklore venezolano. nasal, small note groups per syllable, equal tempered 12 fixed pitch. mahogany puerto rican traditional cuatro pr, cedar fingerpicked classical nylon-string guitar, bordonua, guiro, maracas. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 530,
+  "score": 28.55,
   "config": {
     "traditions": [
       "musica_jibara",
-      "musica_llanera",
-      "polca_paraguaya"
+      "polca_paraguaya",
+      "folklore_venezolano"
     ],
     "instruments": [
       {
@@ -23,10 +23,10 @@
           "cuatro_pr_string_material": "cuatro_pr_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 3.575,
+          "plucked_traditional_technique": 2.925,
           "cuatro_pr_config": -1.205,
-          "cuatro_pr_context": 3.25,
-          "cuatro_pr_body_wood": 1.69,
+          "cuatro_pr_context": 4.095,
+          "cuatro_pr_body_wood": 2.34,
           "cuatro_pr_string_material": -1.155
         }
       },
@@ -37,27 +37,27 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "nylon_normal_cl",
+          "string_classical": "nylon_high_cl",
           "attack_technique_cl": "rasgueado_cl"
         },
         "scores": {
           "acoustic_technique": 3.1,
           "string_tuning": 0,
-          "top_wood_classical": 9.035,
-          "bracing_classical": 0.65,
-          "string_classical": 0.12999999999999998,
-          "attack_technique_cl": 0.325
+          "top_wood_classical": 9.555,
+          "bracing_classical": 1.95,
+          "string_classical": 0,
+          "attack_technique_cl": 0.75
         }
       },
       {
         "id": "bordonua",
         "slots": {
-          "bordonua_form": "bordonua_antigua",
+          "bordonua_form": "bordonua_moderna",
           "bordonua_role": "bordonua_strum"
         },
         "scores": {
-          "bordonua_form": 0.65,
-          "bordonua_role": 2.8825
+          "bordonua_form": 0.15,
+          "bordonua_role": 1.545
         }
       },
       {
@@ -68,7 +68,7 @@
         },
         "scores": {
           "guiro_origin": 0.75,
-          "guiro_striker": 0.78
+          "guiro_striker": 0.65
         }
       },
       {
@@ -78,8 +78,8 @@
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.78,
-          "maracas_filling": 0.78
+          "maracas_construction": 0.65,
+          "maracas_filling": 0.65
         }
       },
       {
@@ -104,20 +104,20 @@
           "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "voice_register": -0.08750000000000002,
+          "voice_register": -0.38499999999999995,
           "voice_quality": 0.95,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7474999999999998,
+          "voice_vibrato": 0.19500000000000003,
           "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.65,
+          "voice_speech_song": 1.3,
           "voice_ensemble_config": -0.15000000000000002,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.3,
+          "voice_pitch_organization": 0.8,
           "voice_processing_chain": 0.15,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0

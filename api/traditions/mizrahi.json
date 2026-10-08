@@ -1,23 +1,24 @@
 {
-  "id": "mizrahi",
-  "name": "Mizrahi (Israeli Mediterranean Music)",
+  "id": "mizrahi_israeli",
+  "merged_from": "mizrahi",
+  "name": "Mizrahi (Israeli)",
   "family": "global",
-  "lineage": "Israeli urban style formed in the 1970s among Yemenite, Iraqi, Moroccan and Turkish immigrant communities of south Tel Aviv and Jerusalem's Kerem HaTeimanim, circulated on kiosk cassettes ('musiqa qassetot') and codified by Zohar Argov, Daklon and arranger Moshe Ben-Mush — Hebrew lyrics sung with dense Arab-style silsulim melisma over 4/4 or 8/8 darbuka-and-bass grooves at 100-130 BPM, with electric guitar or bouzouki playing oud-derived maqam lines against synthesizer strings.",
-  "recipe": "classic North African mid-1970s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song uzbek traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 845,
-  "score": 335.315,
+  "lineage": "Israeli Eastern-Jewish popular tradition descended from Yemenite, Iraqi, Moroccan, and Persian Jewish communities — codified through Zohar Argov, Ofra Haza (whose 1988 Im Nin’Alu became an international crossover), Eyal Golan, and the broader Mizrahi recording scene; characterized by Hebrew vocals over Arabic-maqam-derived melodic vocabulary",
+  "recipe": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, alder electric bass. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 522,
+  "score": 186.282,
   "config": {
     "traditions": [
-      "mizrahi",
-      "khaleeji_iraqi",
-      "uzbek_traditional"
+      "mizrahi_israeli",
+      "iraqi_maqam",
+      "malhun_maghrebi"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -30,32 +31,32 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.160000000000002,
-          "voice_quality": 10.984999999999994,
+          "voice_register": 6.985000000000002,
+          "voice_quality": 9.889999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.765,
-          "voice_articulation": 17.224999999999998,
-          "voice_microtone": 31.524999999999995,
-          "voice_tradition": 15.705,
-          "voice_mechanism_compound": 13.315,
-          "voice_estill_quality": 8.765,
-          "voice_speech_song": 20.019999999999996,
-          "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 15.690000000000003,
-          "voice_pitch_organization": 16.335,
-          "voice_processing_chain": 7.340000000000001,
-          "voice_multitrack_stack": 3.3950000000000005
+          "voice_vibrato": 7.3125,
+          "voice_articulation": 6.24,
+          "voice_microtone": 20.3125,
+          "voice_tradition": 15.48,
+          "voice_mechanism_compound": 13.540000000000001,
+          "voice_estill_quality": 6.0775,
+          "voice_speech_song": 8.19,
+          "voice_ensemble_config": 6.175,
+          "voice_ornament_system": 14.015,
+          "voice_pitch_organization": 14.315000000000001,
+          "voice_processing_chain": 2.9899999999999998,
+          "voice_multitrack_stack": 4.485
         }
       },
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
+          "plucked_traditional_technique": "plucked_drone_modal",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
@@ -64,49 +65,28 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 7.745000000000001,
-          "oud_school": 4.53,
-          "oud_strings": 3.5100000000000002,
-          "oud_pick": 2.83,
-          "oud_body_wood": 4.2,
-          "oud_soundboard_wood": 4.405,
-          "oud_string_material": 2.99
-        }
-      },
-      {
-        "id": "qanun",
-        "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
-          "qanun_strings": "qanun_arab_72",
-          "qanun_levers": "mandal_brass",
-          "qanun_pick": "qanun_finger_picks",
-          "qanun_body_wood": "qanun_rosewood_body",
-          "qanun_bridge_skin": "qanun_fish_skin_bridge",
-          "qanun_string_material": "qanun_nylon_modern"
-        },
-        "scores": {
-          "plucked_traditional_technique": 7.745000000000001,
-          "qanun_strings": 3.5100000000000002,
-          "qanun_levers": 0.09,
-          "qanun_pick": 3.705,
-          "qanun_body_wood": 2.5350000000000006,
-          "qanun_bridge_skin": 0.15,
-          "qanun_string_material": 0.6299999999999999
+          "plucked_traditional_technique": 5.415,
+          "oud_school": 4.08,
+          "oud_strings": 2.145,
+          "oud_pick": 1.95,
+          "oud_body_wood": 3,
+          "oud_soundboard_wood": 1.7550000000000001,
+          "oud_string_material": 4.025
         }
       },
       {
         "id": "darbuka",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "darbuka_material": "darbuka_clay_traditional",
-          "darbuka_skin": "darbuka_goat_skin",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
           "darbuka_regional_style": "darbuka_iraqi_zarb"
         },
         "scores": {
-          "percussion_technique": 1.1999999999999997,
-          "darbuka_material": 0.46499999999999997,
-          "darbuka_skin": 3.795,
-          "darbuka_regional_style": 5.38
+          "percussion_technique": -0.07,
+          "darbuka_material": 0.5,
+          "darbuka_skin": 0.545,
+          "darbuka_regional_style": 4.38
         }
       },
       {
@@ -118,27 +98,27 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "nickel_plated",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "dadgad",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.5,
-          "amp_make": 2.5300000000000007,
-          "body_wood": 2.545,
-          "neck_wood": 2.545,
-          "fretboard": 2.495,
+          "electric_technique": 5.2,
+          "amp_make": 2.03,
+          "body_wood": 1.695,
+          "neck_wood": 1.695,
+          "fretboard": 1.645,
           "pickup_magnet": 0.195,
-          "string_material": 0.15,
-          "string_gauge": 3.055,
+          "string_material": 0,
+          "string_gauge": 1.95,
           "bridge": 0.495,
-          "scale_length": 2.74,
-          "finish": 0,
-          "string_tuning": 0.65,
+          "scale_length": 1.8900000000000001,
+          "finish": 0.5,
+          "string_tuning": 1.95,
           "single_coil_pickup_construction": 0
         }
       },
@@ -148,62 +128,34 @@
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "half_round",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.3450000000000006,
-          "body_wood": 2.845,
+          "amp_make": 1.4949999999999999,
+          "body_wood": 1.95,
           "pickup_config": 0.495,
-          "string_type": 3.9450000000000003,
-          "scale_length_b": 2.545,
-          "fretted_or_not": 0.39,
-          "bass_technique": 1.545,
+          "string_type": 1.935,
+          "scale_length_b": 1.695,
+          "fretted_or_not": 0.195,
+          "bass_technique": -0.035,
           "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
-        },
-        "scores": {
-          "drum_technique": 17.485,
-          "drumhead": 6.9300000000000015,
-          "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
-        },
-        "scores": {
-          "electronic_technique": 7.220000000000001,
-          "poly_archetypes": 0.39,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": 3.1
         }
       }
     ],
-    "room": "stone_plaster_medina_room",
+    "room": "live_room",
     "archetype": "arch_eastmed_cassette_kiosk",
     "inline_chain": {
-      "mic": "condenser_ldc",
+      "mic": "dynamic_mic",
       "pre": "transformer_solid_state",
-      "console": "console_british_inline_80s",
-      "comp": "comp_dbx_160_vca",
-      "eq": null,
-      "amp": null,
-      "medium": "cassette_medium"
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
     },
     "tuning": "maqam_24edo",
     "aesthetic": null,
@@ -212,11 +164,47 @@
   },
   "source": {
     "tuning": "maqam_24edo",
-    "room": "stone_plaster_medina_room",
-    "chain_mic": "condenser_ldc",
+    "room": "live_room",
+    "parts": {
+      "body_wood": "alder",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "pickup_config": "split_coil",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "oud_school": "oud_turkish",
+      "oud_strings": "oud_eleven",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_turkish_split",
+      "string_tuning": "standard_tuning"
+    },
+    "chain_mic": "dynamic_mic",
     "chain_pre": "transformer_solid_state",
-    "chain_comp": "comp_dbx_160_vca",
-    "chain_medium": "cassette_medium",
-    "chain_console": "console_british_inline_80s"
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

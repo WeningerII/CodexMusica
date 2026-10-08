@@ -254,6 +254,24 @@ function seedDiff(idA, idB, weight, opts) {
 let seed = null;
 const trace = flags.trace;
 
+// A retired (merged) tradition id resolves to the tradition it was merged into,
+// before anything below validates or seeds from it. The note goes to stderr so
+// the recipe on stdout is exactly the surviving tradition's.
+const resolveTradFlag = (id) => {
+  const live = C.resolveTraditionId(id);
+  if (live !== id) console.error(`note: "${id}" was merged into "${live}"; using "${live}".`);
+  return live;
+};
+if (typeof flags.tradition === 'string') flags.tradition = resolveTradFlag(flags.tradition.trim());
+if (typeof flags.traditions === 'string')
+  flags.traditions = flags.traditions
+    .split(',')
+    .map((x) => x.trim())
+    .filter(Boolean)
+    .map(resolveTradFlag)
+    .join(',');
+if (flags.diff) positional.splice(0, 2, ...positional.slice(0, 2).map(resolveTradFlag));
+
 // Determine primary + staple ids so parseOpts can resolve --exclude-instrument
 // against the actual instrument universe of this run.
 let primaryTradId = null;

@@ -1,0 +1,252 @@
+{
+  "id": "gezaixi_taiwanese_opera",
+  "name": "Gezaixi (Taiwanese opera)",
+  "family": "global",
+  "lineage": "Hokkien-language opera that took shape in the Yilan area of Taiwan in the early twentieth century from gezai song and local folk theatre, spread to southern Fujian and the Minnan diaspora, and is on China's national intangible heritage list (2006); it was recorded on 78s in the 1930s and later on radio and television. Its core accompaniment is the 'four pillars' of kezaixian coconut fiddle, daguangxian, yueqin and bamboo flute (the generic bamboo-flute card stands in for it), with gongs and cymbals for stage action, and its arias rest on the seven-character tune and the weeping tunes.",
+  "recipe": "classic mid-1930s gezaixi, art Music, east Asian branch. solo with instrumental accompaniment, single lead single track no stacking. coconut shell bright piercing ensemble lead kezaixian, wutong paulownia sustained daguangxian, yueqin, bamboo credited bamboo flute unspecified, opera bending gong tamtam, naobo. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 391,
+  "score": 26.857,
+  "config": {
+    "traditions": [
+      "gezaixi_taiwanese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.9899999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.58975,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "kezaixian",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kezaixian_shell": "kezaixian_shell_thin",
+          "kezaixian_strings": "dutar_strings_unspecified",
+          "kezaixian_context": "kezaixian_context_gezaixi"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "kezaixian_shell": 3.97425,
+          "kezaixian_strings": 0,
+          "kezaixian_context": 5.4662500000000005
+        }
+      },
+      {
+        "id": "daguangxian",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "daguangxian_body": "daguangxian_body_pandanus",
+          "daguangxian_strings": "dutar_strings_unspecified",
+          "daguangxian_idiom": "daguangxian_idiom_khautiau"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "daguangxian_body": 2.555,
+          "daguangxian_strings": 0,
+          "daguangxian_idiom": 5.013
+        }
+      },
+      {
+        "id": "yueqin",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "yueqin_use": "yueqin_solo",
+          "yueqin_construction": "yueqin_snake_skin",
+          "yueqin_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "yueqin_use": 1.27975,
+          "yueqin_construction": 0.03899999999999999,
+          "yueqin_strings": 0
+        }
+      },
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 2.4154999999999998,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_opera_bending",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 2.6,
+          "gong_striker": 0.0315
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.0945,
+          "naobo_stroke": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "kezaixian": [
+        "bowed_technique",
+        "kezaixian_shell",
+        "kezaixian_strings",
+        "kezaixian_context"
+      ],
+      "daguangxian": [
+        "bowed_technique",
+        "daguangxian_body",
+        "daguangxian_strings",
+        "daguangxian_idiom"
+      ],
+      "yueqin": [
+        "plucked_traditional_technique",
+        "yueqin_use",
+        "yueqin_construction",
+        "yueqin_strings"
+      ],
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "kezaixian_shell": "kezaixian_shell_thin",
+      "kezaixian_strings": "dutar_strings_unspecified",
+      "kezaixian_context": "kezaixian_context_gezaixi",
+      "daguangxian_body": "daguangxian_body_pandanus",
+      "daguangxian_strings": "dutar_strings_unspecified",
+      "daguangxian_idiom": "daguangxian_idiom_khautiau",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "yueqin_use": "yueqin_solo",
+      "yueqin_construction": "yueqin_snake_skin",
+      "yueqin_strings": "dutar_strings_unspecified",
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "gong_type": "gong_opera_bending",
+      "gong_striker": "gong_soft_mallet",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

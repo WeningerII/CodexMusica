@@ -5,7 +5,7 @@
   "lineage": "Scottish jazz encompasses contemporary composition and improvisation alongside exchanges with local folk traditions and international jazz. Folk-informed melodic figures are one strand of a wider scene of ensembles and individual instrumental voices.",
   "recipe": "classic modern scottish jazz, improv On Frame, American jazz branch. 17 ply hard rock maple a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 363,
-  "score": 57.14,
+  "score": 57.095,
   "config": {
     "traditions": [
       "scottish_jazz"
@@ -25,12 +25,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
           "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": 1.17,
-          "piano_soundboard": 0.26,
+          "piano_soundboard": 0.2,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": 1.2349999999999999

@@ -5,7 +5,7 @@
   "lineage": "Firenze indie connects independent bands and songwriters around Florence. Acoustic reinterpretations and fuller rock arrangements offer different approaches within the local scene.",
   "recipe": "classic firenze indie, distorted Rock, alternative branch. unprocessed natural acoustic. dreadnought acoustic low mid rich spectrum cedar classical nylon-string guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, modern setup longer neck longer fingerboard heavier bass bar violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 452,
-  "score": 45.736,
+  "score": 46.188,
   "config": {
     "traditions": [
       "firenze_indie"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.168,
+          "voice_processing_chain": 1.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -66,7 +66,7 @@
           "string_tuning": 0,
           "top_wood": 0.168,
           "back_sides": -0.05,
-          "string_acoustic": 0.105
+          "string_acoustic": 0.2415
         }
       },
       {
@@ -82,7 +82,7 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 1.8165000000000004,
+          "top_wood_classical": 1.9215000000000004,
           "bracing_classical": 0,
           "string_classical": 0.3,
           "attack_technique_cl": 0.3
@@ -102,7 +102,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.441,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -132,7 +132,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 8.681499999999998,

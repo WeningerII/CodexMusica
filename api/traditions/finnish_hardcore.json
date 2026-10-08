@@ -3,9 +3,9 @@
   "name": "Finnish hardcore",
   "family": "rock_punk",
   "lineage": "Finnish hardcore includes continuations of the country’s early-1980s punk practice.",
-  "recipe": "classic 1980-1983 finnish hardcore, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 386,
-  "score": 36.331,
+  "recipe": "classic 1980-1983 finnish hardcore, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 36.348,
   "config": {
     "traditions": [
       "finnish_hardcore"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 14.43,
-          "body_wood": 1.1655,
+          "body_wood": 1.239,
           "neck_wood": 0.063,
-          "fretboard": 0,
+          "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0,
+          "bridge": 0.1365,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -57,8 +57,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.055,
-          "body_wood": 1.1655,
+          "amp_make": 2.7595,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.162,
+          "voice_ensemble_config": 0.108,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.162,
+          "voice_multitrack_stack": 0.108,
           "voice_tessitura": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Phoenix independent rock, including a prominent melodic punk-rock strand.",
   "recipe": "classic phoenix indie, distorted Rock, punk branch. group vocals, live take. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 223,
-  "score": 39.534,
+  "score": 39.124,
   "config": {
     "traditions": [
       "phoenix_indie"
@@ -78,8 +78,8 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
-          "bridge": 0.40950000000000003,
-          "scale_length": 0.8190000000000002,
+          "bridge": 0.273,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

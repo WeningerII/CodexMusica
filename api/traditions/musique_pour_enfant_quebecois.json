@@ -5,7 +5,7 @@
   "lineage": "Québec children’s music, connecting French-language songwriting with play, imagination and everyday experience.",
   "recipe": "classic musique pour enfant québécois, functional Song. group vocals. acoustic guitar, harmonica, credited auxiliary percussion, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 246,
-  "score": 1.171,
+  "score": 1.225,
   "config": {
     "traditions": [
       "musique_pour_enfant_quebecois"
@@ -80,7 +80,7 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.1365,
+          "harmonica_type": 0.1905,
           "harmonica_comb": -0.07,
           "harmonica_reed": -0.07,
           "harmonica_technique": -0.15000000000000002,

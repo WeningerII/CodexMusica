@@ -5,7 +5,7 @@
   "lineage": "Plug brasileiro connects Brazilian rappers and producers through internet releases, melodic experimentation and self-produced beats. The local network adapts the spacious beat vocabulary of plugg to Portuguese-language expression, with some artists also drawing on samba, arrocha and other Brazilian song forms.",
   "recipe": "classic plug brasileiro, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. bedroom.",
   "recipe_chars": 166,
-  "score": 11.284,
+  "score": 11.316,
   "config": {
     "traditions": [
       "plug_brasileiro"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.03899999999999999,
+          "voice_articulation": 0.0705,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,

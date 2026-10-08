@@ -3,9 +3,9 @@
   "name": "San diego rap",
   "family": "hip_hop",
   "lineage": "San Diego rap represented by Vokab Kompany’s two-MC hip-hop, funk and electronic crossover band.",
-  "recipe": "classic modern san diego rap, mc Rhythm, intl hip hop branch. rap, single lead single track no stacking. pocket fingerstyle locked electric bass, drum kit, grand piano, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 315,
-  "score": 20.309,
+  "recipe": "classic modern san diego rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. pocket fingerstyle locked electric bass, drum kit, grand piano, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 353,
+  "score": 21.29,
   "config": {
     "traditions": [
       "san_diego_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.52975,
+          "voice_quality": 14.625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3847499999999999,
+          "voice_ensemble_config": 0.615,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.6855
+          "voice_multitrack_stack": 0.6427499999999999
         }
       },
       {
@@ -56,18 +56,18 @@
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.325,
+          "amp_make": 0.32425,
           "body_wood": 0,
-          "pickup_config": 0.105,
-          "string_type": 0.26,
-          "scale_length_b": 0.105,
+          "pickup_config": 0.4515,
+          "string_type": 0.315,
+          "scale_length_b": 0.1785,
           "fretted_or_not": 0,
           "bass_technique": 2.4000000000000004,
           "electric_bass_string_configuration": 0
@@ -90,7 +90,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_5_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "abel_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
@@ -101,8 +101,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.3045,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.5774999999999999,
           "piano_hammer": 0.2,
           "piano_rim": -0.035,
           "piano_soundboard": -0.035,
@@ -117,7 +117,7 @@
           "wind_articulation": "wind_cool_lyrical",
           "sax_size": "soprano_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_cool_lyrical",
           "sax_maker_school": "sax_yamaha_custom"
@@ -126,10 +126,10 @@
           "wind_articulation": -0.035,
           "sax_size": 0,
           "sax_reed": 0.1365,
-          "sax_body_alloy": -0.05,
+          "sax_body_alloy": -0.035,
           "sax_mouthpiece": 0.1365,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.5459999999999999
+          "sax_maker_school": 0.588
         }
       }
     ],

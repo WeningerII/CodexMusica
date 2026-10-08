@@ -3,14 +3,14 @@
   "name": "Xhosa umngqokolo overtone singing",
   "family": "global",
   "lineage": "Xhosa overtone-singing tradition of the Lumko / Ngqoko region of the Eastern Cape, South Africa — one of only a handful of split-tone overtone vocal practices documented globally and the only sub-Saharan African instance. Women produce a sustained chest-register fundamental while shaping mouth-resonance to amplify upper partials of the harmonic series into a clearly audible whistle-tone melody floating above the fundamental. The uhadi gourd-resonator mouth-bow accompanies, with the player's mouth serving as a second resonance chamber that the bow's single struck string excites — producing a parallel split-tone effect in the instrumental voice. Dave Dargie's 1985-1988 Lumko fieldwork (Xhosa Music: Its Techniques and Instruments, David Philip 1988) and his AIMP / VDE-Gallo CD-879 South Africa: Xhosa Women's Songs (1996) constitute the documentary canon, with NoFinishi Dywili as the principal informant. The Ngqoko Women's Ensemble (founded 1983) has carried the tradition into the international circuit, with NoWayilethi Mbizweni among the second-generation performers. Distinguished from Tuvan and Mongolian khoomei by Xhosa's women-only practice and chest-register (rather than throat-tension) fundamental production; distinguished from Sardinian cantu a tenore guttural overtone by Xhosa's single-voice split-tone vs Sardinian four-voice ensemble configuration.",
-  "recipe": "classic Southern African 1985-1988 xhosa umngqokolo overtone singing, drone Modal, overtone branch, vocal drone modal corsican paghjella three-voice unaccompanied albanian iso-polyphony. sygyt, breath veiled tone, breath pulsed, interlocked note trading. gourd resonator single string struck mouth overtone canonical xhosa umngqokolo overtone singing canonical eastern cape uhadi. eastern cape outdoor grassland. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 475,
-  "score": 357.052,
+  "recipe": "classic Southern African 1985-1988 xhosa umngqokolo overtone singing, drone Modal, overtone branch, vocal drone modal corsican paghjella three-voice unaccompanied apsua song. sygyt, breath veiled tone, breath pulsed, interlocked note trading. gourd resonator single string struck mouth overtone canonical xhosa umngqokolo overtone singing canonical eastern cape uhadi. eastern cape outdoor grassland. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 463,
+  "score": 309.53,
   "config": {
     "traditions": [
       "xhosa_umngqokolo_overtone",
       "corsican_paghjella",
-      "albanian_iso_polyphony"
+      "abkhaz_polyphonic_song"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_tape_saturation",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 20.2595,
-          "voice_quality": 44.78650000000004,
+          "voice_quality": 39.52000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.9545,
-          "voice_articulation": 28.3725,
-          "voice_microtone": 23.725,
-          "voice_tradition": 27.625,
+          "voice_articulation": 22.327499999999997,
+          "voice_microtone": 19.369999999999994,
+          "voice_tradition": 27.559999999999995,
           "voice_mechanism_compound": 17.659999999999997,
-          "voice_estill_quality": 10.399999999999997,
-          "voice_speech_song": 22.685,
-          "voice_ensemble_config": 45.14250000000001,
-          "voice_ornament_system": 13.844999999999999,
-          "voice_pitch_organization": 28.076999999999998,
-          "voice_processing_chain": 15.794999999999998,
-          "voice_multitrack_stack": 6.695
+          "voice_estill_quality": 9.36,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 26.194999999999997,
+          "voice_ornament_system": 11.59,
+          "voice_pitch_organization": 26.776999999999997,
+          "voice_processing_chain": 10.919999999999998,
+          "voice_multitrack_stack": 6.045
         }
       },
       {
@@ -59,7 +59,7 @@
           "uhadi_tradition": "uhadi_umngqokolo_canonical"
         },
         "scores": {
-          "uhadi_body": 27.0935,
+          "uhadi_body": 27.893499999999996,
           "uhadi_tradition": 15.6985
         }
       }

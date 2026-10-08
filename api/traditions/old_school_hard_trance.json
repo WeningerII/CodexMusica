@@ -1,50 +1,158 @@
 {
-  "id": "old_school_hard_trance",
-  "name": "Old School Hard Trance",
+  "id": "hard_trance",
+  "merged_from": "old_school_hard_trance",
+  "name": "Hard Trance",
   "family": "electronic",
-  "lineage": "Old school hard trance revisits the driving trance records of the 1990s and their continuing life in DJ sets, collector communities and revival releases. Noom and related European rave catalogues connect hard kicks, acid-tinged sequences and emphatic melodic hooks with the energy of early hard dance.",
-  "recipe": "classic mid-1990s old school hard trance, electronic Dance, trance branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 121,
-  "score": 0.2,
+  "lineage": "German and Dutch trance hardened circa 1994-1999 in Frankfurt, Cologne and Rotterdam through labels like Overdose, Tracid Traxxx and Blutonium and producers Kai Tracid, DJ Scot Project and Yoji Biomehanika, running 140-155 BPM over a hard offbeat-bass 4/4 kick, heavily distorted and hoovered supersaw stabs, gated 16th-note arpeggios, long filtered white-noise risers into breakdowns, and rolling acid-303 or reverse-bass sections with no vocal beyond short chopped shouts.",
+  "recipe": "classic Central European mid-1990s hard trance, electronic Dance, trance branch, hardstyle electronic dance, techno electronic dance dubstyle. extended whistle, breath veiled tone, straight note core, interlocked note trading. sub bass analog poly sub bass wavetable synth, classic acid sub bass monosynth acid bass, TR-909, chopped sampler. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 572,
+  "score": 225.135,
   "config": {
     "traditions": [
-      "old_school_hard_trance"
+      "hard_trance",
+      "dubstyle",
+      "hard_nrg"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.1995
+          "electronic_technique": 12.055,
+          "poly_archetypes": 0.255,
+          "poly_voices": 0.24,
+          "poly_maker_lineage": -0.875
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "heavy_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": 12.055,
+          "wave_acid": 0.39,
+          "filter_acid": 1.345,
+          "accent_acid": 3.25
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 2,
+          "drum_machine_909_context": 0.845,
+          "tr909_production_origin": 0.135
+        }
+      },
+      {
+        "id": "wavetable_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "wt_position": "wt_morphing",
+          "wt_family": "wt_vocal",
+          "wt_polyphony": "wt_mono"
+        },
+        "scores": {
+          "electronic_technique": 12.055,
+          "wt_position": 10.14,
+          "wt_family": 1.195,
+          "wt_polyphony": 0.195
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 1.7449999999999999,
+          "sampler_archetypes": 0.78,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 1.545,
+          "sampler_classic_context": 23.4
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 1.56,
+          "voice_quality": 9.555,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8849999999999996,
+          "voice_articulation": 21.125,
+          "voice_microtone": 21.449999999999996,
+          "voice_tradition": 4.485,
+          "voice_mechanism_compound": 4.875000000000001,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 20.215,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 1.5,
+          "voice_pitch_organization": 1.8199999999999996,
+          "voice_processing_chain": 20.380000000000003,
+          "voice_multitrack_stack": 3.445
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "live_room",
+    "room": "berlin_techno_kreuzberg_studio",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_pumping",
+      "eq": "eq_active_parametric",
       "amp": null,
-      "medium": null
+      "medium": "digital_std"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
-    "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
-    },
-    "pin_parts": true
+    "tuning": "twelve_tet",
+    "room": "berlin_techno_kreuzberg_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_pumping",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Crank wave emerged as a name for a contemporary art-punk and post-punk current, initially associated with British groups and subsequently adopted elsewhere. Squid, Fontaines D.C., BODEGA and other acts connect guitar-band urgency with distinctive vocal characters and angular arrangements.",
   "recipe": "classic crank wave, distorted Rock, punk branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 18.45,
+  "score": 17.903,
   "config": {
     "traditions": [
       "crank_wave"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
@@ -99,7 +99,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6825000000000001,
+          "body_wood": 0.546,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

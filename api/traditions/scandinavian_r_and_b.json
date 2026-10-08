@@ -5,7 +5,7 @@
   "lineage": "Scandinavian R&B connects Nordic singers and instrumentalists with international soul, funk and pop traditions. Copenhagen-based Claudia Campagnol exemplifies a band-oriented strand drawing inspiration from performers such as Chaka Khan and Sade.",
   "recipe": "classic scandinavian r&b, functional Song, soul R&B branch. solo with instrumental accompaniment. digital subtractive, Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 461,
-  "score": 61.779,
+  "score": 60.969,
   "config": {
     "traditions": [
       "scandinavian_r_and_b"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.36,
+          "voice_multitrack_stack": 0.26549999999999996,
           "voice_tessitura": 0
         }
       },
@@ -60,7 +60,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 2.8865,
+          "electronic_technique": 2.855,
           "va_archetypes": 0.0315,
           "digital_subtractive_context": 5.459999999999999
         }
@@ -71,7 +71,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
@@ -84,18 +84,18 @@
         },
         "scores": {
           "electric_technique": 2.45,
-          "amp_make": 9.052999999999999,
-          "body_wood": 0.7875000000000001,
-          "neck_wood": 0.33599999999999997,
+          "amp_make": 8.9165,
+          "body_wood": 0.8190000000000002,
+          "neck_wood": 0.2415,
           "fretboard": 0.2415,
           "pickup_magnet": 0.315,
           "pickup_winding": 0.315,
           "string_material": 0.2415,
-          "bridge": 0.33599999999999997,
-          "scale_length": 0.819,
-          "string_gauge": 0.33599999999999997,
+          "bridge": 0.231,
+          "scale_length": 0.9240000000000002,
+          "string_gauge": 0.231,
           "finish": 0,
-          "string_tuning": 0.8340000000000001
+          "string_tuning": 0.9075
         }
       },
       {
@@ -105,17 +105,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.255000000000001,
-          "body_wood": 0.6720000000000002,
+          "amp_make": 7.1185,
+          "body_wood": 0.462,
           "pickup_config": 0.45149999999999996,
           "string_type": 8.45,
-          "scale_length_b": 0.39,
+          "scale_length_b": 0.315,
           "fretted_or_not": 0.26549999999999996,
           "bass_technique": 8.7,
           "electric_bass_string_configuration": 0
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 6.2,
-          "drumhead": 2.5130000000000003,
+          "drumhead": 2.4815,
           "drum_kit_kick_pedal": 0
         }
       }

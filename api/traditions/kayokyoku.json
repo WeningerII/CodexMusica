@@ -3,14 +3,14 @@
   "name": "Kayōkyoku",
   "family": "global",
   "lineage": "Mainstream Japanese popular song of roughly 1950-1990, produced by label-and-agency systems (Nippon Columbia, Victor, Watanabe Productions) with composers such as Hachidai Nakamura and Kyōhei Tsutsumi, joining Western pop and jazz-orchestra arranging — full string sections, brass, drum kit, electric bass — to yonanuki pentatonic melody, sentimental strophic AABA forms and a controlled, vibrato-forward solo vocal at mid-tempo.",
-  "recipe": "classic East Asian early-1950s kayōkyoku, functional Song, east Asian pop branch, east Asian pop enka, crooners functional song adult standards. thick, close mic intimate, slow rate, interlocked note trading. sitka spruce bigleaf maple western maple Baroque setup short neck violin orchestral, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese jazz balance ensemble trumpet, ivory mulberry kuwa mid tier traditional min yo folk song accompaniment shamisen. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 993,
-  "score": 458.645,
+  "recipe": "classic East Asian early-1950s kayōkyoku, functional Song, east Asian pop branch, east Asian pop enka, crooners functional song traditional pop music. thick, close mic intimate, slow rate, interlocked note trading. sitka spruce bigleaf maple western maple Baroque setup short neck violin orchestral, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, orange amp British heavy crunch mahogany thomastik infeld low tension electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese jazz balance legato trumpet, dog skin ivory mulberry kuwa mid tier traditional min yo shamisen. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 990,
+  "score": 455.597,
   "config": {
     "traditions": [
       "kayokyoku",
       "enka",
-      "adult_standards"
+      "traditional_pop_music"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -34,29 +34,29 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 25.04499999999999,
-          "voice_quality": 9.685,
+          "voice_register": 26.16999999999999,
+          "voice_quality": 9.945,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.07,
-          "voice_articulation": 24.635000000000005,
-          "voice_microtone": 26.209999999999994,
-          "voice_tradition": 29.4205,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 4.485,
-          "voice_speech_song": 35.88,
-          "voice_ensemble_config": 24.700000000000003,
-          "voice_ornament_system": 4.569500000000001,
-          "voice_pitch_organization": 2.620000000000001,
-          "voice_processing_chain": 6.24,
-          "voice_multitrack_stack": 7.9625
+          "voice_vibrato": 4.615,
+          "voice_articulation": 22.880000000000003,
+          "voice_microtone": 27.229999999999993,
+          "voice_tradition": 30.105,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 34.775000000000006,
+          "voice_ensemble_config": 23.205000000000002,
+          "voice_ornament_system": 4.870000000000001,
+          "voice_pitch_organization": 2.5750000000000006,
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 7.117500000000001
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
-          "orch_strings": "steel_orch",
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "plain_sheep_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "spirit_varnish_violin",
@@ -67,16 +67,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.525,
-          "orch_strings": 0.195,
-          "orch_top_wood": 3.25,
-          "orch_back_wood": 2.4349999999999996,
+          "bowed_technique": 1.075,
+          "orch_strings": 0.12999999999999998,
+          "orch_top_wood": 4.095,
+          "orch_back_wood": 2.3299999999999996,
           "orch_varnish": 0.12999999999999998,
-          "orch_setup_period": 6.655,
+          "orch_setup_period": 6.32,
           "orch_bow": 1.69,
-          "orch_bow_stick": 1.5600000000000005,
-          "orch_articulation": 2.2395,
-          "orch_rosin": 1.56
+          "orch_bow_stick": 1.7550000000000001,
+          "orch_articulation": 2.04,
+          "orch_rosin": 1.7249999999999999
         }
       },
       {
@@ -92,12 +92,12 @@
         },
         "scores": {
           "wind_articulation": 1.2299999999999998,
-          "sax_size": 2.795,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 4.125,
-          "sax_mouthpiece": 0.975,
-          "sax_technique": 4.125,
-          "sax_maker_school": 5.297499999999999
+          "sax_size": 2.34,
+          "sax_reed": 0.675,
+          "sax_body_alloy": 4.5,
+          "sax_mouthpiece": 1.275,
+          "sax_technique": 5.195,
+          "sax_maker_school": 5.785
         }
       },
       {
@@ -105,7 +105,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -114,37 +114,37 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 18.689999999999994,
-          "grand_piano_size": 2.795,
+          "keyboard_technique": 19.064999999999998,
+          "grand_piano_size": 2.34,
           "grand_piano_brand": 2.795,
-          "piano_hammer": 21.15,
-          "piano_rim": 25.009999999999994,
-          "piano_soundboard": 21.625,
+          "piano_hammer": 21.479999999999997,
+          "piano_rim": 25.534999999999997,
+          "piano_soundboard": 22,
           "piano_pinblock": -0.05,
-          "piano_plate": 1.0995,
-          "piano_pitch_standard": 10.1585
+          "piano_plate": 0.8999999999999999,
+          "piano_pitch_standard": 8.895
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
-          "string_type": "pyramid_pure_nickel",
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_walking",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.185000000000001,
-          "body_wood": 2.795,
-          "pickup_config": 0,
-          "string_type": 5.59,
-          "scale_length_b": 2.9899999999999998,
+          "amp_make": 3.3150000000000004,
+          "body_wood": 2.34,
+          "pickup_config": 0.045,
+          "string_type": 6.045,
+          "scale_length_b": 2.34,
           "fretted_or_not": 0.3,
-          "bass_technique": 4.79,
+          "bass_technique": 4.5,
           "electric_bass_string_configuration": 0
         }
       },
@@ -156,29 +156,29 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.057500000000005,
-          "drumhead": 19.779999999999994,
+          "drum_technique": 23.952500000000004,
+          "drumhead": 20.604999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_classical_legato",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.2299999999999998,
+          "wind_articulation": 1.6449999999999998,
           "brass_size": 0.3,
-          "trumpet_mouthpiece": 5.9555,
-          "brass_mute": 1.8495,
-          "trumpet_technique": 1.2299999999999998,
-          "trumpet_bell_metal": 2.145,
+          "trumpet_mouthpiece": 6.65,
+          "brass_mute": 1.65,
+          "trumpet_technique": 1.6449999999999998,
+          "trumpet_bell_metal": 1.4949999999999999,
           "trumpet_maker_school": 2.5349999999999997
         }
       },
@@ -196,11 +196,11 @@
         "scores": {
           "plucked_traditional_technique": 0.12999999999999998,
           "shamisen_size": 0.195,
-          "shamisen_skin": 0.975,
-          "shamisen_pick": 2.73,
-          "shamisen_neck_wood": 3.77,
+          "shamisen_skin": 1.125,
+          "shamisen_pick": 2.2749999999999995,
+          "shamisen_neck_wood": 3.3149999999999995,
           "shamisen_strings": 0,
-          "shamisen_tradition": 11.83
+          "shamisen_tradition": 12.09
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Argentine national folk-song repertoire codified in the 1940s-1960s by Atahualpa Yupanqui, Los Chalchaleros, Ariel Ramírez and Mercedes Sosa and centred on the Cosquín festival, comprising the slow 6/8 zamba with handkerchief-dance phrasing, the driving hemiola chacarera, the vidala and the chamamé, scored for nylon-string guitar rasgueado, bombo legüero played on head and rim, charango and quena, with declamatory rubato-heavy solo or duo singing in criollo Spanish.",
   "recipe": "classic South American mid-1940s folklore argentino, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, andean carnival processional chilean nueva canción nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, driving rim accented bombo leguero, naranjillo andean premium wood cedar andean andean classical charango, melodic quena, melodic straight piano accordion. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 596,
-  "score": 233.18,
+  "score": 233.1,
   "config": {
     "traditions": [
       "folklore_argentino",
@@ -29,12 +29,12 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 7.32,
+          "voice_register": 7.275,
           "voice_quality": 14.039999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,12 +43,12 @@
           "voice_microtone": 17.224999999999994,
           "voice_tradition": 14.2675,
           "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 7.275000000000001,
+          "voice_estill_quality": 7.410000000000001,
           "voice_speech_song": 23.919999999999998,
           "voice_ensemble_config": 15.469999999999995,
           "voice_ornament_system": 9.5225,
-          "voice_pitch_organization": 0.78,
-          "voice_processing_chain": 5.505,
+          "voice_pitch_organization": 0.7149999999999997,
+          "voice_processing_chain": 5.4,
           "voice_multitrack_stack": 8.58
         }
       },
@@ -63,11 +63,11 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 12.129999999999999,
+          "acoustic_technique": 12.084999999999999,
           "string_tuning": 0,
           "top_wood_classical": 5.46,
-          "bracing_classical": 2.085,
-          "string_classical": 2.6649999999999996,
+          "bracing_classical": 2.13,
+          "string_classical": 2.485,
           "attack_technique_cl": 1.2349999999999999
         }
       },
@@ -79,7 +79,7 @@
           "bombo_leguero_head": "bombo_leguero_cabra"
         },
         "scores": {
-          "bombo_leguero_form": 3.895,
+          "bombo_leguero_form": 4.09,
           "bombo_leguero_style": 5.55,
           "bombo_leguero_head": 0.12999999999999998
         }
@@ -94,7 +94,7 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 10.049999999999999,
+          "plucked_traditional_technique": 10.139999999999999,
           "charango_back": 3.835,
           "charango_top_wood": 3.835,
           "charango_strings": 3.835,
@@ -123,7 +123,7 @@
         },
         "scores": {
           "free_reed_technique": 7.719999999999999,
-          "pa_size": 3.965,
+          "pa_size": 3.86,
           "pa_use": 4.159999999999999
         }
       }

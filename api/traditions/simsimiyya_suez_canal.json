@@ -1,0 +1,215 @@
+{
+  "id": "simsimiyya_suez_canal",
+  "name": "Simsimiyya (Suez Canal lyre song)",
+  "family": "global",
+  "lineage": "Song of the Canal Zone cities of Port Said, Ismailia and Suez, accompanied by the simsimiyya lyre at weddings and neighbourhood gatherings, where a lead singer and a male chorus trade verses of love, the sea and the Canal cities' wartime resistance. The El Tanbura band, founded in Port Said at the end of the 1980s by Zakaria Ibrahim, revived the older Port Said repertoire and recorded it for international labels.",
+  "recipe": "classic mid-1980s simsimiyya, ballad Poetry, med east poetic branch. single lead single track no stacking. five string metal strung strum and damp call-and-response simsimiyya, riq, Egyptian sombaty canonical mid east darbuka, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 317,
+  "score": 20.285,
+  "config": {
+    "traditions": [
+      "simsimiyya_suez_canal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.15000000000000002,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.3315000000000001,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "simsimiyya",
+        "slots": {
+          "simsimiyya_form": "simsimiyya_port_said",
+          "simsimiyya_repertoire": "simsimiyya_dammah",
+          "simsimiyya_string_material": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "simsimiyya_form": 1.8199999999999998,
+          "simsimiyya_repertoire": 12.675,
+          "simsimiyya_string_material": 0
+        }
+      },
+      {
+        "id": "riq",
+        "slots": {
+          "riq_size": "riq_medium",
+          "riq_context": "riq_wedding",
+          "riq_shell_wood": "riq_beech_modern",
+          "riq_head_material": "riq_fish_skin_canonical",
+          "riq_jingles": "riq_brass_jingles"
+        },
+        "scores": {
+          "riq_size": 0.47250000000000003,
+          "riq_context": 0.1365,
+          "riq_shell_wood": 0,
+          "riq_head_material": 0.441,
+          "riq_jingles": 0.40950000000000003
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "darbuka_material": 0.40950000000000003,
+          "darbuka_skin": 0.40950000000000003,
+          "darbuka_regional_style": 1.95
+        }
+      },
+      {
+        "id": "hand_clap",
+        "slots": {
+          "clap_technique": "clap_flat_sharp",
+          "clap_capture": "clap_room_natural"
+        },
+        "scores": {
+          "clap_technique": 0.3,
+          "clap_capture": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "simsimiyya": [
+        "simsimiyya_form",
+        "simsimiyya_repertoire",
+        "simsimiyya_string_material"
+      ],
+      "riq": [
+        "riq_size",
+        "riq_context",
+        "riq_shell_wood",
+        "riq_head_material",
+        "riq_jingles"
+      ],
+      "darbuka": [
+        "percussion_technique",
+        "darbuka_material",
+        "darbuka_skin",
+        "darbuka_regional_style"
+      ],
+      "hand_clap": [
+        "clap_technique",
+        "clap_capture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "simsimiyya_form": "simsimiyya_port_said",
+      "simsimiyya_repertoire": "simsimiyya_dammah",
+      "simsimiyya_string_material": "dutar_strings_unspecified",
+      "riq_size": "riq_medium",
+      "riq_context": "riq_wedding",
+      "riq_shell_wood": "riq_beech_modern",
+      "riq_head_material": "riq_fish_skin_canonical",
+      "riq_jingles": "riq_brass_jingles",
+      "percussion_technique": "percussion_open_slap",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty",
+      "clap_technique": "clap_flat_sharp",
+      "clap_capture": "clap_room_natural"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

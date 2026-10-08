@@ -3,14 +3,14 @@
   "name": "Comedy rap",
   "family": "hip_hop",
   "lineage": "Rap in which comic narrative, character, incongruity or parody is the organizing purpose. The selected 2000s studio model takes The Lonely Island’s Lazy Sunday (2005) and the rap tracks on Incredibad (2009) as recording anchors: emphatic rhythmic speech, sharply timed exchanges and a programmed beat. The wider category includes other eras and production styles; humorous interludes alone do not make a rap album comedy rap.",
-  "recipe": "classic mid-2000s comedy rap, mc Rhythm, us hip hop branch, experimental MC rhythm abstract hip hop chill abstract hip hop. thick, rap, pure, rapid fire syllabic. sampled chopped sampler drum machine, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 371,
-  "score": 136.258,
+  "recipe": "classic mid-2000s comedy rap, mc Rhythm, us hip hop branch, experimental MC rhythm abstract hip hop nerdcore. thick, rap, rapid fire syllabic, equal tempered. sampled chopped sampler drum machine, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 367,
+  "score": 146.75,
   "config": {
     "traditions": [
       "comedy_rap",
       "abstract_hip_hop",
-      "chill_abstract_hip_hop"
+      "nerdcore"
     ],
     "instruments": [
       {
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 3.6900000000000013,
-          "voice_quality": 39.489999999999995,
+          "voice_register": 3.4650000000000016,
+          "voice_quality": 40.38999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.935,
-          "voice_articulation": 3.1350000000000002,
-          "voice_microtone": 2.0999999999999996,
+          "voice_vibrato": 0.195,
+          "voice_articulation": 3.6350000000000007,
+          "voice_microtone": 1.375,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.845,
-          "voice_estill_quality": 1.45,
-          "voice_speech_song": 35.54,
+          "voice_estill_quality": 1.3,
+          "voice_speech_song": 37.24,
           "voice_ensemble_config": 0.45500000000000007,
           "voice_ornament_system": 0.345,
           "voice_pitch_organization": 0.135,
@@ -61,10 +61,10 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 7.214999999999999,
+          "electronic_technique": 9.090000000000002,
           "sample_bitdepth": 0.65,
           "sample_swing": -0.05,
-          "sample_processing": 0.24
+          "sample_processing": 0.845
         }
       },
       {
@@ -77,11 +77,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 7.214999999999999,
+          "electronic_technique": 9.090000000000002,
           "sampler_archetypes": 0.9799999999999999,
-          "sampler_bit_depth": 0.65,
-          "sampler_workflow": 7.184999999999999,
-          "sampler_classic_context": 20.052499999999995
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 9.21,
+          "sampler_classic_context": 24.05
         }
       }
     ],

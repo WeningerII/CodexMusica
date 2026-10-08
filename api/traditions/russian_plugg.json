@@ -5,7 +5,7 @@
   "lineage": "Russian plugg — a Russian-language branch of the airy, minimalist trap sound developed through online producer and rapper networks.",
   "recipe": "classic russian plugg, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 11.726,
+  "score": 11.441,
   "config": {
     "traditions": [
       "russian_plugg"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.18,
+          "voice_articulation": 0.2115,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 2.397,
-          "drum_machine_808_context": 0.34650000000000003,
+          "tr808_voice": 2.2815,
+          "drum_machine_808_context": 0.273,
           "tr808_production_origin": 0.325
         }
       },
@@ -75,11 +75,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "oscillator": 0.3,
-          "filter_topology": 0.20099999999999998,
-          "envelope": 0,
-          "modulation": 0.147
+          "filter_topology": 0.08549999999999999,
+          "envelope": 0.0315,
+          "modulation": 0.0735
         }
       }
     ],

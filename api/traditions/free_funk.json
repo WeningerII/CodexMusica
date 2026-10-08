@@ -5,7 +5,7 @@
   "lineage": "New York idiom of 1975-1990 joining free-jazz pitch freedom to electric funk rhythm, codified by Ornette Coleman's Prime Time and his harmolodic theory and extended by Ronald Shannon Jackson's Decoding Society and James Blood Ulmer — dense 4/4 backbeats at 100-140 BPM played by doubled electric guitars and basses, atonal or key-ambiguous unison heads, simultaneous multi-line soloing, and no fixed harmonic centre beneath the groove.",
   "recipe": "classic North American mid-1980s free funk, improv On Frame, avant branch, funk percussive groove percussion, American jazz fusion psychedelic jazz fusion. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 817,
-  "score": 317.115,
+  "score": 317.835,
   "config": {
     "traditions": [
       "free_funk",
@@ -30,8 +30,8 @@
           "sax_reed": 2.145,
           "sax_body_alloy": 27.839999999999996,
           "sax_mouthpiece": 2.145,
-          "sax_technique": 26.794999999999998,
-          "sax_maker_school": 27.318437499999995
+          "sax_technique": 26.749999999999996,
+          "sax_maker_school": 27.348437499999996
         }
       },
       {
@@ -48,10 +48,10 @@
         "scores": {
           "wind_articulation": 7.6,
           "brass_size": 2.145,
-          "trumpet_mouthpiece": 28.978437499999995,
+          "trumpet_mouthpiece": 29.203437499999996,
           "brass_mute": 0.195,
           "trumpet_technique": 1.6434374999999999,
-          "trumpet_bell_metal": 0.495,
+          "trumpet_bell_metal": 0.44999999999999996,
           "trumpet_maker_school": 5.265000000000001
         }
       },
@@ -65,7 +65,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_12",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -74,16 +74,16 @@
         },
         "scores": {
           "electric_technique": 10.809999999999999,
-          "amp_make": 15.875625000000001,
+          "amp_make": 15.770625,
           "body_wood": 0.195,
           "neck_wood": 2.145,
           "fretboard": 2.145,
           "pickup_magnet": 2.145,
           "string_material": 2.145,
-          "string_gauge": 0.915,
+          "string_gauge": 0.9750000000000001,
           "bridge": 0.9099999999999999,
           "scale_length": 0.195,
-          "finish": 0.045,
+          "finish": 0.09,
           "string_tuning": 6.044999999999999,
           "single_coil_pickup_construction": 0
         }
@@ -95,7 +95,7 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -103,9 +103,9 @@
         "scores": {
           "amp_make": 5.395000000000001,
           "body_wood": 0.195,
-          "pickup_config": 0.195,
-          "string_type": 29.173437499999995,
-          "scale_length_b": 0.24,
+          "pickup_config": 0.345,
+          "string_type": 29.398437499999996,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.9099999999999999,
           "bass_technique": 26.749999999999996,
           "electric_bass_string_configuration": 0
@@ -120,7 +120,7 @@
         },
         "scores": {
           "drum_technique": 37.21249999999999,
-          "drumhead": 29.228437499999995,
+          "drumhead": 29.453437499999996,
           "drum_kit_kick_pedal": 0
         }
       }

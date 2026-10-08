@@ -1,0 +1,80 @@
+{
+  "id": "subanen_buklog",
+  "name": "Buklog (Subanen thanksgiving ritual)",
+  "family": "global",
+  "lineage": "Thanksgiving ritual system of the Subanen of the Zamboanga Peninsula, Mindanao, inscribed by UNESCO in 2019 on the List of Intangible Cultural Heritage in Need of Urgent Safeguarding. The community builds a springy, trampoline-like platform (buklogan) of dulugan wood bound with rattan; as it sags under the dancers, a pole beneath it (phetaw) strikes a half-buried hollowed log with a booming sound, while agong and kulintang gong music is played. The foot_stomp card (hollow platform) stands in for the platform and log resonator, and the gong card (bossed) for the agong and kulintang gongs.",
+  "recipe": "classic late-2010s buklog, ritual Devotional, indigenous branch. booming hollow platform foot stomp, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 193,
+  "score": 5.904,
+  "config": {
+    "traditions": [
+      "subanen_buklog"
+    ],
+    "instruments": [
+      {
+        "id": "foot_stomp",
+        "slots": {
+          "stomp_footwear": "stomp_bare_foot",
+          "stomp_surface": "stomp_hollow_platform"
+        },
+        "scores": {
+          "stomp_footwear": 0.0315,
+          "stomp_surface": 5.6
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.1365,
+          "gong_striker": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "foot_stomp": [
+        "stomp_footwear",
+        "stomp_surface"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "stomp_footwear": "stomp_bare_foot",
+      "stomp_surface": "stomp_hollow_platform",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

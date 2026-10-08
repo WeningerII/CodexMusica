@@ -5,7 +5,7 @@
   "lineage": "Dim Silver — Exorcising Gratitude (2026), complete fourteen-song album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s sad lo-fi, distorted Rock, alternative branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. cassette.",
   "recipe_chars": 280,
-  "score": 3.408,
+  "score": 3.377,
   "config": {
     "traditions": [
       "sad_lo_fi"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.3679999999999999,
+          "voice_processing_chain": 1.3365,
           "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }

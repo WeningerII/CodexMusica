@@ -5,7 +5,7 @@
   "lineage": "Reggae rock blends reggae rhythm and popular-song melody with electric rock-band arrangements.",
   "recipe": "classic reggae rock, bass System, reggae diaspora branch. no specific ornament system. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, rim clicks drum kit, electronic keyboard unspecified. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 44.072,
+  "score": 44.272,
   "config": {
     "traditions": [
       "reggae_rock"
@@ -24,22 +24,22 @@
           "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.11850000000000002,
-          "amp_make": 5.46,
-          "body_wood": 0.483,
-          "neck_wood": 0.3465,
+          "amp_make": 5.407500000000001,
+          "body_wood": 0.546,
+          "neck_wood": 0.4095,
           "fretboard": 0.1365,
-          "pickup_magnet": 0.273,
+          "pickup_magnet": 0.2415,
           "pickup_winding": 0.1365,
           "string_material": 0.1995,
-          "bridge": 0.3465,
-          "scale_length": 0.693,
-          "string_gauge": 0.3465,
+          "bridge": 0.4095,
+          "scale_length": 0.819,
+          "string_gauge": 0.44099999999999995,
           "finish": 0,
           "string_tuning": 0
         }
@@ -49,7 +49,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 7.865,
-          "body_wood": 0.693,
-          "pickup_config": 0.1365,
-          "string_type": 11.317,
-          "scale_length_b": 0.3465,
+          "body_wood": 0.819,
+          "pickup_config": 0.16799999999999998,
+          "string_type": 11.1385,
+          "scale_length_b": 0.4095,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.33599999999999997,
+          "voice_ensemble_config": 0.1995,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -127,7 +127,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.294
+          "keyboard_technique": 0.26249999999999996
         }
       }
     ],

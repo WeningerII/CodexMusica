@@ -5,7 +5,7 @@
   "lineage": "Rap congolais connects Congolese MCs and producers across home and diasporic networks. Regional relationships and collaborations link diverse languages and musical references with wider hip-hop circulation.",
   "recipe": "classic rap congolais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. shoebox concert hall.",
   "recipe_chars": 159,
-  "score": 42.925,
+  "score": 43.313,
   "config": {
     "traditions": [
       "rap_congolais"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.768,
+          "voice_speech_song": 13.125,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

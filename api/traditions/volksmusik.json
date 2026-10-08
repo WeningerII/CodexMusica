@@ -1,46 +1,71 @@
 {
-  "id": "volksmusik",
-  "name": "Volksmusik",
+  "id": "german_folk",
+  "merged_from": "volksmusik",
+  "name": "German Folk (Volksmusik)",
   "family": "vernacular",
-  "lineage": "German-Austrian-Swiss Alpine folk music codified in the 19th century and standardized for radio and television from the 1950s, built on Ländler and waltz in steady 3/4 and polka in 2/4, diatonic major harmony with prominent I-IV-V bass, steirische Harmonika or Schwyzerörgeli lead, zither and Hackbrett fills, brass bass, and close-harmony yodelling in the Jodler refrain.",
-  "recipe": "classic North American mid-1950s volksmusik, drinking Song, European branch, European wedding, European carnival processional trikiti kolo. thick, breath veiled tone, fast rate, interlocked note trading. dance driving standard bass steirische harmonika, beating tremolo dance rhythm schwyzerorgeli, harp armed dance lilting concert zither alpine, hammered dulcimer, alpine 3 4m alphorn, clarinet, yellow brass canonical 70 30 bach stradivarius schilke chicago lead bright shallow cup lead trumpet trumpet, brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba, venice catlin high twist renaissance bass norway spruce European alpine double bass. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-  "recipe_chars": 880,
-  "score": 260.297,
+  "lineage": "Regional German traditional music surveyed and codified by nineteenth-century collectors Ludwig Erk and Franz Böhme and by twentieth-century Bavarian revivalists Kiem Pauli and Wastl Fanderl, built on strophic diatonic songs and on Alpine Stubenmusik and brass Blasmusik dance sets in walking 3/4 Ländler and 2/4 Polka tempos, voiced by Steirische harmonika, zither, Hackbrett, clarinet and tuba with parallel-thirds two-part singing and yodel refrains.",
+  "recipe": "classic early-1940s german folk, drinking Song, European branch, European wedding, European carnival processional basque folk venetian carnevale. thick, breath veiled tone, straight note core, interlocked note trading. dance driving helicon booming straight steirische harmonika, harp armed dance lilting concert zither alpine, leather walnut spruce canonical appalachian hammered dulcimer, grenadilla African blackwood traditional clarinet, compact tuba yellow brass canonical orchestral rotary valves canonical German orchestral miraphone canonical German orchestral tuba, alpine 3 4m alphorn, magic rosin modern acrylic base drone like rubber fiddle. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 745,
+  "score": 228.457,
   "config": {
     "traditions": [
-      "volksmusik",
-      "trikiti",
-      "kolo"
+      "german_folk",
+      "basque_folk",
+      "venice_carnevale"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 5.299999999999999,
+          "voice_quality": 8.58,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.8599999999999997,
+          "voice_articulation": 24.50500000000001,
+          "voice_microtone": 25.155000000000012,
+          "voice_tradition": 7.1825,
+          "voice_mechanism_compound": 5.719999999999999,
+          "voice_estill_quality": 6.11,
+          "voice_speech_song": 27.690000000000012,
+          "voice_ensemble_config": 23.79000000000001,
+          "voice_ornament_system": 0.825,
+          "voice_pitch_organization": 3.6700000000000004,
+          "voice_processing_chain": 6.37,
+          "voice_multitrack_stack": 3.250000000000001
+        }
+      },
       {
         "id": "steirische_harmonika",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "steirische_harmonika_form": "steirische_harmonika_four_row",
           "steirische_harmonika_repertoire": "steirische_harmonika_landler_polka",
-          "steirische_harmonika_bass_reeds": "steirische_harmonika_standard_bass"
+          "steirische_harmonika_bass_reeds": "steirische_harmonika_helicon_bass"
         },
         "scores": {
-          "free_reed_technique": 2.8200000000000003,
-          "steirische_harmonika_form": 14.31,
-          "steirische_harmonika_repertoire": 13.27,
-          "steirische_harmonika_bass_reeds": 4.395
-        }
-      },
-      {
-        "id": "schwyzerorgeli",
-        "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "schwyzerorgeli_rows": "schwyzerorgeli_three_row",
-          "schwyzerorgeli_tuning": "schwyzerorgeli_tremolo",
-          "schwyzerorgeli_context": "schwyzerorgeli_laendler"
-        },
-        "scores": {
-          "free_reed_technique": 2.8200000000000003,
-          "schwyzerorgeli_rows": 3.1200000000000006,
-          "schwyzerorgeli_tuning": 1.285,
-          "schwyzerorgeli_context": 2.08
+          "free_reed_technique": 3.745,
+          "steirische_harmonika_form": 12.495000000000001,
+          "steirische_harmonika_repertoire": 12.79,
+          "steirische_harmonika_bass_reeds": 1.04
         }
       },
       {
@@ -51,8 +76,8 @@
           "concert_zither_alpine_strings": "concert_zither_alpine_strings_silverwound"
         },
         "scores": {
-          "concert_zither_alpine_type": 8.889999999999999,
-          "concert_zither_alpine_context": 7.085,
+          "concert_zither_alpine_type": 4.745,
+          "concert_zither_alpine_context": 7.280000000000001,
           "concert_zither_alpine_strings": -0.05
         }
       },
@@ -60,15 +85,51 @@
         "id": "hammered_dulcimer",
         "slots": {
           "hammer_dulcimer_courses": "hd_15_15",
-          "hammer_material": "wood_bare",
+          "hammer_material": "leather_covered",
           "hammered_dulcimer_body_wood": "hd_walnut_canonical",
-          "hammered_dulcimer_strings": "hd_phosphor_bronze"
+          "hammered_dulcimer_strings": "hd_steel_bronze_modern"
         },
         "scores": {
-          "hammer_dulcimer_courses": 1.1949999999999998,
-          "hammer_material": 1.24,
-          "hammered_dulcimer_body_wood": 0.5700000000000001,
-          "hammered_dulcimer_strings": 0
+          "hammer_dulcimer_courses": 1.045,
+          "hammer_material": 1.95,
+          "hammered_dulcimer_body_wood": 1.04,
+          "hammered_dulcimer_strings": 0.7799999999999996
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.7149999999999999,
+          "clarinet_body": 5.1899999999999995,
+          "clarinet_size": 1.24,
+          "clarinet_reed": 0.15,
+          "clarinet_articulation": 0.5
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_eb",
+          "tuba_context": "tuba_concerto",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": 0.7149999999999999,
+          "tuba_pitch": 1.195,
+          "tuba_context": 5.329999999999999,
+          "tuba_bell_metal": 2.325,
+          "tuba_valve_system": 3.6849999999999996,
+          "tuba_maker_school": 3.6849999999999996
         }
       },
       {
@@ -78,142 +139,38 @@
           "alphorn_material": "alphorn_carved_spruce"
         },
         "scores": {
-          "alphorn_length": 2.9499999999999997,
+          "alphorn_length": 2.75,
           "alphorn_material": 0.105
         }
       },
       {
-        "id": "voice",
+        "id": "fiddle",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "bowed_technique": "bowed_rough_drone",
+          "fiddle_strings": "gut_strings",
+          "fiddle_bow": "magic_rosin_fiddle",
+          "fiddle_mute": "rubber_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "voice_register": 3.3249999999999997,
-          "voice_quality": 16.18499999999999,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 23.854999999999997,
-          "voice_microtone": 23.464999999999996,
-          "voice_tradition": 7.2475000000000005,
-          "voice_mechanism_compound": 3.5749999999999993,
-          "voice_estill_quality": 3.575,
-          "voice_speech_song": 25.869999999999997,
-          "voice_ensemble_config": 20.409999999999997,
-          "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 4.550000000000001,
-          "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 4.3
-        }
-      },
-      {
-        "id": "clarinet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "clarinet_body": "ebonite_clarinet",
-          "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
-          "clarinet_articulation": "doina_clarinet"
-        },
-        "scores": {
-          "wind_articulation": 1.17,
-          "clarinet_body": 0.45499999999999996,
-          "clarinet_size": 1.285,
-          "clarinet_reed": 0.045,
-          "clarinet_articulation": 0.5849999999999999
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "flugelhorn",
-          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
-          "brass_mute": "harmon_in",
-          "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_schilke"
-        },
-        "scores": {
-          "wind_articulation": 1.17,
-          "brass_size": 0.195,
-          "trumpet_mouthpiece": 1.8199999999999998,
-          "brass_mute": 0.09,
-          "trumpet_technique": 0.6499999999999999,
-          "trumpet_bell_metal": 2.08,
-          "trumpet_maker_school": 1.1949999999999998
-        }
-      },
-      {
-        "id": "tuba",
-        "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "tuba_pitch": "tuba_cc",
-          "tuba_context": "tuba_brass_band",
-          "tuba_bell_metal": "tuba_yellow_brass",
-          "tuba_valve_system": "tuba_rotary_german",
-          "tuba_maker_school": "tuba_besson_british"
-        },
-        "scores": {
-          "wind_articulation": 1.17,
-          "tuba_pitch": 0.44999999999999996,
-          "tuba_context": 7.539999999999998,
-          "tuba_bell_metal": 2.08,
-          "tuba_valve_system": 1.69,
-          "tuba_maker_school": 2.08
-        }
-      },
-      {
-        "id": "double_bass",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "bass_size": "bass_three_quarter",
-          "bass_strings": "venice_catlin_bass",
-          "bass_top_wood": "norway_spruce_alpine_bass",
-          "bass_back_wood": "bosnian_flamed_maple_bass",
-          "bass_varnish": "spirit_varnish_bass",
-          "bass_setup_period": "baroque_setup_bass",
-          "bass_play": "bass_arco",
-          "bass_rosin": "nyman_bass_rosin",
-          "bass_bow_stick": "brazilwood_stick_bass"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "bass_size": 0,
-          "bass_strings": 4.63,
-          "bass_top_wood": 9.295000000000002,
-          "bass_back_wood": 6.955000000000002,
-          "bass_varnish": -0.05,
-          "bass_setup_period": 4.99,
-          "bass_play": 0.045,
-          "bass_rosin": 4.345,
-          "bass_bow_stick": -0.05
+          "bowed_technique": 5.119999999999999,
+          "fiddle_strings": 0.22499999999999998,
+          "fiddle_bow": 1.9899999999999995,
+          "fiddle_mute": 1.0499999999999998,
+          "fiddle_articulation": 0.045,
+          "fiddle_string_configuration": 0
         }
       }
     ],
-    "room": "us_uk_civic_amateur_band_hall",
-    "archetype": "arch_network_radio_broadcast",
+    "room": "mountain_valley",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
-      "mic": "condenser_ldc",
-      "pre": "pre_tube_german_v72",
-      "console": "console_german_tube_50s",
-      "comp": "comp_vari_mu",
-      "eq": "eq_passive_program_pultec",
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -224,12 +181,10 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "us_uk_civic_amateur_band_hall",
-    "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_tube_german_v72",
-    "chain_comp": "comp_vari_mu",
-    "chain_eq": "eq_passive_program_pultec",
+    "room": "mountain_valley",
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_german_tube_50s"
+    "chain_console": "clean"
   }
 }

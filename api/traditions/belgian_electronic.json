@@ -5,7 +5,7 @@
   "lineage": "Belgian electronic music connects local production communities with varied club, experimental and popular-song approaches.",
   "recipe": "classic belgian electronic, functional Song. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 202,
-  "score": 1.15,
+  "score": 1.18,
   "config": {
     "traditions": [
       "belgian_electronic"
@@ -20,7 +20,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "poly_archetypes": 0,
           "poly_voices": 0,
           "poly_maker_lineage": -0.05

@@ -5,7 +5,7 @@
   "lineage": "Formed in São Paulo and Rio between 2016 and 2019 out of the rap-battle and YouTube-cypher circuit, codified by Matuê, Teto, Derek, WIU and producers Papatinho and Sidoka's circle, applying 130-150 BPM half-time 808 trap production with dark plucked-synth and piano loops to Brazilian Portuguese flows, plus periodic funk-carioca tamborzão or samba percussion inserts and sung Auto-Tuned refrains.",
   "recipe": "classic mid-2010s trap brasileiro, mc Rhythm, intl hip hop branch, Afro-diasporic MC rhythm, Brazilian groove percussion pagode samba rock. thick, breath veiled tone, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampler drum machine, low sub bass analog poly synth, multi rod cluster canonical samba aluminum canonical rio escola tamborim, nylon canonical rio carnival aluminum canonical modern rio escola surdo, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 811,
-  "score": 215.325,
+  "score": 215.715,
   "config": {
     "traditions": [
       "trap_brasileiro",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.185000000000002,
-          "voice_quality": 25.089999999999993,
+          "voice_register": 6.335000000000003,
+          "voice_quality": 25.104999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.7224999999999997,
           "voice_articulation": 23.724999999999994,
           "voice_microtone": 24.83,
-          "voice_tradition": 7.96,
+          "voice_tradition": 7.9,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 25.154999999999998,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.3150000000000013,
           "voice_pitch_organization": 1.4299999999999997,
           "voice_processing_chain": 7.15,
-          "voice_multitrack_stack": 7.305
+          "voice_multitrack_stack": 7.605
         }
       },
       {
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 3.86,
+          "tr808_voice": 3.9499999999999997,
           "drum_machine_808_context": 2.7650000000000006,
           "tr808_production_origin": 1.09
         }
@@ -74,10 +74,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 2.74,
+          "electronic_technique": 2.5900000000000003,
           "sample_bitdepth": 0.44999999999999996,
           "sample_swing": 3.9,
-          "sample_processing": 2.1750000000000003
+          "sample_processing": 2.1300000000000003
         }
       },
       {
@@ -89,7 +89,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.504999999999999,
+          "electronic_technique": 10.594999999999999,
           "poly_archetypes": 1.4000000000000001,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.25

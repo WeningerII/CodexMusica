@@ -1,0 +1,88 @@
+{
+  "id": "durga_puja_dhak",
+  "name": "Dhak drumming (Bengali Durga Puja)",
+  "family": "global",
+  "lineage": "The dhak, a large barrel drum slung from the shoulder and beaten with two thin sticks, is played by hereditary dhakis, many of whom travel from rural districts to Kolkata each autumn to be hired by puja committees. Its patterns mark the stages of Durga Puja worship, including the evening arati and the dhunuchi incense dance, usually with a kansi bell-metal plate keeping time; Durga Puja in Kolkata is inscribed on UNESCO's Representative List of the Intangible Cultural Heritage of Humanity. The chengila card stands in for the kansi.",
+  "recipe": "classic modern dhak drumming, carnival Processional, south Asian branch. dhak, chengila. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 168,
+  "score": 12.84,
+  "config": {
+    "traditions": [
+      "durga_puja_dhak"
+    ],
+    "instruments": [
+      {
+        "id": "dhak",
+        "slots": {
+          "dhak_context": "dhak_context_puja",
+          "dhak_mounting": "dhak_mounting_shoulder",
+          "dhak_ensemble": "dhak_ensemble_kansor",
+          "dhak_build": "dhak_build_mango_cane"
+        },
+        "scores": {
+          "dhak_context": 5.07,
+          "dhak_mounting": 7.46,
+          "dhak_ensemble": -0.07,
+          "dhak_build": -0.07
+        }
+      },
+      {
+        "id": "chengila",
+        "slots": {
+          "chengila_beater": "chengila_wood_stick",
+          "chengila_size": "chengila_standard"
+        },
+        "scores": {
+          "chengila_beater": 0.3,
+          "chengila_size": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "dhak": [
+        "dhak_context",
+        "dhak_mounting",
+        "dhak_ensemble",
+        "dhak_build"
+      ],
+      "chengila": [
+        "chengila_beater",
+        "chengila_size"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "dhak_context": "dhak_context_puja",
+      "dhak_mounting": "dhak_mounting_shoulder",
+      "dhak_ensemble": "dhak_ensemble_kansor",
+      "dhak_build": "dhak_build_mango_cane",
+      "chengila_beater": "chengila_wood_stick",
+      "chengila_size": "chengila_standard"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,31 +3,31 @@
   "name": "Musique traditionnelle québécoise",
   "family": "vernacular",
   "lineage": "Québec's French-Canadian dance and song tradition of the Saint Lawrence valley, documented from the nineteenth century, professionalized by La Bolduc and fiddler Jean Carignan and revived from the 1970s by La Bottine Souriante and Le Vent du Nord — crooked reels and gigues at 110-130 BPM driven by seated podorythmie foot percussion, diatonic accordion and fiddle in unison, ragtime-inflected piano backing, and chansons à répondre with turlutte mouth-music refrains.",
-  "recipe": "classic mid-1970s musique traditionnelle québécoise, improv On Frame, Celtic traditional branch, Celtic balladic ballad poetry scottish gaelic folk song sean-nós singing. extended whistle, breath veiled tone, straight note core, interlocked note trading. fiddle, foot tap, Celtic drone like melodeon diatonic, upright piano, dadgad tuning drone like modal dreadnought acoustic guitar, and hand spoons, reed pearwood marine band tradition brass traditional harmonica. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 546,
-  "score": 322.65,
+  "recipe": "classic mid-1970s musique traditionnelle québécoise, improv On Frame, Celtic traditional branch, Celtic balladic ballad poetry scottish gaelic folk song newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. fiddle, foot tap, Celtic drone like melodeon diatonic, upright piano, dadgad tuning drone like modal dreadnought acoustic guitar, and hand spoons, reed pearwood marine band tradition brass traditional harmonica. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 564,
+  "score": 323.038,
   "config": {
     "traditions": [
       "trad_quebecois",
       "scottish_gaelic_folk",
-      "sean_nos_singing"
+      "newfoundland_folk"
     ],
     "instruments": [
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_celtic_session",
-          "fiddle_strings": "synthetic_core",
-          "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "no_mute",
+          "fiddle_strings": "gut_wound",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 15.02,
-          "fiddle_strings": 0.63,
-          "fiddle_bow": 0.045,
-          "fiddle_mute": 0.135,
+          "bowed_technique": 12.92,
+          "fiddle_strings": 0.43499999999999994,
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.3,
           "fiddle_articulation": 1,
           "fiddle_string_configuration": 0
         }
@@ -40,33 +40,33 @@
         },
         "scores": {
           "tap_striker": 0.7,
-          "tap_surface": 0.5
+          "tap_surface": 0.65
         }
       },
       {
         "id": "melodeon_diatonic",
         "slots": {
           "free_reed_technique": "free_reed_drone_under",
-          "melodeon_rows": "melodeon_2_row",
+          "melodeon_rows": "melodeon_3_row",
           "melodeon_diatonic_context": "melodeon_diatonic_celtic"
         },
         "scores": {
-          "free_reed_technique": 14.475,
-          "melodeon_rows": 2.55,
-          "melodeon_diatonic_context": 7.475
+          "free_reed_technique": 12.830000000000002,
+          "melodeon_rows": 2.015,
+          "melodeon_diatonic_context": 6.565000000000001
         }
       },
       {
         "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
+          "keyboard_technique": "keyboard_honky_tonk",
           "upright_use": "upright_studio",
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 0.52,
-          "upright_use": 0.135,
-          "upright_piano_size": 3.5100000000000002
+          "keyboard_technique": 1.5750000000000002,
+          "upright_use": 0.09,
+          "upright_piano_size": 2.4050000000000002
         }
       },
       {
@@ -76,20 +76,20 @@
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 15.209999999999999,
-          "string_tuning": 18.799999999999997,
+          "acoustic_technique": 13.970000000000002,
+          "string_tuning": 17.275000000000002,
           "top_wood": 0.7,
           "back_sides": 0.7,
-          "string_acoustic": 0.9600000000000002
+          "string_acoustic": 0.39
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -102,27 +102,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0.5499999999999999,
-          "voice_quality": 14.559999999999992,
+          "voice_register": 1.1249999999999998,
+          "voice_quality": 13.259999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8449999999999999,
-          "voice_articulation": 24.505000000000003,
-          "voice_microtone": 25.544999999999998,
-          "voice_tradition": 28.47,
-          "voice_mechanism_compound": 7.77,
-          "voice_estill_quality": 6.295,
-          "voice_speech_song": 28.925000000000004,
-          "voice_ensemble_config": 26.325,
-          "voice_ornament_system": 28.875,
-          "voice_pitch_organization": 2.495,
-          "voice_processing_chain": 6.24,
-          "voice_multitrack_stack": 7.475000000000001
+          "voice_vibrato": 2.1775,
+          "voice_articulation": 26.78000000000001,
+          "voice_microtone": 27.17,
+          "voice_tradition": 24.700000000000003,
+          "voice_mechanism_compound": 5.85,
+          "voice_estill_quality": 7.710000000000001,
+          "voice_speech_song": 29.900000000000006,
+          "voice_ensemble_config": 28.990000000000006,
+          "voice_ornament_system": 25.695,
+          "voice_pitch_organization": 1.2349999999999997,
+          "voice_processing_chain": 7.279999999999999,
+          "voice_multitrack_stack": 8.32
         }
       },
       {
@@ -132,8 +132,8 @@
           "spoons_playing": "spoons_knee_and_hand"
         },
         "scores": {
-          "spoons_material": 0.7,
-          "spoons_playing": 24.505000000000006
+          "spoons_material": 0.85,
+          "spoons_playing": 26.885000000000005
         }
       },
       {
@@ -142,17 +142,17 @@
           "harmonica_type": "tremolo_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
-          "harmonica_technique": "harm_chordal_chugging",
-          "harmonica_maker_school": "harmonica_suzuki_japanese",
+          "harmonica_technique": "harm_folk_first_position",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 2.31,
+          "harmonica_type": 2.9899999999999998,
           "harmonica_comb": 4.8100000000000005,
-          "harmonica_reed": 2.21,
-          "harmonica_technique": 1.1449999999999998,
-          "harmonica_maker_school": 0.4799999999999999,
-          "harmonica_tuning": 1
+          "harmonica_reed": 2.8600000000000003,
+          "harmonica_technique": 1.7200000000000002,
+          "harmonica_maker_school": 0.24,
+          "harmonica_tuning": 1.3
         }
       }
     ],

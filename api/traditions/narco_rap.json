@@ -5,7 +5,7 @@
   "lineage": "Emerged circa 2010 in Reynosa, Matamoros and the Tamaulipas border corridor of northeastern Mexico, spread by Cartel de Santa's precedent and artists such as Rowsty, Dan Sanchez and El Komander-adjacent rap crews, built on 70-90 BPM half-time trap and boom-bap beats with dark minor synth pads, heavy 808s, occasional sampled accordion or bajo sexto quotes, and blunt first-person cartel narrative delivered in a hard Norteño Spanish over YouTube-distributed, home-mixed audio.",
   "recipe": "classic early-2010s narco rap, mc Rhythm, intl hip hop branch, tejano border corrido, us hip hop gangsta corridos bélicos. vocal fry, rap, straight onset, interlocked note trading. TR-808, chopped sampler, sub bass analog poly synth, weltmeister east German mid tier vintage volk chordal accordion, cedar nickel wound modern tejano strummed bajo sexto. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 460,
-  "score": 269.659,
+  "score": 270.834,
   "config": {
     "traditions": [
       "narco_rap",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 1.2349999999999999,
-          "voice_quality": 24.031,
+          "voice_quality": 24.377499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.9174999999999995,
           "voice_articulation": 18.52499999999999,
           "voice_microtone": 21.31999999999999,
-          "voice_tradition": 10.068,
+          "voice_tradition": 10.128,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 23.034499999999998,
+          "voice_speech_song": 23.339,
           "voice_ensemble_config": 18.65499999999999,
           "voice_ornament_system": 5.005000000000002,
-          "voice_pitch_organization": 1.19,
-          "voice_processing_chain": 18.189999999999998,
+          "voice_pitch_organization": 1.1449999999999998,
+          "voice_processing_chain": 18.3265,
           "voice_multitrack_stack": 5.005000000000001
         }
       },
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 8.919,
+          "tr808_voice": 8.874,
           "drum_machine_808_context": 4.03,
           "tr808_production_origin": 0.3
         }
@@ -86,15 +86,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 14.369,
-          "poly_archetypes": 0.045,
+          "electronic_technique": 14.324,
+          "poly_archetypes": 0,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -1.1
+          "poly_maker_lineage": -1.085
         }
       },
       {
@@ -105,16 +105,16 @@
           "musette_offset": "italian_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 9.599499999999999,
+          "free_reed_technique": 9.904,
           "accordion_reed_material": 1.4949999999999999,
-          "musette_offset": 0.9890000000000001,
+          "musette_offset": 1.04,
           "reed_config": 0.294,
           "bellows": 0.045,
-          "voicing_chamber": 0,
+          "voicing_chamber": 0.1365,
           "accordion_maker_school": 1.885
         }
       },

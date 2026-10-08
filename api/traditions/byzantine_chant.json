@@ -3,14 +3,14 @@
   "name": "Byzantine chant",
   "family": "classical",
   "lineage": "Greek Orthodox liturgical chant tradition continuing in unbroken practice since the 9th-century codification at the Byzantine court of Constantinople, governed by the eight-mode oktoechos modal system and performed as ison-drone-with-melismatic-chanter (psaltis) across the liturgical year in Orthodox cathedrals, monasteries (Mount Athos, Meteora), and parish churches",
-  "recipe": "classic Southern European early-1950s byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant alpine yodeling. thick, breath veiled tone, slow rate, interlocked note trading. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 338,
-  "score": 222.485,
+  "recipe": "classic Southern European early-1950s byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal cântitsi armãneashti polyphonic song of epirus. thick, breath veiled tone, slow rate, interlocked note trading. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 336,
+  "score": 137.09,
   "config": {
     "traditions": [
       "byzantine_chant",
-      "armenian_duduk_chant",
-      "alpine_yodeling"
+      "aromanian_farsherot_song",
+      "epirus_polyphonic_song"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.240000000000002,
-          "voice_quality": 26.389999999999997,
+          "voice_register": 4.590000000000001,
+          "voice_quality": 15.599999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.490000000000001,
-          "voice_articulation": 20.085,
-          "voice_microtone": 32.7925,
-          "voice_tradition": 30.3875,
-          "voice_mechanism_compound": 12.870000000000001,
-          "voice_estill_quality": 10.025,
-          "voice_speech_song": 22.164999999999996,
-          "voice_ensemble_config": 21.059999999999995,
-          "voice_ornament_system": 6.505000000000001,
-          "voice_pitch_organization": 9.977500000000001,
-          "voice_processing_chain": 6.5,
-          "voice_multitrack_stack": 8.709999999999999
+          "voice_vibrato": 3.445,
+          "voice_articulation": 12.934999999999997,
+          "voice_microtone": 18.069999999999993,
+          "voice_tradition": 21.96999999999999,
+          "voice_mechanism_compound": 7.279999999999999,
+          "voice_estill_quality": 5.2,
+          "voice_speech_song": 14.104999999999997,
+          "voice_ensemble_config": 14.104999999999997,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 7.0200000000000005,
+          "voice_processing_chain": 5.590000000000001,
+          "voice_multitrack_stack": 4.029999999999999
         }
       }
     ],

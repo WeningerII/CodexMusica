@@ -5,7 +5,7 @@
   "lineage": "Institutional art-music practice begun at Bell Labs in 1957 with Max Mathews's MUSIC I and extended at Stanford CCRMA, IRCAM and CCRMA-adjacent centres by John Chowning, Jean-Claude Risset and Barry Truax — sound synthesised or algorithmically composed by computer, using FM and granular techniques, spectral analysis-resynthesis, non-tempered frequency structures and fixed-media multichannel diffusion rather than live instrumental performance.",
   "recipe": "classic Asian late-1950s computer music, art Music, western modern branch, musique concrete experimental electric, ambient experimental electric tape music organic ambient. thick, breath veiled tone, slow rate, interlocked note trading. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity pad fm glitched textural granular glitched textural wavetable glitched textural modular synth, prepared piano. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 581,
-  "score": 176.27,
+  "score": 175.22,
   "config": {
     "traditions": [
       "computer_music",
@@ -24,7 +24,7 @@
         },
         "scores": {
           "electronic_technique": 4.9750000000000005,
-          "fm_algorithm": 2.26,
+          "fm_algorithm": 2.215,
           "fm_modulator_ratio": 0,
           "fm_polyphony": 0.31977272727272726,
           "fm_model_lineage": 3.3150000000000004
@@ -53,8 +53,8 @@
         },
         "scores": {
           "electronic_technique": 8.997045454545455,
-          "wt_position": 2.3856060606060607,
-          "wt_family": 2.3856060606060607,
+          "wt_position": 2.2806060606060607,
+          "wt_family": 2.2806060606060607,
           "wt_polyphony": 0.31977272727272726
         }
       },
@@ -68,8 +68,8 @@
         },
         "scores": {
           "electronic_technique": 8.997045454545455,
-          "mod_voltage_source": 0.045,
-          "mod_patch_density": 2.6100000000000003,
+          "mod_voltage_source": 0.09,
+          "mod_patch_density": 2.46,
           "mod_lineage": 0.195
         }
       },
@@ -113,7 +113,7 @@
           "voice_quality": 6.11,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.046666666666667,
+          "voice_vibrato": 5.001666666666667,
           "voice_articulation": 14.819999999999993,
           "voice_microtone": 14.624999999999991,
           "voice_tradition": 13,
@@ -122,9 +122,9 @@
           "voice_speech_song": 18.394999999999992,
           "voice_ensemble_config": 15.404999999999992,
           "voice_ornament_system": 4.65,
-          "voice_pitch_organization": 6.693333333333334,
-          "voice_processing_chain": 4.880833333333333,
-          "voice_multitrack_stack": 1.4949999999999999
+          "voice_pitch_organization": 6.3483333333333345,
+          "voice_processing_chain": 4.685833333333334,
+          "voice_multitrack_stack": 1.39
         }
       }
     ],

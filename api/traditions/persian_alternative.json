@@ -5,7 +5,7 @@
   "lineage": "Haag — Buoyancy (2015), complete five-piece instrumental album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2010s persian alternative, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 435,
-  "score": 67.114,
+  "score": 67.303,
   "config": {
     "traditions": [
       "persian_alternative"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 2.6000000000000005,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 1.468,
           "finish": 0,
           "string_tuning": 1
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -126,10 +126,10 @@
           "grand_piano_brand": 0,
           "piano_hammer": 6.369999999999999,
           "piano_rim": 7.669999999999999,
-          "piano_soundboard": 1.5945,
-          "piano_pinblock": 2.563,
+          "piano_soundboard": 1.5,
+          "piano_pinblock": 2.5315,
           "piano_plate": 1.9364999999999999,
-          "piano_pitch_standard": 2.7645
+          "piano_pitch_standard": 2.6595
         }
       }
     ],

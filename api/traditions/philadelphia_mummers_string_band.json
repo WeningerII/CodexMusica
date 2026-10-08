@@ -1,0 +1,202 @@
+{
+  "id": "philadelphia_mummers_string_band",
+  "name": "Mummers string band (Philadelphia New Year's parade)",
+  "family": "global",
+  "lineage": "Costumed marching bands of the Philadelphia Mummers Parade held every New Year's Day, organised as clubs rooted in the South Philadelphia neighbourhoods around Two Street and judged in a String Band Division. Parade rules bar brass instruments, so dozens of banjos and saxophones with accordions, violins, string basses, glockenspiels and drums play arranged popular songs and marches while the members strut in elaborate costumes; the Ferko String Band's 'Alabama Jubilee' became a national hit in 1955.",
+  "recipe": "classic mid-1950s mummers string band, carnival Processional, American marching groove percussion. credited banjo unspecified, yellow brass modern standard saxophone, piano accordion, fiddle, upright bass, mounted vertical brass glockenspiel, snare drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 8.154,
+  "config": {
+    "traditions": [
+      "philadelphia_mummers_string_band",
+      "concert_march"
+    ],
+    "instruments": [
+      {
+        "id": "credited_banjo_unspecified",
+        "slots": {
+          "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified"
+        },
+        "scores": {
+          "credited_banjo_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_balanced_action"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "sax_size": -0.05,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 4.2575,
+          "sax_mouthpiece": 0.65,
+          "sax_technique": -0.05,
+          "sax_maker_school": -2.005
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chordal_chugging",
+          "pa_size": "pa_120_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 0.45499999999999996,
+          "pa_size": 0,
+          "pa_use": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.38212499999999994,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.532125,
+          "fiddle_articulation": 0.172125,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "dutar_strings_unspecified",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": -0.05
+        }
+      },
+      {
+        "id": "glockenspiel",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "glockenspiel_size": "glockenspiel_marching",
+          "glockenspiel_mallet": "glockenspiel_brass"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "glockenspiel_size": 3.24,
+          "glockenspiel_mallet": 2.0799999999999996
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_banjo_unspecified": [
+        "credited_banjo_unspecified_identity"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "piano_accordion": [
+        "free_reed_technique",
+        "pa_size",
+        "pa_use"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "glockenspiel": [
+        "percussion_technique",
+        "glockenspiel_size",
+        "glockenspiel_mallet"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified",
+      "wind_articulation": "wind_punchy_ensemble",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_balanced_action",
+      "free_reed_technique": "free_reed_chordal_chugging",
+      "pa_size": "pa_120_bass",
+      "pa_use": "pa_polka",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "upright_strings": "dutar_strings_unspecified",
+      "upright_play": "pizz_upright",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "glockenspiel_size": "glockenspiel_marching",
+      "glockenspiel_mallet": "glockenspiel_brass",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,55 +1,71 @@
 {
-  "id": "sikh_gurmat_sangeet",
-  "name": "Gurmat Sangeet (Sikh devotional)",
+  "id": "sikh_shabad_kirtan",
+  "merged_from": "sikh_gurmat_sangeet",
+  "name": "Sikh shabad kirtan (Gurbani praise)",
   "family": "global",
-  "lineage": "Sikh sacred-music tradition built on shabad kirtan (singing of the verses of the Guru Granth Sahib scripture), organized by raga across the 31 ragas mentioned in the Granth, performed by trained ragis at gurdwaras worldwide and especially at Harmandir Sahib (the Golden Temple) in Amritsar where the tradition has been performed continuously since the 1604 installation of the Adi Granth scripture by Guru Arjan Dev",
-  "recipe": "classic South Asian mid-1600s gurmat sangeet, ritual Devotional, hindu branch, indian classical improv improv on frame, Sufi ritual devotional tarana dadra. vocal fry, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura, tun indian cedar gut pre modern sikh canon legato dilruba. golden temple amritsar gurdwara. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 515,
-  "score": 182.509,
+  "lineage": "Sikh devotional kirtan tradition continuous from 15th-16th century Guru-Nanak-era Sikh-spiritual-music foundation through codification under Guru Arjan and continuous performance through 17th-19th century historical-Punjab-region into modern Sikh-and-Sikh-diaspora practice; the kirtan ensemble accompanies shabad (Gurbani-scriptural) text-recitation in gurdwara context",
+  "recipe": "classic South Asian mid-1980s sikh shabad kirtan, praise Song, indian subcontinent branch, middle east n African praise song, hindu ritual devotional, indian classical improv improv on frame sufi munajat and naat arabic madh and qasida. thick, declaimed, slow rate, interlocked note trading. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. golden temple amritsar gurdwara. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 622,
+  "score": 242.145,
   "config": {
     "traditions": [
-      "sikh_gurmat_sangeet",
-      "tarana",
-      "dadra"
+      "sikh_shabad_kirtan",
+      "sufi_munajat_naat",
+      "arabic_madh_qasida"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 2.73,
-          "voice_quality": 14.169999999999998,
+          "voice_register": 2.8449999999999998,
+          "voice_quality": 37.28,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.2375,
-          "voice_articulation": 3.9650000000000003,
-          "voice_microtone": 3.770000000000001,
-          "voice_tradition": 16.867499999999996,
-          "voice_mechanism_compound": 7.7749999999999995,
-          "voice_estill_quality": 11.534999999999997,
-          "voice_speech_song": 9.069499999999998,
-          "voice_ensemble_config": 3.9000000000000004,
-          "voice_ornament_system": 13.282499999999999,
-          "voice_pitch_organization": 8.674999999999999,
-          "voice_processing_chain": 4.55,
-          "voice_multitrack_stack": 3.7700000000000005
+          "voice_vibrato": 9.254999999999999,
+          "voice_articulation": 8.515,
+          "voice_microtone": 18.849999999999994,
+          "voice_tradition": 26.259999999999998,
+          "voice_mechanism_compound": 11.674999999999999,
+          "voice_estill_quality": 9.5,
+          "voice_speech_song": 21.059999999999995,
+          "voice_ensemble_config": 9.035000000000002,
+          "voice_ornament_system": 16.049999999999997,
+          "voice_pitch_organization": 15.989999999999998,
+          "voice_processing_chain": 2.3399999999999994,
+          "voice_multitrack_stack": 3.5750000000000006
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_female",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": 0.19500000000000003,
+          "harmonium_action": 1.56,
+          "harmonium_voicing": 1.8199999999999998,
+          "harmonium_use": 5.069999999999999
         }
       },
       {
@@ -60,24 +76,9 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 7.085,
-          "tabla_bayan": 4.095,
-          "tabla_syahi": 4.419999999999999
-        }
-      },
-      {
-        "id": "harmonium_indian",
-        "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "harmonium_action": "harmonium_hand_pump",
-          "harmonium_voicing": "harmonium_male",
-          "harmonium_use": "harmonium_classical"
-        },
-        "scores": {
-          "free_reed_technique": 0.7474999999999998,
-          "harmonium_action": 2.73,
-          "harmonium_voicing": 2.73,
-          "harmonium_use": 6.825
+          "tabla_dayan": 7.8,
+          "tabla_bayan": 4.094999999999999,
+          "tabla_syahi": 3.25
         }
       },
       {
@@ -87,46 +88,29 @@
           "tanpura_size": "female_size",
           "tanpura_jawari": "curved_jawari",
           "tanpura_strings": "five_string_chitra",
-          "tanpura_string_material": "tanpura_brass_only",
-          "tanpura_body_wood": "tanpura_gourd_body"
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
-          "plucked_traditional_technique": 8.085,
-          "tanpura_size": 4.42,
-          "tanpura_jawari": 7.875,
-          "tanpura_strings": 2.08,
-          "tanpura_string_material": 0.24,
-          "tanpura_body_wood": 0
-        }
-      },
-      {
-        "id": "dilruba",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "dilruba_neck": "long_dilruba",
-          "dilruba_use": "dilruba_classical",
-          "dilruba_body_wood": "dilruba_tun",
-          "dilruba_strings": "dilruba_gut_historical"
-        },
-        "scores": {
-          "bowed_technique": 8.085,
-          "dilruba_neck": 4.095,
-          "dilruba_use": 2.08,
-          "dilruba_body_wood": 3.055,
-          "dilruba_strings": 1.3649999999999995
+          "plucked_traditional_technique": 8.069999999999999,
+          "tanpura_size": 2.015,
+          "tanpura_jawari": 7.874999999999999,
+          "tanpura_strings": 1.8449999999999998,
+          "tanpura_string_material": 2.5349999999999997,
+          "tanpura_body_wood": 3.185
         }
       }
     ],
     "room": "golden_temple_amritsar_gurdwara",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_tseries_cassette_devotional",
     "inline_chain": {
-      "mic": "condenser_ldc",
-      "pre": "pre_tube_german_v72",
-      "console": "console_german_tube_50s",
-      "comp": "comp_vari_mu",
-      "eq": "eq_passive_program_pultec",
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_high"
     },
     "tuning": "hindustani_thaat_alap_jod_jhala",
     "aesthetic": null,
@@ -137,14 +121,15 @@
     "tuning": "hindustani_thaat_alap_jod_jhala",
     "room": "golden_temple_amritsar_gurdwara",
     "parts": {
+      "voice_articulation": "melisma_voice",
+      "voice_speech_song": "voice_melismatic_singing",
       "voice_register": "chest_voice",
       "voice_quality": "opera_voice",
-      "voice_speech_song": "voice_metrical_chant",
       "voice_tradition": "hindustani_dhrupad_tradition",
       "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
       "voice_processing_chain": "voice_processing_unprocessed",
       "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_microtone": "shruti_inflected",
       "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
       "voice_estill_quality": "voice_estill_opera",
@@ -162,17 +147,11 @@
       "tanpura_jawari": "curved_jawari",
       "tanpura_strings": "four_string_classical",
       "tanpura_string_material": "tanpura_bronze_steel",
-      "tanpura_body_wood": "tanpura_gourd_body",
-      "dilruba_neck": "long_dilruba",
-      "dilruba_use": "dilruba_kirtan",
-      "dilruba_body_wood": "dilruba_tun",
-      "dilruba_strings": "dilruba_steel_modern"
+      "tanpura_body_wood": "tanpura_gourd_body"
     },
-    "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_tube_german_v72",
-    "chain_comp": "comp_vari_mu",
-    "chain_eq": "eq_passive_program_pultec",
-    "chain_medium": "tape_15ips",
-    "chain_console": "console_german_tube_50s"
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Finnish trap localizes the bass-heavy, electronically produced rap style within Finland’s hip-hop networks. Performers combine locally inflected slang and spontaneous vocal cadences with contemporary trap production, alongside melodic and pop-facing branches.",
   "recipe": "classic finnish trap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, analog poly synth. treated studio.",
   "recipe_chars": 165,
-  "score": 21.815,
+  "score": 21.836,
   "config": {
     "traditions": [
       "finnish_trap"
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.431,
+          "tr808_voice": 5.3155,
           "drum_machine_808_context": 1.69,
-          "tr808_production_origin": 0.105
+          "tr808_production_origin": 0.1785
         }
       },
       {
@@ -75,8 +75,8 @@
         },
         "scores": {
           "electronic_technique": 2.45,
-          "poly_archetypes": 0,
-          "poly_voices": 0.084,
+          "poly_archetypes": 0.0315,
+          "poly_voices": 0.1155,
           "poly_maker_lineage": -0.035
         }
       }

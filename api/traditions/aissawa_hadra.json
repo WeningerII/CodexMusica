@@ -1,0 +1,215 @@
+{
+  "id": "aissawa_hadra",
+  "name": "Aïssawa (ʿIsawiyya brotherhood hadra)",
+  "family": "global",
+  "lineage": "Ritual music of the ʿIsawiyya Sufi order founded in Meknes by the sixteenth-century saint Sidi Muhammad ibn ʿIsa, whose shrine in Meknes hosts the order's annual moussem and whose lodges across Moroccan cities hold hadra ceremonies. Chanted dhikr and praise poetry lead into trance dancing, with ghaita shawms and tbel drums outdoors and bendir and taarija frame and clay drums indoors. Paul Bowles recorded the order in 1959 for the Library of Congress.",
+  "recipe": "classic North African late-1950s aïssawa, ritual Devotional, Sufi branch. single lead single track no stacking. ghaita, tbel, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, taarija. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 302,
+  "score": 10.273,
+  "config": {
+    "traditions": [
+      "aissawa_hadra"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.189,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "ghaita",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "ghaita_region": "ghaita_moroccan",
+          "ghaita_context": "ghaita_sufi",
+          "ghaita_body_wood": "ghaita_apricot_canonical",
+          "ghaita_reed": "ghaita_arundo_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "ghaita_region": 0.147,
+          "ghaita_context": 3.25,
+          "ghaita_body_wood": 0.27299999999999996,
+          "ghaita_reed": 0.27299999999999996
+        }
+      },
+      {
+        "id": "tbel",
+        "slots": {
+          "tbel_skin": "tbel_goatskin",
+          "tbel_technique": "tbel_curved_sticks"
+        },
+        "scores": {
+          "tbel_skin": 0,
+          "tbel_technique": 0.0705
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_with_snares",
+          "bendir_context": "bendir_sufi",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_goat_skin_canonical"
+        },
+        "scores": {
+          "bendir_snares": 0.19949999999999998,
+          "bendir_context": 0.19949999999999998,
+          "bendir_shell_wood": 1.69,
+          "bendir_head": 3.25
+        }
+      },
+      {
+        "id": "taarija",
+        "slots": {
+          "taarija_size": "taarija_small",
+          "taarija_technique": "taarija_finger",
+          "taarija_head": "taarija_goat"
+        },
+        "scores": {
+          "taarija_size": 0.0315,
+          "taarija_technique": 0.105,
+          "taarija_head": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "ghaita": [
+        "wind_articulation",
+        "ghaita_region",
+        "ghaita_context",
+        "ghaita_body_wood",
+        "ghaita_reed"
+      ],
+      "tbel": [
+        "tbel_skin",
+        "tbel_technique"
+      ],
+      "bendir": [
+        "bendir_snares",
+        "bendir_context",
+        "bendir_shell_wood",
+        "bendir_head"
+      ],
+      "taarija": [
+        "taarija_size",
+        "taarija_technique",
+        "taarija_head"
+      ]
+    },
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "stone_plaster_medina_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "wind_articulation": "wind_ornament_heavy",
+      "ghaita_region": "ghaita_moroccan",
+      "ghaita_context": "ghaita_sufi",
+      "ghaita_body_wood": "ghaita_apricot_canonical",
+      "ghaita_reed": "ghaita_arundo_canonical",
+      "tbel_skin": "tbel_goatskin",
+      "tbel_technique": "tbel_curved_sticks",
+      "bendir_snares": "bendir_with_snares",
+      "bendir_context": "bendir_sufi",
+      "bendir_shell_wood": "bendir_juniper_canonical",
+      "bendir_head": "bendir_goat_skin_canonical",
+      "taarija_size": "taarija_small",
+      "taarija_technique": "taarija_finger",
+      "taarija_head": "taarija_goat"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

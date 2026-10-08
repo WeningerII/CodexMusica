@@ -5,7 +5,7 @@
   "lineage": "Japanese drill includes Osaka artists adapting UK and US-derived beat practices. Jin Dogg’s You Don’t Know-era UK-drill branch is the selected example, distinguished from his earlier G-funk and other trap recordings.",
   "recipe": "classic modern japanese drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. pitched sub bass 808 style legato glide sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 393,
-  "score": 23.284,
+  "score": 23.635,
   "config": {
     "traditions": [
       "japanese_drill"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 6.5649999999999995,
-          "voice_ensemble_config": 0.8474999999999999,
+          "voice_ensemble_config": 1.176,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -62,19 +62,19 @@
           "electronic_technique": 2.2,
           "sample_bitdepth": 0.39,
           "sample_swing": -0.05,
-          "sample_processing": 2.235
+          "sample_processing": 2.34
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": -0.07,
-          "va_archetypes": 0.1365,
+          "va_archetypes": 0.054,
           "digital_subtractive_context": 4.159999999999999
         }
       }

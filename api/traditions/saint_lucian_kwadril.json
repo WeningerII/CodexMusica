@@ -1,0 +1,159 @@
+{
+  "id": "saint_lucian_kwadril",
+  "name": "Kwadril (Saint Lucian quadrille)",
+  "family": "global",
+  "lineage": "Saint Lucian Kwéyòl form of the European quadrille, a suite of figured set dances for couples, played by a band of violon (fiddle), banjo, cuatro and guitar with the chak-chak rattle. Long a mainstay of village dances, it is kept up by rural community groups and was documented on Smithsonian Folkways' Musical Traditions of St. Lucia; the shaker card stands in for the chak-chak.",
+  "recipe": "classic modern kwadril, groove Percussion, Caribbean branch. fiddle, credited banjo shaker source unspecified, cuatro venezolano, parlor acoustic guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 233,
+  "score": 2.318,
+  "config": {
+    "traditions": [
+      "saint_lucian_kwadril"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 1.3545,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.105,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.19949999999999998,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_banjo_unspecified",
+        "slots": {
+          "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified"
+        },
+        "scores": {
+          "credited_banjo_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "cuatro_venezolano",
+        "slots": {
+          "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+          "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+          "cuatro_venezolano_body_wood": "mahogany_top",
+          "cuatro_venezolano_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "cuatro_venezolano_tuning": 0.0315,
+          "cuatro_venezolano_technique": 0.0315,
+          "cuatro_venezolano_body_wood": 0,
+          "cuatro_venezolano_strings": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_parlor",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood_parlor": "sitka_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "acoustic_technique": 0.2,
+          "string_tuning": 0,
+          "top_wood_parlor": 0.105,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 0
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.336
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "credited_banjo_unspecified": [
+        "credited_banjo_unspecified_identity"
+      ],
+      "cuatro_venezolano": [
+        "cuatro_venezolano_tuning",
+        "cuatro_venezolano_technique",
+        "cuatro_venezolano_body_wood",
+        "cuatro_venezolano_strings"
+      ],
+      "acoustic_guitar_parlor": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_parlor",
+        "back_sides_parlor",
+        "string_acoustic_parlor"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified",
+      "cuatro_venezolano_tuning": "cuatro_venezolano_reentrant",
+      "cuatro_venezolano_technique": "cuatro_venezolano_rasgueo",
+      "cuatro_venezolano_body_wood": "mahogany_top",
+      "cuatro_venezolano_strings": "dutar_strings_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "dutar_strings_unspecified",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

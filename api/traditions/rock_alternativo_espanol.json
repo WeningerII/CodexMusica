@@ -5,7 +5,7 @@
   "lineage": "Rock alternativo español covers alternative-band scenes in Spain, including work in Basque and other languages.",
   "recipe": "classic rock alternativo espanol, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 447,
-  "score": 50.092,
+  "score": 49.262,
   "config": {
     "traditions": [
       "rock_alternativo_espanol"
@@ -32,14 +32,14 @@
           "electric_technique": 2.8600000000000003,
           "amp_make": 7.280000000000001,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.3045,
+          "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 0.7409999999999999,
-          "scale_length": 0.609,
-          "string_gauge": 0.7409999999999999,
+          "bridge": 0.6359999999999999,
+          "scale_length": 0.546,
+          "string_gauge": 0.6359999999999999,
           "finish": 0,
           "string_tuning": 0.108
         }
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 0.609,
+          "body_wood": 0.546,
           "pickup_config": 0.1365,
           "string_type": 14.625,
-          "scale_length_b": 0.3045,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.378,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.77,
+          "voice_ensemble_config": 1.4760000000000002,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.5175
         }
       }

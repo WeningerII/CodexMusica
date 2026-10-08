@@ -5,7 +5,7 @@
   "lineage": "New England and the American Northeast circa 1998-2008 around Sunburned Hand of the Man, No-Neck Blues Band and the Brattleboro/Ecstatic Peace and Time-Lag circles — collectively improvised, largely unmetered sessions on acoustic guitar, hand percussion, harmonium, flute and untrained group voice, captured in one take on cassette or portable recorder in houses and lofts and issued in tiny CD-R editions.",
   "recipe": "classic North American mid-2000s free folk, ballad Poetry, freak folk branch, string drone modal, experimental distorted rock drone folk borneo traditional. thick, breath veiled tone, straight onset, interlocked note trading. open d tuning maple phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas, vocal male straight harmonium indian, aluminum anodized modern burke goldie premium melodic tin whistle, pre muffled edge muffled brushes-and-sticks drum kit, hammer low mid emphasis folk melodica. takoma home recording fahey. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 735,
-  "score": 329.002,
+  "score": 328.057,
   "config": {
     "traditions": [
       "free_folk",
@@ -18,16 +18,16 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
-          "top_wood": "mahogany_top",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 13.964999999999996,
-          "string_tuning": 3.205,
-          "top_wood": 0.21,
+          "string_tuning": 3.16,
+          "top_wood": 0.195,
           "back_sides": 1,
-          "string_acoustic": 3.1849999999999996
+          "string_acoustic": 3.1399999999999997
         }
       },
       {
@@ -39,9 +39,9 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 5.215,
+          "percussion_technique": 5.17,
           "conga_set": 0.845,
-          "conga_skin": 1.6899999999999997,
+          "conga_skin": 1.6449999999999998,
           "conga_shell_wood": 1.6899999999999997
         }
       },
@@ -85,7 +85,7 @@
           "voice_quality": 12.154999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3249999999999993,
+          "voice_vibrato": 3.2799999999999994,
           "voice_articulation": 25.805,
           "voice_microtone": 27.235,
           "voice_tradition": 23.4,
@@ -93,10 +93,10 @@
           "voice_estill_quality": 6.76,
           "voice_speech_song": 33.605,
           "voice_ensemble_config": 27.494999999999997,
-          "voice_ornament_system": 3.34,
+          "voice_ornament_system": 3.385,
           "voice_pitch_organization": 6.4350000000000005,
           "voice_processing_chain": 5.200000000000001,
-          "voice_multitrack_stack": 6.7
+          "voice_multitrack_stack": 6.295
         }
       },
       {
@@ -109,9 +109,9 @@
         },
         "scores": {
           "wind_articulation": 12.419999999999996,
-          "whistle_key": 0.21,
-          "whistle_ornament": 4.6499999999999995,
-          "whistle_body_material": 1.6899999999999997
+          "whistle_key": 0.15,
+          "whistle_ornament": 4.499999999999999,
+          "whistle_body_material": 1.6449999999999998
         }
       },
       {
@@ -123,7 +123,7 @@
         },
         "scores": {
           "drum_technique": 25.512500000000003,
-          "drumhead": 7.279999999999999,
+          "drumhead": 7.385,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -137,8 +137,8 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "melodica_use": 4.844999999999999,
-          "melodica_pitch": 1.6899999999999997,
+          "melodica_use": 4.694999999999999,
+          "melodica_pitch": 1.6449999999999998,
           "melodica_maker_school": 0.3
         }
       }

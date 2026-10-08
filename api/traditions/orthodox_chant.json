@@ -1,18 +1,73 @@
 {
-  "id": "orthodox_chant",
-  "name": "Orthodox chant (Slavonic obikhod and znamenny)",
-  "family": "classical",
-  "lineage": "Church Slavonic liturgical singing of the Russian, Ukrainian and Serbian Orthodox churches, from eleventh-century znamenny neumes through the seventeenth-century shift to staff notation and the nineteenth-century Obikhod harmonizations of Bortniansky, Lvov and Bakhmetev — unaccompanied mixed or male choir in four parts with the melody in the tenor, deep octavist basses, unmetered text-driven declamation in the eight-tone system, and no instruments of any kind.",
-  "recipe": "classic Eastern European early-1940s orthodox chant, ritual Devotional, Russian orthodox branch, christian gospel anglican choral, western early art music anglican choral evensong anglican liturgy. thick, declaimed, slow rate, interlocked note trading. choir russian orthodox, choir cathedral satb. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 447,
-  "score": 156.627,
+  "id": "russian_orthodox_chant",
+  "merged_from": "orthodox_chant",
+  "name": "Russian Orthodox liturgical chant",
+  "family": "global",
+  "lineage": "Russian Orthodox liturgical chant tradition codified across the medieval-Kievan and Muscovite periods, drawing on the Byzantine octoechos modal system through the znamenny notation tradition — characterized by unaccompanied male-choir performance, the four-part choral harmonization style developed from the seventeenth century onward, deep-bass octavist register, and the obikhod and obihod-derived modern liturgical settings used across the Russian Orthodox parish-and-monastic-foundation network",
+  "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic ethiopian tewahedo zema chant syriac orthodox liturgical chant. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 575,
+  "score": 271.514,
   "config": {
     "traditions": [
-      "orthodox_chant",
-      "anglican_choral_evensong",
-      "anglican_liturgy"
+      "russian_orthodox_chant",
+      "ethiopian_zema_yared",
+      "syriac_orthodox_chant"
     ],
     "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "mixed_4_part_satb",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+        },
+        "scores": {
+          "choir_size": 5.784999999999999,
+          "choir_polyphonic_configuration": 5.654999999999999,
+          "choir_regional_canonical_configuration": 4.03,
+          "choir_ensemble_repertoire": 13.714999999999998
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 14.974999999999998,
+          "voice_quality": 23.919999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.051500000000002,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 23.529999999999994,
+          "voice_tradition": 17.09499999999999,
+          "voice_mechanism_compound": 9.75,
+          "voice_estill_quality": 10.239999999999998,
+          "voice_speech_song": 20.669999999999995,
+          "voice_ensemble_config": 25.057499999999997,
+          "voice_ornament_system": 11.724999999999998,
+          "voice_pitch_organization": 10.205,
+          "voice_processing_chain": 8.255,
+          "voice_multitrack_stack": 7.475
+        }
+      },
       {
         "id": "choir_russian_orthodox",
         "slots": {
@@ -20,83 +75,52 @@
           "use": "orthodox_divine_liturgy"
         },
         "scores": {
-          "voicing": 3.38,
-          "use": 2.73
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
-        },
-        "scores": {
-          "voice_register": 11.384999999999998,
-          "voice_quality": 18.345,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 4.875,
-          "voice_articulation": 15.794999999999995,
-          "voice_microtone": 13.909999999999993,
-          "voice_tradition": 10.475,
-          "voice_mechanism_compound": 4.300000000000001,
-          "voice_estill_quality": 9.049999999999999,
-          "voice_speech_song": 18.687499999999996,
-          "voice_ensemble_config": 20.799999999999997,
-          "voice_ornament_system": 9.15,
-          "voice_pitch_organization": 3.995,
-          "voice_processing_chain": 8.905000000000001,
-          "voice_multitrack_stack": 4.030000000000002
-        }
-      },
-      {
-        "id": "choir_cathedral_satb",
-        "slots": {
-          "voicing": "satb_with_boys",
-          "repertoire": "renaissance_polyphony"
-        },
-        "scores": {
-          "voicing": 5.395,
-          "repertoire": 0.195
+          "voicing": 14.429999999999996,
+          "use": 11.569999999999999
         }
       }
     ],
-    "room": "stone_parish_church",
-    "archetype": "arch_melodiya_state",
+    "room": "cathedral",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
-      "pre": "pre_tube_german_v72",
-      "console": "console_german_tube_50s",
+      "pre": "tube_pre",
+      "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_std"
     },
-    "tuning": "pythagorean",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "pythagorean",
-    "room": "stone_parish_church",
+    "tuning": "just_intonation",
+    "room": "cathedral",
+    "parts": {
+      "voice_register": "head_voice",
+      "voice_quality": "opera_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "baroque_ornamental_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_bel_canto",
+      "voice_estill_quality": "voice_estill_opera",
+      "voice_vibrato": "fast_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance",
+      "voicing": "orthodox_oktavist",
+      "use": "orthodox_divine_liturgy"
+    },
     "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_tube_german_v72",
-    "chain_medium": "tape_15ips",
-    "chain_console": "console_german_tube_50s"
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
   }
 }

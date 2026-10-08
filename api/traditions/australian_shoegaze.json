@@ -5,7 +5,7 @@
   "lineage": "Australian shoegaze links dense guitar textures with melodic vocal arrangements.",
   "recipe": "classic australian shoegaze, distorted Rock, alternative branch. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 251,
-  "score": 15.081,
+  "score": 15.322,
   "config": {
     "traditions": [
       "australian_shoegaze"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.8199999999999998,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.28049999999999997,
+          "bridge": 0.1755,
           "scale_length": 0,
-          "string_gauge": 0.28049999999999997,
+          "string_gauge": 0.1755,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

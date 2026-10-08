@@ -5,7 +5,7 @@
   "lineage": "Grave Wave emerged around a late-2000s and early-2010s network of dark independent music, web publications, labels and clubs. Witch house, post-punk, gothic synth music, industrial electronics and neofolk circulated together through compilations, remixes and DJ programmes.",
   "recipe": "classic 2007-2009 grave wave, electronic Dance. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 94,
-  "score": 0.063,
+  "score": 0.095,
   "config": {
     "traditions": [
       "grave_wave"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "dj_playback_mixing_identity": 0.0945
         }
       }
     ],

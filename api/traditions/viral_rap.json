@@ -5,7 +5,7 @@
   "lineage": "Viral rap is a distribution-led discovery category, represented by DaBaby’s internet-amplified rap breakthrough around Suge and BOP. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
   "recipe": "classic modern viral rap, mc Rhythm, modern branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 38.348,
+  "score": 38.158,
   "config": {
     "traditions": [
       "viral_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.901000000000002,
+          "voice_quality": 14.8275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.419,
-          "voice_ensemble_config": 1.3664999999999998,
+          "voice_speech_song": 14.365,
+          "voice_ensemble_config": 1.3349999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_technique": 2.3275,
-          "sample_bitdepth": 0.4095,
+          "sample_bitdepth": 0.378,
           "sample_swing": 3.9,
           "sample_processing": 0.1785
         }

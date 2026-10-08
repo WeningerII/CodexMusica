@@ -5,7 +5,7 @@
   "lineage": "Chicago rap spans several distinct eras and styles. Common and No I.D.’s Resurrection-era partnership provides the selected jazz- and soul-sampling branch rather than a definition of the city’s later drill scene.",
   "recipe": "classic modern chicago rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 284,
-  "score": 41.23,
+  "score": 41.172,
   "config": {
     "traditions": [
       "chicago_rap"
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 2.5,
           "sampler_archetypes": 0.75,
-          "sampler_bit_depth": 0.39,
+          "sampler_bit_depth": 0.3315,
           "sampler_workflow": 2.45,
           "sampler_classic_context": 7.994999999999999
         }

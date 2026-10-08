@@ -5,7 +5,7 @@
   "lineage": "New England Americana connects roots-song performers, venues and recording networks. David Wax Museum’s rural Maine sessions and Newport appearances offer one documented, Mexican-rooted branch of that regional network.",
   "recipe": "classic modern new england americana, functional Song, americana branch. thick, straight note core, neutral third half flat, m1 with m0 pulse borrowing. jarana jarocha, melodic bowed song accompaniment fiddle, quijada. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 356,
-  "score": 31.667,
+  "score": 31.457,
   "config": {
     "traditions": [
       "new_england_americana"
@@ -29,7 +29,7 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
           "voice_register": 3.3130000000000015,
@@ -40,14 +40,14 @@
           "voice_articulation": -0.14,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.1235,
-          "voice_estill_quality": 4.745,
+          "voice_mechanism_compound": 1.02,
+          "voice_estill_quality": 4.6385000000000005,
           "voice_speech_song": 6.4350000000000005,
           "voice_ensemble_config": -0.10500000000000001,
           "voice_ornament_system": 0.19500000000000003,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.44249999999999995
         }
       },
       {
@@ -60,11 +60,11 @@
           "jarana_jarocha_strings": "jarana_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "jarana_size": 0.231,
+          "plucked_traditional_technique": 0.313,
+          "jarana_size": 0.1995,
           "jarana_jarocha_context": 0.21,
           "jarana_jarocha_body_wood": 0.95,
-          "jarana_jarocha_strings": 0
+          "jarana_jarocha_strings": 0.0315
         }
       },
       {
@@ -79,8 +79,8 @@
         },
         "scores": {
           "bowed_technique": 3.25,
-          "fiddle_strings": 0.5249999999999999,
-          "fiddle_bow": 0.0315,
+          "fiddle_strings": 0.48449999999999993,
+          "fiddle_bow": 0.063,
           "fiddle_mute": 0.0945,
           "fiddle_articulation": 0.0945,
           "fiddle_string_configuration": 0
@@ -95,7 +95,7 @@
         },
         "scores": {
           "quijada_form": 0.3,
-          "quijada_context": 0.0945,
+          "quijada_context": 0.063,
           "quijada_preparation": 0
         }
       }

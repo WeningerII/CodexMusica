@@ -3,53 +3,53 @@
   "name": "Yemenite Torah cantillation",
   "family": "global",
   "lineage": "Yemenite Jewish liturgical Torah-cantillation tradition that preserves what scholars consider one of the most archaic surviving teamim (Masoretic cantillation-sign) reading traditions, descended from the Yemenite Jewish community continuously resident in Yemen from at least the 5th century until the Operation Magic Carpet mass-emigration to Israel 1949-50; characterized by Saadia Gaon-derived liturgical Hebrew pronunciation and microtonal modal vocabulary distinct from Ashkenazi or Sephardi traditions",
-  "recipe": "classic Middle Eastern late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry arabic hakawati coffeehouse storytelling kurdish dengbêj. extended whistle, breath veiled tone, wide pitch sway, interlocked note trading. call ritual shofar. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 382,
-  "score": 91.69,
+  "recipe": "classic Middle Eastern late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry siyah-chamaneh and hore hoyrat. vocal fry, breath veiled tone, fast rate, interlocked note trading. call ritual shofar. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 77.17,
   "config": {
     "traditions": [
       "yemenite_torah_cantillation",
-      "arabic_hakawati",
-      "kurdish_dengbej"
+      "hawrami_siyah_chamaneh",
+      "kirkuk_turkmen_hoyrat"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.56,
-          "voice_quality": 16.185,
+          "voice_register": 1.04,
+          "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.395,
-          "voice_articulation": 8.515,
-          "voice_microtone": 11.797499999999996,
-          "voice_tradition": 7.41,
-          "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 2.3399999999999994,
-          "voice_speech_song": 8.515,
-          "voice_ensemble_config": 9.295,
-          "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 2.0475,
-          "voice_processing_chain": 4.42,
-          "voice_multitrack_stack": 2.7300000000000004
+          "voice_vibrato": 0.9750000000000001,
+          "voice_articulation": 6.89,
+          "voice_microtone": 7.345000000000001,
+          "voice_tradition": 7.215,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 8.385,
+          "voice_ensemble_config": 8.515,
+          "voice_ornament_system": 4.290000000000001,
+          "voice_pitch_organization": 1.195,
+          "voice_processing_chain": 6.4350000000000005,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "wind_articulation": "wind_call_blowing",
           "shofar_shape": "shofar_curved",
-          "shofar_context": "shofar_shabbat"
+          "shofar_context": "shofar_high_holidays"
         },
         "scores": {
           "wind_articulation": 7.409999999999999,
           "shofar_shape": 2.3,
-          "shofar_context": 2.535
+          "shofar_context": 2.3
         }
       }
     ],

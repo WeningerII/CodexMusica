@@ -5,7 +5,7 @@
   "lineage": "Hengelliset laulut connects Finnish sacred-song repertoire with devotional performance and listening. Published songs circulate through singers, accompanists and wider religious communities.",
   "recipe": "classic hengelliset laulut, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 4.275,
+  "score": 4.033,
   "config": {
     "traditions": [
       "hengelliset_laulut"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8625,
+          "voice_speech_song": 0.6825000000000001,
           "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -66,13 +66,13 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 0.453,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.7149999999999999
         }

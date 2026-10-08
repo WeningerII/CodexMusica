@@ -3,14 +3,14 @@
   "name": "Laïkó (modern Greek popular song)",
   "family": "pop",
   "lineage": "The post-1975 mainstream continuation of Greek laïkó, centred on the Athens pista nightclub circuit and the Minos-EMI and Sony Greece catalogues — codified through Yannis Parios, Antonis Remos, Notis Sfakianakis, Despina Vandi and the songwriters Fivos and Nikos Karvelas, with amplified four-course electric bouzouki riffs over 4/4 tsifteteli and zeibekiko frames at 80-125 BPM, dromos-based melodic writing, string-synth and drum-machine backing, and declamatory ornamented lead vocals sustained across ten-minute live medleys.",
-  "recipe": "classic Southern European mid-1970s laïkó, functional Song, europop branch, chanson fado Greek entechno éntekhno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko bouzouki, gut pre 1950s rebetiko baglamas, cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth, la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, string machine. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe": "classic Southern European mid-1970s laïkó, functional Song, europop branch, chanson fado Greek entechno greek éntechno néo kýma. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko bouzouki, gut pre 1950s rebetiko baglamas, cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth, la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, string machine. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 765,
-  "score": 250.655,
+  "score": 238.378,
   "config": {
     "traditions": [
       "laiko_modern",
-      "entehno",
-      "greek_entechno"
+      "greek_entechno",
+      "neo_kyma"
     ],
     "instruments": [
       {
@@ -30,60 +30,60 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 5.920500000000001,
-          "voice_quality": 10.659999999999995,
+          "voice_register": 6.220500000000001,
+          "voice_quality": 13.194999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7625,
-          "voice_articulation": 18.394999999999996,
-          "voice_microtone": 21.287499999999994,
-          "voice_tradition": 27.8425,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 4.3225,
-          "voice_speech_song": 29.022499999999994,
-          "voice_ensemble_config": 20.019999999999996,
+          "voice_vibrato": 4.0625,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 17.7125,
+          "voice_tradition": 25.508499999999998,
+          "voice_mechanism_compound": 5.07,
+          "voice_estill_quality": 5.7010000000000005,
+          "voice_speech_song": 24.862499999999997,
+          "voice_ensemble_config": 17.744999999999997,
           "voice_ornament_system": 2.6314999999999995,
           "voice_pitch_organization": 2.5999999999999996,
-          "voice_processing_chain": 3.445,
-          "voice_multitrack_stack": 2.275
+          "voice_processing_chain": 3.7050000000000005,
+          "voice_multitrack_stack": 3.575
         }
       },
       {
         "id": "bouzouki",
         "slots": {
-          "plucked_traditional_technique": "plucked_tremolo",
+          "plucked_traditional_technique": "plucked_folk_strummed",
           "bouzouki_courses": "trichordo",
           "bouzouki_pick": "bouzouki_thin",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
           "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 2.5,
-          "bouzouki_courses": 3.965,
+          "plucked_traditional_technique": 1.8524999999999998,
+          "bouzouki_courses": 2.275,
           "bouzouki_pick": 1.145,
-          "bouzouki_body_wood": 9.835,
-          "bouzouki_strings": 2.33
+          "bouzouki_body_wood": 9.3245,
+          "bouzouki_strings": 1.29
         }
       },
       {
         "id": "baglamas",
         "slots": {
-          "plucked_traditional_technique": "plucked_tremolo",
+          "plucked_traditional_technique": "plucked_folk_strummed",
           "baglamas_config": "baglamas_three_double",
           "baglamas_context": "baglamas_rebetiko",
           "baglamas_body_wood": "baglamas_mulberry",
           "baglamas_strings": "baglamas_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 2.5,
+          "plucked_traditional_technique": 1.8524999999999998,
           "baglamas_config": 0.845,
-          "baglamas_context": 10.166500000000001,
-          "baglamas_body_wood": 0.65,
-          "baglamas_strings": 2.33
+          "baglamas_context": 9.383,
+          "baglamas_body_wood": 0.845,
+          "baglamas_strings": 1.29
         }
       },
       {
@@ -99,46 +99,46 @@
         "scores": {
           "acoustic_technique": 5.3565000000000005,
           "string_tuning": 0,
-          "top_wood_classical": 1.4949999999999999,
-          "bracing_classical": 1.3650000000000002,
+          "top_wood_classical": 2.535,
+          "bracing_classical": 1.1700000000000004,
           "string_classical": 1.6900000000000004,
-          "attack_technique_cl": 2.125
+          "attack_technique_cl": 2.2615
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
           "electronic_technique": 5.000500000000001,
-          "poly_archetypes": 1.045,
-          "poly_voices": 1.045,
-          "poly_maker_lineage": 1.0865
+          "poly_archetypes": 1.2499999999999998,
+          "poly_voices": 1.1949999999999998,
+          "poly_maker_lineage": 1.2349999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.1950000000000003,
-          "body_wood": 0.846,
+          "amp_make": 0.9749999999999996,
+          "body_wood": 0.65,
           "pickup_config": 0.5850000000000002,
-          "string_type": 3.5739999999999994,
-          "scale_length_b": 0.5850000000000002,
-          "fretted_or_not": 0.0315,
+          "string_type": 4.315499999999999,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.1365,
           "bass_technique": 5.175000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -151,7 +151,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.305,
+          "drum_technique": 16.38,
           "drumhead": 8.23,
           "drum_kit_kick_pedal": 0
         }
@@ -165,9 +165,9 @@
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 0.945,
-          "sm_voice_count": 0.273,
-          "sm_chorus": 2.3765,
+          "electronic_technique": 1.0949999999999998,
+          "sm_voice_count": 0.168,
+          "sm_chorus": 3.663,
           "sm_voicing": 1
         }
       }

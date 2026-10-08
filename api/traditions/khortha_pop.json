@@ -3,9 +3,9 @@
   "name": "Khortha Pop",
   "family": "pop",
   "lineage": "Khortha pop circulates through regional singers, recording studios and video labels in Jharkhand and neighboring areas. Contemporary romantic and festive songs connect local-language expression with studio arrangement and electronic production.",
-  "recipe": "classic khortha pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. midi programmed sound unspecified. treated studio.",
-  "recipe_chars": 150,
-  "score": 2.352,
+  "recipe": "classic khortha pop, functional Song, south Asian pop branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. midi programmed sound unspecified. treated studio.",
+  "recipe_chars": 211,
+  "score": 3.297,
   "config": {
     "traditions": [
       "khortha_pop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39999999999999997,
+          "voice_speech_song": 1.0090000000000001,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.231,
+          "voice_multitrack_stack": 0.5670000000000001,
           "voice_tessitura": 0
         }
       },

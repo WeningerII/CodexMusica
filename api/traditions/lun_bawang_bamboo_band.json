@@ -1,0 +1,80 @@
+{
+  "id": "lun_bawang_bamboo_band",
+  "name": "Ngiup suling and ngiup bas (Lun Bawang bamboo band)",
+  "family": "global",
+  "lineage": "Bamboo band of the Lun Bawang of Lawas and Ba Kelalan in northern Sarawak, made up of bamboo flutes (ngiup suling) and large bamboo bass horns (ngiup bas) modelled on brass-band instruments, and played at church occasions and festivals such as Irau Aco Lun Bawang. The source-unspecified bamboo-flute card stands in for the flutes and the source-unspecified horns card for the bamboo bass horns.",
+  "recipe": "classic modern ngiup suling and ngiup bas, carnival Processional, east Asian branch. bamboo credited bamboo flute credited horns unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 221,
+  "score": 8.998,
+  "config": {
+    "traditions": [
+      "lun_bawang_bamboo_band"
+    ],
+    "instruments": [
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 7.786499999999999,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 0.36149999999999993
+        }
+      }
+    ],
+    "pinned": {
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "credited_horns_identity": "credited_horns_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

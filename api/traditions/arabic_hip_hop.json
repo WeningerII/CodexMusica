@@ -5,7 +5,7 @@
   "lineage": "Arabic-language hip-hop; selected early DAM sample-and-keyboard branch",
   "recipe": "classic modern arabic hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 299,
-  "score": 50.732,
+  "score": 51.047,
   "config": {
     "traditions": [
       "arabic_hip_hop"
@@ -42,10 +42,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.353999999999997,
+          "voice_speech_song": 10.605999999999998,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.042749999999999996
         }
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 6.078249999999999,
           "sampler_archetypes": 5.699999999999999,
-          "sampler_bit_depth": 0.1905,
+          "sampler_bit_depth": 0.264,
           "sampler_workflow": 0.24275000000000002,
           "sampler_classic_context": 9.489999999999998
         }
@@ -76,7 +76,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 5.96075,
+          "electronic_technique": 5.81375,
           "rompler_preset_bank": 0.34275,
           "rompler_context": 0.39,
           "rompler_lineage": 0

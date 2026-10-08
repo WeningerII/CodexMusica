@@ -5,7 +5,7 @@
   "lineage": "Inner Asian overtone vocal technique practised across Tuva, Mongolia, Altai, Khakassia and Bashkortostan and paralleled in Tibetan monastic chant, transmitted orally among herders and formalised into named styles (khoomei, sygyt, kargyraa, borbangnadyr, ezengileer) by Tuvan and Mongolian state ensembles from the 1960s, produced by constricting the ventricular folds or false vocal folds over a fixed low fundamental and shaping the mouth and tongue to isolate harmonics 6-12 into an audible whistled melody, usually in free or slow duple time against igil or morin khuur drone.",
   "recipe": "classic Northeast Asian mid-1960s throat singing, drone Modal, overtone branch, vocal drone modal, central Asian hunting song mongolian folk music tuvan folk music. sygyt, false fold engaged, breath pulsed, interlocked note trading. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range central Asian steppe canonical research site throat singing voice, wood larch canonical tuvan khoomei accompaniment igil, doshpuluur, breathy throat colored voiced khomus, long song morin khuur synthetic sycamore canonical mongolian morin khuur, tsuur. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 674,
-  "score": 352.675,
+  "score": 353.048,
   "config": {
     "traditions": [
       "throat_singing",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "throat_mechanism_root": 17.095000000000002,
-          "throat_overtone_target_region": 8.51,
-          "throat_singing_voice_region": 8.254999999999999
+          "throat_overtone_target_region": 8.950357142857143,
+          "throat_singing_voice_region": 7.947678571428571
         }
       },
       {
@@ -39,7 +39,7 @@
           "bowed_technique": 0.975,
           "igil_body": 4.8100000000000005,
           "igil_string": 0.69875,
-          "igil_body_wood": 2.73,
+          "igil_body_wood": 2.49375,
           "igil_tradition": 3.6399999999999997
         }
       },
@@ -52,8 +52,8 @@
         },
         "scores": {
           "dosh_belly": 1.04,
-          "dosh_style": 0,
-          "dosh_strings": 0.54
+          "dosh_style": 0.04821428571428571,
+          "dosh_strings": 0.345
         }
       },
       {
@@ -81,8 +81,8 @@
         "scores": {
           "bowed_technique": 9.847499999999998,
           "morin_khuur_use": 24.017500000000002,
-          "morin_khuur_construction": 1.125,
-          "morin_khuur_body_wood": 2.925,
+          "morin_khuur_construction": 1.2407142857142857,
+          "morin_khuur_body_wood": 2.9,
           "morin_khuur_strings": 2.9899999999999998
         }
       },
@@ -118,20 +118,20 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 21.443750000000005,
-          "voice_quality": 22.27499999999999,
+          "voice_register": 21.480178571428574,
+          "voice_quality": 21.839999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.6875,
+          "voice_vibrato": 7.524642857142857,
           "voice_articulation": 24.83,
           "voice_microtone": 26.779999999999998,
-          "voice_tradition": 27.50375,
-          "voice_mechanism_compound": 23.9,
+          "voice_tradition": 27.776964285714286,
+          "voice_mechanism_compound": 24.173214285714284,
           "voice_estill_quality": 4.875000000000001,
           "voice_speech_song": 29.964999999999996,
           "voice_ensemble_config": 22.034999999999993,
           "voice_ornament_system": 2.7950000000000017,
-          "voice_pitch_organization": 28.73875,
+          "voice_pitch_organization": 29.28625,
           "voice_processing_chain": 5.459999999999999,
           "voice_multitrack_stack": 6.695
         }

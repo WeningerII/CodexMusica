@@ -3,14 +3,14 @@
   "name": "Folclore tucumano",
   "family": "global",
   "lineage": "Folklore of Tucumán in Argentina's sugar-growing northwest, given national form by Atahualpa Yupanqui from the 1930s and by Mercedes Sosa and the Nuevo Cancionero manifesto issued in nearby Mendoza in 1963, dominated by the zamba in slow 6/8 with rubato guitar rasguido and a lyric-tenor or contralto lead, alongside chacarera and the vidala sung in unison to caja over a minor-inflected melody at the pace of a walking step.",
-  "recipe": "classic South American mid-1930s folclore tucumano, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, Latin am groove percussion chacarera argentine canto nuevo / canto popular. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string mahogany fingerpicked parlor acoustic guitar, swaying bombo leguero, rhythmic dance rhythm strummed charango. adobe room. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 494,
-  "score": 160.88,
+  "recipe": "classic South American mid-1930s folclore tucumano, ballad Poetry, Latin am troubadour branch, iberian Latin protest song, Latin am groove percussion argentine canto nuevo / canto popular chilean nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string narrative fingerpicked parlor acoustic guitar, swaying bombo leguero, naranjillo andean premium wood cedar andean andean classical charango. adobe room. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 537,
+  "score": 172.387,
   "config": {
     "traditions": [
       "folclore_tucumano",
-      "chacarera_doble",
-      "argentine_canto_nuevo"
+      "argentine_canto_nuevo",
+      "chilean_nueva_cancion"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.2199999999999998,
-          "voice_quality": 15.53499999999999,
+          "voice_register": 5.89,
+          "voice_quality": 12.089999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 15.144999999999992,
-          "voice_microtone": 15.859999999999989,
-          "voice_tradition": 9.9385,
-          "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 3.7700000000000005,
-          "voice_speech_song": 19.174999999999994,
-          "voice_ensemble_config": 14.75499999999999,
-          "voice_ornament_system": 3.5749999999999997,
-          "voice_pitch_organization": 2.1900000000000004,
-          "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 4.647500000000001
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 12.349999999999994,
+          "voice_microtone": 13.06499999999999,
+          "voice_tradition": 13.4085,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 18.004999999999995,
+          "voice_ensemble_config": 11.764999999999993,
+          "voice_ornament_system": 5.450000000000001,
+          "voice_pitch_organization": 1.89,
+          "voice_processing_chain": 5.43,
+          "voice_multitrack_stack": 9.1
         }
       },
       {
@@ -59,16 +59,16 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "nylon_high_cl",
+          "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 6.314500000000001,
+          "acoustic_technique": 11.4595,
           "string_tuning": 0,
-          "top_wood_classical": 8.385,
-          "bracing_classical": 0.435,
-          "string_classical": 0.65,
-          "attack_technique_cl": 0.7349999999999999
+          "top_wood_classical": 7.930000000000001,
+          "bracing_classical": 0.525,
+          "string_classical": 0.78,
+          "attack_technique_cl": 0.845
         }
       },
       {
@@ -79,9 +79,9 @@
           "bombo_leguero_head": "bombo_leguero_cabra"
         },
         "scores": {
-          "bombo_leguero_form": 7.169999999999998,
-          "bombo_leguero_style": 4.15,
-          "bombo_leguero_head": -0.035
+          "bombo_leguero_form": 4.894999999999999,
+          "bombo_leguero_style": 3.775,
+          "bombo_leguero_head": 0.12999999999999998
         }
       },
       {
@@ -91,14 +91,14 @@
           "charango_back": "charango_naranjillo",
           "charango_top_wood": "charango_cedar_top",
           "charango_strings": "charango_5_double",
-          "charango_string_material": "charango_nylon_canonical"
+          "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 4.665,
-          "charango_back": 0.45499999999999996,
-          "charango_top_wood": 0.65,
-          "charango_strings": 0.45499999999999996,
-          "charango_string_material": 0.845
+          "plucked_traditional_technique": 7.425,
+          "charango_back": 1.04,
+          "charango_top_wood": 1.235,
+          "charango_strings": 1.04,
+          "charango_string_material": 0.975
         }
       },
       {
@@ -106,16 +106,16 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "eb_standard",
-          "top_wood_parlor": "mahogany_top_p",
+          "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 6.314500000000001,
+          "acoustic_technique": 11.4595,
           "string_tuning": 0.8999999999999999,
-          "top_wood_parlor": 1.0949999999999998,
-          "back_sides_parlor": 1.0949999999999998,
-          "string_acoustic_parlor": 0.78
+          "top_wood_parlor": 0.845,
+          "back_sides_parlor": 0.745,
+          "string_acoustic_parlor": 0.845
         }
       }
     ],

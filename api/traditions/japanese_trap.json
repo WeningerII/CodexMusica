@@ -5,7 +5,7 @@
   "lineage": "Japanese trap includes Tokyo crews and international collaborations. KOHH’s Dirt-era branch supplies this selected sparse trap model, without conflating it with his later rock-oriented material.",
   "recipe": "classic modern japanese trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 338,
-  "score": 18.603,
+  "score": 18.553,
   "config": {
     "traditions": [
       "japanese_trap"
@@ -58,7 +58,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.6969999999999996,
+          "tr808_voice": 2.73,
           "drum_machine_808_context": 0.39,
           "tr808_production_origin": 0.39
         }
@@ -67,12 +67,12 @@
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_pluck_short",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": 0.254,
-          "va_archetypes": 0.1365,
+          "va_archetypes": 0.054,
           "digital_subtractive_context": 2.08
         }
       }

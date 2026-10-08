@@ -5,7 +5,7 @@
   "lineage": "Urban Indonesian song style descended from 16th-century Portuguese-Eurasian moresco fado brought by Mardijker communities to Batavia, standardised in the early 20th century as the 28-bar keroncong asli form by Jakarta and Solo ensembles and popularised on radio by Gesang and Waldjinah — a slow to moderate 4/4 at 60–90 BPM in which cak (high ukulele) plays offbeat strums, cuk answers on the beat, cello is plucked pizzicato as a kendang substitute, double bass walks sparse roots and violin and flute weave heterophonic countermelody under a light, straight-toned vocal with slow terminal vibrato.",
   "recipe": "classic Southeast Asian early-1950s keroncong asli, functional Song, east Asian pop branch, tropical song functional song, chanson fado ballad poetry greek éntechno. thick, lament wail, slow rate, interlocked note trading. ukulele, venice catlin high twist renaissance bass carpathian spruce European maple cello, venice catlin high twist renaissance bass carpathian spruce European maple double bass, sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, silver yamaha modern Japanese mid to premium flute, parlor classic steel silk fingerpicked parlor acoustic guitar. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 814,
-  "score": 296.93,
+  "score": 297.29,
   "config": {
     "traditions": [
       "keroncong_asli",
@@ -44,8 +44,8 @@
           "cello_strings": 2.535,
           "cello_top_wood": 3.395,
           "cello_back_wood": 5.77,
-          "cello_varnish": 5.375,
-          "cello_setup_period": 9.145,
+          "cello_varnish": 5.42,
+          "cello_setup_period": 9.1,
           "cello_bow_grip": 1.5,
           "cello_rosin": 6.824999999999999,
           "cello_bow_stick": 5.4750000000000005
@@ -72,9 +72,9 @@
           "bass_top_wood": 3.395,
           "bass_back_wood": 5.77,
           "bass_varnish": 5.375,
-          "bass_setup_period": 9.145,
+          "bass_setup_period": 9.1,
           "bass_play": 1.2349999999999999,
-          "bass_rosin": 8.8,
+          "bass_rosin": 8.755,
           "bass_bow_stick": 5.4750000000000005
         }
       },
@@ -95,10 +95,10 @@
         "scores": {
           "bowed_technique": 4.75,
           "orch_strings": 0.845,
-          "orch_top_wood": 6.614999999999999,
+          "orch_top_wood": 6.72,
           "orch_back_wood": 5.77,
-          "orch_varnish": 5.375,
-          "orch_setup_period": 9.145,
+          "orch_varnish": 5.42,
+          "orch_setup_period": 9.1,
           "orch_bow": 0.39,
           "orch_bow_stick": 5.4750000000000005,
           "orch_articulation": 0.585,
@@ -119,7 +119,7 @@
           "flute_size": 0.65,
           "flute_material": 2.145,
           "flute_technique": 1.6899999999999997,
-          "flute_maker_school": 5.425
+          "flute_maker_school": 5.575
         }
       },
       {
@@ -160,16 +160,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.57,
+          "voice_register": 7.765000000000001,
           "voice_quality": 12.09,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.5,
           "voice_articulation": 12.609999999999996,
           "voice_microtone": 14.462499999999995,
-          "voice_tradition": 17.339999999999996,
+          "voice_tradition": 17.234999999999996,
           "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 5.485,
+          "voice_estill_quality": 5.59,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 13.389999999999997,
           "voice_ornament_system": 3.3350000000000004,

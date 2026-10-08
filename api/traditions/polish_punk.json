@@ -5,7 +5,7 @@
   "lineage": "Polish punk connects successive independent bands and revived repertoires.",
   "recipe": "classic polish punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 35.594,
+  "score": 35.867,
   "config": {
     "traditions": [
       "polish_punk"
@@ -33,11 +33,11 @@
           "amp_make": 13.129999999999999,
           "body_wood": 0.39,
           "neck_wood": 0.063,
-          "fretboard": 0.1425,
+          "fretboard": 0.279,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1425,
+          "bridge": 0.279,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,

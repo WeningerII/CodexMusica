@@ -5,7 +5,7 @@
   "lineage": "Independent music from the Canadian province of New Brunswick, including its contemporary guitar-band scene.",
   "recipe": "classic new brunswick indie, distorted Rock, alternative branch. group vocals. humbucker electric guitar, electric bass, electronic keyboard unspecified, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. live tracking.",
   "recipe_chars": 289,
-  "score": 26.199,
+  "score": 26.745,
   "config": {
     "traditions": [
       "new_brunswick_indie"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3465,
+          "voice_speech_song": 0.483,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -73,14 +73,14 @@
           "electric_technique": 0.25,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.9099999999999999,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.868,
           "finish": 0,
           "string_tuning": 0
         }
@@ -140,7 +140,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.9315,

@@ -1,0 +1,150 @@
+{
+  "id": "higo_biwa_moso",
+  "name": "Higo biwa (Kumamoto blind-priest biwa narrative)",
+  "family": "global",
+  "lineage": "Higo biwa is the mōsō, or blind-priest, biwa tradition of Kumamoto in central Kyushu, whose performers both carried out household rites such as purifying the kitchen hearth and recited long danmono tales at village gatherings. Yamashika Yoshiyuki of Nankan, known as the last biwa hōshi, was recorded in field and commercial sessions from about 1970, and Hugh de Ferranti's research documents his repertory. The biwa card stands in for the slender mōsō biwa.",
+  "recipe": "classic early-1970s higo biwa, ritual Devotional, buddhist branch. narrative, solo with instrumental accompaniment, single lead single track no stacking. biwa lute. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 256,
+  "score": 4.353,
+  "config": {
+    "traditions": [
+      "higo_biwa_moso"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_heightened_speech",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.7999999999999998,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 1.7325,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "biwa_lute",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "biwa_type": "gaku_biwa",
+          "biwa_plectrum": "wide_bachi",
+          "biwa_body_wood": "biwa_mulberry_kuwa",
+          "biwa_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "biwa_type": 0.3465,
+          "biwa_plectrum": 0,
+          "biwa_body_wood": 0.2415,
+          "biwa_strings": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "biwa_lute": [
+        "plucked_traditional_technique",
+        "biwa_type",
+        "biwa_plectrum",
+        "biwa_body_wood",
+        "biwa_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "narrative_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "biwa_type": "gaku_biwa",
+      "biwa_plectrum": "wide_bachi",
+      "biwa_body_wood": "biwa_mulberry_kuwa",
+      "biwa_strings": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

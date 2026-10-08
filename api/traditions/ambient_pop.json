@@ -5,7 +5,7 @@
   "lineage": "2010s vocal pop branch in which sustained ambience surrounds recurring songs and intimate sung melody, represented here by Cigarettes After Sex and the Brooklyn-recorded Apocalypse. This slow band model combines restrained drums and bass with clean guitar, keyboard pads, and an undersung vocal; microphones, processing, instrument construction, and room are authored choices, not claims about the actual session.",
   "recipe": "classic mid-2010s ambient pop, functional Song, pop rock branch, ambient experimental electric, anglo singer song bedroom singer song time lord rock ambient psychill. balanced, minimal subglottal pressure, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, ampeg svt amp rock bass amp electric bass, drum kit, sustained pad analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre, American clean tube combo, optical compressor, tilt EQ. 24-bit digital plate reverb digital delay.",
   "recipe_chars": 662,
-  "score": 103.07,
+  "score": 103.79,
   "config": {
     "traditions": [
       "ambient_pop",
@@ -37,18 +37,18 @@
           "voice_register": 1.585,
           "voice_quality": -0.35,
           "voice_vocal_tract": 0,
-          "voice_effort": 3.1100000000000003,
+          "voice_effort": 3.185,
           "voice_vibrato": 0.5,
           "voice_articulation": 18.394999999999992,
-          "voice_microtone": 21.42499999999999,
+          "voice_microtone": 21.52999999999999,
           "voice_tradition": 16.244999999999997,
           "voice_mechanism_compound": 0.585,
           "voice_estill_quality": 3.9850000000000003,
           "voice_speech_song": 0.3,
           "voice_ensemble_config": 3.9,
           "voice_ornament_system": 0.65,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.0650000000000002,
+          "voice_pitch_organization": 0.15,
+          "voice_processing_chain": 1.455,
           "voice_multitrack_stack": 1.7
         }
       },

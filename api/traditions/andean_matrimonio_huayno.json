@@ -5,7 +5,7 @@
   "lineage": "Andean Quechua-and-Aymara wedding-music tradition continuous from pre-Columbian Andean ritual-practice through colonial-period syncretic continuous performance into modern Quechua-and-Aymara-speaking domestic practice across Peru, Bolivia, Ecuador, and the Andean diaspora; the huayno is the canonical Andean dance-form across multiple ceremonial contexts including weddings",
   "recipe": "classic Andean modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga folklore argentino. thick, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music bellows articulated accordion. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 562,
-  "score": 302.58,
+  "score": 296.734,
   "config": {
     "traditions": [
       "andean_matrimonio_huayno",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.18625,
-          "voice_quality": 27.574999999999996,
+          "voice_register": 7.036250000000001,
+          "voice_quality": 27.769999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.6475,
+          "voice_vibrato": 4.105625,
           "voice_articulation": 17.549999999999994,
           "voice_microtone": 17.74499999999999,
-          "voice_tradition": 41.286249999999995,
+          "voice_tradition": 40.146249999999995,
           "voice_mechanism_compound": 3.769999999999999,
-          "voice_estill_quality": 18.75,
+          "voice_estill_quality": 18.45,
           "voice_speech_song": 20.312499999999993,
-          "voice_ensemble_config": 20.044999999999998,
-          "voice_ornament_system": 25.664999999999996,
-          "voice_pitch_organization": 4.68,
+          "voice_ensemble_config": 19.894999999999996,
+          "voice_ornament_system": 25.484999999999996,
+          "voice_pitch_organization": 4.095,
           "voice_processing_chain": 3.77,
           "voice_multitrack_stack": 3.835000000000001
         }
@@ -62,11 +62,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 10.985000000000001,
-          "charango_back": 7.869999999999999,
-          "charango_top_wood": 10.714999999999998,
-          "charango_strings": 8.138124999999999,
-          "charango_string_material": 7.489374999999998
+          "plucked_traditional_technique": 9.865625000000001,
+          "charango_back": 7.7349999999999985,
+          "charango_top_wood": 9.829999999999998,
+          "charango_strings": 8.003124999999999,
+          "charango_string_material": 7.354374999999998
         }
       },
       {
@@ -89,7 +89,7 @@
           "siku_size": "siku_malta"
         },
         "scores": {
-          "siku_construction": 11.140625,
+          "siku_construction": 10.525625,
           "siku_size": 0.39
         }
       },
@@ -106,11 +106,11 @@
         },
         "scores": {
           "free_reed_technique": 7.599999999999997,
-          "accordion_reed_material": 0.795,
+          "accordion_reed_material": 0.6900000000000001,
           "musette_offset": 0.845,
-          "reed_config": 0.195,
-          "bellows": 0.29625,
-          "voicing_chamber": 0.140625,
+          "reed_config": 0.045,
+          "bellows": 0.14625,
+          "voicing_chamber": 0.5756249999999999,
           "accordion_maker_school": 5.85
         }
       }

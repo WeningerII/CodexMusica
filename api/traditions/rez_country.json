@@ -5,7 +5,7 @@
   "lineage": "Rez country is country music rooted in Native American reservation communities, including a strong country-rock circuit on the Navajo Nation. Bands connect local community identity with the wider language of country songwriting and amplified dance-band performance.",
   "recipe": "classic rez country, functional Song, country rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 330,
-  "score": 24.706,
+  "score": 24.466,
   "config": {
     "traditions": [
       "rez_country"
@@ -75,12 +75,12 @@
           "body_wood": 0,
           "neck_wood": 0.075,
           "fretboard": 0.075,
-          "pickup_magnet": 0.2475,
-          "pickup_winding": 0.2475,
+          "pickup_magnet": 0.225,
+          "pickup_winding": 0.225,
           "string_material": 0.37200000000000005,
-          "bridge": 0.15,
-          "scale_length": 0.3225,
-          "string_gauge": 0.15,
+          "bridge": 0.075,
+          "scale_length": 0.3,
+          "string_gauge": 0.075,
           "finish": 0,
           "string_tuning": 3.6399999999999997
         }
@@ -102,7 +102,7 @@
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 8.364999999999998,
-          "scale_length_b": 0.29250000000000004,
+          "scale_length_b": 0.27,
           "fretted_or_not": 0.09,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

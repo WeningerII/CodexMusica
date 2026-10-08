@@ -159,6 +159,7 @@ async function main() {
   const traditions = C.TRADITIONS.slice(0, LIMIT);
   const tindex = [];
   const bundle = [];
+  const recById = new Map(); // compiled record per live id, reused by the alias files
   const browseItems = []; // Tier-1 index for the lazy-loaded app (light data only)
   let ok = 0,
     fail = 0;
@@ -188,6 +189,7 @@ async function main() {
     }
     for (const p of recordProblems(rec, R)) contract.push(`${t.id} — ${p}`);
     writeJson(path.join(OUT, 'traditions', `${t.id}.json`), rec);
+    recById.set(t.id, rec);
     tindex.push({ id: t.id, name: t.name, family: t.family, href: `traditions/${t.id}.json` });
     bundle.push({
       id: rec.id,
@@ -200,7 +202,33 @@ async function main() {
     ok++;
     if (ok % 100 === 0) process.stderr.write(`  ...${ok} traditions\n`);
   }
-  writeJson(path.join(OUT, 'traditions', 'index.json'), { count: tindex.length, items: tindex });
+  // ---- retired ids: each stays a working URL ----
+  // A merged duplicate keeps its id as an alias (references/_tradition_aliases.json).
+  // traditions/{alias}.json is the surviving tradition's record, byte-for-byte
+  // the same object, plus `merged_from` naming the id that was asked for — so an
+  // old link still yields a recipe, and says which tradition it now is.
+  const aliasRows = [];
+  for (const aliasId of Object.keys(C.TRADITION_ALIASES).sort()) {
+    const a = C.TRADITION_ALIASES[aliasId];
+    const rec = recById.get(a.of);
+    if (!rec) continue; // a --limit build that never compiled the target
+    const { id, ...rest } = rec;
+    writeJson(path.join(OUT, 'traditions', `${aliasId}.json`), {
+      id,
+      merged_from: aliasId,
+      ...rest,
+    });
+    aliasRows.push({ id: aliasId, name: a.name, of: a.of, href: `traditions/${aliasId}.json` });
+  }
+  writeJson(path.join(OUT, 'traditions', 'index.json'), {
+    count: tindex.length,
+    items: tindex,
+    aliases: aliasRows,
+  });
+  const aliasMap = Object.fromEntries(aliasRows.map((r) => [r.id, r.of]));
+  const browseAliases = Object.fromEntries(
+    aliasRows.map((r) => [r.id, { of: r.of, name: r.name }])
+  );
 
   // ---- browse.json: the published Tier-1 index (api/index.json "browse") ----
   // Everything the BROWSE surfaces show (name/family/lineage/parent/axes/
@@ -215,6 +243,8 @@ async function main() {
     axisKeys: AXIS_KEYS,
     count: browseItems.length,
     items: browseItems,
+    // Retired id -> { of, name }: an old id resolves, an old name is findable.
+    aliases: browseAliases,
   });
 
   // ---- browse_boot.json + browse_prose.json: the lazy shell's two halves of browse.json ----
@@ -229,10 +259,12 @@ async function main() {
     throw new Error(
       `STARTER_TRADITIONS (src/app.js) names ${strays.join(', ')}, not in the catalog`
     );
-  writeJsonCompact(
-    path.join(OUT, 'browse_boot.json'),
-    bootIndex(browseItems, C.TRADITION_EXTRAS, starters)
-  );
+  // The lazy shell boots from this file, so it carries the alias map the app
+  // resolves retired ids and old names with (Catalog.bootFromIndex).
+  writeJsonCompact(path.join(OUT, 'browse_boot.json'), {
+    ...bootIndex(browseItems, C.TRADITION_EXTRAS, starters),
+    aliases: browseAliases,
+  });
   writeJsonCompact(path.join(OUT, 'browse_prose.json'), proseIndex(browseItems));
 
   // ---- nav_glyphs.json: room and preface glyph artwork, fetched on demand ----
@@ -289,10 +321,12 @@ async function main() {
     name: 'Codex Musica — all recipes',
     description:
       'Every tradition with its compressed recording recipe, in one file. ' +
-      'For full structured arrangements per tradition, fetch traditions/{id}.json.',
+      'For full structured arrangements per tradition, fetch traditions/{id}.json. ' +
+      '`aliases` maps each retired (merged) id to the tradition it was merged into.',
     generated: new Date().toISOString().slice(0, 10),
     count: bundle.length,
     items: bundle,
+    aliases: aliasMap,
   });
 
   // ---- instruments (no compute; straight from catalog) ----
@@ -321,7 +355,7 @@ async function main() {
       'Each tradition resolves to a descriptor-stack "recipe" plus a structured arrangement. ' +
       'Static files only — open a URL and read the JSON. No server, no key.',
     generated: new Date().toISOString().slice(0, 10),
-    counts: { traditions: tindex.length, instruments: iindex.length },
+    counts: { traditions: tindex.length, instruments: iindex.length, aliases: aliasRows.length },
     endpoints: {
       traditions_index: 'traditions/index.json',
       tradition: 'traditions/{id}.json',

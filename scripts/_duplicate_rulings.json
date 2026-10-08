@@ -10,9 +10,9 @@
     },
     {
       "kind": "tradition",
-      "pair": ["southern_trap", "trap"],
+      "pair": ["atlanta_trap_classic", "trap"],
       "verdict": "distinct",
-      "note": "NOT a duplicate after all. The unqualified entry is one of 22 records carrying an explicit umbrella: true flag — a deliberate layer of household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop...) that act as broad entry points and are excluded from similarity scoring and search bias in scripts/score.js and scripts/search.js. Overlapping exemplars with a specific twin is what an umbrella is for, not a data error. Folding these four in would leave 18 household names as entry points and these four missing."
+      "note": "NOT a duplicate after all. The unqualified entry is one of 22 records carrying an explicit umbrella: true flag — a deliberate layer of household genre names (Pop, Rock, Jazz, Blues, Classical, Hip-hop...) that act as broad entry points and are excluded from similarity scoring and search bias in scripts/score.js and scripts/search.js. Overlapping exemplars with a specific twin is what an umbrella is for, not a data error. Folding these four in would leave 18 household names as entry points and these four missing. (Ruled as southern_trap / trap; carried to the surviving ids when the 2026-10-08 duplicate merge folded southern_trap into atlanta_trap_classic.)"
     },
     {
       "kind": "tradition",
@@ -106,9 +106,9 @@
     },
     {
       "kind": "tradition",
-      "pair": ["tuvan_throat", "mongolian_hunting_khoomei"],
+      "pair": ["tuvan_throat", "mongolian_khoomei"],
       "verdict": "distinct",
-      "note": "function-axis cross-listing: hunting-khoomei is the herder-and-hunter use of the technique under huntingSong.centralAsian, distinct in setting and repertoire from the concert khoomei tradition."
+      "note": "function-axis cross-listing: hunting-khoomei is the herder-and-hunter use of the technique under huntingSong.centralAsian, distinct in setting and repertoire from the concert khoomei tradition. (Ruled as tuvan_throat / mongolian_hunting_khoomei; carried to the surviving ids when the 2026-10-08 duplicate merge folded mongolian_hunting_khoomei into mongolian_khoomei.)"
     },
     {
       "kind": "tradition",
@@ -466,9 +466,9 @@
     },
     {
       "kind": "tradition",
-      "pair": ["norteno", "corridos_clasicos"],
+      "pair": ["norteno", "corrido"],
       "verdict": "distinct",
-      "note": "norteño is the accordion-and-bajo-sexto ensemble; corridos clásicos is the narrative ballad repertoire, which is also sung by mariachi and banda. Ensemble against repertoire."
+      "note": "norteño is the accordion-and-bajo-sexto ensemble; corridos clásicos is the narrative ballad repertoire, which is also sung by mariachi and banda. Ensemble against repertoire. (Ruled as norteno / corridos_clasicos; carried to the surviving ids when the 2026-10-08 duplicate merge folded corridos_clasicos into corrido.)"
     },
     {
       "kind": "tradition",
@@ -508,9 +508,9 @@
     },
     {
       "kind": "tradition",
-      "pair": ["urbano_latino", "trap_boricua"],
+      "pair": ["urbano_latino", "latin_trap"],
       "verdict": "distinct",
-      "note": "urbano latino is the pan-Hispanic commercial umbrella; trap boricua is the Puerto Rican trap scene inside it, with its own slang and production circle."
+      "note": "urbano latino is the pan-Hispanic commercial umbrella; trap boricua is the Puerto Rican trap scene inside it, with its own slang and production circle. (Ruled as urbano_latino / trap_boricua; carried to the surviving ids when the 2026-10-08 duplicate merge folded trap_boricua into latin_trap.)"
     },
     {
       "kind": "tradition",
@@ -538,9 +538,9 @@
     },
     {
       "kind": "tradition",
-      "pair": ["dangdut", "javanese_dangdut"],
+      "pair": ["dangdut", "dangdut_koplo"],
       "verdict": "distinct",
-      "note": "Javanese dangdut (koplo) plays the kendang in double-time with a lurching pull against the beat and uses organ tunggal ensembles; national dangdut is slower and orchestral. Different rhythmic practice, per the rule that a place qualifier counts when the recipe changes."
+      "note": "Javanese dangdut (koplo) plays the kendang in double-time with a lurching pull against the beat and uses organ tunggal ensembles; national dangdut is slower and orchestral. Different rhythmic practice, per the rule that a place qualifier counts when the recipe changes. (Ruled as dangdut / javanese_dangdut; carried to the surviving ids when the 2026-10-08 duplicate merge folded javanese_dangdut into dangdut_koplo.)"
     }
   ]
 }

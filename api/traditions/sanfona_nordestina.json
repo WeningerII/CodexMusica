@@ -5,7 +5,7 @@
   "lineage": "Accordion tradition of the Brazilian Northeast, moving from the eight-bass pé-de-bode to the 120-bass sanfona and codified nationally by Luiz Gonzaga from 1946 — right-hand melody in bellows-articulated thirds and sixths over left-hand bass-chord alternation, locked to the zabumba's low-and-muffled beat one and the triangle's continuous sixteenths at 100-140 BPM across baião, xote, xaxado and arrasta-pé.",
   "recipe": "classic South American mid-1940s sanfona nordestina, functional Song, Brazilian song branch, tropical song functional song, Latin am troubadour ballad poetry milonga música criolla peruana. thick, breath veiled tone, slow rate, interlocked note trading. castagnari Italian premium folk music bellows articulated accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative strummed viola caipira. recife brazilian northeast forro house. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 674,
-  "score": 213.563,
+  "score": 213.859,
   "config": {
     "traditions": [
       "sanfona_nordestina",
@@ -53,7 +53,7 @@
         },
         "scores": {
           "triangulo_size": 3.91,
-          "triangulo_pattern": 4.91
+          "triangulo_pattern": 5.105
         }
       },
       {
@@ -77,7 +77,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.22,
+          "voice_register": 3.37,
           "voice_quality": 14.364999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -86,7 +86,7 @@
           "voice_microtone": 20.994999999999994,
           "voice_tradition": 11.472500000000002,
           "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 4.728999999999999,
+          "voice_estill_quality": 4.6795,
           "voice_speech_song": 30.874999999999996,
           "voice_ensemble_config": 19.434999999999995,
           "voice_ornament_system": 1.0399999999999998,

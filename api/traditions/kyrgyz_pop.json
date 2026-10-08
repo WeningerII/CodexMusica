@@ -5,7 +5,7 @@
   "lineage": "Selected Kyrgyz-language urban commercial song represented by Mirbek Atabekov's Kechki Bishkek (2022), released through Infinity Music, and his contemporary digital-release/concert practice. This melodic popular-song branch is separate from Manas recitation, komuz kuu and mountain-nomad traditional ensembles; it does not summarize every Kyrgyz pop or dance recording.",
   "recipe": "classic early-2020s kyrgyz pop, functional Song, pop rock branch, europop functional song azeri pop czech pop. thick, straight onset, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, single coil electric guitar, ernie ball slinky electric bass, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 491,
-  "score": 201.732,
+  "score": 201.345,
   "config": {
     "traditions": [
       "kyrgyz_pop",
@@ -38,17 +38,17 @@
           "voice_quality": 0.09,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.665,
+          "voice_vibrato": 2.7625,
           "voice_articulation": 0.045,
-          "voice_microtone": 27.124999999999996,
-          "voice_tradition": 29.334999999999994,
+          "voice_microtone": 27.229999999999997,
+          "voice_tradition": 28.719999999999995,
           "voice_mechanism_compound": 0.3,
-          "voice_estill_quality": 0,
+          "voice_estill_quality": 0.195,
           "voice_speech_song": 1.4949999999999999,
           "voice_ensemble_config": 2.21,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.585,
-          "voice_processing_chain": 2.76,
+          "voice_processing_chain": 2.715,
           "voice_multitrack_stack": 1.2525
         }
       },
@@ -63,18 +63,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 21.45,
           "grand_piano_size": 0.45499999999999996,
           "grand_piano_brand": 1.6375,
           "piano_hammer": 21.794999999999995,
-          "piano_rim": 23.339999999999996,
+          "piano_rim": 23.384999999999994,
           "piano_soundboard": 21.449999999999996,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": 4.225
+          "piano_pitch_standard": 4.16
         }
       },
       {
@@ -126,7 +126,7 @@
           "amp_make": 0,
           "body_wood": 0.45499999999999996,
           "pickup_config": 0.345,
-          "string_type": 5.2875,
+          "string_type": 5.1825,
           "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0.545,
           "bass_technique": 0.40249999999999997,

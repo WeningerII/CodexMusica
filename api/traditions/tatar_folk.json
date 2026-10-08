@@ -3,13 +3,13 @@
   "name": "Tatar folk music (Volga Tatar)",
   "family": "global",
   "lineage": "Volga-Tatar tradition of Kazan and the middle Volga, collected from the 1920s by Soltan Gabashi and Ghazi Almuhammetov and issued through Soviet Melodiya and Tatar Radio — anhemitonic pentatonic melodies, long ornamented ozyn köy lyric songs in free rhythm, brisk 2/4 kyska köy dance songs, the quray reed flute and kubyz jaw harp, and after the 19th century the talyanka button accordion carrying both melody and chordal pulse.",
-  "recipe": "classic Eastern European mid-1920s tatar folk music, ballad Poetry, Slavic bard branch, Slavic baltic domestic rhythm, European wedding yiddish wedding bulgar and freylekhs yiddish spinning-and-domestic song. thick, breath veiled tone, slow rate, interlocked note trading. melodic straight garmon, artel vintage brassy voicing song accompaniment chastushka dance table song bayan russian, staccato dance rhythmic khomus, silver powell boston canonical American orchestral flute, bowl back Italian German spruce classical leaning European maple k and k twin mandolin. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 771,
-  "score": 203.302,
+  "recipe": "classic Eastern European mid-1920s tatar folk music, ballad Poetry, Slavic bard branch, Slavic baltic domestic rhythm, European wedding svadebnye pesni yiddish spinning-and-domestic song. thick, breath veiled tone, slow rate, interlocked note trading. melodic straight garmon, artel vintage brassy voicing song accompaniment chastushka dance table song bayan russian, staccato dance rhythmic khomus, silver yamaha modern Japanese mid to premium flute, bowl back Italian German spruce classical leaning European maple k and k twin mandolin. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 744,
+  "score": 194.862,
   "config": {
     "traditions": [
       "tatar_folk",
-      "yiddish_wedding_bulgar",
+      "russian_svadebnye_pesni",
       "yiddish_spinning_domestic"
     ],
     "instruments": [
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 4.075000000000001,
-          "voice_quality": 13.909999999999993,
+          "voice_quality": 17.679999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.445,
-          "voice_articulation": 16.054999999999996,
-          "voice_microtone": 17.744999999999997,
-          "voice_tradition": 16.1525,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 1.17,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 15.079999999999997,
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 17.54999999999999,
+          "voice_tradition": 15.307500000000003,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 1.2999999999999998,
+          "voice_speech_song": 19.824999999999992,
+          "voice_ensemble_config": 17.09499999999999,
           "voice_ornament_system": 7.312500000000001,
-          "voice_pitch_organization": 2.5349999999999997,
-          "voice_processing_chain": 2.0799999999999996,
-          "voice_multitrack_stack": 1.8524999999999998
+          "voice_pitch_organization": 2.0475,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 1.0399999999999998
         }
       },
       {
@@ -62,8 +62,8 @@
         },
         "scores": {
           "free_reed_technique": 3.24,
-          "garmon_regional_form": 1.2999999999999998,
-          "garmon_performance_setting": 12.215,
+          "garmon_regional_form": 4.2250000000000005,
+          "garmon_performance_setting": 4.635,
           "garmon_reed_voicing": -0.05
         }
       },
@@ -77,8 +77,8 @@
         },
         "scores": {
           "free_reed_technique": 3.24,
-          "bayan_russian_model": 5.005,
-          "bayan_russian_context": 7.409999999999999,
+          "bayan_russian_model": 5.265000000000001,
+          "bayan_russian_context": 3.445,
           "bayan_russian_reed_voicing": 0.39
         }
       },
@@ -91,7 +91,7 @@
         },
         "scores": {
           "khomus_form": -0.07,
-          "khomus_technique": 13.035,
+          "khomus_technique": 4.225,
           "khomus_material": 0.39
         }
       },
@@ -102,37 +102,37 @@
           "flute_size": "piccolo_flute",
           "flute_material": "silver_flute",
           "flute_technique": "irish_flute",
-          "flute_maker_school": "flute_powell_boston"
+          "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 2.4049999999999994,
+          "wind_articulation": 1.5599999999999996,
           "flute_size": 0.345,
           "flute_material": 1.2349999999999999,
           "flute_technique": 1.15,
-          "flute_maker_school": 2.08
+          "flute_maker_school": 2.34
         }
       },
       {
         "id": "mandolin",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_drone_modal",
           "mandolin_shape": "flat_back",
           "mandolin_top": "german_spruce_m",
           "mandolin_back": "european_maple_loar",
           "mandolin_bracing": "mandolin_gilchrist_graduation",
-          "mandolin_strings": "eighty_twenty_m",
+          "mandolin_strings": "daddario_ej_mandolin",
           "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 2.245,
-          "mandolin_shape": 5.329999999999999,
-          "mandolin_top": 3.575,
-          "mandolin_back": 3.575,
+          "acoustic_technique": 1.6574999999999995,
+          "mandolin_shape": 4.9399999999999995,
+          "mandolin_top": 3.185,
+          "mandolin_back": 3.185,
           "mandolin_bracing": 0.845,
-          "mandolin_strings": 0.345,
-          "mandolin_fingerboard": 0.49499999999999994,
-          "mandolin_pickup": 18.33
+          "mandolin_strings": 0.39,
+          "mandolin_fingerboard": 0.3,
+          "mandolin_pickup": 20.344999999999995
         }
       }
     ],

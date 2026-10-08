@@ -5,7 +5,7 @@
   "lineage": "Rap feminino nacional connects women’s contributions to Brazilian hip-hop. Dina Di and Campinas group Visão de Rua exemplify a pioneering MC-and-DJ strand of that wider field.",
   "recipe": "classic modern rap feminino nacional, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 316,
-  "score": 47.723,
+  "score": 47.912,
   "config": {
     "traditions": [
       "rap_feminino_nacional"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.269,
+          "voice_speech_song": 13.455,
           "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {

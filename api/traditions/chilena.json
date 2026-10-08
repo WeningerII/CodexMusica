@@ -5,7 +5,7 @@
   "lineage": "Dance-song of the Costa Chica of Guerrero and Oaxaca, Mexico, seeded by Chilean and Peruvian sailors passing through Acapulco during the 1850s gold-rush traffic and localized among Afro-mestizo communities, performed by guitar-and-violin conjuntos or wind bandas in a fast 6/8-against-3/4 sesquialtera with coplas, zapateado footwork and shouted interjections.",
   "recipe": "classic Southwestern American mid-1850s chilena, functional Song, Mexican branch, tejano border functional song, Latin am troubadour ballad poetry ranchera milonga. thick, full chest belt, slow rate, interlocked note trading. narrative fingerpicked parlor acoustic guitar, son jarocho standard strummed requinto jarocho, sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, gold brass 85 15 warmer unison standard rim orchestral balance trumpet, brass gold brass warmer alternative tuba, bass drum. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 732,
-  "score": 201.477,
+  "score": 201.577,
   "config": {
     "traditions": [
       "chilena",
@@ -47,7 +47,7 @@
           "voice_speech_song": 30.15999999999999,
           "voice_ensemble_config": 19.95499999999999,
           "voice_ornament_system": 0.8449999999999998,
-          "voice_pitch_organization": 0.7399999999999999,
+          "voice_pitch_organization": 0.695,
           "voice_processing_chain": 5.654999999999999,
           "voice_multitrack_stack": 3.185
         }
@@ -62,10 +62,10 @@
           "string_acoustic_parlor": "coated_nano_p"
         },
         "scores": {
-          "acoustic_technique": 8.305,
+          "acoustic_technique": 8.11,
           "string_tuning": 0,
           "top_wood_parlor": 0.39,
-          "back_sides_parlor": 0,
+          "back_sides_parlor": 0.105,
           "string_acoustic_parlor": 0.78
         }
       },
@@ -79,7 +79,7 @@
           "requinto_jarocho_strings": "requinto_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 7.57,
+          "plucked_traditional_technique": 7.765000000000001,
           "requinto_jarocho_pluck": 1.17,
           "requinto_jarocho_tuning": 0.5,
           "requinto_jarocho_body_wood": 0.65,
@@ -122,7 +122,7 @@
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_mariachi_unison",
           "trumpet_bell_metal": "trumpet_gold_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
           "wind_articulation": 4.794999999999998,
@@ -130,8 +130,8 @@
           "trumpet_mouthpiece": 2.285,
           "brass_mute": 0.75,
           "trumpet_technique": 4.794999999999998,
-          "trumpet_bell_metal": 1.24,
-          "trumpet_maker_school": 0.65
+          "trumpet_bell_metal": 1.195,
+          "trumpet_maker_school": 0.78
         }
       },
       {
@@ -148,7 +148,7 @@
           "wind_articulation": 0.8499999999999999,
           "tuba_pitch": 0.39,
           "tuba_context": 3.835,
-          "tuba_bell_metal": 1.09,
+          "tuba_bell_metal": 1.045,
           "tuba_valve_system": 0.65,
           "tuba_maker_school": 0.65
         }

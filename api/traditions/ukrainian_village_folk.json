@@ -5,7 +5,7 @@
   "lineage": "The calendar-and-life-cycle song repertoire of Ukrainian villages — koliadky and shchedrivky at midwinter, vesnianky in spring, Kupala songs at midsummer, wedding cycles and harvest songs — sung in open-throated 'bili holos' white-voice chest register in two- and three-part heterophony with a high solo 'vyvodchyk' line above a held lower part, transcribed from the 1900s by Mykola Lysenko, Filaret Kolessa and Klyment Kvitka and revived from the 1980s by ethnographic ensembles like Drevo.",
   "recipe": "classic mid-1900s ukrainian village folk song, field Work, Slavic balkan branch, Slavic baltic domestic rhythm, European wedding, Slavic bard ballad poetry lithuanian folk music estonian folk music. extended whistle, breath veiled tone, slow rate, interlocked note trading. drone like fiddle, folk diatonic dance driving sopilka, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, artel vintage brassy voicing song accompaniment chastushka dance table song bayan russian. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 613,
-  "score": 207.39,
+  "score": 207.705,
   "config": {
     "traditions": [
       "ukrainian_village_folk",
@@ -38,7 +38,7 @@
           "voice_quality": 15.989999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.595,
+          "voice_vibrato": 1.8199999999999998,
           "voice_articulation": 23.399999999999995,
           "voice_microtone": 23.659999999999993,
           "voice_tradition": 10.790000000000001,
@@ -58,7 +58,7 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "gut_wound",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "practice_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
@@ -66,7 +66,7 @@
           "bowed_technique": 5.65,
           "fiddle_strings": 0.045,
           "fiddle_bow": 0.045,
-          "fiddle_mute": 0.105,
+          "fiddle_mute": 0.195,
           "fiddle_articulation": 0.195,
           "fiddle_string_configuration": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Ancient Mediterranean music is explored through surviving notation, historical evidence and reconstructed instruments. Modern performers such as Ensemble De Organographia bring Greek repertory and instruments into concert and educational settings alongside reconstructions of other ancient traditions.",
   "recipe": "classic ancient mediterranean, drone Modal, wind pipe branch. fifths and octaves bone built ivory intimate aulos. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 212,
-  "score": 42.729,
+  "score": 42.834,
   "config": {
     "traditions": [
       "ancient_mediterranean"
@@ -21,9 +21,9 @@
         },
         "scores": {
           "aulos_pipe_relation": 18.46,
-          "aulos_build": 10.2415,
-          "aulos_size": 11.5145,
-          "aulos_context": 2.5130000000000003
+          "aulos_build": 10.1365,
+          "aulos_size": 11.756,
+          "aulos_context": 2.4815
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Canadian death metal",
   "family": "rock_punk",
   "lineage": "Canadian death metal includes a prominent technical current associated with Montreal bands such as Cryptopsy. Elaborate rhythmic coordination and contrasts between dissonant, melodic and groove-based passages shape this strand of the wider extreme-metal scene.",
-  "recipe": "classic modern canadian death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany humbucker electric guitar, low mid rich spectrum woody mahogany electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 530,
-  "score": 31.871,
+  "recipe": "classic modern canadian death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 484,
+  "score": 30.038,
   "config": {
     "traditions": [
       "canadian_death_metal"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 5.655000000000001,
-          "body_wood": 1.0405,
-          "neck_wood": 0.4344999999999999,
-          "fretboard": 0.6624999999999999,
+          "body_wood": 0.8714999999999999,
+          "neck_wood": 0.3045,
+          "fretboard": 0.49349999999999994,
           "pickup_magnet": 0,
           "pickup_winding": 0.273,
-          "string_material": 0.4344999999999999,
-          "bridge": 1.0405,
+          "string_material": 0.3045,
+          "bridge": 0.8714999999999999,
           "scale_length": 0,
           "string_gauge": 0.147,
           "finish": 0,
-          "string_tuning": 1.307
+          "string_tuning": 1.008
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.0405,
+          "body_wood": 0.8714999999999999,
           "pickup_config": 0,
-          "string_type": 0.5709999999999998,
-          "scale_length_b": 0.7989999999999998,
+          "string_type": 0.44099999999999995,
+          "scale_length_b": 0.63,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -84,11 +84,11 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.1874999999999998,
+          "drumhead": 1.0185,
           "drum_kit_kick_pedal": 1.17,
           "shell_wood": 0.39,
           "shell_thickness": 0.0315,
-          "bearing_edges": 0.5709999999999998,
+          "bearing_edges": 0.44099999999999995,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,

@@ -5,7 +5,7 @@
   "lineage": "Christian rap in the United Kingdom joins local hip-hop practice with faith-centered writing and church-linked creative networks.",
   "recipe": "classic modern uk christian rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 350,
-  "score": 42.192,
+  "score": 42.381,
   "config": {
     "traditions": [
       "uk_christian_rap"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.469,
+          "voice_speech_song": 14.655,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

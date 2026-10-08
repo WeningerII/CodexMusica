@@ -3,9 +3,9 @@
   "name": "South African Pop",
   "family": "pop",
   "lineage": "Johannesburg commercial pop from the 1980s Soweto 'bubblegum' boom of Brenda Fassie and Yvonne Chaka Chaka through post-1994 kwaito-pop, running 100-115 BPM four-on-the-floor synth-bass grooves with mbaqanga-derived lead guitar lines, gospel-thick group harmony in isiZulu and English, and drum-machine kits mixed over live bass.",
-  "recipe": "classic Southern African mid-1980s south african pop, functional Song, African pop branch, African pop isicathamiya, African dance electronic dance azonto bolobedu house. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble, singing lead analog poly synth, TR-808, mbaqanga guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 779,
-  "score": 256.782,
+  "recipe": "classic Southern African mid-1980s south african pop, functional Song, African pop branch, African pop isicathamiya, African dance electronic dance azonto bolobedu house. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, singing lead analog poly synth, TR-808, mbaqanga guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 754,
+  "score": 257.052,
   "config": {
     "traditions": [
       "south_african_pop",
@@ -47,9 +47,9 @@
           "voice_speech_song": 19.95499999999999,
           "voice_ensemble_config": 19.759999999999994,
           "voice_ornament_system": 0.45499999999999985,
-          "voice_pitch_organization": 0.7149999999999997,
+          "voice_pitch_organization": 0.6849999999999998,
           "voice_processing_chain": 12.075,
-          "voice_multitrack_stack": 2.585
+          "voice_multitrack_stack": 2.54
         }
       },
       {
@@ -64,7 +64,7 @@
           "choir_size": 4.874999999999999,
           "choir_polyphonic_configuration": 6.175,
           "choir_regional_canonical_configuration": 3.8349999999999995,
-          "choir_ensemble_repertoire": 1.29
+          "choir_ensemble_repertoire": 0.9900000000000001
         }
       },
       {
@@ -73,13 +73,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
           "electronic_technique": 21.694999999999997,
-          "poly_archetypes": 0.24,
-          "poly_voices": 0.24,
-          "poly_maker_lineage": -1.9599999999999997
+          "poly_archetypes": 0.54,
+          "poly_voices": 0.54,
+          "poly_maker_lineage": -1.8099999999999998
         }
       },
       {
@@ -100,12 +100,12 @@
         "slots": {
           "mbaqanga_guitar_role": "mbaqanga_lead",
           "mbaqanga_guitar_tone": "mbaqanga_acoustic",
-          "mbaqanga_guitar_tuning": "mbaqanga_open_tuning"
+          "mbaqanga_guitar_tuning": "mbaqanga_standard_tuning"
         },
         "scores": {
-          "mbaqanga_guitar_role": 1.04,
+          "mbaqanga_guitar_role": 0.89,
           "mbaqanga_guitar_tone": 0.045,
-          "mbaqanga_guitar_tuning": 0.045
+          "mbaqanga_guitar_tuning": 0
         }
       },
       {
@@ -125,8 +125,8 @@
           "body_wood": 1.3,
           "pickup_config": 0.5399999999999999,
           "string_type": 3.6399999999999997,
-          "scale_length_b": 1.225,
-          "fretted_or_not": 0.44999999999999996,
+          "scale_length_b": 1.27,
+          "fretted_or_not": 0.49499999999999994,
           "bass_technique": 0.325,
           "electric_bass_string_configuration": 0
         }

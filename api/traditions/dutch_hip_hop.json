@@ -5,7 +5,7 @@
   "lineage": "Dutch hip-hop spans varied MC, label and production networks in the Netherlands. De Jeugd van Tegenwoordig and Bas Bron exemplify an electro-oriented approach built around synthesizers and collaborative rap delivery.",
   "recipe": "classic modern dutch hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sub bass analog synth, drum machine analog. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 287,
-  "score": 34.886,
+  "score": 34.592,
   "config": {
     "traditions": [
       "dutch_hip_hop"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 12.5645,
-          "voice_ensemble_config": 0.384,
+          "voice_speech_song": 12.68675,
+          "voice_ensemble_config": 0.2445,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.162,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.705,
+          "electronic_technique": 5.5895,
           "oscillator": 0,
           "filter_topology": 0.39,
           "envelope": 0,
-          "modulation": 0.147
+          "modulation": 0.0735
         }
       },
       {
@@ -81,7 +81,7 @@
           "kick_voice": 0,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.159
+          "shuffle_quantize": 0.1785
         }
       }
     ],

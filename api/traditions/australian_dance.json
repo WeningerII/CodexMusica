@@ -5,7 +5,7 @@
   "lineage": "Australian dance music connects local electronic producers and vocalists with club-oriented and more intimate listening styles.",
   "recipe": "classic australian dance, electronic Dance. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 201,
-  "score": 1.603,
+  "score": 1.635,
   "config": {
     "traditions": [
       "australian_dance"
@@ -62,7 +62,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063
+          "voice_multitrack_stack": 0.0945
         }
       }
     ],

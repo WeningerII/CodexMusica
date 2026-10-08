@@ -100,6 +100,7 @@ function cardDescriptors(card) {
 // of every part (or first variant if no default), plus the tradition's tuning,
 // room, and chain inline. Used by the reach probe and tie audit.
 function defaultCard(traditionId, instrumentId) {
+  traditionId = C.resolveTraditionId(traditionId);
   const t = C.TRADITIONS.find((x) => x.id === traditionId);
   const inst = Inst(instrumentId);
   if (!t || !inst) return null;

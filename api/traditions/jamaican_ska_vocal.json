@@ -5,7 +5,7 @@
   "lineage": "Vocal branch of Jamaica's first-wave ska, cut for Kingston sound systems between 1961 and 1966 by producers Coxsone Dodd, Duke Reid and Leslie Kong, pairing the same 140-plus BPM upbeat chop and shuffle kit with American-influenced close-harmony vocal trios and belting solo singers, boogie piano, and short punchy horn riffs answering the vocal line rather than carrying it.",
   "recipe": "classic Caribbean early-1960s jamaican ska, bass System, Jamaican branch, soul R&B doowop, uk soundsystem bass system souldies doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, gospel runs upright piano, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 942,
-  "score": 375.302,
+  "score": 374.418,
   "config": {
     "traditions": [
       "jamaican_ska_vocal",
@@ -43,7 +43,7 @@
           "voice_microtone": 20.929999999999993,
           "voice_tradition": 13.064999999999996,
           "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 13.439999999999996,
+          "voice_estill_quality": 13.139999999999997,
           "voice_speech_song": 25.73999999999999,
           "voice_ensemble_config": 21.254999999999992,
           "voice_ornament_system": 4.16,
@@ -60,9 +60,9 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 2.925,
+          "multitrack_stack_density": 2.8200000000000003,
           "multitrack_stack_era_aesthetic": 8.2225,
-          "multitrack_stack_processing": 0.6
+          "multitrack_stack_processing": 0.75
         }
       },
       {
@@ -84,7 +84,7 @@
         },
         "scores": {
           "electric_technique": 10.344999999999999,
-          "amp_make": 14.599999999999998,
+          "amp_make": 14.449999999999998,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 0.195,
@@ -92,7 +92,7 @@
           "string_material": 0.195,
           "string_gauge": 1.8849999999999996,
           "bridge": 0,
-          "scale_length": 0.39,
+          "scale_length": 0.54,
           "finish": 0,
           "string_tuning": 1.69,
           "single_coil_pickup_construction": 0
@@ -106,17 +106,17 @@
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.304999999999993,
+          "amp_make": 21.409999999999993,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 18.394999999999996,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.24,
+          "fretted_or_not": 0,
           "bass_technique": 10.149999999999999,
           "electric_bass_string_configuration": 0
         }
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 19.889999999999997,
-          "drumhead": 3.4399999999999995,
+          "drumhead": 3.244999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -142,7 +142,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 12.505,
+          "keyboard_technique": 12.4,
           "upright_use": 0.195,
           "upright_piano_size": 0.195
         }
@@ -160,7 +160,7 @@
         },
         "scores": {
           "wind_articulation": 12.169999999999998,
-          "sax_size": 10.995,
+          "sax_size": 10.799999999999999,
           "sax_reed": 0.195,
           "sax_body_alloy": 0.75,
           "sax_mouthpiece": 0.195,
@@ -172,7 +172,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "flugelhorn",
+          "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
@@ -181,9 +181,9 @@
         },
         "scores": {
           "wind_articulation": 12.169999999999998,
-          "brass_size": 0.24,
+          "brass_size": 0.195,
           "trumpet_mouthpiece": 3.4450000000000003,
-          "brass_mute": 0.195,
+          "brass_mute": 0.24,
           "trumpet_technique": 12.169999999999998,
           "trumpet_bell_metal": 0.675,
           "trumpet_maker_school": 3.8349999999999995

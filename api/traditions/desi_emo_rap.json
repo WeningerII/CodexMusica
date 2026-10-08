@@ -5,7 +5,7 @@
   "lineage": "Desi emo rap connects emotionally direct rap with South Asian independent recording networks. Artists including MC Insane, Big Scratch and Tanishq foreground personal distress, relationships and resilience through local-language verses and collaborations with producers.",
   "recipe": "classic desi emo rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment. credited beat unspecified. treated studio.",
   "recipe_chars": 165,
-  "score": 17.556,
+  "score": 17.943,
   "config": {
     "traditions": [
       "desi_emo_rap"
@@ -38,13 +38,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.354,
+          "voice_articulation": 0.39,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.861,
-          "voice_ensemble_config": 3.0409999999999995,
+          "voice_speech_song": 14.05,
+          "voice_ensemble_config": 3.2024999999999997,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

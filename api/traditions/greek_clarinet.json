@@ -5,7 +5,7 @@
   "lineage": "Epirot and Macedonian folk instrumental tradition formed after the Albanian-Greek Ottoman clarinet trade of the 1830s-1870s and codified on disc by Kitsos Harisiadis, Vasilis Soukas and Petroloukas Chalkias, in which a B-flat or C klarino plays free-rhythm miroloi laments and then aksak dance suites (tsamiko 3/4, syrtos 2/4, beratis 8/8) at 60-130 BPM over a laouto strum-drone with heterophonic violi, using chalumeau-register smears, microtonal bends and long circular-breathed phrases.",
   "recipe": "classic Southern European mid-1830s greek clarinet, drone Modal, wind pipe branch, chanson fado Greek entechno, heterophonic drone modal armenian folk music greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. grenadilla African blackwood traditional clarinet, strummed drone and chord rhythmic laouto, modal microtonal kanonaki, davul, walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 615,
-  "score": 285.419,
+  "score": 285.333,
   "config": {
     "traditions": [
       "greek_clarinet",
@@ -23,9 +23,9 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.36,
-          "clarinet_body": 5.122249999999999,
-          "clarinet_size": 2.02,
+          "wind_articulation": 2.125,
+          "clarinet_body": 5.085,
+          "clarinet_size": 2.0799999999999996,
           "clarinet_reed": 0.09,
           "clarinet_articulation": 0.845
         }
@@ -38,22 +38,22 @@
           "laouto_strings": "laouto_strings_steel"
         },
         "scores": {
-          "laouto_form": 18.65,
+          "laouto_form": 18.41,
           "laouto_role": 24.895000000000003,
-          "laouto_strings": 1.625
+          "laouto_strings": 1.67
         }
       },
       {
         "id": "kanonaki",
         "slots": {
           "kanonaki_mandal": "kanonaki_greek_mandal",
-          "kanonaki_technique": "kanonaki_tremolo",
+          "kanonaki_technique": "kanonaki_accompaniment",
           "kanonaki_strings": "kanonaki_nylon"
         },
         "scores": {
           "kanonaki_mandal": 7.215,
-          "kanonaki_technique": 0,
-          "kanonaki_strings": 0.3
+          "kanonaki_technique": 0.045,
+          "kanonaki_strings": 0.39
         }
       },
       {
@@ -84,7 +84,7 @@
           "voice_vibrato": 3.9974999999999996,
           "voice_articulation": 17.55,
           "voice_microtone": 30.3875,
-          "voice_tradition": 34.6015,
+          "voice_tradition": 34.879999999999995,
           "voice_mechanism_compound": 9.23,
           "voice_estill_quality": 6.76,
           "voice_speech_song": 23.2375,
@@ -103,7 +103,7 @@
           "davul_head_material": "davul_synthetic"
         },
         "scores": {
-          "davul_form": 3.0877499999999998,
+          "davul_form": 3.025,
           "davul_context": 23.14,
           "davul_head_material": 1.625
         }
@@ -122,7 +122,7 @@
           "bouzouki_courses": 7.54,
           "bouzouki_pick": 0.845,
           "bouzouki_body_wood": 8.645,
-          "bouzouki_strings": 1.365
+          "bouzouki_strings": 1.335
         }
       }
     ],

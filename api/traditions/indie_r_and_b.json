@@ -1,153 +1,86 @@
 {
-  "id": "indie_r_and_b",
-  "name": "Indie r&b",
-  "family": "blues_gospel",
-  "lineage": "Indie R&B develops rhythm-and-blues and soul songwriting through independent releases and collaborative production. Its bands and studio projects draw on neighboring pop, rock and experimental practices, with ensembles such as Touched exploring expanded instrumental colors.",
-  "recipe": "classic indie r&b, functional Song, soul R&B branch. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Fender blackface amp American 60s amp spring reverb bright clean strummed humbucker electric guitar, hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, singing lead digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, ensemble trumpet, pre muffled edge muffled sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 636,
-  "score": 97.899,
+  "id": "alt_rnb",
+  "merged_from": "indie_r_and_b",
+  "name": "Alt-R&B (2010s atmospheric experimental R&B)",
+  "family": "pop",
+  "lineage": "2010s alternative R&B subgenre emphasizing emotional-vulnerability, experimental-electronic production, atmospheric-vocal layering, and explicit indie-rock-aesthetic-influence over the broader commercial R&B mainstream. FKA twigs' EP1 (2012) and LP1 (2014) inaugurated the canonical British alt-R&B sound; Jhené Aiko, Banks, Kelela, Tinashe (early career), and the broader Top Dawg Entertainment and Atlantic Records alt-R&B rosters extended the genre.",
+  "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric witch house hauntology. thick, breath veiled tone, straight note core, interlocked note trading. pad like pad analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 515,
+  "score": 178.885,
   "config": {
     "traditions": [
-      "indie_r_and_b"
+      "alt_rnb",
+      "witch_house_2010s",
+      "hauntology_uk_2010s"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 9.234999999999998,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.49649999999999994,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.49649999999999994,
-          "voice_tessitura": 0
+          "voice_vibrato": 1.9399999999999997,
+          "voice_articulation": 15.859999999999994,
+          "voice_microtone": 15.664999999999992,
+          "voice_tradition": 17.509999999999998,
+          "voice_mechanism_compound": 1.32,
+          "voice_estill_quality": 3.745,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 15.794999999999993,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 5.7200000000000015,
+          "voice_processing_chain": 13.095,
+          "voice_multitrack_stack": 13.194999999999997
         }
       },
       {
-        "id": "grand_piano",
+        "id": "analog_synth",
         "slots": {
-          "keyboard_technique": "keyboard_gospel_chord_runs",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "electronic_technique": "electronic_pad_drone",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
         },
         "scores": {
-          "keyboard_technique": 6.8945,
-          "grand_piano_size": 0.33599999999999997,
-          "grand_piano_brand": 0.441,
-          "piano_hammer": 2.765,
-          "piano_rim": 2.861,
-          "piano_soundboard": 2.45,
-          "piano_pinblock": -0.05,
-          "piano_plate": 1.17,
-          "piano_pitch_standard": -0.035
+          "electronic_technique": 5.735,
+          "oscillator": 1.69,
+          "filter_topology": 0.48000000000000004,
+          "envelope": 2.8600000000000003,
+          "modulation": 0.045
         }
       },
       {
-        "id": "electric_guitar_humbucker",
+        "id": "drum_machine_808",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
-          "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
-          "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "electric_technique": 5.75,
-          "amp_make": 8.053,
-          "body_wood": 0.9240000000000002,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.2415,
-          "pickup_magnet": 0.315,
-          "pickup_winding": 0.315,
-          "string_material": 0.2415,
-          "bridge": 0.33599999999999997,
-          "scale_length": 0.9555,
-          "string_gauge": 0.39,
-          "finish": 0,
-          "string_tuning": 1.3
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "orch_strings": "steel_orch",
-          "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "modern_synthetic_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "bernardel_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "orch_strings": 0.2415,
-          "orch_top_wood": -0.035,
-          "orch_back_wood": 1.1284999999999998,
-          "orch_varnish": 1.2349999999999999,
-          "orch_setup_period": -0.07,
-          "orch_bow": 0.39,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 0.11699999999999999,
-          "orch_rosin": -0.035
-        }
-      },
-      {
-        "id": "digital_subtractive",
-        "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "nord_lead",
-          "digital_subtractive_context": "digital_subtractive_trance"
-        },
-        "scores": {
-          "electronic_technique": 3.2045,
-          "va_archetypes": 0.0315,
-          "digital_subtractive_context": 7.669999999999999
+          "tr808_voice": 1.0650000000000002,
+          "drum_machine_808_context": 5.069999999999999,
+          "tr808_production_origin": 0.7150000000000001
         }
       },
       {
@@ -157,94 +90,31 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.451,
-          "body_wood": 0.6720000000000002,
-          "pickup_config": 0.45149999999999996,
-          "string_type": 8.06,
-          "scale_length_b": 0.33599999999999997,
-          "fretted_or_not": 0.39,
-          "bass_technique": 6.15,
+          "amp_make": 5.1850000000000005,
+          "body_wood": 0.8700000000000001,
+          "pickup_config": 0.36,
+          "string_type": 5.039999999999999,
+          "scale_length_b": 0.49499999999999994,
+          "fretted_or_not": 0,
+          "bass_technique": 3.65,
           "electric_bass_string_configuration": 0
-        }
-      },
-      {
-        "id": "trumpet",
-        "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "flugelhorn",
-          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
-        },
-        "scores": {
-          "wind_articulation": 7.767,
-          "brass_size": 0.39,
-          "trumpet_mouthpiece": -0.035,
-          "brass_mute": 0.3165,
-          "trumpet_technique": 7.767,
-          "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.9255
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
-        },
-        "scores": {
-          "drum_technique": 2.563,
-          "drumhead": 2.5130000000000003,
-          "drum_kit_kick_pedal": 0
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "electric_guitar_humbucker": [
-        "electric_technique"
-      ],
-      "electric_bass": [
-        "bass_technique"
-      ],
-      "drum_kit": [
-        "drum_technique"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "studio_distributed_production",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "condenser_ldc",
+      "pre": "pre_neve_1073_input",
+      "console": "console_british_inline_80s",
+      "comp": "comp_smart_c1_bus",
+      "eq": "eq_console_surgical",
       "amp": null,
       "medium": "digital_high"
     },
@@ -255,37 +125,31 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "studio_distributed_production",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "electric_technique": "electric_clean_strummed",
-      "bass_technique": "fingerstyle_locked",
-      "drum_technique": "sticks_rock"
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_rb",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_pad_drone"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_smart_c1_bus",
+    "chain_eq": "eq_console_surgical",
     "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box",
-    "chain_amp_guitar": "amp_modern_modeling",
-    "chain_amp_bass": "amp_american_ampeg_b15"
+    "chain_console": "console_british_inline_80s"
   }
 }

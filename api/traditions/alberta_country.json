@@ -5,7 +5,7 @@
   "lineage": "Alberta country connects country songwriting with regional stories, rural life and wider North American musical traditions. Acoustic performance and full-band arrangements coexist within the scene.",
   "recipe": "classic alberta country, functional Song, country branch. solo with instrumental accompaniment, unprocessed natural acoustic. koa phosphor bronze modern martin dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 5.975,
+  "score": 5.964,
   "config": {
     "traditions": [
       "alberta_country"
@@ -55,16 +55,16 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
+          "top_wood": "cedar",
           "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 0.26,
           "string_tuning": 0,
-          "top_wood": 0.105,
-          "back_sides": 1.1365,
-          "string_acoustic": 1.168
+          "top_wood": 0.0315,
+          "back_sides": 1.168,
+          "string_acoustic": 1.1995
         }
       }
     ],

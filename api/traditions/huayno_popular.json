@@ -3,14 +3,14 @@
   "name": "Huayno popular (electrified commercial huayno)",
   "family": "global",
   "lineage": "Commercial electrified huayno of Peru's provincial cities and Lima migrant districts, emerging in the 1970s-80s as Junín and Ancash artists replaced harp and violin with electric guitar, Farfisa-type organ and drum kit, and reaching mass scale in the 1990s-2000s via cassette and later video-CD releases by Dina Páucar, Sonia Morales and Abencia Meza — retaining the pentatonic melody and 2/4 iambic huayno cell but adding sustained-chord backing, saxophone lines from the Junín orquesta típica and a heavily reverbed lead soprano.",
-  "recipe": "classic mid-1970s huayno popular, functional Song, tropical song branch, andean carnival processional, Latin electric electronic dance bolivian diablada de oruro huayno peruano. balanced, forward-resonance, breath pulsed, interlocked note trading. single coil electric guitar, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, soprano gold brass warmer tone continuous-airflow legato saxophone, pre muffled edge muffled brushes-and-sticks drum kit, sub heavy electric bass, harpa. tin roofed shack. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 675,
-  "score": 238.95,
+  "recipe": "classic mid-1970s huayno popular, functional Song, tropical song branch, andean carnival processional, Latin electric electronic dance bolivian diablada de oruro baile funk. balanced, forward-resonance, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wah modulated single coil electric guitar, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, soprano gold brass warmer tone continuous-airflow legato saxophone, pre muffled edge muffled brushes-and-sticks drum kit, pyramid pure nickel bass British mid 60s era fingerstyle locked electric bass, harpa. tin roofed shack. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 803,
+  "score": 233.248,
   "config": {
     "traditions": [
       "huayno_popular",
       "bolivian_diablada_oruro",
-      "huayno_peruano"
+      "baile_funk"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
@@ -30,58 +30,58 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 1,
-          "voice_quality": 27.824999999999996,
+          "voice_quality": 20.949999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.045,
-          "voice_articulation": 21.775,
-          "voice_microtone": 18.849999999999998,
-          "voice_tradition": 25.535,
-          "voice_mechanism_compound": 4.874999999999999,
-          "voice_estill_quality": 13.584999999999997,
-          "voice_speech_song": 26.325,
-          "voice_ensemble_config": 21.514999999999997,
-          "voice_ornament_system": 17.884999999999998,
-          "voice_pitch_organization": 2.795000000000001,
-          "voice_processing_chain": 7.244999999999999,
-          "voice_multitrack_stack": 3.7700000000000005
+          "voice_vibrato": 2.9450000000000003,
+          "voice_articulation": 19.370000000000005,
+          "voice_microtone": 16.835,
+          "voice_tradition": 19.5975,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 8.559999999999999,
+          "voice_speech_song": 23.725000000000005,
+          "voice_ensemble_config": 18.915,
+          "voice_ornament_system": 11.6025,
+          "voice_pitch_organization": 3.330000000000001,
+          "voice_processing_chain": 12.05,
+          "voice_multitrack_stack": 4.78
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "electric_technique": "electric_wah_funk",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_5",
-          "string_material": "nickel_plated",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
-          "bridge": "hardtail",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.8999999999999999,
-          "amp_make": 0.8449999999999999,
-          "body_wood": 0.15,
-          "neck_wood": 0.15,
-          "fretboard": 0.38999999999999996,
+          "electric_technique": 6.25,
+          "amp_make": 6.8950000000000005,
+          "body_wood": 0.5,
+          "neck_wood": 0.5,
+          "fretboard": 0.45,
           "pickup_magnet": 0.15,
-          "string_material": 0.045,
-          "string_gauge": 0.345,
-          "bridge": 0.38999999999999996,
-          "scale_length": 0.3,
+          "string_material": 0,
+          "string_gauge": 0.65,
+          "bridge": 0.3,
+          "scale_length": 0.5,
           "finish": 0,
-          "string_tuning": 1.5849999999999997,
+          "string_tuning": 1.24,
           "single_coil_pickup_construction": 0
         }
       },
@@ -95,9 +95,9 @@
           "amp_make": "amp_unspecified"
         },
         "scores": {
-          "keyboard_technique": 1.095,
+          "keyboard_technique": 1.5499999999999998,
           "combo_organ_model": 1.3,
-          "combo_organ_voicing": 3.834999999999999,
+          "combo_organ_voicing": 4.614999999999999,
           "combo_organ_context": 2.4949999999999997,
           "amp_make": 0
         }
@@ -107,7 +107,7 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "sax_size": "soprano_sax",
-          "sax_reed": "soft_reed",
+          "sax_reed": "medium_reed",
           "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_continuous_legato",
@@ -115,9 +115,9 @@
         },
         "scores": {
           "wind_articulation": 1.5599999999999996,
-          "sax_size": 1.65,
-          "sax_reed": 0.045,
-          "sax_body_alloy": 2.115,
+          "sax_size": 1.15,
+          "sax_reed": 0,
+          "sax_body_alloy": 3.215,
           "sax_mouthpiece": 0.39,
           "sax_technique": 1.6249999999999998,
           "sax_maker_school": 0
@@ -131,31 +131,31 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.305,
-          "drumhead": 2.6150000000000007,
+          "drum_technique": 17.095000000000002,
+          "drumhead": 3.8199999999999994,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
-          "string_type": "coated_nano_bass",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.78,
-          "body_wood": 0.5399999999999999,
-          "pickup_config": 0.54,
-          "string_type": 0.9500000000000001,
-          "scale_length_b": 0.3,
+          "amp_make": 1.2349999999999997,
+          "body_wood": 0.845,
+          "pickup_config": 0.195,
+          "string_type": 2.135,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.39,
-          "bass_technique": 2.1125,
+          "bass_technique": 6.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -166,8 +166,8 @@
           "harpa_strings": "harpa_brass_wire"
         },
         "scores": {
-          "harpa_size": 0.3,
-          "harpa_strings": 1.2950000000000002
+          "harpa_size": 0.38999999999999996,
+          "harpa_strings": 0.78
         }
       }
     ],

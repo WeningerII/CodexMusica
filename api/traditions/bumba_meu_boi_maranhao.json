@@ -1,0 +1,166 @@
+{
+  "id": "bumba_meu_boi_maranhao",
+  "name": "Bumba-meu-boi do Maranhão (São Luís ox drama)",
+  "family": "global",
+  "lineage": "Ox-drama festivity of Maranhão performed in the June festival cycle around the feasts of São João, São Pedro and São Marçal, enacting the death and resurrection of a prized ox; it is registered as Brazilian cultural heritage by IPHAN and inscribed on the UNESCO Representative List. Groups are classed by sotaque (matraca, zabumba, orquestra, baixada and costa-de-mão), each with its own percussion and toada style. The cards follow the matraca sotaque of São Luís island, whose hardwood matraca blocks, large fire-tuned pandeirões and tambor-onça friction drum carry the toadas: palitos stand in for the matracas, a source-unspecified pandero for the pandeirões and a source-unspecified shaker for the amo's maracá.",
+  "recipe": "classic modern bumba-meu-boi do maranhão, groove Percussion, Brazilian branch. palitos, pandero source shaker source unspecified. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 1.837,
+  "config": {
+    "traditions": [
+      "bumba_meu_boi_maranhao"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 0.19949999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "palitos",
+        "slots": {
+          "palitos_surface": "palitos_bench",
+          "palitos_pattern": "palitos_cascara"
+        },
+        "scores": {
+          "palitos_surface": 0,
+          "palitos_pattern": 0
+        }
+      },
+      {
+        "id": "pandero_source_unspecified",
+        "slots": {
+          "pandero_source_unspecified_identity": "pandero_source_unspecified_named_role"
+        },
+        "scores": {
+          "pandero_source_unspecified_identity": 0.105
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.5145000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "palitos": [
+        "palitos_surface",
+        "palitos_pattern"
+      ],
+      "pandero_source_unspecified": [
+        "pandero_source_unspecified_identity"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "palitos_surface": "palitos_bench",
+      "palitos_pattern": "palitos_cascara",
+      "pandero_source_unspecified_identity": "pandero_source_unspecified_named_role",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

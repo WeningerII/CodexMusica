@@ -5,7 +5,7 @@
   "lineage": "German electronica is represented by Schneider TM — Guitar Sounds electric-guitar improvisations. One documented branch receives an authored present-day studio realization.",
   "recipe": "classic german electronica, experimental Elec, musique concrete branch. humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 199,
-  "score": 6.297,
+  "score": 5.913,
   "config": {
     "traditions": [
       "german_electronica"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.1049999999999998,
-          "body_wood": 0.504,
+          "body_wood": 0.4305,
           "neck_wood": 0,
           "fretboard": 0.22049999999999997,
-          "pickup_magnet": 0.3675,
-          "pickup_winding": 0.588,
+          "pickup_magnet": 0.294,
+          "pickup_winding": 0.483,
           "string_material": 0.22049999999999997,
           "bridge": 1.105,
-          "scale_length": 0.504,
+          "scale_length": 0.4305,
           "string_gauge": 1.3,
           "finish": 0.063,
-          "string_tuning": 0.39
+          "string_tuning": 0.3315
         }
       }
     ],

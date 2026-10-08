@@ -5,7 +5,7 @@
   "lineage": "Genoa's rap scene formed in the mid-2010s in the Certosa and Sampierdarena quarters around the Sacre Scuole collective (Izi, Tedua, Vaz Tè) with Bresh, Disme and Nader following — 130–150 BPM trap grids heard in half-time, rolling 808 glides, reverb-washed minor-key piano and pad loops, and a distinctively melodic sung-rapped delivery with heavy Auto-Tune, Ligurian dialect inserts and cinematic Genoa-port imagery.",
   "recipe": "classic 2014-2016 rap genovese, mc Rhythm, intl hip hop branch, us hip hop modern, experimental MC rhythm nerdcore dark plugg. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, low sub bass analog poly synth, modern bright beech laminated maple laminated European tradition sitka spruce grand piano, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 598,
-  "score": 273.155,
+  "score": 274.43,
   "config": {
     "traditions": [
       "rap_genovese",
@@ -35,16 +35,16 @@
         },
         "scores": {
           "voice_register": 0.845,
-          "voice_quality": 25.924999999999997,
+          "voice_quality": 26.24,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2099999999999995,
           "voice_articulation": 16.249999999999996,
           "voice_microtone": 18.459999999999994,
-          "voice_tradition": 8.46,
+          "voice_tradition": 8.775000000000002,
           "voice_mechanism_compound": 6.369999999999999,
           "voice_estill_quality": 7.475,
-          "voice_speech_song": 24.865000000000002,
+          "voice_speech_song": 25.075000000000003,
           "voice_ensemble_config": 16.379999999999995,
           "voice_ornament_system": 6.890000000000003,
           "voice_pitch_organization": 2.0799999999999996,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 7.875000000000001,
+          "tr808_voice": 8.010000000000002,
           "drum_machine_808_context": 2.34,
           "tr808_production_origin": 2.34
         }
@@ -89,7 +89,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.885000000000002,
+          "electronic_technique": 14.020000000000003,
           "poly_archetypes": 1.95,
           "poly_voices": 1.95,
           "poly_maker_lineage": -1.55
@@ -110,12 +110,12 @@
         },
         "scores": {
           "keyboard_technique": 6.2,
-          "grand_piano_size": 1.935,
+          "grand_piano_size": 1.95,
           "grand_piano_brand": 2.145,
           "piano_hammer": 6.629999999999999,
           "piano_rim": 5.64,
           "piano_soundboard": 5.1,
-          "piano_pinblock": 4.794999999999999,
+          "piano_pinblock": 4.645,
           "piano_plate": 5.784999999999999,
           "piano_pitch_standard": 11.18
         }
@@ -129,7 +129,7 @@
         },
         "scores": {
           "multitrack_stack_density": 0.845,
-          "multitrack_stack_era_aesthetic": 2.8850000000000002,
+          "multitrack_stack_era_aesthetic": 3.185,
           "multitrack_stack_processing": 1.3649999999999998
         }
       }

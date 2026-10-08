@@ -5,7 +5,7 @@
   "lineage": "Finnish new wave emerged from the country’s punk movement around the turn of the 1980s and developed into broader Finnish rock and pop. Bands such as Eppu Normaali connected direct local-language songwriting with new guitar-band approaches.",
   "recipe": "classic mid-1980s finnish new wave, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, upright piano. live tracking.",
   "recipe_chars": 226,
-  "score": 44.695,
+  "score": 44.285,
   "config": {
     "traditions": [
       "finnish_new_wave"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0
@@ -145,7 +145,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": 2.8175000000000003,
+          "keyboard_technique": 2.681,
           "upright_use": 0.39,
           "upright_piano_size": 0
         }

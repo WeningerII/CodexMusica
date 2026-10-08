@@ -5,7 +5,7 @@
   "lineage": "Pub rock grew through small-venue band performance, drawing heavily on rhythm and blues and direct rock-and-roll playing.",
   "recipe": "classic pub rock, functional Song, blues electric branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp bent note blues lead humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 516,
-  "score": 80.965,
+  "score": 81.881,
   "config": {
     "traditions": [
       "pub_rock"
@@ -16,13 +16,13 @@
         "slots": {
           "electric_technique": "electric_bent_note_blues_lead",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 3.6399999999999997,
           "amp_make": 5.07,
-          "body_wood": 0.36749999999999994,
-          "neck_wood": 0.3045,
+          "body_wood": 0.37799999999999995,
+          "neck_wood": 0.37799999999999995,
           "fretboard": 0.0315,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.22049999999999997,
           "string_material": 0.0315,
-          "bridge": 0.3315,
-          "scale_length": 0.609,
-          "string_gauge": 0.6825,
+          "bridge": 0.37799999999999995,
+          "scale_length": 0.6509999999999999,
+          "string_gauge": 0.6509999999999999,
           "finish": 0.0315,
           "string_tuning": 0.063
         }
@@ -51,18 +51,18 @@
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 5.525,
-          "body_wood": 0.609,
+          "body_wood": 0.6509999999999999,
           "pickup_config": 0.3,
           "string_type": 10.5565,
-          "scale_length_b": 0.39,
-          "fretted_or_not": 0.063,
+          "scale_length_b": 0.37799999999999995,
+          "fretted_or_not": 0.105,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.4365,
-          "drumhead": 0.3315,
+          "drumhead": 0.3,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.113,
+          "voice_ensemble_config": 1.2389999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,
-          "voice_multitrack_stack": 1.5435
+          "voice_multitrack_stack": 1.8585
         }
       },
       {
@@ -130,10 +130,10 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.504,
-          "harmonica_comb": 8.517,
-          "harmonica_reed": 7.286,
-          "harmonica_technique": 7.936999999999999,
+          "harmonica_type": 0.5775,
+          "harmonica_comb": 8.664,
+          "harmonica_reed": 7.4959999999999996,
+          "harmonica_technique": 7.8004999999999995,
           "harmonica_maker_school": 10.334999999999999,
           "harmonica_tuning": 3.6399999999999997
         }

@@ -3,14 +3,14 @@
   "name": "Zarzuela género chico (one-act Madrid tradition)",
   "family": "classical",
   "lineage": "The one-act, hour-long branch of Spanish lyric theatre that dominated Madrid's Teatro Apolo from the 1870s to about 1910, codified by Federico Chueca ('La Gran Vía', 1886), Tomás Bretón ('La verbena de la Paloma', 1894) and Ruperto Chapí — spoken dialogue alternating with sung numbers built on urban Madrid dance rhythms (chotis, mazurka, habanera, pasodoble, seguidillas), scored for small pit orchestra with prominent clarinet and cornet, chorus of neighbourhood types, and a comic-declamatory vocal style close to speech.",
-  "recipe": "classic British mid-1870s zarzuela género chico, art Music, western common practice branch, iberian functional song, European carnival processional brass band canción melódica. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, grenadilla African blackwood traditional legato clarinet, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral legato heavy one piece matched to monette horn trumpet, traditional iberian pomegranate wood castanets, beech laminated maple laminated European tradition European spruce norway spruce grand piano, traditional mellow brass tambourine orch. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 954,
-  "score": 303.923,
+  "recipe": "classic British mid-1870s zarzuela género chico, art Music, western common practice branch, iberian functional song, European carnival processional pasodoble copla. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, grenadilla African blackwood traditional clarinet, yellow brass canonical 70 30 bach stradivarius heavy one piece matched to monette horn legato trumpet, traditional iberian pomegranate wood castanets, beech laminated maple laminated European tradition European spruce norway spruce grand piano, traditional mellow brass tambourine orch. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 885,
+  "score": 252.802,
   "config": {
     "traditions": [
       "zarzuela_genero_chico",
-      "brass_band",
-      "cancion_melodica"
+      "pasodoble",
+      "copla_andaluza"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.255000000000002,
-          "voice_quality": 11.699999999999992,
+          "voice_register": 2.1799999999999997,
+          "voice_quality": 10.984999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.455,
-          "voice_articulation": 19.695000000000004,
-          "voice_microtone": 21.19,
-          "voice_tradition": 9.49,
-          "voice_mechanism_compound": 5.720000000000001,
-          "voice_estill_quality": 7.97,
-          "voice_speech_song": 23.53,
-          "voice_ensemble_config": 19.175000000000004,
-          "voice_ornament_system": 4.45,
-          "voice_pitch_organization": 4.3,
-          "voice_processing_chain": 4.16,
-          "voice_multitrack_stack": 5.4275
+          "voice_vibrato": 4.485,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 16.964999999999993,
+          "voice_tradition": 10.724999999999994,
+          "voice_mechanism_compound": 5.329999999999999,
+          "voice_estill_quality": 6.414999999999999,
+          "voice_speech_song": 21.514999999999997,
+          "voice_ensemble_config": 14.494999999999994,
+          "voice_ornament_system": 6.015,
+          "voice_pitch_organization": 3.395,
+          "voice_processing_chain": 5.720000000000001,
+          "voice_multitrack_stack": 3.380000000000001
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 12.854999999999999,
-          "choir_polyphonic_configuration": 1.27,
-          "choir_regional_canonical_configuration": 5.654999999999999,
-          "choir_ensemble_repertoire": 2.405
+          "choir_size": 13.685,
+          "choir_polyphonic_configuration": 1.62,
+          "choir_regional_canonical_configuration": 7.344999999999999,
+          "choir_ensemble_repertoire": 3.6399999999999997
         }
       },
       {
@@ -72,7 +72,7 @@
         "slots": {
           "bowed_technique": "bowed_pizzicato",
           "orch_strings": "synthetic_orch",
-          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_top_wood": "norway_spruce_alpine_violin",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
@@ -82,16 +82,16 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5,
-          "orch_strings": 1.3499999999999999,
-          "orch_top_wood": 5.545,
-          "orch_back_wood": 5.69,
-          "orch_varnish": 3.7,
-          "orch_setup_period": 2.8600000000000003,
-          "orch_bow": 2.08,
-          "orch_bow_stick": 4.1000000000000005,
-          "orch_articulation": 2.2099999999999995,
-          "orch_rosin": 4.035
+          "bowed_technique": 3.07,
+          "orch_strings": 0.9099999999999999,
+          "orch_top_wood": 4.745,
+          "orch_back_wood": 4.79,
+          "orch_varnish": 2.45,
+          "orch_setup_period": 2.0799999999999996,
+          "orch_bow": 2.275,
+          "orch_bow_stick": 2.8500000000000005,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 2.785
         }
       },
       {
@@ -104,10 +104,10 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 4.4,
-          "clarinet_body": 4.04,
-          "clarinet_size": 1.8,
-          "clarinet_reed": 1.3499999999999999,
+          "wind_articulation": 2.5,
+          "clarinet_body": 2.7900000000000005,
+          "clarinet_size": 1.3,
+          "clarinet_reed": 0.9099999999999999,
           "clarinet_articulation": 0.38999999999999996
         }
       },
@@ -115,32 +115,32 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "straight_mute",
           "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_monette"
         },
         "scores": {
-          "wind_articulation": 4.4,
-          "brass_size": 0.59,
-          "trumpet_mouthpiece": 10.355,
-          "brass_mute": 3.75,
-          "trumpet_technique": 4.4,
-          "trumpet_bell_metal": 1.235,
-          "trumpet_maker_school": 1.04
+          "wind_articulation": 2.5,
+          "brass_size": 0.345,
+          "trumpet_mouthpiece": 8.155,
+          "brass_mute": 2.65,
+          "trumpet_technique": 2.5,
+          "trumpet_bell_metal": 1.04,
+          "trumpet_maker_school": 0.5
         }
       },
       {
         "id": "castanets",
         "slots": {
           "castanets_material": "castanets_pomegranate",
-          "castanets_mounting": "castanets_machine"
+          "castanets_mounting": "castanets_palillos"
         },
         "scores": {
-          "castanets_material": 1.885,
-          "castanets_mounting": 0.845
+          "castanets_material": 2.34,
+          "castanets_mounting": 0.75
         }
       },
       {
@@ -157,15 +157,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 4.550000000000001,
-          "grand_piano_size": 2.65,
-          "grand_piano_brand": 2.58,
-          "piano_hammer": 5.795,
-          "piano_rim": 7.905,
-          "piano_soundboard": 8.06,
-          "piano_pinblock": 3.7,
-          "piano_plate": 4.545000000000001,
-          "piano_pitch_standard": 12.284999999999998
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.955,
+          "grand_piano_brand": 2.2800000000000002,
+          "piano_hammer": 4.895,
+          "piano_rim": 6.825,
+          "piano_soundboard": 6.89,
+          "piano_pinblock": 2.45,
+          "piano_plate": 2.45,
+          "piano_pitch_standard": 12.274999999999999
         }
       },
       {
@@ -175,8 +175,8 @@
           "tambourine_orch_context": "tambourine_orch_film"
         },
         "scores": {
-          "tambourine_orch_jingle": 2.725,
-          "tambourine_orch_context": 1.15
+          "tambourine_orch_jingle": 1.5275,
+          "tambourine_orch_context": 1.195
         }
       }
     ],

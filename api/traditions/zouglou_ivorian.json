@@ -5,7 +5,7 @@
   "lineage": "Zouglou Ivorian student-and-popular music emerging in 1990 at the University of Abidjan dormitories as a participatory call-and-response song-and-dance form expressing political commentary. The genre arose from the older bidakouro Bété percussion-and-vocal tradition adapted with French-language and Nouchi-slang lyrics. Performance grew from a-cappella dormitory-circle form into commercial studio recording from 1992 onward. Magic System's 1ère Gaou (1999) became the first international-crossover zouglou hit.",
   "recipe": "classic West African early-1990s zouglou, functional Song, African pop branch, Afro-diasporic MC rhythm hip hop galsen ghanaian hip hop. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, pyramid pure nickel bass British mid 60s era electric bass, clean strummed single coil electric guitar. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 543,
-  "score": 114.747,
+  "score": 114.417,
   "config": {
     "traditions": [
       "zouglou_ivorian",
@@ -41,7 +41,7 @@
           "voice_vibrato": 0.5525,
           "voice_articulation": 12.349999999999998,
           "voice_microtone": 10.269999999999996,
-          "voice_tradition": 12.655,
+          "voice_tradition": 12.594999999999999,
           "voice_mechanism_compound": 1.885,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 14.689999999999996,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr808_voice": 2.535,
-          "drum_machine_808_context": 3.43,
+          "drum_machine_808_context": 3.3850000000000002,
           "tr808_production_origin": 0.195
         }
       },
@@ -79,10 +79,10 @@
         },
         "scores": {
           "amp_make": 0.5199999999999999,
-          "body_wood": 0.44999999999999996,
+          "body_wood": 0.36,
           "pickup_config": 0.135,
           "string_type": 1.1049999999999998,
-          "scale_length_b": 0.26999999999999996,
+          "scale_length_b": 0.22499999999999998,
           "fretted_or_not": 0.195,
           "bass_technique": -0.035,
           "electric_bass_string_configuration": 0
@@ -101,7 +101,7 @@
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "standard_tuning",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
@@ -109,14 +109,14 @@
           "electric_technique": 9.4,
           "amp_make": 2.34,
           "body_wood": 0.45499999999999996,
-          "neck_wood": 0.22499999999999998,
+          "neck_wood": 0.18,
           "fretboard": 0.09,
           "pickup_magnet": 0.045,
           "string_material": 0.3,
           "string_gauge": 0.45499999999999996,
           "bridge": 0.09,
-          "scale_length": 0.44999999999999996,
-          "finish": 0,
+          "scale_length": 0.36,
+          "finish": 0.045,
           "string_tuning": 0.195,
           "single_coil_pickup_construction": 0
         }

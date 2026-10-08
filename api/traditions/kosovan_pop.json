@@ -5,7 +5,7 @@
   "lineage": "Kosovan pop includes Albanian-language popular songwriting and a range of band, electronic and soul-influenced approaches. Local performers connect regional audiences with wider popular-music styles.",
   "recipe": "classic kosovan pop, functional Song. solo with instrumental accompaniment. clean strummed humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass, pre muffled edge muffled drum kit, block chord upright piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 353,
-  "score": 36.248,
+  "score": 35.871,
   "config": {
     "traditions": [
       "kosovan_pop"
@@ -24,14 +24,14 @@
           "string_material": "pure_nickel_h",
           "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_9_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 7.804,
-          "amp_make": 2.6540000000000004,
-          "body_wood": 0.4635,
+          "electric_technique": 7.75,
+          "amp_make": 2.6000000000000005,
+          "body_wood": 0.40950000000000003,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -39,7 +39,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.1365,
-          "string_gauge": 0.054,
+          "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
         }
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.704,
+          "amp_make": 2.6500000000000004,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 2.804,
+          "string_type": 2.75,
           "scale_length_b": 0,
-          "fretted_or_not": 0.4635,
+          "fretted_or_not": 0.40950000000000003,
           "bass_technique": 2.4,
           "electric_bass_string_configuration": 0
         }

@@ -3,9 +3,9 @@
   "name": "Kaneka (Kanak New Caledonia)",
   "family": "global",
   "lineage": "New Caledonian Kanak popular music codified in the mid-1980s around the independence movement, with bands Bwanjep, Gurejele and Edou fusing customary pilou dance rhythm and bwanjep bamboo-stamping patterns with Jamaican reggae backbeat — mid-tempo 4/4 around 80-100 BPM, one-drop or half-time kit under offbeat guitar chops, electric bass carrying the melodic weight, unison male choruses in Drehu, Paicî and French, lyrics on land, custom and independence.",
-  "recipe": "classic Caribbean 1984-1986 kaneka, bass System, reggae diaspora branch, sub saharan African protest song, oceania pacific praise song south african freedom song kapa haka. thick, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, ride-driven brushes-and-sticks drum kit, log drum, group massed hand clap. live tracking. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
-  "recipe_chars": 672,
-  "score": 217.64,
+  "recipe": "classic Caribbean 1984-1986 kaneka, bass System, reggae diaspora branch, sub saharan African protest song, oceania pacific praise song south african freedom song kapa haka. thick, breath veiled tone, slow rate, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, log drum, group massed hand clap. live tracking. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 669,
+  "score": 213.47,
   "config": {
     "traditions": [
       "kaneka",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.09,
+          "voice_register": 3.045,
           "voice_quality": 13.714999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.575,
+          "voice_vibrato": 3.35,
           "voice_articulation": 15.274999999999995,
           "voice_microtone": 16.574999999999992,
           "voice_tradition": 15.8275,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 4.030000000000001,
           "voice_speech_song": 20.994999999999994,
           "voice_ensemble_config": 16.054999999999996,
-          "voice_ornament_system": 5.5600000000000005,
+          "voice_ornament_system": 5.380000000000001,
           "voice_pitch_organization": 1.7799999999999998,
           "voice_processing_chain": 5.775,
-          "voice_multitrack_stack": 9.07
+          "voice_multitrack_stack": 8.785
         }
       },
       {
@@ -61,9 +61,9 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_5",
-          "string_material": "pure_nickel",
+          "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "dadgad",
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 4.875,
           "amp_make": 2.99,
-          "body_wood": 2.84,
-          "neck_wood": 2.795,
-          "fretboard": 2.745,
+          "body_wood": 2.4499999999999997,
+          "neck_wood": 2.4499999999999997,
+          "fretboard": 2.4,
           "pickup_magnet": 0.39,
-          "string_material": 0,
-          "string_gauge": 2.84,
-          "bridge": 0.6900000000000001,
-          "scale_length": 2.9899999999999998,
+          "string_material": 0.09,
+          "string_gauge": 2.4499999999999997,
+          "bridge": 0.39,
+          "scale_length": 2.5999999999999996,
           "finish": 0.195,
           "string_tuning": 1.04,
           "single_coil_pickup_construction": 0
@@ -89,7 +89,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.4900000000000007,
-          "body_wood": 2.9899999999999998,
+          "amp_make": 3.1000000000000005,
+          "body_wood": 2.795,
           "pickup_config": 1.2349999999999999,
           "string_type": 6.43,
-          "scale_length_b": 2.84,
+          "scale_length_b": 2.4499999999999997,
           "fretted_or_not": 0.845,
           "bass_technique": 8.45,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 15.534999999999997,
-          "drumhead": 3.54,
+          "drumhead": 3.15,
           "drum_kit_kick_pedal": 0
         }
       },

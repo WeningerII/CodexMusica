@@ -3,20 +3,20 @@
   "name": "Moroccan Pop",
   "family": "pop",
   "lineage": "Casablanca and Marrakech commercial chaabi-pop, professionalized from the early 1970s through Nass El Ghiwane's political song and the later cassette-label boom, combining 6/8 and 12/8 Berber-Gnawa cycles with guembri ostinato, qraqeb clatter, bendir and darbuka, unison violin and oud lines, and call-and-response chorus vocals over synthesizer pads.",
-  "recipe": "classic North African 1970-1973 moroccan pop, functional Song, mid east n African pop branch, Sufi ritual devotional, middle east n African protest song algerian raï egyptian political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. guembri, qraqeb, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, padauk Egyptian Syrian premium oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 956,
-  "score": 255.284,
+  "recipe": "classic North African 1970-1973 moroccan pop, functional Song, mid east n African pop branch, Sufi ritual devotional, middle east n African protest song özgün müzik algerian raï. thick, breath veiled tone, slow rate, interlocked note trading. guembri, qraqeb, bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut ribs canonical mid tier oud, sitka spruce brazilwood student tier violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, mahogany pyramid pure nickel bass British mid 60s era electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 767,
+  "score": 234.012,
   "config": {
     "traditions": [
       "moroccan_pop",
-      "algerian_rai_political",
-      "egyptian_sayyed_darwish_sheikh_imam"
+      "ozgun_muzik",
+      "algerian_rai_political"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,44 +25,44 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 15.052999999999997,
-          "voice_quality": 11.24499999999999,
+          "voice_register": 17.224999999999994,
+          "voice_quality": 10.334999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.42,
-          "voice_articulation": 18.589999999999996,
-          "voice_microtone": 30.93999999999999,
-          "voice_tradition": 19.7925,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 2.8600000000000003,
-          "voice_speech_song": 27.299999999999997,
-          "voice_ensemble_config": 20.214999999999996,
-          "voice_ornament_system": 5.973999999999999,
-          "voice_pitch_organization": 6.469,
-          "voice_processing_chain": 8.75,
-          "voice_multitrack_stack": 6.205000000000001
+          "voice_vibrato": 2.73,
+          "voice_articulation": 21.514999999999997,
+          "voice_microtone": 23.985,
+          "voice_tradition": 16.675,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 2.925000000000001,
+          "voice_speech_song": 28.925,
+          "voice_ensemble_config": 21.449999999999996,
+          "voice_ornament_system": 2.8249999999999997,
+          "voice_pitch_organization": 6.420000000000002,
+          "voice_processing_chain": 10,
+          "voice_multitrack_stack": 6.425000000000001
         }
       },
       {
         "id": "guembri",
         "slots": {
           "guembri_size": "guembri_small",
-          "guembri_sersera": "guembri_sersara_on",
-          "guembri_strings": "guembri_nylon"
+          "guembri_sersera": "guembri_sersara_off",
+          "guembri_strings": "guembri_gut"
         },
         "scores": {
-          "guembri_size": 2.15,
-          "guembri_sersera": 0,
-          "guembri_strings": 0.03899999999999999
+          "guembri_size": 1.85,
+          "guembri_sersera": 0.045,
+          "guembri_strings": 0
         }
       },
       {
@@ -87,23 +87,23 @@
         "scores": {
           "bendir_snares": 0.8449999999999999,
           "bendir_context": 0.285,
-          "bendir_shell_wood": 1.0399999999999998,
-          "bendir_head": 1.105
+          "bendir_shell_wood": 0.8449999999999999,
+          "bendir_head": 0.9099999999999999
         }
       },
       {
         "id": "darbuka",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
+          "percussion_technique": "percussion_open_slap",
           "darbuka_material": "darbuka_aluminum_sombaty",
-          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_skin": "darbuka_goat_skin",
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
           "percussion_technique": -0.07,
-          "darbuka_material": 2.9249999999999994,
-          "darbuka_skin": 2.859999999999999,
-          "darbuka_regional_style": 11.05
+          "darbuka_material": 0.9749999999999999,
+          "darbuka_skin": 1.7999999999999998,
+          "darbuka_regional_style": 7.19
         }
       },
       {
@@ -113,45 +113,45 @@
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
-          "oud_body_wood": "oud_padauk_body",
-          "oud_soundboard_wood": "oud_lebanese_cedar_face",
-          "oud_string_material": "oud_pyramid_nylon"
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_la_bella_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 1.3,
-          "oud_school": 4.42,
-          "oud_strings": 0.65,
-          "oud_pick": 2.4499999999999997,
-          "oud_body_wood": 2.7299999999999995,
-          "oud_soundboard_wood": 0.45499999999999996,
-          "oud_string_material": 0.845
+          "plucked_traditional_technique": 0.8125,
+          "oud_school": 2.8549999999999995,
+          "oud_strings": 0.7050000000000001,
+          "oud_pick": 2.195,
+          "oud_body_wood": 2.24,
+          "oud_soundboard_wood": 0.38999999999999996,
+          "oud_string_material": 0.65
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
+          "bowed_technique": "bowed_chopped_old_time",
           "orch_strings": "plain_sheep_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "bosnian_flamed_maple_violin",
-          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
           "orch_setup_period": "baroque_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 1.25,
+          "bowed_technique": 0.26,
           "orch_strings": 0.595,
-          "orch_top_wood": 2.9899999999999998,
-          "orch_back_wood": 2.3049999999999997,
-          "orch_varnish": 1.2,
-          "orch_setup_period": 0.26,
-          "orch_bow": 0,
-          "orch_bow_stick": 3.2699999999999996,
-          "orch_articulation": 0.129,
-          "orch_rosin": 1.6400000000000001
+          "orch_top_wood": 1.625,
+          "orch_back_wood": 0.7799999999999998,
+          "orch_varnish": 0.295,
+          "orch_setup_period": 0.9399999999999998,
+          "orch_bow": 0.345,
+          "orch_bow_stick": 2.7449999999999997,
+          "orch_articulation": 0.045,
+          "orch_rosin": 0.25
         }
       },
       {
@@ -159,14 +159,14 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 14.834999999999997,
+          "electronic_technique": 15.724999999999998,
           "poly_archetypes": 0.39,
           "poly_voices": 0.045,
-          "poly_maker_lineage": 3.1149999999999998
+          "poly_maker_lineage": 2.79
         }
       },
       {
@@ -182,13 +182,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.0950000000000006,
-          "body_wood": 2.75,
+          "amp_make": 1.9500000000000004,
+          "body_wood": 2.15,
           "pickup_config": 0.195,
-          "string_type": 3.74,
-          "scale_length_b": 2.4499999999999997,
-          "fretted_or_not": 0.54,
-          "bass_technique": 0.7,
+          "string_type": 3.0500000000000003,
+          "scale_length_b": 2.15,
+          "fretted_or_not": 0.65,
+          "bass_technique": 0.745,
           "electric_bass_string_configuration": 0
         }
       }

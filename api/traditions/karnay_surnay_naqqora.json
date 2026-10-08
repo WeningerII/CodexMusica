@@ -1,0 +1,122 @@
+{
+  "id": "karnay_surnay_naqqora",
+  "name": "Karnay-surnay (Central Asian ceremonial trumpet and shawm band)",
+  "family": "global",
+  "lineage": "Outdoor ceremonial band of the Uzbek and Tajik oasis cities, in which long straight brass karnay trumpets sound sustained blasts while the surnay shawm plays the melody over naqqora kettledrums and doira, heralding weddings, festivals such as Navruz and public celebrations; the karna card stands for the karnay, the surnai card for the surnay and the nagora card for the naqqora.",
+  "recipe": "classic modern karnay-surnay, wedding. karna trumpet, surnai afghan, nagora kettledrum pair, doira frame drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 190,
+  "score": 3.723,
+  "config": {
+    "traditions": [
+      "karnay_surnay_naqqora"
+    ],
+    "instruments": [
+      {
+        "id": "karna_trumpet",
+        "slots": {
+          "karna_form": "karna_straight",
+          "karna_use": "karna_signal"
+        },
+        "scores": {
+          "karna_form": 0.005625,
+          "karna_use": 1.305625
+        }
+      },
+      {
+        "id": "surnai_afghan",
+        "slots": {
+          "surnai_afghan_size": "surnai_afghan_standard",
+          "surnai_afghan_technique": "surnai_afghan_circular",
+          "surnai_afghan_body": "surnai_afghan_mulberry"
+        },
+        "scores": {
+          "surnai_afghan_size": 0.031874999999999994,
+          "surnai_afghan_technique": 2,
+          "surnai_afghan_body": 0
+        }
+      },
+      {
+        "id": "nagora_kettledrum_pair",
+        "slots": {
+          "nagora_technique": "nagora_sticks",
+          "nagora_size": "nagora_small_pair"
+        },
+        "scores": {
+          "nagora_technique": 0,
+          "nagora_size": 0.005625
+        }
+      },
+      {
+        "id": "doira_frame_drum",
+        "slots": {
+          "doira_jingles": "doira_heavy_rings",
+          "doira_technique": "doira_usul",
+          "doira_head": "doira_goatskin"
+        },
+        "scores": {
+          "doira_jingles": 0.063,
+          "doira_technique": 0.01125,
+          "doira_head": 0
+        }
+      }
+    ],
+    "pinned": {
+      "karna_trumpet": [
+        "karna_form",
+        "karna_use"
+      ],
+      "surnai_afghan": [
+        "surnai_afghan_size",
+        "surnai_afghan_technique",
+        "surnai_afghan_body"
+      ],
+      "nagora_kettledrum_pair": [
+        "nagora_technique",
+        "nagora_size"
+      ],
+      "doira_frame_drum": [
+        "doira_jingles",
+        "doira_technique",
+        "doira_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "karna_form": "karna_straight",
+      "karna_use": "karna_signal",
+      "surnai_afghan_size": "surnai_afghan_standard",
+      "surnai_afghan_technique": "surnai_afghan_circular",
+      "surnai_afghan_body": "surnai_afghan_mulberry",
+      "nagora_technique": "nagora_sticks",
+      "nagora_size": "nagora_small_pair",
+      "doira_jingles": "doira_heavy_rings",
+      "doira_technique": "doira_usul",
+      "doira_head": "doira_goatskin"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

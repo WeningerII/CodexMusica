@@ -3,9 +3,9 @@
   "name": "New england emo",
   "family": "rock_punk",
   "lineage": "New England emo develops melodic guitar-band writing through interconnected regional scenes.",
-  "recipe": "classic new england emo, distorted Rock, emo branch. humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 221,
-  "score": 15.927,
+  "recipe": "classic new england emo, distorted Rock, emo branch. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 239,
+  "score": 16.44,
   "config": {
     "traditions": [
       "new_england_emo"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "neck_wood": 0.168,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -39,7 +39,7 @@
           "string_material": 0.168,
           "bridge": 0.1365,
           "scale_length": 0,
-          "string_gauge": 0.276,
+          "string_gauge": 0.222,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

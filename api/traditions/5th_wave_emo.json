@@ -3,9 +3,9 @@
   "name": "5th wave emo",
   "family": "rock_punk",
   "lineage": "Fifth-wave emo develops melodic and emotionally direct songwriting through contemporary independent scenes and pop-punk energy.",
-  "recipe": "classic 5th wave emo, distorted Rock, emo branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 353,
-  "score": 24.303,
+  "recipe": "classic 5th wave emo, distorted Rock, emo branch. one note per syllable. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 371,
+  "score": 24.816,
   "config": {
     "traditions": [
       "5th_wave_emo"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 5.005,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "neck_wood": 0.168,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -39,7 +39,7 @@
           "string_material": 0.168,
           "bridge": 0.1365,
           "scale_length": 0,
-          "string_gauge": 0.276,
+          "string_gauge": 0.222,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.9555000000000002,
+          "body_wood": 1.239,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,

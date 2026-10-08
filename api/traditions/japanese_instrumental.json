@@ -5,7 +5,7 @@
   "lineage": "Japanese instrumental music is a broad wordless listening field crossing piano, guitar, traditional instruments and ensemble composition. Jazz interpretations, concert pieces and popular melodies circulate alongside newly written instrumental repertoire.",
   "recipe": "classic japanese instrumental, improv On Frame, American jazz branch. a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze brushes drum kit. live tracking.",
   "recipe_chars": 179,
-  "score": 29.612,
+  "score": 29.425,
   "config": {
     "traditions": [
       "japanese_instrumental"
@@ -27,10 +27,10 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.147,
-          "grand_piano_brand": 0.168,
+          "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,
           "piano_pitch_standard": 2.015
@@ -43,7 +43,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.23099999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 8.75
         }
       },
@@ -64,16 +64,16 @@
         },
         "scores": {
           "drum_technique": 8.855,
-          "drumhead": 0.0945,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2835,
           "shell_thickness": 0,
-          "bearing_edges": 0.6615,
+          "bearing_edges": 0.693,
           "snare_wires": 0.147,
           "cymbal_alloy": 8.851999999999999,
           "cymbal_hammering": -0.10500000000000001,
           "cymbal_lathing": -0.10500000000000001,
-          "cymbal_finish": 0.063
+          "cymbal_finish": 0
         }
       }
     ],

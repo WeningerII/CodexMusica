@@ -5,7 +5,7 @@
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
   "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta cambodian traditional. thick, breath veiled tone, straight note core, interlocked note trading. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 392,
-  "score": 148.979,
+  "score": 145.01,
   "config": {
     "traditions": [
       "japanese_taue_uta",
@@ -38,18 +38,18 @@
           "voice_quality": 5.915000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.565,
+          "voice_vibrato": 4.28,
           "voice_articulation": 12.154999999999994,
           "voice_microtone": 12.804999999999993,
-          "voice_tradition": 48.29875,
+          "voice_tradition": 45.925,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 15.339999999999995,
           "voice_ensemble_config": 12.284999999999995,
-          "voice_ornament_system": 8.97,
-          "voice_pitch_organization": 5.90525,
-          "voice_processing_chain": 2.2099999999999995,
-          "voice_multitrack_stack": 3.4450000000000003
+          "voice_ornament_system": 8.925,
+          "voice_pitch_organization": 5.135,
+          "voice_processing_chain": 2.135,
+          "voice_multitrack_stack": 3.4150000000000005
         }
       },
       {
@@ -67,9 +67,9 @@
           "plucked_traditional_technique": -0.05,
           "shamisen_size": 0.195,
           "shamisen_skin": 0.195,
-          "shamisen_pick": 2.535,
+          "shamisen_pick": 2.3400000000000003,
           "shamisen_neck_wood": 0.12999999999999998,
-          "shamisen_strings": 2.535,
+          "shamisen_strings": 2.3400000000000003,
           "shamisen_tradition": 3.769999999999999
         }
       }

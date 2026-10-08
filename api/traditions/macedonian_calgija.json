@@ -1,0 +1,284 @@
+{
+  "id": "macedonian_calgija",
+  "name": "Čalgija (Macedonian Ottoman-urban ensemble)",
+  "family": "global",
+  "lineage": "Urban ensemble music of Ottoman-era Macedonian towns such as Skopje, Ohrid, Bitola, Veles and Štip, played by professional Christian, Muslim and Roma musicians at weddings, coffeehouses and feasts from the nineteenth century. The čalgija band combined ut (oud), kanon (kanun), violin, clarinet, tarabuka goblet drum and def frame drum, accompanying urban love songs and instrumental dance pieces in makam-derived modes; Macedonian Radio recorded čalgija ensembles in the mid-twentieth century. The toubeleki card stands in for the tarabuka and the dayereh card for the def.",
+  "recipe": "classic Eastern European early-1950s čalgija, drinking Song, balkan branch. solo with instrumental accompaniment. walnut ribs canonical mid tier oud, kanun tortoiseshell traditional kanun, fiddle, clarinet, toubeleki, dense dance driving dayereh. treated studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 408,
+  "score": 24.693,
+  "config": {
+    "traditions": [
+      "macedonian_calgija"
+    ],
+    "instruments": [
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_turkish",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_eagle_feather",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "oud_school": 1.3,
+          "oud_strings": 0.08549999999999999,
+          "oud_pick": 1.015,
+          "oud_body_wood": 1.0105,
+          "oud_soundboard_wood": 0,
+          "oud_string_material": 0
+        }
+      },
+      {
+        "id": "kanun",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "kanun_school": "kanun_turkish",
+          "kanun_articulation": "kanun_tortoiseshell_pick"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.25,
+          "kanun_school": 3.474375,
+          "kanun_articulation": 1.989375
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 1.95,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.273,
+          "fiddle_mute": 0.009,
+          "fiddle_articulation": 0.07200000000000001,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 0.081,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "toubeleki",
+        "slots": {
+          "toubeleki_body": "toubeleki_clay",
+          "toubeleki_technique": "toubeleki_finger"
+        },
+        "scores": {
+          "toubeleki_body": 0,
+          "toubeleki_technique": 1.154875
+        }
+      },
+      {
+        "id": "dayereh",
+        "slots": {
+          "dayereh_form": "dayereh_form_doira",
+          "dayereh_jingles": "dayereh_jingles_brass_rings",
+          "dayereh_head": "dayereh_head_goat_skin",
+          "dayereh_technique": "dayereh_technique_dance_pulse"
+        },
+        "scores": {
+          "dayereh_form": 2.4130000000000003,
+          "dayereh_jingles": -0.0955,
+          "dayereh_head": -0.045500000000000006,
+          "dayereh_technique": 5.883875
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.4699999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.4275,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ],
+      "kanun": [
+        "plucked_traditional_technique",
+        "kanun_school",
+        "kanun_articulation"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "toubeleki": [
+        "toubeleki_body",
+        "toubeleki_technique"
+      ],
+      "dayereh": [
+        "dayereh_form",
+        "dayereh_jingles",
+        "dayereh_head",
+        "dayereh_technique"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_jugoton_yugoslav",
+    "inline_chain": {
+      "mic": "mic_u47_tube_neumann",
+      "pre": "pre_tube_german_v72",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "oud_school": "oud_turkish",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_eagle_feather",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "dutar_strings_unspecified",
+      "kanun_school": "kanun_turkish",
+      "kanun_articulation": "kanun_tortoiseshell_pick",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "a_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "toubeleki_body": "toubeleki_clay",
+      "toubeleki_technique": "toubeleki_finger",
+      "dayereh_form": "dayereh_form_doira",
+      "dayereh_jingles": "dayereh_jingles_brass_rings",
+      "dayereh_head": "dayereh_head_goat_skin",
+      "dayereh_technique": "dayereh_technique_dance_pulse",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_u47_tube_neumann",
+    "chain_pre": "pre_tube_german_v72",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
+  }
+}

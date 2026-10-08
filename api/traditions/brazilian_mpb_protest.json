@@ -1,16 +1,17 @@
 {
-  "id": "brazilian_mpb_protest",
-  "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
+  "id": "mpb",
+  "merged_from": "brazilian_mpb_protest",
+  "name": "MPB (Música Popular Brasileira)",
   "family": "global",
-  "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
-  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry brega cantautora mexicana. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 556,
-  "score": 193.677,
+  "lineage": "Brazilian MPB (Música Popular Brasileira) post-bossa-nova-and-tropicália sophisticated-popular-music umbrella-tradition emerging 1965-onward from the bossa-nova-tropicália-festival circuit. Built on harmonically-extended chord-vocabulary (minor-7-and-maj-7-and-9-and-11 jazz-extensions), Brazilian-rhythmic foundation (samba, baião, choro, bossa derivatives), and singer-songwriter literary-poetic-lyrical-sophistication. The 1970s mpb-jovem-guarda commercial-pop wave, the 1980s mpb-de-câmara chamber-mpb, and 1990s-onward mpb-as-heritage-institution comprise the genre's historical arc. Canonical instrumentation: violão acoustic-guitar nylon-string fingerstyle-led, with optional flute, piano, cavaquinho, and contemporary-rhythm-section. The MPB-canon overlaps significantly with samba-canção and bossa-nova but retains a distinct singer-songwriter-as-poet aesthetic identity.",
+  "recipe": "classic Southern American modern mpb, groove Percussion, Brazilian branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, Japanese factory birch laminated maple laminated European spruce norway spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, samba foundation mahogany samba canon strummed cavaquinho. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 738,
+  "score": 348.58,
   "config": {
     "traditions": [
-      "brazilian_mpb_protest",
-      "brega",
-      "cantautora_mexicana"
+      "mpb",
+      "milonga",
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -20,36 +21,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 7.590000000000002,
-          "voice_quality": 22.489999999999995,
+          "voice_register": 10.315000000000001,
+          "voice_quality": 56.485,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.15,
-          "voice_articulation": 16.705000000000002,
-          "voice_microtone": 15.665,
-          "voice_tradition": 13.585000000000004,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 4.48,
-          "voice_speech_song": 31.33,
-          "voice_ensemble_config": 16.38,
-          "voice_ornament_system": 4.575,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.075,
-          "voice_multitrack_stack": 2.7300000000000004
+          "voice_vibrato": 4.695,
+          "voice_articulation": 22.035,
+          "voice_microtone": 23.334999999999994,
+          "voice_tradition": 9.1325,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 5.97,
+          "voice_speech_song": 25.479999999999997,
+          "voice_ensemble_config": 22.294999999999998,
+          "voice_ornament_system": 2.7950000000000017,
+          "voice_pitch_organization": 3.190000000000001,
+          "voice_processing_chain": 6.6049999999999995,
+          "voice_multitrack_stack": 5.125
         }
       },
       {
@@ -58,66 +59,145 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "fan_torres_cl",
+          "bracing_classical": "double_top_cl",
           "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
-          "acoustic_technique": 7.07,
+          "acoustic_technique": 10.319999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 2.08,
-          "bracing_classical": 0.195,
-          "string_classical": 1.595,
-          "attack_technique_cl": 1.5
+          "top_wood_classical": 4.029999999999999,
+          "bracing_classical": 1.7349999999999999,
+          "string_classical": 4.734999999999999,
+          "attack_technique_cl": 12.25
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 7.75,
+          "grand_piano_size": 1.04,
+          "grand_piano_brand": 1.8900000000000001,
+          "piano_hammer": 1.85,
+          "piano_rim": 7.085,
+          "piano_soundboard": 3.4125,
+          "piano_pinblock": 2.715,
+          "piano_plate": 0.45,
+          "piano_pitch_standard": 2.81
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.825,
+          "body_wood": 1.04,
+          "pickup_config": 0.345,
+          "string_type": 3.9650000000000003,
+          "scale_length_b": 1.04,
+          "fretted_or_not": 0.39,
+          "bass_technique": 4.25,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 23.14,
+          "drumhead": 4.545,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "samba_bateria",
+        "slots": {
+          "sections": "sb_cuicas",
+          "context": "sb_carnaval"
+        },
+        "scores": {
+          "sections": 0.9750000000000001,
+          "context": 0
         }
       },
       {
         "id": "cavaquinho",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "cavaquinho_origin": "cavaquinho_portuguese",
+          "cavaquinho_origin": "cavaquinho_brazilian",
           "cavaquinho_context": "cavaquinho_choro",
-          "cavaquinho_body_wood": "cavaquinho_jacaranda",
-          "cavaquinho_strings": "cavaquinho_gut_historical"
+          "cavaquinho_body_wood": "cavaquinho_mahogany",
+          "cavaquinho_strings": "cavaquinho_steel"
         },
         "scores": {
-          "plucked_traditional_technique": 3.7349999999999994,
-          "cavaquinho_origin": 1.4949999999999999,
-          "cavaquinho_context": 26.520000000000003,
-          "cavaquinho_body_wood": 1.1049999999999998,
-          "cavaquinho_strings": -0.665
+          "plucked_traditional_technique": 7.655,
+          "cavaquinho_origin": 5.0649999999999995,
+          "cavaquinho_context": 29.835000000000004,
+          "cavaquinho_body_wood": 3.6449999999999996,
+          "cavaquinho_strings": -0.35
         }
       }
     ],
-    "room": "estudios_scatena_sp",
+    "room": "phonogram_brasil_studio",
     "archetype": "arch_odeon_bossa_mpb",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",
       "console": "console_british_transformer_70s",
-      "comp": "comp_dbx_160_vca",
+      "comp": "comp_la2a_optical",
       "eq": "eq_inductor_iron",
-      "amp": null,
+      "amp": "amp_ampeg_b15_bass",
       "medium": "tape_30ips"
     },
-    "tuning": "samba_2_4_telecoteco",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "samba_2_4_telecoteco",
-    "room": "estudios_scatena_sp",
+    "tuning": "twelve_tet",
+    "room": "phonogram_brasil_studio",
     "parts": {
-      "voice_articulation": "narrative_voice",
-      "voice_speech_song": "voice_syllabic_singing",
+      "body_wood": "alder_b",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_walking",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
       "top_wood_classical": "spruce_cl",
       "bracing_classical": "fan_torres_cl",
       "string_classical": "nylon_high_cl",
       "attack_technique_cl": "thumb_attack_cl",
       "acoustic_technique": "acoustic_fingerpicked",
-      "voice_register": "chest_voice",
-      "voice_quality": "speech_voice",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
       "voice_tradition": "modern_pop_vocal_training",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
@@ -128,6 +208,10 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "piano_pitch_standard": "a_440_modern",
+      "sections": "sb_surdos",
+      "context": "sb_quadra",
       "plucked_traditional_technique": "plucked_folk_strummed",
       "cavaquinho_origin": "cavaquinho_brazilian",
       "cavaquinho_context": "cavaquinho_samba",
@@ -136,9 +220,11 @@
     },
     "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "transformer_solid_state",
-    "chain_comp": "comp_dbx_160_vca",
+    "chain_comp": "comp_la2a_optical",
     "chain_eq": "eq_inductor_iron",
     "chain_medium": "tape_30ips",
-    "chain_console": "console_british_transformer_70s"
+    "chain_console": "console_british_transformer_70s",
+    "chain_amp": "amp_ampeg_b15_bass",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

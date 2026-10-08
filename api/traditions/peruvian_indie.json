@@ -5,7 +5,7 @@
   "lineage": "Wolves As Friends — Small Goodbyes (2013), complete published EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2010s peruvian indie, functional Song. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, electric bass, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, credited auxiliary percussion, European maple bosnian source flamed figure pirastro cellisto cello specific cello, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 512,
-  "score": 29.576,
+  "score": 29.954,
   "config": {
     "traditions": [
       "peruvian_indie"
@@ -89,7 +89,7 @@
         "scores": {
           "electric_technique": 2.5,
           "amp_make": 0,
-          "body_wood": 0.40950000000000003,
+          "body_wood": 0.4635,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -116,7 +116,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.40950000000000003,
+          "body_wood": 0.4635,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -141,10 +141,10 @@
         "scores": {
           "keyboard_technique": 2.2,
           "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.40950000000000003,
+          "grand_piano_brand": 0.4635,
           "piano_hammer": 1.2999999999999998,
-          "piano_rim": 1.2999999999999998,
-          "piano_soundboard": 0.8365,
+          "piano_rim": 1.3539999999999999,
+          "piano_soundboard": 0.8905,
           "piano_pinblock": 1.7,
           "piano_plate": 1,
           "piano_pitch_standard": 1.923
@@ -179,7 +179,7 @@
           "cello_back_wood": 1.2,
           "cello_varnish": 0.7,
           "cello_setup_period": 0.9999999999999999,
-          "cello_bow_grip": 0.40950000000000003,
+          "cello_bow_grip": 0.4635,
           "cello_rosin": 1.5999999999999999,
           "cello_bow_stick": 0.6499999999999999
         }
@@ -205,7 +205,7 @@
           "orch_back_wood": 1.2,
           "orch_varnish": 0.7,
           "orch_setup_period": 0.9999999999999999,
-          "orch_bow": 0.1365,
+          "orch_bow": 0.1905,
           "orch_bow_stick": 0.6499999999999999,
           "orch_articulation": 0.3,
           "orch_rosin": 0.7

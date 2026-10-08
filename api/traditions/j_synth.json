@@ -1,18 +1,58 @@
 {
-  "id": "j_synth",
-  "name": "J-Synth (Japanese technopop)",
+  "id": "japanese_electropop",
+  "merged_from": "j_synth",
+  "name": "Japanese technopop (electropop)",
   "family": "electronic",
-  "lineage": "Japanese synthesizer pop formed in Tokyo 1978-1984 around Yellow Magic Orchestra, Hideki Matsutake's programming, and the Roland/Korg/Yamaha instrument industry — 110-130 BPM sequenced 16th-note basslines from the MC-8 microcomposer, gated LinnDrum and TR-808 patterns, brittle FM and analog polysynth leads, vocoded or deadpan-delivered Japanese-and-English vocals, and Orientalist pentatonic hooks played straight over Western four-on-the-floor.",
-  "recipe": "classic East Asian mid-1980s j-synth, functional Song, east Asian pop branch, pop rock synthpop, retro aesthetic experimental electric japanese technopop new romanticism. thick, breath veiled tone, straight note core, interlocked note trading. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly korg lineage canonical ms 20 1978 tokyo lead analog mono yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, roland tr 8s modern aira digital recreation TR-808, sound design field sampler, vocoder. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
-  "recipe_chars": 778,
-  "score": 338.474,
+  "lineage": "Tokyo synthesizer pop launched by Yellow Magic Orchestra in 1978 with Haruomi Hosono, Ryuichi Sakamoto and Yukihiro Takahashi sequencing a Roland MC-8 microcomposer against live drums, joined by Hikashu and P-Model, and revived from the mid-2000s by Yasutaka Nakata's work with capsule and Perfume — 110-135 BPM four-on-the-floor or stiff sixteenth-note sequences, pentatonic and exotica-derived melodic hooks, vocoder and heavy formant-shifted or pitch-corrected vocals, and analogue polysynth stabs later replaced by sidechained in-the-box production.",
+  "recipe": "classic East Asian 2004-2006 japanese technopop, functional Song, synthpop branch, east Asian pop functional song, continental electronic dance, retro aesthetic experimental electric enka aussietronica. thick, breath veiled tone, straight note core, interlocked note trading. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly korg lineage canonical ms 20 1978 tokyo lead analog mono yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, drum machine analog, vocoder, pitched textural sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
+  "recipe_chars": 844,
+  "score": 372.325,
   "config": {
     "traditions": [
-      "j_synth",
       "japanese_electropop",
-      "new_romantic"
+      "enka",
+      "aussietronica"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 23.999999999999993,
+          "voice_quality": 13.389999999999992,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 6.0675,
+          "voice_articulation": 26.195000000000004,
+          "voice_microtone": 24.504999999999995,
+          "voice_tradition": 27.3975,
+          "voice_mechanism_compound": 3.5749999999999993,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 33.02,
+          "voice_ensemble_config": 25.675,
+          "voice_ornament_system": 3.075,
+          "voice_pitch_organization": 3.9650000000000007,
+          "voice_processing_chain": 16.6425,
+          "voice_multitrack_stack": 7.93
+        }
+      },
       {
         "id": "analog_poly_synth",
         "slots": {
@@ -22,10 +62,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 21.285,
-          "poly_archetypes": 3.7049999999999996,
-          "poly_voices": 1.4220000000000002,
-          "poly_maker_lineage": 4.615
+          "electronic_technique": 18.528249999999996,
+          "poly_archetypes": 3.445,
+          "poly_voices": 1.7550000000000001,
+          "poly_maker_lineage": 3.9325
         }
       },
       {
@@ -38,11 +78,56 @@
           "mono_maker_lineage": "mono_korg_kato"
         },
         "scores": {
-          "electronic_technique": 21.285,
-          "mono_oscillator": 1.24,
-          "mono_filter": 2.25,
-          "mono_archetypes": 2.275,
-          "mono_maker_lineage": 5.319500000000001
+          "electronic_technique": 18.528249999999996,
+          "mono_oscillator": 0,
+          "mono_filter": 2.145,
+          "mono_archetypes": 2.9899999999999998,
+          "mono_maker_lineage": 3.9650000000000003
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "tone_noise_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_high"
+        },
+        "scores": {
+          "kick_voice": 0.45499999999999996,
+          "snare_voice": 0.09,
+          "hat_voice": 0.09,
+          "shuffle_quantize": 0.65
+        }
+      },
+      {
+        "id": "vocoder",
+        "slots": {
+          "voc_band_count": "voc_many_bands",
+          "voc_carrier": "voc_saw_carrier",
+          "voc_modulator": "voc_drum_mod"
+        },
+        "scores": {
+          "voc_band_count": 0.25249999999999995,
+          "voc_carrier": 0.38749999999999996,
+          "voc_modulator": 1
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "fairlight_cmi",
+          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 3.4999999999999996,
+          "sampler_archetypes": 1.95,
+          "sampler_bit_depth": 2.0149999999999997,
+          "sampler_workflow": 3.9,
+          "sampler_classic_context": 33.8975
         }
       },
       {
@@ -55,93 +140,34 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 21.285,
-          "fm_algorithm": 0.585,
-          "fm_modulator_ratio": 0,
-          "fm_polyphony": 1.2349999999999999,
-          "fm_model_lineage": 15.73
+          "electronic_technique": 18.528249999999996,
+          "fm_algorithm": 0.39,
+          "fm_modulator_ratio": 0.845,
+          "fm_polyphony": 0.845,
+          "fm_model_lineage": 12.544999999999998
         }
       },
       {
-        "id": "drum_machine_808",
+        "id": "electric_bass",
         "slots": {
-          "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "tr808_voice": 1.6249999999999998,
-          "drum_machine_808_context": 2.4699999999999998,
-          "tr808_production_origin": 3.19
-        }
-      },
-      {
-        "id": "sampler_classic",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "fairlight_cmi",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_pop_production"
-        },
-        "scores": {
-          "electronic_technique": 2.5749999999999993,
-          "sampler_archetypes": 2.1645000000000003,
-          "sampler_bit_depth": 2.195,
-          "sampler_workflow": 3.1045,
-          "sampler_classic_context": 21.9495
-        }
-      },
-      {
-        "id": "vocoder",
-        "slots": {
-          "voc_band_count": "voc_many_bands",
-          "voc_carrier": "voc_noise_carrier",
-          "voc_modulator": "voc_drum_mod"
-        },
-        "scores": {
-          "voc_band_count": 0.28500000000000003,
-          "voc_carrier": 0.195,
-          "voc_modulator": 0.65
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
-        },
-        "scores": {
-          "voice_register": 26.32999999999999,
-          "voice_quality": 13.389999999999993,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 4.6475,
-          "voice_articulation": 21.44999999999999,
-          "voice_microtone": 26.674999999999997,
-          "voice_tradition": 25.869999999999997,
-          "voice_mechanism_compound": 3.965,
-          "voice_estill_quality": 3.7700000000000005,
-          "voice_speech_song": 25.674999999999997,
-          "voice_ensemble_config": 22.099999999999994,
-          "voice_ornament_system": 3.3850000000000007,
-          "voice_pitch_organization": 2.889000000000001,
-          "voice_processing_chain": 11.564999999999998,
-          "voice_multitrack_stack": 5.1025
+          "amp_make": 3.3150000000000004,
+          "body_wood": 2.145,
+          "pickup_config": 0.15,
+          "string_type": 5.8,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.195,
+          "bass_technique": 5.397500000000001,
+          "electric_bass_string_configuration": 0
         }
       }
     ],
@@ -149,7 +175,7 @@
     "archetype": "arch_tokyo_city_pop",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
-      "pre": "transformer_solid_state",
+      "pre": "pre_console_inline_strip",
       "console": "console_sony_mxp3000",
       "comp": "comp_1176_fet",
       "eq": null,
@@ -165,7 +191,7 @@
     "tuning": "twelve_tet",
     "room": "tokyo_studio_1970s_80s",
     "chain_mic": "mic_u87_condenser_neumann",
-    "chain_pre": "transformer_solid_state",
+    "chain_pre": "pre_console_inline_strip",
     "chain_comp": "comp_1176_fet",
     "chain_medium": "tape_30ips",
     "chain_console": "console_sony_mxp3000"

@@ -5,7 +5,7 @@
   "lineage": "Chakra music belongs to contemporary meditation and devotional listening practices that organize sound around the chakra system. Artists such as Sonic Yogi use sustained singing-bowl recordings within this listening tradition.",
   "recipe": "classic chakra, experimental Elec, ambient branch. himalayan singing bowl. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 173,
-  "score": 0.84,
+  "score": 1.008,
   "config": {
     "traditions": [
       "chakra"
@@ -18,8 +18,8 @@
           "singing_bowl_technique": "singing_bowl_rim_rubbed"
         },
         "scores": {
-          "singing_bowl_form": 0.4095,
-          "singing_bowl_technique": 0.4305
+          "singing_bowl_form": 0.546,
+          "singing_bowl_technique": 0.46199999999999997
         }
       }
     ],

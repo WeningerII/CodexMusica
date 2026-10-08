@@ -5,7 +5,7 @@
   "lineage": "Hungarian-language rap scenes; selected Punnany Massif expanded concert-band branch",
   "recipe": "classic modern hungarian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped turntable, sub bass rompler workstation, single coil electric guitar, electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, drum kit, trumpet. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 453,
-  "score": 27.074,
+  "score": 27.524,
   "config": {
     "traditions": [
       "hungarian_hip_hop"
@@ -37,7 +37,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0315,
+          "voice_articulation": 0.063,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "electronic_technique": 4,
-          "turntable_technique": 3.805
+          "turntable_technique": 3.9415
         }
       },
       {
@@ -70,10 +70,10 @@
           "rompler_lineage": "rompler_roland_jv_xp"
         },
         "scores": {
-          "electronic_technique": 4.7285,
-          "rompler_preset_bank": 0.363,
+          "electronic_technique": 4.718000000000001,
+          "rompler_preset_bank": 0.3315,
           "rompler_context": -0.05,
-          "rompler_lineage": -1.435
+          "rompler_lineage": -1.5039999999999998
         }
       },
       {
@@ -98,10 +98,10 @@
           "amp_make": 0,
           "body_wood": 0,
           "neck_wood": 0.2415,
-          "fretboard": -0.05,
+          "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.1365,
-          "string_gauge": 0,
+          "string_gauge": 0.2415,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0.105,
@@ -155,7 +155,7 @@
           "orch_setup_period": 1.4299999999999997,
           "orch_bow": 0,
           "orch_bow_stick": -0.15000000000000002,
-          "orch_articulation": 0.1995,
+          "orch_articulation": 0.36750000000000005,
           "orch_rosin": -0.07
         }
       },
@@ -184,7 +184,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.07,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0
         }
       },
@@ -205,8 +205,8 @@
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.546,
-          "trumpet_maker_school": 0.8190000000000001
+          "trumpet_bell_metal": 0.4095,
+          "trumpet_maker_school": 0.8924999999999998
         }
       }
     ],

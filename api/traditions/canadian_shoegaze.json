@@ -5,7 +5,7 @@
   "lineage": "Canadian shoegaze connects atmospheric guitar music with independent recording scenes and psychedelic experimentation. Montreal’s Besnard Lakes exemplify a studio-oriented strand built from sustained tones, gradual development and dense vocal and instrumental textures.",
   "recipe": "classic modern canadian shoegaze, distorted Rock, alternative branch. solo with instrumental accompaniment. single coil electric guitar, atmospheric production texture omnichord, electric bass, brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital tape echo spring reverb.",
   "recipe_chars": 422,
-  "score": 22.534,
+  "score": 22.315,
   "config": {
     "traditions": [
       "canadian_shoegaze"
@@ -21,7 +21,7 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -36,9 +36,9 @@
           "fretboard": 0.39,
           "pickup_magnet": 0,
           "string_material": 0.39,
-          "string_gauge": 0.359625,
+          "string_gauge": 0.310125,
           "bridge": 0.173625,
-          "scale_length": 0.6832500000000001,
+          "scale_length": 0.62025,
           "finish": 0,
           "string_tuning": 2.73,
           "single_coil_pickup_construction": 0
@@ -52,7 +52,7 @@
           "omnichord_sound_setting": "omnichord_sonic_strings"
         },
         "scores": {
-          "omnichord_model": -0.1,
+          "omnichord_model": -0.07,
           "omnichord_context": 1.3,
           "omnichord_sound_setting": 0.39
         }
@@ -91,7 +91,7 @@
         },
         "scores": {
           "drum_technique": 5.329999999999999,
-          "drumhead": 0.5017499999999999,
+          "drumhead": 0.39675,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.278625,
           "cymbal_alloy": -0.2
@@ -132,7 +132,7 @@
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.205125,
+          "voice_processing_chain": 0.173625,
           "voice_multitrack_stack": 0.44662499999999994
         }
       }

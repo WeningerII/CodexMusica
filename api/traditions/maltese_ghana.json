@@ -5,7 +5,7 @@
   "lineage": "Maltese għana combines vocal expression and guitar accompaniment. This seed selects an improvised exchange between two singers.",
   "recipe": "classic modern għana, ballad Poetry, Mediterranean ballad branch. maltese ghana, many notes per syllable. low mid rich spectrum cedar classical nylon-string guitar. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 8.104,
+  "score": 7.297,
   "config": {
     "traditions": [
       "maltese_ghana"
@@ -42,12 +42,12 @@
           "voice_tradition": 2.9899999999999998,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825000000000001,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.719625,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.273
+          "voice_multitrack_stack": 0.1365
         }
       },
       {
@@ -63,9 +63,9 @@
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood_classical": 2.4989999999999997,
+          "top_wood_classical": 1.9402500000000003,
           "bracing_classical": 0.588,
-          "string_classical": 0.714,
+          "string_classical": 0.7012500000000002,
           "attack_technique_cl": -0.035
         }
       }

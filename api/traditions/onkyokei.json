@@ -5,7 +5,7 @@
   "lineage": "Tokyo improvised-music movement crystallized around the Off Site venue circa 1998-2004 and codified by Otomo Yoshihide, Sachiko M, Toshimaru Nakamura and Taku Sugimoto — extremely quiet, near-static music of sine tones, no-input mixing-board feedback, contact-mic scrapes and long silences, with no pulse, no harmony and structure emerging from the acoustics of the room itself.",
   "recipe": "classic mid-2000s onkyokei, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric, jam free improv on frame laptronica sound art. evolving modular modular evolving modular granular synth, turntable, nickel feedback single coil electric guitar, prepared piano, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 486,
-  "score": 125.764,
+  "score": 125.791,
   "config": {
     "traditions": [
       "onkyokei",
@@ -24,7 +24,7 @@
         "scores": {
           "electronic_technique": 19.572250000000004,
           "mod_voltage_source": 0.09225,
-          "mod_patch_density": 3.6099999999999994,
+          "mod_patch_density": 3.4675,
           "mod_lineage": 0.585
         }
       },
@@ -57,14 +57,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 5.035,
+          "electric_technique": 5.0447500000000005,
           "amp_make": 0.52,
           "body_wood": 0.4725,
           "neck_wood": 0.1575,
           "fretboard": 0.315,
           "pickup_magnet": 0.1575,
           "string_material": 1.4575,
-          "string_gauge": 0.7799999999999999,
+          "string_gauge": 0.9299999999999999,
           "bridge": 0.45499999999999996,
           "scale_length": 0.315,
           "finish": 0.195,
@@ -84,7 +84,7 @@
           "keyboard_technique": -0.1,
           "prepared_piano_object": 0.15,
           "prepared_piano_zone": 0.15,
-          "prepared_piano_instrument": 2.145
+          "prepared_piano_instrument": 2.1547500000000004
         }
       },
       {

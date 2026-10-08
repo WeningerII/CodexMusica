@@ -5,7 +5,7 @@
   "lineage": "South African choral music brings collective singing into community, religious, educational and concert life. Local languages and varied song traditions meet composed and arranged choral repertoire.",
   "recipe": "classic south african choral, ritual Devotional, christian gospel branch. no specific ornament system. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 201,
-  "score": 1.073,
+  "score": 0.936,
   "config": {
     "traditions": [
       "south_african_choral"
@@ -44,7 +44,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.6825000000000001,
+          "voice_ornament_system": 0.546,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0

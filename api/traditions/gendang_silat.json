@@ -1,0 +1,101 @@
+{
+  "id": "gendang_silat",
+  "name": "Gendang silat (Malay martial-arts drum ensemble)",
+  "family": "global",
+  "lineage": "Ensemble that accompanies displays of Malay silat, especially at weddings and ceremonies on the Malay Peninsula: a pair of gendang barrel drums (gendang ibu and gendang anak) interlock under a serunai shawm, with a hanging gong marking the cycle. Silat was inscribed on UNESCO's Representative List for Malaysia in 2019.",
+  "recipe": "classic late-2010s gendang silat, groove Percussion, east Asian branch. gendang melayu, serunai shawm, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 1.844,
+  "config": {
+    "traditions": [
+      "gendang_silat"
+    ],
+    "instruments": [
+      {
+        "id": "gendang_melayu",
+        "slots": {
+          "gendang_melayu_role": "gendang_melayu_ibu",
+          "gendang_melayu_stroke": "gendang_melayu_hands",
+          "gendang_melayu_head": "gendang_melayu_goat"
+        },
+        "scores": {
+          "gendang_melayu_role": 0.0315,
+          "gendang_melayu_stroke": 0.39,
+          "gendang_melayu_head": 0
+        }
+      },
+      {
+        "id": "serunai_shawm",
+        "slots": {
+          "serunai_form": "serunai_silat",
+          "serunai_bell": "serunai_bell_wood"
+        },
+        "scores": {
+          "serunai_form": 0.39,
+          "serunai_bell": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.5774999999999999,
+          "gong_striker": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "gendang_melayu": [
+        "gendang_melayu_role",
+        "gendang_melayu_stroke",
+        "gendang_melayu_head"
+      ],
+      "serunai_shawm": [
+        "serunai_form",
+        "serunai_bell"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "gendang_melayu_role": "gendang_melayu_ibu",
+      "gendang_melayu_stroke": "gendang_melayu_hands",
+      "gendang_melayu_head": "gendang_melayu_goat",
+      "serunai_form": "serunai_silat",
+      "serunai_bell": "serunai_bell_wood",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

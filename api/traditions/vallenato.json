@@ -5,7 +5,7 @@
   "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-6/8, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards.",
   "recipe": "classic South American mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, mahogany la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 698,
-  "score": 157.675,
+  "score": 157.06,
   "config": {
     "traditions": [
       "vallenato",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 2.6000000000000005,
           "voice_processing_chain": 5.265000000000001,
-          "voice_multitrack_stack": 2.9299999999999997
+          "voice_multitrack_stack": 3.1249999999999996
         }
       },
       {
@@ -74,8 +74,8 @@
         "scores": {
           "caja_shell": 7.6049999999999995,
           "caja_pattern": 2.3,
-          "caja_shell_wood": 6.89,
-          "caja_head": 6.17
+          "caja_shell_wood": 6.515,
+          "caja_head": 5.78
         }
       },
       {
@@ -105,7 +105,7 @@
           "pickup_config": 0.345,
           "string_type": 3.9650000000000003,
           "scale_length_b": 1.04,
-          "fretted_or_not": 0.435,
+          "fretted_or_not": 0.39,
           "bass_technique": 2.7449999999999997,
           "electric_bass_string_configuration": 0
         }

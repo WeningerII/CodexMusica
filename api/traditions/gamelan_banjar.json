@@ -1,0 +1,110 @@
+{
+  "id": "gamelan_banjar",
+  "name": "Gamelan Banjar (South Kalimantan gamelan)",
+  "family": "classical",
+  "lineage": "Gamelan of the Banjar people of South Kalimantan, tied in local histories to Javanese influence and to the former Banjar court, which accompanies the wayang kulit Banjar shadow play and topeng Banjar masked dance. Tuned in salindro, the Banjar form of slendro, its instruments include sarun metallophones (the saron card stands in), kanung kettle gongs (the kenong card stands in), hanging gongs and the babun drum (the generic membrane-drum card stands in); Smithsonian Folkways' Music of Indonesia vol. 14 includes Banjar wayang music.",
+  "recipe": "classic modern gamelan banjar, art Music, southeast Asian branch. slendro tuning saron gamelan, slendro tuning kenong, tuned nipple pitched gong tamtam, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 285,
+  "score": 11.733,
+  "config": {
+    "traditions": [
+      "gamelan_banjar"
+    ],
+    "instruments": [
+      {
+        "id": "saron_gamelan",
+        "slots": {
+          "saron_size": "saron_demung",
+          "saron_tuning_system": "saron_slendro"
+        },
+        "scores": {
+          "saron_size": 0,
+          "saron_tuning_system": 1.3
+        }
+      },
+      {
+        "id": "kenong",
+        "slots": {
+          "kenong_tuning": "kenong_slendro"
+        },
+        "scores": {
+          "kenong_tuning": 1.3
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 1.3,
+          "gong_striker": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.8542499999999995,
+          "acoustic_membrane_drum_gesture": 2.8542499999999995
+        }
+      }
+    ],
+    "pinned": {
+      "saron_gamelan": [
+        "saron_size",
+        "saron_tuning_system"
+      ],
+      "kenong": [
+        "kenong_tuning"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "saron_size": "saron_demung",
+      "saron_tuning_system": "saron_slendro",
+      "kenong_tuning": "kenong_slendro",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

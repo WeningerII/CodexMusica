@@ -5,7 +5,7 @@
   "lineage": "Deep and psychedelic techno continuum represented by Donato Dozzy, Luigi Tozzi and Hypnus Records, founded near Stockholm in 2013. The selected model emphasizes rolling percussion, interlocking cyclic figures and gradual atmospheric transformation rather than festival breakdowns.",
   "recipe": "classic early-2010s hypnotic techno, electronic Dance, techno branch, ambient experimental electric, dub descendants bass system ambient psychill ambient techno. modular synth, drum machine analog, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ping-pong delay hall reverb.",
   "recipe_chars": 395,
-  "score": 27.775,
+  "score": 27.933,
   "config": {
     "traditions": [
       "hypnotic_techno",
@@ -40,7 +40,7 @@
           "kick_voice": 1.93875,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.375
+          "shuffle_quantize": 0.4875
         }
       },
       {
@@ -56,7 +56,7 @@
           "electronic_technique": 9.615,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.65,
-          "sampler_workflow": 8.767500000000002,
+          "sampler_workflow": 8.812500000000002,
           "sampler_classic_context": 0.195
         }
       }

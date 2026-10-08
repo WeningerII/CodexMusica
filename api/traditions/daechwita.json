@@ -1,0 +1,148 @@
+{
+  "id": "daechwita",
+  "name": "Daechwita (Korean royal military processional music)",
+  "family": "classical",
+  "lineage": "Daechwita is the processional music of the Joseon-dynasty military band that marched before the king and his troops, known in the court repertoire as Muryeongjigok, and is performed today by the National Gugak Center and in royal procession reenactments. The taepyeongso carries the only melody over a long brass trumpet (nabal), conch (nagak), cymbals, gong and drum; the generic horn card stands in for the nabal, the buk card for the yonggo drum and the cymbal card for the jabara.",
+  "recipe": "classic modern daechwita, art Music, east Asian branch. processional dense wood brass belled taepyeongso, nagak, credited horns unspecified, jing paulownia canonical Korean cowhide canonical Korean buk korean, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 307,
+  "score": 21.441,
+  "config": {
+    "traditions": [
+      "daechwita"
+    ],
+    "instruments": [
+      {
+        "id": "taepyeongso",
+        "slots": {
+          "taepyeongso_form": "taepyeongso_traditional",
+          "taepyeongso_context": "taepyeongso_daechwita",
+          "taepyeongso_body": "taepyeongso_jujube_brass"
+        },
+        "scores": {
+          "taepyeongso_form": 2.7815,
+          "taepyeongso_context": 7.5,
+          "taepyeongso_body": 3.71
+        }
+      },
+      {
+        "id": "nagak",
+        "slots": {
+          "nagak_shell": "nagak_large",
+          "nagak_use": "nagak_daechwita"
+        },
+        "scores": {
+          "nagak_shell": 0.0315,
+          "nagak_use": 2.567
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 1
+        }
+      },
+      {
+        "id": "jing_korean",
+        "slots": {
+          "jing_role": "jing_phrase_marker"
+        },
+        "scores": {
+          "jing_role": -0.10500000000000001
+        }
+      },
+      {
+        "id": "buk_korean",
+        "slots": {
+          "buk_korean_context": "buk_korean_nongak",
+          "buk_korean_construction": "buk_korean_barrel",
+          "buk_korean_shell_wood": "buk_korean_paulownia",
+          "buk_korean_head": "buk_korean_cowhide_canonical"
+        },
+        "scores": {
+          "buk_korean_context": 0,
+          "buk_korean_construction": 0.0945,
+          "buk_korean_shell_wood": 1.3,
+          "buk_korean_head": 1.3
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "taepyeongso": [
+        "taepyeongso_form",
+        "taepyeongso_context",
+        "taepyeongso_body"
+      ],
+      "nagak": [
+        "nagak_shell",
+        "nagak_use"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ],
+      "jing_korean": [
+        "jing_role"
+      ],
+      "buk_korean": [
+        "buk_korean_context",
+        "buk_korean_construction",
+        "buk_korean_shell_wood",
+        "buk_korean_head"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "taepyeongso_form": "taepyeongso_traditional",
+      "taepyeongso_context": "taepyeongso_daechwita",
+      "taepyeongso_body": "taepyeongso_jujube_brass",
+      "nagak_shell": "nagak_large",
+      "nagak_use": "nagak_daechwita",
+      "credited_horns_identity": "credited_horns_source_unspecified",
+      "jing_role": "jing_phrase_marker",
+      "buk_korean_context": "buk_korean_nongak",
+      "buk_korean_construction": "buk_korean_barrel",
+      "buk_korean_shell_wood": "buk_korean_paulownia",
+      "buk_korean_head": "buk_korean_cowhide_canonical",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,38 +1,22 @@
 {
-  "id": "classic_indo_pop",
-  "name": "Classic indo pop",
+  "id": "indonesian_pop",
+  "merged_from": "classic_indo_pop",
+  "name": "Indonesian pop",
   "family": "pop",
-  "lineage": "Classic Indo pop includes the Indonesian beat-pop bands and melodic songwriting that became prominent during the late 1960s and 1970s.",
-  "recipe": "classic 1967-1969 classic indo pop, functional Song. group vocals. strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, block chord combo organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 343,
-  "score": 54.514,
+  "lineage": "Indonesian pop encompasses melodic popular songwriting across band-based, acoustic and produced styles.",
+  "recipe": "classic indonesian pop, functional Song. group vocals, unprocessed natural acoustic. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 355,
+  "score": 29.3,
   "config": {
     "traditions": [
-      "classic_indo_pop"
+      "indonesian_pop"
     ],
     "instruments": [
-      {
-        "id": "acoustic_guitar_dread",
-        "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
-          "back_sides": "mahogany_bs",
-          "string_acoustic": "eighty_twenty"
-        },
-        "scores": {
-          "acoustic_technique": 9.95,
-          "string_tuning": 0,
-          "top_wood": 0,
-          "back_sides": 0,
-          "string_acoustic": 0
-        }
-      },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_american_fender_blackface",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
@@ -46,13 +30,13 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 10.25,
-          "amp_make": 0.35,
+          "electric_technique": 8.2,
+          "amp_make": 0.8999999999999999,
           "body_wood": 0.39,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 2,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.1365,
@@ -62,9 +46,26 @@
         }
       },
       {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 8.2,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 0,
+          "string_acoustic": 0
+        }
+      },
+      {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
@@ -74,7 +75,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.25,
+          "amp_make": 0.8999999999999999,
           "body_wood": 0,
           "pickup_config": 0,
           "string_type": 0.2,
@@ -93,25 +94,8 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 9.95,
+          "drumhead": 8.2,
           "drum_kit_kick_pedal": 0
-        }
-      },
-      {
-        "id": "combo_organ",
-        "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "combo_organ_model": "farfisa_combo_compact_deluxe",
-          "combo_organ_voicing": "combo_organ_8_4_flute",
-          "combo_organ_context": "combo_organ_british_invasion",
-          "amp_make": "amp_unspecified"
-        },
-        "scores": {
-          "keyboard_technique": 9.95,
-          "combo_organ_model": -0.05,
-          "combo_organ_voicing": 10,
-          "combo_organ_context": -0.05,
-          "amp_make": 0
         }
       },
       {
@@ -149,18 +133,33 @@
           "voice_ensemble_config": 0.546,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
+          "voice_processing_chain": 1.3,
           "voice_multitrack_stack": 0.1365
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_16_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0.1365,
+          "poly_maker_lineage": -0.05
         }
       }
     ],
     "pinned": {
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning"
-      ],
       "electric_guitar_humbucker": [
         "electric_technique",
+        "string_tuning"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
         "string_tuning"
       ],
       "electric_bass": [
@@ -169,12 +168,6 @@
       "drum_kit": [
         "drum_technique",
         "drum_kit_kick_pedal"
-      ],
-      "combo_organ": [
-        "keyboard_technique",
-        "combo_organ_model",
-        "combo_organ_voicing",
-        "combo_organ_context"
       ],
       "voice": [
         "voice_register",
@@ -193,6 +186,9 @@
         "voice_pitch_organization",
         "voice_processing_chain",
         "voice_multitrack_stack"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique"
       ]
     },
     "room": "treated_studio",
@@ -236,10 +232,7 @@
       "drum_technique": "sticks_rock",
       "drum_kit_kick_pedal": "dk_kick_single_felt",
       "acoustic_technique": "acoustic_strummed_ringing",
-      "keyboard_technique": "keyboard_block_chord_pop",
-      "combo_organ_model": "farfisa_combo_compact_deluxe",
-      "combo_organ_voicing": "combo_organ_8_4_flute",
-      "combo_organ_context": "combo_organ_british_invasion"
+      "electronic_technique": "electronic_pad_drone"
     },
     "pin_parts": true,
     "chain_mic": "dynamic_mic",

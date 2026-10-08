@@ -5,7 +5,7 @@
   "lineage": "Gotländsk musik connects Gotland’s musicians, repertoire and regional cultural institutions. Folk traditions, contemporary songwriting, pop and rock coexist within an island community whose music circulates beyond a single language or style.",
   "recipe": "classic gotländsk musik, functional Song. solo with instrumental accompaniment, single lead single track no stacking. acoustic guitar, a 440 modern pitch us standard block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 289,
-  "score": 10.533,
+  "score": 10.64,
   "config": {
     "traditions": [
       "gotlandsk_musik"
@@ -85,9 +85,9 @@
         "scores": {
           "keyboard_technique": 4.95,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.40950000000000003,
+          "grand_piano_brand": 0.4635,
           "piano_hammer": 0.8999999999999999,
-          "piano_rim": 0.8999999999999999,
+          "piano_rim": 0.954,
           "piano_soundboard": -0.07,
           "piano_pinblock": -0.1,
           "piano_plate": -0.1,

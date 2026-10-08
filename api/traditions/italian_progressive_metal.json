@@ -5,7 +5,7 @@
   "lineage": "Italian progressive metal represented by DGM’s guitar-and-keyboard-led The Passage. Exact defaults are an authored contemporary realization.",
   "recipe": "classic modern italian progressive metal, distorted Rock, prog branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, melodic band keyboard rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 492,
-  "score": 44.64,
+  "score": 43.867,
   "config": {
     "traditions": [
       "italian_progressive_metal"
@@ -73,12 +73,12 @@
           "electric_technique": -0.07,
           "amp_make": 5.915,
           "body_wood": 6.109999999999999,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.33599999999999997,
+          "neck_wood": 0.1995,
+          "fretboard": 0.1995,
           "pickup_magnet": 0.168,
-          "pickup_winding": 0.252,
-          "string_material": 0.33599999999999997,
-          "bridge": 0.651,
+          "pickup_winding": 0.0945,
+          "string_material": 0.1995,
+          "bridge": 0.5880000000000001,
           "scale_length": 6.109999999999999,
           "string_gauge": 0.42,
           "finish": 0,
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 2.7995000000000005,
-          "body_wood": 0.252,
+          "body_wood": 0.126,
           "pickup_config": 0.1365,
           "string_type": 5.85,
-          "scale_length_b": 0.3885,
+          "scale_length_b": 0.2625,
           "fretted_or_not": 0.1365,
           "bass_technique": 4.4815000000000005,
           "electric_bass_string_configuration": 0
@@ -131,8 +131,8 @@
         },
         "scores": {
           "electronic_technique": 0.26,
-          "rompler_preset_bank": -0.05,
-          "rompler_context": 3.109,
+          "rompler_preset_bank": -0.035,
+          "rompler_context": 3.2035,
           "rompler_lineage": 0
         }
       }

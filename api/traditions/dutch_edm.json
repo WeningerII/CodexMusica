@@ -5,7 +5,7 @@
   "lineage": "Dutch EDM connects producers and performers across house, progressive, big-room and other electronic dance styles. Instrumental club tracks and collaborations with singers are both important parts of the field.",
   "recipe": "classic dutch edm, electronic Dance. analog poly synth, layered sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 152,
-  "score": 20.226,
+  "score": 20.189,
   "config": {
     "traditions": [
       "dutch_edm"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 0.105,
-          "poly_voices": 0.2475,
+          "poly_voices": 0.21,
           "poly_maker_lineage": -0.035
         }
       },

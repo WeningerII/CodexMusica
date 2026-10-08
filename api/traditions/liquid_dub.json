@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward UK and northern-European studio strand joining liquid drum-and-bass to dub techno production practice, associated with Calibre, Fanu, Rhythm & Sound-influenced producers and the Basic Channel lineage, marked by long tape and spring delay throws on single sustained chords, filtered sub bass under 170 BPM rolling breaks that feel half-time, mixing-desk performance in which parts are muted and reintroduced live, melodica and organ stabs, and wordless or heavily echoed vocal fragments.",
   "recipe": "classic 1997-1999 liquid dub, bass System, dub descendants branch, uk soundsystem bass system, ambient experimental electric ambient house berlin school. balanced, breath veiled tone, breath pulsed, interlocked note trading. hohner melodica canonical 1959 dub roots tradition melodica, ampeg svt amp rock bass amp pyramid pure nickel bass British mid 60s era electric bass, sub bass analog poly synth, TR-909, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 671,
-  "score": 241.718,
+  "score": 242.257,
   "config": {
     "traditions": [
       "liquid_dub",
@@ -22,10 +22,10 @@
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
-          "keyboard_technique": 0.245,
+          "keyboard_technique": 0.2,
           "melodica_use": 14.249999999999998,
           "melodica_pitch": 0.35,
-          "melodica_maker_school": 14.459999999999999
+          "melodica_maker_school": 14.504999999999999
         }
       },
       {
@@ -42,8 +42,8 @@
         },
         "scores": {
           "amp_make": 7.8,
-          "body_wood": 0.78,
-          "pickup_config": 0.39499999999999996,
+          "body_wood": 0.8700000000000001,
+          "pickup_config": 0.45499999999999996,
           "string_type": 7.930000000000001,
           "scale_length_b": 1.3,
           "fretted_or_not": 0,
@@ -70,12 +70,12 @@
         "id": "drum_machine_909",
         "slots": {
           "tr909_voice": "tr909_kick",
-          "drum_machine_909_context": "drum_machine_909_house",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
           "tr909_voice": 5.75,
-          "drum_machine_909_context": 0.675,
+          "drum_machine_909_context": 0.9,
           "tr909_production_origin": 0.35
         }
       },
@@ -107,14 +107,14 @@
           "voice_vibrato": 1.93375,
           "voice_articulation": 18.785,
           "voice_microtone": 21.124999999999996,
-          "voice_tradition": 6.70625,
+          "voice_tradition": 6.81125,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 2.7950000000000004,
           "voice_speech_song": 18.98,
           "voice_ensemble_config": 19.564999999999998,
           "voice_ornament_system": 3.5100000000000002,
           "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 8.780000000000001,
+          "voice_processing_chain": 8.93,
           "voice_multitrack_stack": 4.615000000000001
         }
       },
@@ -130,8 +130,8 @@
         "scores": {
           "electronic_technique": 5.450000000000001,
           "sampler_archetypes": 2.5,
-          "sampler_bit_depth": 0.39499999999999996,
-          "sampler_workflow": 7.5475,
+          "sampler_bit_depth": 0.45499999999999996,
+          "sampler_workflow": 7.3975,
           "sampler_classic_context": 30.485
         }
       }

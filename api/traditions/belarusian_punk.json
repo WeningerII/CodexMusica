@@ -5,7 +5,7 @@
   "lineage": "Belarusian punk includes garage and street-punk approaches within local independent music communities.",
   "recipe": "classic belarusian punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 51.864,
+  "score": 51.181,
   "config": {
     "traditions": [
       "belarusian_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 16.38,
-          "body_wood": 1.569,
+          "body_wood": 1.296,
           "neck_wood": 0.063,
           "fretboard": 0.23399999999999999,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.569,
+          "body_wood": 1.296,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.412,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

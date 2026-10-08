@@ -3,9 +3,9 @@
   "name": "Minnesota hip hop",
   "family": "hip_hop",
   "lineage": "Minnesota hip hop encompasses the Minneapolis independent recording community. Atmosphere’s Slug/Ant sample-led branch supplies this model, distinguished from the duo’s later live-band arrangements.",
-  "recipe": "classic modern minnesota hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 298,
-  "score": 48.152,
+  "recipe": "classic modern minnesota hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampled chopped sampler, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 48.188,
   "config": {
     "traditions": [
       "minnesota_hip_hop"
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001
         }
       },
       {
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.1365,
+          "electronic_technique": 5.2315000000000005,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": 0.26,
           "sampler_classic_context": 7.995
         }
@@ -76,8 +76,8 @@
           "sample_processing": "chopped_break"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sample_bitdepth": 0.1365,
+          "electronic_technique": 5.2315000000000005,
+          "sample_bitdepth": 0.0315,
           "sample_swing": 9.1,
           "sample_processing": -0.05
         }

@@ -5,7 +5,7 @@
   "lineage": "Euroska connects European ska bands and audiences with Jamaican-derived rhythms and exchanges with punk and other popular styles. Touring ensembles and independent scenes develop varied local sounds.",
   "recipe": "classic euroska, bass System, reggae diaspora branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, drum kit, credited organ unspecified, upright piano, trumpet, saxophone, trombone. live tracking.",
   "recipe_chars": 231,
-  "score": 19.816,
+  "score": 20.261,
   "config": {
     "traditions": [
       "euroska"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0.063,
           "neck_wood": 0,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.0315,
           "string_material": 0.1995,
-          "bridge": 0.3465,
-          "scale_length": 0.693,
+          "bridge": 0.4095,
+          "scale_length": 0.819,
           "string_gauge": 0.8365,
           "finish": 0,
           "string_tuning": 0
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": 2.45,
           "electric_bass_string_configuration": 0
@@ -124,10 +124,10 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0,
+          "drum_technique": -0.05,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
@@ -154,9 +154,9 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.1,
-          "upright_use": 0.3465,
-          "upright_piano_size": 0
+          "keyboard_technique": -0.07,
+          "upright_use": 0.4095,
+          "upright_piano_size": 0.0315
         }
       },
       {
@@ -177,7 +177,7 @@
           "brass_mute": 0.0315,
           "trumpet_technique": 2.45,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.105
+          "trumpet_maker_school": 0
         }
       },
       {
@@ -196,7 +196,7 @@
           "sax_size": -0.10500000000000001,
           "sax_reed": 0,
           "sax_body_alloy": 0.26,
-          "sax_mouthpiece": 0,
+          "sax_mouthpiece": 0.0315,
           "sax_technique": -0.15000000000000002,
           "sax_maker_school": -0.07
         }

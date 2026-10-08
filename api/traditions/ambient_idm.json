@@ -5,7 +5,7 @@
   "lineage": "The atmospheric, lower-intensity branch of listening-oriented IDM, represented here by Arovane’s Tides (2000): intricate sample-built rhythm, environmental recordings and edited guitar fragments arranged around quiet melodic space. Later Arovane/Porya Hatami collaborations extend the electronics/environmental-sound intersection. This is a selected calm, broken-beat branch rather than all IDM or all Arovane releases.",
   "recipe": "classic early-2000s ambient idm, experimental Elec, idm glitch branch, ambient experimental electric, musique concrete experimental electric ambient synth abstractro. glitched textural sampler, pad like pad analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 395,
-  "score": 83.145,
+  "score": 83.193,
   "config": {
     "traditions": [
       "ambient_idm",
@@ -75,7 +75,7 @@
           "string_gauge": 0.5,
           "bridge": 0.09,
           "scale_length": 0,
-          "finish": 0,
+          "finish": 0.04821428571428571,
           "string_tuning": 0.15,
           "single_coil_pickup_construction": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Indonesian metal spans a broad underground network, with Bandung’s Burgerkill among its prominent electric-band exponents.",
   "recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock dark hardcore finnish punk. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 583,
-  "score": 81.226,
+  "score": 80.836,
   "config": {
     "traditions": [
       "indonesian_metal",
@@ -41,7 +41,7 @@
           "string_material": 0.09,
           "bridge": 0.516,
           "scale_length": 0,
-          "string_gauge": 0.585,
+          "string_gauge": 0.39,
           "finish": 0,
           "string_tuning": 4.55
         }
@@ -63,7 +63,7 @@
           "body_wood": 4.55,
           "pickup_config": 0.444,
           "string_type": 12.025,
-          "scale_length_b": 0.585,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.045,
           "bass_technique": 16.195000000000004,
           "electric_bass_string_configuration": 0
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 9.25,
-          "drumhead": 0.7110000000000001,
+          "drumhead": 0.516,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ensemble_config": 1.4949999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.195,
           "voice_multitrack_stack": 0.15
         }
       }

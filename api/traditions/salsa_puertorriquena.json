@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican branch of salsa codified 1968-1985 between New York's Fania roster and San Juan's own studios (El Gran Combo, Sonora Ponceña, Willie Rosario, later Gilberto Santa Rosa), taking the Cuban son montuno's 2-3 and 3-2 clave and adding trombone-and-trumpet section writing, bomba and plena rhythmic quotations, extended piano montuno vamps at 90-105 BPM, and coro-pregón call-and-response over conga-bongó-timbal bateria.",
   "recipe": "classic North American mid-1970s salsa puertorriqueña, groove Percussion, son salsa branch, charanga danza Cuban, tropical song functional song, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, guiro, 7 ply quartersawn maple a 442 European orchestral grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, mahogany puerto rican traditional cuatro pr.",
   "recipe_chars": 952,
-  "score": 384.267,
+  "score": 384.403,
   "config": {
     "traditions": [
       "salsa_puertorriquena",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 15.714999999999993,
+          "voice_register": 15.519999999999994,
           "voice_quality": 6.175,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 22.165,
           "voice_tradition": 15.514999999999997,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 4.335000000000001,
+          "voice_estill_quality": 4.485,
           "voice_speech_song": 23.465,
           "voice_ensemble_config": 20.28,
           "voice_ornament_system": 1.8899999999999997,
@@ -61,7 +61,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 8.484999999999998,
+          "percussion_technique": 8.529999999999998,
           "conga_set": 0.8,
           "conga_skin": 7.93,
           "conga_shell_wood": 7.93
@@ -76,7 +76,7 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 8.484999999999998,
+          "percussion_technique": 8.529999999999998,
           "bongos_skin": 19.1425,
           "bongos_context": 0.65,
           "bongos_shell_wood": 7.93
@@ -90,7 +90,7 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 8.484999999999998,
+          "percussion_technique": 8.529999999999998,
           "timbales_shell": 6.89,
           "timbales_context": 1.4249999999999996
         }
@@ -144,7 +144,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.550000000000001,
+          "amp_make": 5.595000000000001,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 15.364999999999998,

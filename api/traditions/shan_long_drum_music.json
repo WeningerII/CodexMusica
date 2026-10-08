@@ -1,0 +1,93 @@
+{
+  "id": "shan_long_drum_music",
+  "name": "Shan (Tai Yai) long-drum and gong music",
+  "family": "global",
+  "lineage": "Festival and dance music of the Shan (Tai Yai), the Tai-speaking people of Shan State in Myanmar and of Mae Hong Son and other districts of northern Thailand. The kong kon yao long drum leads an ensemble of cymbals of several sizes and a set of small gongs for processions, the Poi Sang Long novice ordinations and the bird and toh dances, and the related mong seng ensemble pairs its drum with large cymbals and small gongs. The Burmese ozi card stands in for the Shan long drum, with generic gong and cymbal cards.",
+  "recipe": "classic modern shan (tai yai) long-drum and gong music, carnival Processional, east Asian branch, east Asian groove percussion. ozi drum, gong tamtam, credited cymbals. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 2.26,
+  "config": {
+    "traditions": [
+      "shan_long_drum_music"
+    ],
+    "instruments": [
+      {
+        "id": "ozi_drum",
+        "slots": {
+          "ozi_form": "ozi_long_goblet",
+          "ozi_head": "ozi_pat_sa"
+        },
+        "scores": {
+          "ozi_form": 0.345,
+          "ozi_head": 0.045
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.825,
+          "gong_striker": 0.15
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0.045
+        }
+      }
+    ],
+    "pinned": {
+      "ozi_drum": [
+        "ozi_form",
+        "ozi_head"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "ozi_form": "ozi_long_goblet",
+      "ozi_head": "ozi_pat_sa",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

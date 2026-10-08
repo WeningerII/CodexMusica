@@ -5,7 +5,7 @@
   "lineage": "Experimental guitar practice explores unfamiliar relationships among technique, resonance and musical form. Acoustic solo work sits alongside electric, processed and ensemble approaches.",
   "recipe": "classic experimental guitar, improv On Frame, string improv branch. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 183,
-  "score": -0.054,
+  "score": -0.086,
   "config": {
     "traditions": [
       "experimental_guitar"
@@ -25,7 +25,7 @@
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0.19949999999999998,
-          "acoustic_om_technique": -0.2185
+          "acoustic_om_technique": -0.25
         }
       }
     ],

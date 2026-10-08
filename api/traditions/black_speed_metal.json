@@ -5,7 +5,7 @@
   "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
   "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock black metal argentino. thick, interlocked note trading, equal tempered, modern pop training. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 646,
-  "score": 117.808,
+  "score": 117.34,
   "config": {
     "traditions": [
       "black_speed_metal",
@@ -43,7 +43,7 @@
           "scale_length": 0.39,
           "string_gauge": 2.08,
           "finish": 0.39,
-          "string_tuning": 0.9015
+          "string_tuning": 0.8475
         }
       },
       {
@@ -110,7 +110,7 @@
           "voice_vibrato": 0,
           "voice_articulation": 10.594999999999995,
           "voice_microtone": 11.669999999999996,
-          "voice_tradition": 3.644,
+          "voice_tradition": 3.23,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.4949999999999999,

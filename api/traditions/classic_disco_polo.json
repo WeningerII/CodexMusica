@@ -1,144 +1,148 @@
 {
-  "id": "classic_disco_polo",
-  "name": "Classic disco polo",
-  "family": "electronic",
-  "lineage": "Classic disco polo developed through Polish popular dance music, wedding entertainment and recorded songs with direct melodies and accessible refrains.",
-  "recipe": "classic classic disco polo, electronic Dance, eurodance branch. rompler workstation, dreadnought acoustic guitar, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 224,
-  "score": 2.201,
+  "id": "disco_polo",
+  "merged_from": "classic_disco_polo",
+  "name": "Disco Polo",
+  "family": "pop",
+  "lineage": "Polish provincial dance-pop that formed at rural wedding halls and roadside markets in the late 1980s and was codified on cassette by Blue Star and Green Star labels around 1992-1996, using 125-140 BPM preset drum-machine beats, cheap keyboard brass and accordion patches, simple I-V-vi-IV loops and plain-toned male vocals singing sentimental or bawdy Polish lyrics.",
+  "recipe": "classic Central European 1992-1996 disco polo, functional Song, europop branch, eurodance electronic dance, continental electronic dance melodipop bubblegum dance. extended whistle, chest mix belt, straight note core, interlocked note trading. singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, cheap paired with 303 chicago foundational TR-707, piano accordion, electric bass. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 648,
+  "score": 169.058,
   "config": {
     "traditions": [
-      "classic_disco_polo"
+      "disco_polo",
+      "melodipop",
+      "bubblegum_dance"
     ],
     "instruments": [
       {
-        "id": "rompler_workstation",
+        "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "rompler_preset_bank": "rompler_preset_gm_combo",
-          "rompler_context": "rompler_context_band_keyboard",
-          "rompler_lineage": "rompler_lineage_unspecified"
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 0.26,
-          "rompler_preset_bank": 0,
-          "rompler_context": 0,
-          "rompler_lineage": 0
+          "electronic_technique": 11.122499999999999,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.035
         }
       },
       {
-        "id": "acoustic_guitar_dread",
+        "id": "drum_machine_707",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
-          "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "tr707_voice": "tr707_kick",
+          "drum_machine_707_context": "drum_machine_707_chicago_house"
         },
         "scores": {
-          "acoustic_technique": -0.07,
-          "string_tuning": 0,
-          "top_wood": 0.231,
-          "back_sides": 0.063,
-          "string_acoustic": 0.231
-        }
-      },
-      {
-        "id": "drum_kit",
-        "slots": {
-          "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
-          "drum_kit_kick_pedal": "dk_kick_single_felt"
-        },
-        "scores": {
-          "drum_technique": -0.05,
-          "drumhead": 0.231,
-          "drum_kit_kick_pedal": 0
+          "tr707_voice": 4.125,
+          "drum_machine_707_context": 2.8600000000000003
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 9.86875,
+          "voice_quality": 11.799999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3,
-          "voice_ornament_system": 0.31499999999999995,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.39
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 14.364999999999997,
+          "voice_microtone": 15.469999999999994,
+          "voice_tradition": 8.8725,
+          "voice_mechanism_compound": 1.2349999999999999,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 15.859999999999994,
+          "voice_ornament_system": 0.845,
+          "voice_pitch_organization": 1.9499999999999997,
+          "voice_processing_chain": 16.824999999999996,
+          "voice_multitrack_stack": 7.62625
+        }
+      },
+      {
+        "id": "piano_accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "pa_size": "pa_72_bass",
+          "pa_use": "pa_polka"
+        },
+        "scores": {
+          "free_reed_technique": 1.4949999999999999,
+          "pa_size": 0.3,
+          "pa_use": 0.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 1.56,
+          "body_wood": 0.39,
+          "pickup_config": 0.045,
+          "string_type": 0.7149999999999999,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 1.045,
+          "bass_technique": 0.52,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "fm_algorithm": "fm_simple",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_dx7"
+        },
+        "scores": {
+          "electronic_technique": 11.122499999999999,
+          "fm_algorithm": 0.045,
+          "fm_modulator_ratio": 1.2349999999999999,
+          "fm_polyphony": 1.3,
+          "fm_model_lineage": 6.5649999999999995
         }
       }
     ],
-    "pinned": {
-      "rompler_workstation": [
-        "electronic_technique",
-        "rompler_preset_bank",
-        "rompler_context",
-        "rompler_lineage"
-      ],
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning"
-      ],
-      "drum_kit": [
-        "drum_technique",
-        "drum_kit_kick_pedal"
-      ],
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "polish_polskie_nagrania_muza",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "dynamic_mic",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_active_parametric",
+      "pre": "transformer_solid_state",
+      "console": "console_uk_community_studio_80s",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "cassette_medium"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -147,39 +151,10 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
-    "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_duet",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "acoustic_technique": "acoustic_strummed_ringing",
-      "string_tuning": "standard_tuning",
-      "drum_technique": "sticks_rock",
-      "drum_kit_kick_pedal": "dk_kick_single_felt",
-      "rompler_lineage": "rompler_lineage_unspecified",
-      "rompler_context": "rompler_context_band_keyboard",
-      "electronic_technique": "electronic_lead_line",
-      "rompler_preset_bank": "rompler_preset_gm_combo"
-    },
-    "pin_parts": true,
+    "room": "polish_polskie_nagrania_muza",
     "chain_mic": "dynamic_mic",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_active_parametric",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "console_uk_community_studio_80s"
   }
 }
