@@ -1072,7 +1072,8 @@ jobs:
     # section runs that check alone, --checks). MEASURED on PR #502's first
     # run (run 37559558317, 2026-10-07, cold): the job 32m01s, the build
     # 12m40s, fault injection 18m22s. 30 would have cancelled it; 45 leaves
-    # 13 min, room for a slow runner.
+    # 13 min, room for a slow runner. Step 10 adds 17 classes (10a, 10c-10r);
+    # the full fault run took 27 min locally (step 9: 29), so 45 should hold.
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
