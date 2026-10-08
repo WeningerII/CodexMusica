@@ -244,6 +244,56 @@ test('test continuation: safe-point resumes without replaying the answer', async
   ]);
 });
 
+test('test continuation: a one-block stop (the connector shape) resumes too', async () => {
+  // The connector publishes a safe-point stop as the verdict alone, one block
+  // (measured 2026-10-08); the fixture above is two blocks.
+  const { resumeStopped } = await import('./test_resume_stopped.mjs');
+  const calls = [];
+  const client = {
+    callTool: async (request) => {
+      calls.push(request);
+      return calls.length === 1
+        ? {
+            content: [
+              {
+                text: JSON.stringify({
+                  exit_code: 5,
+                  run_id: 'saved',
+                  run_revision: 2,
+                  state: 's2',
+                }),
+              },
+            ],
+          }
+        : {
+            content: [
+              { text: 'song' },
+              {
+                text: JSON.stringify({
+                  exit_code: 4,
+                  run_id: 'saved',
+                  run_revision: 3,
+                  state: 's3',
+                }),
+              },
+            ],
+          };
+    },
+  };
+  const stopped = {
+    content: [
+      { text: JSON.stringify({ exit_code: 5, run_id: 'saved', run_revision: 1, state: 's1' }) },
+    ],
+  };
+  const result = await resumeStopped(client, stopped, {});
+  assert.equal(result.content.length, 2);
+  assert.equal(JSON.parse(result.content[1].text).exit_code, 4);
+  assert.deepEqual(calls, [
+    { name: 'lyric_revise', arguments: { run_id: 'saved', run_revision: 1 } },
+    { name: 'lyric_revise', arguments: { run_id: 'saved', run_revision: 2 } },
+  ]);
+});
+
 test('test continuation: errors and killed calls cannot become passing questions', async () => {
   const { resumeStopped } = await import('./test_resume_stopped.mjs');
   const response = (row) => ({ content: [{ text: 'checkpoint' }, { text: JSON.stringify(row) }] });

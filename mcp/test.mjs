@@ -8026,8 +8026,11 @@ try {
         !splitRes.isError,
         `continuation ${splitHop + 1} answered (got: ${String(splitRes.content?.[0]?.text).slice(0, 200)})`
       );
-      assert.equal(splitRes.content.length, 2);
+      // A safe-point stop is one block (the verdict alone), so the two-block
+      // question is asserted after the stop is resumed, not before it
+      // (CI run 37725585352 failed on that order, 2026-10-08).
       splitRes = await resumeStopped(client, splitRes, LIVE_OPTS);
+      assert.equal(splitRes.content.length, 2);
       splitVerdict = JSON.parse(splitRes.content[1].text);
       assert.equal(splitVerdict.status, 'awaiting_proposal');
       assert.equal(splitVerdict.exit_code, 4, 'the fresh run is not ended before the batch door');
