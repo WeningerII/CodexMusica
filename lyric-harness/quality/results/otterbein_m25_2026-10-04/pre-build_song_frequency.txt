@@ -1,0 +1,16 @@
+  corpus/song/eng_*  ->  the rhyme-position tables
+    authors                    1,344
+    end_accent_refusal             9
+    end_burden_mark              900
+    end_hyphen_refusal           416
+    end_no_token                 576
+    end_ok                   248,874
+    end_oov                   28,728
+    items                      8,610
+    lines                    279,503
+    pairs                    190,860
+    end types                 13,787
+    pair types                23,736
+    end slots REFUSED         30,629  (10.96% of sung lines)
+
+  --census: nothing written

@@ -1,0 +1,43 @@
+# author: S. F. Bennett
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, only a signature under each hymn, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the hymnal's origin (Dayton, Ohio) would be a guess. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# function: hymn
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# attribution: every item carries its own `--- AUTHOR:` line quoting the signature the source prints under its last stanza; the name above is that signature without honorific, degree or date.
+# structure: [VERSE n] a stanza; [REFRAIN] the stanza the source labels `Cho.--` or `Ref.--`, printed once after the verse it follows. Not staged: the hymn number, tune name and metre heading, the italic topic line and its cross-reference number, stanza numerals, the signature line (quoted in `--- AUTHOR:`), and indentation.
+# staged: 2026-10-04, Pass 1 same-gate top-up (quality/CORPUS_LOADING_PROTOCOL.md): the Otterbein hymns that print a refrain and that no corpus file held
+# songs: 1
+
+--- TITLE: There's a land that is fairer than day
+--- AUTHOR: S.F. Bennett. — the source's own signature under the last stanza, hymn 518, verbatim
+[VERSE 1]
+There's a land that is fairer than day
+And by faith we can see it afar;
+For the Father waits over the way,
+To prepare us a dwelling-place there.
+[REFRAIN]
+In the sweet by and by,
+We shall meet on that beautiful shore;
+In the sweet by and by,
+We shall meet on that beautiful shore.
+[VERSE 2]
+We shall sing on that beautiful shore
+The melodious songs of the blest,
+And our spirits shall sorrow no more,
+Not a sigh for the blessing of rest.
+[VERSE 3]
+To our bountiful Father above
+We will offer the tribute of praise,
+For the glorious gift of his love.
+And the blessings that hallow our days.
+[VERSE 4]
+We shall rest on that beautiful shore,
+In the joys of the saved we shall share;
+All our pilgrimage toil will be o'er,
+And the conqueror's crown we shall wear.
+[VERSE 5]
+We shall meet, we shall sing, we shall reign,
+In the land where the saved never die;
+We shall rest, free from sorrow and pain,
+Safe at home in the sweet by and by.

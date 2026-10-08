@@ -1,0 +1,240 @@
+{
+  "counts": {
+    "PASS": 18,
+    "FAIL": 3,
+    "CANNOT RUN": 0
+  },
+  "rows": [
+    {
+      "suite": "quality/test_align.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 31.0,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_audit_regressions.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 101.4,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_backlog_status.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 0.2,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_ban_convergence.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 106.4,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_band.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.9,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_battery_rounds.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 0.1,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_brief_provenance.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 0.2,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_candidate_pair_projection.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.8,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_capabilities.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 30.9,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_capacity.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 258.7,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_capacity_receipt.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 90.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_chance_rate.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 15.9,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_coda.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 1.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_comparator_pin.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 8.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_computational_audit.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 12.2,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_controls.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 0.1,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_corpus_audit.py",
+      "exit": 1,
+      "verdict": "FAIL",
+      "seconds": 35.8,
+      "bound": 1200,
+      "fail_lines": 10,
+      "disagrees": false,
+      "evidence": [
+        "FAIL  2,376 one-line `[VERSE]` blocks under corpus/song/   742",
+        "FAIL  961 of them carry a declared apparatus shape   309",
+        "FAIL  the shape split reproduces   {'allcaps-label': 103, 'numeral': 198, 'ornament': 8}",
+        "FAIL  the residue is 1,415 and is NOT claimed to be clean   433"
+      ]
+    },
+    {
+      "suite": "quality/test_corpus_taxonomy.py",
+      "exit": 1,
+      "verdict": "FAIL",
+      "seconds": 2.1,
+      "bound": 1200,
+      "fail_lines": 4,
+      "disagrees": false,
+      "evidence": [
+        "FAIL  all 1297 eng files are seen",
+        "FAIL  the report counts the corpus: 8,652 songs, 1,538 honestly undeclared regions, undeclared functions counted APART (evidence-or-blank leaves most songs untagged)",
+        "FAIL  region totals plus the undeclared partition the corpus \u2014 the axis is single-valued, and a blank is counted, never dropped",
+        "FAIL  the manifest covers the audit's own population (1430 files)"
+      ]
+    },
+    {
+      "suite": "quality/test_cross_song.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 40.9,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_crosslinguistic.py",
+      "exit": 2,
+      "verdict": "FAIL",
+      "seconds": 0.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": ["exit 2 with no FAIL line -- it crashed rather than failed a check"]
+    },
+    {
+      "suite": "quality/test_cym.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 11.6,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    }
+  ],
+  "partial": false,
+  "not_reached": [],
+  "appeared_during_run": [],
+  "head_at_start": "5ddebdbf",
+  "head_at_end": "e5db7d00",
+  "tree_moved_during_run": true,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) against the pinned baseline. ~~It has no pass/fail of its own to read, so a verdict here would be this module inventing one.~~ STRUCK 2026-09-26: since 9396946 (2026-08-11) `assert_pinned` exits 1 on drift, so it does carry a verdict. It stays out because it is not in this glob and `quality/counters.py` runs it as the `sonnet battery` counter.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

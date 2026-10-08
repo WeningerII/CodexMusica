@@ -3081,14 +3081,23 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     # 2026-09-15: apparatus annotations move the complete table from
     # 13856 types / 248628 tokens to 13836 / 248513. All 407 literal
     # `word` occurrences remain; the header regression still pins those.
+    # 2026-10-04 (the Otterbein / M-25 closing sitting's final rebuild):
+    # 13836 / 248513 -> 13663 types / 247781 tokens, and literal `word`
+    # 407 -> 412: +7 line-final `word` in the Otterbein hymns (Faber 1,
+    # Baltzell 2, David Nelson 1, Hankey 1, Stockton 1, Whittle 1) and -2 in
+    # Watts: two lines the label and apparatus pass (5b3ba18c) marked
+    # `# APPARATUS:`, not M-25(a). Still all counted.
     check("the exact TSV header does not consume literal `word` entries",
-          tot["word"] == 407 and len(tot) == 13836
-          and sum(tot.values()) == 248513,
+          tot["word"] == 412 and len(tot) == 13663
+          and sum(tot.values()) == 247781,
           f"literal word={tot['word']}; {len(tot)} types / {sum(tot.values())} tokens")
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",
-          top[:2] == ["me", "thee"] and tot["me"] == 2907
-          and tot["thee"] == 2016 and len(authors["me"]) == 482,
+          # 2026-10-04: me 2907 -> 2968 over 482 -> 503 authors, thee
+          # 2016 -> 2051 -- the Otterbein hymns' own line endings, net of
+          # the apparatus the two passes marked. The head order is unmoved.
+          top[:2] == ["me", "thee"] and tot["me"] == 2968
+          and tot["thee"] == 2051 and len(authors["me"]) == 503,
           f"data/song_endword_en.tsv: {len(tot)} distinct line-final words, "
           f"{sum(tot.values())} tokens. A commonness cut on it flags `thee` "
           f"as one of the two tritest line-endings in English.")

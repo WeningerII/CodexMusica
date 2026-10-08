@@ -302,7 +302,16 @@ PROFILE_PRED_MAX = {"song": None, "short": 200}
 # rule's answer back to 150-400, and a correlation over a band's dated
 # authors moves with the band -- 405 of 878 authors dated, anaphora still no
 # period signal (p_perm 0.7868 against a Bonferroni cut of 0.0100).
-PROFILE_PERIOD = {'song': (-0.014, 0.7868), 'short': (0.166, 0.0012)}
+# RE-RECORDED TWICE 2026-10-04, at the Otterbein / M-25 closing sitting, by its
+# adopt-profiles helper; this note was added 2026-10-05, when a check of the
+# sitting's record found the constant had moved with no note beside it. Both
+# rows belong to superseded profiles whose percentiles nothing applies
+# (`MISSING.md` M-318). song ~~(-0.014, 0.7868)~~ -> ~~(-0.019, 0.7341)~~ at
+# the first run (band 200-400) -> (0.008, 0.868) at the final run (band
+# 150-350); short ~~(0.166, 0.0012)~~ -> ~~(0.168, 0.0007)~~ -> (0.169, 0.0007).
+# The final values are in
+# quality/results/otterbein_m25_2026-10-04/final/adopted-profiles.json.
+PROFILE_PERIOD = {'song': (0.008, 0.868), 'short': (0.169, 0.0007)}
 #: The anaphora period rho each profile's note must keep VISIBLE as a struck
 #: figure (doctrine 17), or None where nothing was ever struck: the `song`
 #: row withdrew +0.275 on 2026-08-20; the `short` row was adopted with its

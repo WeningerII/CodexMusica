@@ -2097,7 +2097,10 @@ _SONG_GLOB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 #: boundaries Blake +1, D'Urfey +1). This retains every source edition;
 #: it is not the separately weighted/nonempty 8545-item calibration set.
 # 2026-09-15: nine apparatus-only titles annotated; named airs unchanged.
-_AIR_EXPECT = {"cym": (391, 13), "eng": (8652, 539), "fas": (8350, 0),
+# 2026-10-04: eng 8652 -> 8725 songs, the 73 Otterbein refrain hymns; none
+# names an air, so 539 is unmoved. M-25(a) and the label pass mark lines,
+# never titles, and move neither count.
+_AIR_EXPECT = {"cym": (391, 13), "eng": (8725, 539), "fas": (8350, 0),
                "fin": (962, 18), "ltc": (10529, 0), "msa": (129, 0),
                # ADDED 2026-08-22 with the K-4 Old Norse staging: 160 vísur,
                # ZERO named airs, and the zero is a reading rather than an

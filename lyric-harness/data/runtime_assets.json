@@ -239,7 +239,7 @@
         {
           "path": "data/rhyme_capacity_eng.tsv",
           "bytes": 526545,
-          "sha256": "fec757a48880c07441ead6c81c21625ff7eeff476e3cf081ccf76f23b92026dc"
+          "sha256": "02325c417568a9119a556d67e3ab2daea1cf502a0aa1907c79c097af9295b234"
         },
         {
           "path": "data/siku_orthography.tsv",
@@ -248,18 +248,18 @@
         },
         {
           "path": "data/song_endword_en.tsv",
-          "bytes": 4740984,
-          "sha256": "ddd2622931e0c470bc7fefbb633a6427c6ca6f77553803e416c5c4d9310a6f28"
+          "bytes": 4747159,
+          "sha256": "7a4b8b4407697eb707e3eff32261c7064d8185cd9004f6a2236759ac87a28e48"
         },
         {
           "path": "data/song_rhymepair_en.tsv",
-          "bytes": 3991331,
-          "sha256": "66f0cfecf880ce8677872e3494adc736fb43f04aa09ebd753a08e2f9e57dae68"
+          "bytes": 3999408,
+          "sha256": "289ad2b6c2f8012713b9950844ff20dd8c026963430d6c66c57ca05ea0dace3d"
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1612681,
-          "sha256": "063d93ec0901e6b914096819d18f2850980936ebac1c6f8f1ccc446a6e7c8a1b"
+          "bytes": 1635764,
+          "sha256": "1740f0ab7e8eb579aff4a7a82efc61021f6c7ecd555509b9fd009121e2d24b67"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
@@ -306,8 +306,8 @@
         },
         {
           "path": "data/section_marks.tsv",
-          "bytes": 7658,
-          "sha256": "40616127f90033f89658974f059ce7c4df2ff7b3cb8d47d020a20782ea0b894f"
+          "bytes": 8153,
+          "sha256": "6c713aee3ec76a64febd742439fc896f98792fe16c1d4db2ce230a8a755e1fbc"
         },
         {
           "path": "data/song_functions_eng.tsv",

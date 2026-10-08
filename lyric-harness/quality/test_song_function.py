@@ -671,10 +671,16 @@ def test_the_corpus_holds():
     # stays 1772. The 33 chorus and two refrain labels remain in the sources.
     # 2026-09-16: explicit Burns labels recover three VERSE blocks and
     # reclassify one REFRAIN: chorus +4, refrain -1, repeat total +3.
+    # REPINNED 2026-10-04, one loading batch, measured at each stage: the
+    # Otterbein refrain hymns add 78 REFRAIN blocks (706 -> 784; total 2739
+    # -> 2817), M-25(a) moves no repeat block, and the label and apparatus
+    # pass annotates 60 REFRAIN and 4 BURDEN marks that headed apparatus
+    # (refrain 784 -> 724, burden 1772 -> 1768). Total 2817 -> 2753; chorus
+    # unmoved at 261.
     check("the repeat-block families are all expressible, none collapsed",
-          rep_total == 2739 and c["functions"]["chorus"] == 261
-          and c["functions"]["burden"] == 1772
-          and c["functions"]["refrain"] == 706,
+          rep_total == 2753 and c["functions"]["chorus"] == 261
+          and c["functions"]["burden"] == 1768
+          and c["functions"]["refrain"] == 724,
           f"{rep_total:,} repeat blocks held, and BURDEN is kept SEPARATE "
           f"from REFRAIN because the corpus marks them differently "
           f"(doctrine 24). BURDEN was 1,795 until 2026-08-11, then 1,784: the "
@@ -688,9 +694,12 @@ def test_the_corpus_holds():
     # total above holds because its family list predates patter, which
     # this dict-rendered detail names rather than hides.
     # The same 35 marks leave the English repeat census: 2470 -> 2435.
-    check("the current English repeat-block census is 2,438, with its "
+    # 2026-10-04: 2438 -> 2452 (refrain 594 -> 672 with the Otterbein hymns,
+    # then -> 612 after the label pass; burden 1580 -> 1576), the same
+    # movements as the whole-corpus pin above, all of them inside `eng_*`.
+    check("the current English repeat-block census is 2,452, with its "
           "LANGUAGE SCOPE explicit",
-          eng_total == 2438 and c["eng_repeat"]["chorus"] == 261
+          eng_total == 2452 and c["eng_repeat"]["chorus"] == 261
           and c["eng_repeat"].get("patter") == 3,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
@@ -1101,9 +1110,12 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # The 61 shared-line pairs remain, so their rate is now 6.9% (was 6.8%).
     # 2026-09-16: Burns printed-label recovery: 888 -> 896 pairs;
     # 61 -> 60 shared lines after the mislabeled first verse becomes chorus.
+    # 2026-10-04: 896 -> 947 pairs. +73 with the Otterbein refrain hymns,
+    # -1 after M-25(a), -21 after the
+    # label and apparatus pass took apparatus-headed blocks out of songs.
     check("the corpus can supply cross-function pairs at all — four "
           "functions, so six possible pairings",
-          c["cross_pairs"] == 896 and len(c["cross_by_pair"]) == 5,
+          c["cross_pairs"] == 947 and len(c["cross_by_pair"]) == 5,
           f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
           f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
           f"burden/refrain never co-occur in one song, which is itself the "
@@ -1114,9 +1126,21 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # the check below this one still holds: none lands in the asked set.
     # REPINNED 2026-08-28: 61 of ~~922 (6.6%)~~ 896 (6.8%) — the shared
     # count is UNMOVED and only the denominator fell (M-47's follow rule).
-    check("ASKING EVERY PAIR WOULD BE WRONG 6.7% OF THE TIME — this is the "
+    # REPINNED 2026-10-04: 60 of 896 (6.7%) -> 84 of 947 (8.9%). The 24 new
+    # shared lines are ALL Otterbein refrain hymns (21 new `eng_hymn_*`
+    # items, plus Cooper's and two of Rankin's appended ones), each pair's
+    # shared line listed in the base-vs-HEAD diff of `corpus_scan`'s
+    # examples and checked against its hymn on 2026-10-05: the gospel-hymn
+    # shape. In 23 the refrain sings a verse's closing line again (`God be
+    # with you till we meet again.`, `Trusting Jesus, that is all.`); in
+    # Hankey's it sings the verse's opening line (`I love to tell the
+    # story!`) -- ~~all 24 the closing line~~, corrected 2026-10-05. Either
+    # way it is a verse line the refrain also sings -- the same class as the
+    # war-song chorus line below -- and every one is a refrain/verse pair, so
+    # the check after this one still holds.
+    check("ASKING EVERY PAIR WOULD BE WRONG 8.9% OF THE TIME — this is the "
           "number the declared asked set exists for",
-          c["cross_shared"] == 60 and abs(rate - 0.0670) < 0.001,
+          c["cross_shared"] == 84 and abs(rate - 0.0887) < 0.001,
           f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
           f"line under the declared normalisation, and NOT ONE is a reprise: "
           f"they are refrain lines a printer set inside the verse, or a "

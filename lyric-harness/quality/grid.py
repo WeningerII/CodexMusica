@@ -3920,7 +3920,10 @@ def _printed_chorus_labels(raw_lines, path):
         if match and re.fullmatch(r"\[(?:VERSE \d+|CHORUS|REFRAIN)\]", previous):
             edits[i - 1] = "[CHORUS] " + match[1]
             edits[i] = match[2]
-        elif (line == "Chorus" and previous == "[CHORUS]"
+        # The bare label may carry the corpus's `# APPARATUS:` annotation
+        # (data/english_apparatus_labels_2026-10-04.json): it is the same
+        # printed label, not sung, and it still names the stanza after it.
+        elif (line in ("Chorus", "# APPARATUS: Chorus") and previous == "[CHORUS]"
               and i + 1 < len(raw_lines)
               and re.fullmatch(r"\[VERSE \d+\]", raw_lines[i + 1])):
             edits[i - 1] = "[CHORUS] Chorus"

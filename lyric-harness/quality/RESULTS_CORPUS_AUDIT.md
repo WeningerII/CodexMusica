@@ -1,6 +1,29 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-09-26 (`MISSING.md` M-315): **1,430 files, 0 FAIL, 95 WARN,
+Current result, 2026-10-04 (the Otterbein refrain hymns, `MISSING.md` M-25(a)
+and the label and apparatus pass, one loading batch): **1,477 files, 0 FAIL,
+38 WARN, 1,214 NOTE**. Files +47 (the new `eng_hymn_*` files). Check H accounts
+for all of WARN −57 and NOTE −16 (files 65 WARN / 54 NOTE -> 8 / 38).
+~~the one-line `[VERSE]` blocks the two passes marked as apparatus~~ CORRECTED
+2026-10-05: M-25(a) alone marked one-line blocks (65 / 54 -> 8 / 35); the label
+and apparatus pass then created 8 residue one-line blocks, putting 3 more files
+in the NOTE half (35 -> 38). Check G adds 36 NOTEs, one elision-orthography
+note on each of 36 new hymn files. Check E loses one NOTE, the Watts title echo
+whose echoing line ~~M-25(a) marked as an embedded title~~ the label and
+apparatus pass marked (its receipt classes it an editorial note). Check I's
+agreeing population is 516 of 544 (was 517 of 545): `eng_oxford_henry_constable`
+left ~~when its indented sonnet numerals became apparatus~~ because, once its
+indented sonnet numerals became apparatus, its different-depth pairs fell below
+the check's 40-pair minimum. ~~Nothing else moved.~~ No other finding count
+moved, but several measurements did. Check J's partition reads attached-only
+1,114 (was 1,067; the 47 new files), spaced-only 0, both 226. Two check I
+per-file notes were re-measured with their verdicts unchanged: Burns has 86
+laddered blocks (was 87), excess −4.68 pp (was −4.62), still OPPOSITE; Willson's
+excess is −0.33 pp (was +2.54), still inside the null. Rankin's check G note
+flipped from mixed 1:1 to destroying-dominant with its appended hymns. `quality/RESULTS_OTTERBEIN_M25_2026-10-04.md`
+records the batch. The result it supersedes:
+
+Result, 2026-09-26 (`MISSING.md` M-315): **1,430 files, 0 FAIL, 95 WARN,
 1,195 NOTE** (~~1,193 NOTE~~, 2026-09-15). Check J's enclitic set lost `'t` and
 `'n` — elided words, not enclitics — when the joiner was wired into the rhyme
 path, so two more editions are spaced-DOMINANT (`eng_celtic_msm_andrew_scott`

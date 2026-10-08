@@ -1,0 +1,2096 @@
+{
+  "version": 1,
+  "date": "2026-10-04",
+  "policy": "A printed label standing in front of sung words on the same line (a speaker name, a section label, a printed stanza numeral) is declared here per physical line and stripped by quality/lyric_reader.py exactly, never by pattern; the reader refuses if the line no longer starts with the declared label or the line is no longer a lyric row. Whole-line labels are marked # APPARATUS: in the corpus file instead.",
+  "source": "data/english_apparatus_labels_2026-10-04.json",
+  "prefixes": [
+    {
+      "file": "eng_american_sidney_lanier.txt",
+      "line": 104,
+      "prefix": "Solo. --    ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_american_william_b_bradbury.txt",
+      "line": 18,
+      "prefix": "_Chorus._--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 526,
+      "prefix": "_Di._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 541,
+      "prefix": "_Sp._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 548,
+      "prefix": "_Sp._                          ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 553,
+      "prefix": "_Di._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 559,
+      "prefix": "_Sp._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 564,
+      "prefix": "_Di._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 571,
+      "prefix": "_Sp._                       ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 581,
+      "prefix": "_Di._                ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 590,
+      "prefix": "_Sp._                ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_arthur_hugh_clough.txt",
+      "line": 608,
+      "prefix": "_Di._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_austin_dobson.txt",
+      "line": 946,
+      "prefix": "POSTCRIPTUM.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1664,
+      "prefix": "_Seb._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1751,
+      "prefix": "_Xim._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1761,
+      "prefix": "_Her._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1768,
+      "prefix": "_Xim._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1773,
+      "prefix": "_Gon._ (_falling upon her neck._) ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1779,
+      "prefix": "_Xim._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1784,
+      "prefix": "_Her._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_felicia_hemans.txt",
+      "line": 1789,
+      "prefix": "_Cits._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 278,
+      "prefix": "_M._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 283,
+      "prefix": "_F._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 288,
+      "prefix": "_F._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 294,
+      "prefix": "_M._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 301,
+      "prefix": "_F._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 306,
+      "prefix": "_M._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 313,
+      "prefix": "_F._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 320,
+      "prefix": "_C._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_jean_ingelow.txt",
+      "line": 325,
+      "prefix": "_F._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 1820,
+      "prefix": "Cho. ",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 1832,
+      "prefix": "Cho. ",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 1844,
+      "prefix": "Cho. ",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 1856,
+      "prefix": "Cho. ",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 2306,
+      "prefix": "BOTH.  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 2335,
+      "prefix": "CHA.  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 2337,
+      "prefix": "CHA.  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 2341,
+      "prefix": "CHA.  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "line": 2348,
+      "prefix": "CHA.  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "line": 39,
+      "prefix": "CHO.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "line": 50,
+      "prefix": "CHO.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "line": 61,
+      "prefix": "CHO.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "line": 67,
+      "prefix": "CHO.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "line": 73,
+      "prefix": "CHO.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 1707,
+      "prefix": "_Hor._  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 1712,
+      "prefix": "_Lyd._  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 1717,
+      "prefix": "_Hor._  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 1722,
+      "prefix": "_Lyd._  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 1727,
+      "prefix": "_Hor._  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 1732,
+      "prefix": "_Lyd._  ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2214,
+      "prefix": "_Amin._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2216,
+      "prefix": "_Amar._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2226,
+      "prefix": "_Mirt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2231,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2233,
+      "prefix": "_Mirt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2239,
+      "prefix": "_Amin._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2241,
+      "prefix": "_Mirt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2242,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2244,
+      "prefix": "_Amar._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2248,
+      "prefix": "_Mirt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2251,
+      "prefix": "_Amar._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2254,
+      "prefix": "_Amin._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2257,
+      "prefix": "_Mirt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2260,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2353,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 2367,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3282,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3287,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3292,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3297,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3302,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3811,
+      "prefix": "_Mon._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3812,
+      "prefix": "_Mon._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3817,
+      "prefix": "_Ambo._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3818,
+      "prefix": "_Mir._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3823,
+      "prefix": "_Ambo._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3827,
+      "prefix": "_Sil._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3828,
+      "prefix": "_Mir._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3832,
+      "prefix": "_Mon._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3833,
+      "prefix": "_Mir._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3840,
+      "prefix": "_Mir._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3841,
+      "prefix": "_Mon._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3843,
+      "prefix": "_Mir._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3845,
+      "prefix": "_Mon._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3851,
+      "prefix": "_Mon._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 3853,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4379,
+      "prefix": "_End._  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4385,
+      "prefix": "_Lyc._    ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4387,
+      "prefix": "_End._    ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4389,
+      "prefix": "_Lyc._  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4401,
+      "prefix": "_End._  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4402,
+      "prefix": "_Lyc._    ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4410,
+      "prefix": "_End._    ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 4419,
+      "prefix": "_Lyc._  ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 5920,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 5928,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 5935,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 5942,
+      "prefix": "_Lal._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 5945,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6076,
+      "prefix": "_Ph._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6078,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6080,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6084,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6086,
+      "prefix": "_Ph._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6089,
+      "prefix": "_Ph._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6090,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6092,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6093,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6094,
+      "prefix": "_Ph._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6096,
+      "prefix": "_Ph._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6098,
+      "prefix": "_Ch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6864,
+      "prefix": "_Herr._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6873,
+      "prefix": "_Jul._              ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 6879,
+      "prefix": "_Herr._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7367,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7488,
+      "prefix": "_Lacon._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7498,
+      "prefix": "_Thyr._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7505,
+      "prefix": "_Thyr._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7529,
+      "prefix": "_Thyr._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7611,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7613,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7615,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7619,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7621,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7623,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7625,
+      "prefix": "_Ans._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7882,
+      "prefix": "_Her._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7887,
+      "prefix": "_Ama._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7892,
+      "prefix": "_Her._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7902,
+      "prefix": "_Ama._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7904,
+      "prefix": "_Her._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 7909,
+      "prefix": "_Ambo._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8139,
+      "prefix": "_Verse._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8141,
+      "prefix": "_Ver. Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8143,
+      "prefix": "_Verse._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8145,
+      "prefix": "_Ver. Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8147,
+      "prefix": "_Verse._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8149,
+      "prefix": "_Ver. Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8689,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8699,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8741,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8759,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8769,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8785,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8806,
+      "prefix": "_Star._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8810,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 8819,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9319,
+      "prefix": "_Vers._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9324,
+      "prefix": "_Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9327,
+      "prefix": "_Vers. Chor._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9448,
+      "prefix": "_Chorus._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9511,
+      "prefix": "_Euc._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9513,
+      "prefix": "_Cha._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9517,
+      "prefix": "_Cha._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9522,
+      "prefix": "_Cha._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9523,
+      "prefix": "_Euc._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9527,
+      "prefix": "_Chorus._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9529,
+      "prefix": "_Euc._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9531,
+      "prefix": "_Euc._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9534,
+      "prefix": "_Cha._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9537,
+      "prefix": "_Cha._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "line": 9547,
+      "prefix": "_Chorus._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_british_walter_savage_landor.txt",
+      "line": 353,
+      "prefix": "_Leucippe._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_walter_savage_landor.txt",
+      "line": 358,
+      "prefix": "_Alciphron._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_walter_savage_landor.txt",
+      "line": 365,
+      "prefix": "_Alciphron._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_british_walter_savage_landor.txt",
+      "line": 373,
+      "prefix": "_Leucippe._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 7063,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 7490,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 9932,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 9960,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 10084,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 10572,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 10800,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 10821,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 10930,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 11297,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 11337,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 11384,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 11480,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 11571,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 11611,
+      "prefix": "Refrain.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 12205,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 12522,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13279,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13305,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13332,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13433,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13505,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13774,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13802,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13870,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13977,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 13998,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 14092,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 14437,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 14765,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 15781,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 15823,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 16181,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 16202,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 16295,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 16958,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 17236,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 17289,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 17477,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 17777,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 18499,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 18535,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 18602,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 18972,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 19342,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 19377,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 19582,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 19628,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 19855,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 19985,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20003,
+      "prefix": "Chorus.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20055,
+      "prefix": "Both. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20173,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20416,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20437,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20503,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20529,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20559,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20580,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20923,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20937,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 20985,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21040,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21154,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21287,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21376,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21486,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21575,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21601,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21615,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21817,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21844,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21940,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 21961,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "line": 22030,
+      "prefix": "Chorus--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_celtic_walter_scott.txt",
+      "line": 645,
+      "prefix": "_Chorus._ ",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 128,
+      "prefix": "_Chorus._—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 139,
+      "prefix": "_Chorus._—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 150,
+      "prefix": "_Chorus._—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 161,
+      "prefix": "_Chorus._—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 172,
+      "prefix": "_Chorus._—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 183,
+      "prefix": "_Chorus._—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 1229,
+      "prefix": "_Chorus_—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 1240,
+      "prefix": "_Chorus_—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 1251,
+      "prefix": "_Chorus_—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_edwin_waugh.txt",
+      "line": 1262,
+      "prefix": "_Chorus_—",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 29,
+      "prefix": "_Filch._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 100,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 114,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 120,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 146,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 162,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 167,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 177,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 191,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 217,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 225,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 232,
+      "prefix": "_Matt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 242,
+      "prefix": "_Matt._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 304,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 363,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 399,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 407,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 408,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 409,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 410,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 411,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 412,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 418,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 433,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 439,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 449,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 459,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 523,
+      "prefix": "_Lockit._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 566,
+      "prefix": "_Polly._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 569,
+      "prefix": "_Lucy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 625,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 668,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_john_gay.txt",
+      "line": 750,
+      "prefix": "_Macheath._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 1320,
+      "prefix": "_Jockey._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 1333,
+      "prefix": "_Moggy._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 1346,
+      "prefix": "_Jockey._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 2101,
+      "prefix": "_Gillian._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 2105,
+      "prefix": "_Bett._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 2115,
+      "prefix": "_Gil._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 2120,
+      "prefix": "_Bett._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 4698,
+      "prefix": "_Chorus._ ",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 4739,
+      "prefix": "(_Eccho._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 4742,
+      "prefix": "(_Eccho._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 4745,
+      "prefix": "(_Eccho._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 4748,
+      "prefix": "(_Eccho._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 15294,
+      "prefix": "_Quaker._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 15299,
+      "prefix": "_Harlot._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 15304,
+      "prefix": "_Quaker._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 15309,
+      "prefix": "_Harlot._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 15314,
+      "prefix": "_Quaker._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_thomas_durfey.txt",
+      "line": 15319,
+      "prefix": "_Harlot._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_william_barnes.txt",
+      "line": 15735,
+      "prefix": "_T._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_william_barnes.txt",
+      "line": 15738,
+      "prefix": "_A._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_william_barnes.txt",
+      "line": 15741,
+      "prefix": "_T._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_william_barnes.txt",
+      "line": 15744,
+      "prefix": "_A._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_william_barnes.txt",
+      "line": 15747,
+      "prefix": "_T._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2061,
+      "prefix": "ROB. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2070,
+      "prefix": "DES.                ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2072,
+      "prefix": "MAR.                ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2074,
+      "prefix": "ALL. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2076,
+      "prefix": "MAR. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2087,
+      "prefix": "DES.                ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2089,
+      "prefix": "ROB.                ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2091,
+      "prefix": "ALL. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2094,
+      "prefix": "DES. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2105,
+      "prefix": "ROB.                ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2107,
+      "prefix": "MAR.                ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hall_ws_gilbert.txt",
+      "line": 2109,
+      "prefix": "ALL. ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_hymn_charles_wesley.txt",
+      "line": 1280,
+      "prefix": "Cho.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hymn_fawcett.txt",
+      "line": 164,
+      "prefix": "Cho.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_hymn_hoffman.txt",
+      "line": 71,
+      "prefix": "Cho.--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_oxford_george_herbert.txt",
+      "line": 93,
+      "prefix": "_Man._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_george_herbert.txt",
+      "line": 102,
+      "prefix": "_Saviour._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_george_herbert.txt",
+      "line": 111,
+      "prefix": "_Man._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_george_herbert.txt",
+      "line": 120,
+      "prefix": "_Saviour._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_george_peele.txt",
+      "line": 19,
+      "prefix": "_Paris._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_george_peele.txt",
+      "line": 31,
+      "prefix": "_Ambo Simul._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 35,
+      "prefix": "_Siren._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 44,
+      "prefix": "_Ulysses._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 53,
+      "prefix": "_Siren._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 62,
+      "prefix": "_Ulysses._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 71,
+      "prefix": "_Siren._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 80,
+      "prefix": "_Ulysses._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 89,
+      "prefix": "_Siren._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 98,
+      "prefix": "_Ulysses._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_samuel_daniel.txt",
+      "line": 107,
+      "prefix": "_Siren._ ",
+      "kind": "speaker-or-stage-direction"
+    },
+    {
+      "file": "eng_oxford_sir_william_davenant.txt",
+      "line": 31,
+      "prefix": "_Lover._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_sir_william_davenant.txt",
+      "line": 36,
+      "prefix": "_Philosopher._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_sir_william_davenant.txt",
+      "line": 41,
+      "prefix": "_Lover._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_sir_william_davenant.txt",
+      "line": 46,
+      "prefix": "_Philosopher._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_oxford_william_shakespeare.txt",
+      "line": 209,
+      "prefix": "_All._ ",
+      "kind": "performer-or-voice"
+    },
+    {
+      "file": "eng_pah_charles_sprague_hall.txt",
+      "line": 18,
+      "prefix": "_Chorus_--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_pah_edward_bangs.txt",
+      "line": 18,
+      "prefix": "_Chorus_--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_pah_francis_marion_crawford.txt",
+      "line": 22,
+      "prefix": "_Chorus_--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_pah_james_stevenson.txt",
+      "line": 23,
+      "prefix": "_Chorus_--",
+      "kind": "section-or-part-name"
+    },
+    {
+      "file": "eng_pah_joseph_hopkinson.txt",
+      "line": 25,
+      "prefix": "_Chorus_--",
+      "kind": "section-or-part-name"
+    }
+  ]
+}

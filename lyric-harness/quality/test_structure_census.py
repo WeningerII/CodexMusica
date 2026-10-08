@@ -102,10 +102,12 @@ def test_item_readers():
     # REPINNED 2026-08-20 (Phase-1): 616 -> 1049 eng files (452 staged, 19 twins merged away).
     # REPINNED 2026-08-20 (Montgomery twin): 1049 -> 1048.
     # REPINNED 2026-08-20 (HBV safe subset + 23 twin merges): 1048 -> 1297.
-    check("the population: 1297 eng_ files + 2 controls",
-          len(files) == 1299
+    # REPINNED 2026-10-04 (Otterbein refrain hymns): 1297 -> 1344, the 47
+    # new `eng_hymn_*` files.
+    check("the population: 1344 eng_ files + 2 controls",
+          len(files) == 1346
           and sum(1 for f in files
-                  if os.path.basename(f).startswith("eng_")) == 1297)
+                  if os.path.basename(f).startswith("eng_")) == 1344)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
     # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49
@@ -124,16 +126,42 @@ def test_item_readers():
     # source has no lyric lines. The builder discloses both denominators.
     # 2026-09-15: 8545 -> 8536 nonempty / 8546 -> 8537 total after
     # nine apparatus-only title headings were preserved outside the lyric set.
-    check("the shared work reader yields exactly 8,536 nonempty items "
-          "over the 1297 files",
-          n_items == 8536, n_items)
+    # 2026-10-04: 8536 -> 8598 nonempty / 8537 -> 8610 total. +73 Otterbein
+    # hymns (8609 / 8610; M-25(a) emptied no item), then the label and
+    # apparatus pass emptied 11 items that were editorial matter from their
+    # first line to their last: a Rossetti birth-and-death record, Arnold's
+    # `Persons` (a dramatis personae), four Lovelace notes, Shelley's `The
+    # Daemon Of The World: Part 2` (an editor's note on variants -- the
+    # poem itself is not in that item), two Browning notes and two Herrick
+    # index entries. Each was read before this pin moved.
+    check("the shared work reader yields exactly 8,598 nonempty items "
+          "over the 1344 files",
+          n_items == 8598, n_items)
     from quality.lyric_reader import calibration_items
     all_items = [(os.path.basename(f), title, body) for f in files
                  if os.path.basename(f).startswith("eng_")
                  for title, _at, body in calibration_items(f)]
-    check("item exclusion is the one note-only Sawyer source, not lost verse",
-          len(all_items) == 8537 and [(name, title) for name, title, body in all_items if not body]
-          == [("eng_parlour_charles_carroll_sawyer.txt", "WHEN THIS CRUEL WAR IS OVER")])
+    # 2026-10-04: the Sawyer source plus the 11 editorial items above, named
+    # one by one so that a passage of verse emptied by a later pass goes red here.
+    check("item exclusion is the note-only Sawyer source and 11 wholly "
+          "editorial items, not lost verse",
+          len(all_items) == 8610
+          and sorted((name, title) for name, title, body in all_items if not body)
+          == sorted([
+              ("eng_parlour_charles_carroll_sawyer.txt", "WHEN THIS CRUEL WAR IS OVER"),
+              ("eng_british_christina_rossetti.txt", "Christina Georgina Rossetti"),
+              ("eng_british_matthew_arnold.txt", "Persons"),
+              ("eng_british_percy_bysshe_shelley.txt", "The Daemon Of The World: Part 2"),
+              ("eng_british_richard_lovelace.txt", "Fins"),
+              ("eng_british_richard_lovelace.txt", "Query, LAUD"),
+              ("eng_british_richard_lovelace.txt", "The FALCO LANIARIUS of Linnaeus"),
+              ("eng_british_richard_lovelace.txt", "Henry VIII"),
+              ("eng_british_robert_browning.txt", "Incident Of The French Camp. (Page 17.)"),
+              ("eng_british_robert_browning.txt",
+               "=letters=. The reference is of course to the Scriptures"),
+              ("eng_british_robert_herrick.txt", "Carlisle, Countess of, I. 78"),
+              ("eng_british_robert_herrick.txt",
+               "Herrick, Robert, Poem to his Nephew, I. 188")]))
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",
