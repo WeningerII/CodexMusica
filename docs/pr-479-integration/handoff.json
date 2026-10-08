@@ -1,0 +1,22 @@
+{
+  "original_pr479_head": "88abb0a04e4b174939e6594cac0b49806e3e9584",
+  "proposal_branch": "codex/repair-460-479",
+  "proposal_commit": "d49e08cd0a064b68124ce9d3fcfcd5fca10549ab",
+  "qualified_for_merge": false,
+  "full_production_revision_tests": {
+    "passed": 46,
+    "seconds": 576.494,
+    "python": "3.11.16",
+    "applies_to": "experimental proposal including reporting-grade guard"
+  },
+  "baseline_elapsed_lower_bound_seconds": 606,
+  "proposal_elapsed_lower_bound_seconds": 610,
+  "deadline_seconds": 599,
+  "completed_places": 0,
+  "proven_additional_equivalent_optimization": false,
+  "original_pr479_branch_modified": false,
+  "reviewed_branch": "codex/repair-479-reviewed",
+  "reviewed_production_source_excludes_projection": true,
+  "counter_check": "PASS",
+  "map_check": "PASS"
+}

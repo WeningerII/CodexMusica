@@ -1,0 +1,77 @@
+CALL 0
+  MANDATE: read from the plan (seed 1) — groups, returns and relations as its own GRADE IT line spells them; the blueprint is the plan filled with THIS draft and the subdivision is the plan's own. Nothing on this command line restates any of it.
+  MANDATE: 7 group(s) over 24 lines, 20 mandated pair(s), source=declared (declared line groups)
+           group A = lines 1,8,9,10,11, group B = lines 2,12,13, group C = lines 4,6,7, group D = lines 15,16, group E = lines 19,20, group F = lines 21,22, group G = lines 23,24 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: /tmp/finish_bp_c2vyxyj1.json — meter and song-function join the rhyme/floor finding set, subdivision=2 (the plan's own declared subdivision (seed 1), read off the artifact `finish` derived the mandate from), no isochrony assumed — the setting questions refuse (`NO_SETTING`) rather than divide the span evenly on their own
+  PROPOSER: defer:/tmp/warm-diagnosis-479/state.json — 0 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered request rather than guessing
+  lyric checkpoint: {"version":1,"answered":{"propose":[],"propose_group":[]},"pending":null,"input_draft":["we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road","we carry the morning to the name","we carry the morning to the glass","we carry the morning to the train","we carry the morning to the hill","we carry the morning to the salt","we carry the morning to the wire","we carry the morning to the bell","we carry the morning to the coat","we carry the morning to the dust","we carry the morning to the song","we carry the morning to the tide","we carry the morning to the map","we carry the morning to the map","we carry the morning to the paper","we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road"],"accepted_lines":["we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road","we carry the morning to the name","we carry the morning to the glass","we carry the morning to the train","we carry the morning to the hill","we carry the morning to the salt","we carry the morning to the wire","we carry the morning to the bell","we carry the morning to the coat","we carry the morning to the dust","we carry the morning to the song","we carry the morning to the tide","we carry the morning to the map","we carry the morning to the map","we carry the morning to the paper","we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road"],"outcomes":[],"group_outcomes":[],"dispositions":[],"round":0,"status":"started","transport_token":null}
+  lyric checkpoint: {"version":1,"answered":{"propose":[],"propose_group":[]},"pending":null,"input_draft":["we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road","we carry the morning to the name","we carry the morning to the glass","we carry the morning to the train","we carry the morning to the hill","we carry the morning to the salt","we carry the morning to the wire","we carry the morning to the bell","we carry the morning to the coat","we carry the morning to the dust","we carry the morning to the song","we carry the morning to the tide","we carry the morning to the map","we carry the morning to the map","we carry the morning to the paper","we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road"],"accepted_lines":["we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road","we carry the morning to the name","we carry the morning to the glass","we carry the morning to the train","we carry the morning to the hill","we carry the morning to the salt","we carry the morning to the wire","we carry the morning to the bell","we carry the morning to the coat","we carry the morning to the dust","we carry the morning to the song","we carry the morning to the tide","we carry the morning to the map","we carry the morning to the map","we carry the morning to the paper","we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road"],"outcomes":[],"group_outcomes":[],"dispositions":[],"round":1,"status":"grading","cursor":{"version":1,"loop":{"phase":"round_open","round":1,"draft":["we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road","we carry the morning to the name","we carry the morning to the glass","we carry the morning to the train","we carry the morning to the hill","we carry the morning to the salt","we carry the morning to the wire","we carry the morning to the bell","we carry the morning to the coat","we carry the morning to the dust","we carry the morning to the song","we carry the morning to the tide","we carry the morning to the map","we carry the morning to the map","we carry the morning to the paper","we carry the morning to the stone","we carry the morning to the rain","we carry the morning to the door","we carry the morning to the light","we carry the morning to the road"],"rounds":[],"barren":0,"menus":[]},"tally_hit":0,"stale":[],"batch_stale":[],"rej":[],"grej":[],"k1":0,"k2":0,"digest":"ace1bd8c089dd16a07edb8c41112f80973595604ff77c28c7db13b70ed82be3e","run_key":"a63d9efa0a2b006d4c57818700e0b423b455dc29b8b298a37e35473276bc475e","scorer":"e39b4acca0055a12d520451c60d9adfb006316771da16151c234ebf47c6c21df"},"transport_token":null}
+STEP START grade 595.83 longest 0.0
+STEP END grade 18.92 longest 18.92
+STEP START grade 576.91 longest 18.92
+STEP END grade 0.12 longest 18.92
+STEP START menu 576.8 longest 18.92
+STEP START place 576.69 longest 18.92
+Timeout (0:01:30)!
+Thread 0x00007fccb646b740 (most recent call first):
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 1331 in _positions
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 2652 in evaluate
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 3281 in realise
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 8921 in line_pairs_for
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 9635 in resolve_line_pair
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 7395 in resolve_readings
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 2450 in grade
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 4482 in declared_offer
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 6042 in _place_field
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 6334 in _build
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2036 in step
+  File "/tmp/warm-diagnosis-479/repro.py", line 8 in step
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1885 in _gate
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1933 in _menu
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1920 in _place
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 6348 in brief
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/replay_memo.py", line 202 in <lambda>
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/replay_memo.py", line 183 in _memo
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/replay_memo.py", line 202 in brief
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2036 in step
+  File "/tmp/warm-diagnosis-479/repro.py", line 8 in step
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1885 in _gate
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1933 in _menu
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1962 in brief
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2590 in _materialize
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2606 in revise_loop
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/lyric_harness.py", line 13544 in main
+  File "/tmp/warm-diagnosis-479/repro.py", line 16 in <module>
+Timeout (0:01:30)!
+Thread 0x00007fccb646b740 (most recent call first):
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 2614 in evaluate
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 3281 in realise
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 8921 in line_pairs_for
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 9635 in resolve_line_pair
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 7395 in resolve_readings
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 2450 in grade
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 4482 in declared_offer
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 6042 in _place_field
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 6334 in _build
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2036 in step
+  File "/tmp/warm-diagnosis-479/repro.py", line 8 in step
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1885 in _gate
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1933 in _menu
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1920 in _place
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/revise.py", line 6348 in brief
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/replay_memo.py", line 202 in <lambda>
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/replay_memo.py", line 183 in _memo
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/replay_memo.py", line 202 in brief
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2036 in step
+  File "/tmp/warm-diagnosis-479/repro.py", line 8 in step
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1885 in _gate
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1933 in _menu
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 1962 in brief
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2590 in _materialize
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/loop.py", line 2606 in revise_loop
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/lyric_harness.py", line 13544 in main
+  File "/tmp/warm-diagnosis-479/repro.py", line 16 in <module>
+Timeout (0:01:30)!
+Thread 0x00007fccb646b740 (most recent call first):
+  File "/workspace/CodexMusica-repair-460-479/lyric-harness/quality/relations.py", line 0 in _span_tokens
+  File 

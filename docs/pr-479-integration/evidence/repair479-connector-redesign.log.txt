@@ -1,0 +1,13 @@
+✔ T7 (connector): a sealed cursor verifies, and editing anything it covers strips it (243.769829ms)
+✔ T3 (connector): option B — no folded row is unknown, and a passed-by answer is not_applied (1.265387ms)
+✔ live: a continuation keeps a sealed cursor; a tampered one is reported and replays (16232.067283ms)
+✔ T5 (connector): the no-progress count rises only while the position stands still (0.688457ms)
+✔ R6: the website chat carries a stopped interview run as resumable (0.729238ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17433.811146
