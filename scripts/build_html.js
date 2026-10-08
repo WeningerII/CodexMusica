@@ -9,8 +9,10 @@
 // Catalog layer boots the traditions from api/browse_boot.json (one fetch),
 // reads the genres' prose from api/browse_prose.json after the first paint,
 // and pulls each tradition's import payload from api/traditions/{id}.json on
-// demand; the engine's eight tables come from api/engine.json, at the first
-// paint or from <head> when a saved session needs them. The shell therefore
+// demand; the engine's ten tables come from api/engine.json, at the first
+// paint or from <head> when a saved session needs them (two of them, the
+// render tables src/app.js mirrors, are cut from its app code; see "the render
+// tables' mirrors" below). The shell therefore
 // deploys NEXT TO the committed api/ directory (GitHub Pages serves both from
 // the repo root).
 // `--embedded` builds the historical fully-self-contained single-file variant
@@ -49,7 +51,9 @@
 //   4  embedded data block failed to parse, a table did not read back, an
 //      emitted <script> does not compile on its own (--check), or a references
 //      file the page-only strip rewrites holds anything but table declarations
-//   5  template is missing the <!--@CODEX_BODY--> or <!--@THEME_BOOT--> marker
+//   5  template is missing the <!--@CODEX_BODY--> or <!--@THEME_BOOT--> marker,
+//      an @inline region's markers are missing, or src/app.js does not
+//      declare a render table's mirror exactly once
 //   6  an emitted <script> is all comment, a runtime block became strict-mode
 //      code, or a block exceeds the hard byte ceiling (--check)
 
@@ -58,6 +62,8 @@ const path = require('path');
 const vm = require('vm');
 // The page-only data strip and the instrument engine's tables (see there).
 const P = require('./_page_tables.js');
+// The codec api/engine.json writes the two render tables with (see there).
+const codec = require('./_engine_codec.js');
 
 const SKILL_ROOT = path.join(__dirname, '..');
 const REFS = path.join(SKILL_ROOT, 'references');
@@ -175,7 +181,33 @@ if (!fs.existsSync(TEMPLATE) || !fs.existsSync(APP)) {
 // ──────────────────────────── build ────────────────────────────
 
 const template = fs.readFileSync(TEMPLATE, 'utf8');
-const appJs = fs.readFileSync(APP, 'utf8');
+const appSource = fs.readFileSync(APP, 'utf8');
+// ─────────────────────── the render tables' mirrors ───────────────────────
+// src/app.js declares TRADITION_SIGNATURES and DESCRIPTOR_DF as generated
+// literals (scripts/build_signatures.js, scripts/build_descriptor_df.js), the
+// copies the embedded build and Node evaluate. The lazy page reads both from
+// api/engine.json instead, into the engine's `let` slots, so the lazy build
+// cuts each declaration from the app code: about 117 KB of the page, gzipped.
+// The cut is not optional: a `const` left beside its `let` slot is a
+// redeclaration, a SyntaxError that would stop the whole app block. Each is
+// matched by the generators' own pattern (APP_TABLES, scripts/_page_tables.js),
+// and must occur exactly once. APP_TABLE_VALUES keeps each literal, evaluated,
+// for --check, which holds it to its references JSON in both builds.
+const APP_TABLE_VALUES = {};
+let appJs = appSource;
+for (const [name, re] of Object.entries(P.APP_TABLES)) {
+  const all = appSource.match(new RegExp(re.source, 'g')) || [];
+  if (all.length !== 1) {
+    const gen = name === 'DESCRIPTOR_DF' ? 'build_descriptor_df' : 'build_signatures';
+    console.error(
+      `build_html: src/app.js must declare ${name} exactly once (run node scripts/${gen}.js); it declares it ${all.length} times`
+    );
+    process.exit(5);
+  }
+  const m = appSource.match(re);
+  APP_TABLE_VALUES[name] = new Function('return ' + m[1])();
+  if (LAZY) appJs = appJs.replace(m[0], () => '');
+}
 const workbenchJs = fs.readFileSync(path.join(SRC, 'workbench.js'), 'utf8');
 const workbenchCss = fs.readFileSync(path.join(SRC, 'workbench.css'), 'utf8');
 // The four pages, in navigation order. Each registers itself with the shell
@@ -363,6 +395,10 @@ for (const f of SOURCE_FILES) {
 // cannot also drop the index.
 let ENGINE_SHA = null;
 let INSTRUMENT_INDEX_JSON = null;
+// The engine codec's region as this page inlines it (scripts/_engine_codec.js):
+// the decode of the two render tables' lines. --check holds its digest to
+// codecSha(), the digest the engine's tables_sha1 folds in.
+let CODEC_INLINED = null;
 // What Engine (src/app.js) fetches: CODEX_LAZY_API + 'engine.json?v=' + the
 // first 12 of CODEX_ENGINE_SHA. The saved session's preload asks for exactly it.
 let ENGINE_URL = null;
@@ -374,6 +410,7 @@ if (LAZY) {
     filename: '02_instruments.js',
   });
   INSTRUMENT_INDEX_JSON = JSON.stringify(P.instrumentIndex(vm.runInContext('INSTRUMENTS', ctx)));
+  CODEC_INLINED = codec.codecRegion();
   const label =
     'instrument engine: slots + first-view instrument index (tables via api/engine.json)';
   openScript(label);
@@ -381,6 +418,8 @@ if (LAZY) {
     squeeze(
       [
         `let ${P.ENGINE_TABLES.join(', ')};`,
+        `// The decode of api/engine.json's two render-table lines — single source: scripts/_engine_codec.js`,
+        CODEC_INLINED,
         `function CODEX_ENGINE_COMMIT(t) { ${P.ENGINE_TABLES.map((n) => `${n} = t.${n};`).join(' ')} }`,
         `const CODEX_ENGINE_SHA = '${ENGINE_SHA}';`,
         `const CODEX_MERGE_SHA = '${P.mergeSha()}';`,
@@ -810,13 +849,17 @@ if (flags.check) {
     );
     process.exit(4);
   }
-  // THE INSTRUMENT ENGINE. The eight engine tables are SPELLED OUT here, not
+  // THE INSTRUMENT ENGINE. The ten engine tables are SPELLED OUT here, not
   // read from scripts/_page_tables.js, so an edit to that list cannot also
   // switch off the check on it. A lazy page declares an empty slot for each
   // (the app fills them from api/engine.json) and carries no table; an
   // embedded page carries every table, each with rows, and none of the lazy
-  // machinery (the index, the commit, the two digests).
+  // machinery (the index, the commit, the two digests, the codec). The two
+  // render tables (RENDER) are declared in src/app.js, not in a references
+  // file: the embedded page carries them in its app code, which needs a DOM
+  // to run, so they are read from the source and found in the block's text.
   {
+    const RENDER = ['TRADITION_SIGNATURES', 'DESCRIPTOR_DF'];
     const ENGINE = [
       'INSTRUMENT_FAMILY_PARTS',
       'INSTRUMENTS',
@@ -826,12 +869,51 @@ if (flags.check) {
       'TUNINGS',
       'INSTRUMENT_AXIS_DEFINITIONS',
       'PREFACE_LEXICON',
+      ...RENDER,
     ];
     const fail = (msg) => {
       console.error('check: FAIL — ' + msg);
       process.exit(4);
     };
+    // Each mirror in src/app.js is its references JSON (the lazy build cut
+    // it, and the embedded build ships it): the signatures in full (the mirror
+    // keeps its empty lists; only api/engine.json drops them), the frequencies
+    // as sorted entries.
+    {
+      const refsJson = (f) => JSON.parse(fs.readFileSync(path.join(REFS, f), 'utf8'));
+      const entries = (o) =>
+        JSON.stringify(
+          Object.keys(o)
+            .sort()
+            .map((k) => [k, o[k]])
+        );
+      const verb = LAZY ? 'cut' : 'shipped';
+      if (
+        JSON.stringify(APP_TABLE_VALUES.TRADITION_SIGNATURES) !==
+        JSON.stringify(refsJson('_tradition_signatures.json'))
+      )
+        fail(
+          `${verb} TRADITION_SIGNATURES ≠ references/_tradition_signatures.json; run node scripts/build_signatures.js`
+        );
+      if (entries(APP_TABLE_VALUES.DESCRIPTOR_DF) !== entries(refsJson('_descriptor_df.json').df))
+        fail(
+          `${verb} DESCRIPTOR_DF ≠ references/_descriptor_df.json; run node scripts/build_descriptor_df.js`
+        );
+      for (const name of RENDER)
+        if (!Object.keys(APP_TABLE_VALUES[name]).length)
+          fail(`src/app.js declares ${name} as an empty table`);
+    }
+    // Where the page declares a render table with a value: anywhere in it (a
+    // runtime block or a data block). The lazy page's slots are one `let` with
+    // no `=`.
+    const renderDeclared = (name) =>
+      (html.match(new RegExp(`\\b(?:const|let|var)\\s+${name}\\s*=`, 'g')) || []).length;
     if (LAZY) {
+      for (const name of RENDER)
+        if (renderDeclared(name))
+          fail(
+            `a block of the lazy page declares ${name} with a value; the lazy build cuts the src/app.js mirror and the page reads it from api/engine.json`
+          );
       for (const name of ENGINE) {
         const slot = probe(
           `(() => { try { return ${name} === undefined; } catch { return 'undeclared'; } })()`
@@ -865,10 +947,58 @@ if (flags.check) {
       for (const name of ENGINE)
         if (vm.runInContext(name, ctx2, { timeout: 5000 }) !== 'sentinel:' + name)
           fail(`CODEX_ENGINE_COMMIT does not fill the engine slot ${name}`);
+      // The codec: the region this page inlines is the one whose digest
+      // tables_sha1 folds in, and, run as the page runs it, it decodes the
+      // render-table lines of api/engine.json (as scripts/_page_tables.js
+      // writes it from references/) to the references tables.
+      if (
+        require('crypto').createHash('sha1').update(CODEC_INLINED).digest('hex') !==
+        codec.codecSha()
+      )
+        fail(
+          'the inlined codec region digest ≠ codecSha() (scripts/_engine_codec.js); the page would decode api/engine.json with code its digest does not name'
+        );
+      {
+        const lines = P.engineText(REFS).split('\n');
+        const els = lines.slice(2, -2).map((l) => JSON.parse(l.replace(/,$/, '')));
+        let decoded;
+        try {
+          decoded = vm.runInContext(
+            `(() => { const els = ${JSON.stringify(els)}; const V = codexVocab(), enc = {}, t = {};
+              for (const [name, value] of els) {
+                if (name === 'DESCRIPTOR_DF' || name === 'TRADITION_SIGNATURES') enc[name] = value;
+                else if (name !== 'MERGE_PLAN') V.walk(value);
+              }
+              const steps = codexDecodeSteps(V, enc, t); while (!steps.next().done);
+              return JSON.stringify([Object.keys(t.DESCRIPTOR_DF).sort().map((k) => [k, t.DESCRIPTOR_DF[k]]), t.TRADITION_SIGNATURES]); })()`,
+            ctx2,
+            { timeout: 20000 }
+          );
+        } catch (e) {
+          fail(`the page's codec does not decode api/engine.json's render tables: ${e.message}`);
+        }
+        const want = P.engineTables(REFS);
+        const wantDf = Object.keys(want.DESCRIPTOR_DF)
+          .sort()
+          .map((k) => [k, want.DESCRIPTOR_DF[k]]);
+        if (decoded !== JSON.stringify([wantDf, want.TRADITION_SIGNATURES]))
+          fail(
+            "the page's codec decodes api/engine.json's render tables to something other than references/ (scripts/_engine_codec.js)"
+          );
+      }
     } else {
+      // The render tables ride in the app code (src/app.js), declared once
+      // each, with the values held to references/ above.
+      for (const name of RENDER)
+        if (renderDeclared(name) !== 1)
+          fail(
+            `the embedded page declares ${name} ${renderDeclared(name)} times; want once, in the src/app.js runtime block`
+          );
+      if (declared('codexDecodeSteps') || /\bfunction codexDecodeSteps\b/.test(html))
+        fail('the embedded page carries the engine codec, a lazy-shell name');
       // Every table, read back with rows: INSTRUMENT_FAMILY_PARTS is the one
       // object (family -> parts), the rest arrays.
-      for (const name of ENGINE) {
+      for (const name of ENGINE.filter((n) => !RENDER.includes(n))) {
         const rows = probe(
           `typeof ${name} === 'undefined' || ${name} === null ? -1 : Array.isArray(${name}) ? ${name}.length : typeof ${name} === 'object' ? Object.keys(${name}).length : -1`
         );

@@ -104,6 +104,11 @@ module.exports = [
         CODEX_ENGINE_COMMIT: 'readonly',
         CODEX_ENGINE_SHA: 'readonly',
         CODEX_MERGE_SHA: 'readonly',
+        // The engine codec the lazy shell inlines beside them
+        // (scripts/_engine_codec.js): the decode of api/engine.json's two
+        // render-table lines.
+        codexVocab: 'readonly',
+        codexDecodeSteps: 'readonly',
         harvestDescriptors: 'readonly',
         _cardDescriptorSet: 'readonly',
       },

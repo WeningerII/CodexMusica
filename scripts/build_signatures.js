@@ -21,6 +21,11 @@
 //     value is untouched, agent behavior (recipes, preface assignments) is
 //     provably unchanged; only the browser's stale inline copy is corrected.
 //
+// THE LAZY PAGE does not carry the app.js block: build_html.js cuts it, and the
+// page reads the table from api/engine.json (scripts/_page_tables.js), which
+// check_api.js and check_signature_tokens.js hold to the JSON. After a change
+// here, run `npm run build:api` and `node scripts/build_html.js`.
+//
 // DEFAULT MODE: regenerate the app.js inline block from the (already-canonical)
 // JSON and verify they match. Exits non-zero on any mismatch so CI/tandem catch
 // drift. Use --reconcile once to drop the orphan keys + regenerate the app block.
@@ -37,6 +42,9 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const JSON_PATH = path.join(ROOT, 'references/_tradition_signatures.json');
 const APP_PATH = path.join(ROOT, 'src/app.js');
+// The app.js block's pattern, shared with build_html.js (which cuts the block
+// from the lazy page) and tandem.js.
+const { APP_TABLES } = require('./_page_tables.js');
 
 const flags = new Set(process.argv.slice(2).map((a) => a.replace(/^--/, '')));
 
@@ -50,7 +58,7 @@ function loadRealTraditionIds() {
 
 function extractAppBlock() {
   const app = fs.readFileSync(APP_PATH, 'utf8');
-  const m = app.match(/const TRADITION_SIGNATURES = (\{[\s\S]*?\n\});/);
+  const m = app.match(APP_TABLES.TRADITION_SIGNATURES);
   if (!m) throw new Error('could not find TRADITION_SIGNATURES in src/app.js');
   return { app, obj: new Function('return ' + m[1])(), raw: m[0], rawValue: m[1] };
 }
@@ -111,6 +119,9 @@ function main() {
     console.log(
       `reconciled: ${Object.keys(merged).length} tradition signatures (JSON now canonical), app.js block regenerated.`
     );
+    console.log(
+      'api/engine.json carries this table for the lazy page; run `npm run build:api` and `node scripts/build_html.js`.'
+    );
     return;
   }
 
@@ -138,6 +149,9 @@ function main() {
   }
   console.log(
     `regenerated src/app.js TRADITION_SIGNATURES from JSON (${Object.keys(sigs).length} traditions).`
+  );
+  console.log(
+    'api/engine.json carries this table for the lazy page; run `npm run build:api` and `node scripts/build_html.js`.'
   );
 }
 

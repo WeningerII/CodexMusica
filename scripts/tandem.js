@@ -399,7 +399,7 @@ check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
     fs.readFileSync(path.join(ROOT, 'references/_tradition_signatures.json'), 'utf8')
   );
   const appSrc = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
-  const m = appSrc.match(/const TRADITION_SIGNATURES = (\{[\s\S]*?\n\});/);
+  const m = appSrc.match(require('./_page_tables.js').APP_TABLES.TRADITION_SIGNATURES);
   if (!m) throw new Error('TRADITION_SIGNATURES not found in src/app.js');
   const inline = new Function('return ' + m[1])();
   if (JSON.stringify(inline) !== JSON.stringify(json)) {
@@ -747,7 +747,7 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   if (!html.includes('const CODEX_LAZY_API')) {
     throw new Error('shipped codex.html missing CODEX_LAZY_API — not the lazy shell');
   }
-  // The instrument engine is out of the page too: its eight tables load from
+  // The instrument engine is out of the page too: its ten tables load from
   // api/engine.json (at the first paint, or from <head> when a saved session
   // needs it) into `let` slots that
   // CODEX_ENGINE_COMMIT fills in one step, and the first view reads names and
@@ -772,6 +772,10 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
     'TUNINGS',
     'INSTRUMENT_AXIS_DEFINITIONS',
     'PREFACE_LEXICON',
+    // The two render tables: src/app.js mirrors them for the embedded build
+    // and Node, and the lazy build cuts the mirrors.
+    'TRADITION_SIGNATURES',
+    'DESCRIPTOR_DF',
   ];
   const carried = engine.filter((n) => new RegExp(`\\b(?:const|let|var) ${n}\\s*=`).test(html));
   if (carried.length) {

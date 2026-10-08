@@ -5494,12 +5494,14 @@ const _drain = (steps) => { let r = steps.next(); while (!r.done) r = steps.next
 // uiAfterPaint), or sooner when an action needs it (ensure), Engine fetches
 // api/engine.json (scripts/_page_tables.js), parses it a line at a time, fills
 // each instrument's index fields back, merges the family parts (with the
-// file's merge plan, which spares it the predicate passes), indexes and sorts,
-// all in idle slices on local objects, then fills every slot in one step: the
-// tables go from absent to whole, never half-filled. Until its bytes are here
-// (fetched), the page's optional downloads wait, so none of them shares the
-// link with it. A saved session asks for the file from <head>
-// (src/engine_preload.js), and this fetch reuses that response.
+// file's merge plan, which spares it the predicate passes), decodes the two
+// render tables (TRADITION_SIGNATURES, DESCRIPTOR_DF: their generated mirrors
+// below are the embedded build's and Node's, and the lazy build cuts them),
+// indexes and sorts, all in idle slices on local objects, then fills every
+// slot in one step: the tables go from absent to whole, never half-filled.
+// Until its bytes are here (fetched), the page's optional downloads wait, so
+// none of them shares the link with it. A saved session asks for the file from
+// <head> (src/engine_preload.js), and this fetch reuses that response.
 //
 // Until then nothing acts on partial data. Inst, Room, Tuning, ChainItem and
 // Variant throw EngineNotReadyError rather than answer "unknown" (Engine.miss,
@@ -5583,18 +5585,32 @@ const Engine = (() => {
         state = 'preparing';
         await sliced((function* () {
           let closed = false;
+          // The two render tables come encoded (scripts/_engine_codec.js): the
+          // descriptor frequencies as counts against the words of the other
+          // lines, so each other line's words are collected as it is parsed,
+          // as written (before the index fields are filled back or the family
+          // parts merged), and both are decoded once the file is whole.
+          const V = codexVocab(), enc = {};
           for (let i = 2; i < lines.length; i++) {
             if (lines[i] === ']') { closed = true; break; }
             const [name, value] = el(i);
-            if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
-            else if (name === 'MERGE_PLAN') plan = value;
-            else t[name] = value;
+            if (name === 'DESCRIPTOR_DF' || name === 'TRADITION_SIGNATURES') { enc[name] = value; t[name] = null; }
+            else {
+              if (name !== 'MERGE_PLAN') V.walk(value);
+              if (name === 'INSTRUMENTS') for (const x of value) t.INSTRUMENTS.push(x);
+              else if (name === 'MERGE_PLAN') plan = value;
+              else t[name] = value;
+            }
             yield;
           }
           // A file cut short at a line boundary still parses; it must not be
           // committed with tables missing. A load failure, so it can be retried.
           if (!closed || (head.tables || []).some((n) => !(n in t)))
             throw new Error('instrument data arrived incomplete');
+          // The file's digest folds in the codec's (tables_sha1 matched this
+          // page's above), so lines that do not decode were not written by
+          // this page's codec: another deploy's file, refused as stale.
+          try { yield* codexDecodeSteps(V, enc, t); } catch { throw stale(); }
           // Each instrument's id, name, family and short come as 0: this page
           // has them in INSTRUMENT_INDEX, in the same order, and fills them back
           // before anything reads them (scripts/_page_tables.js, INDEX_FIELDS).

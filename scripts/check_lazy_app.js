@@ -105,8 +105,8 @@
 //   • E5 — a search on the Instrument page while it loads stays pending with
 //     no count; once released the list is the embedded build's, with the
 //     search box still focused.
-//   • E6 — the direct reads of the eight engine tables in the page's code
-//     (src/, and the two regions the build inlines from scripts/; identifier
+//   • E6 — the direct reads of the ten engine tables in the page's code
+//     (src/, and the three regions the build inlines from scripts/; identifier
 //     references, from the AST) are counted per file, per table and per
 //     enclosing function, and must match ENGINE_READERS below: a new reader
 //     has to be reviewed (it must run only once the instrument data has
@@ -172,6 +172,12 @@
 //   • F4e, another deploy's index (one instrument fewer than
 //     INSTRUMENT_INDEX, an index field not 0, other index_fields) → refused
 //     as stale; every slot empty.
+//   • F4g, the render tables' codec: a file written by another codec (its
+//     header's codec_sha1 another digest, its tables_sha1 recomputed with
+//     it), and a signature line that does not decode (one list fewer than
+//     ids) under the page's own header → refused as stale; every slot empty.
+//     F4d also serves the file without each of the two encoded lines: a load
+//     failure, not stale.
 //
 // USAGE
 //   node scripts/check_lazy_app.js                  # every section (npm run test:lazy, CI)
@@ -233,8 +239,10 @@ const SCENARIOS = {
   'instrument-route': { route: 'instrument' },
 };
 
-// The eight engine tables, spelled out here rather than read from
+// The ten engine tables, spelled out here rather than read from
 // scripts/_page_tables.js, so dropping a name there cannot drop it here too.
+// The last two are the render tables; src/app.js mirrors them for the embedded
+// build, and the lazy build cuts the mirrors.
 const ENGINE_TABLES = [
   'INSTRUMENT_FAMILY_PARTS',
   'INSTRUMENTS',
@@ -244,6 +252,8 @@ const ENGINE_TABLES = [
   'TUNINGS',
   'INSTRUMENT_AXIS_DEFINITIONS',
   'PREFACE_LEXICON',
+  'TRADITION_SIGNATURES',
+  'DESCRIPTOR_DF',
 ];
 // E6: the direct reads of the engine tables in the page's code (src/, and the
 // regions inlined from scripts/), per file, per table, per enclosing function
@@ -303,6 +313,16 @@ const ENGINE_READERS = {
       tradInstrumentCentroid: 1,
       centroidDistance: 1,
       buildSongFingerprint: 3,
+    },
+    // Each "(top level)" read is the generated mirror's own declaration, which
+    // the lazy build cuts (the embedded build and Node evaluate it).
+    TRADITION_SIGNATURES: {
+      '(top level)': 1,
+      _traditionSignatureFor: 1,
+    },
+    DESCRIPTOR_DF: {
+      '(top level)': 1,
+      _ensureDescriptorDF: 1,
     },
   },
   'src/pages/instrument.js': {
@@ -787,9 +807,61 @@ const CAPTURE_PROBE = `
     parts: c.parts || null, chain: c.chain || null,
   }));
   out.recipe = compressRichRecipe(app.cards, 1000);
+  // Each of the first three genres' cards, in every format: the render reads
+  // both render tables (the signatures through the preface dedup, the
+  // frequencies through every descriptor sort).
+  out.formats = {};
+  for (const id of sample.slice(0, 3)) {
+    const cards = app.cards.filter((c) => c.traditionId === id);
+    for (const f of ['rich', 'tags', 'prose', 'compact']) out.formats[id + ' ' + f] = compileRecipeStack(cards, f);
+  }
   return out;
 `;
 
+// The fingerprint's descriptor sort: 40 tokens, most of them in DESCRIPTOR_DF
+// (in the engine's own words, and outside them) and some not, in no order.
+const SORT_TOKENS = [
+  'warm',
+  'bright',
+  'dark',
+  'airy',
+  'gritty',
+  'lush',
+  'dry',
+  'wet',
+  'punchy',
+  'mellow',
+  'brassy',
+  'reedy',
+  'breathy',
+  'nasal',
+  'metallic',
+  'woody',
+  'glassy',
+  'buzzy',
+  'hollow',
+  'thick',
+  'thin',
+  'round',
+  'crisp',
+  'muffled',
+  'resonant',
+  'percussive',
+  'sustained',
+  'plucked',
+  'bowed',
+  'struck',
+  'tape-saturated',
+  'spring-reverb',
+  'room-ambience',
+  'close-miked',
+  'hall',
+  'zz-not-a-descriptor',
+  'qq-absent-token',
+  'unheard-of-timbre',
+  'xx-missing',
+  'nonexistent-word',
+];
 // FNV-1a over a string, in the page: a fingerprint without shipping the text.
 const FNV = `const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619) >>> 0; return h; };`;
 
@@ -802,6 +874,7 @@ const FNV = `const fnv = (s) => { let h = 2166136261; for (let i = 0; i < s.leng
 // what the merge collects; a file that differs from references/ changes JSON.
 const ENGINE_FINGERPRINT = `
   ${FNV}
+  const byKey = ([a], [b]) => (a < b ? -1 : a > b ? 1 : 0);
   const seen = new Map(), distinct = [];
   const vid = (v) => { if (!seen.has(v)) { seen.set(v, distinct.length); distinct.push(v); } return seen.get(v); };
   const instruments = INSTRUMENTS.map((inst) => {
@@ -816,6 +889,13 @@ const ENGINE_FINGERPRINT = `
     instruments,
     variants: distinct,
     INSTRUMENT_FAMILY_PARTS, ROOMS, ROOM_CLUSTERS, CHAIN_SECTIONS, TUNINGS, INSTRUMENT_AXIS_DEFINITIONS, PREFACE_LEXICON,
+    // The render tables, as sorted entries (the signatures without their empty
+    // lists, which the lazy page's copy drops and the one reader answers [] for
+    // anyway), and a sort through the frequencies, over tokens it holds and
+    // tokens it does not.
+    DESCRIPTOR_DF: Object.entries(DESCRIPTOR_DF).sort(byKey),
+    TRADITION_SIGNATURES: Object.entries(TRADITION_SIGNATURES).filter(([, v]) => v.length > 0).sort(byKey),
+    sorted: _sortDescriptorsByPriority(${JSON.stringify(SORT_TOKENS)}),
     counts: [INSTRUMENTS.length, distinct.length],
   };
   const hashes = {};
@@ -932,6 +1012,17 @@ async function parity(embedHtml, lazyHtml) {
       fail('compressRichRecipe drift — the pasteable recipe differs between builds');
     } else {
       note(`recipe: ${String(embed.recipe).length} chars, identical`);
+    }
+    {
+      const keys = Object.keys(embed.formats);
+      const off = keys.filter((k) => embed.formats[k] !== lazy.formats[k]);
+      if (keys.length !== 12 || keys.some((k) => !embed.formats[k]))
+        fail(
+          `compileRecipeStack: the embedded build rendered ${keys.length} of 12 genre/format recipes, or an empty one — vacuous`
+        );
+      else if (off.length)
+        fail(`compileRecipeStack drift — the recipe differs between builds for ${off.join(', ')}`);
+      else note('compileRecipeStack: 3 genres in rich, tags, prose and compact, identical');
     }
 
     // Fetch discipline — 1 boot index, then 1 prose file, never the published
@@ -2750,10 +2841,12 @@ async function engineSweep(lazyHtml) {
 // E6. The direct reads of the engine tables in the page's code, from the AST:
 // an identifier that is not a property name or an object key, counted by the
 // function it is read in: { file: { table: { function: reads } } }. The code
-// is src/*.js and src/pages/*.js, and the two regions build_html.js inlines
+// is src/*.js and src/pages/*.js, and the three regions build_html.js inlines
 // from scripts/ (between their @inline markers, cut as the build cuts them),
-// counted as "scripts/_merge.js@inline" and "scripts/_card_descriptors.js@inline".
-const INLINED = ['scripts/_merge.js', 'scripts/_card_descriptors.js'];
+// counted as "scripts/_merge.js@inline", "scripts/_card_descriptors.js@inline"
+// and "scripts/_engine_codec.js@inline" (which writes the two render tables'
+// slots by property, so reads none by name).
+const INLINED = ['scripts/_merge.js', 'scripts/_card_descriptors.js', 'scripts/_engine_codec.js'];
 const INLINE_REGION = /\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//;
 function engineReaders() {
   const espree = require(
@@ -3049,7 +3142,7 @@ async function failure(lazyHtml) {
   }
   dyingDom.window.close();
 
-  // F4a–F4f, each in its own boot, three at a time.
+  // F4a–F4g, each in its own boot, three at a time.
   await pool(
     [
       () => engineUnreachable(lazyHtml),
@@ -3069,6 +3162,7 @@ async function failure(lazyHtml) {
         }),
       () => engineRefused(lazyHtml, 'F4d'),
       () => engineRefused(lazyHtml, 'F4e'),
+      () => engineRefused(lazyHtml, 'F4g'),
       () =>
         engineBootError(lazyHtml, {
           tag: 'a saved session written after the boot looked (F4f)',
@@ -3498,20 +3592,21 @@ async function engineStale(lazyHtml) {
   }
 }
 
-// F4d and F4e: files the page must refuse whole, served to one page in turn
+// F4d, F4e and F4g: files the page must refuse whole, served to one page in turn
 // (the shim serves the variant in force at each request; the first is the
 // paint's own request). Each must leave the engine failed — stale or not, as
 // listed — with every slot empty. F4d's are load failures, so a retry can
-// succeed (not stale): three cut short — the tail from the last table the
+// succeed (not stale): five cut short — the tail from the last table the
 // header names, on a line boundary and with no newline after, which a parser
 // reading up to the closing line accepted with that table missing; the
-// closing line alone; a table's line alone — and two that are not the file at
-// all, answered 200: a captive portal's sign-in page (or a host's fallback
-// page for a missing file), and an empty body. On the first and the sign-in
-// page, an Add says the connection failed, with Retry. F4e's are another
-// deploy's index (stale): one instrument fewer than INSTRUMENT_INDEX, an index
-// field (written as 0, filled from INSTRUMENT_INDEX) carrying a value, and the
-// header's index_fields.
+// closing line; a table's line; each encoded render table's line — and two
+// that are not the file at all, answered 200: a captive portal's sign-in page
+// (or a host's fallback page for a missing file), and an empty body. On the
+// first and the sign-in page, an Add says the connection failed, with Retry.
+// F4e's are another deploy's index (stale): one instrument fewer than
+// INSTRUMENT_INDEX, an index field (written as 0, filled from
+// INSTRUMENT_INDEX) carrying a value, and the header's index_fields. F4g's are
+// the render tables' codec (stale; see there).
 const engineLines = (t) => t.split('\n');
 const lineOf = (lines, name) => lines.findIndex((l) => l.startsWith(`[${JSON.stringify(name)},`));
 const ENGINE_REFUSED = {
@@ -3543,6 +3638,17 @@ const ENGINE_REFUSED = {
       },
       false,
     ],
+    // Each encoded render table's line (scripts/_engine_codec.js) lost: the
+    // header names a table the file does not carry.
+    ...['DESCRIPTOR_DF', 'TRADITION_SIGNATURES'].map((name) => [
+      `its ${name} line lost`,
+      (t) => {
+        const lines = engineLines(t);
+        lines.splice(lineOf(lines, name), 1);
+        return lines.join('\n');
+      },
+      false,
+    ]),
     [
       'a sign-in page in its place',
       () =>
@@ -3582,6 +3688,40 @@ const ENGINE_REFUSED = {
           '"index_fields":["id","name","family","short"]',
           '"index_fields":["id","name","family"]'
         ),
+      true,
+    ],
+  ],
+  // The render tables' codec. The engine digest folds in the codec's, so a
+  // file another codec wrote names another tables_sha1, refused before a line
+  // is read; and lines that do not decode under the page's own header were
+  // not written by this page's codec either. Both stale, and nothing decoded
+  // or committed.
+  F4g: [
+    [
+      'written by another codec',
+      (t) => {
+        const other = '1'.repeat(40);
+        const P = require('./_page_tables.js');
+        const sha = require('crypto')
+          .createHash('sha1')
+          .update(JSON.stringify(P.engineTables(path.join(ROOT, 'references'))) + '\n' + other)
+          .digest('hex');
+        return t
+          .replace(/"codec_sha1":"[0-9a-f]{40}"/, `"codec_sha1":"${other}"`)
+          .replace(/"tables_sha1":"[0-9a-f]{40}"/, `"tables_sha1":"${sha}"`);
+      },
+      true,
+    ],
+    [
+      'a signature list lost',
+      (t) => {
+        const lines = engineLines(t);
+        const k = lineOf(lines, 'TRADITION_SIGNATURES');
+        const [name, value] = JSON.parse(lines[k].replace(/,$/, ''));
+        value.l = value.l.slice(0, value.l.lastIndexOf(' '));
+        lines[k] = JSON.stringify([name, value]) + ',';
+        return lines.join('\n');
+      },
       true,
     ],
   ],
@@ -3712,7 +3852,7 @@ async function engineRefused(lazyHtml, id) {
   if (ONLY.includes('failure')) {
     await failure(lazyHtml);
     ran.push(
-      'honest failure states (F1 the boot error shown, an early failure handled; F4a–F4f: the instrument data unreachable, each failed wait with Retry and no retry on a timer; the saved-session boot error shown, in its own words for each of three causes; a stale file offering Reload; a file cut short, not the file at all or with another index refused whole)'
+      'honest failure states (F1 the boot error shown, an early failure handled; F4a–F4g: the instrument data unreachable, each failed wait with Retry and no retry on a timer; the saved-session boot error shown, in its own words for each of three causes; a stale file offering Reload; a file cut short, not the file at all, with another index or another codec, or whose render tables do not decode, refused whole)'
     );
   }
 
