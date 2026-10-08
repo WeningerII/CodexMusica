@@ -147,6 +147,21 @@ function stripTable(name, value) {
   return value;
 }
 
+// The signature table's page copy holds only the non-empty lists. Its one
+// reader in the page, _traditionSignatureFor, answers
+// `(tradId && TRADITION_SIGNATURES[tradId]) || []`, which is [] for a missing
+// id and for an empty list alike, so dropping the 1,183 empty lists changes no
+// answer and spares api/engine.json about 6 KB gzipped. This is the one
+// definition of that rule: the codec (scripts/_engine_codec.js) refuses an
+// empty list, and the gates compare the decoded table with this, never with a
+// filter of their own (check_api.js recomputes it inline on purpose, to catch
+// a rule that drops too much).
+const nonEmptySignatures = (sigs) => {
+  const out = {};
+  for (const [id, list] of Object.entries(sigs)) if (list.length) out[id] = list;
+  return out;
+};
+
 const ENGINE_TABLES = [
   'INSTRUMENT_FAMILY_PARTS',
   'INSTRUMENTS',
@@ -379,6 +394,7 @@ module.exports = {
   tableElements,
   assertJsonSafe,
   stripTable,
+  nonEmptySignatures,
   ENGINE_TABLES,
   ENGINE_FILES,
   ENGINE_SOURCES,
