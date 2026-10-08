@@ -1,5 +1,5 @@
 /* exported renderGenreDiscovery */
-/* global $ui, Catalog, Inst, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile */
+/* global $ui, Catalog, Engine, InstLite, STARTER_TRADITIONS, Tradition, UI, UILayout, _determinePrimaryCard, app, axisLabel, esc, findSimilar, getMatchingAxes, getRoots, getTreeNode, icon, image, listenLink, normalizeSearch, renderTradPicker, showToast, tradParent, traditionGlyphsHTML, uiAddInstrument, uiAfterPaint, uiButton, uiCount, uiEmptyState, uiFind, uiFocus, uiNavigate, uiRecipeGenres, uiRegisterPage, uiRowsHTML, uiRowsJumpHTML, uiRowsKeep, uiRowsRestore, uiTabIndex, uiTile, uiTilesPhotos */
 /* Genre page. Owned by the Genre page worker; see docs/ui-foundation.md.
    Shared state, recipe commands (genre-add, instrument-add), navigation and
    theming belong to the shell in src/workbench.js and src/theme.css.
@@ -34,7 +34,9 @@ const G = {
   members: null, // taxonomy membership, computed once from the catalog
   sorted: null, // the catalog sorted by name, computed once
   geo: null, // data/atlas-geo.json coords, when it can be read
-  images: null, // references/_image_manifest.json, when it exists
+  images: null, // the tradition photos, when they can be read
+  optionalScheduled: false, // gpLoadOptional is queued for after the first paint
+  namesOnly: false, // the list on screen is a search over names only (prose still to come)
 };
 const GP_FEATURED_AXES = ['soundTech', 'density', 'voice'];
 const GP_ROOTS_SHOWN = 10;
@@ -92,7 +94,7 @@ function gpSorted() {
   if (G.sorted && G.sorted.length === gpCatalogSize()) return G.sorted;
   G.sorted = Catalog.all()
     .slice()
-    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
+    .sort((a, b) => gpByName(a.name, b.name));
   return G.sorted;
 }
 // The classification path of a tradition: root … parent, as tree nodes.
@@ -115,6 +117,37 @@ function gpLede(id, max = 170) {
   const first = text.match(/^.+?[.!?](?=\s|$)/)?.[0] || text;
   if (first.length <= max) return first;
   return first.slice(0, first.lastIndexOf(' ', max - 1)).replace(/[,;:(]$/, '') + '…';
+}
+// api/browse_boot.json carries the starter genres' prose. The rest arrives in
+// api/browse_prose.json after the first paint. Until then a prose slot is
+// pending (loading, or why not, never "the catalog has none"), and its arrival
+// fills each slot IN PLACE with what a fresh render draws. Nothing else is
+// rebuilt (uiTilesPhotos says why), except a search drawn over names only,
+// which redraws once, as a keystroke would. The embedded build has every
+// genre's prose from the start and never draws a pending slot.
+function gpProseRetry() {
+  return uiButton('genre-prose-retry', 'Retry', 'refresh-cw', 'class="cm-btn gp-linkbtn"');
+}
+function gpPendingNote(id, what, retry) {
+  return Catalog.proseState(id) === 'failed'
+    ? `<p class="gp-note">Couldn’t load ${what}.${retry ? ' ' + gpProseRetry() : ''}</p>`
+    : `<p class="gp-note" role="status">Loading ${what}…</p>`;
+}
+function gpLedeHTML(id) {
+  const st = Catalog.proseState(id);
+  if (st === 'here') {
+    const l = gpLede(id, 260);
+    return l ? `<p class="gp-lede">${esc(l)}</p>` : '';
+  }
+  return st === 'failed'
+    ? `<p class="gp-lede" data-prose-pending="lede">Couldn’t load the description. ${gpProseRetry()}</p>`
+    : `<p class="gp-lede" data-prose-pending="lede" role="status">Loading the description…</p>`;
+}
+function gpRowDescHTML(id) {
+  if (Catalog.proseState(id) !== 'here')
+    return '<span class="gp-row-desc" data-prose-pending="row" aria-hidden="true"></span>';
+  const l = gpLede(id);
+  return l ? `<span class="gp-row-desc">${esc(l)}</span>` : '';
 }
 function gpRecipeCount(id) {
   return app.cards.filter((c) => c.traditionId === id).length;
@@ -150,30 +183,42 @@ function gpLoadOptional() {
       .catch(() => {});
   }
   if (G.images === null) {
-    // PR #389's manifest. Absent (404) or unreadable, the glyphs stay: one
-    // request per page load, and no error is raised for a missing file.
+    // The tradition rows of PR #389's manifest, as scripts/_image_tables.js
+    // derives them (288 KB gzip rather than the whole 640 KB manifest). Absent
+    // (404) or unreadable, the glyphs stay: one request per page load, and no
+    // error is raised for a missing file.
     G.images = false;
-    get('references/_image_manifest.json')
+    get('api/tradition_images.json')
       .then((m) => {
         const images = gpIndexImages(m);
         if (!images) return;
         G.images = images;
-        if (UI.view === 'genre') renderGenreDiscovery();
+        gpApplyPhotos();
       })
       .catch(() => {});
   }
 }
-// { images: [{ id, kind, thumb_url, credit, license, license_raw, source_page }] }
-// → the tradition entries by id, or null when there are none.
+// { traditions: { id: [thumb, licence, credit, sourcePage, full?] } }
+// (api/tradition_images.json, scripts/_image_tables.js) → the entries gpImage
+// reads, by id, or null when there are none. `full` is 1 when the full image
+// is the thumb itself, and absent when the manifest had none.
 function gpIndexImages(m) {
-  if (!m || !Array.isArray(m.images)) return null;
+  const rows = m && m.traditions;
+  if (!rows || typeof rows !== 'object') return null;
   const out = Object.create(null);
   let n = 0;
-  for (const e of m.images)
-    if (e && e.kind === 'tradition' && typeof e.id === 'string' && Tradition(e.id)) {
-      out[e.id] = e;
-      n++;
-    }
+  for (const id of Object.keys(rows)) {
+    const r = rows[id];
+    if (!Array.isArray(r) || !Tradition(id)) continue;
+    out[id] = {
+      thumb_url: r[0],
+      license_raw: r[1],
+      credit: r[2],
+      source_page: r[3],
+      image_url: r.length > 4 ? (r[4] === 1 ? r[0] : r[4]) : undefined,
+    };
+    n++;
+  }
   return n ? out : null;
 }
 function gpPlace(id) {
@@ -286,7 +331,7 @@ function gpResults() {
       })
       .filter((r) => r.within);
   }
-  const byName = (a, b) => a.t.name.localeCompare(b.t.name, 'en', { sensitivity: 'base' });
+  const byName = (a, b) => gpByName(a.t.name, b.t.name);
   rows.sort((a, b) => (targets.length ? a.dist - b.dist : 0) || a.rank - b.rank || byName(a, b));
   return rows;
 }
@@ -296,9 +341,8 @@ function gpRow(t, extra = '') {
   const id = t.id,
     n = gpRecipeCount(id),
     m = gpMedia(id, 30),
-    branch = gpPath(id).slice(-1)[0]?.name || '',
-    lede = gpLede(id);
-  return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}">${m.html}<button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details"><span class="gp-row-text"><span class="gp-row-name" title="${esc(t.name)}">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${lede ? `<span class="gp-row-desc">${esc(lede)}</span>` : ''}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
+    branch = gpPath(id).slice(-1)[0]?.name || '';
+  return `<div class="catalog-row gp-row" data-gp-id="${esc(id)}">${m.html}<button type="button" class="catalog-name gp-open" data-ui="genre-select" data-id="${esc(id)}" aria-expanded="false" aria-label="${esc(t.name)} — show details"><span class="gp-row-text"><span class="gp-row-name" title="${esc(t.name)}">${esc(t.name)}</span><span class="gp-row-meta">${esc(branch)}${n ? `<span class="gp-in-recipe">${icon('check', 12)}In recipe</span>` : ''}</span>${gpRowDescHTML(id)}${extra}${gpCreditText(m)}</span></button>${listenLink(t.name)}${uiButton('genre-add', n ? 'Add again' : 'Add to recipe', 'plus', `data-id="${esc(id)}" aria-label="Add ${esc(t.name)}"`)}<span class="gp-chevron" aria-hidden="true">${icon('chevron-right', 20)}</span></div>`;
 }
 // Why a row is in a sound-target result: how close it is on the targets.
 function gpTargetText(r) {
@@ -315,15 +359,19 @@ function gpTargetReason(r) {
 function gpLayout() {
   return G.view?.get() === 'list' ? 'list' : 'rows';
 }
+// A Rows card's photo, as uiTile takes it.
+function gpTilePhoto(id) {
+  const img = gpImage(id);
+  return img && { src: img.src, credit: img.credit, href: img.href };
+}
 // A card in Rows: the photo (or glyphs), the name and its branch (or `sub`).
 function gpTile(t, sub) {
-  const img = gpImage(t.id);
   return uiTile({
     kind: 'genre',
     id: t.id,
     name: t.name,
     sub: sub ?? (gpPath(t.id).slice(-1)[0]?.name || ''),
-    photo: img && { src: img.src, credit: img.credit, href: img.href },
+    photo: gpTilePhoto(t.id),
     glyph: (id) => traditionGlyphsHTML(id, 56),
     open: 'genre-select',
     add: 'genre-add',
@@ -397,7 +445,7 @@ function gpDetail(id) {
     : `Adds its ${insts.length}-instrument ensemble`;
   const panel = (key, html) =>
     `<div class="gp-panel" role="tabpanel" id="gp-panel-${key}" aria-labelledby="gp-tab-${key}"${key === tab ? '' : ' hidden'}>${html}</div>`;
-  return `<article class="gp-detail" id="genre-detail" data-gp-id="${esc(id)}" aria-labelledby="gp-detail-title"><div class="gp-detail-head">${m.html}<div class="gp-detail-id"><h2 id="gp-detail-title" tabindex="-1">${esc(t.name)}</h2>${place ? `<div class="gp-detail-place">${icon('map-pin', 14)}<span>${esc(place)}</span></div>` : ''}${crumbs ? `<nav class="gp-crumbs" aria-label="Classification of ${esc(t.name)}">${crumbs}</nav>` : ''}${gpCredit(m)}</div><div class="gp-detail-actions">${listenLink(t.name)}${add}${uiButton('genre-close', 'Close', 'x', `class="cm-btn cm-btn-icon gp-close" aria-label="Close ${esc(t.name)} details" data-tooltip="Close details (Esc)"`)}</div><p class="gp-detail-count">${summary}</p>${gpLede(id, 260) ? `<p class="gp-lede">${esc(gpLede(id, 260))}</p>` : ''}</div><div class="gp-tabs" role="tablist" aria-label="${esc(t.name)} details">${GP_TABS.map(
+  return `<article class="gp-detail" id="genre-detail" data-gp-id="${esc(id)}" aria-labelledby="gp-detail-title"><div class="gp-detail-head">${m.html}<div class="gp-detail-id"><h2 id="gp-detail-title" tabindex="-1">${esc(t.name)}</h2>${place ? `<div class="gp-detail-place">${icon('map-pin', 14)}<span>${esc(place)}</span></div>` : ''}${crumbs ? `<nav class="gp-crumbs" aria-label="Classification of ${esc(t.name)}">${crumbs}</nav>` : ''}${gpCredit(m)}</div><div class="gp-detail-actions">${listenLink(t.name)}${add}${uiButton('genre-close', 'Close', 'x', `class="cm-btn cm-btn-icon gp-close" aria-label="Close ${esc(t.name)} details" data-tooltip="Close details (Esc)"`)}</div><p class="gp-detail-count">${summary}</p>${gpLedeHTML(id)}</div><div class="gp-tabs" role="tablist" aria-label="${esc(t.name)} details">${GP_TABS.map(
     ([k, label]) =>
       `<button type="button" role="tab" class="cm-tab" id="gp-tab-${k}" data-ui="genre-tab" data-id="${k}" aria-controls="gp-panel-${k}" aria-selected="${k === tab}" tabindex="${k === tab ? 0 : -1}">${esc(label)}${k === 'instruments' ? `<span class="gp-tab-count">${insts.length}</span>` : ''}</button>`
   ).join(
@@ -410,7 +458,7 @@ function gpOverview(id, t, ext) {
   const words = gpSoundWords(id);
   const cross = (ext.crossRefs || []).filter((x) => getTreeNode(x));
   return `<div class="gp-overview"><section><h3>Ensemble</h3><ul class="gp-ensemble">${shown
-    .map((i) => `<li>${image(i, 28)}<span>${esc(Inst(i)?.name || i)}</span></li>`)
+    .map((i) => `<li>${image(i, 28)}<span>${esc(InstLite(i)?.name || i)}</span></li>`)
     .join(
       ''
     )}${insts.length > shown.length ? `<li class="gp-more">+${insts.length - shown.length} more</li>` : ''}</ul>${uiButton('genre-tab', 'Inspect instruments', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="instruments"`)}</section><section><h3>Sound</h3>${words.length ? `<ul class="gp-words">${words.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>` : '<p class="gp-note">The catalog places this genre in the middle of every characteristic.</p>'}${uiButton('genre-tab', 'Sound profile', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="sound"`)}${cross.length ? `<p class="gp-also"><span>Also listed under:</span> ${cross.map((x) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(x)}">${esc(getTreeNode(x).name)}</button>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}${uiButton('genre-tab', 'Recordings & references', 'arrow-right', `class="cm-btn gp-linkbtn" data-id="background"`)}</section></div><div class="gp-detail-foot">${uiButton('genre-tab', 'Find similar sounds', 'search', `class="cm-btn gp-linkbtn" data-id="similar"`)}${uiButton('genre-map', 'View on map', 'map-pin', `class="cm-btn gp-linkbtn" data-id="${esc(id)}"`)}</div>`;
@@ -434,7 +482,7 @@ function gpInstruments(id, t) {
     `<option value="${esc(value)}"${value === dest ? ' selected' : ''}>${esc(label)}</option>`;
   return `<div class="gp-dest"><label for="gp-inst-dest">Add single instruments to</label><select id="gp-inst-dest" class="cm-select" data-genre="${esc(id)}">${opt(id, `${t.name} — set up as ${t.name} plays it`)}${others.map((g) => opt(g, `${Tradition(g)?.name || g} — set up as that genre plays it`)).join('')}${opt('', 'Independent instrument — default settings')}</select><span class="gp-note" id="gp-inst-dest-note">${dest ? `Joins the ${esc(Tradition(dest)?.name || dest)} group in Your recipe${gpRecipeCount(dest) ? '' : ' (the group is created)'}.` : 'Added on its own, outside any genre group.'}</span></div><ul class="gp-roster">${insts
     .map((i) => {
-      const name = Inst(i)?.name || i;
+      const name = InstLite(i)?.name || i;
       return `<li class="gp-roster-row">${image(i, 30)}<button type="button" class="gp-link gp-roster-name" data-ui="instrument-inspect" data-id="${esc(i)}" aria-label="Inspect ${esc(name)} on the Instrument page">${esc(name)}</button>${listenLink(name, true)}${uiButton('genre-inst-add', 'Add', 'plus', `class="cm-btn cm-btn-tonal" data-id="${esc(i)}" data-genre="${esc(id)}" aria-label="Add ${esc(name)} to the chosen destination"`)}</li>`;
     })
     .join(
@@ -460,8 +508,59 @@ function gpSimilar(id) {
 function gpBackground(id, t, ext) {
   const path = gpPath(id);
   const cross = (ext.crossRefs || []).filter((x) => getTreeNode(x));
+  return `${gpBgAboutHTML(id, t, ext)}<section><h3>Classification</h3><p class="gp-note">Where the catalog files this genre by musical practice. Classification is not a claim of historical descent.</p>${path.length ? `<p class="gp-crumbs">${path.map((node) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(node.id)}">${esc(node.name)}</button>`).join(`<span class="gp-sep" aria-hidden="true">${icon('chevron-right', 12)}</span>`)}</p>` : ''}${cross.length ? `<p class="gp-also"><span>Also listed under:</span> ${cross.map((x) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(x)}">${esc(getTreeNode(x).name)}</button>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}</section>${gpBgRecordingsHTML(id, ext)}`;
+}
+// The Background tab's prose sections: About (with Lineage), and Recordings &
+// references. The catalog status comes from the boot index, so it shows while
+// the prose is pending.
+function gpBgAboutHTML(id, t, ext) {
+  return Catalog.proseState(id) === 'here'
+    ? `<section><h3>About</h3><p class="gp-prose">${esc(ext.description || 'The catalog has no description for this genre.')}</p></section>${t.lineage ? `<section><h3>Lineage</h3><p class="gp-prose">${esc(t.lineage)}</p></section>` : ''}`
+    : `<section data-prose-pending="about"><h3>About</h3>${gpPendingNote(id, 'this genre’s description and lineage', true)}</section>`;
+}
+function gpBgRecordingsHTML(id, ext) {
+  const status = ext.status ? `<p class="gp-note">Catalog status: ${esc(ext.status)}.</p>` : '';
+  if (Catalog.proseState(id) !== 'here')
+    return `<section data-prose-pending="recordings"><h3>Recordings &amp; references</h3>${gpPendingNote(id, 'the exemplar artists', false)}${status}</section>`;
   const exemplars = (ext.exemplars || []).filter((x) => typeof x === 'string' && x.trim());
-  return `<section><h3>About</h3><p class="gp-prose">${esc(ext.description || 'The catalog has no description for this genre.')}</p></section>${t.lineage ? `<section><h3>Lineage</h3><p class="gp-prose">${esc(t.lineage)}</p></section>` : ''}<section><h3>Classification</h3><p class="gp-note">Where the catalog files this genre by musical practice. Classification is not a claim of historical descent.</p>${path.length ? `<p class="gp-crumbs">${path.map((node) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(node.id)}">${esc(node.name)}</button>`).join(`<span class="gp-sep" aria-hidden="true">${icon('chevron-right', 12)}</span>`)}</p>` : ''}${cross.length ? `<p class="gp-also"><span>Also listed under:</span> ${cross.map((x) => `<button type="button" class="gp-link" data-ui="genre-branch" data-id="${esc(x)}">${esc(getTreeNode(x).name)}</button>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}</section><section><h3>Recordings &amp; references</h3>${exemplars.length ? `<p class="gp-note">Artists the catalog names as exemplars. Listen opens a YouTube search; the catalog does not cite individual recordings.</p><ul class="gp-exemplars">${exemplars.map((x) => `<li><span>${esc(x)}</span>${listenLink(x)}</li>`).join('')}</ul>` : '<p class="gp-note">The catalog names no exemplar artists for this genre. Listen opens a YouTube search for the genre itself.</p>'}${ext.status ? `<p class="gp-note">Catalog status: ${esc(ext.status)}.</p>` : ''}</section>`;
+  return `<section><h3>Recordings &amp; references</h3>${exemplars.length ? `<p class="gp-note">Artists the catalog names as exemplars. Listen opens a YouTube search; the catalog does not cite individual recordings.</p><ul class="gp-exemplars">${exemplars.map((x) => `<li><span>${esc(x)}</span>${listenLink(x)}</li>`).join('')}</ul>` : '<p class="gp-note">The catalog names no exemplar artists for this genre. Listen opens a YouTube search for the genre itself.</p>'}${status}</section>`;
+}
+// The photos arrived after the page was drawn: they go into the cards, rows and
+// open detail already on it, and nothing else is rebuilt (uiTilesPhotos says
+// why). Whatever is drawn later reads gpImage itself. The Browse column shows
+// no photos.
+function gpApplyPhotos() {
+  uiTilesPhotos($ui('genre-list'), 'genre', gpTilePhoto);
+  for (const glyph of document.querySelectorAll(
+    '#genre-list .gp-row > .gp-media-glyph, #genre-detail .gp-detail-head > .gp-media-glyph'
+  )) {
+    const host = glyph.parentElement,
+      detail = host.classList.contains('gp-detail-head'),
+      id = (detail ? host.parentElement : host).dataset.gpId,
+      m = gpMedia(id, detail ? 44 : 30);
+    if (!m.credit) continue;
+    glyph.outerHTML = m.html;
+    host
+      .querySelector(detail ? '.gp-detail-id' : '.gp-row-text')
+      ?.insertAdjacentHTML('beforeend', detail ? gpCredit(m) : gpCreditText(m));
+  }
+}
+// The prose arrived (or failed, or is being retried): each pending slot on the
+// page is replaced by what a fresh render draws now. Pending slots hold no
+// control but Retry, so no pressed control is ever replaced.
+const GP_PROSE_SLOTS = {
+  lede: (id) => gpLedeHTML(id),
+  row: (id) => gpRowDescHTML(id),
+  about: (id) => gpBgAboutHTML(id, Tradition(id), Catalog.ext(id) || {}),
+  recordings: (id) => gpBgRecordingsHTML(id, Catalog.ext(id) || {}),
+};
+function gpApplyProse() {
+  for (const el of document.querySelectorAll('#surface-genre [data-prose-pending]')) {
+    const id = el.closest('[data-gp-id]')?.dataset.gpId,
+      slot = GP_PROSE_SLOTS[el.dataset.prosePending];
+    if (id && slot && Tradition(id)) el.outerHTML = slot(id);
+  }
+  if (G.namesOnly) gpScheduleList();
 }
 // Refresh only the detail's place line once the map's place names arrive.
 function gpRefreshDetail() {
@@ -612,6 +711,9 @@ function gpSuggestions() {
 function gpAll(open) {
   const results = gpResults();
   const q = gpQuery();
+  // Lazy shell, before the prose lands: the search covered names only.
+  const namesOnly = !!q && !Catalog.proseLoaded();
+  G.namesOnly = namesOnly;
   const node = UI.genreNode ? getTreeNode(UI.genreNode) : null;
   const targets = gpTargets();
   const rows = gpLayout() === 'rows';
@@ -655,7 +757,7 @@ function gpAll(open) {
         ? ' · best name matches first'
         : ' · A to Z';
   let html = pinned ? `<div class="gp-pinned">${gpDetail(open)}</div>` : '';
-  html += `<div class="catalog-count gp-count-line" id="gp-count" tabindex="-1">${uiCount(results.length, 'genre')}${node ? ' in ' + esc(node.name) : ''}${results.length ? order : ''}</div>${chips.length ? `<div class="gp-chips" aria-label="Constraints in force">${chips.join('')}</div>` : ''}`;
+  html += `<div class="catalog-count gp-count-line" id="gp-count" tabindex="-1">${uiCount(results.length, 'genre')}${node ? ' in ' + esc(node.name) : ''}${results.length ? order : ''}${namesOnly && results.length ? ` · names only — ${Catalog.proseFailed() ? 'the descriptions could not be loaded' : 'descriptions are still loading'}` : ''}</div>${chips.length ? `<div class="gp-chips" aria-label="Constraints in force">${chips.join('')}</div>` : ''}`;
   if (!results.length) html += gpNoResults(q, node, targets);
   else if (rows && targets.length) {
     // Sound targets rank: one row, closest first, each card saying how close.
@@ -688,6 +790,25 @@ function gpNoResults(q, node, targets) {
   if (q) why.push('the search “' + $ui('genre-search').value.trim() + '”');
   if (node) why.push('the branch ' + node.name);
   if (targets.length) why.push(uiCount(targets.length, 'sound target') + ' (within one step)');
+  if (q && !Catalog.proseLoaded()) {
+    // Lazy shell, before the prose lands: only names were searched, so this
+    // says so instead of saying no genre matches.
+    const failed = Catalog.proseFailed();
+    return uiEmptyState({
+      title: `No genre names match “${$ui('genre-search').value.trim()}”`,
+      text:
+        (why.length > 1 ? 'Nothing satisfies ' + why.join(' and ') + ' together. ' : '') +
+        (failed
+          ? 'The descriptions could not be loaded, so only names were searched.'
+          : 'Lineage and descriptions are still loading; genres they match will appear here when they arrive.'),
+      actions:
+        (failed ? uiButton('genre-prose-retry', 'Retry', 'refresh-cw') : '') +
+        uiButton('genre-clear-search', 'Clear search', 'x') +
+        (node ? uiButton('genre-all', 'All genres', 'arrow-left') : '') +
+        (targets.length ? uiButton('genre-sound-reset', 'Clear sound targets', 'x') : ''),
+      tone: failed ? 'danger' : '',
+    });
+  }
   return uiEmptyState({
     title: q
       ? `No genres match “${$ui('genre-search').value.trim()}”`
@@ -705,6 +826,7 @@ function gpRenderMain() {
   const host = $ui('genre-list');
   if (!host) return;
   if (gpTreeOpen()) return;
+  G.namesOnly = false;
   const focus = gpFocusKey();
   const open = gpOpenId();
   const layout = gpLayout();
@@ -752,7 +874,15 @@ function gpMarkOpen(open) {
 function renderGenreDiscovery() {
   if (!$ui('genre-body')) return;
   if (!G.view) G.view = UILayout.remember('genre-view', 'rows', () => gpRenderMain());
-  gpLoadOptional();
+  // The place names and photos are optional and the first view shows glyphs
+  // without them, so they are fetched after the first paint, and after the
+  // instrument data's bytes (Engine.fetched, at once in the embedded build):
+  // requests that start before then compete with the genre page's own data or
+  // with the download an early Add is waiting for.
+  if (!G.optionalScheduled) {
+    G.optionalScheduled = true;
+    uiAfterPaint(() => Engine.fetched().then(gpLoadOptional));
+  }
   if (gpTreeOpen()) return;
   const focus = gpFocusKey();
   const total = gpCatalogSize();
@@ -812,6 +942,7 @@ function gpSelect(id) {
   else if (prev && $ui('genre-detail')?.closest('.gp-items')) G.origin = prev;
   if (!inList && !G.listScroll) gpSaveScroll();
   UI.genre = id;
+  if (!Catalog.hasProse(id)) Catalog.needProse();
   G.detailTab = 'overview';
   gpRenderMain();
   gpShowDetail();
@@ -987,6 +1118,7 @@ uiRegisterPage({
   mount(surface) {
     surface.innerHTML = `<div class="gp-head"><div class="gp-title"><h1>Genres &amp; traditions</h1><span id="genre-total" class="gp-total"></span></div><label class="ui-search cm-search gp-search">${icon('search', 20)}<input id="genre-search" type="search" placeholder="Search genres, traditions, or descriptions…" aria-label="Search genres" autocomplete="off"></label><div class="gp-head-actions">${uiButton('surprise', 'Surprise me', 'shuffle', 'class="cm-btn cm-btn-tonal" data-tooltip="Add a random genre\'s whole ensemble to Your recipe (Undo removes it)"')}${uiButton('ai', 'AI recipe', 'sparkles', 'class="cm-btn cm-btn-tonal"')}</div></div><div id="genre-body"><aside id="genre-browse" class="gp-browse" aria-label="Browse and find a sound"></aside><div id="genre-main" class="gp-main"><div id="genre-maintabs" class="gp-maintabs"></div><div id="genre-list"></div></div></div>`;
     $ui('genre-search').addEventListener('input', () => {
+      Catalog.needProse();
       gpCloseTree();
       gpForgetPosition();
       UI.genre = null;
@@ -1045,6 +1177,7 @@ uiRegisterPage({
       true
     );
     gpWatchRecipe();
+    Catalog.onProse(gpApplyProse);
   },
   render: renderGenreDiscovery,
   // Escape closes what this page opened: the inline tree, then a detail.
@@ -1129,6 +1262,7 @@ uiRegisterPage({
       $ui('genre-search').focus();
     },
     'genre-tree'() {
+      Catalog.needProse();
       const tree = $ui('modal-trad');
       UI.genre = null;
       $ui('genre-list').replaceChildren(tree);
@@ -1177,7 +1311,14 @@ uiRegisterPage({
       showToast(`Sound targets set from ${Tradition(id).name}'s profile`, 'success');
       uiFocus($ui('gp-count'));
     },
-    'genre-sound-match'() {
+    'genre-prose-retry'() {
+      Catalog.loadProse().catch(() => {});
+      gpApplyProse();
+    },
+    async 'genre-sound-match'() {
+      // A search narrows the match; over names only it could pick a genre the
+      // full search would not, so it waits for the prose first.
+      if (gpQuery() && !Catalog.proseLoaded()) await Catalog.loadProse().catch(() => {});
       const best = gpResults()[0];
       if (!best) {
         G.tab = 'all';

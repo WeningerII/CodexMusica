@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "song": {
+      "lo": 150,
+      "hi": 350,
+      "n_human": 3251
+    },
+    "short": {
+      "lo": 50,
+      "hi": 150,
+      "n_human": 3710
+    },
+    "lyric": {
+      "lo": 4,
+      "hi": 3244,
+      "n_human": 8597
+    }
+  },
+  "predictability_first_informative_token": 141
+}

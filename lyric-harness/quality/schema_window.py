@@ -92,8 +92,16 @@ RETENTION_FLOOR = 0.990
 #: 99 L6-8 spent/argument, 136 L2-4 lies/subtleties at distance 2, and
 #: 135 L13-14 err'd/transferr'd at distance 1, a closing couplet. E2 STILL
 #: FIRES: the mandate's furthest binding is still 2.
+#:
+#: ~~{"rescues": 43, "by_distance": {2: 40, 1: 3}}~~ REPINNED 2026-10-02 ->
+#: {"rescues": 23, "by_distance": {2: 23}}, THE BOUND WORDS (`MISSING.md`
+#: M-317, owner ruling): a group is judged at the words it binds, so a pair
+#: rescued only through other words of its lines is no rescue now -- 20
+#: such pairs became violations, the three distance-1 couplet rescues among
+#: them. The same set `schema_end_reading.PINNED` repinned to 2 + 21 = 23
+#: that day. E2 STILL FIRES: the mandate's furthest binding is still 2.
 PINNED = {
-    "sonnets": {"rescues": 43, "by_distance": {2: 40, 1: 3}},
+    "sonnets": {"rescues": 23, "by_distance": {2: 23}},
 }
 
 

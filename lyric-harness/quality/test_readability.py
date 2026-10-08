@@ -404,10 +404,17 @@ def test_nothing_was_lost_on_the_sonnets():
     # (buriest, erst/bristly, ill-us'd, Alack, million'd/sharp'st, profan'd)
     # and 1 (sonnet 72 forth/worth, parechesis) has more reading
     # combinations than `relations.READING_COMBO_CAP` tries.
-    check("57 pairs refuse: 50 lexical gaps, 0 reading disagreements, 7 "
-          "unresolved schema answers (~~128 = 50 + 53 + 25~~, any-reading "
-          "rule 2026-10-01)",
-          ref == battery.EXPECTED["refused"] == 50 + 0 + 7,
+    # REPINNED 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner
+    # ruling), MEASURED by this loop: ~~57 = 50 + 0 + 7~~ -> 52 = 50 lexical
+    # gaps + 0 reading disagreements + 2 unresolved schema answers. A group
+    # is judged at the words it binds, so an unread word elsewhere in the
+    # lines holds a pair open only when a span covering the bound word also
+    # reaches it: sonnet 1 ornament/content (`buriest`, mosaic/enjambed) and
+    # sonnet 95 privilege/edge (`ill-us'd`). The other five are judged.
+    check("52 pairs refuse: 50 lexical gaps, 0 reading disagreements, 2 "
+          "unresolved schema answers (~~57 = 50 + 0 + 7~~, bound words "
+          "2026-10-02)",
+          ref == battery.EXPECTED["refused"] == 50 + 0 + 2,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -422,9 +429,12 @@ def test_nothing_was_lost_on_the_sonnets():
           viol == battery.EXPECTED["violations"], str(viol))
     # REPINNED 2026-09-24: ~~958~~ -> 936 = 1064 - 128, the same cause.
     # REPINNED 2026-10-01: ~~936~~ -> 1007 = 1064 - 57, the any-reading rule.
-    check("the judged denominator is 1007 (~~958~~, ~~936~~), and every "
-          "mandated pair is accounted for",
-          judged == battery.EXPECTED["judged"] == 1007 and judged + ref == mandated,
+    # REPINNED 2026-10-02: ~~1007~~ -> 1012 = 1064 - 52, the bound words
+    # (`MISSING.md` M-317): five pairs held open only by an undecided word
+    # elsewhere on the line are judged.
+    check("the judged denominator is 1012 (~~958~~, ~~936~~, ~~1007~~), and "
+          "every mandated pair is accounted for",
+          judged == battery.EXPECTED["judged"] == 1012 and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
           f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")
@@ -451,7 +461,9 @@ def test_corpus_song_rate_is_pinned():
     # readability RATE below is unmoved: the merge rehoused 6 items and
     # changed no verse byte, so only the file count moves. That the rates
     # hold across a merge is the check that it was a merge.
-    check("1297 ENGLISH song files present", len(paths) == 1297, f"{len(paths)}")
+    # REPINNED 2026-10-04 (Otterbein refrain hymns): 1297 -> 1344, the 47
+    # new `eng_hymn_*` files.
+    check("1344 ENGLISH song files present", len(paths) == 1344, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "
@@ -622,37 +634,63 @@ def test_corpus_song_rate_is_pinned():
     # refusals 989 -> 980. Piece refusals remain 428 and silent substitutions
     # remain zero. This source-reader population is not the weighted
     # calibration population. Both full runs are retained with the batch.
-    check("countable lines 281764 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-10-04, ONE LOADING BATCH IN THREE MEASURED STEPS (the
+    # base and the first two steps run on worktrees of their commits, the
+    # label-pass step on the live tree at HEAD, whose readability inputs are
+    # 5b3ba18c's; base f9bc020c reproduces every 2026-09-15 figure exactly):
+    #                     base    +Otterbein  +M-25(a)  +label pass
+    #   countable       281764      283404     281834     280510
+    #   token refusals   17202       17237      16939      16748
+    #   piece refusals     428         429        422        422
+    #   total refusals   17630       17666      17361      17170
+    #   substitutions    16650       16685      16584      16512
+    #   no anchor          980         981        777        658
+    #   hyphen pop         638         639        632        632
+    # The 73 hymns add 1,640 sung lines and only 36 refusals (2.2%, against
+    # the corpus's ~6%: plain hymn diction). The two apparatus passes take
+    # 2,894 lines out of the sung stream, and 496 refusals go with them -- a
+    # refusal rate of 17% on what left, nearly three times the corpus's.
+    # Silent substitutions stay at zero and the report-layer hyphen count
+    # stays at 210 throughout.
+    check("countable lines 280510 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 281764,
-          f"{r['lines_countable']}  (282402 before the bracketed-verse "
+          r["lines_countable"] == 280510,
+          f"{r['lines_countable']}  (281764 before the Otterbein / M-25 "
+          f"batch; 282402 before the bracketed-verse "
           f"repin; 282731 before the bracket-apparatus "
           f"repin; 282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
-    check("unreadable end word, cause TOKEN, 17202 — the follow rule took "
+    check("unreadable end word, cause TOKEN, 16748 — the follow rule took "
           "editorial-prose end words out of the population",
-          r["unreadable_final_token"] == 17202,
+          r["unreadable_final_token"] == 16748,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(17274 before the bracket-apparatus repin; "
+          f"(17202 before the Otterbein / M-25 batch; "
+          f"17274 before the bracket-apparatus repin; "
           f"15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)")
-    check("rate on that quantity is 6.11% — UP from 5.64%, and the rise is the "
-          "harness reading the whole word instead of an ASCII fragment",
-          abs(r["rate_token"] - 17202 / 281764) < 1e-12,
-          f"{r['rate_token']:.4%}  (5.6440% before the LATIN_SCRIPT repin; "
+    check("rate on that quantity is 5.97% — the LATIN_SCRIPT rise from 5.64% "
+          "was the harness reading the whole word instead of an ASCII "
+          "fragment; this batch then took it down from 6.11% (the hymns to "
+          "6.08%, the apparatus passes from there to 5.97%)",
+          abs(r["rate_token"] - 16748 / 280510) < 1e-12,
+          f"{r['rate_token']:.4%}  (6.1051% before the Otterbein / M-25 "
+          f"batch; 5.6440% before the LATIN_SCRIPT repin; "
           f"6.5065% before the Tier-1 load)")
-    check("unreadable end word, cause PIECE, 428 — the price of the hyphen "
+    check("unreadable end word, cause PIECE, 422 — the price of the hyphen "
           "refusal on VERSE lines alone",
-          r["unreadable_final_piece"] == 428,
-          f"{r['unreadable_final_piece']}  (260 before the LATIN_SCRIPT repin)")
-    check("so the end-word refusal rate is 6.26% AFTER the rule and 6.11% "
+          r["unreadable_final_piece"] == 422,
+          f"{r['unreadable_final_piece']}  (428 before the Otterbein / M-25 "
+          f"batch; 260 before the LATIN_SCRIPT repin)")
+    check("so the end-word refusal rate is 6.12% AFTER the rule and 5.97% "
           "before it, and both are printed",
-          r["unreadable_final"] == 17630 and abs(r["rate"] - 17630 / 281764) < 1e-12,
-          f"{r['unreadable_final']} ({r['rate']:.4%})  (17702 / 6.2611% "
+          r["unreadable_final"] == 17170 and abs(r["rate"] - 17170 / 280510) < 1e-12,
+          f"{r['unreadable_final']} ({r['rate']:.4%})  (17630 / 6.2570% "
+          f"before the Otterbein / M-25 batch; 17702 / 6.2611% "
           f"before the bracket-apparatus repin)")
-    check("16650 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 16650,
-          f"{r['substituted_end_word']}  (16712 before the "
+    check("16512 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 16512,
+          f"{r['substituted_end_word']}  (16650 before the Otterbein / M-25 "
+          f"batch; 16712 before the "
           f"bracket-apparatus repin; 15405 before the LATIN_SCRIPT repin)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
@@ -676,17 +714,18 @@ def test_corpus_song_rate_is_pinned():
     # class DROPS it and the line's end word IS `turf` now — the exact
     # exemplar CLAUDE.md known gap 8 filed as a `word_syllable_map` edge
     # case, closed by reading the page's own apparatus correctly instead.
-    check("16650 flagged substitutions and zero silent substitutions after unanchored readings are refused",
-          r["substituted_flagged"] == 16650 and r["substituted_silent"] == 0,
+    check("16512 flagged substitutions and zero silent substitutions after unanchored readings are refused",
+          r["substituted_flagged"] == 16512 and r["substituted_silent"] == 0,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(D'Urfey's `_Sh----_`; Byron's `turf,[mm]` left the class when "
           f"the anchor rule dropped `[mm]`)")
-    check("980 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
-          r["unreadable_final"] - r["substituted_flagged"] == 980
-          and r["unreadable_final_piece"] == 428,
-          f"{r['unreadable_final'] - r['substituted_flagged']}  (992 before "
+    check("658 unreadable-final lines are not substitutions: the end-word gap has no earlier readable anchor",
+          r["unreadable_final"] - r["substituted_flagged"] == 658
+          and r["unreadable_final_piece"] == 422,
+          f"{r['unreadable_final'] - r['substituted_flagged']}  (980 before "
+          f"the Otterbein / M-25 batch; 992 before "
           f"the bracket-apparatus repin)")
     check("the reader's token/piece and substitution partitions conserve their actual populations",
           r["unreadable_final_token"] + r["unreadable_final_piece"] == r["unreadable_final"]
@@ -716,14 +755,15 @@ def test_corpus_song_rate_is_pinned():
     # unexplained by an earlier token. 0 is what "derived by POSITION" means
     # measured rather than asserted, and it is the direct successor to the
     # 328 of 328.
-    check("the hyphen population is 638 end tokens with a read piece and an "
+    # 2026-10-04: 638 -> 632 (+1 Otterbein, -7 M-25(a)); see the table above.
+    check("the hyphen population is 632 end tokens with a read piece and an "
           "unread piece (CLAUDE.md's 323 was this figure at the 143-file "
           "corpus)",
-          r["final_piece_population"] == 638,
+          r["final_piece_population"] == 632,
           f"{r['final_piece_population']}")
-    check("split 428 ANCHOR-layer (refused) + 210 REPORT-layer (label "
+    check("split 422 ANCHOR-layer (refused) + 210 REPORT-layer (label "
           "overstates, never refused)",
-          r["unreadable_final_piece"] == 428 and r["label_overstates"] == 210,
+          r["unreadable_final_piece"] == 422 and r["label_overstates"] == 210,
           f"{r['unreadable_final_piece']} + {r['label_overstates']}")
     check("0 of 323 have an end-word piece misfiled as interior — the "
           "328-of-328 defect, measured at zero",
@@ -1066,10 +1106,17 @@ def test_the_manufactured_rhyme_is_refused():
     # the size the record claimed. The check below is UNMOVED and still
     # passes: all 118 still yield the IDENTICAL would-be anchor, because the
     # only piece that reads is still the participial prefix's schwa.
-    check("118 distinct `a-` participles end a line in this one file with "
-          "their last piece unread", len(klass) == 118,
-          f"{len(klass)}: {sorted(klass)[:6]} ... (29 before the "
-          f"LATIN_SCRIPT repin, and the other 89 were not even ONE token)")
+    # REPINNED 2026-10-04: 118 -> 116. Both that left were never verse:
+    # `A WIFE A-PRAÏS'D.` (an embedded poem title) and `_Anne an' Joey
+    # a-ta'ken._` (~~the heading under RIDDLES~~ the stage direction under
+    # RIDDLES naming the dialogue's speakers), each a one-line `[VERSE]`
+    # block M-25(a)'s two readers marked as apparatus. One was pure ASCII and
+    # one was not, so the split below moves 29/89 -> 28/88.
+    check("116 distinct `a-` participles end a line in this one file with "
+          "their last piece unread", len(klass) == 116,
+          f"{len(klass)}: {sorted(klass)[:6]} ... (28 of these are the "
+          f"pure-ASCII ones, 29 before the LATIN_SCRIPT repin; the other 88 "
+          f"were not even ONE token before it)")
     phones = {w: tuple(LEX.transcribe(w)[0]) for w in klass}
     distinct = set(phones.values())
     check("and ALL of them would have anchored on the IDENTICAL phone list — "
@@ -1415,9 +1462,21 @@ def test_the_bracket_rules_are_declared_and_read():
           bool(ph) and "Phoebus" in ph[0], repr(ph[:1]))
 
     lovelace = os.path.join(SONG, "eng_british_richard_lovelace.txt")
-    bw = [l for l in read_lines(lovelace) if "BOWES BARNE" in l]
+    # 2026-10-04: the printed line this check reads (`OF MY DEAREST COSIN
+    # MRS. BOWES BARNE[S].`) is the second line of an embedded poem title,
+    # and the label and apparatus pass marked it `# APPARATUS:`, so
+    # `read_lines` no longer returns it -- correctly. The RULE under test is
+    # the bracket normalisation, not whether the title is sung, so the check
+    # now applies that rule to the same printed line under the same file.
+    # It still requires the line to exist on disk, and the rule is
+    # file-scoped: the same text with no file stays `BARNE[S].`.
+    raw = [l.strip().replace("# APPARATUS:", "").strip()
+           for l in open(lovelace, encoding="utf-8") if "BOWES BARNE[S]" in l]
+    bw = [LH.normalise_bracket_spans(l, lovelace) for l in raw]
     check("an editor-supplied letter is KEPT — `BARNE[S].` reads `BARNES.`",
-          bool(bw) and "BARNES." in bw[0], repr(bw[:1]))
+          len(raw) == 1 and "BARNES." in bw[0]
+          and "BARNE[S]." in LH.normalise_bracket_spans(raw[0], ""),
+          repr(bw[:1]))
 
     check("the orphan caption tail is apparatus by content — the line that "
           "put `jpg` into the Welsh corpus's end words",
@@ -1867,6 +1926,23 @@ def test_the_default_doors_are_priced_where_they_answer():
           and "1 read as END RHYME and 0 do NOT" in sd_aud
           and "not heard as end rhyme" not in sd_aud,
           sd_aud)
+    # A DECLARED relation is stored namespaced. `schema:perfect rhyme` names
+    # the registry's `perfect rhyme` and is end rhyme; `class:RHYME` is a
+    # coarse relation and names no schema (2026-10-02: the first was reported
+    # "not heard as end rhyme" and the second listed as a schema).
+    sd_decl = _LH.schema_default_disclosure(
+        [{"lines": (1, 2), "label": "A",
+          "satisfied_by": ["schema:perfect rhyme"]}])
+    check("a declared `schema:` relation is read as its registry schema, so "
+          "a declared perfect rhyme reads as END RHYME; a declared `class:` "
+          "relation names no schema",
+          sd_decl is not None
+          and "L1~L2 (group A): perfect rhyme" in sd_decl
+          and "1 read as END RHYME and 0 do NOT" in sd_decl
+          and _LH.schema_default_disclosure(
+              [{"lines": (1, 2), "label": "A",
+                "satisfied_by": ["class:RHYME"]}]) is None,
+          sd_decl)
     sd_bad = _LH.schema_default_disclosure(
         [{"lines": (1, 2), "label": "C", "satisfied_by": ["no such schema"]}])
     check("M-140: a name the registry cannot resolve counts as NOT audible "

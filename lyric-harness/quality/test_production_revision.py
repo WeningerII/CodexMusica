@@ -772,16 +772,22 @@ class ProductionRevisionTests(unittest.TestCase):
         import battery
         sonnets = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))
         m = mandate('ABABCDCDEFEFGG', n_lines=14)
-        # A REAL unknown: sonnet 12's herd/beard lines carry `erst` and
-        # `bristly`, which the dictionary cannot read, so schemas over the
-        # whole lines stay undecided and the pair is refused, never judged.
+        # A REAL unknown: sonnet 10's hate/ruinate ends on `ruinate`, which
+        # the dictionary cannot read, so the pair is refused, never judged.
         # (Sonnet 93's history/eye was this test's case until the
         # any-reading rule of 2026-10-01 resolved it, below.)
-        result = self.reviser.grade(sonnets[11], m)
-        self.assertIn((6, 8, 3), result['refused_obligations'])
+        # REPINNED 2026-10-02 (`MISSING.md` M-317, the bound words): this was
+        # sonnet 12's herd/beard, held open by `erst` and `bristly` elsewhere
+        # in the lines. A group now binds its end words, an unread word that
+        # is not one of them holds nothing open, and herd/beard is judged.
+        # superseded: assertIn((6, 8, 3), sonnet 12's refused_obligations).
+        result = self.reviser.grade(sonnets[9], m)
+        self.assertIn((5, 7, 2), result['refused_obligations'])
         for key in ['verdicts', 'violations']:
-            self.assertFalse(any(tuple(v['lines']) == (6, 8)
+            self.assertFalse(any(tuple(v['lines']) == (5, 7)
                                  for v in result[key]), key)
+        result = self.reviser.grade(sonnets[11], m)
+        self.assertNotIn((6, 8, 3), result['refused_obligations'])
         result = self.reviser.grade(sonnets[92], m)
         self.assertNotIn((5, 7, 2), result['refused_obligations'])
         held = [v for v in result['verdicts'] if tuple(v['lines']) == (5, 7)]

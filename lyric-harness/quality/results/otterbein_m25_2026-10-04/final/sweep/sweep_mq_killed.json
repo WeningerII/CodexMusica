@@ -1,0 +1,52 @@
+{
+  "counts": {
+    "PASS": 0,
+    "FAIL": 0,
+    "CANNOT RUN": 0
+  },
+  "rows": [],
+  "partial": true,
+  "not_reached": [
+    "quality/test_mandate_language.py",
+    "quality/test_mandate_relation.py",
+    "quality/test_matrix.py",
+    "quality/test_melody.py",
+    "quality/test_meter.py",
+    "quality/test_meter_bands.py",
+    "quality/test_msa_fin.py",
+    "quality/test_mut_band.py",
+    "quality/test_mut_oracle.py",
+    "quality/test_mutation.py",
+    "quality/test_narrative.py",
+    "quality/test_nc_census.py",
+    "quality/test_nucleus.py",
+    "quality/test_null_shapes.py",
+    "quality/test_phon_fas.py",
+    "quality/test_phon_msa.py",
+    "quality/test_phon_non.py",
+    "quality/test_phon_san.py",
+    "quality/test_phonology.py",
+    "quality/test_phrase_commonplace.py",
+    "quality/test_pin_sweep.py",
+    "quality/test_placement.py",
+    "quality/test_plan.py",
+    "quality/test_positive_control.py",
+    "quality/test_production_data.py",
+    "quality/test_production_harness.py",
+    "quality/test_production_journal.py",
+    "quality/test_production_relations.py",
+    "quality/test_production_revision.py",
+    "quality/test_pronunciation_choices.py",
+    "quality/test_propose.py",
+    "quality/test_provenance.py"
+  ],
+  "appeared_during_run": [],
+  "head_at_start": "5ddebdbf",
+  "head_at_end": "f3570b08",
+  "tree_moved_during_run": true,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) against the pinned baseline. ~~It has no pass/fail of its own to read, so a verdict here would be this module inventing one.~~ STRUCK 2026-09-26: since 9396946 (2026-08-11) `assert_pinned` exits 1 on drift, so it does carry a verdict. It stays out because it is not in this glob and `quality/counters.py` runs it as the `sonnet battery` counter.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

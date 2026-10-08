@@ -1,0 +1,18 @@
+{
+  "checkpoint_version": 1,
+  "comparator_fingerprint": "d8f5a5b15e172aa574eb4a1f5b830ec61b22771a6cfdf9c8bf691103de4aba8f",
+  "corpus_sha256": "76dae75a22310b79cfced3c09e4361f9d631b92d88ec83d2206981d97c283555",
+  "fields": 11378,
+  "items": 8609,
+  "max_cached_fields": 512,
+  "nltk": "3.10.3",
+  "peak_rss_bytes": 429703168,
+  "population_fingerprint": "e236109cf2154205f70799db9dd0229eede894c92ad829bb3da988d2ef8c0efe",
+  "question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+  "row_sha256": "80d9cc99d4ddb219b9c0004b7d444fc7e83f3f51e156a51a35207be0221685bb",
+  "tagger_sha256": "0189b5b3824b9c61b131d017c86749201a8e3962e089a67a811548aefcd195a3",
+  "version": 1,
+  "wall_s": 3958.5007388939994,
+  "with_predictability": true,
+  "workers": 4
+}

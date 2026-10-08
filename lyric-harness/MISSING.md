@@ -171,9 +171,10 @@ villanelle entry and did not act on it.
 IDENTITY BY REFERENCE.** Printed songsters abbreviate a chorus return as
 `Oh, my poor Nelly Gray, &c.` — a stub that POINTS at the chorus instead of
 reproducing it. There are ~~**941**~~ ~~**777 in the 143 English files and 818
-across all languages**~~ **989 in the 1,297 English files and 1,036
+across all languages**~~ **989 in the English files and 1,036
 across all languages** in the staged corpus (RE-MEASURED 2026-08-21
-over the loaded tree, same predicate and same exclusions) (`lyric_harness.is_chorus_stub` over
+over the loaded tree, then 1,297 `eng_` files — a volatile count, not
+restated here: `ls corpus/song/eng_*.txt | wc -l` — same predicate and same exclusions) (`lyric_harness.is_chorus_stub` over
 verse lines only — blank, `#`, `---` and `[` excluded — measured 2026-08-11).
 **The 941 does not reproduce and no rule tried lands on it:** three plausible
 readings give 776 / 777 / 918. Either `is_chorus_stub` tightened after the count
@@ -1893,8 +1894,8 @@ stated.
 > FROM and NOTE. The air lives inside free-text TITLE strings.
 >
 > **~~331~~ 683 reproduces exactly, and it is a substring count.**
-> RE-MEASURED 2026-08-21 over the loaded tree: across the 1,297 English
-> files' 8,667 songs (~~143 files, 5,006 songs~~ on 2026-08-11), the
+> RE-MEASURED 2026-08-21 over the loaded tree: across that tree's 1,297
+> `eng_` files and 8,667 songs (~~143 files, 5,006 songs~~ on 2026-08-11), the
 > number of TITLE strings containing the word `air`
 > case-insensitively is **331** — the rule nobody wrote down. It counts _"The
 > Birds Of The Air"_, _"Thrice toss these oaken ashes in the air"_, _"The
@@ -1959,10 +1960,24 @@ Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > Cole, Lawlor, Weatherly...) and the eight music-hall names — a
 > **scanned-broadside problem, not a rights problem**. Every one is out of
 > copyright and lives on archive.org / Wikisource / LoC / Levy / Bodleian, all
-> egress-blocked. Also unmined and already on disk: ~250 further Scots
-> songwriters in Rogers's _Modern Scottish Minstrel_, ~86 unclaimed
-> refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
+> egress-blocked. Also unmined and already on disk: ~~\~250 further Scots
+> songwriters in Rogers's _Modern Scottish Minstrel_,~~ ~~\~86 unclaimed
+> refrain-bearing hymns in the Otterbein Hymnal,~~ and all fourteen Gilbert &
 > Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
+> **STALE NOTE CORRECTED 2026-10-04: Rogers's _Minstrel_ is no longer
+> unmined** — 244 `corpus/song/eng_celtic_msm_*.txt` files are staged from it
+> (GITenberg 22515). The Gilbert & Sullivan half was not re-checked here.
+> **OTTERBEIN STAGED 2026-10-04.** Re-measured against the cited bytes (both
+> pinned md5s reproduce): 548 numbered hymns, 113 printing `Cho.--` or
+> `Ref.--`, of which 31 were already staged (one, Phoebe Cary's `One sweetly
+> solemn thought`, from another printing, so it is not staged twice) and 82
+> held no corpus file. 73 of the 82 are now staged — 66 in 47 new
+> `eng_hymn_*` files, 7 appended to the Bonar, Faber, Root, Rankin and Cooper
+> files under `--- SOURCE: PG16455` — and the other 9 are held out because the
+> source signs them to nobody (`Anon.`, `Unknown.`, a hymn book, or no
+> signature at all); `data/sources.tsv`'s Otterbein row names all ten. The text is not in the repository;
+> the cited GITenberg URL serves it. `quality/RESULTS_OTTERBEIN_M25_2026-10-04.md`
+> records the batch.
 
 ### K-1a · The printed record is BIASED AGAINST the chorus `OPEN` — sized 2026-08-21, and the concentration is WORSE than recorded
 **SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
@@ -2046,8 +2061,12 @@ MISSING half was never told.**
 `negative_control.py`'s docstring §2 said _"143 files, one author each"_ while
 its own `THE RUN` block 65 lines below said 712 files over 9 groups. The
 "one author each" half was true only by filename convention — **exactly 5 of
-the 1,297 English files carry a `--- AUTHOR:` line at all** — so the docstring
-asserted a per-file property 1,292 of those files do not state. (Said
+the 1,297 `eng_` files of that tree carried a `--- AUTHOR:` line at all** — so the docstring
+asserted a per-file property 1,292 of those files did not state. (REPINNED
+2026-10-04: 57 `eng_` files carry one now — the Otterbein load of that date
+gives every item it staged a `--- AUTHOR:` line quoting the printed signature,
+52 files — and most files still state no per-item author, so the argument
+stands.) (Said
 positively on purpose: `CORPUS_MARKER_ABSENT` reads _"no `--- X:` marker"_ as
 a claim that the marker is unused ANYWHERE under `corpus/song/`, which is a
 different question and is false here — 10,616 occurrences, nearly all `ltc_`.
@@ -4672,8 +4691,13 @@ re-staging defect and it does edit a corpus file.
 
 **THIS ENTRY STAYS OPEN ON THE UNCHANGED GROUND**: the short-poem blind spot.
 `THE WOMEN FOLK` is a real double staging that one letter — `sarely` against
-`sairly` — keeps out of the census and therefore out of the registry, so the
-count is a floor and the registry inherits the floor.
+`sairly` — keeps out of the census ~~and therefore out of the registry, so the
+count is a floor and the registry inherits the floor~~, so the census count is
+a floor. **STALE NOTE CORRECTED 2026-10-04: the registry does NOT inherit
+this one** — `data/calibration_work_editions.json` declares the pair as
+`edition-work-061` (line 337 at weight 1, line 1469 at weight 0), so the work
+vote already counts it once. What stays open is the census's blind spot, not
+the count.
 
 **THE POPULATION, RE-MEASURED 2026-09-18 UNDER THE SAME RULE.** The census
 returns **29** pairs, not 28 — 28 `eng_` and 1 `cym_`. The figure is robust: it
@@ -8129,6 +8153,109 @@ table is true only of the tradition that wrote it**, and no reader is told
 which one that was.
 
 ### M-25 · Three staging defects the marks cannot show, found by asking sixteen traditions at once `OPEN`
+
+**(a) APPLIED 2026-10-04 TO THE WHOLE ENGLISH ONE-LINE POPULATION, UNDER THE
+OWNER'S ASSIGNMENT; THE ENTRY STAYS OPEN ON WHAT THAT POPULATION CANNOT SEE.**
+Every figure below this block is an earlier reading and stands as written. The
+population was check H's own, re-enumerated with physical line numbers and
+controlled against check H file by file (all 103 `eng_` files exact): **1,889
+one-line `[VERSE]` blocks, 652 in a declared shape and 1,237 residue.** Each
+block was read in its context by TWO independent readers who did not see each
+other's answer; they agreed on 1,887, and a third reader ruled on the 2. A
+block was annotated only on a NOT-SUNG reading: **1,642 blocks in 92 files**
+now carry the existing `# APPARATUS:` prefix on both the line and its
+`[VERSE n]` mark, in place, with nothing deleted, renumbered or reworded
+(`data/english_apparatus_m25_2026-10-04.json` records every line, its before
+and after text, the reader's class and the file hashes; the classes are 445
+scripture arguments, 414 speaker names or stage directions, 227 numerals, 132
+embedded titles, 98 subtitles, dedications and epigraphs, 90 editorial notes,
+82 section headings, 58 datelines, 44 tune lines, 32 ornaments, 19 bylines, 1
+contents line). The banked Watts, Burns and Lovelace classes are wholly inside
+it — 445, 203 and 104, every one-line block in those files. **The 247 blocks
+both readers heard as SUNG stay as they are** — the `Beggar's Opera` duet
+lines, D'Urfey's `Room for, &c.` burdens, the one-line verse speeches the
+speaker labels split out of Barnes's dialogue eclogues — and
+they are now check H's entire English population: 247 residue, 0 in a
+declared shape, over 27 files. The work registry moved by exactly two body
+hashes (Burns's `To A Mountain Daisy` and `My Wife's A Winsome Wee Thing`),
+recorded in the receipt; `quality/test_production_data.py` reads both
+apparatus receipts newest-first and fails by mutation if either is altered.
+**WHAT STAYS OPEN in (a):** (1) **103 of the annotated titles head a
+DIFFERENT poem inside one `--- TITLE:` item** — D'Urfey 42, Barnes 34, Burns
+14, and eight more files — so those items are still false units (`M-20`'s
+family). The title is no longer scored as sung text, but the split is not
+made: it moves item identity and registry keys and is a reading per item,
+and the receipt names every one. (2) Apparatus inside MULTI-LINE blocks, which
+check H never sees (the 33 false matches recorded below are that class). (3)
+The non-English one-line population is untouched: 428 Finnish, 28 Sanskrit,
+22 Welsh and 9 Chinese blocks. (b) and (c) are unchanged.
+`quality/RESULTS_OTTERBEIN_M25_2026-10-04.md` §2 records the pass.
+**WIDENED THE SAME DAY TO EVERY MARK AND TO LABELS INSIDE LINES.** The owner asked
+why only `[VERSE]` was read. The same two-blind-reader protocol, searched by
+the draft `quality/APPARATUS_CHECKLIST.md`, read 3,697 candidate lines under
+every mark and inside multi-line blocks. 1,344 lines and 323 marks now carry
+`# APPARATUS:` (1,344 includes 454 note lines both readers named and two more
+readers confirmed). 348 labels standing in front of sung words (speaker names,
+`Chorus.--`) are declared per line in `data/lyric_label_prefixes.json` and
+stripped by `quality/lyric_reader.py`, with no corpus byte moved. 2,459 lines
+stay as sung. Receipt `data/english_apparatus_labels_2026-10-04.json`; the
+results file §2b records it. What (a) still leaves open is unchanged: the false-unit
+splits, the non-English blocks, and the section-mark reader, which reads
+prefixed lines whole.
+**RESIDUE FOUND AT THE FINAL CLOSING SITTING, 2026-10-04: the two passes
+annotated editorial-note paragraphs but left ~~single lines of them~~ whole note
+blocks, and stray lines of blocks they partly annotated, as sung.**
+CORRECTED 2026-10-05, after every claim in this paragraph was checked against
+the evidence by independent readers; the struck figures are the first writing.
+The label pass's candidates were the checklist's label terms, structural and
+pattern tests (one-line blocks under any mark, label prefixes, capitals,
+brackets, italic-only lines, directions, numerals, dates, tune and metre lines,
+scholarly and scripture references) and every line of a block that held a strong
+editorial marker, plus the 454 neighbour lines both readers named. A note line
+outside all of these was never read. MEASURED by
+`quality/results/otterbein_m25_2026-10-04/final/residue_measure.py` (output
+`residue_measure.json` beside it), which compares every item either pass touched
+before (62b4fb87) and after: 15 items were left with 3 sung lines or fewer, or
+under 34% of their lines, holding 37 lines. READ, two of the 15 are not residue.
+Burns 10520 keeps its epigram (`With Esop's lion, Burns says: Sore I feel /
+Each other's scorn, but damn that ass' heel!`), and Lovelace 3351 (`In English`)
+keeps his own verse translation of Martial (`Cinna seems poor in show, / And he
+is so.`). In both, the passes marked the prose and kept the verse. **The residue
+is ~~15 items / 37 lines~~ 13 items holding 33 note lines:**
+`eng_british_richard_lovelace` 634, 688, 799, 879, 1137, 1307, 1316 and 2367
+(Hazlitt's editorial footnotes, each staged as a titled item straight after the
+poem it annotates) and 1464 (the *Posthume Poems* title page);
+`eng_british_robert_browning` 176, 463; `eng_british_robert_herrick` 4933, 9562
+(title lines). Four of the Lovelace items (634, 1307, 1316, and 3351, which is
+not residue) carry only M-25(a)'s annotations; the label pass never touched
+them. Before the passes these 13 items were wholly editorial and scored as sung,
+so this is what is left of an older error, not a new one. It is still the
+passes' own gap, and one figure shows it: the shortest calibration item is now
+Lovelace's `Mart. lib. I. Epig. 26.` (4 tokens), so the `lyric` curves report a
+calibrated range of 4–3,244 tokens. With the residue read, the next shortest is
+the Cinna couplet at 9 tokens, not 10. Partial notes inside items that are
+otherwise sung are not counted here. The one-line census in
+`quality/test_corpus_audit.py` shows the same gap from the other side. The label
+pass CREATED 8 one-line `[VERSE]` blocks (734 -> 742) by annotating every other
+line of a block. ~~They include a `Robert Burns.` signature~~ Seven are candidate
+apparatus (`eng_hymn_watts` `Benefit of afflictions, and support under them.`,
+five Lovelace lines and one Hemans line). The eighth, Burns's `Robert Burns.`,
+is sung: it rhymes with `concerns` in a mock-legal subscription. Sung rows next
+to prose either pass annotated total 819 in 43 files. The rule: a sung row whose
+nearest line above or below, skipping only bracketed marks, is an annotated line
+of 25 characters or more that is not itself a mark. 672 sit next to M-25(a)'s
+annotations, 145 next to the label pass's and 2 next to both. Most are correctly
+sung (Watts's stanzas under their annotated scripture headings are 393 of them),
+and leftover note lines also continue past the first row the rule finds (for
+example Lovelace 1052–1055, 2455–2457 and 2635, Herrick 9583–9585, Burns
+9146–9148). So the 819 is ~~an upper bound~~ neither a count nor an upper bound.
+It is where the next reading starts, following each note to its end.
+**Ordering (this sitting's call, under the owner's "finish closing the batch
+first"; the owner has not ruled on it):** the closing sitting finishes as it
+stands. Read these lines with the same two-blind-reader protocol at the start of
+the next batch, so that batch's closing sitting absorbs them instead of this one
+being run a third time.
+
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**
 
@@ -14467,7 +14594,10 @@ Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
 in the default now" — the second half of the instruction whose first half
 widened `Declaration.admit` to all four classes on 2026-08-22, M-59; task
 #86). A mandated pair that declares NO relation and NO structure is now
-satisfied when its two lines stand in ANY schema the vocabulary names.
+satisfied when ~~its two lines stand in ANY schema the vocabulary names~~
+**the words it binds stand in ANY schema the vocabulary names — narrowed
+2026-10-02 by the owner's bound-word ruling, M-317, which reverses the
+"its two lines" half of this entry and keeps the "ANY schema" half.**
 **ONE JUDGE, TWO READERS**: `relations.whole_vocabulary_pairs` realises the
 whole registry over one stream and both graders — `quality.revise.grade`
 and `lyric_harness.check_scheme`, whose two-copy chain has been "the
@@ -16600,6 +16730,7 @@ first measured.
 |---|---|---|
 | 2026-08-22 | M-59 | `Declaration.admit` widened from the historical `{RHYME, RIME_RICHE}` to all FOUR of `ADMITTABLE_RELATIONS` |
 | 2026-08-25 | M-116 | ALL 77 SCHEMAS joined the default — a mandated pair declaring no relation is satisfied when its lines stand in ANY schema the vocabulary names, judged by `relations.whole_vocabulary_pairs` |
+| 2026-10-02 | M-317 | the schema half NARROWED to the bound words — the pair is satisfied only when the words its group binds stand in a schema; a relation elsewhere in the two lines no longer counts (added after this table's heading was written; the heading's "twice" is that day's count) |
 
 So the complete default is **`admits(s, theta, decl.admit)` OR
 `whole_vocabulary_pairs`**, and a site reading only the first is not slightly
@@ -28845,3 +28976,114 @@ its own M-311 and #398 takes M-312.
 **NOT CLAIMED.** That the rap chain is fully modelled: a declared pair is judged as a pair, and "each new member laid against the ESTABLISHED CHAIN" (the schema's note) over three or more members is still asked by no route. Nor that the default rule is right to ignore chain rhyme — that is the owner's ruling, recorded here, and changing it moves the three oracles above.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~370~~ -> **371**.
+
+### M-317 · A default rhyme group passed when ANY word of each of its two lines stood in ANY schema, so most random, unrelated line pairs passed a planned end-rhyme group; a group is now judged at the words it binds `CLOSED` 2026-10-02 — found verifying the song-run findings (`tonight`/`stone` passed because `We` opening one line rhymes with `the` read as `thee` in the other); the rule is the owner's ruling of 2026-10-02
+
+**THE DEFECT.** M-116 (2026-08-25) let a group that declares no relation pass when its two LINES stand in any schema the vocabulary names, and `relations.line_pairs_for` read that literally: an instance anywhere in the two lines answered for the group, whichever words it covered. A planned end-rhyme group binds the END words, so a pair whose end words share nothing passed on an internal rhyme, an opening alliteration, or a whole-line figure. MEASURED by a scratch script over 400 random corpus line pairs on two seeds (commit `4c8fd262`'s message; the script is not in the tree, so this figure is a one-off and is not re-derivable — standing rule 3 says so): **85–88% passed a planned end-rhyme group, 59% only through words the group did not bind.**
+
+**THE RULE, the owner's words:** *"go with your recommendation on the bound words"* — a group passes only when the words it BINDS share a relation; every kind of relation still counts. It reverses the "its two lines" half of M-116 and keeps the "ANY schema" half (M-116's sentence is struck in place).
+
+**WHAT CARRIES IT.** `relations.line_pairs_for(..., bound={pair: (tok_i, tok_j)})` in the slots' `token_of` coordinates (`-1` the last readable token): an instance counts only if its span on each line covers that line's bound token, a schema whose every span is the whole line binds no word, the pair memo keys on the bound tokens, and an unreadable or undecided word holds a bound pair open only when it IS the bound word or a span covering the bound word reaches it. `whole_vocabulary_pairs`, `resolve_line_pair` and the any-reading resolver pass it through. Readers: `Reviser.grade` (each group's own bound words, so two groups binding one line pair at different words are asked separately), `lyric_harness.check_scheme`, the merge check (`MANDATE_GROUPS_INDISTINGUISHABLE`'s cross pairs), the candidate field's end-pair screen, and `recover`'s line-end edges, so a recovered cover handed back as `--groups=` is judged the way it was found. A group bound away from a line end also asks each schema one token can bind at the two bound words (`Reviser._bound_token_schemas`, the declared-token judge `relations.pair_satisfies_any`), so a mid-line assonance (`sea` ~ `reach` at T3) still holds.
+
+**SIX SCHEMAS CAN NO LONGER SATISFY A BOUND GROUP**, because every span they declare is the whole line: `parechesis / general consonance`, `holorhyme`, `平仄 tonal template`, `blues AAB stanza`, `refrain by reference`, `incremental repetition`. They still realise, and a writer may still declare them; what they cannot do is stand in for the relation of two bound words.
+
+**MEASURED ON THIS TREE.** The sonnet battery (`battery.py`, `quality/battery_pin.py`): ~~1064 / 1007 / 57 / 15~~ -> **mandated 1064, judged 1012, refused 52, violations 40**. 25 pairs newly violate: 20 held only through other words, and 5 were refusals now judged at their end words (sonnet 12 herd/beard, 72 and 102 forth/worth, 114 accidents/intents, 140 ornaments/rents) — an unread word elsewhere in the lines no longer holds a pair open. The 52 refusals are 50 lexical gaps and 2 unresolved schema answers (sonnet 1 ornament/content, 95 privilege/edge), each a multi-word span covering the end word and reaching an unread word. `quality/audit_spans.py` PINNED judged 1012, claimed 633, ties 121, violations_claimed 9, violation_ties 5; `quality/schema_end_reading.py` ~~its earlier pin~~ -> **(949, 2, 21)**; both oracle files rewritten by `audit_spans.py --only=battery --check --write-oracle`. Targeted verdicts, each re-run: `tonight`/`stone` and `When`/`And` (head) fail; `on`/`gone`, `read`/`bed`, `bright`/`night`, `May`/`away`, `night`/`boat` (consonance), `night`/`light` at T2, `Summer`/`Somebody's` at the head (alliteration) and `sea`/`reach` endword~T3 (assonance) hold.
+
+**TESTS REPINNED, each with a dated note keeping the old figure visible (doctrine 17):** `test_loop.py` §18 and §25 (scripted answers moved to words the field offers: `theirs`, `hour`), `test_verbs.py` §20 (four/own judged and violated, exit 3), `test_propose.py`, `test_slots.py` §8, `test_mandate_relation.py` E-2 (the witness moves from cat/hat rescuing spoon/orange to tip/top in pararhyme, and cat/hat is now pinned as the rule's counterexample), `test_production_relations.py` (M-316's chain-rhyme swap rescues nothing now — 40 violations with and without it, so the bound words stop that rescue on their own), `test_production_revision.py` (the real-unknown case moves to sonnet 10 hate/ruinate), `test_readability.py`, `test_revise.py`, `test_g2p.py`, `test_homograph.py`, `test_replay_memo.py` (the four/own fixture now suspends on a real repair of L3 against `four`, inventing nothing), and `test_relations.py` (a stub's signature).
+
+**NOT CLAIMED.** That laziness at these relations is calibrated — it is not, as M-116 said. That the chance rate is re-measured: `chance_rate.py`'s mandated arm reads two whole lines and is kept, pinned, as the pre-M-317 door's record. The time the token route costs on long drafts is measured by CI's capacity cells, not here.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~371~~ -> **372**.
+
+### M-318 · The superseded `song` and `short` band profiles are re-measured and re-recorded by every closing sitting, and ~~nothing applies them~~ nothing applies their percentiles, but their bands still set CLICHE_PAIR's flag range `OPEN` — parked 2026-10-04 by the owner
+
+**RENUMBERED 2026-10-05: this entry was opened as ~~M-317~~ and is M-318.**
+Neither number had reached `main`. The branch carrying PR #460
+(`claude/practical-curie-n66u8c`) opened its own M-317 from the same base (a
+default rhyme group that passed when any word of each line stood in it), so
+this entry takes the next free number before either merges. Code and tests
+cite M-318 only, because `quality/triage.py` reads every id near `MISSING` in
+a `.py` file as a citation, and a struck M-317 there would guard PR #460's
+entry once both land. This sitting's commit messages and its captured sweep
+output (`quality/results/otterbein_m25_2026-10-04/final/sweep/sweep_rz.json`)
+still say M-317, as written at the time.
+
+**Found 2026-10-04 in the Otterbein / M-25(a) closing sitting.** Both profiles
+carry `superseded_by="lyric"` in `quality/floor.py` (M-239) and ~~are never
+applied to a song~~ their five percentile thresholds are never applied to a
+song; they stay "for their own drift check", so each closing
+sitting measures both bands (200 author-held-out splits, 2,000 period draws)
+and re-records them. This sitting the unchanged band rule moved `song` from
+150–400 to 200–400 tokens — 18 Otterbein hymns in the 150–200 bin put its
+predictability 95th percentile at the 1.0 ceiling — and that read as a live
+decision until `superseded_by` was checked. The cost is compute every sitting
+and a recurring false alarm; the active `lyric` length curves carry the drift
+check that matters.
+
+**Remedy when picked up:** retire or freeze the two profiles (stop
+re-measuring them, drop them from the closing sitting and the manifest's
+calibrated list, keep their last values as dated history) after mapping what
+still reads them — the band-control audit, the band red-team, the FWER
+studies and any threshold a checker re-derives from `quality/floor.py`.
+**Owner ruling 2026-10-04: not now** — parked so a later sitting does not
+re-raise a band move as a decision. This sitting re-recorded both as
+bookkeeping; the measurements are in
+`quality/results/otterbein_m25_2026-10-04/`.
+The final run of the same sitting (over the tree after the label and apparatus
+pass) re-recorded `song` at 150–350 tokens over 3,251 items, and `short`
+unchanged at 50–150 over 3,710 items
+(`quality/results/otterbein_m25_2026-10-04/final/adoption.txt`).
+**CORRECTED 2026-10-05: the bands are not bookkeeping, and this entry said they
+were.** `floor.cliche_rate_rows()` returns every profile carrying a measured
+`cliche` rate, superseded or not, and `SlopFloor.check` lets CLICHE_PAIR FLAG
+only on a sheet whose token count one of those rows `covers()`, or that sits
+exactly at a stanza profile (`section`, `sonnet`, whose reaches end far below
+350 tokens); everywhere else it is a NOTE. `quality/floor.py` recorded this on 2026-09-24 as the
+rows' "ONE LIVE CONSEQUENCE", and this entry was written without reading it.
+So every re-recording of the `song` band moves live grading. This sitting's
+first run (150–400 -> 200–400, superseded within the sitting) would have made
+CLICHE_PAIR a NOTE on 150–199-token sheets. The final run (150–400 -> 150–350)
+DID make it a NOTE on lyric sheets of 351–400 tokens, where it could flag
+before. Measured, not inferred: at the batch base the rows cover 50–400 tokens,
+at HEAD 50–350. The owner's "not now" was given on the earlier description, so
+the description is corrected here and the ruling is reported back rather than
+assumed to stand. Retiring or freezing the profiles would now also have to
+decide what licenses CLICHE_PAIR to reject: a measured rate per length bin
+over the current lyric range, which `floor.py` already says is owed (M-239).
+> **TESTED WHILE OPEN.** `quality/test_floor.py` names this entry beside its
+> pin on the superseded `song` profile, which covers its five thresholds and
+> its band and count (150–350 tokens, 3,251 items). The thresholds are
+> bookkeeping; ~~That pin holds exactly the bookkeeping this entry describes~~
+> the band is not, because it sets CLICHE_PAIR's flag range (the correction
+> above). The pin goes red whenever a sitting re-records the profile without
+> editing it, which is what makes a band move visible. It is retired along
+> with the profiles when this entry closes.
+
+### M-319 · `schema:perfect rhyme` passes `sea ~ company` and `sea ~ reality`: the dictionary writes secondary stress (IY2) on the unstressed final *-y* of some words and not others, and stress 2 reads as a full prominence, so one sung pattern passes or fails by a digit the writer cannot see `OPEN` 2026-10-05 — found by song run 40 (branch `claude/songrun-40-soul`, never merged; its report `songrun/songrun-40-soul.md` is not in this repository's tree, §5 B4); what a mandate's perfect rhyme may accept on such a final is the owner's ruling
+
+**FOUND** in song run 40: 40 lines, sung soul, with `relation: "schema:perfect rhyme"` declared on plan, grade and revise. Its report lives only on its own unmerged branch, so this entry is the copy `main` keeps. The round-1 revise brief for L37, whose end word was bound to L31's `sea`, offered `company, degree, xi, reality` and said the list is "what that relation accepts — the same judge the verdict uses". The report argued that *company* and *reality* carry their primary stress elsewhere, and that the tool labels the pair `length: subtractive`. The delivered song ends L37 on `degree`, so it does not carry the pair.
+
+**MEASURED 2026-10-05 at `9f82a087`. The cause is not the one the report gave.** `length: subtractive` does not separate the pairs: `sea -- degree`, a true perfect rhyme on a stressed final, reads `length: subtractive` too, because the two members differ in syllable count. What separates them is the stress digit `cmudict.dict` writes on the final vowel. Each verdict below is from `python3 lyric_harness.py screen sea company reality harmony memory degree "--relation=schema:perfect rhyme"` (NAMED COUNTS: 6 satisfies, 9 violates, 0 refused). The *liberty* and *money* rows are from `types sea -- W`.
+
+| word | `cmudict.dict` | perfect rhyme with `sea` | coarse relations with `sea` |
+|---|---|---|---|
+| company | K AH1 M P AH0 N **IY2** | satisfies | ASSONANCE, PROMOTED_RHYME, RHYME |
+| reality | R IY2 AE1 L AH0 T **IY2** | satisfies | ASSONANCE, PROMOTED_RHYME, RHYME |
+| liberty | L IH1 B ER0 T **IY2** | named perfect rhyme | ASSONANCE, PROMOTED_RHYME, RHYME |
+| harmony | HH AA1 R M AH0 N **IY0** | violates | PROMOTED_RHYME |
+| memory | M EH1 M ER0 **IY0** | violates | PROMOTED_RHYME |
+| money | M AH1 N **IY0** | not named | PROMOTED_RHYME |
+| degree | D IH0 G R **IY1** | satisfies | ASSONANCE, RHYME |
+
+`quality/phonology/eng.py` reads stress 1 or 2 as `prominence=1`, as its `prominence_rule` states. So the final syllable of *company* counts as lexically stressed. `Declaration.final_promotion` never marks it promoted, and the rule `lyric_harness.py` states for the coarse relations does not apply to it: "A syllable whose stress was PROMOTED … is not a lexically stressed one: agreement from it is the registry's syllabic/wrenched rhyme". *harmony* and *memory* also end in an unstressed /i/ after the stress and are sung the same way, but they take the promoted route and fail. Among `cmudict.dict` entries with three or more vowels whose last vowel is IY, 8,346 write IY0, 767 write IY2 and 403 write IY1. The same digit is plausibly behind the run's L8/L9 offer of `nickname`, `timeframe` and `mainframe` against `same` (each ends in EY2), though compounds carry a real secondary stress, so that is a separate question, and it was not isolated.
+
+**WHY THIS IS A RULING AND NOT A PATCH.** Standing rule 5 holds as written: IY2 is the dictionary's own reading. Sung English has long rhymed a stressed monosyllable on an unstressed final *-y* (*free / liberty*), and this engine names that PROMOTED_RHYME and keeps it apart from RHYME on purpose. The defect is the inconsistency. Two fixes would remove it, and they move verdicts in opposite directions:
+
+* (a) Read a word-final secondary stress that follows an unstressed syllable as promoted. *company*, *reality* and *liberty* then fail perfect rhyme with *sea* and keep PROMOTED_RHYME, as *harmony* does.
+* (b) Let a mandate's perfect rhyme admit a promoted final. The IY0 words then pass as well.
+
+Either one changes verdicts on every song that holds such a pair, and neither is measured here. Before either lands, run `quality/check_comparator_pin.py` to see whether it moves `comparator_fingerprint()`. If it does, standing rule 4 batches it with the next comparator change.
+
+**IMPACT, from the run and not re-measured:** a writer who takes an offered word can satisfy a declared perfect-rhyme mandate with a stressed-against-promoted pair, and the verdict certifies it.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~372~~ -> ~~373~~ -> **374** (2026-10-08: PR #460's M-317 reached `main` first; this branch merged it).

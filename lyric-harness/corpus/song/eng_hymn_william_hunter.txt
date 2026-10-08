@@ -1,0 +1,128 @@
+# author: William Hunter
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, only a signature under each hymn, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the hymnal's origin (Dayton, Ohio) would be a guess. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# function: hymn
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# attribution: every item carries its own `--- AUTHOR:` line quoting the signature the source prints under its last stanza; the name above is that signature without honorific, degree or date. The source signs this author 3 ways (`Rev. William Hunter.`; `Rev. Wm. Hunter.`; `William Hunter, 1857`), every one on a hymn in this one hymnal; they are filed as one name.
+# structure: [VERSE n] a stanza; [REFRAIN] the stanza the source labels `Cho.--` or `Ref.--`, printed once after the verse it follows. Not staged: the hymn number, tune name and metre heading, the italic topic line and its cross-reference number, stanza numerals, the signature line (quoted in `--- AUTHOR:`), and indentation.
+# staged: 2026-10-04, Pass 1 same-gate top-up (quality/CORPUS_LOADING_PROTOCOL.md): the Otterbein hymns that print a refrain and that no corpus file held
+# songs: 3
+
+--- TITLE: I am dwelling on the mountain
+--- AUTHOR: Rev. Wm. Hunter. — the source's own signature under the last stanza, hymn 285, verbatim
+[VERSE 1]
+I am dwelling on the mountain,
+Where the golden sunlight gleams
+O'er a land whose wondrous beauty
+Far exceeds my fondest dreams;
+Where the air is pure ethereal,
+Laden with the breath of flow'rs,
+They are blooming by the fountain,
+'Neath the amaranthine bow'rs.
+[REFRAIN]
+Is not this land of Beulah,
+Blessed, blessed land of light?
+Where the flowers bloom forever,
+And the sun is always bright.
+[VERSE 2]
+I can see far down the mountains,
+Where I wandered weary years,
+Often hindered in my journey
+By the ghosts of doubts and fears;
+Broken vows and disappointments,
+Thickly sprinkled all the way,
+But the Spirit led unerring,
+To the land I hold to-day.
+[VERSE 3]
+I am drinking at the fountain,
+Where I ever would abide;
+For I've tasted life's pure river,
+And my soul is satisfied;
+There's no thirsting for life's pleasures,
+Nor adorning, rich and gay,
+For I've found a richer treasure.
+One that fadeth not away.
+[VERSE 4]
+Tell me not of heavy crosses,
+Nor the burdens hard to bear,
+For I've found this great salvation
+Makes each burden light appear;
+And I love to follow Jesus,
+Gladly counting all but dross,
+Worldly honors all forsaking
+For the glory of the cross.
+[VERSE 5]
+Oh, the cross has wondrous glory!
+Oft I've proved this to be true;
+When I'm in the way so narrow
+I can see a pathway thro';
+And how sweetly Jesus whispers:
+Take the cross, thou need'st not fear,
+For I've tried this way before thee.
+And the glory lingers near.
+
+--- TITLE: In the Christian's home in glory
+--- AUTHOR: William Hunter, 1857 — the source's own signature under the last stanza, hymn 519, verbatim
+[VERSE 1]
+In the Christian's home in glory,
+There remains a land of rest;
+There my Savior's gone before me
+To fulfill my soul's request.
+[REFRAIN]
+There is rest for the weary,
+There is rest for the weary,
+There is rest for the weary,
+There is rest for you.
+On the other side of Jordan,
+In the sweet fields of Eden,
+Where the tree of life is blooming,
+There is rest for you.
+[VERSE 2]
+He is fitting up my mansion,
+Which eternally shall stand.
+For my stay shall not be transient,
+In that holy, happy land.
+[VERSE 3]
+Pain and sickness ne'er shall enter,
+Grief nor woe my lot shall share;
+But, in that celestial center,
+I a crown of life shall wear.
+[VERSE 4]
+Death itself shall then be vanquished
+And his sting shall be withdrawn;
+Shout for gladness, oh, ye ransomed
+Hail with joy the rising morn
+[VERSE 5]
+Sing, oh! sing, ye heirs of glory
+Shout your triumph as you go;
+Zion's gate will open for you,
+You shall find an entrance through.
+
+--- TITLE: My heavenly home is bright and fair
+--- AUTHOR: Rev. William Hunter. — the source's own signature under the last stanza, hymn 522, verbatim
+[VERSE 1]
+My heavenly home is bright and fair;
+Nor pain nor death can enter there;
+Its glitt'ring towers the sun outshine;
+That heavenly mansion shall be mine.
+[REFRAIN]
+I'm going home, I'm going home,
+I'm going home to die no more,
+To die no more, to die no more,
+I'm going home to die no more.
+[VERSE 2]
+My Father's house is built on high;
+Far, far above the starry sky;
+When from this earthly prison free,
+That heavenly mansion mine shall be.
+[VERSE 3]
+Let others seek a home below,
+Which flames devour, or waves o'erflow,
+Be mine a happier lot, to own
+A heavenly mansion near the throne.
+[VERSE 4]
+Then fail this earth, let stars decline,
+And sun and moon refuse to shine
+All nature sink and cease to be,
+That heavenly mansion stands for me.

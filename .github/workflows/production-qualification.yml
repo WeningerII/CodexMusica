@@ -322,6 +322,7 @@ jobs:
           echo "predictability memo: ${LINES:-0} line(s) at $MEMO"
           echo "  cold is 0; a memo covering the whole corpus is ~8,546 (8,545 items and a header)"
       - name: Complete the exact comparison within its existing command budget
+        id: compare
         run: python3 scripts/production_qualification.py run '${{ matrix.component }}' --out=evidence/${{ matrix.component }}.json
       # THE SAME COUNT AGAIN, AFTER. Two readings of one file bracket the
       # component and turn its memo rate into a measurement; one reading only
@@ -375,9 +376,18 @@ jobs:
       # writes an entry that neither one-path restore can address. Both are
       # `if: always()` for the reason ci.yml's own pair carries: a component
       # that overran its budget still advances the resume point it reached.
+      #
+      # BUT NOT WHEN THE COMPARISON NEVER RAN (2026-10-07). Main's run
+      # 37586558306 failed `short` at the runtime check above, so the restore
+      # and the comparison were both skipped, and this step still banked the
+      # EMPTY directory (`predictability memo: 0 line(s)`, 491 bytes) as the
+      # newest `qualification-short-memo-` entry. The next qualification
+      # (run 37673523571) restored that and ran `short` cold — hours instead
+      # of minutes. A skipped comparison advanced no resume point, so there
+      # is nothing to bank and the older memo stays the newest.
       - name: Bank the predictability memo — whatever this component's verdict was
         uses: actions/cache/save@v4
-        if: always()
+        if: always() && steps.compare.outcome != 'skipped'
         with:
           path: ~/.cache/lyric-harness
           key: qualification-${{ matrix.component }}-memo-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}

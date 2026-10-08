@@ -8,3 +8,4 @@ data/countries.geo.json -text
 data/atlas-geo.json     -text
 data/tree-nodes.json    -text
 data/tree-map.json      -text
+api/engine.json         -text

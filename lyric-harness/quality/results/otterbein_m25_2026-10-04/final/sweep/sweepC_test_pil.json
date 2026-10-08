@@ -1,0 +1,53 @@
+{
+  "counts": {
+    "PASS": 2,
+    "FAIL": 1,
+    "CANNOT RUN": 0
+  },
+  "rows": [
+    {
+      "suite": "quality/test_pin_sweep.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 5.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_placement.py",
+      "exit": 0,
+      "verdict": "PASS",
+      "seconds": 19.5,
+      "bound": 1200,
+      "fail_lines": 0,
+      "disagrees": false,
+      "evidence": []
+    },
+    {
+      "suite": "quality/test_plan.py",
+      "exit": 1,
+      "verdict": "FAIL",
+      "seconds": 1173.5,
+      "bound": 1200,
+      "fail_lines": 2,
+      "disagrees": false,
+      "evidence": [
+        "FAIL  the measured song span starts at two lines and has no interior hole \u2014 the former seams between calibrated bands stay closed",
+        "FAIL  ...the planner's line envelope is the gradeable set restricted to totals whose stanza-sized cell ceiling can hold that many sections, so a total the pattern draw would reject on every attempt is never drawn: ~~the short profile (M-193) took the gradeable set to 6 lines~~ the 2026-09-15 length-curve profile starts at 2 lines (10 tokens at the band's highest tokens-per-line) and the fillable floor is 12"
+      ]
+    }
+  ],
+  "partial": false,
+  "not_reached": [],
+  "appeared_during_run": [],
+  "head_at_start": "08ba431e",
+  "head_at_end": "08ba431e",
+  "tree_moved_during_run": false,
+  "excluded": {
+    "battery.py": "the sonnet/limerick ORACLE, not a suite. It prints measurements (mandated/judged/refused/violations) against the pinned baseline. ~~It has no pass/fail of its own to read, so a verdict here would be this module inventing one.~~ STRUCK 2026-09-26: since 9396946 (2026-08-11) `assert_pinned` exits 1 on drift, so it does carry a verdict. It stays out because it is not in this glob and `quality/counters.py` runs it as the `sonnet battery` counter.",
+    "quality/negative_control.py": "the negative control. Same shape as the battery: it reports a rate against a null, and a rate is not a verdict.",
+    "quality/pin_sweep.py": "the OTHER sweep, and it asks a different question -- which committed FIGURES moved, not which CHECKS are red. It takes over an hour of its own and running it inside this one would hide two hours behind one progress line. `quality/test_pin_sweep.py` IS in this population; the hour-long sweep it tests is not."
+  }
+}

@@ -1,0 +1,16 @@
+  corpus/song/eng_*  ->  the rhyme-position tables
+    authors                    1,344
+    end_accent_refusal             9
+    end_burden_mark              889
+    end_hyphen_refusal           416
+    end_no_token                 552
+    end_ok                   247,781
+    end_oov                   28,512
+    items                      8,610
+    lines                    278,159
+    pairs                    190,588
+    end types                 13,663
+    pair types                23,702
+    end slots REFUSED         30,378  (10.92% of sung lines)
+    wrote data/song_endword_en.tsv  (4,747,159 bytes)
+    wrote data/song_rhymepair_en.tsv  (3,999,408 bytes)
