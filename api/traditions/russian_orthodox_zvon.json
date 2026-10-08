@@ -1,0 +1,63 @@
+{
+  "id": "russian_orthodox_zvon",
+  "name": "Kolokolny zvon (Russian Orthodox bell-ringing)",
+  "family": "global",
+  "lineage": "The ringing of church bells in the Russian Orthodox tradition, in which the bells hang fixed and a single ringer, the zvonar, sounds them by ropes tied to their clappers, working the heaviest bell by rope or pedal while playing the smaller ones with the hands. Named types of ringing include the blagovest on one large bell and the full trezvon on all the bells. The bells of the Rostov Kremlin at Rostov Veliky, with their own historic named ringings, were recorded for Melodiya LPs. The carillon card stands in for a set of fixed church bells.",
+  "recipe": "classic modern kolokolny zvon, ritual Devotional, Russian orthodox branch. carillon. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 0.955,
+  "config": {
+    "traditions": [
+      "russian_orthodox_zvon"
+    ],
+    "instruments": [
+      {
+        "id": "carillon",
+        "slots": {
+          "carillon_action": "carillon_baton_clavier",
+          "carillon_size": "carillon_grand_bourdon"
+        },
+        "scores": {
+          "carillon_action": 0,
+          "carillon_size": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "carillon": [
+        "carillon_action",
+        "carillon_size"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "carillon_action": "carillon_baton_clavier",
+      "carillon_size": "carillon_grand_bourdon"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

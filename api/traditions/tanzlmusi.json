@@ -5,7 +5,7 @@
   "lineage": "Mathias Rauch — Heimatlandmesse, complete publisher-authorized Tanzlmusi mass scoring. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic tanzlmusi, ritual Devotional. flugelhorn, clarinet, trombone, tuba, accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 185,
-  "score": 6.349,
+  "score": 6.251,
   "config": {
     "traditions": [
       "tanzlmusi"
@@ -41,7 +41,7 @@
           "wind_articulation": 0.7945,
           "clarinet_body": 0.6499999999999999,
           "clarinet_size": 0,
-          "clarinet_reed": 0.0735,
+          "clarinet_reed": 0,
           "clarinet_articulation": 0.315
         }
       },
@@ -60,7 +60,7 @@
           "wind_articulation": 0.7945,
           "trombone_type": -0.035,
           "trombone_mouthpiece": 0.9999999999999998,
-          "trombone_mute": 0.0735,
+          "trombone_mute": 0,
           "trombone_technique": 0.147,
           "trombone_bell_metal": 0,
           "trombone_maker_school": 0.3315
@@ -79,7 +79,7 @@
         "scores": {
           "wind_articulation": 0.7945,
           "tuba_pitch": 0.0315,
-          "tuba_context": 0.6945,
+          "tuba_context": 0.7575,
           "tuba_bell_metal": 0,
           "tuba_valve_system": 0,
           "tuba_maker_school": 0
@@ -97,7 +97,7 @@
           "accordion_maker_school": "accordion_hohner_gola"
         },
         "scores": {
-          "free_reed_technique": -0.10500000000000001,
+          "free_reed_technique": -0.11850000000000002,
           "accordion_reed_material": 0,
           "musette_offset": 0.0315,
           "reed_config": 0,

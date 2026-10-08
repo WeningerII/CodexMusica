@@ -3,9 +3,9 @@
   "name": "Memphis Soul",
   "family": "blues_gospel",
   "lineage": "Memphis studio soul of 1962-1975 built at Stax on McLemore Avenue and at Hi Records on Willie Mitchell's watch, with Booker T. & the M.G.'s and the Hi Rhythm Section playing behind-the-beat 12/8 and mid-tempo 4/4 grooves, Al Jackson Jr.'s dead-flat backbeat, single-coil rhythm guitar on damped triads, Hammond B-3 pads, and the unison Memphis Horns riffing in place of strings, under raw gospel-shouting or intimate breathy leads.",
-  "recipe": "classic Southern American mid-1960s memphis soul, functional Song, soul R&B branch, blues electric functional song, funk percussive groove percussion british blues. thick, blues-shouter, wide pitch sway, interlocked note trading. brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, schilke chicago lead bright ensemble heavy one piece matched to monette horn trumpet, cold pressed weikert felt 17 ply hard rock maple sitka spruce grand piano. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 996,
-  "score": 482.767,
+  "recipe": "classic Southern American mid-1960s memphis soul, functional Song, soul R&B branch, blues electric functional song, funk percussive groove percussion british blues. thick, blues-shouter, wide pitch sway, interlocked note trading. brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, schilke chicago lead bright ensemble heavy one piece matched to monette horn trumpet, cold pressed weikert felt 17 ply hard rock maple sitka spruce grand piano. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 993,
+  "score": 484.052,
   "config": {
     "traditions": [
       "memphis_soul",
@@ -38,7 +38,7 @@
           "voice_quality": 23.07499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.779999999999998,
+          "voice_vibrato": 14.479999999999999,
           "voice_articulation": 19.889999999999997,
           "voice_microtone": 20.994999999999994,
           "voice_tradition": 25.025,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "drum_technique": 19.824999999999996,
-          "drumhead": 1.885,
+          "drumhead": 1.8399999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -69,7 +69,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -78,9 +78,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.79,
+          "amp_make": 17.849999999999998,
           "body_wood": 1.885,
-          "pickup_config": 1.1899999999999997,
+          "pickup_config": 1.3399999999999996,
           "string_type": 13.81,
           "scale_length_b": 1.885,
           "fretted_or_not": 0.7899999999999999,
@@ -107,7 +107,7 @@
         },
         "scores": {
           "electric_technique": 12.19,
-          "amp_make": 18.769999999999996,
+          "amp_make": 18.724999999999998,
           "body_wood": 1.885,
           "neck_wood": 1.885,
           "fretboard": 1.8199999999999998,
@@ -132,8 +132,8 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 13.95,
-          "drawbar_setting": 3.595,
+          "keyboard_technique": 14.1,
+          "drawbar_setting": 4.045,
           "rotary_speed": 11.239999999999998,
           "percussion_setting": 1.3,
           "tonewheel_model": 9.1,
@@ -146,17 +146,17 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 13.04,
+          "wind_articulation": 13.174999999999999,
           "sax_size": 10.344999999999999,
           "sax_reed": 0.195,
-          "sax_body_alloy": 0.9199999999999999,
-          "sax_mouthpiece": 0.49499999999999994,
+          "sax_body_alloy": 0.9749999999999999,
+          "sax_mouthpiece": 0.585,
           "sax_technique": 10.149999999999999,
           "sax_maker_school": 0
         }
@@ -169,16 +169,16 @@
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_bell_metal": "trumpet_red_brass",
           "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
-          "wind_articulation": 13.04,
+          "wind_articulation": 13.174999999999999,
           "brass_size": 0.49499999999999994,
           "trumpet_mouthpiece": 2.4050000000000002,
-          "brass_mute": 0.345,
-          "trumpet_technique": 13.04,
-          "trumpet_bell_metal": 0.345,
+          "brass_mute": 0.39,
+          "trumpet_technique": 13.174999999999999,
+          "trumpet_bell_metal": 0.54,
           "trumpet_maker_school": 2.9249999999999994
         }
       },
@@ -196,14 +196,14 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 13.95,
-          "grand_piano_size": 1.885,
-          "grand_piano_brand": 1.885,
+          "keyboard_technique": 14.1,
+          "grand_piano_size": 1.8399999999999999,
+          "grand_piano_brand": 1.8399999999999999,
           "piano_hammer": 1.79,
           "piano_rim": 2.0149999999999997,
           "piano_soundboard": 3.7700000000000005,
           "piano_pinblock": -0.05,
-          "piano_plate": 0.245,
+          "piano_plate": 0.26,
           "piano_pitch_standard": 2.9899999999999998
         }
       }

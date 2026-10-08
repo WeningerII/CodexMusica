@@ -5,7 +5,7 @@
   "lineage": "Japanese indie pop connects independent songwriting communities through melodic guitar music and varied small-scale arrangements.",
   "recipe": "classic japanese indie pop, functional Song. solo with instrumental accompaniment. arpeggiated clean humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 228,
-  "score": 7.438,
+  "score": 7.178,
   "config": {
     "traditions": [
       "japanese_indie_pop"
@@ -24,22 +24,22 @@
           "string_material": "pure_nickel_h",
           "bridge": "vibrato_arm",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_9_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 5.704,
+          "electric_technique": 5.6499999999999995,
           "amp_make": 0,
-          "body_wood": 0.4635,
+          "body_wood": 0.40950000000000003,
           "neck_wood": 0,
           "fretboard": 0,
           "pickup_magnet": 0,
-          "pickup_winding": 0.18,
+          "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.1365,
-          "string_gauge": 0.054,
+          "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0
         }
@@ -76,7 +76,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6000000000000001,
+          "voice_ensemble_config": 0.6825000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

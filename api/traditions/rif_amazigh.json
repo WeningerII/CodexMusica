@@ -3,14 +3,14 @@
   "name": "Rif (Rifian Amazigh Song)",
   "family": "global",
   "lineage": "Amazigh song tradition of the Rif mountains of northern Morocco, transmitted as women's izran couplets and codified for record and cassette from the 1970s-1990s by Walid Mimoun, Milouda El Hoceima and Thidrin, set in short antiphonal Tarifit-language quatrains over a fast duple bendir and deff pattern with adjun frame-drum accents, zamar or ghaita double-reed drone melody, and from the 1980s a strummed banjo or cheap synth doubling the vocal line.",
-  "recipe": "classic North African mid-1970s rif, functional Song, mid east n African pop branch, middle east n African protest song, middle eastern wedding algerian raï egyptian political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. juniper bent frame canonical Maghrebi bendir, deff moroccan, ghaita, tunisian banjo, plucked short envelope analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 573,
-  "score": 196.045,
+  "recipe": "classic North African mid-1970s rif, functional Song, mid east n African pop branch, middle east n African protest song, middle eastern wedding algerian raï dabke. extended whistle, breath veiled tone, slow rate, interlocked note trading. juniper bent frame canonical Maghrebi bendir, deff moroccan, ghaita, tunisian banjo, plucked short envelope analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 546,
+  "score": 191.345,
   "config": {
     "traditions": [
       "rif_amazigh",
       "algerian_rai_political",
-      "egyptian_sayyed_darwish_sheikh_imam"
+      "dabke"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 6.172499999999999,
-          "voice_quality": 14.234999999999992,
+          "voice_register": 6.770000000000001,
+          "voice_quality": 10.854999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.03,
-          "voice_articulation": 18.459999999999994,
-          "voice_microtone": 30.874999999999986,
-          "voice_tradition": 23.9525,
-          "voice_mechanism_compound": 3.7314999999999996,
-          "voice_estill_quality": 1.843,
-          "voice_speech_song": 28.859999999999992,
-          "voice_ensemble_config": 17.484999999999992,
-          "voice_ornament_system": 7.358499999999999,
-          "voice_pitch_organization": 7.6434999999999995,
-          "voice_processing_chain": 9.8065,
-          "voice_multitrack_stack": 6.467500000000001
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 21.124999999999996,
+          "voice_microtone": 26.845,
+          "voice_tradition": 20.57,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 29.50999999999999,
+          "voice_ensemble_config": 19.75999999999999,
+          "voice_ornament_system": 5.285,
+          "voice_pitch_organization": 5.610000000000001,
+          "voice_processing_chain": 11.525,
+          "voice_multitrack_stack": 6.9
         }
       },
       {
@@ -61,10 +61,10 @@
           "bendir_head": "bendir_goat_skin_canonical"
         },
         "scores": {
-          "bendir_snares": 3.7615000000000003,
-          "bendir_context": 0.25649999999999995,
-          "bendir_shell_wood": 2.34,
-          "bendir_head": 0.195
+          "bendir_snares": 3.8349999999999995,
+          "bendir_context": 0.32999999999999996,
+          "bendir_shell_wood": 2.145,
+          "bendir_head": 0.18
         }
       },
       {
@@ -74,8 +74,8 @@
           "deff_technique": "deff_dance"
         },
         "scores": {
-          "deff_form": 0.345,
-          "deff_technique": 0.345
+          "deff_form": 0.65,
+          "deff_technique": 0.65
         }
       },
       {
@@ -89,10 +89,10 @@
         },
         "scores": {
           "wind_articulation": -0.10500000000000001,
-          "ghaita_region": 5.265000000000001,
-          "ghaita_context": 0.6779999999999999,
-          "ghaita_body_wood": 0.195,
-          "ghaita_reed": 0.195
+          "ghaita_region": 4.745,
+          "ghaita_context": 0.48,
+          "ghaita_body_wood": 0.18,
+          "ghaita_reed": 0.18
         }
       },
       {
@@ -104,7 +104,7 @@
         },
         "scores": {
           "tunisian_banjo_setup": 0.045,
-          "tunisian_banjo_context": 1.9485,
+          "tunisian_banjo_context": 1.69,
           "tunisian_banjo_head": 0
         }
       },
@@ -114,13 +114,13 @@
           "electronic_technique": "electronic_pluck_short",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.04,
+          "electronic_technique": 7.005,
           "poly_archetypes": 0.045,
           "poly_voices": 0.045,
-          "poly_maker_lineage": 0.12999999999999998
+          "poly_maker_lineage": 0.585
         }
       }
     ],

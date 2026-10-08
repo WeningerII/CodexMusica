@@ -3,14 +3,14 @@
   "name": "New Beat",
   "family": "electronic",
   "lineage": "Belgian club style formed in Ghent and Antwerp in 1987-1989 when DJs played EBM and Italo 45s at 33 rpm with the pitch raised, producing a 100-115 BPM half-speed groove — codified by Confetti's, A Split-Second, Erotic Dissidence and the Antler/Subway label roster, marked by a dry gated kick, clipped sequenced bass, sampled orchestral or spoken stabs, and slowed, sinister male vocal fragments.",
-  "recipe": "classic 1987-1989 new beat, electronic Dance, continental branch, industrial noise experimental electric, techno electronic dance electro backbeat aggrotech. thick, breath veiled tone, wide pitch sway, interlocked note trading. sub bass digital subtractive, sub bass analog poly synth, TR-909, field textural sampler, monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 500,
-  "score": 197.585,
+  "recipe": "classic 1987-1989 new beat, electronic Dance, continental branch, industrial noise experimental electric, techno electronic dance electro backbeat techno bass. thick, breath veiled tone, wide pitch sway, interlocked note trading. sub bass digital subtractive, sub bass analog poly synth, TR-909, field sampler, monosynth acid bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 493,
+  "score": 193.785,
   "config": {
     "traditions": [
       "new_beat",
       "electro_backbeat",
-      "aggrotech"
+      "techno_bass"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 4.1275,
-          "va_archetypes": 0.195,
-          "digital_subtractive_context": 16.769999999999996
+          "electronic_technique": 5.625,
+          "va_archetypes": 0.7350000000000001,
+          "digital_subtractive_context": 15.924999999999997
         }
       },
       {
@@ -35,7 +35,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 4.1275,
+          "electronic_technique": 5.625,
           "poly_archetypes": 1.04,
           "poly_voices": 0.20999999999999996,
           "poly_maker_lineage": -0.035
@@ -49,8 +49,8 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 0.945,
-          "drum_machine_909_context": 2.1125,
+          "tr909_voice": 0.75,
+          "drum_machine_909_context": 4.72,
           "tr909_production_origin": 0.585
         }
       },
@@ -64,11 +64,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 4.449999999999999,
-          "sampler_archetypes": 1.9749999999999999,
-          "sampler_bit_depth": 1.04,
-          "sampler_workflow": 5.0200000000000005,
-          "sampler_classic_context": 19.824999999999996
+          "electronic_technique": 2.5749999999999993,
+          "sampler_archetypes": 3.0449999999999995,
+          "sampler_bit_depth": 0.8550000000000001,
+          "sampler_workflow": 3.1449999999999996,
+          "sampler_classic_context": 19.434999999999995
         }
       },
       {
@@ -82,32 +82,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.3900000000000015,
-          "voice_quality": 8.969999999999999,
+          "voice_register": 2.1950000000000016,
+          "voice_quality": 6.369999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.595,
-          "voice_articulation": 18.914999999999996,
-          "voice_microtone": 19.954999999999995,
-          "voice_tradition": 6.28,
-          "voice_mechanism_compound": 3.380000000000001,
-          "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 19.304999999999993,
-          "voice_ensemble_config": 18.589999999999996,
-          "voice_ornament_system": 0.7149999999999996,
-          "voice_pitch_organization": 1.8849999999999996,
-          "voice_processing_chain": 15.58,
-          "voice_multitrack_stack": 2.8925000000000005
+          "voice_vibrato": 0.945,
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 18.914999999999992,
+          "voice_tradition": 7.085000000000001,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 17.679999999999993,
+          "voice_ornament_system": 0.69,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 15.995000000000001,
+          "voice_multitrack_stack": 2.08
         }
       },
       {
@@ -115,14 +115,14 @@
         "slots": {
           "electronic_technique": "electronic_acid_squelch",
           "wave_acid": "saw_acid",
-          "filter_acid": "opening_acid",
+          "filter_acid": "closed_acid",
           "accent_acid": "heavy_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.625,
+          "electronic_technique": 9.375,
           "wave_acid": 0.435,
-          "filter_acid": 0.5399999999999999,
-          "accent_acid": 0.945
+          "filter_acid": 0.6950000000000001,
+          "accent_acid": 0.75
         }
       }
     ],

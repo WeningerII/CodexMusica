@@ -3,14 +3,14 @@
   "name": "Scottish coronach (Highland lament)",
   "family": "global",
   "lineage": "Scottish Highland mourning-song tradition continuous from medieval clan-mourning practice (the coronach was performed at the head of the funeral procession by family-women and was supplemented by the pìobaireachd piped lament from the Great Highland bagpipes); documented in 18th-19th century Highland-Romantic literature and continued partially through Gaelic-folk-revival",
-  "recipe": "classic Northern European modern scottish coronach, funeral Lament, European branch, wind pipe drone modal, Celtic balladic ballad poetry, vocal drone modal scottish gaelic folk song sean-nós singing. thick, breath veiled tone, breath pulsed, interlocked note trading. African blackwood grenadilla canonical Scottish synthetic drone reeds ezeedrone selbie melodic highland bagpipes. scottish bothy farmhouse kitchen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 479,
-  "score": 209.39,
+  "recipe": "classic Northern European modern scottish coronach, funeral Lament, European branch, wind pipe drone modal, Celtic balladic ballad poetry, vocal drone modal sean-nós solo singing newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax cane double reed canonical arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes. scottish bothy farmhouse kitchen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 593,
+  "score": 197.312,
   "config": {
     "traditions": [
       "scottish_coronach",
-      "scottish_gaelic_folk",
-      "sean_nos_singing"
+      "sean_nos_solo",
+      "newfoundland_folk"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.0000000000000004,
-          "voice_quality": 18.71999999999999,
+          "voice_register": 4.425000000000001,
+          "voice_quality": 13.779999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 14.885000000000002,
-          "voice_microtone": 17.744999999999997,
-          "voice_tradition": 39.555,
-          "voice_mechanism_compound": 8.709999999999999,
-          "voice_estill_quality": 5.265,
-          "voice_speech_song": 19.305,
-          "voice_ensemble_config": 16.705,
-          "voice_ornament_system": 29.09,
-          "voice_pitch_organization": 5.025,
-          "voice_processing_chain": 6.109999999999999,
-          "voice_multitrack_stack": 7.345000000000001
+          "voice_vibrato": 3.3600000000000003,
+          "voice_articulation": 13.584999999999999,
+          "voice_microtone": 16.249999999999996,
+          "voice_tradition": 38.375,
+          "voice_mechanism_compound": 4.485,
+          "voice_estill_quality": 4.2575,
+          "voice_speech_song": 16.25,
+          "voice_ensemble_config": 13.909999999999998,
+          "voice_ornament_system": 35.199999999999996,
+          "voice_pitch_organization": 3.5300000000000007,
+          "voice_processing_chain": 6.584999999999999,
+          "voice_multitrack_stack": 6.76
         }
       },
       {
@@ -58,17 +58,17 @@
           "wind_articulation": "wind_folk_melodic",
           "highland_drones": "highland_3_drones",
           "highland_chanter": "highland_blackwood",
-          "highland_drone_reeds": "highland_synthetic_drone_reeds",
+          "highland_drone_reeds": "highland_cane_drone_reeds",
           "highland_chanter_reed": "highland_cane_chanter_reed",
           "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 12.870000000000001,
-          "highland_drones": 0.93,
-          "highland_chanter": 5.09,
-          "highland_drone_reeds": 2.21,
-          "highland_chanter_reed": 0.39,
-          "highland_bag": 0.6449999999999999
+          "wind_articulation": 10.27,
+          "highland_drones": 0.9750000000000001,
+          "highland_chanter": 4.349999999999999,
+          "highland_drone_reeds": 3.9,
+          "highland_chanter_reed": 1.04,
+          "highland_bag": 1.4000000000000001
         }
       }
     ],

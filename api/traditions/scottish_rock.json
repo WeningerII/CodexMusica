@@ -5,7 +5,7 @@
   "lineage": "Rock from Glasgow, East Kilbride and Edinburgh from the late 1970s onward — Simple Minds and Big Country building wide, reverberant anthem rock with e-bowed or MXR-processed guitars imitating pipe drones, The Jesus and Mary Chain burying doo-wop melody under feedback in 1985, and later Primal Scream, Mogwai and Franz Ferdinand working dance-rock and instrumental crescendo forms, typically 110-150 BPM 4/4 with big gated snares, chorused bass and plain-spoken Scottish vocal accent.",
   "recipe": "classic British 1977-1979 scottish rock, distorted Rock, regional branch, alternative distorted rock, noise rock distorted rock, pop rock new wave polish noise rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth, African blackwood grenadilla canonical Scottish cane double reed canonical arundo donax synthetic bannatyne ross canonical modern highland bagpipes. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 994,
-  "score": 517.463,
+  "score": 518.168,
   "config": {
     "traditions": [
       "scottish_rock",
@@ -38,16 +38,16 @@
           "voice_quality": 7.02,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.800000000000001,
+          "voice_vibrato": 4.710000000000001,
           "voice_articulation": 19.37,
           "voice_microtone": 42.92500000000001,
           "voice_tradition": 6.044999999999999,
           "voice_mechanism_compound": 12.447499999999998,
-          "voice_estill_quality": 8.09,
+          "voice_estill_quality": 7.955,
           "voice_speech_song": 20.865000000000002,
           "voice_ensemble_config": 18.2,
           "voice_ornament_system": 0.49999999999999983,
-          "voice_pitch_organization": 1.8199999999999998,
+          "voice_pitch_organization": 1.79,
           "voice_processing_chain": 4.8950000000000005,
           "voice_multitrack_stack": 5.46
         }
@@ -134,7 +134,7 @@
           "amp_make": 23.205,
           "body_wood": 0.195,
           "pickup_config": 0.585,
-          "string_type": 48.305,
+          "string_type": 48.485,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.105,
           "bass_technique": 42.275,
@@ -184,8 +184,8 @@
           "highland_drones": 0,
           "highland_chanter": 2.925,
           "highland_drone_reeds": 0.195,
-          "highland_chanter_reed": 1.755,
-          "highland_bag": 1.755
+          "highland_chanter_reed": 2.145,
+          "highland_bag": 2.145
         }
       }
     ],

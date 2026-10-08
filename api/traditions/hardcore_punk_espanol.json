@@ -5,7 +5,7 @@
   "lineage": "Spanish-language hardcore punk includes forceful guitar bands within independent local scenes.",
   "recipe": "classic hardcore punk espanol, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 333,
-  "score": 42.819,
+  "score": 41.897,
   "config": {
     "traditions": [
       "hardcore_punk_espanol"
@@ -30,8 +30,8 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 17.095,
-          "body_wood": 1.7025,
+          "amp_make": 16.98175,
+          "body_wood": 1.3665,
           "neck_wood": 0.063,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.7025,
+          "body_wood": 1.3665,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },

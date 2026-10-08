@@ -5,7 +5,7 @@
   "lineage": "Sturm Café — Fernes Land single (2020), complete explicitly listed five-machine palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2020s swedish ebm, experimental Elec, industrial noise branch. solo with instrumental accompaniment, single lead single track no stacking. analog fm synth, digital subtractive, glitched textural sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 316,
-  "score": 22.087,
+  "score": 21.752,
   "config": {
     "traditions": [
       "swedish_ebm"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.9135,
+          "voice_ensemble_config": 0.9765,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -63,9 +63,9 @@
         },
         "scores": {
           "electronic_technique": 0.325,
-          "oscillator": 0.063,
-          "filter_topology": 0.9870000000000001,
-          "envelope": 0.231,
+          "oscillator": 0.0315,
+          "filter_topology": 0.8505,
+          "envelope": 0.3045,
           "modulation": 0
         }
       },
@@ -81,7 +81,7 @@
         "scores": {
           "electronic_technique": 0.325,
           "fm_algorithm": -0.035,
-          "fm_modulator_ratio": 0.567,
+          "fm_modulator_ratio": 0.4305,
           "fm_polyphony": 0.3,
           "fm_model_lineage": -0.035
         }
@@ -111,7 +111,7 @@
         "scores": {
           "electronic_technique": 3.7,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.7665,
+          "sampler_bit_depth": 0.5985,
           "sampler_workflow": -0.035,
           "sampler_classic_context": 11.25
         }

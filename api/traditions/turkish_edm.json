@@ -5,7 +5,7 @@
   "lineage": "Turkish EDM connects producers and vocal collaborators with house, indie-dance and the wider international club circuit.",
   "recipe": "classic turkish edm, electronic Dance. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 217,
-  "score": 3.984,
+  "score": 3.879,
   "config": {
     "traditions": [
       "turkish_edm"
@@ -35,7 +35,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.21,
+          "kick_voice": 0.105,
           "snare_voice": 0.0315,
           "hat_voice": 0,
           "shuffle_quantize": 2.5

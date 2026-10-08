@@ -3,14 +3,14 @@
   "name": "Funky Breaks",
   "family": "electronic",
   "lineage": "UK and US clubs circa 1994-2003 (Bomb the Bass and Freestylers in London, Rennie Pilgrem's TCR, Florida breaks in Orlando) — 130-140 BPM chopped funk and hip-hop breakbeats over a heavy syncopated synth or sampled bassline, with turntable scratching, ragga and old-school rap samples and filtered disco stabs, assembled from vinyl samples in hardware samplers and early DAWs.",
-  "recipe": "classic mid-1990s funky breaks, bass System, bass descendants branch, uk soundsystem bass system, continental electronic dance oldschool jungle breakbeat hardcore. thick, rap, straight note core, interlocked note trading. chopped sampler, sampled chopped turntable, TR-909, low sub bass analog mono synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 591,
-  "score": 234.286,
+  "recipe": "classic mid-1990s funky breaks, bass System, bass descendants branch, uk soundsystem bass system, continental electronic dance oldschool jungle uk funky. vocal fry, rap, straight note core, interlocked note trading. chopped sampler, sampled chopped turntable, TR-909, low sub bass analog mono synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 585,
+  "score": 200.16,
   "config": {
     "traditions": [
       "funky_breaks",
       "oldschool_jungle",
-      "breakbeat_hardcore"
+      "uk_funky"
     ],
     "instruments": [
       {
@@ -20,14 +20,14 @@
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_chopped_breaks",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 5.76325,
-          "sampler_archetypes": 2.42,
+          "electronic_technique": 5.00375,
+          "sampler_archetypes": 2.6,
           "sampler_bit_depth": 0.26,
-          "sampler_workflow": 5.693250000000001,
-          "sampler_classic_context": 27.884999999999998
+          "sampler_workflow": 4.18375,
+          "sampler_classic_context": 23.724999999999994
         }
       },
       {
@@ -37,20 +37,20 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 5.76325,
+          "electronic_technique": 5.00375,
           "turntable_technique": 2.275
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_clap",
+          "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 3.6250000000000004,
-          "drum_machine_909_context": 2.47,
+          "tr909_voice": 2.75,
+          "drum_machine_909_context": 1.625,
           "tr909_production_origin": 0
         }
       },
@@ -64,7 +64,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 15.469999999999999,
+          "electronic_technique": 12.772499999999999,
           "mono_oscillator": 0,
           "mono_filter": 0.585,
           "mono_archetypes": 0.585,
@@ -80,24 +80,24 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked",
+          "bass_technique": "slap_pop",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.169999999999998,
+          "amp_make": 10.075000000000001,
           "body_wood": 0.585,
-          "pickup_config": 0.045,
-          "string_type": 15.014999999999999,
+          "pickup_config": 0.195,
+          "string_type": 10.724999999999998,
           "scale_length_b": 0.585,
           "fretted_or_not": 0,
-          "bass_technique": 4.825,
+          "bass_technique": 3.25,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -110,27 +110,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.1301249999999996,
-          "voice_quality": 6.305,
+          "voice_register": 1.625,
+          "voice_quality": 6.954999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.1374999999999997,
-          "voice_articulation": 21.319999999999993,
-          "voice_microtone": 21.514999999999997,
-          "voice_tradition": 4.095000000000001,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 21.124999999999996,
-          "voice_ensemble_config": 21.644999999999992,
-          "voice_ornament_system": 6.175,
-          "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 9.97875,
-          "voice_multitrack_stack": 5.005
+          "voice_articulation": 17.679999999999993,
+          "voice_microtone": 17.679999999999993,
+          "voice_tradition": 5.330000000000001,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.380000000000001,
+          "voice_speech_song": 17.484999999999992,
+          "voice_ensemble_config": 18.849999999999994,
+          "voice_ornament_system": 5.265000000000001,
+          "voice_pitch_organization": 1.1049999999999998,
+          "voice_processing_chain": 10.63875,
+          "voice_multitrack_stack": 4.16
         }
       }
     ],

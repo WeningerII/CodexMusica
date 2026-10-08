@@ -5,7 +5,7 @@
   "lineage": "Polish old-school hip hop preserves the foundational practices of the country’s hip-hop communities, linking rap with b-boy culture, DJing and sample-based beatmaking. Earlier scenes and continuing practitioners share an emphasis on breaks, loops and the creative reuse of recorded music.",
   "recipe": "classic polish old school hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch human voice ensemble unspecified, chopped sampler, sampled chopped turntable. treated studio.",
   "recipe_chars": 190,
-  "score": 65.984,
+  "score": 66.296,
   "config": {
     "traditions": [
       "polish_old_school_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.118500000000001,
+          "voice_speech_song": 14.309,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,9 +62,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.7540000000000004,
+          "electronic_technique": 6.7,
           "sampler_archetypes": 6.804,
-          "sampler_bit_depth": 0.105,
+          "sampler_bit_depth": 0.1785,
           "sampler_workflow": 6.65,
           "sampler_classic_context": 17.744999999999997
         }
@@ -76,8 +76,8 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 6.7540000000000004,
-          "turntable_technique": 7.054
+          "electronic_technique": 6.7,
+          "turntable_technique": 7.21
         }
       }
     ],

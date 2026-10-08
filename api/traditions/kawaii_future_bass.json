@@ -5,7 +5,7 @@
   "lineage": "Kawaii future bass joins colorful electronic production with Japanese pop, anime-adjacent aesthetics and dance-music influences. Producers such as Moe Shop connect bright melodic writing with bass-led club sounds.",
   "recipe": "classic kawaii future bass, electronic Dance. analog synth, sampler. live tracking.",
   "recipe_chars": 83,
-  "score": 3.259,
+  "score": 3.354,
   "config": {
     "traditions": [
       "kawaii_future_bass"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.325,
           "oscillator": -0.035,
-          "filter_topology": 0.0315,
+          "filter_topology": 0.063,
           "envelope": 0,
           "modulation": 0
         }
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 0.325,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.063,
+          "sampler_bit_depth": 0.126,
           "sampler_workflow": 0.26,
           "sampler_classic_context": 2.34
         }

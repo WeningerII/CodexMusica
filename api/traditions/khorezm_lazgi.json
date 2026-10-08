@@ -1,0 +1,113 @@
+{
+  "id": "khorezm_lazgi",
+  "name": "Lazgi (Khorezm dance music)",
+  "family": "global",
+  "lineage": "Dance and dance music of the Khorezm oasis in north-western Uzbekistan, inscribed on the UNESCO Representative List as Khorazm dance, Lazgi. A lazgi opens slowly and accelerates to a fast, exuberant close, played by surnay and doira in the open air, by garmon accordion and doira, and in estrada arrangements; the surnai card stands for the surnay.",
+  "recipe": "classic modern lazgi, groove Percussion. surnai afghan, doira frame drum, garmon. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 161,
+  "score": 0.998,
+  "config": {
+    "traditions": [
+      "khorezm_lazgi"
+    ],
+    "instruments": [
+      {
+        "id": "surnai_afghan",
+        "slots": {
+          "surnai_afghan_size": "surnai_afghan_standard",
+          "surnai_afghan_technique": "surnai_afghan_circular",
+          "surnai_afghan_body": "surnai_afghan_mulberry"
+        },
+        "scores": {
+          "surnai_afghan_size": 0.3,
+          "surnai_afghan_technique": 0.1365,
+          "surnai_afghan_body": 0
+        }
+      },
+      {
+        "id": "doira_frame_drum",
+        "slots": {
+          "doira_jingles": "doira_heavy_rings",
+          "doira_technique": "doira_usul",
+          "doira_head": "doira_goatskin"
+        },
+        "scores": {
+          "doira_jingles": 0.3,
+          "doira_technique": 0,
+          "doira_head": 0
+        }
+      },
+      {
+        "id": "garmon",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "garmon_regional_form": "garmon_regional_form_russian_garmoshka",
+          "garmon_performance_setting": "garmon_performance_setting_folk_song",
+          "garmon_reed_voicing": "garmon_reed_voicing_dry_steel"
+        },
+        "scores": {
+          "free_reed_technique": -0.11850000000000002,
+          "garmon_regional_form": -0.07,
+          "garmon_performance_setting": 0.2,
+          "garmon_reed_voicing": -0.1
+        }
+      }
+    ],
+    "pinned": {
+      "surnai_afghan": [
+        "surnai_afghan_size",
+        "surnai_afghan_technique",
+        "surnai_afghan_body"
+      ],
+      "doira_frame_drum": [
+        "doira_jingles",
+        "doira_technique",
+        "doira_head"
+      ],
+      "garmon": [
+        "free_reed_technique",
+        "garmon_regional_form",
+        "garmon_performance_setting",
+        "garmon_reed_voicing"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "surnai_afghan_size": "surnai_afghan_standard",
+      "surnai_afghan_technique": "surnai_afghan_circular",
+      "surnai_afghan_body": "surnai_afghan_mulberry",
+      "doira_jingles": "doira_heavy_rings",
+      "doira_technique": "doira_usul",
+      "doira_head": "doira_goatskin",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "garmon_regional_form": "garmon_regional_form_russian_garmoshka",
+      "garmon_performance_setting": "garmon_performance_setting_folk_song",
+      "garmon_reed_voicing": "garmon_reed_voicing_dry_steel"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

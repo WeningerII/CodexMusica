@@ -5,7 +5,7 @@
   "lineage": "DMV rap connects Washington, D.C., Maryland and Virginia through varied rap styles and local performance networks. Its live-band branches draw on the region’s go-go tradition, as in Wale’s collaborations with Tre And The Ppl.",
   "recipe": "classic modern dmv rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, duet, live take. drum kit, congas, electric bass, single coil electric guitar, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 325,
-  "score": 36.358,
+  "score": 35.592,
   "config": {
     "traditions": [
       "dmv_rap"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.0315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 1.0315,
           "voice_tessitura": 0
         }
@@ -70,14 +70,14 @@
         "slots": {
           "percussion_technique": "percussion_hands_layered",
           "conga_set": "quinto",
-          "conga_skin": "conga_mule_hide",
+          "conga_skin": "conga_water_buffalo",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
           "percussion_technique": -0.07,
-          "conga_set": 0.273,
-          "conga_skin": 0.4095,
-          "conga_shell_wood": 0.4095
+          "conga_set": 0.3045,
+          "conga_skin": 0.3045,
+          "conga_shell_wood": 0.1365
         }
       },
       {
@@ -111,8 +111,8 @@
           "body_wood": "alder",
           "neck_wood": "maple",
           "fretboard": "maple_fb",
-          "pickup_magnet": "alnico_3",
-          "string_material": "pure_nickel",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "locking_trem",
           "scale_length": "scale_fender",
@@ -126,13 +126,13 @@
           "body_wood": 0,
           "neck_wood": 0.0315,
           "fretboard": 0.063,
-          "pickup_magnet": 0.1365,
-          "string_material": 0.1365,
+          "pickup_magnet": 0.0315,
+          "string_material": 0.0315,
           "string_gauge": 0.0735,
           "bridge": 0.39,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.44099999999999995,
+          "string_tuning": 0.168,
           "single_coil_pickup_construction": 0
         }
       },
@@ -146,7 +146,7 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "rompler_preset_bank": 0.47250000000000003,
+          "rompler_preset_bank": 0.504,
           "rompler_context": 0,
           "rompler_lineage": 0
         }

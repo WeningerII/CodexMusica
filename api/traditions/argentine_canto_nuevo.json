@@ -5,7 +5,7 @@
   "lineage": "Argentine canto nuevo / canto popular protest-song tradition continuous from 1960s-1980s Argentine military-dictatorship-era political folk-and-songwriter scene; centered on Mercedes Sosa, Atahualpa Yupanqui (foundational figure), León Gieco, and the Movimiento del Nuevo Cancionero",
   "recipe": "classic South American mid-1960s argentine canto nuevo / canto popular, protest Song, iberian Latin branch, Latin am troubadour ballad poetry, European protest song, americas wedding folklore surero milonga. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, pine traditional rural strummed charango, ceibo canonical Argentine leguero hollowed trunk bombo andino. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 652,
-  "score": 181.663,
+  "score": 180.112,
   "config": {
     "traditions": [
       "argentine_canto_nuevo",
@@ -47,9 +47,9 @@
           "voice_speech_song": 23.399999999999995,
           "voice_ensemble_config": 16.444999999999993,
           "voice_ornament_system": 4.875,
-          "voice_pitch_organization": 1.885,
-          "voice_processing_chain": 4.81,
-          "voice_multitrack_stack": 5.485000000000001
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 4.8549999999999995,
+          "voice_multitrack_stack": 5.875000000000001
         }
       },
       {
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0.19500000000000003,
+          "string_tuning": 0.15000000000000002,
           "top_wood": 1.04,
           "back_sides": 1.235,
           "string_acoustic": 1.04,
@@ -73,15 +73,15 @@
         "id": "charango",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "charango_back": "charango_naranjillo",
+          "charango_back": "charango_wood",
           "charango_top_wood": "charango_pine_top",
           "charango_strings": "charango_5_double",
           "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
           "plucked_traditional_technique": 10.405000000000001,
-          "charango_back": 0.8699999999999999,
-          "charango_top_wood": 2.859999999999999,
+          "charango_back": 0.39,
+          "charango_top_wood": 2.814999999999999,
           "charango_strings": 0.195,
           "charango_string_material": 0.39
         }
@@ -90,13 +90,13 @@
         "id": "bombo_andino",
         "slots": {
           "bombo_andino_construction": "bombo_andino_leguero",
-          "bombo_andino_skin": "bombo_andino_llama",
+          "bombo_andino_skin": "bombo_andino_goat",
           "bombo_andino_shell_wood": "bombo_andino_ceibo"
         },
         "scores": {
-          "bombo_andino_construction": 9.824999999999998,
-          "bombo_andino_skin": 0.585,
-          "bombo_andino_shell_wood": 7.705624999999999
+          "bombo_andino_construction": 9.194999999999999,
+          "bombo_andino_skin": 0.435,
+          "bombo_andino_shell_wood": 7.459999999999999
         }
       }
     ],

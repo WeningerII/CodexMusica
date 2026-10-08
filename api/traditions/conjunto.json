@@ -1,37 +1,79 @@
 {
-  "id": "conjunto",
-  "name": "Conjunto (Tejano)",
+  "id": "texas_conjunto",
+  "merged_from": "conjunto",
+  "name": "Texas conjunto",
   "family": "vernacular",
-  "lineage": "South Texas-Rio Grande Valley border ensemble music formed circa 1930s from German-Czech dance repertoire, codified by Narciso Martinez and Santiago Jimenez Sr. and modernized by Valerio Longoria and Flaco Jimenez — diatonic button accordion carrying the melody over bajo sexto bass-and-chord accompaniment, later joined by tololoche or electric bass and trap drums, playing polkas, redovas, huapangos and 3/4 valses and rancheras at dance-hall tempos with paired-voice duet singing in thirds.",
-  "recipe": "classic tropical mid-1930s conjunto, functional Song, tejano border branch, Mexican functional song, tejano border ranchera tierra caliente. sygyt, full chest belt, slow rate, interlocked note trading. castagnari Italian premium folk music chordal accordion, nickel wound modern tejano strummed bajo sexto, upright bass, pre muffled edge muffled brushes-and-sticks drum kit. honky tonk dance hall. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 507,
-  "score": 224.985,
+  "lineage": "Texas-Mexican (tejano) accordion-and-bajo-sexto dance-band tradition of South Texas and the Texas-Mexico borderlands, developed in the late-nineteenth-century from German-Czech accordion-polka traditions imported into Texas through Central European migration — codified through Narciso Martínez (Texas conjunto founding figure, recording 1936 onward), Santiago Jiménez Sr, Valerio Longoria, Tony de la Rosa, Flaco Jiménez",
+  "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion colombia de monterrey bomba del chota. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. hohner gola canonical premium German concert accordion, bajo sexto, electric bass, ride-driven brushes-and-sticks drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 594,
+  "score": 77.998,
   "config": {
     "traditions": [
-      "conjunto",
-      "ranchera",
-      "tierra_caliente"
+      "texas_conjunto",
+      "colombia_de_monterrey",
+      "bomba_del_chota"
     ],
     "instruments": [
       {
-        "id": "accordion",
+        "id": "voice",
         "slots": {
-          "free_reed_technique": "free_reed_chordal_chugging",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "italian_tuning",
-          "reed_config": "lmmh",
-          "bellows": "all_leather",
-          "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
         },
         "scores": {
-          "free_reed_technique": 14.615000000000002,
-          "accordion_reed_material": 0.7,
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.585,
+          "voice_ensemble_config": 1.4949999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.3,
+          "voice_processing_chain": 0.435,
+          "voice_multitrack_stack": 0.975,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "accordion_reed_material": 0.9099999999999999,
           "musette_offset": 0.195,
-          "reed_config": 0.195,
-          "bellows": 0.15,
-          "voicing_chamber": 0.045,
-          "accordion_maker_school": 3.12
+          "reed_config": 0,
+          "bellows": 0.195,
+          "voicing_chamber": 0.43999999999999995,
+          "accordion_maker_school": 1.3
         }
       },
       {
@@ -40,103 +82,173 @@
           "plucked_traditional_technique": "plucked_folk_strummed",
           "bajo_courses": "twelve_string_bajo",
           "bajo_top": "spruce_bj",
-          "bajo_strings": "bajo_nickel_wound",
-          "bajo_back_wood": "bajo_mahogany_back"
+          "bajo_strings": "phosphor_bajo",
+          "bajo_back_wood": "bajo_rosewood_indian"
         },
         "scores": {
-          "plucked_traditional_technique": 4.615,
-          "bajo_courses": 13.945000000000004,
-          "bajo_top": 0.7,
-          "bajo_strings": 5.601000000000001,
-          "bajo_back_wood": 0
+          "plucked_traditional_technique": 2.8600000000000003,
+          "bajo_courses": 7.6899999999999995,
+          "bajo_top": 0.7899999999999999,
+          "bajo_strings": 0.795,
+          "bajo_back_wood": -0.05
         }
       },
       {
-        "id": "upright_bass",
+        "id": "electric_bass",
         "slots": {
-          "upright_strings": "gut_upright",
-          "upright_play": "arco_upright"
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "dual_single",
+          "string_type": "half_round",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "upright_strings": 0,
-          "upright_play": 2.1645
+          "amp_make": 1.95,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0.6,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.3,
+          "bass_technique": 0.325,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.254999999999995,
-          "drumhead": 1.395,
+          "drum_technique": 9.62,
+          "drumhead": 0.15,
           "drum_kit_kick_pedal": 0
         }
       },
       {
-        "id": "voice",
+        "id": "conjunto_norteno",
         "slots": {
-          "voice_register": "sygyt_register",
-          "voice_quality": "full_chest_belt_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_belt",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "conjunto_norteno_lineup": "conjunto_norteno_lineup_duo",
+          "conjunto_norteno_repertoire": "conjunto_norteno_repertoire_polka_redova",
+          "conjunto_norteno_substyle": "conjunto_norteno_substyle_texas"
         },
         "scores": {
-          "voice_register": 1.755,
-          "voice_quality": 19.47499999999999,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0.8775,
-          "voice_articulation": 22.489999999999995,
-          "voice_microtone": 20.994999999999994,
-          "voice_tradition": 6.240000000000001,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 12.769999999999998,
-          "voice_speech_song": 32.9225,
-          "voice_ensemble_config": 23.269999999999992,
-          "voice_ornament_system": 1.8199999999999998,
-          "voice_pitch_organization": 2.7950000000000004,
-          "voice_processing_chain": 6.3549999999999995,
-          "voice_multitrack_stack": 2.535
+          "conjunto_norteno_lineup": 19.2725,
+          "conjunto_norteno_repertoire": 6.435000000000001,
+          "conjunto_norteno_substyle": 22.595
         }
       }
     ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "musette_offset",
+        "reed_config"
+      ],
+      "bajo_sexto": [
+        "bajo_courses",
+        "bajo_top",
+        "bajo_strings",
+        "bajo_back_wood"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ]
+    },
     "room": "honky_tonk_dance_hall",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
-      "mic": "mic_rca_77dx_ribbon",
-      "pre": "pre_ua_610_tube",
-      "console": "console_american_op_amp",
-      "comp": null,
-      "eq": null,
-      "amp": null,
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_blackface",
       "medium": "tape_15ips"
     },
-    "tuning": "ranchera_3_4_and_2_4",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "ranchera_3_4_and_2_4",
+    "tuning": "twelve_tet",
     "room": "honky_tonk_dance_hall",
-    "chain_mic": "mic_rca_77dx_ribbon",
-    "chain_pre": "pre_ua_610_tube",
+    "parts": {
+      "body_wood": "swamp_ash_b",
+      "pickup_config": "dual_single",
+      "string_type": "half_round",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerpicked_country_b",
+      "drumhead": "single_coated",
+      "drum_technique": "brushes_and_sticks",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "bajo_courses": "twelve_string_bajo",
+      "bajo_top": "spruce_bj",
+      "bajo_strings": "phosphor_bajo",
+      "bajo_back_wood": "bajo_rosewood_indian",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_american_op_amp"
+    "chain_console": "colored",
+    "chain_amp": "amp_american_blackface",
+    "chain_amp_guitar": "amp_american_fender_blackface",
+    "chain_amp_bass": "amp_american_ampeg_b15"
   }
 }

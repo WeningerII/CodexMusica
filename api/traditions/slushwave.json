@@ -5,7 +5,7 @@
   "lineage": "Vaporwave subgenre named around 2016-2018 and codified by 猫 シ Corp., t e l e p a t h テレパシー能力者, Hantasi and Vaperror, built by pitching sampled easy-listening or new-age loops down 30-60 percent, drowning them in cascaded reverb and delay, and stretching two- to four-bar cycles across ten- to thirty-minute beatless tracks with no discernible pulse.",
   "recipe": "classic 2016-2018 slushwave, experimental Elec, ambient branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, glitched textural granular sustained pad analog poly synth, sustained pad string machine, tape replay keyboard. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 368,
-  "score": 75.405,
+  "score": 75.21,
   "config": {
     "traditions": [
       "slushwave",
@@ -81,7 +81,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 2.49,
+          "keyboard_technique": 2.2950000000000004,
           "tape_voice": 0.045,
           "tape_state": 0.195
         }

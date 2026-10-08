@@ -5,7 +5,7 @@
   "lineage": "Russian dance pop brings Russian-language popular songwriting together with disco and electronic dance production. Contemporary singers and producers connect radio-oriented melodies with club and streaming audiences.",
   "recipe": "classic russian dance pop, functional Song. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 5.713,
+  "score": 5.381,
   "config": {
     "traditions": [
       "russian_dance_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.1365,
+          "voice_speech_song": 0.273,
           "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -63,7 +63,7 @@
         "scores": {
           "electronic_technique": -0.05,
           "poly_archetypes": 0,
-          "poly_voices": 0.054,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.05
         }
       },
@@ -76,9 +76,9 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.23399999999999999,
+          "kick_voice": 0,
           "snare_voice": 0,
-          "hat_voice": 0.18,
+          "hat_voice": 0,
           "shuffle_quantize": 2.5
         }
       }

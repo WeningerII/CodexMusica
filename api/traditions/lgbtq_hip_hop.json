@@ -5,7 +5,7 @@
   "lineage": "LGBTQ+ hip hop is a community/discovery category spanning many sounds, not a voice type. Mykki Blanco’s publicly discussed queer artistry and early experimental electronic-rap branch supply this selected example.",
   "recipe": "classic modern lgbtq+ hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 291,
-  "score": 41.422,
+  "score": 41.38,
   "config": {
     "traditions": [
       "lgbtq_hip_hop"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -59,8 +59,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.2,
-          "sample_bitdepth": 0.1365,
+          "electronic_technique": 5.2315000000000005,
+          "sample_bitdepth": 0.0315,
           "sample_swing": 3.25,
           "sample_processing": 0
         }

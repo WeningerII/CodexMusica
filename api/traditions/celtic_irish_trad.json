@@ -3,32 +3,32 @@
   "name": "Irish trad session",
   "family": "vernacular",
   "lineage": "Irish traditional instrumental dance-tune session tradition — modal melodies (Dorian and Mixolydian dominant) played on fiddle, tin whistle, flute, uilleann pipes, button accordion, concertina, bodhrán, and (in the post-Bothy-Band revival era) bouzouki and guitar in DADGAD tuning — revived from the 1960s-70s through Sean Ó Riada, Ceoltóirí Chualann, the Chieftains, the Bothy Band, Planxty, Altan, and the broader Doolin / Clare / Galway pub-session circuit",
-  "recipe": "classic Northern European mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle nordic folk. synthetic magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning parlor classic steel silk fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, long-scale single string tenor banjo irish, irish bouzouki. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
-  "recipe_chars": 998,
-  "score": 195.475,
+  "recipe": "classic Northern European mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal ekonting songs nordic folk. magic rosin modern acrylic base drone like fiddle, melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning parlor classic steel silk fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, short-scale single string tenor banjo irish, irish bouzouki. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 981,
+  "score": 186.142,
   "config": {
     "traditions": [
       "celtic_irish_trad",
-      "polish_village_fiddle",
+      "jola_ekonting",
       "nordic_folk"
     ],
     "instruments": [
       {
         "id": "fiddle",
         "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
+          "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "sul_tasto",
+          "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 6.870000000000001,
-          "fiddle_strings": 1.17,
-          "fiddle_bow": 1.8944999999999999,
+          "bowed_technique": 6.240000000000001,
+          "fiddle_strings": 0.975,
+          "fiddle_bow": 1.4625,
           "fiddle_mute": 0.3,
-          "fiddle_articulation": 0.8449999999999999,
+          "fiddle_articulation": 0.42,
           "fiddle_string_configuration": 0
         }
       },
@@ -38,13 +38,13 @@
           "wind_articulation": "wind_folk_melodic",
           "whistle_key": "d_whistle",
           "whistle_ornament": "cut_ornament",
-          "whistle_body_material": "whistle_wood_premium"
+          "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
           "wind_articulation": 6.17,
           "whistle_key": 6.094999999999999,
-          "whistle_ornament": 4.215,
-          "whistle_body_material": 1.1049999999999998
+          "whistle_ornament": 4.26,
+          "whistle_body_material": 0.75
         }
       },
       {
@@ -54,14 +54,14 @@
           "flute_size": "alto_flute",
           "flute_material": "silver_flute",
           "flute_technique": "beatboxed_flute",
-          "flute_maker_school": "flute_yamaha"
+          "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
           "wind_articulation": 0.26,
-          "flute_size": 0.45499999999999996,
-          "flute_material": 0.78,
-          "flute_technique": 0.78,
-          "flute_maker_school": 0.78
+          "flute_size": 0.38999999999999996,
+          "flute_material": 0.585,
+          "flute_technique": 0.585,
+          "flute_maker_school": 0.7350000000000001
         }
       },
       {
@@ -72,17 +72,17 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 8.71,
+          "free_reed_technique": 8.515,
           "accordion_reed_material": 0.39,
-          "musette_offset": 4.364999999999999,
+          "musette_offset": 4.41,
           "reed_config": 0.42,
-          "bellows": 4.215,
-          "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 2.925
+          "bellows": 4.26,
+          "voicing_chamber": 0.35,
+          "accordion_maker_school": 2.275
         }
       },
       {
@@ -90,14 +90,14 @@
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "dadgad",
-          "top_wood_parlor": "mahogany_top_p",
+          "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 3.7150000000000003,
+          "acoustic_technique": 3.1400000000000006,
           "string_tuning": 10.59,
-          "top_wood_parlor": 0.45499999999999996,
+          "top_wood_parlor": 0.39,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 1.2349999999999999
         }
@@ -111,8 +111,8 @@
         },
         "scores": {
           "acoustic_technique": 1.8850000000000002,
-          "celtic_harp_levers": 1.8199999999999998,
-          "celtic_harp_strings": 8.969999999999999
+          "celtic_harp_levers": 1.595,
+          "celtic_harp_strings": 9.424999999999999
         }
       },
       {
@@ -123,9 +123,9 @@
           "concertina_english_context": "concertina_english_english_folk"
         },
         "scores": {
-          "free_reed_technique": 8.71,
-          "concertina_english_config": 1.04,
-          "concertina_english_context": 5.784999999999999
+          "free_reed_technique": 8.515,
+          "concertina_english_config": 0.845,
+          "concertina_english_context": 4.484999999999999
         }
       },
       {
@@ -136,9 +136,9 @@
           "bodhran_shell_wood": "bodhran_ash_traditional"
         },
         "scores": {
-          "bodhran_play": 5.9799999999999995,
-          "bodhran_skin": 8.895,
-          "bodhran_shell_wood": 8.148499999999999
+          "bodhran_play": 5.135,
+          "bodhran_skin": 9.485,
+          "bodhran_shell_wood": 7.744999999999999
         }
       },
       {
@@ -168,8 +168,8 @@
         "scores": {
           "wind_articulation": 6.17,
           "uilleann_set": 5.14,
-          "uilleann_pipes_pitch": 5.654999999999999,
-          "uilleann_chanter_wood": 3.705,
+          "uilleann_pipes_pitch": 5.069999999999999,
+          "uilleann_chanter_wood": 3.5100000000000002,
           "uilleann_reed": 2.9,
           "uilleann_bag": 2.9,
           "uilleann_lineage": 2.9899999999999998
@@ -178,14 +178,14 @@
       {
         "id": "tenor_banjo_irish",
         "slots": {
-          "tenor_banjo_irish_form": "tenor_banjo_irish_19fret",
+          "tenor_banjo_irish_form": "tenor_banjo_irish_17fret",
           "tenor_banjo_irish_style": "tenor_banjo_irish_reels",
           "tenor_banjo_irish_head": "tenor_banjo_irish_calfskin"
         },
         "scores": {
-          "tenor_banjo_irish_form": 9.845,
-          "tenor_banjo_irish_style": 10.725,
-          "tenor_banjo_irish_head": 4.215
+          "tenor_banjo_irish_form": 9.95,
+          "tenor_banjo_irish_style": 10.139999999999999,
+          "tenor_banjo_irish_head": 4.26
         }
       },
       {
@@ -197,7 +197,7 @@
         },
         "scores": {
           "irish_bouzouki_form": 0.4,
-          "irish_bouzouki_playing": 0.325,
+          "irish_bouzouki_playing": 0.12999999999999998,
           "irish_bouzouki_top_wood": 0
         }
       }

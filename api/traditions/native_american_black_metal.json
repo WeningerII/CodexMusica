@@ -5,7 +5,7 @@
   "lineage": "Native American black metal brings Indigenous contemporary expression into black-metal practice, with Blackbraid among its self-identified artists.",
   "recipe": "classic modern native american black metal, distorted Rock, black branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 467,
-  "score": 30.131,
+  "score": 29.886,
   "config": {
     "traditions": [
       "native_american_black_metal"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.7484999999999999,
+          "voice_multitrack_stack": 0.6945,
           "voice_tessitura": 0
         }
       },
@@ -75,14 +75,14 @@
           "body_wood": 5.85,
           "neck_wood": 0.4095,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.054,
+          "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.08549999999999999,
+          "bridge": 0.0315,
           "scale_length": 0,
           "string_gauge": 0.483,
           "finish": 0,
-          "string_tuning": 0.34650000000000003
+          "string_tuning": 0.38549999999999995
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.6235000000000004,
+          "amp_make": 2.6085000000000003,
           "body_wood": 5.85,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.08549999999999999,
+          "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 4.226500000000001,
+          "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }
       },

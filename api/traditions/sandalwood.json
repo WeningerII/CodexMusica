@@ -5,7 +5,7 @@
   "lineage": "Thejas Vijendran — Nagu Endide, Kannada Sandalwood Melody Series piano-solo arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic sandalwood, functional Song, south Asian pop branch. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 213,
-  "score": 1.808,
+  "score": 1.823,
   "config": {
     "traditions": [
       "sandalwood"
@@ -25,7 +25,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.7035,
           "piano_hammer": -0.07,

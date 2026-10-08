@@ -5,7 +5,7 @@
   "lineage": "New Jersey underground rap connects independent MCs, producers and local performance networks across the state. Releases and collaborations sustain regional relationships within the wider East Coast hip-hop field.",
   "recipe": "classic new jersey underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 40.721,
+  "score": 41.109,
   "config": {
     "traditions": [
       "new_jersey_underground_rap"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.068,
+          "voice_speech_song": 13.424999999999999,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

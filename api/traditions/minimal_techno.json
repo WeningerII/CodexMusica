@@ -5,7 +5,7 @@
   "lineage": "Detroit and Berlin from the mid-1990s, codified by Robert Hood's Minimal Nation (1994), Daniel Bell, Basic Channel and later the Berlin Hardwax/Perlon axis — 125-135 BPM four-on-the-floor with a stripped kit, a single evolving loop, heavy use of subtractive filtering and sends, near-total absence of melody or vocal, arranged as long slow-mutating DJ tools inside a DAW or hardware sequencer.",
   "recipe": "classic Central European 1994-1996 minimal techno, electronic Dance, techno branch, microhouse house, ambient experimental electric ambient techno. TR-909, analog mono doepfer eurorack canonical 1995 present small format standardization modular synth, glitched textural sampler, sustained pad digital subtractive. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
   "recipe_chars": 573,
-  "score": 118.067,
+  "score": 118.462,
   "config": {
     "traditions": [
       "minimal_techno",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "tr909_voice": 7.124999999999998,
-          "drum_machine_909_context": 9.69,
-          "tr909_production_origin": 0.15
+          "drum_machine_909_context": 9.84,
+          "tr909_production_origin": 0.255
         }
       },
       {
@@ -37,7 +37,7 @@
         },
         "scores": {
           "electronic_technique": 15.574999999999998,
-          "mono_oscillator": 0.15,
+          "mono_oscillator": 0.255,
           "mono_filter": 2.73,
           "mono_archetypes": 2.73,
           "mono_maker_lineage": -1.225
@@ -63,14 +63,14 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 8.015,
           "sampler_archetypes": 0.5849999999999999,
-          "sampler_bit_depth": 1.755,
+          "sampler_bit_depth": 1.79,
           "sampler_workflow": 8.165,
           "sampler_classic_context": 25.577499999999997
         }

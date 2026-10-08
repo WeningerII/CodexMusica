@@ -1,0 +1,93 @@
+{
+  "id": "kota_nilgiri_music",
+  "name": "Kota instrumental music (Nilgiri hills)",
+  "family": "global",
+  "lineage": "The Kota of the Nilgiri hills play instrumental music led by the kol, a double-reed shawm, with drums including the tabatk frame drum and the dobar, and kob horns, at funerals, the annual god ceremony and other festivals; a repertoire of god tunes is tied to particular ritual moments. Richard K. Wolf's fieldwork documents it in detail. The kuzhal card stands in for the kol, the frame-drum card for the tabatk and the generic drum for the dobar.",
+  "recipe": "classic modern kota instrumental music, ritual Devotional, indigenous branch. kuzhal, credited frame drums, membrane drum pulse resonant acoustic membrane drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 8.335,
+  "config": {
+    "traditions": [
+      "kota_nilgiri_music"
+    ],
+    "instruments": [
+      {
+        "id": "kuzhal",
+        "slots": {
+          "kuzhal_form": "kuzhal_short",
+          "kuzhal_style": "kuzhal_melam"
+        },
+        "scores": {
+          "kuzhal_form": 0.3,
+          "kuzhal_style": 0.38549999999999995
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.9,
+          "acoustic_membrane_drum_gesture": 3.9
+        }
+      }
+    ],
+    "pinned": {
+      "kuzhal": [
+        "kuzhal_form",
+        "kuzhal_style"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "kuzhal_form": "kuzhal_short",
+      "kuzhal_style": "kuzhal_melam",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

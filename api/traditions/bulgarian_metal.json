@@ -5,7 +5,7 @@
   "lineage": "Bulgarian metal brings together local heavy bands, independent production and international performance networks. Sofia’s Odd Crew exemplify a melodic strand shaped by collective songwriting, expressive guitar work and precise drumming.",
   "recipe": "classic modern bulgarian metal, distorted Rock, metal branch. equal tempered, one note per syllable. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 535,
-  "score": 31.899,
+  "score": 32.293,
   "config": {
     "traditions": [
       "bulgarian_metal"
@@ -36,7 +36,7 @@
           "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.105,
+          "string_material": 0.3525,
           "bridge": 0.5775,
           "scale_length": 0,
           "string_gauge": 0,
@@ -60,7 +60,7 @@
           "amp_make": 2.275,
           "body_wood": 0.5775,
           "pickup_config": 0,
-          "string_type": 0.105,
+          "string_type": 0.22874999999999998,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
           "bass_technique": 4.037125,
@@ -90,7 +90,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.105,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.7865,
           "cymbal_lathing": 4.125500000000001,
           "cymbal_finish": 0
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.0315,
-          "voice_processing_chain": 0.376125,
+          "voice_processing_chain": 0.33899999999999997,
           "voice_multitrack_stack": 0.21
         }
       }

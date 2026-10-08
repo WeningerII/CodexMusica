@@ -5,7 +5,7 @@
   "lineage": "Surf punk joins recurring surf-influenced guitar motion with punk-band energy.",
   "recipe": "classic surf punk, distorted Rock, surf rock branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation tremolo humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital spring reverb digital delay.",
   "recipe_chars": 372,
-  "score": 54.069,
+  "score": 54.249,
   "config": {
     "traditions": [
       "surf_punk"
@@ -29,15 +29,15 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 11.462499999999999,
+          "electric_technique": 11.431,
           "amp_make": 13.455,
-          "body_wood": 0.33525,
+          "body_wood": 0.609,
           "neck_wood": 0,
-          "fretboard": 0.2415,
+          "fretboard": 0.1365,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.0315,
+          "pickup_winding": 0,
           "string_material": 0,
-          "bridge": 0.378,
+          "bridge": 0.273,
           "scale_length": 0,
           "string_gauge": 0.1365,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.225,
-          "body_wood": 0.33525,
+          "body_wood": 0.609,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.21075000000000002,
-          "voice_ornament_system": 0.1575,
+          "voice_ensemble_config": 0.17925000000000002,
+          "voice_ornament_system": 0.126,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0225,
-          "voice_multitrack_stack": 0.21075000000000002,
+          "voice_multitrack_stack": 0.17925000000000002,
           "voice_tessitura": 0
         }
       }

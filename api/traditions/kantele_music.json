@@ -3,14 +3,14 @@
   "name": "Kantele music",
   "family": "vernacular",
   "lineage": "Finnish and Karelian plucked box-zither tradition, originally a five-string instrument tuned to a pentachord and played resting on the lap to accompany Kalevala-meter rune-singing, expanded in the 19th century to ten and fifteen strings and in 1920s-1930s Finland to the large chromatic concert kantele with switchable levers built by Paul Salminen — repertoire ranges from short cyclic drone-and-tremolo improvisations to notated concert works and pelimanni dance tunes.",
-  "recipe": "classic mid-1920s kantele music, drone Modal, string branch, vocal drone modal, Slavic bard ballad poetry, Slavic baltic domestic rhythm alpine yodeling estonian folk music. vocal fry, breath veiled tone, straight note core, interlocked note trading. archaic spruce top modern concert gut pre modern five string kantele, estonian four string jouhikko. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 439,
-  "score": 189.387,
+  "recipe": "classic mid-1920s kantele music, drone Modal, string branch, vocal drone modal, Slavic bard ballad poetry, Slavic baltic domestic rhythm estonian folk music lemko folk. extended whistle, breath veiled tone, straight note core, interlocked note trading. archaic spruce top modern concert gut pre modern five string kantele, finnish three string dance driving jouhikko. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 455,
+  "score": 173.195,
   "config": {
     "traditions": [
       "kantele_music",
-      "alpine_yodeling",
-      "estonian_folk_music"
+      "estonian_folk_music",
+      "lemko_folk"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
         "scores": {
           "plucked_traditional_technique": -0.05,
           "kantele_strings": 1.24,
-          "kantele_context": 5.9799999999999995,
+          "kantele_context": 5.329999999999999,
           "kantele_body_wood": 1.0399999999999998,
           "kantele_string_material": 3.380000000000001
         }
@@ -33,7 +33,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -48,39 +48,39 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 2.535,
-          "voice_quality": 14.559999999999995,
+          "voice_register": 1.3649999999999998,
+          "voice_quality": 15.014999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9049999999999998,
-          "voice_articulation": 22.229999999999993,
-          "voice_microtone": 25.934999999999988,
-          "voice_tradition": 14.689999999999996,
-          "voice_mechanism_compound": 7.865000000000001,
-          "voice_estill_quality": 8.385,
-          "voice_speech_song": 25.414999999999992,
-          "voice_ensemble_config": 23.594999999999988,
-          "voice_ornament_system": 2.7300000000000013,
-          "voice_pitch_organization": 9.7825,
-          "voice_processing_chain": 4.484999999999999,
-          "voice_multitrack_stack": 2.925
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 20.34499999999999,
+          "voice_microtone": 22.81499999999999,
+          "voice_tradition": 14.559999999999997,
+          "voice_mechanism_compound": 8.775,
+          "voice_estill_quality": 7.930000000000001,
+          "voice_speech_song": 22.81499999999999,
+          "voice_ensemble_config": 20.409999999999993,
+          "voice_ornament_system": 3.640000000000001,
+          "voice_pitch_organization": 4.8100000000000005,
+          "voice_processing_chain": 4.029999999999999,
+          "voice_multitrack_stack": 3.12
         }
       },
       {
         "id": "jouhikko",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "jouhikko_form": "jouhikko_talharpa",
-          "jouhikko_context": "jouhikko_runic_song",
+          "jouhikko_form": "jouhikko_suomi",
+          "jouhikko_context": "jouhikko_folk_dance",
           "jouhikko_strings": "jouhikko_gut"
         },
         "scores": {
           "bowed_technique": -0.035,
-          "jouhikko_form": 7.285,
-          "jouhikko_context": 5.460000000000001,
+          "jouhikko_form": 7.280000000000001,
+          "jouhikko_context": 5.2299999999999995,
           "jouhikko_strings": 0
         }
       }

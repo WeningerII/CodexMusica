@@ -5,7 +5,7 @@
   "lineage": "Czech pop brings together local popular songwriting, chart and festival circuits, and a wide range of band and electronic arrangements. Groups such as Toxique combine melodic singing with guitar, keyboards and a rhythm section.",
   "recipe": "classic modern czech pop, functional Song, europop branch. one note per syllable, solo with instrumental accompaniment. single coil electric guitar, analog poly synth, electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 363,
-  "score": 15.911,
+  "score": 15.974,
   "config": {
     "traditions": [
       "czech_pop"
@@ -81,7 +81,7 @@
           "bridge": 0.2415,
           "scale_length": 0.546,
           "finish": 0,
-          "string_tuning": 0.9175000000000002,
+          "string_tuning": 0.9805000000000001,
           "single_coil_pickup_construction": 0
         }
       },

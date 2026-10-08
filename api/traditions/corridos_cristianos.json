@@ -5,7 +5,7 @@
   "lineage": "Christian corrido performers adapt regional Mexican ballad and contemporary tumbado idioms to testimony, prayer and praise. The field includes original devotional songs and religious adaptations, circulating through community performance and popular recording networks.",
   "recipe": "classic corridos cristianos, ritual Devotional, christian gospel branch, tejano border corrido. solo with instrumental accompaniment, single lead single track no stacking. low mid rich spectrum soft attack cedar classical nylon-string guitar. parlor.",
   "recipe_chars": 250,
-  "score": 9.112,
+  "score": 8.334,
   "config": {
     "traditions": [
       "corridos_cristianos"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.923,
+          "voice_ensemble_config": 1.683,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.32999999999999996,
@@ -65,10 +65,10 @@
         "scores": {
           "acoustic_technique": 0.6499999999999999,
           "string_tuning": 0,
-          "top_wood_classical": 4.261499999999999,
-          "bracing_classical": 0.045,
+          "top_wood_classical": 3.481499999999999,
+          "bracing_classical": 0.1815,
           "string_classical": -0.035,
-          "attack_technique_cl": 0.525
+          "attack_technique_cl": 0.63
         }
       }
     ],

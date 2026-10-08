@@ -5,7 +5,7 @@
   "lineage": "Indie garage rock grows through independent labels, local guitar-band scenes and home-recording networks. Musicians such as Ty Segall connect garage-rock directness with contemporary alternative-rock songwriting and production.",
   "recipe": "classic modern indie garage rock, distorted Rock, alternative branch. equal tempered, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 483,
-  "score": 48.415,
+  "score": 48.184,
   "config": {
     "traditions": [
       "indie_garage_rock"
@@ -36,7 +36,7 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.4724999999999999,
+          "voice_vibrato": 0.1365,
           "voice_articulation": 0,
           "voice_microtone": 13.499999999999996,
           "voice_tradition": 0,
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.546
         }
       },
@@ -71,11 +71,11 @@
           "electric_technique": -0.07,
           "amp_make": 7.0200000000000005,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.168,
           "bridge": 0,
           "scale_length": 0.3,
           "finish": 0,
@@ -99,7 +99,7 @@
           "amp_make": 7.475,
           "body_wood": 0.40950000000000003,
           "pickup_config": 0,
-          "string_type": 0.105,
+          "string_type": 0.2415,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3735,
           "bass_technique": 13.7,

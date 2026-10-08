@@ -3,9 +3,9 @@
   "name": "BAPS devotional music",
   "family": "vernacular",
   "lineage": "BAPS Swaminarayan devotional music is sustained through kirtan aradhana concerts, musical education and Aksharpith recordings. Sadhus and young devotees participate in a tradition that cultivates Indian classical and folk music within Swaminarayan religious life.",
-  "recipe": "classic baps devotional music, ritual Devotional, hindu branch. slow rate, neutral third half flat, notated speech melody. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, reed straight harmonium indian. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 369,
-  "score": 37.68,
+  "recipe": "classic baps devotional music, ritual Devotional, hindu branch. slow rate, neutral third half flat, notated speech melody. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, overtone rich sustained reed harmonium indian. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 37.649,
   "config": {
     "traditions": [
       "baps"
@@ -101,7 +101,7 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 3.0045,
+          "free_reed_technique": 2.9730000000000003,
           "harmonium_action": 1.69,
           "harmonium_voicing": 1,
           "harmonium_use": 5.329999999999999

@@ -5,7 +5,7 @@
   "lineage": "Norwegian progressive rock, combining expansive composition with melodic band performance.",
   "recipe": "classic norwegian prog, distorted Rock, progressive rock branch. group vocals. humbucker electric guitar, melodic chordal electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 274,
-  "score": 46.493,
+  "score": 46.43,
   "config": {
     "traditions": [
       "norwegian_prog"
@@ -93,7 +93,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 1.4260000000000002
+          "keyboard_technique": 1.3945
         }
       },
       {
@@ -143,7 +143,7 @@
           "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.4545,
+          "cymbal_hammering": 13.422999999999998,
           "cymbal_lathing": 13.181499999999998,
           "cymbal_finish": 0
         }

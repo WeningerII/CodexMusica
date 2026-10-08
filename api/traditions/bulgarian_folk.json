@@ -3,13 +3,13 @@
   "name": "Bulgarian folk (narodna muzika ensemble tradition)",
   "family": "global",
   "lineage": "Bulgarian national folk idiom codified after 1944 by Filip Kutev's State Ensemble and the Radio Sofia folk orchestras, which arranged village repertory for gaida, kaval, gadulka, tambura and tapan alongside written four-part women's choral settings, keeping regional aksak metres of 7/8, 9/8 and 11/16 and the sharply attacked open-throat vocal timbre while adding functional harmony, second-interval clusters and precise sectional arrangement for broadcast and export.",
-  "recipe": "classic Southern European mid-1940s bulgarian folk, field Work, Slavic balkan branch, wind pipe drone modal, vocal drone modal, European wedding muzică lăutărească roma balkan svatba. rhodope cane arundo donax single reed canonical bulgarian melodic gaida bulgarian, plum canonical bulgarian melodic kaval, gadulka, horo dance driving strummed tambura balkan, bright bolt tuned tapan, choir bulgarian womens, castagnari Italian premium folk music straight accordion, ebonite hard rubber klezmer tradition clarinet. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 671,
-  "score": 145.153,
+  "recipe": "classic Southern European mid-1940s bulgarian folk, field Work, Slavic balkan branch, wind pipe drone modal, vocal drone modal, European wedding qırımtatar musiqisi roma balkan svatba. rhodope cane arundo donax single reed canonical bulgarian melodic gaida bulgarian, plum canonical bulgarian melodic kaval, gadulka, horo dance driving strummed tambura balkan, bright bolt tuned tapan, choir bulgarian womens, brass castagnari Italian premium folk music straight accordion, ebonite hard rubber klezmer tradition clarinet. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 678,
+  "score": 150.525,
   "config": {
     "traditions": [
       "bulgarian_folk",
-      "muzica_lautareasca",
+      "crimean_tatar_music",
       "roma_svatba_balkan"
     ],
     "instruments": [
@@ -25,10 +25,10 @@
         },
         "scores": {
           "wind_articulation": 8.395,
-          "gaida_origin": 3.7349999999999994,
-          "gaida_bulgarian_context": 3.3149999999999995,
-          "gaida_chanter_wood": 0.3,
-          "gaida_reed": 2.6,
+          "gaida_origin": 4.319999999999999,
+          "gaida_bulgarian_context": 3.77,
+          "gaida_chanter_wood": 0.39,
+          "gaida_reed": 2.285,
           "gaida_bag": 0.39
         }
       },
@@ -42,8 +42,8 @@
         },
         "scores": {
           "wind_articulation": 8.395,
-          "kaval_region": 1.65,
-          "kaval_context": 0.585,
+          "kaval_region": 1.7999999999999998,
+          "kaval_context": 0.39,
           "kaval_body_wood": 2
         }
       },
@@ -53,13 +53,13 @@
           "bowed_technique": "bowed_legato_classical",
           "gadulka_form": "gadulka_thracian",
           "gadulka_repertoire": "gadulka_horo",
-          "gadulka_body": "gadulka_maple"
+          "gadulka_body": "gadulka_mulberry"
         },
         "scores": {
           "bowed_technique": 0.12999999999999998,
-          "gadulka_form": 15.139999999999999,
-          "gadulka_repertoire": 6.085,
-          "gadulka_body": 0.3
+          "gadulka_form": 16.345000000000002,
+          "gadulka_repertoire": 5.495,
+          "gadulka_body": 0.65
         }
       },
       {
@@ -70,9 +70,9 @@
           "tambura_balkan_use": "tambura_horo"
         },
         "scores": {
-          "plucked_traditional_technique": 10.37,
-          "tambura_balkan_school": 9.51,
-          "tambura_balkan_use": 11.12
+          "plucked_traditional_technique": 11.034999999999998,
+          "tambura_balkan_school": 10.505,
+          "tambura_balkan_use": 12.839999999999998
         }
       },
       {
@@ -83,9 +83,9 @@
           "tapan_build": "tapan_modern_tensioned"
         },
         "scores": {
-          "tapan_form": 15.769999999999998,
-          "tapan_role": 12.099999999999998,
-          "tapan_build": 6.799999999999999
+          "tapan_form": 17.384999999999998,
+          "tapan_role": 10.474999999999998,
+          "tapan_build": 7.674999999999999
         }
       },
       {
@@ -96,7 +96,7 @@
         },
         "scores": {
           "technique": 0,
-          "arrangement": 4.225
+          "arrangement": 4.075
         }
       },
       {
@@ -104,20 +104,20 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "dry_tuning",
+          "musette_offset": "italian_tuning",
           "reed_config": "lmmh",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
           "free_reed_technique": 8.344999999999999,
-          "accordion_reed_material": 0.8,
-          "musette_offset": 0.5700000000000001,
-          "reed_config": 0.75,
-          "bellows": 0.51,
-          "voicing_chamber": 0.35,
-          "accordion_maker_school": 6.109999999999999
+          "accordion_reed_material": 1.04,
+          "musette_offset": 0.5,
+          "reed_config": 0.78,
+          "bellows": 0.255,
+          "voicing_chamber": 0.45499999999999996,
+          "accordion_maker_school": 7.215
         }
       },
       {
@@ -131,10 +131,10 @@
         },
         "scores": {
           "wind_articulation": 0.7149999999999999,
-          "clarinet_body": 4.5175,
-          "clarinet_size": 3.54,
+          "clarinet_body": 2.6650000000000005,
+          "clarinet_size": 3.735,
           "clarinet_reed": 0.3,
-          "clarinet_articulation": 1.105
+          "clarinet_articulation": 1
         }
       }
     ],

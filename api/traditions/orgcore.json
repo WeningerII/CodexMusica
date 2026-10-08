@@ -5,7 +5,7 @@
   "lineage": "A punk-rock community and style associated with melodic, roots-aware independent songwriting.",
   "recipe": "classic orgcore, distorted Rock, punk branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, melodic chordal electronic keyboard unspecified. live tracking.",
   "recipe_chars": 272,
-  "score": 22.489,
+  "score": 22.216,
   "config": {
     "traditions": [
       "orgcore"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

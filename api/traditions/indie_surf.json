@@ -5,7 +5,7 @@
   "lineage": "Indie surf brings surf-derived guitar colors and vocal harmonies into contemporary independent pop and garage-rock scenes. DIY recording, small labels and touring connect artists whose music ranges from hazy melodic songs to brisk, rhythm-led bands.",
   "recipe": "classic indie surf, functional Song, pop rock branch. conversational, equal tempered, modern pop training. arpeggiated clean single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 273,
-  "score": 77.498,
+  "score": 76.424,
   "config": {
     "traditions": [
       "indie_surf"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 0.9099999999999999,
+          "voice_quality": 0.8365,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.09449999999999999,
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 0.08549999999999999,
-          "voice_multitrack_stack": 0.11699999999999999,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.063,
           "voice_tessitura": 0
         }
       },
@@ -77,7 +77,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.0315,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.8995,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
@@ -124,7 +124,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 7.385499999999999,
+          "drum_technique": 7.331499999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
@@ -132,8 +132,8 @@
           "bearing_edges": 0.168,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 16.622499999999995,
-          "cymbal_lathing": 16.656999999999996,
+          "cymbal_hammering": 16.262499999999996,
+          "cymbal_lathing": 16.188999999999997,
           "cymbal_finish": 0
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Cantonese worship is the Christian song repertoire of Cantonese-speaking congregations and music ministries, circulated through church songbooks, recordings and worship resources across local and diaspora communities.",
   "recipe": "classic cantonese worship, ritual Devotional, christian gospel branch. upright piano. live tracking.",
   "recipe_chars": 100,
-  "score": 1.224,
+  "score": 1.239,
   "config": {
     "traditions": [
       "cantonese_worship"
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0,
           "upright_piano_size": 0.49350000000000005
         }

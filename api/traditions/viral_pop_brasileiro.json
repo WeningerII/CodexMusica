@@ -5,7 +5,7 @@
   "lineage": "Gabi Luthai — Ela É Só Dela (acústica, official2023 video). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic viral pop brasileiro, functional Song. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 341,
-  "score": 12.512,
+  "score": 12.556,
   "config": {
     "traditions": [
       "viral_pop_brasileiro"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 0.726,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.8,

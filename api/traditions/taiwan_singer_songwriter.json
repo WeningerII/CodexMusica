@@ -5,7 +5,7 @@
   "lineage": "Taiwan singer-songwriter includes performer-authored work across acoustic, folk-pop and band settings. Deserts Chang’s Taipei live-house and acoustic-song practice supplies this documented branch.",
   "recipe": "classic modern taiwan singer-songwriter, ballad Poetry. thick, incomplete closure resting, neutral third half flat, m1 with m0 pulse borrowing. classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 312,
-  "score": 30.314,
+  "score": 29.255,
   "config": {
     "traditions": [
       "taiwan_singer_songwriter"
@@ -18,7 +18,7 @@
           "voice_quality": "incomplete_closure_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
@@ -36,15 +36,15 @@
           "voice_quality": 2.8000000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.414,
+          "voice_vibrato": 0.273,
           "voice_articulation": 0,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.5609999999999999,
-          "voice_estill_quality": 2.138,
+          "voice_mechanism_compound": 0.507,
+          "voice_estill_quality": 2.0839999999999996,
           "voice_speech_song": 4.875,
-          "voice_ensemble_config": 1.3845,
-          "voice_ornament_system": 2.0839999999999996,
+          "voice_ensemble_config": 1.0965,
+          "voice_ornament_system": 2.03,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 2.534,
           "voice_multitrack_stack": 1
@@ -61,10 +61,10 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 2.804,
+          "acoustic_technique": 2.75,
           "string_tuning": 0,
           "top_wood_classical": 0.273,
-          "bracing_classical": 1.2810000000000001,
+          "bracing_classical": 0.867,
           "string_classical": 0.5499999999999999,
           "attack_technique_cl": 0
         }

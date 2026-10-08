@@ -1,50 +1,137 @@
 {
-  "id": "deep_darkpsy",
-  "name": "Deep Darkpsy",
-  "family": "electronic",
-  "lineage": "Deep darkpsy circulates through psychedelic-trance labels, night-time dance events and DJ communities. Producers and selectors connect intense rhythmic repetition with dark electronic textures, using extended mixes to shape a changing dance-floor journey.",
-  "recipe": "classic deep darkpsy, electronic Dance, trance branch. dj playback mixing unspecified. treated studio.",
-  "recipe_chars": 102,
-  "score": 0.2,
+  "id": "darkpsy",
+  "merged_from": "deep_darkpsy",
+  "name": "Darkpsy",
+  "family": "global",
+  "lineage": "Dark and forest psychedelic-trance offshoot of psytrance, codified through the 2000s underground night-floor scene across Russian, Mexican, and European forest-party circuits via Kindzadza, Psykovsky, and the Osom and Glitchy.Tonik label ecosystem — faster, denser, and more dissonant than mainstream psytrance",
+  "recipe": "classic mid-2000s darkpsy, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, glitched textural sampler, glitched textural eurorack modular. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter ring modulator high-gain distortion flanger analog bucket-brigade delay.",
+  "recipe_chars": 528,
+  "score": 83.802,
   "config": {
     "traditions": [
-      "deep_darkpsy"
+      "darkpsy",
+      "breakcore",
+      "chiptune_8bit"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_mono_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_lead_line",
+          "mono_oscillator": "mono_digitally_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "sh_101",
+          "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.1995
+          "electronic_technique": 0.245,
+          "mono_oscillator": 0.105,
+          "mono_filter": 0.54,
+          "mono_archetypes": 2.035,
+          "mono_maker_lineage": -0.07000000000000019
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 0.245,
+          "va_archetypes": 2.5,
+          "digital_subtractive_context": 16.055
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_kick",
+          "drum_machine_909_context": "drum_machine_909_hardcore",
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
+        },
+        "scores": {
+          "tr909_voice": 2.91,
+          "drum_machine_909_context": 2.925,
+          "tr909_production_origin": 1.1049999999999993
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 11.195,
+          "sampler_archetypes": 0.7050000000000001,
+          "sampler_bit_depth": 0.21,
+          "sampler_workflow": 11,
+          "sampler_classic_context": 17.582499999999996
+        }
+      },
+      {
+        "id": "eurorack_modular",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "eurorack_focus": "eurorack_west_coast",
+          "eurorack_modular_context": "eurorack_modular_studio"
+        },
+        "scores": {
+          "electronic_technique": 11.195,
+          "eurorack_focus": 2.8600000000000003,
+          "eurorack_modular_context": 2.8600000000000003
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "forest_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_std"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
-    "fx_extras": []
+    "fx_extras": [
+      "ring_mod",
+      "distortion_high",
+      "flanger_pedal",
+      "analog_delay"
+    ]
   },
   "source": {
-    "room": "treated_studio",
+    "tuning": "twelve_tet",
+    "room": "forest_clearing",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_bass_sub",
+      "sampler_archetypes": "akai_s1000",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_edm",
+      "tr909_voice": "tr909_kick",
+      "drum_machine_909_context": "drum_machine_909_house",
+      "tr909_production_origin": "tr909_roland_osaka_canonical"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "ring_mod",
+      "distortion_high",
+      "flanger_pedal",
+      "analog_delay"
+    ]
   }
 }

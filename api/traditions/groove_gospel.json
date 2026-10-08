@@ -3,9 +3,9 @@
   "name": "Groove gospel",
   "family": "blues_gospel",
   "lineage": "Groove gospel connects Brazilian Christian music with soul, funk, rap, reggae and related Black popular-music traditions. Performers such as Templo Soul, Eli Soares and Pregador Luo bring devotional messages into rhythm-driven band and studio settings.",
-  "recipe": "classic groove gospel, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit, bach stradivarius 180 canonical American orchestral honking attack ensemble trumpet, bach 42 canonical American orchestral tenor honking attack trombone, tenor honking attack saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 624,
-  "score": 78.64,
+  "recipe": "classic groove gospel, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit, bach stradivarius 180 canonical American orchestral ensemble trumpet, bach 42 canonical American orchestral tenor ensemble trombone, tenor ensemble honking attack saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 603,
+  "score": 77.601,
   "config": {
     "traditions": [
       "groove_gospel"
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": 2.45,
           "amp_make": 7.969500000000001,
-          "body_wood": 1.2285,
+          "body_wood": 0.9555,
           "neck_wood": 0,
           "fretboard": 0,
-          "pickup_magnet": 0.40950000000000003,
-          "pickup_winding": 0.40950000000000003,
+          "pickup_magnet": 0.273,
+          "pickup_winding": 0.273,
           "string_material": 0,
-          "bridge": 0.294,
-          "scale_length": 1.2285,
-          "string_gauge": 0.294,
+          "bridge": 0.3675,
+          "scale_length": 0.9555,
+          "string_gauge": 0.3675,
           "finish": 0,
-          "string_tuning": 1.2285
+          "string_tuning": 0.9555
         }
       },
       {
@@ -94,7 +94,7 @@
         },
         "scores": {
           "electronic_technique": 0.15000000000000002,
-          "va_archetypes": 0.294,
+          "va_archetypes": 0.3675,
           "digital_subtractive_context": 5.069999999999999
         }
       },
@@ -113,9 +113,9 @@
         "scores": {
           "amp_make": 5.633,
           "body_wood": 0,
-          "pickup_config": 0.7035,
+          "pickup_config": 0.6405,
           "string_type": 5.25,
-          "scale_length_b": 0.40950000000000003,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.273,
           "bass_technique": 7.45,
           "electric_bass_string_configuration": 0
@@ -137,7 +137,7 @@
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_honking_attack",
+          "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "no_mute_brass",
@@ -146,19 +146,19 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 4.9,
+          "wind_articulation": 5.0365,
           "brass_size": 0.273,
           "trumpet_mouthpiece": -0.035,
-          "brass_mute": 0.4305,
-          "trumpet_technique": 4.9,
+          "brass_mute": 0.504,
+          "trumpet_technique": 5.0365,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 1.4385000000000001
+          "trumpet_maker_school": 1.302
         }
       },
       {
         "id": "trombone",
         "slots": {
-          "wind_articulation": "wind_honking_attack",
+          "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_3g",
           "trombone_mute": "straight_mute_trb",
@@ -167,19 +167,19 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.9,
+          "wind_articulation": 5.0365,
           "trombone_type": 0,
           "trombone_mouthpiece": 0.25,
-          "trombone_mute": 1.0185,
+          "trombone_mute": 0.84,
           "trombone_technique": 0.39,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 1.4385000000000001
+          "trombone_maker_school": 1.302
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_honking_attack",
+          "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "rose_brass_sax",
@@ -188,13 +188,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 4.9,
+          "wind_articulation": 5.0365,
           "sax_size": 5.0365,
           "sax_reed": 0,
           "sax_body_alloy": 0.325,
           "sax_mouthpiece": 0,
           "sax_technique": 4.9,
-          "sax_maker_school": 0.40950000000000003
+          "sax_maker_school": 0.273
         }
       }
     ],

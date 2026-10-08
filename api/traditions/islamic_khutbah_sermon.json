@@ -5,7 +5,7 @@
   "lineage": "The formal Friday (jumuah) and Eid sermon delivered by the khatib from the minbar, a two-part homily of praise, Qur'anic citation, exhortation, and supplication codified from the earliest Medinan community. It is delivered in heightened, projected Arabic oratory that frequently cadences into maqam-inflected dua and quoted Qur'anic verse. The rhetorical structure — opening hamd and salawat, admonition, and closing prayer for the community — is preserved across the Sunni and Shia worlds. It stands alongside the adhan and tajwid recitation as a central genre of Islamic vocal practice, though speech-centered rather than fully melodic.",
   "recipe": "classic North African modern islamic khutbah sermon, ritual Devotional, islamic branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 323,
-  "score": 236.683,
+  "score": 237.115,
   "config": {
     "traditions": [
       "islamic_khutbah_sermon",
@@ -38,18 +38,18 @@
           "voice_quality": 41.990000000000045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5905000000000005,
+          "voice_vibrato": 3.640000000000001,
           "voice_articulation": 24.765,
           "voice_microtone": 32.955,
           "voice_tradition": 21.319999999999997,
-          "voice_mechanism_compound": 9.080000000000002,
+          "voice_mechanism_compound": 9.335,
           "voice_estill_quality": 5.785,
           "voice_speech_song": 27.950000000000003,
           "voice_ensemble_config": 25.35,
-          "voice_ornament_system": 16.239500000000003,
+          "voice_ornament_system": 16.163000000000004,
           "voice_pitch_organization": 5.785000000000001,
           "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 5.923
+          "voice_multitrack_stack": 6.127000000000001
         }
       }
     ],

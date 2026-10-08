@@ -5,7 +5,7 @@
   "lineage": "Polish biesiadne (feast-and-drinking-song) tradition continuous from medieval-Polish tavern-and-noble-feast song-tradition through 19th-20th-century Polish-Romantic-era and Communist-era continuous performance into modern Polish wedding-and-pub continuous practice; foundational repertoire includes \"Sto lat\" (the canonical Polish birthday-and-toast song), \"Hej, sokoły\" (canonical Polish-Ukrainian dance-and-drinking)",
   "recipe": "classic modern polish biesiadne, drinking Song, European branch, balkan drinking song, European wedding, Slavic bard ballad poetry macedonian-serbian kafana drinking song starogradska muzika. extended whistle, breath veiled tone, straight onset, interlocked note trading. castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 394,
-  "score": 151.98,
+  "score": 151.5,
   "config": {
     "traditions": [
       "polish_biesiadne",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.6000000000000005,
           "voice_articulation": 20.8,
           "voice_microtone": 21.839999999999996,
-          "voice_tradition": 21.734999999999996,
+          "voice_tradition": 21.254999999999995,
           "voice_mechanism_compound": 1.8200000000000003,
           "voice_estill_quality": 1.2349999999999999,
           "voice_speech_song": 34.775,
@@ -58,7 +58,7 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "steel_reeds",
           "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"

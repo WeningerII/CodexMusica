@@ -5,7 +5,7 @@
   "lineage": "Canadian commercial pop includes carefully arranged studio songs such as Carly Rae Jepsen’s Call Me Maybe. This model retains its documented sampled orchestral-string hook, doubled by electric and acoustic guitars, with bass, drums and singing. It is a representative production branch, not a uniform national sound.",
   "recipe": "classic modern canadian pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. sampler, clean strummed single coil electric strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 507,
-  "score": 74.824,
+  "score": 75.314,
   "config": {
     "traditions": [
       "canadian_pop"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 1.3705,
+          "voice_processing_chain": 1.3315000000000001,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -62,7 +62,7 @@
         "scores": {
           "electronic_technique": 1.2,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.4305,
+          "sampler_bit_depth": 0.46199999999999997,
           "sampler_workflow": 3.3865,
           "sampler_classic_context": 11.3865
         }
@@ -79,7 +79,7 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_short",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -87,14 +87,14 @@
         "scores": {
           "electric_technique": 11.3575,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.1365,
-          "neck_wood": 0.1365,
+          "body_wood": 0.2415,
+          "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.0315,
           "string_gauge": 0.1995,
           "bridge": 0.1365,
-          "scale_length": 0.3,
+          "scale_length": 0.378,
           "finish": 0,
           "string_tuning": 1.95,
           "single_coil_pickup_construction": 0
@@ -131,7 +131,7 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 0.168,
+          "body_wood": 0.378,
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,

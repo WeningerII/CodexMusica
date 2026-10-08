@@ -5,7 +5,7 @@
   "lineage": "British jazz encompasses club, recording and improvising communities shaped by local creativity and international exchange. Contemporary branches draw on modern jazz composition and Afro-diasporic rhythms, often combining acoustic ensembles with electric-keyboard colour.",
   "recipe": "classic modern british jazz, improv On Frame, American jazz branch. yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, wurlitzer ep, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 393,
-  "score": 63.716,
+  "score": 63.789,
   "config": {
     "traditions": [
       "british_jazz"
@@ -26,8 +26,8 @@
           "wind_articulation": -0.035,
           "sax_size": 0.19500000000000003,
           "sax_reed": 0.1785,
-          "sax_body_alloy": 3.0485,
-          "sax_mouthpiece": 0,
+          "sax_body_alloy": 2.975,
+          "sax_mouthpiece": 0.1365,
           "sax_technique": -0.035,
           "sax_maker_school": 1.3
         }
@@ -43,9 +43,9 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "wurlitzer_use": 0.063,
+          "wurlitzer_use": 0,
           "wurlitzer_ep_voice": 0.39,
-          "wurlitzer_model": -1.8084999999999998,
+          "wurlitzer_model": -1.7034999999999998,
           "wurlitzer_reed_material": 0.39
         }
       },
@@ -56,7 +56,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.23099999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 13.75
         }
       },
@@ -77,16 +77,16 @@
         },
         "scores": {
           "drum_technique": 12.089999999999996,
-          "drumhead": 0.063,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.252,
+          "shell_wood": 0.2835,
           "shell_thickness": 0,
-          "bearing_edges": 0.1365,
+          "bearing_edges": 0.1995,
           "snare_wires": 0.147,
-          "cymbal_alloy": 13.746999999999998,
+          "cymbal_alloy": 13.851999999999999,
           "cymbal_hammering": 14.141,
-          "cymbal_lathing": 2.783625,
-          "cymbal_finish": 0.063
+          "cymbal_lathing": 2.678625,
+          "cymbal_finish": 0
         }
       }
     ],

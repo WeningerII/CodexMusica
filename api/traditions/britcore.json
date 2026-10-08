@@ -5,7 +5,7 @@
   "lineage": "Britcore emerged as a hard-edged branch of British hip-hop, associated with groups such as Hijack, Hardnoise and the Demon Boyz. Rapid rap, forceful breakbeats and turntable technique connect its sound with the UK’s wider sound-system and breakbeat cultures.",
   "recipe": "classic britcore, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch rap human voice ensemble unspecified, chopped sampler, sampled chopped turntable. treated studio.",
   "recipe_chars": 177,
-  "score": 52.341,
+  "score": 52.864,
   "config": {
     "traditions": [
       "britcore"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.868,
+          "voice_speech_song": 11.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 4,
           "sampler_archetypes": 3.75,
-          "sampler_bit_depth": 0.1785,
+          "sampler_bit_depth": 0.252,
           "sampler_workflow": 3.95,
           "sampler_classic_context": 9.945
         }
@@ -77,7 +77,7 @@
         },
         "scores": {
           "electronic_technique": 4,
-          "turntable_technique": 4.405
+          "turntable_technique": 4.5415
         }
       }
     ],

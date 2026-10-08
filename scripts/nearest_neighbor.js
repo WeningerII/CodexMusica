@@ -448,7 +448,7 @@ if (type === 'tradition') {
     results = tradition_byAxes(target);
     header = `Top ${Math.min(limit, results.length)} traditions by axis distance:`;
   } else if (flags.id) {
-    results = tradition_byId(String(flags.id));
+    results = tradition_byId(C.resolveTraditionId(String(flags.id)));
     if (results === null) {
       console.error(`Tradition not found: ${flags.id}`);
       process.exit(2);

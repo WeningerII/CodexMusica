@@ -3,14 +3,14 @@
   "name": "Kyogen comic declamation",
   "family": "classical",
   "lineage": "Kyogen is the comic spoken-theatre form performed as interludes between the solemn noh plays on the same stage, codified in Muromachi-period Japan (14th to 16th centuries) and transmitted through the Okura and Izumi hereditary schools. Its dialogue is delivered in a highly stylized, clearly projected declamation with fixed cadences and stock phrases such as the entrance line 'Kore wa kono atari no mono de gozaru', serving as the spoken counterpart to noh's chanted utai. Performers train from childhood in the family line, with the Nomura and Shigeyama families among the best-known modern lineages. It is documented in the repertories of the Nohgaku Performers' Association and UNESCO's Nogaku intangible-heritage inscription (2001/2008).",
-  "recipe": "classic East Asian early-2000s kyogen comic declamation, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 262,
-  "score": 268.544,
+  "recipe": "classic East Asian early-2000s kyogen comic declamation, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 272,
+  "score": 256.915,
   "config": {
     "traditions": [
       "kyogen_declamation",
-      "thai_classical",
-      "beijing_opera"
+      "beijing_opera",
+      "tibetan_ache_lhamo"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.03,
-          "voice_quality": 28.535000000000004,
+          "voice_register": 3.9800000000000004,
+          "voice_quality": 31.525000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.095,
-          "voice_articulation": 23.660000000000004,
-          "voice_microtone": 23.464999999999996,
-          "voice_tradition": 34.7425,
-          "voice_mechanism_compound": 12.899999999999999,
-          "voice_estill_quality": 26.8665,
-          "voice_speech_song": 30.615000000000006,
-          "voice_ensemble_config": 22.684999999999995,
-          "voice_ornament_system": 18.834999999999997,
-          "voice_pitch_organization": 17.455,
-          "voice_processing_chain": 5.719999999999999,
-          "voice_multitrack_stack": 3.9650000000000007
+          "voice_vibrato": 11.7,
+          "voice_articulation": 24.439999999999998,
+          "voice_microtone": 24.43999999999999,
+          "voice_tradition": 33.3125,
+          "voice_mechanism_compound": 9.549999999999999,
+          "voice_estill_quality": 26.441499999999998,
+          "voice_speech_song": 30.614999999999995,
+          "voice_ensemble_config": 25.154999999999994,
+          "voice_ornament_system": 16.459999999999997,
+          "voice_pitch_organization": 12.160499999999997,
+          "voice_processing_chain": 5.329999999999999,
+          "voice_multitrack_stack": 3.7050000000000005
         }
       }
     ],

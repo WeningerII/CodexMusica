@@ -5,7 +5,7 @@
   "lineage": "Indie jazz links jazz improvisation with independent rock, electronic rhythm and contemporary composition. Small ensembles often translate loop-like patterns and production ideas into acoustic instrumental interplay.",
   "recipe": "classic modern indie jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 354,
-  "score": 51.313,
+  "score": 51.514,
   "config": {
     "traditions": [
       "indie_jazz"
@@ -30,7 +30,7 @@
           "grand_piano_brand": 0.1365,
           "piano_hammer": 1.17,
           "piano_rim": 1.17,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": -0.035
@@ -64,13 +64,13 @@
         },
         "scores": {
           "drum_technique": 2.605,
-          "drumhead": 0.188,
+          "drumhead": 0.2195,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.44,
+          "shell_wood": 0.47150000000000003,
           "shell_thickness": 0,
-          "bearing_edges": 0.5125,
+          "bearing_edges": 0.5754999999999999,
           "snare_wires": 0.147,
-          "cymbal_alloy": 13.746999999999998,
+          "cymbal_alloy": 13.851999999999999,
           "cymbal_hammering": 14.141,
           "cymbal_lathing": 2.7590000000000003,
           "cymbal_finish": 0

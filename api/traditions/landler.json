@@ -3,32 +3,32 @@
   "name": "Ländler",
   "family": "global",
   "lineage": "Rural couple dance of Austria, Bavaria and German-speaking Switzerland attested from the late 18th century as the ancestor of the waltz — slow to moderate 3/4 at roughly 100-150 BPM with a heavy, foot-stamping first beat, played by fiddle and hammered dulcimer (Hackbrett) ensembles before diatonic accordion took the lead in the 19th century, frequently interrupted by sung Gstanzln verses and yodel refrains, with turning and clapping figures cueing repeats.",
-  "recipe": "classic modern ländler, drinking Song, European branch, European wedding, vocal drone modal trikiti greek gamílio glendí. vocal fry, breath veiled tone, straight onset, interlocked note trading. magic rosin modern acrylic base double stops fiddle, steel bronze modern hammered dulcimer, lilting dance rhythm schwyzerorgeli, grenadilla African blackwood traditional clarinet, norway spruce European alpine European maple sycamore maple spirit varnish double bass, harp armed dance lilting concert zither alpine. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 586,
-  "score": 178.457,
+  "recipe": "classic modern ländler, drinking Song, European branch, European wedding, vocal drone modal trikiti violi kai laouto. vocal fry, breath veiled tone, slow rate, interlocked note trading. double stops fiddle, hammered dulcimer, lilting dance rhythm schwyzerorgeli, clarinet, norway spruce European alpine European maple bosnian source flamed figure double bass, harp armed dance lilting concert zither alpine. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 483,
+  "score": 165.763,
   "config": {
     "traditions": [
       "landler",
       "trikiti",
-      "greek_gamilio_glendi"
+      "cypriot_violi_laouto"
     ],
     "instruments": [
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
-          "fiddle_strings": "synthetic_core",
-          "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "no_mute",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "sul_tasto",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 3.3950000000000005,
-          "fiddle_strings": 0.845,
-          "fiddle_bow": 2.015,
-          "fiddle_mute": 0.195,
-          "fiddle_articulation": 0.7,
+          "bowed_technique": 3.5900000000000007,
+          "fiddle_strings": 0.325,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.745,
           "fiddle_string_configuration": 0
         }
       },
@@ -36,15 +36,15 @@
         "id": "hammered_dulcimer",
         "slots": {
           "hammer_dulcimer_courses": "hd_extended",
-          "hammer_material": "wood_bare",
-          "hammered_dulcimer_body_wood": "hd_maple_modern",
+          "hammer_material": "leather_covered",
+          "hammered_dulcimer_body_wood": "hd_walnut_canonical",
           "hammered_dulcimer_strings": "hd_steel_bronze_modern"
         },
         "scores": {
-          "hammer_dulcimer_courses": 0.845,
-          "hammer_material": 0.195,
-          "hammered_dulcimer_body_wood": 0.845,
-          "hammered_dulcimer_strings": 1.2349999999999999
+          "hammer_dulcimer_courses": 0.285,
+          "hammer_material": 0.65,
+          "hammered_dulcimer_body_wood": 0.28500000000000003,
+          "hammered_dulcimer_strings": 0.5249999999999999
         }
       },
       {
@@ -56,54 +56,54 @@
           "schwyzerorgeli_context": "schwyzerorgeli_laendler"
         },
         "scores": {
-          "free_reed_technique": 0.5524999999999999,
+          "free_reed_technique": 0.32,
           "schwyzerorgeli_rows": 3.3149999999999995,
           "schwyzerorgeli_tuning": 0.195,
-          "schwyzerorgeli_context": 2.925
+          "schwyzerorgeli_context": 2.73
         }
       },
       {
         "id": "clarinet",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_dixieland_lead",
           "clarinet_body": "grenadilla_clarinet",
           "clarinet_size": "bass_clarinet",
           "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "doina_clarinet"
         },
         "scores": {
-          "wind_articulation": 2.2099999999999995,
-          "clarinet_body": 1.8550000000000002,
+          "wind_articulation": 0.7149999999999999,
+          "clarinet_body": 0.45500000000000007,
           "clarinet_size": 0.8049999999999999,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.6299999999999999
+          "clarinet_articulation": 0.47999999999999987
         }
       },
       {
         "id": "double_bass",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "bass_size": "bass_seven_eighth",
-          "bass_strings": "bass_steel",
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "venice_catlin_bass",
           "bass_top_wood": "norway_spruce_alpine_bass",
-          "bass_back_wood": "european_maple_bass_back",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
           "bass_varnish": "spirit_varnish_bass",
           "bass_setup_period": "modern_setup_bass",
-          "bass_play": "bass_arco",
-          "bass_rosin": "pop_kolstein_rosin",
-          "bass_bow_stick": "pernambuco_stick_bass"
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": -0.035,
-          "bass_size": 0.135,
-          "bass_strings": 0.845,
+          "bowed_technique": 0.06499999999999999,
+          "bass_size": 0,
+          "bass_strings": 0.78,
           "bass_top_wood": 6.630000000000001,
-          "bass_back_wood": 7.767500000000002,
-          "bass_varnish": 1.625,
-          "bass_setup_period": 3.4774999999999996,
-          "bass_play": 0.24,
-          "bass_rosin": 2.6975000000000002,
-          "bass_bow_stick": 1.87
+          "bass_back_wood": 5.590000000000001,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 1.4949999999999999,
+          "bass_play": 0.12999999999999998,
+          "bass_rosin": 0.78,
+          "bass_bow_stick": -0.05
         }
       },
       {
@@ -113,36 +113,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.3649999999999998,
-          "voice_quality": 12.999999999999993,
+          "voice_register": 0.9099999999999999,
+          "voice_quality": 20.14999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 17.939999999999998,
-          "voice_microtone": 18.362499999999997,
-          "voice_tradition": 12.967499999999994,
-          "voice_mechanism_compound": 7.279999999999999,
-          "voice_estill_quality": 5.525,
-          "voice_speech_song": 19.955,
-          "voice_ensemble_config": 16.184999999999995,
-          "voice_ornament_system": 1.0725,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 4.875
+          "voice_vibrato": 1.885,
+          "voice_articulation": 20.604999999999997,
+          "voice_microtone": 18.589999999999993,
+          "voice_tradition": 5.492500000000001,
+          "voice_mechanism_compound": 6.4350000000000005,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 22.619999999999997,
+          "voice_ensemble_config": 18.004999999999995,
+          "voice_ornament_system": 0.825,
+          "voice_pitch_organization": 2.0149999999999997,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 5.330000000000001
         }
       },
       {
@@ -153,9 +153,9 @@
           "concert_zither_alpine_strings": "concert_zither_alpine_strings_steel"
         },
         "scores": {
-          "concert_zither_alpine_type": 2.99,
+          "concert_zither_alpine_type": 2.9450000000000003,
           "concert_zither_alpine_context": 2.99,
-          "concert_zither_alpine_strings": 0.975
+          "concert_zither_alpine_strings": 0.325
         }
       }
     ],

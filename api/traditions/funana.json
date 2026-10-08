@@ -5,7 +5,7 @@
   "lineage": "Santiago island Cape Verdean dance music, long rural and suppressed under Portuguese rule, brought into the electrified national repertoire after 1975 by Bulimundo, Finaçon and Ferro Gaita — built on a diatonic gaita accordion riff over a relentless ferrinho iron-scraper pulse at 120-160 BPM, with a two-beat bass and shouted Kriolu verses alternating strophic narrative and refrain.",
   "recipe": "classic Western European mid-1970s funaná, functional Song, tropical song branch, chanson fado morna, African pop functional song cape verdean batuko of santiago island sungura. extended whistle, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music accordion, snappy samba tradition metal construction reco reco, la bella flats Detroit soul bass canon electric bass, wenge ebony clean strummed single coil electric guitar, drum machine analog. intimate paris small studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
   "recipe_chars": 640,
-  "score": 221.081,
+  "score": 220.824,
   "config": {
     "traditions": [
       "funana",
@@ -28,7 +28,7 @@
           "free_reed_technique": 1.9499999999999997,
           "accordion_reed_material": 0.34500000000000003,
           "musette_offset": 0.65,
-          "reed_config": 0.7799999999999998,
+          "reed_config": 0.4349999999999999,
           "bellows": 0.045,
           "voicing_chamber": 0.195,
           "accordion_maker_school": 3.185
@@ -68,7 +68,7 @@
           "voice_quality": 27.039999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
+          "voice_vibrato": 3.225,
           "voice_articulation": 24.82999999999999,
           "voice_microtone": 23.984999999999992,
           "voice_tradition": 18.719999999999995,
@@ -77,7 +77,7 @@
           "voice_speech_song": 31.134999999999998,
           "voice_ensemble_config": 22.424999999999997,
           "voice_ornament_system": 2.0894999999999997,
-          "voice_pitch_organization": 2.145,
+          "voice_pitch_organization": 2.3595,
           "voice_processing_chain": 4.615000000000003,
           "voice_multitrack_stack": 6.3375
         }
@@ -86,7 +86,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -96,8 +96,8 @@
         },
         "scores": {
           "amp_make": 2.2749999999999995,
-          "body_wood": 0.6900000000000001,
-          "pickup_config": 0.21450000000000002,
+          "body_wood": 0.7290000000000001,
+          "pickup_config": 0.42900000000000005,
           "string_type": 2.0149999999999997,
           "scale_length_b": 0.65,
           "fretted_or_not": 1.4949999999999999,
@@ -124,11 +124,11 @@
         },
         "scores": {
           "electric_technique": 8.82,
-          "amp_make": 1.0944999999999998,
+          "amp_make": 1.2999999999999998,
           "body_wood": 0.34500000000000003,
           "neck_wood": 1.4949999999999999,
           "fretboard": 1.4949999999999999,
-          "pickup_magnet": 0.15,
+          "pickup_magnet": 0.195,
           "string_material": 0.845,
           "string_gauge": 0.39,
           "bridge": 1.4949999999999999,
@@ -150,7 +150,7 @@
           "kick_voice": 0.845,
           "snare_voice": 0,
           "hat_voice": 0,
-          "shuffle_quantize": 0.7799999999999998
+          "shuffle_quantize": 0.4349999999999999
         }
       }
     ],

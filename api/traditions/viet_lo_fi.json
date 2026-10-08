@@ -5,7 +5,7 @@
   "lineage": "Vietnamese lo-fi developed through online producers and channels including Freak D Music, Orinn and1967. Reworked Vietnamese pop songs circulate alongside instrumental listening music, connecting a local song repertoire with the broader international lo-fi aesthetic.",
   "recipe": "classic viet lo-fi, experimental Elec, lofi branch. software lofi reworking. treated studio.",
   "recipe_chars": 92,
-  "score": 0.378,
+  "score": 0.273,
   "config": {
     "traditions": [
       "viet_lo_fi"
@@ -30,7 +30,7 @@
           "software_lofi_reworking_input": 0,
           "software_lofi_reworking_tempo": 0.1365,
           "software_lofi_reworking_pitch": 0,
-          "software_lofi_reworking_distortion": 0.2415,
+          "software_lofi_reworking_distortion": 0.1365,
           "software_lofi_reworking_threshold": 0,
           "software_lofi_reworking_hardness": 0,
           "software_lofi_reworking_makeup": 0,

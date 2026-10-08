@@ -5,7 +5,7 @@
   "lineage": "Glasgow indie grows through the city’s independent bands, labels and venues within Scotland’s wider musical networks. Guitar-pop, punk and alternative approaches contribute to a long-running, stylistically varied local scene.",
   "recipe": "classic glasgow indie, distorted Rock, punk branch. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 271,
-  "score": 30.917,
+  "score": 30.644,
   "config": {
     "traditions": [
       "glasgow_indie"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0,
           "finish": 0,
           "string_tuning": 0

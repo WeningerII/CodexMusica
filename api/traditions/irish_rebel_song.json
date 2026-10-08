@@ -3,13 +3,13 @@
   "name": "Irish rebel song",
   "family": "global",
   "lineage": "Irish rebel-song tradition continuous from 18th-century 1798-United-Irishmen rebellion songs (\"The Wearing of the Green\" \"Bold Robert Emmet\") through 19th-century Young Ireland and Fenian songbook through 1916 Easter Rising era through Northern-Irish Troubles 1968-1998 era continuous into modern Irish-traditional-music repertoire",
-  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós singing newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning indian rosewood rosewood drone like acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 556,
-  "score": 256.16,
+  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing newfoundland traditional song and dance music. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning drone like acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 536,
+  "score": 245.935,
   "config": {
     "traditions": [
       "irish_rebel_song",
-      "sean_nos_singing",
+      "sean_nos_solo",
       "newfoundland_folk"
     ],
     "instruments": [
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "sean_nos_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.9699999999999998,
-          "voice_quality": 11.309999999999992,
+          "voice_register": 4.675000000000001,
+          "voice_quality": 8.319999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2550000000000003,
-          "voice_articulation": 17.03,
-          "voice_microtone": 17.874999999999996,
-          "voice_tradition": 22.865000000000002,
-          "voice_mechanism_compound": 4.029999999999999,
-          "voice_estill_quality": 5.420000000000001,
-          "voice_speech_song": 24.570000000000004,
-          "voice_ensemble_config": 17.744999999999997,
-          "voice_ornament_system": 39.55500000000001,
-          "voice_pitch_organization": 3.1249999999999996,
-          "voice_processing_chain": 4.745000000000001,
-          "voice_multitrack_stack": 2.6650000000000005
+          "voice_vibrato": 3.3000000000000003,
+          "voice_articulation": 15.794999999999998,
+          "voice_microtone": 16.639999999999997,
+          "voice_tradition": 22.7825,
+          "voice_mechanism_compound": 1.8850000000000002,
+          "voice_estill_quality": 3.4775000000000005,
+          "voice_speech_song": 22.229999999999997,
+          "voice_ensemble_config": 16.509999999999998,
+          "voice_ornament_system": 46.955000000000005,
+          "voice_pitch_organization": 3.619999999999999,
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 2.99
         }
       },
       {
@@ -58,15 +58,15 @@
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top_om",
           "back_sides": "rosewood_bs_om",
-          "string_acoustic": "coated_nano_om",
+          "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_drop_d_drone"
         },
         "scores": {
-          "string_tuning": 14.400000000000002,
+          "string_tuning": 13.475,
           "top_wood": 0.745,
-          "back_sides": 1.17,
-          "string_acoustic": 0.74,
-          "acoustic_om_technique": 11.435
+          "back_sides": 0.975,
+          "string_acoustic": 0.39,
+          "acoustic_om_technique": 9.915
         }
       },
       {
@@ -80,11 +80,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 11.395000000000001,
-          "fiddle_strings": 1.69,
-          "fiddle_bow": 3.88,
+          "bowed_technique": 8.42,
+          "fiddle_strings": 1.6300000000000001,
+          "fiddle_bow": 3.58,
           "fiddle_mute": 0.7,
-          "fiddle_articulation": 0.585,
+          "fiddle_articulation": 0.735,
           "fiddle_string_configuration": 0
         }
       },
@@ -97,9 +97,9 @@
           "whistle_body_material": "whistle_wood_premium"
         },
         "scores": {
-          "wind_articulation": 12.085,
-          "whistle_key": 17.525,
-          "whistle_ornament": 2.86,
+          "wind_articulation": 10.165,
+          "whistle_key": 21.624999999999996,
+          "whistle_ornament": 3.565,
           "whistle_body_material": 2.015
         }
       }

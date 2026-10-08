@@ -5,7 +5,7 @@
   "lineage": "A shadowy, forceful strand of techno emphasizing low-register weight, insistent repetition and abrasive or ominous electronic textures. Florian Meindl’s hybrid production and performance practice provides one example.",
   "recipe": "classic dark techno, electronic Dance, techno branch. modular synth, drum machine analog, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay high-gain distortion.",
   "recipe_chars": 246,
-  "score": 5.436,
+  "score": 5.317,
   "config": {
     "traditions": [
       "dark_techno"
@@ -21,8 +21,8 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "mod_voltage_source": 0.4755,
-          "mod_patch_density": 0.108,
+          "mod_voltage_source": 0.5514999999999999,
+          "mod_patch_density": 0.093,
           "mod_lineage": 0.5775
         }
       },
@@ -37,7 +37,7 @@
         "scores": {
           "kick_voice": 0.18,
           "snare_voice": 0,
-          "hat_voice": 0.18,
+          "hat_voice": 0,
           "shuffle_quantize": -0.035
         }
       },

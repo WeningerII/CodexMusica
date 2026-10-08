@@ -5,7 +5,7 @@
   "lineage": "Electrónica peruana brings electronic production into contact with Peru’s varied musical practices. Afro-Peruvian percussion and singing form one important fusion branch within a broader contemporary field.",
   "recipe": "classic electronica peruana, electronic Dance. single coil electric guitar, electric bass, Hammond a 100 built in Leslie home spinet tonewheel organ, sampler, open back Afro peruvian tradition cajon peruano, cajita, congas, bongos, timbales, donkey jawbone Afro peruvian tradition quijada. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 21.715,
+  "score": 21.705,
   "config": {
     "traditions": [
       "electronica_peruana"
@@ -129,14 +129,14 @@
         "id": "congas",
         "slots": {
           "percussion_technique": "percussion_hands_layered",
-          "conga_set": "tumba",
+          "conga_set": "quinto",
           "conga_skin": "conga_synthetic_head",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.5130000000000003,
-          "conga_set": 0.105,
-          "conga_skin": 0.063,
+          "percussion_technique": 2.5445,
+          "conga_set": 0.063,
+          "conga_skin": 0.0315,
           "conga_shell_wood": 0
         }
       },
@@ -149,8 +149,8 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.5130000000000003,
-          "bongos_skin": 0.063,
+          "percussion_technique": 2.5445,
+          "bongos_skin": 0.0315,
           "bongos_context": 0.0315,
           "bongos_shell_wood": 0
         }
@@ -163,7 +163,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 2.5130000000000003,
+          "percussion_technique": 2.5445,
           "timbales_shell": 0.063,
           "timbales_context": 0.0315
         }

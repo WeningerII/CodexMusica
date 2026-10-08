@@ -3,9 +3,9 @@
   "name": "Gospel papiamento",
   "family": "blues_gospel",
   "lineage": "Papiamentu-language gospel joins Christian songwriting with the musical life of the Dutch Caribbean and its diaspora. Artists such as Cici Isenia connect Curaçao and the Netherlands, drawing on Caribbean influences and contemporary international gospel networks.",
-  "recipe": "classic gospel papiamento, ritual Devotional, christian gospel branch. gospel runs grand piano, long life coated nanoweb dreadnought acoustic basswood humbucker electric guitar, long life coated elixir nanoweb electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 323,
-  "score": 23.97,
+  "recipe": "classic gospel papiamento, ritual Devotional, christian gospel branch. gospel runs grand piano, long life coated nanoweb dreadnought acoustic humbucker electric guitar, long life coated elixir nanoweb electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 23.082,
   "config": {
     "traditions": [
       "gospel_papiamento"
@@ -66,9 +66,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 12.9115,
-          "grand_piano_size": 0.294,
-          "grand_piano_brand": 1.3,
+          "keyboard_technique": 13.048,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 1.273,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
           "piano_soundboard": -0.035,
@@ -90,7 +90,7 @@
           "acoustic_technique": -0.175,
           "string_tuning": 0,
           "top_wood": 0.3,
-          "back_sides": 0.294,
+          "back_sides": 0.3675,
           "string_acoustic": 1
         }
       },
@@ -114,17 +114,17 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 1.2285,
+          "body_wood": 0.9555,
           "neck_wood": 0,
           "fretboard": 0,
-          "pickup_magnet": 0.40950000000000003,
-          "pickup_winding": 0.40950000000000003,
+          "pickup_magnet": 0.273,
+          "pickup_winding": 0.273,
           "string_material": 0,
-          "bridge": 0.294,
-          "scale_length": 1.2285,
-          "string_gauge": 0.294,
+          "bridge": 0.3675,
+          "scale_length": 0.9555,
+          "string_gauge": 0.3675,
           "finish": 0,
-          "string_tuning": 1.2285
+          "string_tuning": 0.9555
         }
       },
       {
@@ -142,9 +142,9 @@
         "scores": {
           "amp_make": 0.25,
           "body_wood": 0,
-          "pickup_config": 0.7035,
+          "pickup_config": 0.6405,
           "string_type": 1,
-          "scale_length_b": 0.40950000000000003,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

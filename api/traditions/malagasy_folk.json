@@ -5,7 +5,7 @@
   "lineage": "Malagasy folk encompasses the varied song and instrumental traditions of Madagascar. Rajery’s singing and bamboo-tube valiha connect highland song with contemporary collaboration and regional musical exchange.",
   "recipe": "classic modern malagasy folk, ballad Poetry. one note per syllable, solo with instrumental accompaniment. valiha. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 251,
-  "score": 13.377,
+  "score": 13.585,
   "config": {
     "traditions": [
       "malagasy_folk"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 2.9899999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1425,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.3115,
+          "voice_multitrack_stack": 0.03899999999999999,
           "voice_tessitura": 0
         }
       },

@@ -1,65 +1,90 @@
 {
-  "id": "horo",
-  "name": "Horo (Bulgarian dance music)",
+  "id": "bulgarian_dance_traditional",
+  "merged_from": "horo",
+  "name": "Bulgarian dance traditional (horo, ruchenitsa)",
   "family": "global",
-  "lineage": "Bulgarian village and state-ensemble chain-dance repertoire, systematised after 1951 by Philip Koutev's national ensemble and issued on Balkanton — additive aksak metres (7/8 ruchenitsa, 9/8 daichovo, 11/16 kopanitsa) at high tempo, gaida drone under kaval and gadulka heterophony, tambura offbeat strumming, and a tupan stick-and-beater pattern marking the long and short beats",
-  "recipe": "classic Southern European early-1950s horo, carnival Processional, European branch, wind pipe drone modal, Slavic balkan field work caucasian folk music greek clarinet. cane arundo donax single reed canonical bulgarian gaida bulgarian, plum canonical bulgarian kaval, gadulka, horo dance driving strummed tambura balkan, tupan, castagnari Italian premium folk music drone like accordion, clarinet. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 554,
-  "score": 67.755,
+  "lineage": "Bulgarian village dance tradition built on aksak additive odd-meter rhythms (7/8 rachenitsa, 9/8 devetorka, 11/8 kopanitsa, 13/8 from Shopluk region) — performed at village celebrations, weddings, and (post-1944) on the State Ensemble stage circuit; characteristic instrumentation: gaida (bulgarian bagpipe), kaval (rim-blown flute), tambura, accordion, gadulka (bowed lute)",
+  "recipe": "classic Southern European mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry powada serbian guslar epic recitation. extended whistle, breath veiled tone, straight note core, interlocked note trading. cane arundo donax single reed canonical bulgarian gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion, gadulka, bolt tuned tapan. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 652,
+  "score": 176.35,
   "config": {
     "traditions": [
-      "horo",
-      "caucasian_folk",
-      "greek_clarinet"
+      "bulgarian_dance_traditional",
+      "powada_marathi",
+      "serbian_guslar_epic"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 1.4849999999999999,
+          "voice_quality": 15.275,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.0399999999999998,
+          "voice_articulation": 10.724999999999994,
+          "voice_microtone": 10.529999999999992,
+          "voice_tradition": 9.425,
+          "voice_mechanism_compound": 1.69,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 11.569999999999997,
+          "voice_ensemble_config": 11.049999999999995,
+          "voice_ornament_system": 0.795,
+          "voice_pitch_organization": 1.75,
+          "voice_processing_chain": 4.45,
+          "voice_multitrack_stack": 1.3649999999999998
+        }
+      },
       {
         "id": "gaida_bulgarian",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "gaida_origin": "gaida_djura",
+          "gaida_origin": "gaida_kaba",
           "gaida_bulgarian_context": "gaida_bulgarian_revival",
           "gaida_chanter_wood": "gaida_plum_canonical",
           "gaida_reed": "gaida_cane_canonical",
           "gaida_bag": "gaida_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 2.52,
-          "gaida_origin": 1.19,
-          "gaida_bulgarian_context": 2.535,
-          "gaida_chanter_wood": 0,
-          "gaida_reed": 3.8649999999999998,
-          "gaida_bag": 0.15
+          "wind_articulation": 1.885,
+          "gaida_origin": 0.78,
+          "gaida_bulgarian_context": 2.0799999999999996,
+          "gaida_chanter_wood": 0.845,
+          "gaida_reed": 5.635,
+          "gaida_bag": 0.845
         }
       },
       {
         "id": "kaval",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "kaval_region": "kaval_turkish",
+          "kaval_region": "kaval_bulgarian",
           "kaval_context": "kaval_village",
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 2.52,
-          "kaval_region": 1.8,
-          "kaval_context": 0.5549999999999999,
-          "kaval_body_wood": 2.3
-        }
-      },
-      {
-        "id": "gadulka",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "gadulka_form": "gadulka_thracian",
-          "gadulka_repertoire": "gadulka_horo",
-          "gadulka_body": "gadulka_mulberry"
-        },
-        "scores": {
-          "bowed_technique": -0.035,
-          "gadulka_form": 9.714999999999998,
-          "gadulka_repertoire": 6.834999999999999,
-          "gadulka_body": 0.195
+          "wind_articulation": 1.885,
+          "kaval_region": 4.549999999999999,
+          "kaval_context": 1.24,
+          "kaval_body_wood": 4.985
         }
       },
       {
@@ -70,27 +95,16 @@
           "tambura_balkan_use": "tambura_horo"
         },
         "scores": {
-          "plucked_traditional_technique": 7.345,
-          "tambura_balkan_school": 6.26,
-          "tambura_balkan_use": 9.095
-        }
-      },
-      {
-        "id": "tupan",
-        "slots": {
-          "tupan_stroke": "tupan_roll",
-          "tupan_head": "tupan_plastic"
-        },
-        "scores": {
-          "tupan_stroke": 0.135,
-          "tupan_head": 0.195
+          "plucked_traditional_technique": 4.835,
+          "tambura_balkan_school": 10.24,
+          "tambura_balkan_use": 4.949999999999999
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_drone_under",
-          "accordion_reed_material": "steel_reeds",
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
@@ -98,30 +112,41 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 6.4350000000000005,
-          "accordion_reed_material": 0.195,
-          "musette_offset": 0.795,
-          "reed_config": 0.195,
-          "bellows": 0.51,
-          "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 3.575
+          "free_reed_technique": 1.835,
+          "accordion_reed_material": 0.3,
+          "musette_offset": 1.3,
+          "reed_config": 0.15,
+          "bellows": 1.24,
+          "voicing_chamber": 0.045,
+          "accordion_maker_school": 1.625
         }
       },
       {
-        "id": "clarinet",
+        "id": "gadulka",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
-          "clarinet_body": "ebonite_clarinet",
-          "clarinet_size": "e_flat_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
-          "clarinet_articulation": "tongued_clarinet"
+          "bowed_technique": "bowed_legato_classical",
+          "gadulka_form": "gadulka_thracian",
+          "gadulka_repertoire": "gadulka_pripev",
+          "gadulka_body": "gadulka_mulberry"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "clarinet_body": 0.9099999999999999,
-          "clarinet_size": 1.49,
-          "clarinet_reed": 0.15,
-          "clarinet_articulation": 0.605
+          "bowed_technique": -0.05,
+          "gadulka_form": 10.349999999999998,
+          "gadulka_repertoire": 10.275,
+          "gadulka_body": 0.7949999999999999
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_modern_tensioned"
+        },
+        "scores": {
+          "tapan_form": 12.299999999999999,
+          "tapan_role": 6.944999999999999,
+          "tapan_build": 3.95
         }
       }
     ],
@@ -131,8 +156,8 @@
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",
       "console": "console_german_tube_50s",
-      "comp": null,
-      "eq": "eq_inductor_iron",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
       "medium": "tape_15ips"
     },
@@ -144,9 +169,35 @@
   "source": {
     "tuning": "balkan_odd_meter_aksak",
     "room": "bulgarian_state_radio_choir_hall",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "wind_articulation": "wind_folk_melodic",
+      "kaval_region": "kaval_bulgarian",
+      "kaval_context": "kaval_pastoral",
+      "kaval_body_wood": "kaval_plum_canonical",
+      "plucked_traditional_technique": "plucked_dance_pattern",
+      "tambura_balkan_school": "tambura_bulgarian",
+      "tambura_balkan_use": "tambura_horo"
+    },
     "chain_mic": "condenser_ldc",
     "chain_pre": "pre_tube_german_v72",
-    "chain_eq": "eq_inductor_iron",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
     "chain_console": "console_german_tube_50s"
   }

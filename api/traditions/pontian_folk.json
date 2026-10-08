@@ -1,126 +1,128 @@
 {
-  "id": "pontian_folk",
-  "name": "Pontian Folk Music",
+  "id": "pontic_greek",
+  "merged_from": "pontian_folk",
+  "name": "Pontic Greek music (Black Sea Greek)",
   "family": "global",
-  "lineage": "Music of the Pontic Greeks of the Black Sea coast, transplanted to northern Greece and the diaspora after the 1923 population exchange and sustained at diaspora associations and panigyria — the three-string bowed kemenche (Pontian lyra) playing continuous fast double-stopped melody with a droning lower string, driving the tik, omal and serra dances in 5/8 and 7/8 at high tempo, doubled at open-air events by zurna and davul, with strophic distich singing",
-  "recipe": "classic early-1920s pontian folk music, drone Modal, string branch, European carnival processional, European funeral lament organetto tarantella. thick, breath veiled tone, fast rate, interlocked note trading. pontian lyra, zurna, davul, def turkish, horo dance driving strummed tambura balkan. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 374,
-  "score": 214.552,
+  "lineage": "Pontic Greek music tradition of the Pontic Greek ethnic community originating in the Black Sea coast of Anatolia (Trabzon, Sinop, Samsun regions, now Turkey), displaced post-1923 Greek-Turkish population exchange to mainland Greece (especially northern Greece, Athens, and Thessaloniki). Performance configuration centers on the Pontic kemenche (three-string upright-fiddle, distinct from Cretan lyra in tuning and playing technique), often accompanied by daouli large frame-drum and angeion bagpipe. Repertoire features fast asymmetrical-meter dance-music (omal, tik, dipat, tromakton) and slow narrative-and-lament forms (Pontic dialect of Greek with characteristic Anatolian-Greek phonological features). Distinguished from broader Greek demotic music by Pontic-Black-Sea regional identity, kemenche-instrument signature, and post-1923 diaspora-cultural-memory orientation.",
+  "recipe": "classic Southern European early-1920s pontic greek music, ballad Poetry, med east poetic branch, Slavic bard ballad poetry serbian guslar epic recitation powada. breath veiled tone, slow rate, interlocked note trading, neutral third half flat. silver wound lamb gut core sitka spruce double stops violin orchestral, tambourine orch, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 548,
+  "score": 217.82,
   "config": {
     "traditions": [
-      "pontian_folk",
-      "organetto_italiano",
-      "tarantella"
+      "pontic_greek",
+      "serbian_guslar_epic",
+      "powada_marathi"
     ],
     "instruments": [
       {
-        "id": "pontian_lyra",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "pontian_style": "pontian_tik",
-          "pontian_size": "pontian_standard"
-        },
-        "scores": {
-          "bowed_technique": 1.04,
-          "pontian_style": 2.9450000000000003,
-          "pontian_size": 1.24
-        }
-      },
-      {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.125,
-          "voice_quality": 15.989999999999991,
+          "voice_register": 0.435,
+          "voice_quality": 19.045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4850000000000003,
-          "voice_articulation": 23.399999999999995,
-          "voice_microtone": 24.699999999999996,
-          "voice_tradition": 11.0825,
-          "voice_mechanism_compound": 7.669999999999999,
-          "voice_estill_quality": 6.175,
-          "voice_speech_song": 24.439999999999998,
-          "voice_ensemble_config": 21.449999999999996,
-          "voice_ornament_system": 4.175000000000001,
-          "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 5.91,
-          "voice_multitrack_stack": 3.1200000000000006
+          "voice_vibrato": 1.625,
+          "voice_articulation": 18.394999999999992,
+          "voice_microtone": 22.48999999999999,
+          "voice_tradition": 32.86000000000001,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.185000000000001,
+          "voice_speech_song": 19.239999999999995,
+          "voice_ensemble_config": 18.32999999999999,
+          "voice_ornament_system": 0.795,
+          "voice_pitch_organization": 3.2,
+          "voice_processing_chain": 11.634999999999994,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {
-        "id": "zurna",
+        "id": "violin_orchestral",
         "slots": {
-          "wind_articulation": "wind_ornament_heavy",
-          "zurna_size": "zurna_kaba",
-          "zurna_context": "zurna_sufi",
-          "zurna_body_wood": "zurna_apricot_canonical",
-          "zurna_reed": "zurna_arundo_canonical"
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "cremonese_post_1740_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "wind_articulation": -0.10500000000000002,
-          "zurna_size": 2.7649999999999997,
-          "zurna_context": 1.105,
-          "zurna_body_wood": 0.285,
-          "zurna_reed": 0.285
+          "bowed_technique": 3.0500000000000007,
+          "orch_strings": 1.25,
+          "orch_top_wood": 2.47,
+          "orch_back_wood": -0.035,
+          "orch_varnish": 0.7149999999999994,
+          "orch_setup_period": -0.07,
+          "orch_bow": 1.645,
+          "orch_bow_stick": -0.05,
+          "orch_articulation": 0.585,
+          "orch_rosin": -0.035
         }
       },
       {
-        "id": "davul",
+        "id": "tambourine_orch",
         "slots": {
-          "davul_form": "davul_armenian",
-          "davul_context": "davul_zurna_pairing",
-          "davul_head_material": "davul_goatskin"
+          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "davul_form": 4.875,
-          "davul_context": 32.434999999999995,
-          "davul_head_material": -0.05
+          "tambourine_orch_jingle": 0.24,
+          "tambourine_orch_context": 0.24
         }
       },
       {
-        "id": "def_turkish",
+        "id": "cretan_lyra",
         "slots": {
-          "def_jingles": "def_bendir",
-          "def_technique": "def_finger"
+          "bowed_technique": "bowed_legato_classical",
+          "lyra_strings": "lyra_3",
+          "lyra_use": "lyra_dance",
+          "lyra_body_wood": "lyra_mulberry",
+          "lyra_string_material": "lyra_gut_historical"
         },
         "scores": {
-          "def_jingles": 0.045,
-          "def_technique": 2.585
+          "bowed_technique": -0.05,
+          "lyra_strings": 1.1549999999999998,
+          "lyra_use": 1.1099999999999999,
+          "lyra_body_wood": 2.535,
+          "lyra_string_material": 1.4
         }
       },
       {
-        "id": "tambura_balkan",
+        "id": "laouto",
         "slots": {
-          "plucked_traditional_technique": "plucked_folk_strummed",
-          "tambura_balkan_school": "tambura_macedonian",
-          "tambura_balkan_use": "tambura_horo"
+          "laouto_form": "laouto_kritiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_gut"
         },
         "scores": {
-          "plucked_traditional_technique": 6.374999999999999,
-          "tambura_balkan_school": -0.035,
-          "tambura_balkan_use": 4.94
+          "laouto_form": 27.05000000000001,
+          "laouto_role": 19.369999999999997,
+          "laouto_strings": 1.67
         }
       }
     ],
-    "room": "field_recording",
+    "room": "athens_minos_studios_60s_70s",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -129,19 +131,43 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
-    "tuning": "mediterranean_traditional_polyphonic_modal",
+    "tuning": "makam_turkish",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "mediterranean_traditional_polyphonic_modal",
-    "room": "field_recording",
+    "tuning": "makam_turkish",
+    "room": "athens_minos_studios_60s_70s",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "twang_voice",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_tradition": "mediterranean_demotic_tradition",
+      "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+      "voice_estill_quality": "voice_estill_oral_twang",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "tambourine_orch_jingle": "tambourine_orch_brass",
+      "tambourine_orch_context": "tambourine_orch_orch",
+      "lyra_strings": "lyra_3",
+      "lyra_use": "lyra_dance",
+      "lyra_body_wood": "lyra_mulberry",
+      "lyra_string_material": "lyra_steel_modern"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

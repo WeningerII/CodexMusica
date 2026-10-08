@@ -5,7 +5,7 @@
   "lineage": "Brazilian trombone performance spans popular repertoire, arranged ensemble music and concert practice. Trombone groups bring Brazilian melodies and rhythmic traditions into a distinctive brass sound.",
   "recipe": "classic trombone brasileiro, art Music. yellow brass canonical 70 30 bach 42 standard tenor standard standard backbore trombone, bass trombone, drum kit. live tracking.",
   "recipe_chars": 168,
-  "score": 6.228,
+  "score": 6.846,
   "config": {
     "traditions": [
       "trombone_brasileiro"
@@ -23,10 +23,10 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 1.2865,
+          "wind_articulation": 1.4949999999999999,
           "trombone_type": -0.035,
           "trombone_mouthpiece": 2.45,
-          "trombone_mute": 0.0315,
+          "trombone_mute": 0.1575,
           "trombone_technique": 1.363,
           "trombone_bell_metal": 1,
           "trombone_maker_school": 0.34650000000000003
@@ -62,10 +62,10 @@
           "drum_technique": -0.05,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0315,
-          "shell_thickness": 0.0315,
+          "shell_wood": 0.126,
+          "shell_thickness": 0.126,
           "bearing_edges": 0,
-          "snare_wires": 0.0315,
+          "snare_wires": 0.126,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.15000000000000002,
           "cymbal_lathing": -0.10500000000000001,

@@ -1,0 +1,109 @@
+{
+  "id": "chhau_dance_music",
+  "name": "Chhau (eastern Indian martial dance music)",
+  "family": "global",
+  "lineage": "Chhau is the martial dance of eastern India in three styles, Purulia in West Bengal, Seraikela in Jharkhand and Mayurbhanj in Odisha, the first two masked; it is danced at night in open spaces, above all at the spring Chaitra Parva festival, and is inscribed on the UNESCO Representative List of the Intangible Cultural Heritage of Humanity. Its music comes from the mohuri and shehnai reed pipes over a battery of drums led by the dhol and the large dhamsa kettledrum; here the mukhavina card, a small double-reed pipe, stands in for the mohuri.",
+  "recipe": "classic modern chhau, carnival Processional, south Asian branch. mukhavina, dhol, dhamsa. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 169,
+  "score": 7.289,
+  "config": {
+    "traditions": [
+      "chhau_dance_music"
+    ],
+    "instruments": [
+      {
+        "id": "mukhavina",
+        "slots": {
+          "mukhavina_size": "mukhavina_small_high",
+          "mukhavina_context": "mukhavina_dance",
+          "mukhavina_reed": "mukhavina_palm_reed"
+        },
+        "scores": {
+          "mukhavina_size": 0.3315,
+          "mukhavina_context": 0.21,
+          "mukhavina_reed": 0
+        }
+      },
+      {
+        "id": "dhol",
+        "slots": {
+          "dhol_form": "dhol_punjabi",
+          "dhol_repertoire": "dhol_festival",
+          "dhol_shell": "dhol_sheesham"
+        },
+        "scores": {
+          "dhol_form": 5.785,
+          "dhol_repertoire": -0.07,
+          "dhol_shell": -0.07
+        }
+      },
+      {
+        "id": "dhamsa",
+        "slots": {
+          "dhamsa_size": "dhamsa_large",
+          "dhamsa_technique": "dhamsa_two_sticks",
+          "dhamsa_head": "dhamsa_buffalo"
+        },
+        "scores": {
+          "dhamsa_size": 0.363,
+          "dhamsa_technique": 0.39,
+          "dhamsa_head": 0
+        }
+      }
+    ],
+    "pinned": {
+      "mukhavina": [
+        "mukhavina_size",
+        "mukhavina_context",
+        "mukhavina_reed"
+      ],
+      "dhol": [
+        "dhol_form",
+        "dhol_repertoire",
+        "dhol_shell"
+      ],
+      "dhamsa": [
+        "dhamsa_size",
+        "dhamsa_technique",
+        "dhamsa_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "mukhavina_size": "mukhavina_small_high",
+      "mukhavina_context": "mukhavina_dance",
+      "mukhavina_reed": "mukhavina_palm_reed",
+      "dhol_form": "dhol_punjabi",
+      "dhol_repertoire": "dhol_festival",
+      "dhol_shell": "dhol_sheesham",
+      "dhamsa_size": "dhamsa_large",
+      "dhamsa_technique": "dhamsa_two_sticks",
+      "dhamsa_head": "dhamsa_buffalo"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Latvian electronic music includes independent producers who build compositions from their own recordings and everyday sonic surroundings.",
   "recipe": "classic latvian electronic, experimental Elec, musique concrete branch. upright piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 209,
-  "score": 8.799,
+  "score": 8.725,
   "config": {
     "traditions": [
       "latvian_electronic"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "electronic_technique": 0.2315,
-          "sample_bitdepth": 0.3675,
+          "sample_bitdepth": 0.294,
           "sample_swing": 8.25,
           "sample_processing": 0
         }

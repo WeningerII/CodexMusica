@@ -1,139 +1,60 @@
 {
-  "id": "acousmatic",
-  "name": "Acousmatic Music (loudspeaker concert practice)",
-  "family": "electronic",
-  "lineage": "Named by François Bayle at the GRM in Paris in 1974 for fixed-media work composed directly onto tape or disk and diffused live over a loudspeaker orchestra such as the Acousmonium — no performers on stage, source recordings of objects, voices and environments transformed by filtering, time-stretching and spatial trajectory, organized by spectromorphology rather than pitch or metre.",
-  "recipe": "classic Asian mid-1970s acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric, western modern art music dark ambient. thick, breath veiled tone, slow rate, interlocked note trading. field textural sampler, glitched textural granular doepfer eurorack canonical 1995 present small format standardization textural modular synth, glitched textural eurorack modular, sustained pad digital subtractive. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 584,
-  "score": 258.962,
+  "id": "acousmatic_music",
+  "merged_from": "acousmatic",
+  "name": "Acousmatic music (Schaeffer school post-musique-concrète)",
+  "family": "classical",
+  "lineage": "French electroacoustic-composition tradition descended from Pierre Schaeffer's 1948-onward musique concrète at Studio d'Essai / GRM (Groupe de Recherches Musicales). Acousmatic refers to music heard from loudspeakers without seeing the source, organized through reduced-listening principles. The post-Schaeffer second generation (François Bayle, Bernard Parmegiani, Luc Ferrari, Beatriz Ferreyra) developed the form into a distinct compositional aesthetic.",
+  "recipe": "classic Asian modern acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric dark ambient mallsoft. field textural sampler, tape replay keyboard. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 337,
+  "score": 42.979,
   "config": {
     "traditions": [
-      "acousmatic",
-      "experimental_ambient",
-      "dark_ambient"
+      "acousmatic_music",
+      "dark_ambient_industrial",
+      "mallsoft"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "mpc_modern",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 13.315,
-          "sampler_archetypes": 2.005,
-          "sampler_bit_depth": 2.145,
-          "sampler_workflow": 15.44,
-          "sampler_classic_context": 19.875
+          "electronic_technique": 10.315000000000003,
+          "sampler_archetypes": 3.25,
+          "sampler_bit_depth": 0.8549999999999999,
+          "sampler_workflow": 11.664375000000001,
+          "sampler_classic_context": 13.500000000000002
         }
       },
       {
-        "id": "granular_synth",
+        "id": "tape_replay_keyboard",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "granular_use": "granular_idm",
-          "granular_synth_source": "granular_synth_field"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "tape_voice": "brass_tape",
+          "tape_state": "aged_tape"
         },
         "scores": {
-          "electronic_technique": 13.315,
-          "granular_use": 0.39,
-          "granular_synth_source": 9.165
-        }
-      },
-      {
-        "id": "modular_synth",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_random",
-          "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_doepfer_eurorack"
-        },
-        "scores": {
-          "electronic_technique": 13.315,
-          "mod_voltage_source": 0.5,
-          "mod_patch_density": 4.874999999999999,
-          "mod_lineage": 1.4100000000000001
-        }
-      },
-      {
-        "id": "eurorack_modular",
-        "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "eurorack_focus": "eurorack_west_coast",
-          "eurorack_modular_context": "eurorack_modular_studio"
-        },
-        "scores": {
-          "electronic_technique": 13.315,
-          "eurorack_focus": 6.825,
-          "eurorack_modular_context": 6.825
-        }
-      },
-      {
-        "id": "digital_subtractive",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "va_archetypes": "nord_lead",
-          "digital_subtractive_context": "digital_subtractive_trance"
-        },
-        "scores": {
-          "electronic_technique": 9.384999999999998,
-          "va_archetypes": 1,
-          "digital_subtractive_context": 13.975
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
-        },
-        "scores": {
-          "voice_register": 1.6099999999999997,
-          "voice_quality": 4.875,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 3.705,
-          "voice_articulation": 15.729999999999997,
-          "voice_microtone": 13.584999999999994,
-          "voice_tradition": 16.335,
-          "voice_mechanism_compound": 4.235,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 16.314999999999998,
-          "voice_ensemble_config": 14.364999999999997,
-          "voice_ornament_system": 1.695,
-          "voice_pitch_organization": 3.615,
-          "voice_processing_chain": 8.72,
-          "voice_multitrack_stack": 3.0875000000000004
+          "keyboard_technique": 0.8699999999999999,
+          "tape_voice": 0.32999999999999996,
+          "tape_state": 0.045
         }
       }
     ],
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
     "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
-      "pre": "pre_500_series_modern",
-      "console": "console_in_the_box",
-      "comp": null,
-      "eq": null,
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -142,10 +63,19 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "tape_voice": "flute_tape",
+      "tape_state": "aged_tape"
+    },
     "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_500_series_modern",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

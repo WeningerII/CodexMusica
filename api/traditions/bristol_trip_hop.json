@@ -5,7 +5,7 @@
   "lineage": "Bristol sound that grew out of the Wild Bunch sound-system crew and was codified 1991-1998 by Massive Attack, Portishead, Tricky and Smith & Mighty — 65-95 BPM dub-weighted breakbeats, minor-key vinyl-noise loops of soundtrack strings and organ, deep sub bass borrowed from reggae sound-system practice, and murmured, close-miked vocals alternating between soul singing and near-whispered rap.",
   "recipe": "classic British mid-1990s bristol trip hop, experimental Elec, pop experimental branch, uk soundsystem bass system, intl hip hop MC rhythm, lofi experimental electric motswako 2-step. thick, rap, slow rate, solo with instrumental accompaniment. field textural sampler, sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, tremolo centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, sub bass analog poly synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 783,
-  "score": 181.28,
+  "score": 181.325,
   "config": {
     "traditions": [
       "bristol_trip_hop",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 7.620000000000001,
-          "voice_quality": 11.245000000000001,
+          "voice_register": 7.725000000000001,
+          "voice_quality": 11.410000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.365,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 1.625,
           "voice_ornament_system": 5.720000000000001,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.325,
+          "voice_processing_chain": 0.295,
           "voice_multitrack_stack": 0.285
         }
       },
@@ -65,7 +65,7 @@
           "electronic_technique": 9.200000000000001,
           "sampler_archetypes": 6.329999999999999,
           "sampler_bit_depth": 1.4249999999999998,
-          "sampler_workflow": 13.535,
+          "sampler_workflow": 13.43,
           "sampler_classic_context": 25.935000000000002
         }
       },
@@ -76,7 +76,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 4.375,
+          "electronic_technique": 4.4350000000000005,
           "turntable_technique": 3.93
         }
       },
@@ -107,7 +107,7 @@
         },
         "scores": {
           "amp_make": 10.205,
-          "body_wood": 2.34,
+          "body_wood": 2.19,
           "pickup_config": 1,
           "string_type": 9.945,
           "scale_length_b": 1.69,
@@ -127,7 +127,7 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 4.995,
+          "keyboard_technique": 4.95,
           "rhodes_model": 1.04,
           "rhodes_use": 1.235,
           "rhodes_tine_material": -0.7350000000000001,
@@ -145,7 +145,7 @@
         },
         "scores": {
           "electronic_technique": 13.6175,
-          "poly_archetypes": 0.3,
+          "poly_archetypes": 0.345,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }

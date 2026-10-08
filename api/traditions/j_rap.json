@@ -1,162 +1,133 @@
 {
-  "id": "j_rap",
-  "name": "J-rap",
+  "id": "japanese_hip_hop",
+  "merged_from": "j_rap",
+  "name": "Japanese hip-hop",
   "family": "hip_hop",
-  "lineage": "Japanese rap includes diverse eras and production styles. The selected King Giddra/Zeebra branch centers Japanese-language rhyming, coordinated MC responses and DJ/sample-based accompaniment.",
-  "recipe": "classic modern j-rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 268,
-  "score": 42.419,
+  "lineage": "Japanese-language hip-hop tradition emerging in 1980s and 1990s through Vibrastone, ECD, and the broader Tokyo-based underground scene. The 2000s commercial peak through KICK THE CAN CREW, KREVA, and the Mary Joy Recordings roster brought J-rap into mainstream-J-pop visibility. The 2010s-2020s wave through KOHH, Awich, JP THE WAVY, and the Bad Hop crew consolidated the contemporary scene. Distinguished by Japanese-language wordplay-density and explicit Japanese-cultural lyrical content.",
+  "recipe": "classic East Asian mid-1980s japanese hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast brooklyn drill east coast hip-hop. thick, rap, straight onset, interlocked note trading. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 507,
+  "score": 271.423,
   "config": {
     "traditions": [
-      "j_rap"
+      "japanese_hip_hop",
+      "brooklyn_drill",
+      "east_coast_hip_hop_classic"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
+          "voice_register": "chest_voice",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 13.065000000000001,
+          "voice_register": 10.439999999999998,
+          "voice_quality": 26.290000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 11.309999999999999,
-          "voice_ensemble_config": 0.2115,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 2.3660000000000005
+          "voice_vibrato": 4.765,
+          "voice_articulation": 15.014999999999997,
+          "voice_microtone": 14.819999999999993,
+          "voice_tradition": 14.754999999999999,
+          "voice_mechanism_compound": 1.59,
+          "voice_estill_quality": 1.8525,
+          "voice_speech_song": 23.275,
+          "voice_ensemble_config": 16.639999999999997,
+          "voice_ornament_system": 4.875000000000002,
+          "voice_pitch_organization": 4.03,
+          "voice_processing_chain": 16.3,
+          "voice_multitrack_stack": 9.522500000000003
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_loop_layered",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_twelve_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.5,
-          "sampler_archetypes": 0.855,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 6.694999999999999
+          "electronic_technique": 12.010000000000002,
+          "sampler_archetypes": 21.580000000000002,
+          "sampler_bit_depth": 0.9750000000000001,
+          "sampler_workflow": 12.595,
+          "sampler_classic_context": 30.1275
         }
       },
       {
-        "id": "turntable",
+        "id": "drum_machine_808",
         "slots": {
-          "electronic_technique": "electronic_sample_chopped",
-          "turntable_technique": "turntable_scratch"
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "electronic_technique": 2.5,
-          "turntable_technique": 2.488
+          "tr808_voice": 13.105000000000002,
+          "drum_machine_808_context": 5.069999999999999,
+          "tr808_production_origin": 4.9399999999999995
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack"
-      ],
-      "sampler_classic": [
-        "electronic_technique",
-        "sampler_archetypes",
-        "sampler_bit_depth",
-        "sampler_workflow",
-        "sampler_classic_context"
-      ],
-      "turntable": [
-        "electronic_technique",
-        "turntable_technique"
-      ]
-    },
-    "room": "studio_auteur_home_pro",
+    "room": "tokyo_studio_1970s_80s",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "pre_500_series_modern",
+      "mic": "mic_sm7b_dynamic_shure",
+      "pre": "pre_neve_1073_input",
       "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "aural_relative",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "aural_relative",
-    "room": "studio_auteur_home_pro",
+    "tuning": "twelve_tet",
+    "room": "tokyo_studio_1970s_80s",
     "parts": {
-      "voice_register": "voice_register_source_unspecified",
+      "voice_register": "chest_voice",
       "voice_quality": "rap_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
       "voice_speech_song": "voice_rhythmic_spoken_flow",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "sampler_archetypes": "mpc_modern",
-      "sampler_bit_depth": "sampler_sixteen_bit",
-      "sampler_workflow": "sampler_loop_layered",
-      "sampler_classic_context": "sampler_classic_hiphop",
-      "electronic_technique": "electronic_sample_chopped",
-      "turntable_technique": "turntable_scratch"
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
     },
-    "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
+    "chain_mic": "mic_sm7b_dynamic_shure",
+    "chain_pre": "pre_neve_1073_input",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }

@@ -5,7 +5,7 @@
   "lineage": "Dance rock combines rock-band performance with dance-floor rhythm, connecting post-punk, funk, disco and electronic influences. Bands translate repeating rhythmic patterns into interlocking instrumental parts and direct vocal songs.",
   "recipe": "classic dance rock, distorted Rock, alternative branch. one note per syllable. single coil electric guitar, pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, vox AC30 top boost, parametric EQ. 24-bit digital.",
   "recipe_chars": 351,
-  "score": 34.73,
+  "score": 35.213,
   "config": {
     "traditions": [
       "dance_rock"
@@ -29,14 +29,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.5679999999999998,
+          "electric_technique": 1.673,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.105,
+          "neck_wood": 0.2415,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.105,
-          "string_gauge": 0.273,
+          "string_material": 0.2415,
+          "string_gauge": 0.168,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
@@ -83,12 +83,12 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 4.361000000000001,
-          "drumhead": 0.105,
+          "drum_technique": 4.3295,
+          "drumhead": 0.2415,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0.3,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 11.481499999999999,
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       }

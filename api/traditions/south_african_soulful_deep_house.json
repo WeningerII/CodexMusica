@@ -1,32 +1,62 @@
 {
-  "id": "south_african_soulful_deep_house",
-  "name": "South African Soulful Deep House",
+  "id": "south_african_deep_house",
+  "merged_from": "south_african_soulful_deep_house",
+  "name": "South African Deep House",
   "family": "electronic",
-  "lineage": "A soulful branch of South African deep-house production and DJ culture, combining melodic electronic textures, sustained bass grooves and influences from gospel, jazz and disco.",
-  "recipe": "classic south african soulful deep house, electronic Dance. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 106,
-  "score": 0.063,
+  "lineage": "South African deep house grows through local clubs, producers and DJ communities, connecting house rhythm with warm harmony and varied regional influences. Jazzuelle exemplifies its deeper electronic production strand.",
+  "recipe": "classic south african deep house, electronic Dance. analog poly synth, drum machine analog.",
+  "recipe_chars": 91,
+  "score": -0.2,
   "config": {
     "traditions": [
-      "south_african_soulful_deep_house"
+      "south_african_deep_house"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "analog_poly_synth",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "electronic_technique": -0.1,
+          "poly_archetypes": 0,
+          "poly_voices": 0,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
         }
       }
     ],
     "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
       ]
     },
-    "room": "live_room",
     "inline_chain": {
       "mic": null,
       "pre": null,
@@ -41,9 +71,15 @@
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize"
     },
     "pin_parts": true
   }

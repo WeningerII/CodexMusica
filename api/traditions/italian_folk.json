@@ -5,7 +5,7 @@
   "lineage": "Italian folk encompasses diverse local song, dance and instrumental traditions. Sicilian performer Alfio Antico exemplifies a text-centered voice-and-frame-drum practice connected to dialect song, memory and the craft of hand-built instruments.",
   "recipe": "classic modern italian folk, ballad Poetry. one note per syllable, solo with instrumental accompaniment. hand struck frame drum tammorra. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 275,
-  "score": 9.588,
+  "score": 9.15,
   "config": {
     "traditions": [
       "italian_folk"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.15599999999999997,
+          "voice_multitrack_stack": 0.03599999999999999,
           "voice_tessitura": 0
         }
       },
@@ -60,8 +60,8 @@
           "tammorra_head": "tammorra_pelle_capra"
         },
         "scores": {
-          "tammorra_form": 5.049,
-          "tammorra_context": 0.354,
+          "tammorra_form": 4.473,
+          "tammorra_context": 0.3,
           "tammorra_head": -0.05
         }
       }

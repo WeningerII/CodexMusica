@@ -5,7 +5,7 @@
   "lineage": "Swazi traditional music sustains communal song, dance and ceremonial life in Eswatini. Royal-village repertoires, regimental songs and women’s seasonal celebrations connect musical participation with social memory, public honor and the agricultural calendar.",
   "recipe": "classic swazi traditional, praise Song. field recording.",
   "recipe_chars": 56,
-  "score": 0.834,
+  "score": 0.605,
   "config": {
     "traditions": [
       "swazi_traditional"
@@ -38,17 +38,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.0195,
+          "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.22425,
-          "voice_ensemble_config": 0.405,
+          "voice_speech_song": 0.18025000000000002,
+          "voice_ensemble_config": 0.2805,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.18525,
+          "voice_processing_chain": 0.007499999999999999,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       }

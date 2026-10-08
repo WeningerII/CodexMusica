@@ -3,9 +3,9 @@
   "name": "Drill Français",
   "family": "hip_hop",
   "lineage": "French adaptation of UK drill emerging in Paris's 93 and 95 departments from 2019 (Gazo, Freeze corleone's circle, Ashe 22, Zola), built on 138-145 BPM half-time beats with sliding 808 glides, triplet and stuttered hi-hat patterns, sparse minor-key piano or flute leads from UK producers such as Ghosty and Chuki, and a flat, low-register conversational flow in verlan-heavy argot.",
-  "recipe": "classic Western European late-2010s drill français, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, uk soundsystem bass system pinoy trap viral rap. vocal fry, rap, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, low sub bass monosynth acid bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 703,
-  "score": 228.215,
+  "recipe": "classic Western European late-2010s drill français, mc Rhythm, drill branch, intl hip hop MC rhythm, us hip hop modern, uk soundsystem bass system pinoy trap viral rap. vocal fry, rap, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, low sub bass digital subtractive, Japanese factory birch laminated maple laminated sitka spruce diaphragmatic grand piano, low sub bass monosynth acid bass. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 701,
+  "score": 228.605,
   "config": {
     "traditions": [
       "drill_francais",
@@ -38,13 +38,13 @@
           "voice_quality": 19.8575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6925,
+          "voice_vibrato": 1.7374999999999998,
           "voice_articulation": 12.674999999999995,
           "voice_microtone": 18.004999999999992,
           "voice_tradition": 6.240000000000001,
           "voice_mechanism_compound": 3.185,
           "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 18.520000000000003,
+          "voice_speech_song": 18.880000000000003,
           "voice_ensemble_config": 12.544999999999996,
           "voice_ornament_system": 6.435000000000001,
           "voice_pitch_organization": 1.755,
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 6.6625,
-          "drum_machine_808_context": 4.29,
-          "tr808_production_origin": 1.75
+          "tr808_voice": 6.6925,
+          "drum_machine_808_context": 4.2875,
+          "tr808_production_origin": 1.705
         }
       },
       {
@@ -77,7 +77,7 @@
           "electronic_technique": 4.825,
           "sample_bitdepth": 2.705,
           "sample_swing": 8.45,
-          "sample_processing": 2.275
+          "sample_processing": 2.34
         }
       },
       {
@@ -88,8 +88,8 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 11.112499999999999,
-          "va_archetypes": 0.195,
+          "electronic_technique": 11.142499999999998,
+          "va_archetypes": 0,
           "digital_subtractive_context": 12.219999999999999
         }
       },
@@ -101,21 +101,21 @@
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
           "keyboard_technique": 0.12999999999999998,
-          "grand_piano_size": 1.2025,
-          "grand_piano_brand": 2.0725,
-          "piano_hammer": 4.46,
+          "grand_piano_size": 1.4425,
+          "grand_piano_brand": 2.145,
+          "piano_hammer": 4.415,
           "piano_rim": 4.6475,
-          "piano_soundboard": 3.68,
+          "piano_soundboard": 3.5749999999999997,
           "piano_pinblock": 3.7249999999999996,
           "piano_plate": 4.625,
-          "piano_pitch_standard": 10.375
+          "piano_pitch_standard": 10.48
         }
       },
       {
@@ -127,8 +127,8 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 11.112499999999999,
-          "wave_acid": 0.39,
+          "electronic_technique": 11.142499999999998,
+          "wave_acid": 0.195,
           "filter_acid": 0.845,
           "accent_acid": 1
         }

@@ -5,7 +5,7 @@
   "lineage": "Bhutanese song-dance repertoire. This recording model pairs group singing with chiwang and dranyen, instruments used in contemporary traditional-music teaching.",
   "recipe": "classic modern boedra, functional Song. bhutanese, group vocals. horse imitating bowed song accompaniment chiwang, dranyen. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 14.996,
+  "score": 15.182,
   "config": {
     "traditions": [
       "boedra"
@@ -39,14 +39,14 @@
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
-          "voice_tradition": 2.3,
+          "voice_tradition": 2.4425,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.042749999999999996,
           "voice_multitrack_stack": 0.1365
         }
       },

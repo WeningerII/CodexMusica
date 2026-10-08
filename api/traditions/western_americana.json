@@ -5,7 +5,7 @@
   "lineage": "Western Americana connects ranching stories, road songs and roots performance across the North American West. Its Canadian and American scenes draw on country, folk and western song, with artists such as Corb Lund linking local experience to contemporary songwriting.",
   "recipe": "classic modern western americana, functional Song, contemp main branch. thick, breath veiled tone, straight note core, neutral third half flat. dreadnought acoustic guitar, big leaf maple modern American k and k twin internal mounted acoustic faithful mandolin, upright bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 430,
-  "score": 54.846,
+  "score": 54.219,
   "config": {
     "traditions": [
       "western_americana"
@@ -40,14 +40,14 @@
           "voice_articulation": 0.13000000000000003,
           "voice_microtone": 4.680000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 7.580500000000001,
+          "voice_mechanism_compound": 1.6705,
+          "voice_estill_quality": 7.486750000000001,
           "voice_speech_song": 8.125,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.05000000000000002,
           "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 0.6315
+          "voice_multitrack_stack": 0.5265
         }
       },
       {
@@ -64,7 +64,7 @@
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 0.7,
-          "string_acoustic": 0.5684999999999999
+          "string_acoustic": 0.43199999999999994
         }
       },
       {
@@ -85,7 +85,7 @@
           "mandolin_top": 0.159,
           "mandolin_back": 2.3585,
           "mandolin_bracing": 0.39,
-          "mandolin_strings": 0.47250000000000003,
+          "mandolin_strings": 0.33599999999999997,
           "mandolin_fingerboard": 0.0225,
           "mandolin_pickup": 5.459999999999999
         }
@@ -97,7 +97,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.47250000000000003,
+          "upright_strings": 0.33599999999999997,
           "upright_play": -0.05
         }
       },

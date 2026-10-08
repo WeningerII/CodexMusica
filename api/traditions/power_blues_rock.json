@@ -5,7 +5,7 @@
   "lineage": "Power blues-rock amplifies blues phrasing within a forceful electric-rock band sound.",
   "recipe": "classic power blues-rock, functional Song, blues electric branch. solo with instrumental accompaniment. marshall plexi amp British rock amp bent note blues lead humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 375,
-  "score": 37.266,
+  "score": 37.797,
   "config": {
     "traditions": [
       "power_blues_rock"
@@ -32,14 +32,14 @@
           "electric_technique": 7.409999999999999,
           "amp_make": 3.7700000000000005,
           "body_wood": 0.39,
-          "neck_wood": 0.3045,
+          "neck_wood": 0.37799999999999995,
           "fretboard": 0.0315,
           "pickup_magnet": 0.19949999999999998,
-          "pickup_winding": 0.3315,
+          "pickup_winding": 0.3,
           "string_material": 0.0315,
-          "bridge": 0.3045,
-          "scale_length": 0.609,
-          "string_gauge": 0.6825,
+          "bridge": 0.37799999999999995,
+          "scale_length": 0.6509999999999999,
+          "string_gauge": 0.6509999999999999,
           "finish": 0.0315,
           "string_tuning": 0.063
         }
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 4.225,
-          "body_wood": 0.609,
-          "pickup_config": 0.063,
+          "body_wood": 0.6509999999999999,
+          "pickup_config": 0.16799999999999998,
           "string_type": 8.0565,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.3,
+          "scale_length_b": 0.37799999999999995,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 7.6365,
-          "drumhead": 0.3045,
+          "drumhead": 0.27299999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.113,
+          "voice_ensemble_config": 1.2389999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.21000000000000002,

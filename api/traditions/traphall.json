@@ -3,24 +3,24 @@
   "name": "Traphall",
   "family": "hip_hop",
   "lineage": "Kingston and Atlanta hybrid formed circa 2013-2016 through producers and deejays including Vybz Kartel, Alkaline, Popcaan and Rvssian, replacing dancehall's one-drop riddim with Southern trap architecture — booming long-decay 808 kicks, triplet hi-hat rolls at 70-75 BPM half-time (140 double-time), sparse minor-key synth motifs, and patois deejay vocals heavily doubled, Auto-Tuned and stacked in ad-lib layers.",
-  "recipe": "classic Southern American 2013-2016 traphall, bass System, Jamaican branch, us hip hop southern, reggae diaspora bass system atl trap country rap. thick, rap, wide pitch sway, interlocked note trading. TR-808, sub bass analog poly synth, unison double single performer stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sampled chopped sampler drum machine. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 577,
-  "score": 190.327,
+  "recipe": "classic Southern American 2013-2016 traphall, bass System, Jamaican branch, us hip hop southern, reggae diaspora bass system dirty south rap atlanta bass. vocal fry, rap, slow rate, interlocked note trading. TR-808, low sub bass analog poly synth, unison double single performer stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sampled chopped sampler drum machine. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 587,
+  "score": 203.222,
   "config": {
     "traditions": [
       "traphall",
-      "atl_trap",
-      "country_rap"
+      "dirty_south_rap",
+      "atlanta_bass"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 3.9750000000000014,
-          "voice_quality": 12.025,
+          "voice_register": 1.625,
+          "voice_quality": 11.830000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.69,
-          "voice_articulation": 18.394999999999996,
-          "voice_microtone": 22.42499999999999,
-          "voice_tradition": 6.817499999999999,
-          "voice_mechanism_compound": 4.159999999999999,
-          "voice_estill_quality": 8.2325,
-          "voice_speech_song": 18.394999999999996,
-          "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 5.720000000000001,
-          "voice_pitch_organization": 2.0425,
-          "voice_processing_chain": 5.969999999999999,
-          "voice_multitrack_stack": 4.615
+          "voice_vibrato": 1.8200000000000003,
+          "voice_articulation": 21.970000000000002,
+          "voice_microtone": 25.61,
+          "voice_tradition": 6.500000000000001,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 22.165,
+          "voice_ensemble_config": 21.45,
+          "voice_ornament_system": 5.460000000000001,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.000000000000001,
+          "voice_multitrack_stack": 4.875
         }
       },
       {
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 8.76,
-          "drum_machine_808_context": 5.07,
-          "tr808_production_origin": 0.9099999999999999
+          "tr808_voice": 11.625,
+          "drum_machine_808_context": 7.965,
+          "tr808_production_origin": 0.65
         }
       },
       {
@@ -74,7 +74,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 14.904999999999998,
+          "electronic_technique": 17.17,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.435
@@ -84,13 +84,13 @@
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_unison_double",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 1.045,
-          "multitrack_stack_era_aesthetic": 0.22749999999999998,
-          "multitrack_stack_processing": 3.0075000000000003
+          "multitrack_stack_density": 1.675,
+          "multitrack_stack_era_aesthetic": 0.35750000000000015,
+          "multitrack_stack_processing": 2.245
         }
       },
       {
@@ -102,10 +102,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 5.154999999999999,
-          "sample_bitdepth": 2.73,
-          "sample_swing": 8.125,
-          "sample_processing": 2.925
+          "electronic_technique": 4.780000000000001,
+          "sample_bitdepth": 3.3675,
+          "sample_swing": 7.0200000000000005,
+          "sample_processing": 4.2325
         }
       }
     ],

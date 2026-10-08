@@ -5,7 +5,7 @@
   "lineage": "Afghan rap develops within Afghanistan and its diaspora, bringing hip-hop forms to experiences of migration, conflict and everyday life. Artists such as Ali ATH and Zartosht connect local languages and concerns with international rap culture.",
   "recipe": "classic afghan rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine. live tracking.",
   "recipe_chars": 140,
-  "score": 44.013,
+  "score": 44.338,
   "config": {
     "traditions": [
       "afghan_rap"
@@ -43,8 +43,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 15.73,
-          "voice_ensemble_config": 0.26549999999999996,
+          "voice_speech_song": 15.982000000000001,
+          "voice_ensemble_config": 0.3705,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 4.108,
-          "sample_bitdepth": 0.105,
+          "sample_bitdepth": 0.1785,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

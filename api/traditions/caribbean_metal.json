@@ -5,7 +5,7 @@
   "lineage": "A Caribbean regional discovery category, represented by the San Juan progressive-metal practice of MOTHS. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern caribbean metal, distorted Rock, prog branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 476,
-  "score": 50.717,
+  "score": 49.741,
   "config": {
     "traditions": [
       "caribbean_metal"
@@ -70,15 +70,15 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 10.325999999999999,
+          "electric_technique": 10.231499999999999,
           "amp_make": 5.135,
           "body_wood": 5.329999999999999,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.33599999999999997,
+          "neck_wood": 0.1995,
+          "fretboard": 0.1995,
           "pickup_magnet": 0.168,
-          "pickup_winding": 0.252,
-          "string_material": 0.33599999999999997,
-          "bridge": 0.651,
+          "pickup_winding": 0.0945,
+          "string_material": 0.1995,
+          "bridge": 0.5880000000000001,
           "scale_length": 5.329999999999999,
           "string_gauge": 0.42,
           "finish": 0,
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 0.252,
+          "body_wood": 0.126,
           "pickup_config": 0.1365,
           "string_type": 4.875,
-          "scale_length_b": 0.3885,
+          "scale_length_b": 0.2625,
           "fretted_or_not": 0.1365,
           "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0

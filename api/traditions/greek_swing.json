@@ -5,7 +5,7 @@
   "lineage": "Greek swing joins Greek song repertoire with swing and manouche-jazz performance. Acoustic ensembles recast familiar melodies through jazz-inflected accompaniment and instrumental exchange.",
   "recipe": "classic greek swing, improv On Frame, American jazz branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, notated speech melody. jazz warm flatwound thomastik dreadnought acoustic guitar, melodic bowed song accompaniment violin orchestral, petosa seattle American premium accordion, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 425,
-  "score": 61.078,
+  "score": 60.73,
   "config": {
     "traditions": [
       "greek_swing"
@@ -21,9 +21,9 @@
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.693,
+          "top_wood": 0.6194999999999999,
           "back_sides": 0.9099999999999999,
           "string_acoustic": 6.24
         }
@@ -35,7 +35,7 @@
           "orch_strings": "steel_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "cremonese_post_1740_varnish_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
@@ -43,13 +43,13 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 3.125,
-          "orch_strings": 0.23099999999999998,
+          "bowed_technique": 3.188,
+          "orch_strings": 0.19949999999999998,
           "orch_top_wood": 0.325,
           "orch_back_wood": -0.035,
           "orch_varnish": -0.035,
           "orch_setup_period": 0.26,
-          "orch_bow": 0.336,
+          "orch_bow": 0.2415,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.39,
           "orch_rosin": -0.035
@@ -59,7 +59,7 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_chromatic_jazz",
-          "accordion_reed_material": "tipo_a_mano",
+          "accordion_reed_material": "a_mano",
           "musette_offset": "demi_swing",
           "reed_config": "lm_only",
           "bellows": "cardboard_leather",
@@ -68,10 +68,10 @@
         },
         "scores": {
           "free_reed_technique": -0.035,
-          "accordion_reed_material": 0.34650000000000003,
-          "musette_offset": 0.847,
+          "accordion_reed_material": 0.2835,
+          "musette_offset": 0.9099999999999999,
           "reed_config": 6.24,
-          "bellows": 0.21,
+          "bellows": 0.2415,
           "voicing_chamber": 0.19949999999999998,
           "accordion_maker_school": 1.95
         }
@@ -83,7 +83,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.23099999999999998,
+          "upright_strings": 0.19949999999999998,
           "upright_play": 12
         }
       },
@@ -114,16 +114,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": 12.138499999999997,
+          "voice_microtone": 11.959999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 5.265,
           "voice_ensemble_config": 4.29,
-          "voice_ornament_system": 0.2415,
+          "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0.063,
           "voice_processing_chain": 1.3,
-          "voice_multitrack_stack": 0.33599999999999997
+          "voice_multitrack_stack": 0.3045
         }
       }
     ],

@@ -1,22 +1,23 @@
 {
-  "id": "cancion_melodica",
-  "name": "Canción melódica",
+  "id": "latin_ballad",
+  "merged_from": "cancion_melodica",
+  "name": "Latin Ballad (balada romántica)",
   "family": "pop",
-  "lineage": "Spanish-language orchestral romantic ballad codified across the Madrid-Mexico City-Buenos Aires recording axis between about 1965 and 1985 by Raphael, Camilo Sesto, Nino Bravo, Julio Iglesias, José José and Roberto Carlos — slow 60-80 BPM 4/4 or bolero-derived 2/4, lush string and horn arrangements over piano and nylon guitar, functional major-minor harmony with dramatic key lifts before the final chorus, and a full-throated legato tenor lead with wide vibrato and rubato phrase endings.",
-  "recipe": "classic Mexican mid-1960s canción melódica, functional Song, iberian branch, europop functional song, crooners functional song broadway baladas y boleros. extended whistle, breath veiled tone, slow rate, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, string quartet inst, European maple sycamore maple Baroque setup lighter bass bar no endpin double bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn legato trumpet, pre muffled edge muffled brushes-and-sticks drum kit, lead congas. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 920,
-  "score": 269.01,
+  "lineage": "Pan-Hispanic romantic ballad codified in Mexico City, Madrid and Rio between roughly 1965 and 1975 through Roberto Carlos, Camilo Sesto, José José, Juan Gabriel and the arranger-producers of RCA Mexico and Ariola — slow 4/4 and 12/8 forms at 60-80 BPM, bolero-derived harmonic motion with descending bass lines and dramatic key-change final choruses, nylon-string guitar and piano foundation, lush string and horn charts, and a declamatory, vibrato-heavy lead vocal that builds from near-whisper to full belt.",
+  "recipe": "classic Mexican mid-1960s latin ballad, functional Song, Mexican branch, tropical song functional song, Latin am troubadour ballad poetry, crooners functional song cantautora mexicana brill building pop. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead open slap hand drum congas, concert harp. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 870,
+  "score": 290.343,
   "config": {
     "traditions": [
-      "cancion_melodica",
-      "broadway",
-      "baladas_y_boleros"
+      "latin_ballad",
+      "cantautora_mexicana",
+      "brill_building_pop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,56 +26,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 9.132500000000002,
-          "voice_quality": 10.854999999999993,
+          "voice_register": 14.414999999999996,
+          "voice_quality": 11.049999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6399999999999997,
-          "voice_articulation": 21.84,
-          "voice_microtone": 24.244999999999997,
-          "voice_tradition": 7.735,
-          "voice_mechanism_compound": 4.614999999999999,
-          "voice_estill_quality": 4.03,
-          "voice_speech_song": 31.59,
-          "voice_ensemble_config": 22.164999999999996,
-          "voice_ornament_system": 3.7,
-          "voice_pitch_organization": 3.6400000000000006,
-          "voice_processing_chain": 4.16,
-          "voice_multitrack_stack": 3.4362500000000007
-        }
-      },
-      {
-        "id": "grand_piano",
-        "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
-          "piano_hammer": "japanese_1980s_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
-        },
-        "scores": {
-          "keyboard_technique": 6.274500000000001,
-          "grand_piano_size": 3.2224999999999997,
-          "grand_piano_brand": 3.322,
-          "piano_hammer": 5.49275,
-          "piano_rim": 7.609999999999999,
-          "piano_soundboard": 6.5,
-          "piano_pinblock": 0.42249999999999993,
-          "piano_plate": 2.33625,
-          "piano_pitch_standard": 4.6475
+          "voice_vibrato": 1.8199999999999998,
+          "voice_articulation": 26.325000000000003,
+          "voice_microtone": 26.130000000000003,
+          "voice_tradition": 9.3,
+          "voice_mechanism_compound": 2.9899999999999998,
+          "voice_estill_quality": 4.0200000000000005,
+          "voice_speech_song": 34.385000000000005,
+          "voice_ensemble_config": 28.145000000000003,
+          "voice_ornament_system": 1.7,
+          "voice_pitch_organization": 2.3449999999999998,
+          "voice_processing_chain": 1.9849999999999999,
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -88,73 +64,87 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 6.075000000000001,
+          "acoustic_technique": 8.030000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 2.795,
-          "bracing_classical": 0.20825,
-          "string_classical": 1.8199999999999998,
-          "attack_technique_cl": 2.27
+          "top_wood_classical": 4.55,
+          "bracing_classical": 0.195,
+          "string_classical": 2.6650000000000005,
+          "attack_technique_cl": 0.95
         }
       },
       {
-        "id": "string_quartet_inst",
+        "id": "grand_piano",
         "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "quartet_school": "quartet_modern",
-          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "bowed_technique": 1.8112499999999998,
-          "quartet_school": 0.65,
-          "string_quartet_inst_era": 1.69
+          "keyboard_technique": 9.535,
+          "grand_piano_size": 1.3,
+          "grand_piano_brand": 1.4949999999999999,
+          "piano_hammer": 6.59,
+          "piano_rim": 8.195,
+          "piano_soundboard": 7.700000000000001,
+          "piano_pinblock": -0.05,
+          "piano_plate": 0.8999999999999999,
+          "piano_pitch_standard": 3.53
         }
       },
       {
-        "id": "double_bass",
+        "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_pizzicato",
-          "bass_size": "bass_three_quarter",
-          "bass_strings": "venice_catlin_bass",
-          "bass_top_wood": "carpathian_spruce_bass",
-          "bass_back_wood": "european_maple_bass_back",
-          "bass_varnish": "spirit_varnish_bass",
-          "bass_setup_period": "baroque_setup_bass",
-          "bass_play": "bass_arco",
-          "bass_rosin": "pop_kolstein_rosin",
-          "bass_bow_stick": "brazilwood_stick_bass"
+          "orch_strings": "plain_lamb_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "modern_synthetic_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "brazilwood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.45,
-          "bass_size": 2.05625,
-          "bass_strings": 0.585,
-          "bass_top_wood": 0.585,
-          "bass_back_wood": 1.0725,
-          "bass_varnish": 0.375,
-          "bass_setup_period": 1.3649999999999998,
-          "bass_play": 1.4949999999999999,
-          "bass_rosin": 1.0725,
-          "bass_bow_stick": 0.375
+          "bowed_technique": 0.7,
+          "orch_strings": 0.75,
+          "orch_top_wood": 1.7449999999999999,
+          "orch_back_wood": 2.6649999999999996,
+          "orch_varnish": 0.325,
+          "orch_setup_period": 1.17,
+          "orch_bow": 1.3,
+          "orch_bow_stick": 0.325,
+          "orch_articulation": 1.3,
+          "orch_rosin": 0.12999999999999998
         }
       },
       {
-        "id": "trumpet",
+        "id": "electric_bass",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "monette_unity_b1_mp",
-          "brass_mute": "no_mute_brass",
-          "trumpet_technique": "trumpet_classical_legato",
-          "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "wind_articulation": 1.65625,
-          "brass_size": 0.65,
-          "trumpet_mouthpiece": 4.579,
-          "brass_mute": 2.125,
-          "trumpet_technique": 1.5999999999999999,
-          "trumpet_bell_metal": 1.235,
-          "trumpet_maker_school": 2.34
+          "amp_make": 2.925,
+          "body_wood": 0.195,
+          "pickup_config": 0.045,
+          "string_type": 3.2199999999999998,
+          "scale_length_b": 0.195,
+          "fretted_or_not": 0,
+          "bass_technique": 2.9749999999999996,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -165,33 +155,44 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.15,
-          "drumhead": 6.65,
+          "drum_technique": 25.090000000000003,
+          "drumhead": 7.700000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "congas",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
+          "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
           "conga_skin": "conga_mule_hide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 1.5750000000000002,
-          "conga_set": 1.0495,
-          "conga_skin": 0.65,
-          "conga_shell_wood": 0.65
+          "percussion_technique": 8.105,
+          "conga_set": 1.885,
+          "conga_skin": 0.8249999999999998,
+          "conga_shell_wood": 0.8249999999999998
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 1.3,
+          "harp_pedals": 0
         }
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_madrid_flamenco_tape",
+    "archetype": "arch_churubusco_ranchera_bolero",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
-      "pre": "pre_tube_german_v72",
-      "console": "console_british_transformer_70s",
+      "pre": "tube_pre",
+      "console": "console_american_op_amp",
       "comp": "comp_la2a_optical",
       "eq": "eq_passive_program_pultec",
       "amp": null,
@@ -206,10 +207,10 @@
     "tuning": "pan_latin_bolero_2_4_romantic_ballad",
     "room": "mexico_bolero_xochimilco_studio",
     "chain_mic": "mic_u47_tube_neumann",
-    "chain_pre": "pre_tube_german_v72",
+    "chain_pre": "tube_pre",
     "chain_comp": "comp_la2a_optical",
     "chain_eq": "eq_passive_program_pultec",
     "chain_medium": "tape_15ips",
-    "chain_console": "console_british_transformer_70s"
+    "chain_console": "console_american_op_amp"
   }
 }

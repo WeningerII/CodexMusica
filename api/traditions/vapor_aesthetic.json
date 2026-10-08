@@ -1,63 +1,90 @@
 {
-  "id": "vapor_aesthetic",
-  "name": "Vaporwave aesthetic",
-  "family": "electronic",
-  "lineage": "Early-2010s internet-distributed electronic subgenre characterized by slowed-down chopped-and-screwed sampling of 1980s-1990s American smooth-jazz, Muzak, corporate-advertising music, and Japanese city-pop, with explicit ironic-melancholic engagement with consumer-capitalist visual-aesthetic. Macintosh Plus's Floral Shoppe (2011), Chuck Person's Eccojams Vol. 1 (2010), and the broader Beer on the Rug netlabel scene anchor the canonical vaporwave aesthetic.",
-  "recipe": "classic 2010-2013 vaporwave aesthetic, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. pad like pad analog synth, glitched textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 57.133,
+  "id": "vaporwave",
+  "merged_from": "vapor_aesthetic",
+  "name": "Vaporwave",
+  "family": "global",
+  "lineage": "2010s online-distributed electronic micro-genre nostalgically recontextualizing 1980s-1990s corporate-mall-and-soft-rock background music through pitch-shifting, chopping, and ironic-commentary visual presentation — codified through Macintosh Plus (Floral Shoppe 2011, the founding vaporwave album), Vektroid, Saint Pepsi, Blank Banshee, and continuing through the broader online-aesthetic vaporwave subscene",
+  "recipe": "classic mid-2010s vaporwave, experimental Elec, lofi branch, retro aesthetic experimental electric weirdcore utopian virtual. sampler drum string machine, tape replay keyboard, analog synth. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 308,
+  "score": 23.248,
   "config": {
     "traditions": [
-      "vapor_aesthetic",
-      "glitch_2000s",
-      "chiptune_8bit"
+      "vaporwave",
+      "weirdcore",
+      "utopian_virtual"
     ],
     "instruments": [
       {
-        "id": "analog_synth",
+        "id": "sampler_drum_machine",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "oscillator": "sine_osc",
-          "filter_topology": "transistor_ladder",
-          "envelope": "pad_env",
-          "modulation": "sample_hold"
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 4.62,
-          "oscillator": 1.35,
-          "filter_topology": 1.695,
-          "envelope": 2.4050000000000002,
-          "modulation": 0.15
+          "electronic_technique": 0.8124999999999999,
+          "sample_bitdepth": 0.39,
+          "sample_swing": 7.75,
+          "sample_processing": 0.9099999999999999
         }
       },
       {
-        "id": "sampler_classic",
+        "id": "tape_replay_keyboard",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_microsampling_glitch",
-          "sampler_classic_context": "sampler_classic_edm"
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "tape_voice": "choir_tape",
+          "tape_state": "aged_tape"
         },
         "scores": {
-          "electronic_technique": 15.820000000000002,
-          "sampler_archetypes": 0.7050000000000001,
-          "sampler_bit_depth": 0.21,
-          "sampler_workflow": 15.625000000000002,
-          "sampler_classic_context": 12.902499999999996
+          "keyboard_technique": 1.5,
+          "tape_voice": 0,
+          "tape_state": 0.045
+        }
+      },
+      {
+        "id": "string_machine",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "sm_voice_count": "sm_full_poly",
+          "sm_chorus": "sm_chorus_lush",
+          "sm_voicing": "sm_cellos"
+        },
+        "scores": {
+          "electronic_technique": 1.7249999999999996,
+          "sm_voice_count": 3.38,
+          "sm_chorus": 0.65,
+          "sm_voicing": 0.195
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "oscillator": "saw_single",
+          "filter_topology": "transistor_ladder",
+          "envelope": "pad_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2,
+          "oscillator": 0.8,
+          "filter_topology": 0.9750000000000001,
+          "envelope": 0.8449999999999999,
+          "modulation": 0.195
         }
       }
     ],
-    "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "tape_echo_chamber",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
       "mic": "condenser_ldc",
-      "pre": "pre_neve_1073_input",
-      "console": "console_british_inline_80s",
-      "comp": "comp_smart_c1_bus",
-      "eq": "eq_console_surgical",
+      "pre": "tube_pre",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "cassette_medium"
     },
     "tuning": "twelve_tet",
     "aesthetic": "vaporwave_aesthetic",
@@ -66,18 +93,21 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_distributed_production",
+    "room": "tape_echo_chamber",
     "parts": {
       "electronic_technique": "electronic_pad_drone",
-      "sampler_archetypes": "akai_s900",
-      "sampler_workflow": "sampler_chopped_breaks",
-      "sampler_classic_context": "sampler_classic_hiphop"
+      "sample_bitdepth": "twelve_bit",
+      "sample_swing": "heavy_swing",
+      "sample_processing": "chopped_break",
+      "sm_voice_count": "sm_full_poly",
+      "sm_chorus": "sm_chorus_subtle",
+      "sm_voicing": "sm_violins",
+      "tape_voice": "string_tape",
+      "tape_state": "aged_tape"
     },
     "chain_mic": "condenser_ldc",
-    "chain_pre": "pre_neve_1073_input",
-    "chain_comp": "comp_smart_c1_bus",
-    "chain_eq": "eq_console_surgical",
-    "chain_medium": "digital_high",
-    "chain_console": "console_british_inline_80s"
+    "chain_pre": "tube_pre",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
   }
 }

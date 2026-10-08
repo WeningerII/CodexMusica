@@ -3,9 +3,9 @@
   "name": "Guzheng Repertoire",
   "family": "global",
   "lineage": "Solo and ensemble practice of the Chinese movable-bridge half-tube zither, documented since the Qin dynasty and carried through the Shandong, Henan, Chaozhou, Hakka and Zhejiang regional schools before the twentieth-century standardisation to 21 steel-wound nylon strings tuned in pentatonic gong mode, defined by right-hand arpeggiated glissando sweeps and tremolo and by left-hand pressing behind the bridges that supplies the mode's inflected fourth and seventh degrees through slow bends and vibrato.",
-  "recipe": "classic modern guzheng repertoire, art Music, east Asian branch, string drone modal mountain dulcimer hardanger fiddle. shell nylon steel wound modern canon guzheng, guqin, xiao, projecting contemporary steel nylon pipa, bamboo silk steel modern bamboo stick horsehair erhu. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 426,
-  "score": 50.085,
+  "recipe": "classic modern guzheng repertoire, art Music, east Asian branch, string drone modal mountain dulcimer hardanger fiddle. shell nylon steel wound modern canon guzheng, tongmu aged tang song canon guqin, xiao, projecting contemporary steel nylon pipa, bamboo silk steel modern bamboo stick horsehair erhu. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
+  "score": 50.07,
   "config": {
     "traditions": [
       "guzheng",
@@ -29,7 +29,7 @@
           "guzheng_picks": 1.4299999999999997,
           "guzheng_top_wood": 0.6,
           "guzheng_frame": 0.435,
-          "guzheng_string_material": 4.02
+          "guzheng_string_material": 3.9299999999999997
         }
       },
       {
@@ -45,7 +45,7 @@
           "plucked_traditional_technique": 0.44499999999999995,
           "guqin_strings": 0.39,
           "guqin_context": 2.34,
-          "guqin_body_wood": 0.99,
+          "guqin_body_wood": 1.095,
           "guqin_lacquer": 0.39
         }
       },
@@ -55,13 +55,13 @@
           "wind_articulation": "wind_folk_melodic",
           "xiao_pitch": "xiao_g",
           "xiao_context": "xiao_chamber",
-          "xiao_body_material": "xiao_jade_premium"
+          "xiao_body_material": "xiao_purple_bamboo"
         },
         "scores": {
           "wind_articulation": 2.195,
           "xiao_pitch": 0.78,
           "xiao_context": 20.605,
-          "xiao_body_material": 0.6300000000000001
+          "xiao_body_material": 0.6
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "A Canadian independent and alternative rap network with varied local styles. Shad’s self-released beginnings and The Old Prince-era performance practice provide the selected guitar-and-DJ branch.",
   "recipe": "classic modern canadian underground hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. dreadnought acoustic guitar, sampled chopped sampler, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 50.78,
+  "score": 50.834,
   "config": {
     "traditions": [
       "canadian_underground_hip_hop"
@@ -92,7 +92,7 @@
         },
         "scores": {
           "electronic_technique": 3.7,
-          "turntable_technique": 4.234
+          "turntable_technique": 4.288
         }
       }
     ],

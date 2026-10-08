@@ -5,7 +5,7 @@
   "lineage": "The Harlem Renaissance brought African American artistic and intellectual life into new public prominence, with music central to its cultural activity. Jazz, song and piano performance developed alongside literature, theatre and visual art.",
   "recipe": "classic harlem renaissance, improv On Frame, stride piano branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 235,
-  "score": 8.989,
+  "score": 8.32,
   "config": {
     "traditions": [
       "harlem_renaissance"
@@ -26,10 +26,10 @@
         },
         "scores": {
           "keyboard_technique": 2.21,
-          "grand_piano_size": 0.282,
-          "grand_piano_brand": 0.282,
-          "piano_hammer": 3.185,
-          "piano_rim": 3.185,
+          "grand_piano_size": 0.07199999999999998,
+          "grand_piano_brand": 0.07199999999999998,
+          "piano_hammer": 2.9465000000000003,
+          "piano_rim": 3.1745,
           "piano_soundboard": -0.035,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,

@@ -5,7 +5,7 @@
   "lineage": "Scandinavian and Benelux late-1990s commercial eurodance variant (Denmark, Sweden, Netherlands, 1996-2002) built by producers such as Søren Rasted and Claus Norreen of Aqua and the Toy-Box and Daze teams — 130-140 BPM four-on-the-floor, offbeat sawtooth stabs, cartoonishly high female lead vocals answered by pitched-down comic male spoken lines, and relentless major-key hooks with no rap verse in the classic eurodance sense.",
   "recipe": "classic mid-1990s bubblegum dance, electronic Dance, eurodance branch, europop functional song, continental electronic dance muzică etno chasidic pop. extended whistle, chest mix belt, straight onset, interlocked note trading. singing lead digital subtractive, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, TR-909, melodic pitched sampler, singing lead analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 656,
-  "score": 282.145,
+  "score": 280.72,
   "config": {
     "traditions": [
       "bubblegum_dance",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.544999999999998,
-          "voice_quality": 15.199999999999998,
+          "voice_register": 13.974999999999998,
+          "voice_quality": 15.004999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0149999999999997,
           "voice_articulation": 19.24,
           "voice_microtone": 20.409999999999993,
-          "voice_tradition": 17.604999999999997,
+          "voice_tradition": 16.99,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
           "voice_speech_song": 22.36,
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 13.369999999999997,
-          "rompler_preset_bank": 13.579999999999998,
+          "rompler_preset_bank": 13.534999999999998,
           "rompler_context": 13.659999999999998,
           "rompler_lineage": 2.6
         }

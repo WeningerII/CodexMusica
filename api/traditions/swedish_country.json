@@ -5,7 +5,7 @@
   "lineage": "Swedish country includes local country-song performers and crossover ensembles. First Aid Kit’s country-oriented harmony singing and band records supply one contemporary branch.",
   "recipe": "classic modern swedish country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, m1 with m0 pulse borrowing. singing indian rosewood rosewood acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 496,
-  "score": 160.13,
+  "score": 159.083,
   "config": {
     "traditions": [
       "swedish_country"
@@ -33,15 +33,15 @@
         },
         "scores": {
           "voice_register": 13.312999999999995,
-          "voice_quality": 0.3675,
+          "voice_quality": 0.22049999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.8365,
+          "voice_vibrato": 13.7,
           "voice_articulation": -0.14,
           "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.8505,
-          "voice_estill_quality": 14.395499999999998,
+          "voice_mechanism_compound": 0.5775,
+          "voice_estill_quality": 14.153999999999998,
           "voice_speech_song": 6.825,
           "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "string_tuning": 0.26,
           "top_wood": 0,
-          "back_sides": 1.6175,
+          "back_sides": 1.5545,
           "string_acoustic": 0.7575,
           "acoustic_om_technique": -0.035
         }
@@ -81,12 +81,12 @@
         },
         "scores": {
           "electric_technique": 14.9575,
-          "amp_make": 13.717999999999996,
+          "amp_make": 13.686499999999997,
           "pickup_steel": 0,
           "string_setup": 7.15,
-          "bar_material": 1.6675,
+          "bar_material": 1.6045,
           "pedal_steel_brand": 14.0965,
-          "pedal_steel_neck_config": 17.8195,
+          "pedal_steel_neck_config": 17.7775,
           "pedal_steel_strings": 14.365
         }
       },
@@ -105,10 +105,10 @@
         "scores": {
           "amp_make": 13.705,
           "body_wood": 0.0315,
-          "pickup_config": 0.168,
+          "pickup_config": 0.1995,
           "string_type": 0.78,
           "scale_length_b": 0.126,
-          "fretted_or_not": 1.69,
+          "fretted_or_not": 1.6360000000000001,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -122,7 +122,7 @@
         },
         "scores": {
           "drum_technique": 0.25,
-          "drumhead": 0.39,
+          "drumhead": 0.363,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -1,0 +1,67 @@
+{
+  "id": "sasando_rote",
+  "name": "Sasando (Rote tube-zither music)",
+  "family": "global",
+  "lineage": "Music of the sasando, a tube zither of Rote island in East Nusa Tenggara: strings stretched around a bamboo tube are plucked with both hands inside a fan-shaped resonator of folded lontar palm leaf (the valiha tube-zither card stands in). The older sasando gong, with fewer strings in a pentatonic tuning, accompanies traditional songs and dances, while the sasando biola, with many more strings, plays diatonic melodies with chords.",
+  "recipe": "classic modern sasando, functional Song. valiha. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 128,
+  "score": 0.88,
+  "config": {
+    "traditions": [
+      "sasando_rote"
+    ],
+    "instruments": [
+      {
+        "id": "valiha",
+        "slots": {
+          "valiha_form": "valiha_tube",
+          "valiha_repertoire": "valiha_highland_song",
+          "valiha_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "valiha_form": 1.0999999999999999,
+          "valiha_repertoire": -0.07,
+          "valiha_strings": 0
+        }
+      }
+    ],
+    "pinned": {
+      "valiha": [
+        "valiha_form",
+        "valiha_repertoire",
+        "valiha_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "valiha_form": "valiha_tube",
+      "valiha_repertoire": "valiha_highland_song",
+      "valiha_strings": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

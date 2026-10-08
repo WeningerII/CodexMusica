@@ -3,14 +3,14 @@
   "name": "Haitian vodou ceremonial",
   "family": "global",
   "lineage": "Haitian vodou ceremonial music tradition — three principal drum-batteries governing the spirit-pantheons they call: asoto (West African Yoruba-derived), rada (Dahomeyan-derived, calmer spirits), petwo (Kreyol-Haitian innovation, hot fierce spirits); manbo or houngan officiants lead the ceremony with songs (chante vodou) summoning the lwa to mount worshippers in trance possession",
-  "recipe": "classic Caribbean modern haitian vodou ceremonial, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion garifuna folk music cadence-lypso. thick, breath veiled tone, fast rate, interlocked note trading. lead open slap hand drum congas, maracas, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. haitian vodou lakou outdoor peristyle. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 532,
-  "score": 122.712,
+  "recipe": "classic Caribbean modern haitian vodou ceremonial, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion bèlè tumba francesa. thick, breath veiled tone, fast rate, interlocked note trading. lead open slap hand drum congas, maracas, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. haitian vodou lakou outdoor peristyle. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 518,
+  "score": 147.625,
   "config": {
     "traditions": [
       "haitian_vodou",
-      "garifuna_folk",
-      "cadence_lypso"
+      "bele_martinique",
+      "tumba_francesa"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.4600000000000004,
-          "voice_quality": 8.254999999999999,
+          "voice_register": 1.7949999999999995,
+          "voice_quality": 19.044999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.75,
-          "voice_articulation": 11.439999999999994,
-          "voice_microtone": 11.24499999999999,
-          "voice_tradition": 19.819999999999993,
-          "voice_mechanism_compound": 3.705,
-          "voice_estill_quality": 3.5100000000000016,
-          "voice_speech_song": 12.284999999999995,
-          "voice_ensemble_config": 10.789999999999994,
-          "voice_ornament_system": 4.525,
-          "voice_pitch_organization": 5.4350000000000005,
-          "voice_processing_chain": 3.0225,
-          "voice_multitrack_stack": 2.3399999999999994
+          "voice_articulation": 12.284999999999998,
+          "voice_microtone": 12.089999999999996,
+          "voice_tradition": 17.754999999999995,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 4.070000000000001,
+          "voice_speech_song": 12.934999999999999,
+          "voice_ensemble_config": 12.219999999999999,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 5.135000000000001,
+          "voice_processing_chain": 3.3149999999999995,
+          "voice_multitrack_stack": 3.185
         }
       },
       {
@@ -61,21 +61,21 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 9.27,
-          "conga_set": 2.145,
+          "percussion_technique": 10.924999999999999,
+          "conga_set": 3.14,
           "conga_skin": 0.39,
-          "conga_shell_wood": 0.5399999999999999
+          "conga_shell_wood": 0.49499999999999994
         }
       },
       {
         "id": "maracas",
         "slots": {
           "maracas_construction": "maracas_plastic",
-          "maracas_filling": "maracas_beads"
+          "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.345,
-          "maracas_filling": 0.585
+          "maracas_construction": 0.3,
+          "maracas_filling": 1.0999999999999999
         }
       },
       {
@@ -87,9 +87,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 6.76,
-          "choir_polyphonic_configuration": 2.44,
-          "choir_regional_canonical_configuration": 2.84,
+          "choir_size": 10.44,
+          "choir_polyphonic_configuration": 2.08,
+          "choir_regional_canonical_configuration": 7.125,
           "choir_ensemble_repertoire": 2.9899999999999998
         }
       }

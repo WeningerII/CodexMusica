@@ -3,14 +3,14 @@
   "name": "Sámi yoik",
   "family": "global",
   "lineage": "Indigenous Sámi (northern Norway / Sweden / Finland / Russia) vocal tradition of singing-about rather than singing-of — a yoik does not have a subject, it IS its subject; modal vocal melismatic tradition known by region-specific names (luohti in North Sámi, juoiggus in Inari Sámi, vuolle in Lule Sámi, leu_dd in Skolt Sámi), often unaccompanied solo with occasional sálldi frame drum",
-  "recipe": "classic Northern European modern sámi yoik, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 336,
-  "score": 199.847,
+  "recipe": "classic Northern European modern sámi yoik, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant yanomami shamanic chant and reahu feast song. vocal fry, breath veiled tone, straight note core, interlocked note trading. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 345,
+  "score": 169.748,
   "config": {
     "traditions": [
       "sami_yoik",
       "mapuche_tayil_ritual",
-      "shipibo_icaros"
+      "yanomami_shamanic_reahu_song"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 6.629999999999999,
-          "voice_quality": 29.25,
+          "voice_quality": 18.004999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 16.444999999999997,
-          "voice_microtone": 19.304999999999993,
-          "voice_tradition": 32.629999999999995,
-          "voice_mechanism_compound": 14.997499999999999,
-          "voice_estill_quality": 8.190000000000001,
-          "voice_speech_song": 20.799999999999997,
-          "voice_ensemble_config": 17.029999999999998,
-          "voice_ornament_system": 7.15,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 16.38,
+          "voice_microtone": 19.239999999999995,
+          "voice_tradition": 28.794999999999998,
+          "voice_mechanism_compound": 11.572499999999998,
+          "voice_estill_quality": 6.500000000000001,
+          "voice_speech_song": 20.085,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 5.4,
           "voice_pitch_organization": 2.7950000000000004,
-          "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 8.125
+          "voice_processing_chain": 10.01,
+          "voice_multitrack_stack": 7.475
         }
       }
     ],

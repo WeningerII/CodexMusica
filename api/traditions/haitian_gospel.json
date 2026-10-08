@@ -5,7 +5,7 @@
   "lineage": "Haitian gospel includes Christian song and worship in Haiti and connected diaspora communities. This selected francophone branch follows Haitian-born singer Maggie Blanchard, whose international ministry connects Port-au-Prince, Montreal and European audiences. Peggy Polito’s documented piano-and-vocal accompaniment provides a supported basis for a reduced authored lead-voice-and-piano recording model. It is neither a claim about an entire Libéré studio session nor an assertion that every Haitian gospel form uses piano.",
   "recipe": "classic modern haitian gospel, ritual Devotional, christian gospel branch. one note per syllable, solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. upright piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 421,
-  "score": 5.114,
+  "score": 4.977,
   "config": {
     "traditions": [
       "haitian_gospel"
@@ -44,7 +44,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0.6825000000000001,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.6825000000000001,
+          "voice_ornament_system": 0.546,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 1.3

@@ -1,0 +1,79 @@
+{
+  "id": "donegal_fiddle",
+  "name": "Donegal fiddle tradition (Ulster highlands and mazurkas)",
+  "family": "global",
+  "lineage": "The fiddle music of County Donegal in north-west Ulster, carried by travelling tinsmith fiddlers such as John Doherty and his family and by settled players in districts such as Glenties, Teelin and Gweedore. Beside reels, jigs and hornpipes it keeps highlands, barndances, germans and mazurkas, many tunes shared with Scotland through seasonal migration for farm work, and it is played at fast tempos with much single-note bowing; Tommy Peoples, James Byrne and Mairéad Ní Mhaonaigh of Altan carried it into the revival.",
+  "recipe": "classic modern donegal fiddle tradition, improv On Frame, Celtic traditional branch. fiddle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 172,
+  "score": 4.046,
+  "config": {
+    "traditions": [
+      "donegal_fiddle"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.7315,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.105,
+          "fiddle_articulation": 0.21,
+          "fiddle_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "celtic_irish_modal_dorian_mixolydian",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_celtic_session",
+      "fiddle_strings": "steel_core",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

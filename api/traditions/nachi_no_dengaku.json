@@ -1,0 +1,101 @@
+{
+  "id": "nachi_no_dengaku",
+  "name": "Nachi no Dengaku (Nachi shrine field-music ritual)",
+  "family": "global",
+  "lineage": "Nachi no Dengaku is a ritual performing art of the Kumano Nachi Taisha shrine in Nachikatsuura, presented each July at the Nachi fire festival; it descends from medieval dengaku, the field music of rice-planting rites, and is inscribed on UNESCO's Representative List of the Intangible Cultural Heritage of Humanity. Dancers play binzasara, a clapper of strung wooden slats, and small drums, led by a flute. The auxiliary-percussion card stands in for the binzasara and the membrane-drum card for the drums.",
+  "recipe": "classic modern nachi no dengaku, ritual Devotional, indigenous branch. shinobue, membrane drum pulse resonant acoustic membrane drum, credited auxiliary percussion. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 244,
+  "score": 5.285,
+  "config": {
+    "traditions": [
+      "nachi_no_dengaku"
+    ],
+    "instruments": [
+      {
+        "id": "shinobue",
+        "slots": {
+          "shinobue_family": "shinobue_family_hayashibue",
+          "shinobue_choshi": "shinobue_choshi_hachi_pon",
+          "shinobue_context": "shinobue_context_matsuri",
+          "shinobue_bore": "shinobue_bore_urushi_bark"
+        },
+        "scores": {
+          "shinobue_family": -0.07,
+          "shinobue_choshi": -0.07,
+          "shinobue_context": -0.07,
+          "shinobue_bore": -0.035
+        }
+      },
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 2.9899999999999998,
+          "acoustic_membrane_drum_gesture": 1.69
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "shinobue": [
+        "shinobue_family",
+        "shinobue_choshi",
+        "shinobue_context",
+        "shinobue_bore"
+      ],
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "shinobue_family": "shinobue_family_hayashibue",
+      "shinobue_choshi": "shinobue_choshi_hachi_pon",
+      "shinobue_context": "shinobue_context_matsuri",
+      "shinobue_bore": "shinobue_bore_urushi_bark",
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

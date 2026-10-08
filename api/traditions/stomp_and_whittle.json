@@ -5,7 +5,7 @@
   "lineage": "Stomp and whittle groups intimate and inventive indie songwriting, from small acoustic performances to elaborately arranged folk-pop. Personal lyrics, lightly voiced melodies and distinctive instrumental colors connect artists across this listening community.",
   "recipe": "classic stomp and whittle, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. ukulele. live tracking.",
   "recipe_chars": 167,
-  "score": 8.067,
+  "score": 8.047,
   "config": {
     "traditions": [
       "stomp_and_whittle"
@@ -36,18 +36,18 @@
           "voice_register": 0,
           "voice_quality": 0,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.273,
           "voice_vibrato": 0,
           "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 3.3124999999999996,
+          "voice_speech_song": 3.2764999999999995,
           "voice_ensemble_config": 2.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.576,
+          "voice_processing_chain": 1.456,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }

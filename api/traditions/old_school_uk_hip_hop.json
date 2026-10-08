@@ -5,7 +5,7 @@
   "lineage": "Old-school UK hip-hop centers the formative British rap era of the late 1980s and early 1990s. London Posse, Demon Boyz and related artists connected hip-hop with local accents and reggae sound-system culture.",
   "recipe": "classic 1987-1989 old school uk hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine, sampled chopped turntable. live tracking.",
   "recipe_chars": 226,
-  "score": 63.788,
+  "score": 63.935,
   "config": {
     "traditions": [
       "old_school_uk_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 14.03,
+          "voice_speech_song": 14.282,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -64,7 +64,7 @@
           "electronic_technique": 7.108,
           "sample_bitdepth": -0.05,
           "sample_swing": 11.7,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {

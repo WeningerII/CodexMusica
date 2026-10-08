@@ -1,16 +1,17 @@
 {
-  "id": "dark_ambient",
-  "name": "Dark Ambient (cavernous ritual drone)",
+  "id": "dark_ambient_industrial",
+  "merged_from": "dark_ambient",
+  "name": "Dark ambient (1980s industrial-adjacent menacing drone)",
   "family": "electronic",
-  "lineage": "Consolidated 1988-1996 through Lustmord's Heresy, Raison d'Etre and the Cold Meat Industry and Soleilmoon labels in Los Angeles, Sweden and the Netherlands — beatless subterranean drone built from processed field recordings of caves, crypts and industrial spaces, detuned low synth beds, bowed metal and gong resonance, distant treated choir, extreme long reverb and near-subsonic bass, with no pulse, melody or vocal line.",
-  "recipe": "classic European mid-1990s dark ambient, experimental Elec, ambient branch, industrial noise experimental electric, drone metal death industrial. pad like pad analog sustained pad granular sustained pad modular synth, tam tam soft mallet gong tamtam, continuous drone himalayan singing bowl, drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, field textural sampler. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 533,
-  "score": 156.945,
+  "lineage": "1980s and 1990s ambient subgenre developed through industrial-music adjacent scene, characterized by drone-and-texture-based composition emphasizing menacing, dark, foreboding atmospheric content. Lustmord (Brian Williams), Coil, Nurse With Wound, and the broader Cold Spring Records and Side Effects label rosters anchor the canonical sound. Distinguished from broader ambient by dark ambient's explicit horror-cinematic-and-occult thematic orientation.",
+  "recipe": "classic dark ambient, experimental Elec, ambient branch, industrial noise experimental electric dark electro / aggrotech. pad like pad analog synth, field textural sampler, ritual bronze rods canonical aquasonic waterphone. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 374,
+  "score": 106.845,
   "config": {
     "traditions": [
-      "dark_ambient",
-      "drone_metal",
-      "death_industrial"
+      "dark_ambient_industrial",
+      "ebm_european_body",
+      "dark_electro_aggrotech"
     ],
     "instruments": [
       {
@@ -23,76 +24,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 12.864999999999998,
-          "oscillator": 3.1200000000000006,
-          "filter_topology": 4.615,
-          "envelope": 4.655,
-          "modulation": 1.235
-        }
-      },
-      {
-        "id": "granular_synth",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "granular_use": "granular_ambient",
-          "granular_synth_source": "granular_synth_field"
-        },
-        "scores": {
-          "electronic_technique": 12.864999999999998,
-          "granular_use": 0,
-          "granular_synth_source": 7.475
-        }
-      },
-      {
-        "id": "gong_tamtam",
-        "slots": {
-          "gong_type": "gong_tam_tam",
-          "gong_striker": "gong_soft_mallet"
-        },
-        "scores": {
-          "gong_type": 1.65,
-          "gong_striker": 1.7799999999999998
-        }
-      },
-      {
-        "id": "himalayan_singing_bowl",
-        "slots": {
-          "singing_bowl_form": "singing_bowl_hand_hammered",
-          "singing_bowl_technique": "singing_bowl_rim_rubbed"
-        },
-        "scores": {
-          "singing_bowl_form": 2.1849999999999996,
-          "singing_bowl_technique": 5.635
-        }
-      },
-      {
-        "id": "choir_ensemble",
-        "slots": {
-          "choir_size": "mens_chorus",
-          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
-          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
-          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
-        },
-        "scores": {
-          "choir_size": 6.379999999999999,
-          "choir_polyphonic_configuration": 9.165,
-          "choir_regional_canonical_configuration": 5.589999999999999,
-          "choir_ensemble_repertoire": 6.4350000000000005
-        }
-      },
-      {
-        "id": "modular_synth",
-        "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "mod_voltage_source": "mod_keyboard",
-          "mod_patch_density": "mod_dense_patch",
-          "mod_lineage": "mod_buchla_west_coast"
-        },
-        "scores": {
-          "electronic_technique": 12.864999999999998,
-          "mod_voltage_source": 0.285,
-          "mod_patch_density": 5.09,
-          "mod_lineage": 0.7149999999999999
+          "electronic_technique": 16.04,
+          "oscillator": 1.69,
+          "filter_topology": 1.69,
+          "envelope": 6.805,
+          "modulation": 0.28500000000000003
         }
       },
       {
@@ -102,27 +38,42 @@
           "sampler_archetypes": "roland_s750",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 10.325000000000001,
-          "sampler_archetypes": 0.24,
-          "sampler_bit_depth": 3.12,
-          "sampler_workflow": 12.195,
-          "sampler_classic_context": 23.335
+          "electronic_technique": 9.200000000000001,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 0.8550000000000001,
+          "sampler_workflow": 11.07,
+          "sampler_classic_context": 30.875
+        }
+      },
+      {
+        "id": "waterphone",
+        "slots": {
+          "waterphone_model": "waterphone_megabass",
+          "waterphone_excitation": "waterphone_bowed_rods",
+          "waterphone_context": "waterphone_dark_ambient_ritual",
+          "waterphone_construction": "waterphone_bronze_stainless"
+        },
+        "scores": {
+          "waterphone_model": 12.125,
+          "waterphone_excitation": 0.045,
+          "waterphone_context": 12.125,
+          "waterphone_construction": 2.145
         }
       }
     ],
-    "room": "concrete_basement",
+    "room": "studio_isolation_cabin_diy",
     "archetype": "arch_german_diy_converted",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "colored",
-      "comp": null,
-      "eq": "eq_active_parametric",
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": "medium_dat_pro_late80s_90s"
+      "medium": "digital_high"
     },
     "tuning": "twelve_tet",
     "aesthetic": null,
@@ -131,11 +82,18 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "concrete_basement",
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
-    "chain_eq": "eq_active_parametric",
-    "chain_medium": "medium_dat_pro_late80s_90s",
-    "chain_console": "colored"
+    "room": "studio_isolation_cabin_diy",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "sampler_archetypes": "akai_s900",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

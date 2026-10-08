@@ -3,9 +3,9 @@
   "name": "Blues-rock guitar",
   "family": "rock_punk",
   "lineage": "A guitar-centered blues-rock repertoire label. The selected Joe Bonamassa branch emphasizes electric lead phrasing in a sung band setting, so the word guitar does not incorrectly erase vocals or imply a solo-guitar recording.",
-  "recipe": "classic blues-rock guitar, functional Song, blues electric branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. open string slide resonance bent note blues lead humbucker electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, rock canon ernie ball slinky electric bass, bronze bell bronze sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, British high-gain stack, parametric EQ. 24-bit digital plate reverb.",
-  "recipe_chars": 548,
-  "score": 56.575,
+  "recipe": "classic blues-rock guitar, functional Song, blues electric branch. one note per syllable, solo with instrumental accompaniment, equal tempered 12 fixed pitch, single lead single track no stacking. open string slide resonance bent note blues lead humbucker electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, rock canon ernie ball slinky electric bass, bronze bell bronze sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, British high-gain stack, parametric EQ. 24-bit digital plate reverb.",
+  "recipe_chars": 579,
+  "score": 57.247,
   "config": {
     "traditions": [
       "blues_rock_guitar"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 6.24,
           "amp_make": 2.4699999999999998,
-          "body_wood": 0.3045,
-          "neck_wood": 0.3045,
+          "body_wood": 0.37799999999999995,
+          "neck_wood": 0.37799999999999995,
           "fretboard": -0.035,
           "pickup_magnet": 0.19949999999999998,
           "pickup_winding": 0.22049999999999997,
           "string_material": 0.0315,
-          "bridge": 0.3045,
-          "scale_length": 0.609,
-          "string_gauge": 0.6825,
+          "bridge": 0.37799999999999995,
+          "scale_length": 0.6509999999999999,
+          "string_gauge": 0.6509999999999999,
           "finish": 0.0315,
           "string_tuning": 4.55
         }
@@ -57,7 +57,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "drawbar_setting": 5.1995,
-          "rotary_speed": 5.328,
+          "rotary_speed": 5.1915000000000004,
           "percussion_setting": 0,
           "tonewheel_model": 2.405,
           "leslie_cabinet_model": -0.035
@@ -71,17 +71,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.535,
-          "body_wood": 0.3045,
-          "pickup_config": 0.063,
+          "body_wood": 0.37799999999999995,
+          "pickup_config": 0.16799999999999998,
           "string_type": 5.5565,
-          "scale_length_b": 0.3045,
-          "fretted_or_not": 0.063,
+          "scale_length_b": 0.37799999999999995,
+          "fretted_or_not": 0.105,
           "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -97,10 +97,10 @@
         },
         "scores": {
           "drum_technique": 5.1365,
-          "drumhead": 0.0315,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
-          "cymbal_alloy": 8.599999999999998
+          "shell_wood": 0.0315,
+          "cymbal_alloy": 8.704999999999998
         }
       },
       {
@@ -134,10 +134,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.029,
+          "voice_speech_song": 1.134,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.483,
+          "voice_pitch_organization": 0.6194999999999999,
           "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 1.69
         }

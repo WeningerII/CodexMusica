@@ -5,7 +5,7 @@
   "lineage": "The mestizo and Kichwa traditional music of the Ecuadorian sierra — sanjuanito's insistent 2/4 stomp at around 110-130 BPM, the slower albazo and yumbo, and the elegiac pasillo in 3/4 — codified on record from the 1930s onward by duos such as Dúo Benítez-Valencia and by Otavalo Kichwa ensembles, scored for rondador and quena over strummed guitar and requinto, with plaintive parallel-third duet singing in a high male register.",
   "recipe": "classic Andean mid-1930s folklore ecuatoriano, field Work, andean branch, Latin am troubadour ballad poetry, andean carnival processional folklore chileno bolivian diablada de oruro. sygyt, forward-resonance, slow rate, interlocked note trading. traditional natural material resonance bamboo quena, paired rows interlocking standard register siku panpipes, low mid rich spectrum cedar classical nylon-string guitar, bombo andino, naranjillo andean premium wood cedar andean andean classical charango. bogota colombian andean studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 627,
-  "score": 219.655,
+  "score": 214.225,
   "config": {
     "traditions": [
       "folklore_ecuatoriano",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "wind_articulation": 1.2449999999999997,
-          "quena_material": 1.885,
-          "quena_pitch": 1.89
+          "quena_material": 1.8399999999999999,
+          "quena_pitch": 2.04
         }
       },
       {
@@ -34,7 +34,7 @@
         },
         "scores": {
           "siku_construction": 7.994999999999999,
-          "siku_size": 2.04
+          "siku_size": 2.145
         }
       },
       {
@@ -51,7 +51,7 @@
           "acoustic_technique": 2.17,
           "string_tuning": 0,
           "top_wood_classical": 4.419999999999999,
-          "bracing_classical": 3.19,
+          "bracing_classical": 2.9949999999999997,
           "string_classical": 0.325,
           "attack_technique_cl": 0.39
         }
@@ -84,15 +84,15 @@
           "voice_vibrato": 1.365,
           "voice_articulation": 18.589999999999996,
           "voice_microtone": 19.304999999999993,
-          "voice_tradition": 19.339999999999996,
+          "voice_tradition": 17.584999999999997,
           "voice_mechanism_compound": 3.575,
           "voice_estill_quality": 14.594999999999999,
           "voice_speech_song": 20.539999999999996,
           "voice_ensemble_config": 17.549999999999997,
-          "voice_ornament_system": 16.529999999999998,
+          "voice_ornament_system": 15.209999999999999,
           "voice_pitch_organization": 1.3449999999999998,
           "voice_processing_chain": 5.654999999999999,
-          "voice_multitrack_stack": 3.2800000000000002
+          "voice_multitrack_stack": 3.475
         }
       },
       {
@@ -118,11 +118,11 @@
           "charango_string_material": "charango_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 6.499999999999999,
-          "charango_back": 6.069999999999999,
-          "charango_top_wood": 6.954999999999999,
-          "charango_strings": 6.414999999999999,
-          "charango_string_material": 6.91
+          "plucked_traditional_technique": 6.379999999999999,
+          "charango_back": 5.484999999999999,
+          "charango_top_wood": 6.415,
+          "charango_strings": 5.68,
+          "charango_string_material": 6.325
         }
       }
     ],

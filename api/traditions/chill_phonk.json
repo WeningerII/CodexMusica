@@ -5,7 +5,7 @@
   "lineage": "Chill phonk names a mellower strand of internet phonk, linking lo-fi and trap-derived beats with sampled melodic material. Contemporary producers and sample libraries use the name across both relaxed, jazzy textures and darker, more forceful arrangements, within the wider circulation of phonk online.",
   "recipe": "classic modern chill phonk, mc Rhythm. rhythmic spoken flow no pitch, solo with instrumental accompaniment, chopped vocal sample rhythmic bed. sampler drum machine, sampler, credited sound effect unspecified. professional grade domestic 1980-present auteur-home-pro auteur home pro.",
   "recipe_chars": 282,
-  "score": 16.084,
+  "score": 16.099,
   "config": {
     "traditions": [
       "chill_phonk"
@@ -61,7 +61,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 1.326,
+          "electronic_technique": 1.3335,
           "sample_bitdepth": 0.363,
           "sample_swing": 0.39,
           "sample_processing": 0.3
@@ -77,7 +77,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 1.326,
+          "electronic_technique": 1.3335,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.363,
           "sampler_workflow": -0.07,

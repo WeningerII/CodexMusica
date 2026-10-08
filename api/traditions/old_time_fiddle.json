@@ -3,14 +3,14 @@
   "name": "Old-time fiddle",
   "family": "vernacular",
   "lineage": "Southern American dance-fiddle tradition crystallized in the 19th century and preserved in regional strains — Round Peak (Galax-Mount Airy, NC), West Virginia's Hammons family, Missouri and Texas breakdown styles — built on short repeated AABB tunes at 110-130 BPM for square dances, cross-tunings such as AEae and GDgd for open-string drone, a short shuffle bowstroke with doubled notes and heavy bow rhythm rather than long slurs, and a strict unvarying groove designed for dancers rather than solos.",
-  "recipe": "classic early-1940s old-time fiddle, drone Modal, appalachian branch, bluegrass improv on frame, string drone modal, Celtic traditional improv on frame bluegrass fiddle instrumental bluegrass. plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, coated nanoweb flatpicked parlor acoustic guitar, foot tap. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 455,
-  "score": 172.625,
+  "recipe": "classic early-1940s old-time fiddle, drone Modal, appalachian branch, bluegrass improv on frame, string drone modal, Celtic traditional improv on frame instrumental bluegrass neo-traditional bluegrass. plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, open e tuning coated nanoweb flatpicked parlor acoustic guitar, foot tap. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 478,
+  "score": 159.843,
   "config": {
     "traditions": [
       "old_time_fiddle",
-      "bluegrass_fiddle",
-      "instrumental_bluegrass"
+      "instrumental_bluegrass",
+      "neo_traditional_bluegrass"
     ],
     "instruments": [
       {
@@ -24,10 +24,10 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 26,
-          "fiddle_strings": 1.7549999999999992,
+          "bowed_technique": 24.375,
+          "fiddle_strings": 2.3449999999999993,
           "fiddle_bow": 0.65,
-          "fiddle_mute": 0.65,
+          "fiddle_mute": 0.9099999999999999,
           "fiddle_articulation": 1.21,
           "fiddle_string_configuration": 0
         }
@@ -48,32 +48,32 @@
         },
         "scores": {
           "banjo_back": 0.9099999999999999,
-          "tone_ring": 11.5,
-          "banjo_head": 16.835,
-          "banjo_pot": 1.7550000000000001,
-          "banjo_play": 5.9799999999999995,
-          "banjo_rim_wood": 14.95,
-          "banjo_neck_wood": 14.95,
-          "banjo_strings": 14.95,
-          "banjo_bridge": 14.95,
-          "banjo_setup_period": 31.525
+          "tone_ring": 9.375,
+          "banjo_head": 19.109999999999996,
+          "banjo_pot": 1.56,
+          "banjo_play": 4.875,
+          "banjo_rim_wood": 12.1875,
+          "banjo_neck_wood": 12.1875,
+          "banjo_strings": 12.1875,
+          "banjo_bridge": 12.1875,
+          "banjo_setup_period": 32.3375
         }
       },
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
           "acoustic_technique": "acoustic_flatpicked",
-          "string_tuning": "dadgad",
+          "string_tuning": "open_e",
           "top_wood_parlor": "mahogany_top_p",
           "back_sides_parlor": "rosewood_bs_p",
           "string_acoustic_parlor": "coated_nano_p"
         },
         "scores": {
-          "acoustic_technique": 14.174999999999999,
-          "string_tuning": 2.0999999999999996,
+          "acoustic_technique": 11.96,
+          "string_tuning": 3.3350000000000004,
           "top_wood_parlor": 0.9099999999999999,
-          "back_sides_parlor": 0.325,
-          "string_acoustic_parlor": 2.385
+          "back_sides_parlor": 0.12999999999999998,
+          "string_acoustic_parlor": 2.19
         }
       },
       {

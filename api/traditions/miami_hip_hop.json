@@ -5,7 +5,7 @@
   "lineage": "Miami hip hop includes bass traditions, southern rap and cross-regional studio collaborations. Rick Ross’s B.M.F. collaboration with Virginia producer Lex Luger supplies this selected electronic branch.",
   "recipe": "classic modern miami hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, rompler workstation, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 319,
-  "score": 38.539,
+  "score": 38.602,
   "config": {
     "traditions": [
       "miami_hip_hop"
@@ -46,7 +46,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -60,7 +60,7 @@
         "scores": {
           "tr808_voice": 6.3235,
           "drum_machine_808_context": 1.3,
-          "tr808_production_origin": 0.3
+          "tr808_production_origin": 0.3315
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Complete Agnus Dei Reiki-1: Heavens Gift, Sandrose/Indigomusic2004, two continuous parts35:57 and36:57. Artist defines the project’s CDs as entirely instrumental piano with keyboard orchestration; wife Hilde’s poetry is in printed booklets, not narrated audio. Album explicitly retains ocean/wave sounds between musical selections. Gerald Krampl composes and performs; piano, architecture-unspecified keyboards and ocean/wave sound-effect layer all retained. Ocean provenance/recording versus synthesized mechanism unknown, so neutral sound-effect identity used rather than invented field recording. No vocals added from booklet poetry. Authored acoustic SteinwayD nine-foot piano with matching original hammer/rim/soundboard/pinblock/plate, modernA440 piano construction setting and connected legato playing. Source only establishes piano, not this model. Bare keyboard retains existing neutral architecture owner and its imported melodic/chordal playing default, which is UNPINNED because flat keyboard_technique pins piano legato; compiled optimizer may choose any valid owner value. Existing queued neutral sound-effect identity preserves ocean layer without invented mechanism. Authored spacious reverberant listening presentation using the existing concert-hall-shoebox acoustic model; this is not a claim of concert performance, measured venue, or actual source recording location. Spatially expansive ocean transitions remain sound effects, not new musical tempo. No capture chain or global pitch system imposed on environmental sounds. No singers.",
   "recipe": "classic reiki, experimental Elec, ambient branch. 17 ply hard rock maple sitka spruce diaphragmatic gray iron grand piano, melodic chordal electronic keyboard credited sound effect unspecified. shoebox concert hall.",
   "recipe_chars": 215,
-  "score": 13.783,
+  "score": 14.066,
   "config": {
     "traditions": [
       "reiki"
@@ -30,10 +30,10 @@
           "grand_piano_brand": 0,
           "piano_hammer": -0.07,
           "piano_rim": 1.347,
-          "piano_soundboard": 1.2,
+          "piano_soundboard": 1.305,
           "piano_pinblock": 0.26,
-          "piano_plate": 1.2,
-          "piano_pitch_standard": 3.8280000000000003
+          "piano_plate": 1.305,
+          "piano_pitch_standard": 3.9015000000000004
         }
       },
       {

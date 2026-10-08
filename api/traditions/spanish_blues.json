@@ -5,7 +5,7 @@
   "lineage": "Spanish blues connects local bands with international blues recording and performance networks. Javier Vargas and the Vargas Blues Band exemplify an electric approach combining singing and lead guitar with an amplified rhythm section and keyboard accompaniment.",
   "recipe": "classic modern spanish blues, functional Song, blues electric branch. blues inflected, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, electric bass, drum kit, grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 454,
-  "score": 19.38,
+  "score": 19.82,
   "config": {
     "traditions": [
       "spanish_blues"
@@ -70,14 +70,14 @@
         "scores": {
           "electric_technique": 1.41,
           "amp_make": 0,
-          "body_wood": 0.16799999999999998,
-          "neck_wood": 0.1995,
+          "body_wood": 0.27299999999999996,
+          "neck_wood": 0.27299999999999996,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.147,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.39899999999999997,
+          "scale_length": 0.5459999999999999,
           "string_gauge": 0.0315,
           "finish": 0,
           "string_tuning": 0.063
@@ -97,10 +97,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.16799999999999998,
+          "body_wood": 0.27299999999999996,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.0945,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0.063,
           "bass_technique": 0.325,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.0315,
+          "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -134,7 +134,7 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.1995,
+          "grand_piano_size": 0.27299999999999996,
           "grand_piano_brand": 1,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,

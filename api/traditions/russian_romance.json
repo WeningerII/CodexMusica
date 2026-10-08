@@ -3,14 +3,14 @@
   "name": "Russian Romance",
   "family": "global",
   "lineage": "Urban Russian art-song genre formed in the 1810s-1840s salons through Alexander Alyabyev, Alexander Varlamov and Pyotr Bulakhov and carried onto disc by Anastasia Vyaltseva and Alexander Vertinsky before 1917, setting sentimental lyric poetry as strophic ballads in slow 3/4 or 4/4 minor with harmonic-minor melodic turns, guitar or piano arpeggio accompaniment, rubato phrase endings and a wide portamento-heavy vocal delivery aimed at intimate rather than operatic projection.",
-  "recipe": "classic Eastern European mid-1810s russian romance, ballad Poetry, Slavic bard branch, chanson fado classic chanson, crooners functional song adult standards. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, petosa seattle American premium accordion. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 617,
-  "score": 206.441,
+  "recipe": "classic Eastern European mid-1810s russian romance, ballad Poetry, Slavic bard branch, chanson fado classic chanson, crooners functional song traditional pop music chanson réaliste. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music accordion. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 646,
+  "score": 168.618,
   "config": {
     "traditions": [
       "russian_romance",
-      "chanson",
-      "adult_standards"
+      "traditional_pop_music",
+      "chanson_realiste"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.770625000000002,
-          "voice_quality": 11.244999999999994,
+          "voice_register": 5.5950000000000015,
+          "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 22.36,
-          "voice_microtone": 24.504999999999992,
-          "voice_tradition": 8.645,
-          "voice_mechanism_compound": 5.07,
-          "voice_estill_quality": 5.525000000000001,
-          "voice_speech_song": 30.16,
-          "voice_ensemble_config": 22.294999999999998,
-          "voice_ornament_system": 0.9099999999999997,
-          "voice_pitch_organization": 3.10125,
-          "voice_processing_chain": 6.89,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 2.925,
+          "voice_articulation": 17.029999999999994,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 7.15,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 25.934999999999995,
+          "voice_ensemble_config": 16.769999999999996,
+          "voice_ornament_system": 0.8499999999999999,
+          "voice_pitch_organization": 2.7,
+          "voice_processing_chain": 6.305,
+          "voice_multitrack_stack": 4.485
         }
       },
       {
@@ -60,61 +60,61 @@
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
           "string_classical": "nylon_high_cl",
-          "attack_technique_cl": "apoyando_cl"
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 7.640625,
+          "acoustic_technique": 7.140000000000001,
           "string_tuning": 0,
-          "top_wood_classical": 7.215,
-          "bracing_classical": 0.3,
-          "string_classical": 1.71375,
-          "attack_technique_cl": 0.78
+          "top_wood_classical": 4.875,
+          "bracing_classical": 0.195,
+          "string_classical": 1.045,
+          "attack_technique_cl": 1.04
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.5650000000000004,
+          "keyboard_technique": 2.6900000000000004,
           "grand_piano_size": 1.04,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 3.52,
-          "piano_rim": 4.68375,
-          "piano_soundboard": 3.325,
+          "grand_piano_brand": 1.04,
+          "piano_hammer": 2.645,
+          "piano_rim": 3.29,
+          "piano_soundboard": 2.45,
           "piano_pinblock": -0.05,
-          "piano_plate": 0.7149999999999999,
-          "piano_pitch_standard": 4.94
+          "piano_plate": 0.09999999999999999,
+          "piano_pitch_standard": 2.8600000000000003
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "french_musette",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
           "reed_config": "lmm",
-          "bellows": "all_leather",
+          "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_petosa_seattle"
+          "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 2.3637500000000005,
-          "accordion_reed_material": 0.845,
-          "musette_offset": 1.25,
-          "reed_config": 2.34,
-          "bellows": 0.65,
+          "free_reed_technique": 1.6949999999999998,
+          "accordion_reed_material": 1.04,
+          "musette_offset": 0.65,
+          "reed_config": 1.885,
+          "bellows": 0.15,
           "voicing_chamber": 0,
-          "accordion_maker_school": 1.4949999999999999
+          "accordion_maker_school": 2.08
         }
       }
     ],

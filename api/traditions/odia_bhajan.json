@@ -5,7 +5,7 @@
   "lineage": "Dr. Sangita Gosain — Bibhu Bandana, complete announced Samarpan2021 recital ensemble,20March2021. ICCR official programme lists Sangita Gosain for Bibhu Bandana, an Odia ode to the Supreme Lord, with Ajaya Kumar Dash on harmonium, Dushmanta Kumar Parida on tabla and Rudra Prasad Parida on flute. All four roles and one singer are retained. This is the complete announced ensemble for that recital, not personnel borrowed from adjacent festival artists or her other recordings. Odia bhajan is the Odia-language devotional repertoire within pan-Indian bhajan and hindu_stuti_bhajan, not an assertion either broad record excludes Odisha. Official Akashvani catalog explicitly publishes Odia Bhajan volumes dedicated to Jagannath; the selected ICCR devotional recital supplies positive regional-language practice. Existing odia_pop overlaps bhajan-derived phrasing but models secular/popular production; this regional devotional-purpose field is narrower than language-pop generally. No distinct instrument list is used as the category boundary and no exact creator membership is asserted. The complete announced quartet is realized with source-unspecified vocal physiology, one authored accompanied solo singer and neutral unspecified flute architecture. Hand-pumped harmonium retains local keyboard/bellows song-support gesture and authored male reed voicing; tabla uses compatible shisham dayan, copper bayan and fresh syahi as authored settings rather than actual players’ measured instruments. No specific raga, tuning, fixed ornament style, flute material or studio gear is invented. Controlled live-room acoustic and unprocessed voice are authored rendition choices; one singer is positively named, while original recording tracks remain unspecified.",
   "recipe": "classic odia bhajan, ritual Devotional, hindu branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. flute like credited flute unspecified, indian rosewood rosewood copper tabla, vocal male song accompaniment hand pumped harmonium. live tracking.",
   "recipe_chars": 305,
-  "score": 25.994,
+  "score": 25.931,
   "config": {
     "traditions": [
       "odia_bhajan"
@@ -84,9 +84,9 @@
         },
         "scores": {
           "harmonium_action": 1.69,
-          "harmonium_voicing": 3.2195,
+          "harmonium_voicing": 3.188,
           "harmonium_use": 1.69,
-          "free_reed_technique": 0.3045
+          "free_reed_technique": 0.273
         }
       }
     ],

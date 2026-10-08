@@ -5,7 +5,7 @@
   "lineage": "Late-1960s British and American acid-folk, codified 1967-1971 by the Incredible String Band, Vashti Bunyan, Comus and Pearls Before Swine, applying modal fingerstyle guitar in altered tunings to raga-derived drone (sitar, tanpura, hand percussion), free-floating tempo, chamber-string and recorder overdubs, and high, unforced close-miked vocals treated with tape flange and reverse tape.",
   "recipe": "classic British 1967-1971 psychedelic folk, ballad Poetry, britfolk branch, anglo singer song freak folk, pop rock folk rock, modal electric drone modal new weird america. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning fingerpicked acoustic marshall plexi amp British rock amp riff driven single coil electric guitar, drone like modal sitar, dark folk clay tabla, gut gut string strummed open chord ringing overtones celtic harp, melodic recorder, string quartet inst. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 691,
-  "score": 307.874,
+  "score": 307.774,
   "config": {
     "traditions": [
       "psychedelic_folk",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 30.019999999999996,
+          "voice_register": 29.974999999999994,
           "voice_quality": 8.580000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.585,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 20.539999999999992,
-          "voice_tradition": 34.37149999999999,
+          "voice_tradition": 34.52149999999999,
           "voice_mechanism_compound": 7.345000000000001,
-          "voice_estill_quality": 6.855,
+          "voice_estill_quality": 6.660000000000001,
           "voice_speech_song": 22.424999999999997,
           "voice_ensemble_config": 15.404999999999992,
           "voice_ornament_system": 4.770000000000001,
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 3.7395000000000005,
+          "string_tuning": 3.7845000000000004,
           "top_wood": 0.65,
           "back_sides": 0.65,
           "string_acoustic": 0.65,
@@ -75,7 +75,7 @@
           "plucked_traditional_technique": "plucked_drone_modal",
           "sitar_neck": "teak",
           "sitar_resonator": "single_kaddu",
-          "sitar_jawari": "antelope_horn",
+          "sitar_jawari": "ebony_jawari",
           "sitar_taraf": "taraf_11",
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "fingers_sitar",
@@ -86,8 +86,8 @@
         "scores": {
           "plucked_traditional_technique": 9.51,
           "sitar_neck": 0.65,
-          "sitar_resonator": 0.09,
-          "sitar_jawari": 0.09,
+          "sitar_resonator": 0.045,
+          "sitar_jawari": 0.0495,
           "sitar_taraf": 0.045,
           "sitar_frets": 0.045,
           "sitar_pluck": 0.195,
@@ -106,7 +106,7 @@
         "scores": {
           "tabla_dayan": 0.25,
           "tabla_bayan": 11.699999999999998,
-          "tabla_syahi": 4.13
+          "tabla_syahi": 4.16
         }
       },
       {
@@ -131,7 +131,7 @@
           "recorder_body_wood": "recorder_maple"
         },
         "scores": {
-          "wind_articulation": 22.644999999999992,
+          "wind_articulation": 22.59999999999999,
           "recorder_size": 0.195,
           "recorder_context": 0.195,
           "recorder_body_wood": 0.845
@@ -173,13 +173,13 @@
           "body_wood": 0.65,
           "neck_wood": 0.65,
           "fretboard": 0.585,
-          "pickup_magnet": 0.09,
+          "pickup_magnet": 0.045,
           "string_material": 0.18,
-          "string_gauge": 0.7095,
-          "bridge": 0.09,
+          "string_gauge": 0.7995000000000001,
+          "bridge": 0.045,
           "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 4.7595,
+          "string_tuning": 4.8045,
           "single_coil_pickup_construction": 0
         }
       }

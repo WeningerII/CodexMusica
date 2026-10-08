@@ -3,14 +3,14 @@
   "name": "Bolero (tropical romantic)",
   "family": "global",
   "lineage": "Pan-Latin-American romantic ballad tradition that emerged in late-19th-century Santiago de Cuba (the first bolero Tristezas by José Pepe Sánchez 1883) and codified pan-continentally from the 1930s through Mexican composers Agustín Lara (Solamente Una Vez 1941, Granada 1932), Consuelo Velázquez (Bésame Mucho 1940 — the most-recorded bolero), Armando Manzanero, María Grever, and the trio canon (Trio Los Panchos 1944-onward, Trio Matamoros, Trio Calaveras), with the post-WWII voices Pedro Infante, Lucho Gatica, Lola Beltrán, Olga Guillot, and the late-1940s Cuban filin small-combo intimate-jazz extension",
-  "recipe": "classic Mexican modern bolero, functional Song, tropical song branch, Latin am troubadour ballad poetry nuevo folklore argentino milonga. thick, breath veiled tone, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cedrillo canonical veracruz strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 759,
-  "score": 194.568,
+  "recipe": "classic Mexican modern bolero, functional Song, tropical song branch, Latin am troubadour ballad poetry milonga nuevo folklore argentino. thick, breath veiled tone, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, rhythmic dance rhythm strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 753,
+  "score": 193.082,
   "config": {
     "traditions": [
       "tropical_bolero",
-      "nuevo_folklore_argentino",
-      "milonga"
+      "milonga",
+      "nuevo_folklore_argentino"
     ],
     "instruments": [
       {
@@ -38,7 +38,7 @@
           "voice_quality": 15.339999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.65,
+          "voice_vibrato": 5.695,
           "voice_articulation": 16.834999999999997,
           "voice_microtone": 15.534999999999995,
           "voice_tradition": 10.725000000000001,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 15.859999999999996,
           "voice_ornament_system": 1.3749999999999998,
           "voice_pitch_organization": 0.27499999999999997,
-          "voice_processing_chain": 3.56,
-          "voice_multitrack_stack": 4.120000000000001
+          "voice_processing_chain": 3.605,
+          "voice_multitrack_stack": 4.315
         }
       },
       {
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0.45500000000000007,
+          "string_tuning": 0.35000000000000003,
           "top_wood": 0.39,
           "back_sides": 0.39,
           "string_acoustic": 1.545,
@@ -85,13 +85,13 @@
         "scores": {
           "keyboard_technique": 0.9999999999999998,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 3.3799999999999994,
+          "grand_piano_brand": 3.3199999999999994,
           "piano_hammer": 3.2175000000000002,
           "piano_rim": 4.2575,
           "piano_soundboard": 2.5675,
           "piano_pinblock": 0.7149999999999999,
           "piano_plate": 0.325,
-          "piano_pitch_standard": 2.61
+          "piano_pitch_standard": 2.46
         }
       },
       {
@@ -111,8 +111,8 @@
           "body_wood": 0.39,
           "pickup_config": 0.345,
           "string_type": 3.795,
-          "scale_length_b": 0.585,
-          "fretted_or_not": 0.435,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.39,
           "bass_technique": 3.75,
           "electric_bass_string_configuration": 0
         }
@@ -126,7 +126,7 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 12.06,
+          "percussion_technique": 11.82,
           "bongos_skin": 2.275,
           "bongos_context": 0.195,
           "bongos_shell_wood": 2.34
@@ -142,10 +142,10 @@
           "requinto_jarocho_strings": "requinto_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 7.325,
+          "plucked_traditional_technique": 7.13,
           "requinto_jarocho_pluck": 1.2349999999999999,
-          "requinto_jarocho_tuning": 1.3050000000000002,
-          "requinto_jarocho_body_wood": 1.3649999999999998,
+          "requinto_jarocho_tuning": 0.915,
+          "requinto_jarocho_body_wood": 0.975,
           "requinto_jarocho_strings": 0.12999999999999998
         }
       }

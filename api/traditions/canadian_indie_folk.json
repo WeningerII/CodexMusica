@@ -5,7 +5,7 @@
   "lineage": "Canadian indie folk includes Southern Ontario’s Great Lake Swimmers, whose songs and acoustic-led recordings connect songwriting to resonant rural spaces. Their documented instrumentation supplies this selected ensemble model.",
   "recipe": "classic modern canadian indie folk, ballad Poetry, indie folk branch. thick, interlocked note trading, neutral third half flat, m1 with m0 pulse borrowing. walnut fingerpicked acoustic guitar, fiddle, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 352,
-  "score": 48.918,
+  "score": 49.038,
   "config": {
     "traditions": [
       "canadian_indie_folk"
@@ -63,8 +63,8 @@
           "string_tuning": 0,
           "top_wood": 0.45149999999999996,
           "back_sides": 1.2415,
-          "string_acoustic": 0.5257499999999999,
-          "acoustic_om_technique": 12.895999999999997
+          "string_acoustic": 0.537,
+          "acoustic_om_technique": 12.907249999999998
         }
       },
       {
@@ -79,9 +79,9 @@
         },
         "scores": {
           "bowed_technique": 2.34,
-          "fiddle_strings": 0.1365,
-          "fiddle_bow": 0.2415,
-          "fiddle_mute": 0.3885,
+          "fiddle_strings": 0.14775,
+          "fiddle_bow": 0.279,
+          "fiddle_mute": 0.426,
           "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
         }
@@ -93,7 +93,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.1365,
+          "upright_strings": 0.14775,
           "upright_play": -0.05
         }
       }

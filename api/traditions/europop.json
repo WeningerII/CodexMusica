@@ -5,7 +5,7 @@
   "lineage": "Continental European chart pop consolidated between the mid-1970s and the late 1990s through the Eurovision circuit, ABBA's Polar Studios records with Michael B. Tretow, Italo-disco, Stock Aitken Waterman's London hit factory and the Scandinavian and Benelux dance-pop of Ace of Base, Aqua and Dr. Alban — 118-140 BPM four-on-the-floor kick with offbeat eighth-note keyboard or hi-hat, unambiguous major-key diatonic progressions, English-as-second-language lyrics chosen for phonetic clarity, and glossy multi-tracked unison-and-thirds choruses.",
   "recipe": "classic North American 1974-1976 europop, functional Song, europop branch, eurodance electronic dance, pop rock synthpop yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, drum machine analog, marshall plexi amp British rock amp alder ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, string machine, marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 830,
-  "score": 563.66,
+  "score": 563.18,
   "config": {
     "traditions": [
       "europop",
@@ -119,8 +119,8 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 20.23,
-          "grand_piano_size": 2.73,
+          "keyboard_technique": 19.93,
+          "grand_piano_size": 2.64,
           "grand_piano_brand": 2.925,
           "piano_hammer": 21.5,
           "piano_rim": 20.169999999999998,
@@ -158,7 +158,7 @@
           "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
-          "finish": "nitro",
+          "finish": "poly",
           "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
@@ -173,7 +173,7 @@
           "string_gauge": 2.535,
           "bridge": 0.3,
           "scale_length": 2.535,
-          "finish": 0.39,
+          "finish": 0.3,
           "string_tuning": 11.959999999999997,
           "single_coil_pickup_construction": 0
         }

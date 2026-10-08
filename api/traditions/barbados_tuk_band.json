@@ -1,0 +1,114 @@
+{
+  "id": "barbados_tuk_band",
+  "name": "Tuk band (Barbados)",
+  "family": "global",
+  "lineage": "Barbadian band of double-headed bass drum, kettle (snare) drum, triangle and a penny whistle, which has largely replaced the earlier fiddle or flute; it is modelled on the regimental bands of the British military, played with African-derived rhythms. It accompanies the Barbados Landship, a friendly society whose members parade in naval uniform, and street masquerade characters at Crop Over and other festivals, moving from slow, stately tunes to fast, driving sections.",
+  "recipe": "classic modern tuk band, carnival Processional, Caribbean branch. bass snare drum, tin whistle, concert triangle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 193,
+  "score": 0.349,
+  "config": {
+    "traditions": [
+      "barbados_tuk_band"
+    ],
+    "instruments": [
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_24_26_big",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 0
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "tin_whistle",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "whistle_key": "d_whistle",
+          "whistle_ornament": "no_ornament",
+          "whistle_body_material": "whistle_nickel_plated"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "whistle_key": -0.05,
+          "whistle_ornament": 0,
+          "whistle_body_material": 0.6194999999999999
+        }
+      },
+      {
+        "id": "concert_triangle",
+        "slots": {
+          "concert_triangle_construction": "concert_triangle_grover_six_kanigen"
+        },
+        "scores": {
+          "concert_triangle_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "tin_whistle": [
+        "wind_articulation",
+        "whistle_key",
+        "whistle_ornament",
+        "whistle_body_material"
+      ],
+      "concert_triangle": [
+        "concert_triangle_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bass_drum_size": "bass_drum_24_26_big",
+      "bass_drum_beater": "bass_drum_felt_pedal",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "wind_articulation": "wind_folk_melodic",
+      "whistle_key": "d_whistle",
+      "whistle_ornament": "no_ornament",
+      "whistle_body_material": "whistle_nickel_plated",
+      "concert_triangle_construction": "concert_triangle_grover_six_kanigen"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

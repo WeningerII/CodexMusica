@@ -5,7 +5,7 @@
   "lineage": "Koligeet is the song tradition of Maharashtra’s coastal Koli communities. Fishing life, weddings and seasonal celebrations feed an oral repertoire also carried into commercial albums, stage orchestras and dance remixes.",
   "recipe": "classic koligeet, wedding. dholki nal. urban courtyard.",
   "recipe_chars": 55,
-  "score": 1.169,
+  "score": 1.49,
   "config": {
     "traditions": [
       "koligeet"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.27,
+          "voice_ensemble_config": 0.42525,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0945,
+          "voice_multitrack_stack": 0.255375,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "dholki_nal_excitation": "dholki_nal_excitation_documented"
         },
         "scores": {
-          "dholki_nal_shell": 0.09449999999999999,
+          "dholki_nal_shell": 0.11887499999999998,
           "dholki_nal_treble_head": 0,
           "dholki_nal_bass_head": 0,
           "dholki_nal_tension": 0,
-          "dholki_nal_excitation": 0.3195
+          "dholki_nal_excitation": 0.3
         }
       }
     ],

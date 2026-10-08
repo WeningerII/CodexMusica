@@ -5,7 +5,7 @@
   "lineage": "Music performed by a group of voices, spanning written repertoire, arranged songs and collective improvisation. Ensemble singing can be accompanied or unaccompanied and is not limited to one tradition.",
   "recipe": "classic vocal ensemble, improv On Frame, jam free branch. group vocals, live take. live tracking.",
   "recipe_chars": 97,
-  "score": 6.26,
+  "score": 6.197,
   "config": {
     "traditions": [
       "vocal_ensemble"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.441,
+          "voice_ensemble_config": 3.378,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.40950000000000003,
-          "voice_multitrack_stack": 2.4095,
+          "voice_processing_chain": 0.44100000000000006,
+          "voice_multitrack_stack": 2.378,
           "voice_tessitura": 0
         }
       }

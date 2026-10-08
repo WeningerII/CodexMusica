@@ -1,14 +1,15 @@
 {
-  "id": "swedish_americana",
-  "name": "Swedish Americana",
+  "id": "swedish_country",
+  "merged_from": "swedish_americana",
+  "name": "Swedish country",
   "family": "vernacular",
-  "lineage": "Swedish Americana includes Swedish-connected artists working with American roots-song forms. First Aid Kit’s documented Stockholm-to-Omaha recording practice provides this branch.",
-  "recipe": "classic modern swedish americana, functional Song, americana branch. thick, straight note core, neutral third half flat, m1 with m0 pulse borrowing. acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 472,
-  "score": 57.257,
+  "lineage": "Swedish country includes local country-song performers and crossover ensembles. First Aid Kit’s country-oriented harmony singing and band records supply one contemporary branch.",
+  "recipe": "classic modern swedish country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, m1 with m0 pulse borrowing. singing indian rosewood rosewood acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 496,
+  "score": 159.083,
   "config": {
     "traditions": [
-      "swedish_americana"
+      "swedish_country"
     ],
     "instruments": [
       {
@@ -18,7 +19,7 @@
           "voice_quality": "speech_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
@@ -28,42 +29,42 @@
           "voice_ensemble_config": "voice_ensemble_live_duet",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 3.3130000000000015,
-          "voice_quality": 0.1995,
+          "voice_register": 13.312999999999995,
+          "voice_quality": 0.22049999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9125000000000005,
+          "voice_vibrato": 13.7,
           "voice_articulation": -0.14,
-          "voice_microtone": 0.7799999999999996,
+          "voice_microtone": 3.380000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 5.706,
-          "voice_speech_song": 4.2250000000000005,
-          "voice_ensemble_config": 0.17925,
-          "voice_ornament_system": 0.1365,
-          "voice_pitch_organization": 0.19275000000000003,
-          "voice_processing_chain": 0.9457500000000001,
-          "voice_multitrack_stack": 0.39
+          "voice_mechanism_compound": 0.5775,
+          "voice_estill_quality": 14.153999999999998,
+          "voice_speech_song": 6.825,
+          "voice_ensemble_config": 0.1365,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.19500000000000003,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 1.6465
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "string_tuning": "open_d",
-          "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
           "string_acoustic": "silk_steel_om",
           "acoustic_om_technique": "om_strummed_open"
         },
         "scores": {
-          "string_tuning": 0.24275000000000002,
-          "top_wood": 0.1365,
-          "back_sides": 0.378,
-          "string_acoustic": 0.78,
+          "string_tuning": 0.26,
+          "top_wood": 0,
+          "back_sides": 1.5545,
+          "string_acoustic": 0.7575,
           "acoustic_om_technique": -0.035
         }
       },
@@ -72,43 +73,43 @@
         "slots": {
           "electric_technique": "electric_steel_pedal_swells",
           "amp_make": "amp_american_fender_blackface",
-          "pickup_steel": "humbucker_steel",
+          "pickup_steel": "single_coil_steel",
           "string_setup": "standard_e9",
-          "bar_material": "steel_bar",
-          "pedal_steel_brand": "sho_bud_classic",
+          "bar_material": "brass_bar",
+          "pedal_steel_brand": "mullen_d10",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 5.2844999999999995,
-          "amp_make": 5.232500000000001,
-          "pickup_steel": 0.168,
-          "string_setup": 1.95,
-          "bar_material": 0.78,
-          "pedal_steel_brand": 4.147,
-          "pedal_steel_neck_config": 5.265,
-          "pedal_steel_strings": 4.434749999999999
+          "electric_technique": 14.9575,
+          "amp_make": 13.686499999999997,
+          "pickup_steel": 0,
+          "string_setup": 7.15,
+          "bar_material": 1.6045,
+          "pedal_steel_brand": 14.0965,
+          "pedal_steel_neck_config": 17.7775,
+          "pedal_steel_strings": 14.365
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
           "string_type": "roundwound_s",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.251,
-          "body_wood": 0.273,
-          "pickup_config": 0.0315,
+          "amp_make": 13.705,
+          "body_wood": 0.0315,
+          "pickup_config": 0.1995,
           "string_type": 0.78,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.3315,
+          "scale_length_b": 0.126,
+          "fretted_or_not": 1.6360000000000001,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -121,8 +122,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.2815,
-          "drumhead": 0.34275,
+          "drum_technique": 0.25,
+          "drumhead": 0.363,
           "drum_kit_kick_pedal": 0
         }
       }

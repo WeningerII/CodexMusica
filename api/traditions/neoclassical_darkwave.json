@@ -3,14 +3,14 @@
   "name": "Neoclassical darkwave",
   "family": "electronic",
   "lineage": "European darkwave offshoot codified 1988-1998 by Dead Can Dance, Ataraxia, Stoa, Elend and the Projekt and Cold Meat Industry rosters, marrying gothic-rock pacing to bowed strings, cathedral-reverb piano, sampled or real choir and timpani, in slow duple or free-pulse settings, with operatic soprano or breathy contralto lead over minor-modal and Phrygian harmony and near-total absence of drum kit.",
-  "recipe": "classic mid-1990s neoclassical darkwave, distorted Rock, gothic rock branch, ambient experimental electric vaporwave aesthetic hauntology. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara choir ensemble, carpathian spruce hard rock maple cello, carpathian spruce hard rock maple acer saccharum violin orchestral, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, timpani, sustained pad analog poly synth, skinner aeolian skinner canonical American eclectic early 20th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque electric pneumatic canonical 20th century American pipe organ. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 959,
-  "score": 219.345,
+  "recipe": "classic mid-1990s neoclassical darkwave, distorted Rock, gothic rock branch, ambient experimental electric hauntology witch house. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara choir ensemble, carpathian spruce hard rock maple synthetic varnish cello, copper wound carpathian spruce hard rock maple acer saccharum synthetic varnish violin orchestral, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, timpani, sustained pad analog poly synth, silbermann saxon canonical central German Baroque early 18th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 994,
+  "score": 220.995,
   "config": {
     "traditions": [
       "neoclassical_darkwave",
-      "vapor_aesthetic",
-      "hauntology_uk_2010s"
+      "hauntology_uk_2010s",
+      "witch_house_2010s"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 12.984999999999994,
-          "voice_quality": 8.775,
+          "voice_register": 9.634999999999993,
+          "voice_quality": 7.930000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.535,
-          "voice_articulation": 16.639999999999997,
-          "voice_microtone": 19.044999999999995,
+          "voice_articulation": 18.329999999999995,
+          "voice_microtone": 20.734999999999992,
           "voice_tradition": 9.425,
-          "voice_mechanism_compound": 5.59,
-          "voice_estill_quality": 2.7950000000000004,
-          "voice_speech_song": 16.639999999999997,
-          "voice_ensemble_config": 19.499999999999996,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 1.935,
+          "voice_speech_song": 18.329999999999995,
+          "voice_ensemble_config": 20.344999999999995,
           "voice_ornament_system": 0.6999999999999997,
           "voice_pitch_organization": 2.7300000000000004,
-          "voice_processing_chain": 13.875,
-          "voice_multitrack_stack": 9.165000000000001
+          "voice_processing_chain": 12.645000000000001,
+          "voice_multitrack_stack": 8.32
         }
       },
       {
@@ -64,42 +64,42 @@
           "choir_size": 2.08,
           "choir_polyphonic_configuration": 2.08,
           "choir_regional_canonical_configuration": 1.2349999999999999,
-          "choir_ensemble_repertoire": 3.7700000000000005
+          "choir_ensemble_repertoire": 4.615
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_pizzicato",
-          "cello_strings": "cello_steel",
+          "cello_strings": "pistoy_gut_cello",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "modern_synthetic_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "bernardel_rosin_cello",
-          "cello_bow_stick": "brazilwood_stick_cello"
+          "cello_bow_stick": "snakewood_stick_cello"
         },
         "scores": {
           "bowed_technique": 0.7,
-          "cello_strings": 0.39,
+          "cello_strings": 0.78,
           "cello_top_wood": 1.2349999999999999,
           "cello_back_wood": 4.16,
-          "cello_varnish": -0.035,
+          "cello_varnish": 1.6249999999999998,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.3,
+          "cello_bow_grip": 0.39,
           "cello_rosin": -0.035,
-          "cello_bow_stick": -0.05
+          "cello_bow_stick": 0.7149999999999999
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
           "bowed_technique": "bowed_chopped_old_time",
-          "orch_strings": "steel_orch",
+          "orch_strings": "copper_wound_gut_violin",
           "orch_top_wood": "carpathian_spruce_violin",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
@@ -108,14 +108,14 @@
         },
         "scores": {
           "bowed_technique": 1.1049999999999998,
-          "orch_strings": 0.39,
+          "orch_strings": 1.17,
           "orch_top_wood": 1.2349999999999999,
-          "orch_back_wood": 5.7,
-          "orch_varnish": -0.035,
+          "orch_back_wood": 5.895,
+          "orch_varnish": 1.6249999999999998,
           "orch_setup_period": -0.07,
           "orch_bow": 1.195,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.9300000000000002,
+          "orch_articulation": 0.845,
           "orch_rosin": -0.035
         }
       },
@@ -127,20 +127,20 @@
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
-          "piano_soundboard": "asian_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.200000000000001,
-          "grand_piano_size": 0.63,
-          "grand_piano_brand": 1.7400000000000002,
-          "piano_hammer": 4.305000000000001,
-          "piano_rim": 5.07,
-          "piano_soundboard": 1.8150000000000002,
-          "piano_pinblock": -0.05,
-          "piano_plate": -0.035,
+          "grand_piano_size": 0.675,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 4.3500000000000005,
+          "piano_rim": 6.58,
+          "piano_soundboard": 1.2349999999999999,
+          "piano_pinblock": 0.7149999999999999,
+          "piano_plate": 1.5599999999999996,
           "piano_pitch_standard": 1.935
         }
       },
@@ -153,8 +153,8 @@
         },
         "scores": {
           "percussion_technique": 0.75,
-          "timpani_size": 0.3,
-          "timpani_head": 0.255
+          "timpani_size": 0.39,
+          "timpani_head": 0.36
         }
       },
       {
@@ -175,22 +175,22 @@
       {
         "id": "pipe_organ",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_classical_legato",
           "pipe_organ_class": "pipe_organ_romantic",
           "pipe_organ_context": "pipe_organ_concert",
-          "pipe_organ_voicing_school": "pipe_organ_skinner_american",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
           "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
           "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-          "pipe_organ_action": "pipe_organ_electric_pneumatic"
+          "pipe_organ_action": "pipe_organ_pneumatic"
         },
         "scores": {
-          "keyboard_technique": 1.6199999999999999,
+          "keyboard_technique": -0.035,
           "pipe_organ_class": 0.3,
-          "pipe_organ_context": 2.925,
-          "pipe_organ_voicing_school": 3.7700000000000005,
+          "pipe_organ_context": 2.0799999999999996,
+          "pipe_organ_voicing_school": 2.925,
           "pipe_organ_pipe_alloy": 3.38,
           "pipe_organ_temperament": 2.925,
-          "pipe_organ_action": 2.535
+          "pipe_organ_action": 2.08
         }
       }
     ],

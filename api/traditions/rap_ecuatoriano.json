@@ -5,7 +5,7 @@
   "lineage": "Rap ecuatoriano spans Ecuador’s local MC and production networks. Quito’s Psycho Maan Crew exemplifies a boom-bap strand built on collaborative verses and independently produced recordings.",
   "recipe": "classic modern rap ecuatoriano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 267,
-  "score": 32.686,
+  "score": 32.689,
   "config": {
     "traditions": [
       "rap_ecuatoriano"
@@ -62,9 +62,9 @@
         },
         "scores": {
           "electronic_technique": 2.2,
-          "sample_bitdepth": 0.213,
+          "sample_bitdepth": 0.321,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

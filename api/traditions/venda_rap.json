@@ -5,7 +5,7 @@
   "lineage": "Venda rap, often called VenRap, developed through Tshivenda-language hip-hop networks in Vhembe and the wider Limpopo region.",
   "recipe": "classic modern venda rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 305,
-  "score": 38.547,
+  "score": 38.495,
   "config": {
     "traditions": [
       "venda_rap"
@@ -42,8 +42,8 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.182749999999999,
-          "voice_ensemble_config": 0.81525,
+          "voice_speech_song": 13.31025,
+          "voice_ensemble_config": 0.60375,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 3.8395,
-          "sample_bitdepth": 0,
+          "sample_bitdepth": 0.1365,
           "sample_swing": 6.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

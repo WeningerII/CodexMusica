@@ -1,0 +1,240 @@
+{
+  "id": "korean_talchum",
+  "name": "Talchum (Korean mask-dance drama music)",
+  "family": "global",
+  "lineage": "Talchum are the masked dance-dramas of Korea, satirising apostate monks, aristocrats and quarrelling couples in scenes of dance, song and dialogue, among them Bongsan talchum, Yangju byeolsandae and Hahoe byeolsingut talnori, and are inscribed together on UNESCO's Representative List of the Intangible Cultural Heritage. Most are accompanied by the samhyeon yukgak ensemble of two piri, daegeum, haegeum, janggu and buk playing dance tunes, while the Hahoe play is accompanied by pungmul-style village percussion.",
+  "recipe": "classic modern talchum, carnival Processional, east Asian branch. solo with instrumental accompaniment. bamboo canonical Korean arundo donax large canonical Korean gugak piri, traditional membrane buzz bamboo daegeum, paulownia canonical Korean haegeum, paulownia canonical Korean horse dog asymmetric canonical Korean janggu, paulownia canonical Korean cowhide canonical Korean buk korean. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 470,
+  "score": 14.965,
+  "config": {
+    "traditions": [
+      "korean_talchum"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": -0.035,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.714,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.21,
+          "voice_multitrack_stack": 0.27299999999999996,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "piri",
+        "slots": {
+          "piri_size": "piri_hyangpiri",
+          "piri_body_wood": "piri_bamboo_canonical",
+          "piri_reed": "piri_arundo_large_canonical"
+        },
+        "scores": {
+          "piri_size": 0.363,
+          "piri_body_wood": 1.3,
+          "piri_reed": 1.3
+        }
+      },
+      {
+        "id": "daegeum",
+        "slots": {
+          "daegeum_body": "daegeum_bamboo_cheongong",
+          "daegeum_context": "daegeum_minsogak"
+        },
+        "scores": {
+          "daegeum_body": 1.9005,
+          "daegeum_context": 0.0315
+        }
+      },
+      {
+        "id": "haegeum",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "haegeum_use": "haegeum_folk",
+          "haegeum_strings": "dutar_strings_unspecified",
+          "haegeum_body_wood": "haegeum_paulownia_body"
+        },
+        "scores": {
+          "bowed_technique": 1.168,
+          "haegeum_use": 0.0315,
+          "haegeum_strings": 0,
+          "haegeum_body_wood": 1.168
+        }
+      },
+      {
+        "id": "janggu",
+        "slots": {
+          "janggu_use": "janggu_samul_nori",
+          "janggu_construction": "janggu_wood",
+          "janggu_shell_wood": "janggu_paulownia_canonical",
+          "janggu_head": "janggu_horse_dog_asymmetric",
+          "janggu_lineage": "janggu_pansori_godo"
+        },
+        "scores": {
+          "janggu_use": 1.168,
+          "janggu_construction": 0,
+          "janggu_shell_wood": 1.168,
+          "janggu_head": 1.168,
+          "janggu_lineage": 0.168
+        }
+      },
+      {
+        "id": "buk_korean",
+        "slots": {
+          "buk_korean_context": "buk_korean_nongak",
+          "buk_korean_construction": "buk_korean_barrel",
+          "buk_korean_shell_wood": "buk_korean_paulownia",
+          "buk_korean_head": "buk_korean_cowhide_canonical"
+        },
+        "scores": {
+          "buk_korean_context": 0.6824999999999999,
+          "buk_korean_construction": 0,
+          "buk_korean_shell_wood": 1.168,
+          "buk_korean_head": 1.168
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "piri": [
+        "piri_size",
+        "piri_body_wood",
+        "piri_reed"
+      ],
+      "daegeum": [
+        "daegeum_body",
+        "daegeum_context"
+      ],
+      "haegeum": [
+        "bowed_technique",
+        "haegeum_use",
+        "haegeum_strings",
+        "haegeum_body_wood"
+      ],
+      "janggu": [
+        "janggu_use",
+        "janggu_construction",
+        "janggu_shell_wood",
+        "janggu_head",
+        "janggu_lineage"
+      ],
+      "buk_korean": [
+        "buk_korean_context",
+        "buk_korean_construction",
+        "buk_korean_shell_wood",
+        "buk_korean_head"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "shouted_voice",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "piri_size": "piri_hyangpiri",
+      "piri_body_wood": "piri_bamboo_canonical",
+      "piri_reed": "piri_arundo_large_canonical",
+      "daegeum_body": "daegeum_bamboo_cheongong",
+      "daegeum_context": "daegeum_minsogak",
+      "bowed_technique": "bowed_local_song_melody",
+      "haegeum_use": "haegeum_folk",
+      "haegeum_strings": "dutar_strings_unspecified",
+      "haegeum_body_wood": "haegeum_paulownia_body",
+      "janggu_use": "janggu_samul_nori",
+      "janggu_construction": "janggu_wood",
+      "janggu_shell_wood": "janggu_paulownia_canonical",
+      "janggu_head": "janggu_horse_dog_asymmetric",
+      "janggu_lineage": "janggu_pansori_godo",
+      "buk_korean_context": "buk_korean_nongak",
+      "buk_korean_construction": "buk_korean_barrel",
+      "buk_korean_shell_wood": "buk_korean_paulownia",
+      "buk_korean_head": "buk_korean_cowhide_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

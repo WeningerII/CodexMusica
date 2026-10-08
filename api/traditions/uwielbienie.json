@@ -5,7 +5,7 @@
   "lineage": "Polish Christian praise and worship repertoire connects devotional singing with church communities and contemporary song production. Traditional sacred texts and newer compositions coexist across denominational and stylistic settings.",
   "recipe": "classic uwielbienie, ritual Devotional, christian gospel branch. small note groups per syllable. humbucker electric guitar, electric bass, drum kit, upright piano. live tracking.",
   "recipe_chars": 178,
-  "score": 4.679,
+  "score": 4.48,
   "config": {
     "traditions": [
       "uwielbienie"
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0,
-          "pickup_config": 0.7035,
+          "pickup_config": 0.6405,
           "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0,
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.40950000000000003,
+          "bearing_edges": 0.273,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.1,

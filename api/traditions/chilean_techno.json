@@ -5,7 +5,7 @@
   "lineage": "Chilean techno connects local and expatriate producers through transnational club and recording networks. Minimal rhythmic production, sampling and electronic experimentation form an influential strand alongside more expansive approaches.",
   "recipe": "classic modern chilean techno, electronic Dance, techno branch. analog synth, drum machine 606, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 6.846,
+  "score": 6.882,
   "config": {
     "traditions": [
       "chilean_techno"
@@ -35,7 +35,7 @@
           "drum_machine_606_context": "drum_machine_606_techno"
         },
         "scores": {
-          "drum_machine_606_voice": 0.17624999999999996,
+          "drum_machine_606_voice": 0.21149999999999997,
           "drum_machine_606_context": 1.2349999999999999
         }
       },

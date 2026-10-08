@@ -3,9 +3,9 @@
   "name": "Yorkshire folk",
   "family": "vernacular",
   "lineage": "Yorkshire folk encompasses local inherited songs and contemporary folk performers. Kate Rusby’s South Yorkshire recording practice supplies a documented voice, fiddle and diatonic-accordion branch.",
-  "recipe": "classic modern yorkshire folk, ballad Poetry, Celtic balladic branch. thick, breath pulsed, neutral third half flat, m1 with m0 pulse borrowing. fiddle, melodeon diatonic, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 323,
-  "score": 31.792,
+  "recipe": "classic modern yorkshire folk, ballad Poetry, Celtic balladic branch. thick, fast rate, neutral third half flat, m1 with m0 pulse borrowing. fiddle, melodeon diatonic, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 319,
+  "score": 31.823,
   "config": {
     "traditions": [
       "yorkshire_folk"
@@ -18,7 +18,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
@@ -27,7 +27,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_live_group",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_harmonizer_diatonic_locked",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
@@ -36,17 +36,17 @@
           "voice_quality": 0.39,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.6824999999999999,
+          "voice_vibrato": 0.546,
           "voice_articulation": -0.14,
           "voice_microtone": 3.7700000000000005,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 2.0685,
-          "voice_estill_quality": 0.7035,
+          "voice_mechanism_compound": 2.2889999999999997,
+          "voice_estill_quality": 0.6615,
           "voice_speech_song": 3.965,
-          "voice_ensemble_config": 0.1995,
+          "voice_ensemble_config": 0.168,
           "voice_ornament_system": 4.550000000000001,
-          "voice_pitch_organization": 0.273,
-          "voice_processing_chain": 1.3,
+          "voice_pitch_organization": 0.168,
+          "voice_processing_chain": 1.405,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -57,15 +57,15 @@
           "fiddle_strings": "gut_wound",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "sul_pont",
+          "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.714,
-          "fiddle_strings": 0.546,
+          "bowed_technique": 0.8295,
+          "fiddle_strings": 0.4095,
           "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.3675,
-          "fiddle_articulation": 0.1365,
+          "fiddle_mute": 0.22049999999999997,
+          "fiddle_articulation": 0.147,
           "fiddle_string_configuration": 0
         }
       },
@@ -78,8 +78,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "melodeon_rows": 3.819,
-          "melodeon_diatonic_context": 0.48300000000000004
+          "melodeon_rows": 3.5775,
+          "melodeon_diatonic_context": 0.798
         }
       },
       {
@@ -89,7 +89,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.2625,
+          "upright_strings": 0.36750000000000005,
           "upright_play": -0.05
         }
       }

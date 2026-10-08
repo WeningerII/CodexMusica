@@ -3,14 +3,14 @@
   "name": "Nashville Sound",
   "family": "country",
   "lineage": "Late-1950s through 1960s smooth-pop country crossover production aesthetic codified by Chet Atkins (RCA Studio B Nashville producer, the Nashville Sound architect) and Owen Bradley (Decca/MCA Quonset Hut producer) as a deliberate softening of honky-tonks rough-edged dance-hall instrumentation toward smoother string-section and vocal-chorus-backed pop production — designed to compete with rock and roll for AM-radio pop airplay; recordings include Patsy Cline I Fall to Pieces 1961 and Crazy 1961, Jim Reeves Hell Have to Go 1960, Eddy Arnold Make the World Go Away 1965",
-  "recipe": "classic Southern American 1957-1959 nashville sound, functional Song, nashville branch, crooners functional song brill building pop adult standards. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar parlor classic steel silk strummed parlor acoustic guitar, double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 507,
-  "score": 232.495,
+  "recipe": "classic Southern American 1957-1959 nashville sound, functional Song, nashville branch, crooners functional song brill building pop traditional pop music. thick, breath veiled tone, wide pitch sway, interlocked note trading. parlor classic steel silk strummed open chord ringing overtones parlor acoustic guitar, double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 536,
+  "score": 225.217,
   "config": {
     "traditions": [
       "nashville_sound",
       "brill_building_pop",
-      "adult_standards"
+      "traditional_pop_music"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 31.995000000000005,
-          "voice_quality": 10.529999999999992,
+          "voice_register": 33.12000000000001,
+          "voice_quality": 10.075,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.694999999999999,
-          "voice_articulation": 20.345,
-          "voice_microtone": 20.31,
-          "voice_tradition": 16.809999999999995,
-          "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 15.689999999999998,
-          "voice_speech_song": 27.494999999999997,
-          "voice_ensemble_config": 19.824999999999996,
-          "voice_ornament_system": 0.39,
+          "voice_vibrato": 13.589999999999998,
+          "voice_articulation": 18.589999999999996,
+          "voice_microtone": 21.33,
+          "voice_tradition": 17.004999999999995,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 14.739999999999997,
+          "voice_speech_song": 26.389999999999997,
+          "voice_ensemble_config": 18.329999999999995,
+          "voice_ornament_system": 0.445,
           "voice_pitch_organization": 1.045,
-          "voice_processing_chain": 7.215000000000001,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_processing_chain": 6.76,
+          "voice_multitrack_stack": 4.2250000000000005
         }
       },
       {
@@ -62,11 +62,11 @@
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 14.939999999999996,
+          "acoustic_technique": 15.315,
           "string_tuning": 0,
-          "top_wood_parlor": 1.2349999999999999,
+          "top_wood_parlor": 0.78,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 2.0149999999999997
+          "string_acoustic_parlor": 1.7400000000000002
         }
       },
       {
@@ -74,17 +74,17 @@
         "slots": {
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
-          "fiddle_bow": "dark_rosin",
+          "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "arco",
+          "fiddle_articulation": "sul_tasto",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 13.099999999999998,
-          "fiddle_strings": 0.78,
-          "fiddle_bow": 0.195,
+          "fiddle_strings": 0.6,
+          "fiddle_bow": 0,
           "fiddle_mute": 0.345,
-          "fiddle_articulation": 0.195,
+          "fiddle_articulation": 0.15,
           "fiddle_string_configuration": 0
         }
       }

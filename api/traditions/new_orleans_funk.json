@@ -3,9 +3,9 @@
   "name": "New Orleans funk",
   "family": "pop_rock",
   "lineage": "Studio-band funk that formed in New Orleans between about 1965 and 1975 around Allen Toussaint's writing and production and The Meters as house band, with Eddie Bo, Lee Dorsey and the Neville family in orbit — Ziggy Modeliste's parade-derived kit patterns displacing the backbeat with second-line bass-drum syncopation and ghost-note snare, George Porter Jr's melodic sixteenth-note bass, Leo Nocentelli's clipped single-coil scratch guitar, Toussaint's rolling tresillo piano, mid tempos around 90-105 BPM and short vamp forms with laconic call-and-response vocals.",
-  "recipe": "classic Southern American mid-1960s new orleans funk, groove Percussion, funk percussive branch, American south carnival processional, soul R&B functional song doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, gospel runs upright piano, lead cowhide mid tier congas. rural louisiana pine forest 1973-present mid tier in the country bogalusa. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 864,
-  "score": 433.973,
+  "recipe": "classic Southern American mid-1960s new orleans funk, groove Percussion, funk percussive branch, American south carnival processional, soul R&B functional song doo-wop souldies. thick, breath veiled tone, straight note core, interlocked note trading. pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, gospel runs upright piano, lead cowhide mid tier congas. rural louisiana pine forest 1973-present mid tier in the country bogalusa. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 873,
+  "score": 433.95,
   "config": {
     "traditions": [
       "new_orleans_funk",
@@ -22,7 +22,7 @@
         },
         "scores": {
           "drum_technique": 22.490000000000002,
-          "drumhead": 3.289999999999999,
+          "drumhead": 3.244999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -39,12 +39,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 19.92,
+          "amp_make": 19.290000000000003,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0,
-          "string_type": 19.499999999999996,
+          "string_type": 19.38,
           "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 1.5,
+          "fretted_or_not": 1.605,
           "bass_technique": 21.199999999999996,
           "electric_bass_string_configuration": 0
         }
@@ -67,15 +67,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 22.439999999999994,
-          "amp_make": 26.715,
+          "electric_technique": 22.394999999999996,
+          "amp_make": 26.085,
           "body_wood": 1.4949999999999999,
-          "neck_wood": 1.65,
-          "fretboard": 1.5,
-          "pickup_magnet": 0.15,
-          "string_material": 0.15,
+          "neck_wood": 1.755,
+          "fretboard": 1.605,
+          "pickup_magnet": 0.345,
+          "string_material": 0.345,
           "string_gauge": 3.0649999999999995,
-          "bridge": 1.5,
+          "bridge": 1.605,
           "scale_length": 1.4949999999999999,
           "finish": 0,
           "string_tuning": 2.08,
@@ -95,10 +95,10 @@
         "scores": {
           "keyboard_technique": 21.25,
           "drawbar_setting": 1.9,
-          "rotary_speed": 12.34,
+          "rotary_speed": 12.295,
           "percussion_setting": 0.65,
-          "tonewheel_model": 10.334999999999999,
-          "leslie_cabinet_model": 1.04
+          "tonewheel_model": 9.975,
+          "leslie_cabinet_model": 1.2349999999999999
         }
       },
       {
@@ -109,7 +109,7 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 13.135,
+          "keyboard_technique": 13.09,
           "upright_use": 1.4949999999999999,
           "upright_piano_size": 1.4949999999999999
         }
@@ -124,9 +124,9 @@
         },
         "scores": {
           "percussion_technique": 2.145,
-          "conga_set": 1.78,
+          "conga_set": 1.735,
           "conga_skin": 1.4949999999999999,
-          "conga_shell_wood": 0.045
+          "conga_shell_wood": 0.435
         }
       },
       {
@@ -136,7 +136,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
@@ -150,14 +150,14 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 18.05,
+          "voice_register": 18.005,
           "voice_quality": 24.830000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
+          "voice_vibrato": 3.9150000000000005,
           "voice_articulation": 26.519999999999992,
           "voice_microtone": 23.139999999999997,
-          "voice_tradition": 16.259999999999998,
+          "voice_tradition": 16.604999999999997,
           "voice_mechanism_compound": 5.85,
           "voice_estill_quality": 12.899999999999999,
           "voice_speech_song": 27.95,
@@ -165,7 +165,7 @@
           "voice_ornament_system": 2.7950000000000017,
           "voice_pitch_organization": 1.2349999999999999,
           "voice_processing_chain": 13.054999999999996,
-          "voice_multitrack_stack": 8.6125
+          "voice_multitrack_stack": 8.455
         }
       }
     ],

@@ -1,0 +1,71 @@
+{
+  "id": "vladimir_rozhok_ensemble",
+  "name": "Vladimirskiy rozhok (Vladimir shepherd-horn ensemble)",
+  "family": "global",
+  "lineage": "The rozhok, a wooden lip-blown horn with fingerholes traditionally made from two carved halves bound with birch bark, was the shepherds' instrument of the Vladimir region, used for herding signals and for dance and song tunes (naigryshi). In the late 19th century Nikolai Kondratyev formed a choir of horn players from village shepherds that toured Russian cities, and ensembles of horns in several sizes continued in the region through the Soviet period, when they were recorded for Melodiya.",
+  "recipe": "classic early-1940s vladimirskiy rozhok, drone Modal, wind pipe branch, Slavic baltic domestic rhythm pskov gusli garmon naigryshi. heterophonic birch carved archaic bark wrapped vladimirskiy rozhok. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 291,
+  "score": 22.155,
+  "config": {
+    "traditions": [
+      "vladimir_rozhok_ensemble",
+      "pskov_gusli",
+      "russian_garmon_naigrysh"
+    ],
+    "instruments": [
+      {
+        "id": "vladimirskiy_rozhok",
+        "slots": {
+          "vladimirskiy_rozhok_voice": "vladimirskiy_rozhok_polubasok",
+          "vladimirskiy_rozhok_context": "vladimirskiy_rozhok_rozhechnik_choir",
+          "vladimirskiy_rozhok_wood": "vladimirskiy_rozhok_birch",
+          "vladimirskiy_rozhok_construction": "vladimirskiy_rozhok_two_halves_bark"
+        },
+        "scores": {
+          "vladimirskiy_rozhok_voice": 4.485,
+          "vladimirskiy_rozhok_context": 13.995,
+          "vladimirskiy_rozhok_wood": 5.15,
+          "vladimirskiy_rozhok_construction": 3.6
+        }
+      }
+    ],
+    "pinned": {
+      "vladimirskiy_rozhok": [
+        "vladimirskiy_rozhok_voice",
+        "vladimirskiy_rozhok_context",
+        "vladimirskiy_rozhok_wood",
+        "vladimirskiy_rozhok_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "vladimirskiy_rozhok_voice": "vladimirskiy_rozhok_polubasok",
+      "vladimirskiy_rozhok_context": "vladimirskiy_rozhok_rozhechnik_choir",
+      "vladimirskiy_rozhok_wood": "vladimirskiy_rozhok_birch",
+      "vladimirskiy_rozhok_construction": "vladimirskiy_rozhok_two_halves_bark"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

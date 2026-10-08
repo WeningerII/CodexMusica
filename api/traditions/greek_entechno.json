@@ -3,14 +3,14 @@
   "name": "Greek éntechno",
   "family": "global",
   "lineage": "Greek literary art-song composer tradition emerging in the late 1950s, codified by Mikis Theodorakis (Epitaphios song-cycle setting Yannis Ritsos poetry 1960, Zorba the Greek 1964 Oscar-winning film score), Manos Hadjidakis (Never on Sunday 1960 Oscar-winning score, Reflections song-cycle), Stavros Xarchakos, Nikos Mamangakis — setting modern Greek poetry (Ritsos, Elytis, Seferis, Kavafis) to compositions that fuse Greek traditional modal vocabulary with Western classical orchestration",
-  "recipe": "classic Southern European 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music andalusian classical türk sanat müziği. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko ornamented bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 758,
-  "score": 536.335,
+  "recipe": "classic Southern European 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music andalusian classical gharnati. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko ornamented bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 752,
+  "score": 479.868,
   "config": {
     "traditions": [
       "greek_entechno",
       "andalusian_classical",
-      "turk_sanat_muzigi"
+      "gharnati_tlemcen"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.6,
-          "voice_quality": 7.345000000000001,
+          "voice_register": 6.3500000000000005,
+          "voice_quality": 8.775000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.07,
-          "voice_articulation": 11.764999999999999,
-          "voice_microtone": 20.085,
-          "voice_tradition": 34.065,
-          "voice_mechanism_compound": 18.165,
-          "voice_estill_quality": 18.08,
-          "voice_speech_song": 20.604999999999997,
-          "voice_ensemble_config": 11.049999999999997,
-          "voice_ornament_system": 19.605,
-          "voice_pitch_organization": 20.865,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 2.34
+          "voice_vibrato": 15.957499999999998,
+          "voice_articulation": 8.125000000000002,
+          "voice_microtone": 14.169999999999996,
+          "voice_tradition": 33.765,
+          "voice_mechanism_compound": 15.614999999999998,
+          "voice_estill_quality": 16.305,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 8.060000000000002,
+          "voice_ornament_system": 17.055,
+          "voice_pitch_organization": 18.165,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 1.6899999999999997
         }
       },
       {
@@ -62,8 +62,8 @@
           "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.8950000000000005,
-          "bouzouki_courses": 4.745,
+          "plucked_traditional_technique": 3.5450000000000004,
+          "bouzouki_courses": 4.55,
           "bouzouki_pick": 1.345,
           "bouzouki_body_wood": 9.079999999999998,
           "bouzouki_strings": 1.595
@@ -82,10 +82,10 @@
         "scores": {
           "acoustic_technique": 4.35,
           "string_tuning": 0,
-          "top_wood_classical": 1.95,
-          "bracing_classical": 7.15,
-          "string_classical": 6.89,
-          "attack_technique_cl": 13.75
+          "top_wood_classical": 4.745,
+          "bracing_classical": 6.305,
+          "string_classical": 6.044999999999999,
+          "attack_technique_cl": 12.125
         }
       },
       {
@@ -96,21 +96,21 @@
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
-          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 13.75,
+          "keyboard_technique": 12.125,
           "grand_piano_size": 0,
           "grand_piano_brand": 0.345,
-          "piano_hammer": 22.1,
-          "piano_rim": 21.09,
-          "piano_soundboard": 18.13,
-          "piano_pinblock": 17.39,
-          "piano_plate": 17,
-          "piano_pitch_standard": 20.69
+          "piano_hammer": 19.9875,
+          "piano_rim": 19.314999999999998,
+          "piano_soundboard": 16.064999999999998,
+          "piano_pinblock": 15.765,
+          "piano_plate": 15.375,
+          "piano_pitch_standard": 18.565
         }
       },
       {
@@ -118,12 +118,12 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "quartet_school": "quartet_modern",
-          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+          "string_quartet_inst_era": "string_quartet_inst_romantic"
         },
         "scores": {
-          "bowed_technique": 13.75,
+          "bowed_technique": 12.125,
           "quartet_school": 0.24,
-          "string_quartet_inst_era": 2.64
+          "string_quartet_inst_era": 2.8199999999999994
         }
       },
       {
@@ -141,16 +141,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 14.18,
+          "bowed_technique": 12.704999999999998,
           "orch_strings": 0.24,
-          "orch_top_wood": 18.5,
-          "orch_back_wood": 17.045,
-          "orch_varnish": 17.345,
-          "orch_setup_period": 16.775,
+          "orch_top_wood": 16.875,
+          "orch_back_wood": 15.42,
+          "orch_varnish": 15.72,
+          "orch_setup_period": 15.15,
           "orch_bow": 0.435,
-          "orch_bow_stick": 22.035,
-          "orch_articulation": 1.235,
-          "orch_rosin": 17.195
+          "orch_bow_stick": 19.9225,
+          "orch_articulation": 0.735,
+          "orch_rosin": 15.57
         }
       }
     ],

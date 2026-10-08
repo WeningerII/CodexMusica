@@ -3,24 +3,24 @@
   "name": "Semba",
   "family": "global",
   "lineage": "Luanda's urban Angolan dance music codified in the musseques between the late 1950s and 1975 by Bonga, Ngola Ritmos, Os Kiezos and David Zé — 100-120 BPM in a two-feel with a snapping snare-and-rim accent, dikanza scraper and interlocking nylon-and-electric guitar counterpoint under raspy Kimbundu lead vocals whose lyrics carried nationalist and street commentary.",
-  "recipe": "classic Central African 1957-1959 semba, functional Song, African pop branch, African pop congolese rumba, chanson fado morna cape verdean batuko of santiago island rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. cedar flatwound thomastik strummed open chord ringing overtones dreadnought acoustic wenge ebony clean strummed single coil electric guitar, alder walking fingerstyle electric bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, snappy metallic attack samba tradition metal construction reco reco, pre muffled edge muffled brushes-and-sticks drum kit. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
-  "recipe_chars": 779,
-  "score": 322.045,
+  "recipe": "classic Central African 1957-1959 semba, functional Song, African pop branch, African pop congolese rumba, chanson fado morna cape verdean batuko of santiago island sungura. extended whistle, breath veiled tone, straight note core, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic wenge ebony clean strummed single coil electric guitar, electric bass, lead open slap hand drum congas, snappy samba tradition metal construction reco reco, pre muffled edge muffled brushes-and-sticks drum kit. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
+  "recipe_chars": 656,
+  "score": 293.893,
   "config": {
     "traditions": [
       "semba",
       "cape_verdean_batuko",
-      "rumba_congolaise"
+      "sungura"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 12.339999999999995,
-          "voice_quality": 29.379999999999995,
+          "voice_register": 10.855,
+          "voice_quality": 28.339999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7700000000000005,
-          "voice_articulation": 29.965,
-          "voice_microtone": 30.029999999999998,
-          "voice_tradition": 23.53,
-          "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 4.485000000000001,
-          "voice_speech_song": 38.87,
-          "voice_ensemble_config": 29.835,
-          "voice_ornament_system": 1.5599999999999996,
-          "voice_pitch_organization": 1.56,
-          "voice_processing_chain": 4.745000000000004,
-          "voice_multitrack_stack": 5.915
+          "voice_vibrato": 3.774,
+          "voice_articulation": 27.819999999999993,
+          "voice_microtone": 27.884999999999994,
+          "voice_tradition": 21.060000000000002,
+          "voice_mechanism_compound": 5.9799999999999995,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 34.77499999999999,
+          "voice_ensemble_config": 27.494999999999997,
+          "voice_ornament_system": 2.145,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 4.095,
+          "voice_multitrack_stack": 5.3625
         }
       },
       {
@@ -57,47 +57,47 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_d",
-          "top_wood": "cedar",
+          "top_wood": "sitka",
           "back_sides": "rosewood_bs",
-          "string_acoustic": "thomastik_flat_top"
+          "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 9.090000000000002,
+          "acoustic_technique": 9.045000000000002,
           "string_tuning": 0.7149999999999999,
-          "top_wood": 1.885,
+          "top_wood": 0.195,
           "back_sides": 0.78,
-          "string_acoustic": 1.3
+          "string_acoustic": 0.845
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_orange",
-          "body_wood": "mahogany",
+          "amp_make": "amp_british_60s_selmer",
+          "body_wood": "pine",
           "neck_wood": "wenge_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "locking_trem",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_baritone",
           "finish": "nitro",
           "string_tuning": "dadgad",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.124,
-          "amp_make": 0.7799999999999998,
-          "body_wood": 0.845,
+          "electric_technique": 12.654,
+          "amp_make": 0.6499999999999999,
+          "body_wood": 0.147,
           "neck_wood": 1.795,
-          "fretboard": 1.8399999999999999,
-          "pickup_magnet": 0.32499999999999996,
+          "fretboard": 1.795,
+          "pickup_magnet": 0.195,
           "string_material": 0.845,
-          "string_gauge": 1.235,
-          "bridge": 1.885,
+          "string_gauge": 0.4065,
+          "bridge": 1.795,
           "scale_length": 0.845,
-          "finish": 0.045,
+          "finish": 0,
           "string_tuning": 1.4949999999999999,
           "single_coil_pickup_construction": 0
         }
@@ -106,22 +106,22 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking",
+          "bass_technique": "slap_pop",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.78,
-          "body_wood": 1.04,
-          "pickup_config": 0.195,
-          "string_type": 3.8349999999999995,
-          "scale_length_b": 2.535,
+          "amp_make": 0.975,
+          "body_wood": 0.243,
+          "pickup_config": 0,
+          "string_type": 2.6614999999999998,
+          "scale_length_b": 2.0715,
           "fretted_or_not": 1.795,
-          "bass_technique": 3.195,
+          "bass_technique": 1.7449999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -134,10 +134,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 6.8999999999999995,
-          "conga_set": 2.145,
-          "conga_skin": 1.3,
-          "conga_shell_wood": 1.3
+          "percussion_technique": 6.9315,
+          "conga_set": 3.0199999999999996,
+          "conga_skin": 0.5249999999999998,
+          "conga_shell_wood": 0.5249999999999998
         }
       },
       {
@@ -146,7 +146,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 1.8849999999999996
+          "reco_source": 1.6899999999999997
         }
       },
       {
@@ -157,8 +157,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.6,
-          "drumhead": 8.3665,
+          "drum_technique": 24.504999999999995,
+          "drumhead": 8.5165,
           "drum_kit_kick_pedal": 0
         }
       }

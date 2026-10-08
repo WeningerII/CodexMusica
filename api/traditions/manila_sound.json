@@ -3,21 +3,21 @@
   "name": "Manila Sound",
   "family": "pop_rock",
   "lineage": "Mid-1970s Metro Manila pop movement launched by Hotdog's Ikaw Ang Miss Universe Ng Buhay Ko and Manila and carried by VST & Company, Cinderella, Rico J. Puno and Hagibis, blending soft-rock and disco-funk rhythm sections at 100-120 BPM with Taglish lyrics, sweet close-harmony backing vocals, clean single-coil guitar, Rhodes or clavinet comping, congas and occasional horn stabs, recorded on multitrack in Manila studios for the local label boom.",
-  "recipe": "classic Southeast Asian 1974-1976 manila sound, functional Song, pop rock branch, soul R&B functional song, house electronic dance post-disco beach music. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s close pickup gap more bark dirt ostinato rhodes electric, lead cowhide mid tier congas, bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ.",
-  "recipe_chars": 965,
-  "score": 348.917,
+  "recipe": "classic Southeast Asian 1974-1976 manila sound, functional Song, pop rock branch, soul R&B functional song, house electronic dance souldies doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s close pickup gap more bark dirt ostinato rhodes electric, lead cowhide mid tier congas, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 988,
+  "score": 388.522,
   "config": {
     "traditions": [
       "manila_sound",
-      "post_disco",
-      "beach_music_carolina"
+      "souldies",
+      "doo_wop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 26.899999999999995,
-          "voice_quality": 9.624999999999991,
+          "voice_register": 31.754999999999992,
+          "voice_quality": 17.550000000000008,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 19.304999999999993,
-          "voice_microtone": 19.109999999999992,
-          "voice_tradition": 10.594999999999999,
-          "voice_mechanism_compound": 4.029999999999999,
-          "voice_estill_quality": 8.519999999999998,
-          "voice_speech_song": 26.974999999999994,
-          "voice_ensemble_config": 20.214999999999993,
-          "voice_ornament_system": 1.6899999999999995,
-          "voice_pitch_organization": 0.6950000000000001,
-          "voice_processing_chain": 9.305,
-          "voice_multitrack_stack": 12.245000000000001
+          "voice_vibrato": 3.12,
+          "voice_articulation": 20.799999999999997,
+          "voice_microtone": 20.019999999999992,
+          "voice_tradition": 13.374999999999998,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 12.539999999999996,
+          "voice_speech_song": 28.08,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 1.8849999999999996,
+          "voice_pitch_organization": 1.05,
+          "voice_processing_chain": 8.684999999999999,
+          "voice_multitrack_stack": 11.749999999999998
         }
       },
       {
@@ -62,26 +62,26 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "string_gauge": "g_12",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.925,
-          "amp_make": 14.28,
-          "body_wood": 2.675,
-          "neck_wood": 2.675,
-          "fretboard": 2.625,
-          "pickup_magnet": 0.345,
-          "string_material": 0.345,
-          "string_gauge": 2.675,
-          "bridge": 0.15,
-          "scale_length": 2.795,
+          "electric_technique": 16.674999999999997,
+          "amp_make": 17.465,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 1.4949999999999999,
+          "fretboard": 1.4299999999999997,
+          "pickup_magnet": 0.54,
+          "string_material": 0.54,
+          "string_gauge": 2.8249999999999997,
+          "bridge": 0.105,
+          "scale_length": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 6.13,
+          "string_tuning": 6.52,
           "single_coil_pickup_construction": 0
         }
       },
@@ -89,8 +89,8 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.189999999999998,
-          "body_wood": 2.795,
-          "pickup_config": 0.15,
-          "string_type": 12.219999999999999,
-          "scale_length_b": 2.675,
+          "amp_make": 14.969999999999997,
+          "body_wood": 1.4949999999999999,
+          "pickup_config": 0,
+          "string_type": 15.534999999999998,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0.105,
-          "bass_technique": 11.2,
+          "bass_technique": 12.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.719999999999995,
-          "drumhead": 8.665,
+          "drum_technique": 20.279999999999998,
+          "drumhead": 10.995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,12 +132,12 @@
           "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
-          "keyboard_technique": 11.25,
-          "rhodes_model": 2.675,
-          "rhodes_use": 3.835,
-          "rhodes_tine_material": 1.2349999999999999,
-          "rhodes_hammer_tip": 5.3950000000000005,
-          "rhodes_pickup_position": 1.645
+          "keyboard_technique": 12.75,
+          "rhodes_model": 2.175,
+          "rhodes_use": 4.939999999999999,
+          "rhodes_tine_material": 2.0799999999999996,
+          "rhodes_hammer_tip": 4.9399999999999995,
+          "rhodes_pickup_position": 1.695
         }
       },
       {
@@ -146,13 +146,13 @@
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
           "conga_skin": "conga_cowhide",
-          "conga_shell_wood": "conga_siam_oak"
+          "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
           "percussion_technique": 0.06499999999999999,
-          "conga_set": 1.18,
-          "conga_skin": 2.675,
-          "conga_shell_wood": 0.8449999999999999
+          "conga_set": 1.735,
+          "conga_skin": 1.4949999999999999,
+          "conga_shell_wood": 0.78
         }
       },
       {
@@ -160,20 +160,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 11.419999999999998,
-          "brass_size": 0.345,
-          "trumpet_mouthpiece": 1.6099999999999999,
+          "wind_articulation": 13.655,
+          "brass_size": 0.54,
+          "trumpet_mouthpiece": 3.055,
           "brass_mute": 0.39,
-          "trumpet_technique": 11.419999999999998,
-          "trumpet_bell_metal": 0.72,
-          "trumpet_maker_school": 1.9949999999999999
+          "trumpet_technique": 13.655,
+          "trumpet_bell_metal": 0.8700000000000001,
+          "trumpet_maker_school": 2.5349999999999997
         }
       }
     ],

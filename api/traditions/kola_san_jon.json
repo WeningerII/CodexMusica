@@ -1,0 +1,76 @@
+{
+  "id": "kola_san_jon",
+  "name": "Kola San Jon (Cape Verdean St John drumming)",
+  "family": "global",
+  "lineage": "Drum-and-dance tradition of the São João (St John) festivities of São Vicente and Santo Antão in Cabo Verde, centred on Ribeira de Julião and Porto Novo around 24 June. Drummers lead processions in which model ships are carried and dancers bump hips and bellies in pairs (the kola), with whistles adding signals; it was presented at the 1995 Smithsonian Festival of American Folklife Cape Verde programme. A generic membrane-drum card stands in for the tambor drums.",
+  "recipe": "classic mid-1990s kola san jon, carnival Processional. membrane drum pulse resonant acoustic membrane drum, signal whistle. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 7.332,
+  "config": {
+    "traditions": [
+      "kola_san_jon"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 3.7409999999999997,
+          "acoustic_membrane_drum_gesture": 2.7409999999999997
+        }
+      },
+      {
+        "id": "signal_whistle",
+        "slots": {
+          "signal_whistle_form": "signal_whistle_documented"
+        },
+        "scores": {
+          "signal_whistle_form": 1
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "signal_whistle": [
+        "signal_whistle_form"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "signal_whistle_form": "signal_whistle_documented"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

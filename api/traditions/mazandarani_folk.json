@@ -3,9 +3,9 @@
   "name": "Mazandarani folk",
   "family": "vernacular",
   "lineage": "Mazandarani folk: Hoseyn Tayyebi — Instrumental Music: Pieces from Laleva Repertoire I (Mahoor, 2003). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2000s mazandarani folk, drone Modal, wind pipe branch. canonical 20th century Persian radif ney. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 209,
-  "score": 3.147,
+  "recipe": "classic early-2000s mazandarani folk, drone Modal, wind pipe branch. ney. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 172,
+  "score": 3.085,
   "config": {
     "traditions": [
       "mazandarani_folk"
@@ -18,14 +18,14 @@
           "ney_use": "ney_arab",
           "ney_pitch": "ney_kerdaniye",
           "ney_body_material": "ney_metal_brass",
-          "ney_lineage": "ney_hassan_kassai"
+          "ney_lineage": "ney_sufi_mevlevi"
         },
         "scores": {
           "wind_articulation": 1.17,
-          "ney_use": 0.40049999999999997,
+          "ney_use": 0.5055,
           "ney_pitch": 0.1365,
           "ney_body_material": 0.39,
-          "ney_lineage": 1.05
+          "ney_lineage": 0.8834999999999998
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Finnish worship connects Christian song and ministry with Finnish performers and congregational audiences. Intimate self-accompanied songs sit alongside larger group arrangements.",
   "recipe": "classic finnish worship, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 218,
-  "score": 2.012,
+  "score": 2.115,
   "config": {
     "traditions": [
       "finnish_worship"
@@ -67,12 +67,12 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.294,
+          "grand_piano_size": 0.3675,
           "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
-          "piano_pinblock": -0.1,
+          "piano_pinblock": -0.07,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.325
         }

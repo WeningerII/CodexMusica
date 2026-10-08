@@ -1,16 +1,17 @@
 {
-  "id": "trap_latino",
-  "name": "Trap Latino (pan-Hispanic trap)",
-  "family": "hip_hop",
-  "lineage": "Coalesced across San Juan, Medellín and Miami between 2014 and 2017 through Bad Bunny, Anuel AA, Bryant Myers, Ozuna and producers DJ Luian, Mambo Kingz and Hi Music Hi Flow, taking Atlanta trap's 130-150 BPM half-time 808 template and adding sung Spanish melodic hooks, heavy Auto-Tune, reggaeton-adjacent dembow fills, minor-key pad and plucked-synth loops, and romantic or street lyric in Caribbean Spanish.",
-  "recipe": "classic mid-2010s trap latino, mc Rhythm, intl hip hop branch, reggaeton MC rhythm, us hip hop southern dirty south rap atl trap. thick, rap, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sampled chopped sampler drum machine, sub bass analog poly synth, heavy bus compression glue post 2010 multitrack vocal stack, live room natural hand clap. no single room 2015-present distributed distributed production. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
-  "recipe_chars": 572,
-  "score": 243.994,
+  "id": "latin_trap",
+  "merged_from": "trap_latino",
+  "name": "Latin trap",
+  "family": "pop",
+  "lineage": "Puerto Rican-Dominican Latin-trap subgenre codified through Bad Bunny (X 100PRE 2018), Anuel AA, Ozuna, Bryant Myers — characterized by 70-80 BPM trap-808 programming with reggaeton-dembow accents, autotuned-Spanish-language vocals, and the Hear This Music label catalog driving its mainstream crossover",
+  "recipe": "classic Caribbean late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap queen. thick, rap, straight note core, interlocked note trading. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 361,
+  "score": 153.437,
   "config": {
     "traditions": [
-      "trap_latino",
-      "dirty_south_rap",
-      "atl_trap"
+      "latin_trap",
+      "trap_queen",
+      "atl_hip_hop"
     ],
     "instruments": [
       {
@@ -24,32 +25,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.5399999999999998,
-          "voice_quality": 20.142500000000002,
+          "voice_register": 4.070000000000001,
+          "voice_quality": 14.049999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 27.105,
-          "voice_microtone": 33.214999999999996,
-          "voice_tradition": 8.071250000000001,
-          "voice_mechanism_compound": 3.445000000000001,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 27.105,
-          "voice_ensemble_config": 24.830000000000002,
-          "voice_ornament_system": 7.085000000000001,
-          "voice_pitch_organization": 2.275,
-          "voice_processing_chain": 9.620000000000001,
-          "voice_multitrack_stack": 4.615
+          "voice_vibrato": 2.09,
+          "voice_articulation": 12.934999999999997,
+          "voice_microtone": 12.934999999999995,
+          "voice_tradition": 7.767499999999999,
+          "voice_mechanism_compound": 2.73,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 13.91,
+          "voice_ensemble_config": 11.179999999999994,
+          "voice_ornament_system": 8.385000000000002,
+          "voice_pitch_organization": 1.65,
+          "voice_processing_chain": 7.024999999999999,
+          "voice_multitrack_stack": 5.915000000000001
         }
       },
       {
@@ -60,9 +61,24 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.775,
-          "drum_machine_808_context": 4.095,
-          "tr808_production_origin": 1.105
+          "tr808_voice": 6.719999999999999,
+          "drum_machine_808_context": 2.2099999999999995,
+          "tr808_production_origin": 0.45499999999999996
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
+        },
+        "scores": {
+          "electronic_technique": 21.989999999999995,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.7350000000000001
         }
       },
       {
@@ -74,57 +90,18 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 6.9700000000000015,
-          "sample_bitdepth": 4.29,
-          "sample_swing": 11.5075,
-          "sample_processing": 1.4299999999999997
-        }
-      },
-      {
-        "id": "analog_poly_synth",
-        "slots": {
-          "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "juno_60",
-          "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
-        },
-        "scores": {
-          "electronic_technique": 20.474999999999998,
-          "poly_archetypes": 1.345,
-          "poly_voices": 1.045,
-          "poly_maker_lineage": -0.7350000000000001
-        }
-      },
-      {
-        "id": "multitrack_vocal_stack",
-        "slots": {
-          "multitrack_stack_density": "multitrack_density_unison_double",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
-          "multitrack_stack_processing": "multitrack_processing_compressed_glued"
-        },
-        "scores": {
-          "multitrack_stack_density": 0.65,
-          "multitrack_stack_era_aesthetic": 0.22749999999999998,
-          "multitrack_stack_processing": 2.515
-        }
-      },
-      {
-        "id": "hand_clap",
-        "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_room_natural"
-        },
-        "scores": {
-          "clap_technique": 0.225,
-          "clap_capture": 1.04
+          "electronic_technique": 5.305,
+          "sample_bitdepth": 1.625,
+          "sample_swing": 7.93,
+          "sample_processing": 0.585
         }
       }
     ],
-    "room": "studio_distributed_production",
+    "room": "live_room",
     "archetype": "arch_san_juan_reggaeton_mixtape",
     "inline_chain": {
-      "mic": "mic_u87_condenser_neumann",
-      "pre": "pre_avalon_v737",
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
       "console": "console_in_the_box",
       "comp": "comp_distressor_modern",
       "eq": "eq_massenburg_mastering",
@@ -138,9 +115,31 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_distributed_production",
-    "chain_mic": "mic_u87_condenser_neumann",
-    "chain_pre": "pre_avalon_v737",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "rap_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_retune_50_100ms_subtle",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_bass_sub",
+      "sample_bitdepth": "sixteen_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "one_shots_layered"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
     "chain_comp": "comp_distressor_modern",
     "chain_eq": "eq_massenburg_mastering",
     "chain_medium": "digital_high",

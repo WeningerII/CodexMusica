@@ -3,9 +3,9 @@
   "name": "Hardgroove",
   "family": "electronic",
   "lineage": "Hardgroove developed within techno through funk-driven rhythm, percussion and layered loop production, with Ben Sims central to its named scene and label. Its connections to DJ culture emphasize movement and interaction between rhythmic layers rather than a single fixed tempo or sample source.",
-  "recipe": "classic hardgroove, electronic Dance, techno branch. layered sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. treated studio.",
-  "recipe_chars": 171,
-  "score": 9.581,
+  "recipe": "classic hardgroove, electronic Dance, techno branch. sampler, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. treated studio.",
+  "recipe_chars": 163,
+  "score": 9.203,
   "config": {
     "traditions": [
       "hardgroove"
@@ -21,10 +21,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.2229999999999999,
+          "electronic_technique": 0.9814999999999999,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": -0.05,
-          "sampler_workflow": 1.0679999999999998,
+          "sampler_workflow": 0.9314999999999999,
           "sampler_classic_context": 5.85
         }
       },

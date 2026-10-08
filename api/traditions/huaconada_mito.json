@@ -1,0 +1,171 @@
+{
+  "id": "huaconada_mito",
+  "name": "Huaconada (Mito New Year ritual dance music)",
+  "family": "global",
+  "lineage": "The huaconada is the ritual dance of Mito in Concepción province, Junín, performed in the first days of January and inscribed by UNESCO in 2010, in which masked men called huacones, carrying whips, dance through the plaza as guardians of communal order. Their stately, swaggering steps are played by the Mantaro orquesta típica of clarinets, saxophones, violin and harp.",
+  "recipe": "classic early-2010s huaconada, carnival Processional, andean branch, indigenous ritual devotional. clarinet, saxophone, melodic bowed song accompaniment fiddle, arpa peruana. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 254,
+  "score": 6.085,
+  "config": {
+    "traditions": [
+      "huaconada_mito"
+    ],
+    "instruments": [
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "clarinet_body": -0.10500000000000001,
+          "clarinet_size": 0.255,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 1.0799999999999998
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_balanced_action"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "sax_size": -0.05,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.63,
+          "sax_technique": -0.035,
+          "sax_maker_school": -1.435
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.8099999999999996,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.24,
+          "fiddle_articulation": 1.515,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "arpa_peruana",
+        "slots": {
+          "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+          "arpa_peruana_wood": "cedar",
+          "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+          "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+          "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking"
+        },
+        "scores": {
+          "arpa_peruana_form": 0.195,
+          "arpa_peruana_wood": 0.195,
+          "arpa_peruana_configuration": 0,
+          "arpa_peruana_tuning": 0,
+          "arpa_peruana_gesture": 0
+        }
+      }
+    ],
+    "pinned": {
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "arpa_peruana": [
+        "arpa_peruana_form",
+        "arpa_peruana_wood",
+        "arpa_peruana_configuration",
+        "arpa_peruana_tuning",
+        "arpa_peruana_gesture"
+      ]
+    },
+    "room": "mountain_valley",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "mountain_valley",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_balanced_action",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "arpa_peruana_form": "arpa_peruana_triangular_resonator",
+      "arpa_peruana_wood": "cedar",
+      "arpa_peruana_configuration": "arpa_peruana_configuration_unknown",
+      "arpa_peruana_tuning": "arpa_peruana_diatonic_variable",
+      "arpa_peruana_gesture": "arpa_peruana_two_hand_plucking"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

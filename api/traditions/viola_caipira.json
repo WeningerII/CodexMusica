@@ -5,7 +5,7 @@
   "lineage": "Rural song tradition of the São Paulo, Minas Gerais, Goiás and Paraná interior, carried on the ten-string viola caipira in cebolão and rio-abaixo tunings and first commercially recorded in 1929 by Cornélio Pires, built on parallel-third duet singing (dupla caipira) in slow moda de viola and mid-tempo cateretê and cururu, with fingerpicked ponteado lines and unadorned nasal chest vocals.",
   "recipe": "classic North American late-1920s viola caipira, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pre commercial country folklore surero milonga. thick, breath veiled tone, slow rate, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, cedar nylon fingerpicked classical nylon-string cedar mahogany martin lifespan sealed dreadnought acoustic guitar, upright bass. wooden barn. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 581,
-  "score": 216.882,
+  "score": 215.03,
   "config": {
     "traditions": [
       "viola_caipira",
@@ -38,7 +38,7 @@
           "voice_quality": 11.89499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.2725,
+          "voice_vibrato": 5.785,
           "voice_articulation": 20.994999999999994,
           "voice_microtone": 21.904999999999987,
           "voice_tradition": 8.2225,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.7950000000000017,
           "voice_pitch_organization": 1.1949999999999998,
           "voice_processing_chain": 3.965,
-          "voice_multitrack_stack": 2.9299999999999997
+          "voice_multitrack_stack": 3.1249999999999996
         }
       },
       {
@@ -64,10 +64,10 @@
         },
         "scores": {
           "plucked_traditional_technique": 5.5575,
-          "viola_caipira_courses": 5.149999999999999,
-          "viola_caipira_context": 15.469999999999999,
-          "viola_caipira_top_wood": 1.695,
-          "viola_caipira_back_wood": 1.5,
+          "viola_caipira_courses": 4.714999999999998,
+          "viola_caipira_context": 15.049999999999997,
+          "viola_caipira_top_wood": 1.605,
+          "viola_caipira_back_wood": 1.605,
           "viola_caipira_strings": 1.69
         }
       },
@@ -84,10 +84,10 @@
         "scores": {
           "acoustic_technique": 8.57,
           "string_tuning": 0,
-          "top_wood_classical": 9.62,
-          "bracing_classical": 1.69,
-          "string_classical": 2.275,
-          "attack_technique_cl": 2.34
+          "top_wood_classical": 9.44,
+          "bracing_classical": 1.495,
+          "string_classical": 2.185,
+          "attack_technique_cl": 2.235
         }
       },
       {
@@ -102,7 +102,7 @@
         "scores": {
           "acoustic_technique": 8.57,
           "string_tuning": 0.26,
-          "top_wood": 2.34,
+          "top_wood": 2.235,
           "back_sides": 1.0499999999999998,
           "string_acoustic": 1.105
         }
@@ -115,7 +115,7 @@
         },
         "scores": {
           "upright_strings": 0,
-          "upright_play": 1.885
+          "upright_play": 1.8399999999999999
         }
       }
     ],

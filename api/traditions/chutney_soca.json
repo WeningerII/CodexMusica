@@ -3,9 +3,9 @@
   "name": "Chutney Soca",
   "family": "global",
   "lineage": "Trinidadian hybrid launched by Drupatee Ramgoonai's 1987 recordings and formalized by the Chutney Soca Monarch competition from 1996 — chutney's dholak and dhantal layered onto a 4/4 soca rhythm section of programmed kick, electric bass, brass stabs and synth, at carnival tempo around 130-150 BPM with English-Bhojpuri call-and-response hooks.",
-  "recipe": "classic North American late-1980s chutney soca, functional Song, tropical song branch, south Asian pop functional song, Caribbean carnival processional, Caribbean groove percussion gujarati pop punjabi pop. extended whistle, breath veiled tone, straight onset, interlocked note trading. goat skin syahi rope laced steel ring dholak, vocal female harmonium indian, pyramid pure nickel bass British mid 60s era electric bass, TR-808, singing lead analog poly synth, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, red brass 90 10 darkest schilke chicago lead bright heavy one piece matched to monette horn trumpet. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 885,
-  "score": 222.313,
+  "recipe": "classic North American late-1980s chutney soca, functional Song, tropical song branch, south Asian pop functional song, Caribbean carnival processional, Caribbean groove percussion gujarati pop punjabi pop. extended whistle, breath veiled tone, straight onset, interlocked note trading. dholak, vocal female harmonium indian, pyramid pure nickel bass British mid 60s era electric bass, TR-808, singing lead analog poly synth, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, red brass 90 10 darkest schilke chicago lead bright heavy one piece matched to monette horn trumpet. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 847,
+  "score": 222.742,
   "config": {
     "traditions": [
       "chutney_soca",
@@ -16,16 +16,16 @@
       {
         "id": "dholak",
         "slots": {
-          "dholak_use": "dholak_classical",
+          "dholak_use": "dholak_wedding",
           "dholak_construction": "dholak_large",
           "dholak_head": "dholak_goat_skin_canonical",
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 0.39,
-          "dholak_construction": 1.2149999999999999,
-          "dholak_head": 1.1249999999999998,
-          "dholak_tensioning": 1.1249999999999998
+          "dholak_use": 0.435,
+          "dholak_construction": 1.605,
+          "dholak_head": 0.9299999999999999,
+          "dholak_tensioning": 0.9299999999999999
         }
       },
       {
@@ -34,13 +34,13 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_foot_pump",
           "harmonium_voicing": "harmonium_female",
-          "harmonium_use": "harmonium_classical"
+          "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
           "free_reed_technique": 1.885,
           "harmonium_action": 0.845,
           "harmonium_voicing": 1.69,
-          "harmonium_use": 0.845
+          "harmonium_use": 1.035
         }
       },
       {
@@ -142,7 +142,7 @@
         },
         "scores": {
           "tassa_skin": 19.175,
-          "tassa_shell": 4.2175,
+          "tassa_shell": 4.4125,
           "tassa_lineage": 5.135
         }
       },

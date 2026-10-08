@@ -3,14 +3,14 @@
   "name": "Urban Cowboy (Country-Pop)",
   "family": "country",
   "lineage": "Nashville and Los Angeles country-pop peak of 1978-1984, named for the 1980 John Travolta film and its Gilley's Club setting, delivered by Mickey Gilley, Johnny Lee, Kenny Rogers, Ronnie Milsap and Barbara Mandrell — mid-tempo 4/4 with soft rock drums, electric piano and synth pads, string sweetening, muted pedal steel far back in the mix, and smooth crossover-radio vocals.",
-  "recipe": "classic North American mid-1980s urban cowboy, functional Song, nashville branch, neo trad country, pop rock yacht rock, contemp main country christian country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 931,
-  "score": 672.22,
+  "recipe": "classic North American mid-1980s urban cowboy, functional Song, nashville branch, neo trad country, pop rock yacht rock, contemp main country christian country. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 905,
+  "score": 696.555,
   "config": {
     "traditions": [
       "urban_cowboy",
       "christian_country",
-      "neotraditional_country"
+      "country_rap_hick_hop"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 51.02500000000002,
-          "voice_quality": 8.19,
+          "voice_register": 55.22000000000001,
+          "voice_quality": 7.410000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 33.29000000000001,
-          "voice_articulation": 16.184999999999995,
-          "voice_microtone": 15.79499999999999,
-          "voice_tradition": 12.79,
-          "voice_mechanism_compound": 5.07,
-          "voice_estill_quality": 35.89500000000001,
-          "voice_speech_song": 24.244999999999994,
-          "voice_ensemble_config": 16.18499999999999,
+          "voice_vibrato": 36.39,
+          "voice_articulation": 15.664999999999994,
+          "voice_microtone": 16.029999999999998,
+          "voice_tradition": 11.869999999999997,
+          "voice_mechanism_compound": 5.2,
+          "voice_estill_quality": 39.26500000000001,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 15.664999999999994,
           "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 0.7799999999999998,
-          "voice_processing_chain": 4.585,
-          "voice_multitrack_stack": 4.745
+          "voice_pitch_organization": 0.9749999999999996,
+          "voice_processing_chain": 3.625,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
@@ -60,9 +60,9 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 8.61,
+          "keyboard_technique": 8.11,
           "tine_voicing": 0.195,
-          "tine_effect": 3.8999999999999995
+          "tine_effect": 4.289999999999999
         }
       },
       {
@@ -78,21 +78,21 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 38.685,
-          "amp_make": 33.070000000000014,
-          "pickup_steel": 2.735,
-          "string_setup": 16.705000000000002,
+          "electric_technique": 41.035000000000004,
+          "amp_make": 35.94500000000001,
+          "pickup_steel": 2.34,
+          "string_setup": 18.2,
           "bar_material": 3.38,
-          "pedal_steel_brand": 40.39000000000001,
-          "pedal_steel_neck_config": 39.4,
-          "pedal_steel_strings": 38.31
+          "pedal_steel_brand": 42.215,
+          "pedal_steel_neck_config": 42.83,
+          "pedal_steel_strings": 39.985
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -101,13 +101,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 32.425000000000004,
-          "body_wood": 2.9899999999999998,
+          "amp_make": 35.300000000000004,
+          "body_wood": 2.34,
           "pickup_config": 0.845,
-          "string_type": 9.524999999999999,
-          "scale_length_b": 2.735,
-          "fretted_or_not": 0.195,
-          "bass_technique": 32.17,
+          "string_type": 10.124999999999998,
+          "scale_length_b": 2.34,
+          "fretted_or_not": 0.09,
+          "bass_technique": 35.195,
           "electric_bass_string_configuration": 0
         }
       },
@@ -119,8 +119,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.469999999999994,
-          "drumhead": 8.25,
+          "drum_technique": 15.404999999999994,
+          "drumhead": 7.824999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,9 +133,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 8.995,
-          "poly_archetypes": 3.8999999999999995,
-          "poly_voices": 1.1749999999999998,
+          "electronic_technique": 8.694999999999999,
+          "poly_archetypes": 4.289999999999999,
+          "poly_voices": 1.2349999999999999,
           "poly_maker_lineage": 1.3849999999999998
         }
       },
@@ -157,18 +157,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 34.095,
-          "amp_make": 33.070000000000014,
-          "body_wood": 2.735,
-          "neck_wood": 2.735,
-          "fretboard": 2.685,
+          "electric_technique": 37.245,
+          "amp_make": 35.94500000000001,
+          "body_wood": 2.34,
+          "neck_wood": 2.34,
+          "fretboard": 2.275,
           "pickup_magnet": 0.09,
           "string_material": 3.38,
-          "string_gauge": 2.735,
+          "string_gauge": 2.34,
           "bridge": 0.195,
-          "scale_length": 2.9899999999999998,
+          "scale_length": 2.34,
           "finish": 0,
-          "string_tuning": 5.59,
+          "string_tuning": 5.9799999999999995,
           "single_coil_pickup_construction": 0
         }
       }

@@ -64,11 +64,11 @@
           "pipe_organ_action": "pipe_organ_mechanical_tracker"
         },
         "scores": {
-          "keyboard_technique": 0.75,
+          "keyboard_technique": 0.8865000000000001,
           "pipe_organ_class": 0.3,
           "pipe_organ_context": 0,
           "pipe_organ_voicing_school": 0.78,
-          "pipe_organ_pipe_alloy": 0.8190000000000002,
+          "pipe_organ_pipe_alloy": 0.6825000000000001,
           "pipe_organ_temperament": 0.39,
           "pipe_organ_action": 0.78
         }

@@ -5,7 +5,7 @@
   "lineage": "Irish ballads carry narrative songs through oral tradition, broadside circulation and modern folk performance. Stories of historical events, journeys, relationships and political experience move between solo singers, duets and accompanied groups, often sharing repertory with neighboring song traditions.",
   "recipe": "classic irish ballad, ballad Poetry, Celtic balladic branch. live tracking.",
   "recipe_chars": 75,
-  "score": 0.158,
+  "score": 0.095,
   "config": {
     "traditions": [
       "irish_ballad"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.0945,
+          "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.063,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       }

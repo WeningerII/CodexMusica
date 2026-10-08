@@ -5,7 +5,7 @@
   "lineage": "Kurdish folk connects regional and linguistic traditions across Kurdish communities and diaspora. Bardic song, ornamented vocal delivery and long-necked lute accompaniment remain important resources for contemporary performers such as Aynur.",
   "recipe": "classic modern kurdish folk, ballad Poetry. solo with instrumental accompaniment. saz baglama. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 232,
-  "score": 4.093,
+  "score": 3.963,
   "config": {
     "traditions": [
       "kurdish_folk"
@@ -65,7 +65,7 @@
         "scores": {
           "plucked_traditional_technique": 0.8499999999999999,
           "saz_size": 0,
-          "saz_frets": 0.25999999999999995,
+          "saz_frets": 0.12999999999999998,
           "saz_body_wood": 0,
           "saz_strings": 0,
           "saz_tradition": 0

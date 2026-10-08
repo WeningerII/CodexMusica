@@ -1,0 +1,74 @@
+{
+  "id": "moundang_drum_dance_music",
+  "name": "Moundang drum and horn music (Léré)",
+  "family": "global",
+  "lineage": "Music of the Moundang of Mayo-Kebbi in south-western Chad, whose kingdom is centred on Léré. Charles Duvelle and Michel Vuylsteke recorded it in 1966 for the Mayo-Kebbi volume of Ocora's Chad anthology, documenting drum-accompanied dances and ceremonies with horns, trumpets and bells, among them funeral music for trumpet and drums. Generic drum and horn cards stand in for the drums, horns and trumpets.",
+  "recipe": "classic mid-1960s moundang drum and horn music, groove Percussion, central east south African branch. membrane drum pulse resonant acoustic membrane drum, credited horns unspecified. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 274,
+  "score": 10.091,
+  "config": {
+    "traditions": [
+      "moundang_drum_dance_music"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 4.0035,
+          "acoustic_membrane_drum_gesture": 4.0035
+        }
+      },
+      {
+        "id": "credited_horns_unspecified",
+        "slots": {
+          "credited_horns_identity": "credited_horns_source_unspecified"
+        },
+        "scores": {
+          "credited_horns_identity": 2.909
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "credited_horns_unspecified": [
+        "credited_horns_identity"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "credited_horns_identity": "credited_horns_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

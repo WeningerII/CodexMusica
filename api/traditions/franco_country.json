@@ -3,14 +3,14 @@
   "name": "Franco-Country",
   "family": "country",
   "lineage": "French-language country music of Québec and Acadian New Brunswick, established from the late 1940s by Willie Lamothe and Paul Brunelle — American honky-tonk and cowboy-song templates with yodel, steel guitar, fiddle and 2/4 shuffle or waltz at 90-130 BPM, sung in Québécois French with a nasal front-placed delivery and strong turlutte and reel inflections.",
-  "recipe": "classic tropical 1947-1949 franco-country, functional Song, honky tonk era branch, pre commercial country, anglo singer song country folk story texas country-folk storyteller string band. thick, breath veiled tone, wide pitch sway, interlocked note trading. martin lifespan sealed travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, sustaining steel upright bass, pre muffled edge muffled brushes-and-sticks drum kit, steel castagnari Italian premium folk music straight accordion. honky tonk dance hall. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 726,
-  "score": 486.587,
+  "recipe": "classic North American 1947-1949 franco-country, functional Song, honky tonk era branch, pre commercial country, anglo singer song country folk story texas country-folk storyteller close harmony. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan sealed travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, sustaining steel upright bass, pre muffled edge muffled brushes-and-sticks drum kit, steel castagnari Italian premium folk music straight accordion. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 722,
+  "score": 494.339,
   "config": {
     "traditions": [
       "franco_country",
       "texas_country_folk_storyteller",
-      "string_band"
+      "close_harmony"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,44 +28,44 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 31.144999999999996,
-          "voice_quality": 8.385000000000002,
+          "voice_register": 33.7815,
+          "voice_quality": 5.980000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.3315,
-          "voice_articulation": 20.279999999999998,
-          "voice_microtone": 19.434999999999995,
-          "voice_tradition": 13.52,
-          "voice_mechanism_compound": 4.874999999999999,
-          "voice_estill_quality": 29.5015,
-          "voice_speech_song": 28.339999999999996,
-          "voice_ensemble_config": 19.369999999999997,
-          "voice_ornament_system": 1.7549999999999994,
-          "voice_pitch_organization": 1.6999999999999997,
-          "voice_processing_chain": 4.275,
-          "voice_multitrack_stack": 2.0799999999999996
+          "voice_vibrato": 25.615,
+          "voice_articulation": 19.044999999999995,
+          "voice_microtone": 18.199999999999992,
+          "voice_tradition": 16.055,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 29.9695,
+          "voice_speech_song": 25.869999999999994,
+          "voice_ensemble_config": 18.329999999999995,
+          "voice_ornament_system": 1.6899999999999997,
+          "voice_pitch_organization": 2.8599999999999994,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 2.7300000000000004
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_d",
+          "string_tuning": "d_standard",
           "top_wood": "adirondack",
           "back_sides": "mahogany_bs",
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 31.060000000000002,
-          "string_tuning": 0.6174999999999999,
+          "acoustic_technique": 32.46,
+          "string_tuning": 0.06499999999999999,
           "top_wood": 0.9099999999999999,
-          "back_sides": 0.315,
+          "back_sides": 0.42,
           "string_acoustic": 1.885
         }
       },
@@ -74,22 +74,22 @@
         "slots": {
           "electric_technique": "electric_steel_pedal_swells",
           "amp_make": "amp_american_fender_blackface",
-          "pickup_steel": "humbucker_steel",
+          "pickup_steel": "single_coil_steel",
           "string_setup": "standard_e9",
           "bar_material": "steel_bar",
-          "pedal_steel_brand": "emmons_push_pull",
+          "pedal_steel_brand": "sho_bud_classic",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 24.7065,
-          "amp_make": 26.665,
-          "pickup_steel": 0.195,
-          "string_setup": 12.025,
-          "bar_material": 1.69,
-          "pedal_steel_brand": 24.549999999999997,
-          "pedal_steel_neck_config": 28.4455,
-          "pedal_steel_strings": 24.573
+          "electric_technique": 26.093,
+          "amp_make": 27.445,
+          "pickup_steel": 0.0315,
+          "string_setup": 12.675,
+          "bar_material": 2.34,
+          "pedal_steel_brand": 25.6695,
+          "pedal_steel_neck_config": 29.766,
+          "pedal_steel_strings": 26.214499999999997
         }
       },
       {
@@ -98,15 +98,15 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "no_mute",
+          "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "pizz",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 30.925,
-          "fiddle_strings": 2.4050000000000002,
-          "fiddle_bow": 0.045,
-          "fiddle_mute": 0.39,
+          "bowed_technique": 29.525,
+          "fiddle_strings": 2.5415,
+          "fiddle_bow": 0.195,
+          "fiddle_mute": 0.195,
           "fiddle_articulation": 0.21,
           "fiddle_string_configuration": 0
         }
@@ -118,8 +118,8 @@
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 1.6315,
-          "upright_play": 0.675
+          "upright_strings": 1.69,
+          "upright_play": 1.04
         }
       },
       {
@@ -130,8 +130,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.499999999999996,
-          "drumhead": 2.34,
+          "drum_technique": 18.264999999999997,
+          "drumhead": 2.405,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -143,22 +143,22 @@
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 32.47,
-          "accordion_reed_material": 2.4050000000000002,
-          "musette_offset": 0.285,
-          "reed_config": 2.3449999999999998,
+          "free_reed_technique": 33.72,
+          "accordion_reed_material": 2.5415,
+          "musette_offset": 0.845,
+          "reed_config": 2.3,
           "bellows": 0,
-          "voicing_chamber": 0.195,
-          "accordion_maker_school": 5.785
+          "voicing_chamber": 0.21,
+          "accordion_maker_school": 5.59
         }
       }
     ],
     "room": "honky_tonk_dance_hall",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "mic_rca_77dx_ribbon",
       "pre": "pre_ua_610_tube",

@@ -5,7 +5,7 @@
   "lineage": "Indie québécois connects independent songwriters and listeners in Quebec, including francophone acoustic song. Intimate voices and collaborative reinterpretations sit within a wider scene of instrumental approaches.",
   "recipe": "classic indie québécois, ballad Poetry, chanson fado branch. one note per syllable, group vocals, unprocessed natural acoustic, live take. fingerpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 267,
-  "score": 6.495,
+  "score": 5.4,
   "config": {
     "traditions": [
       "indie_quebecois"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8849999999999999,
-          "voice_ensemble_config": 0.8955,
+          "voice_speech_song": 0.573,
+          "voice_ensemble_config": 0.504,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.4365,
-          "voice_multitrack_stack": 0.8954999999999999,
+          "voice_multitrack_stack": 0.504,
           "voice_tessitura": 0
         }
       },

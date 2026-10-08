@@ -3,14 +3,14 @@
   "name": "Afro R&B",
   "family": "pop",
   "lineage": "Continental and diasporic African R&B consolidated from the mid-2000s onward in Lagos, Accra and London through artists such as Banky W, Wizkid's slower material, Bisa Kdei and Tems — 85-105 BPM programmed grooves marrying American contemporary-R&B chord vocabulary and stacked melisma-light harmonies to shaker-and-log-drum Afrobeats percussion, with lead vocals moving between English, Pidgin, Twi and Yoruba.",
-  "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance isicathamiya rumba lingala. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-  "recipe_chars": 566,
-  "score": 266.835,
+  "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance congolese rumba isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 568,
+  "score": 291.752,
   "config": {
     "traditions": [
       "afro_rnb",
-      "isicathamiya",
-      "rumba_lingala"
+      "congolese_rumba",
+      "isicathamiya"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 16.97,
-          "voice_quality": 14.3,
+          "voice_register": 19.069999999999997,
+          "voice_quality": 14.884999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.44,
-          "voice_articulation": 19.304999999999993,
-          "voice_microtone": 18.914999999999992,
-          "voice_tradition": 29.254999999999995,
-          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_vibrato": 8.565,
+          "voice_articulation": 22.749999999999996,
+          "voice_microtone": 22.359999999999992,
+          "voice_tradition": 31.929999999999993,
+          "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 5.795000000000001,
-          "voice_speech_song": 26.45499999999999,
-          "voice_ensemble_config": 18.492499999999993,
-          "voice_ornament_system": 1.8850000000000002,
-          "voice_pitch_organization": 4.485,
-          "voice_processing_chain": 8.4825,
-          "voice_multitrack_stack": 7.5075
+          "voice_speech_song": 29.639999999999997,
+          "voice_ensemble_config": 22.7825,
+          "voice_ornament_system": 2.9099999999999997,
+          "voice_pitch_organization": 3.7700000000000005,
+          "voice_processing_chain": 6.7275,
+          "voice_multitrack_stack": 6.95
         }
       },
       {
@@ -61,22 +61,22 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 10.39,
+          "electronic_technique": 11.14,
           "poly_archetypes": 0.39,
           "poly_voices": 2.0949999999999998,
-          "poly_maker_lineage": -1.33
+          "poly_maker_lineage": -1.015
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.325,
-          "drum_machine_808_context": 1.365,
+          "tr808_voice": 0.7149999999999999,
+          "drum_machine_808_context": 2.145,
           "tr808_production_origin": 0.7800000000000001
         }
       },
@@ -91,11 +91,11 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 9.325,
-          "rhodes_model": 5.07,
-          "rhodes_use": 4.225,
+          "keyboard_technique": 10.075,
+          "rhodes_model": 5.645,
+          "rhodes_use": 4.095,
           "rhodes_tine_material": 0.585,
-          "rhodes_hammer_tip": -0.035000000000000184,
+          "rhodes_hammer_tip": -0.6299999999999999,
           "rhodes_pickup_position": 0.39
         }
       },
@@ -112,13 +112,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.655,
-          "body_wood": 2.795,
+          "amp_make": 6.955,
+          "body_wood": 1.885,
           "pickup_config": 0.585,
-          "string_type": 5.215000000000001,
-          "scale_length_b": 2.525,
+          "string_type": 5.515,
+          "scale_length_b": 1.825,
           "fretted_or_not": 0.195,
-          "bass_technique": 4.15,
+          "bass_technique": 3.65,
           "electric_bass_string_configuration": 0
         }
       },
@@ -127,16 +127,16 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "mpc_modern",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": -0.1,
           "sampler_archetypes": 1.4625,
-          "sampler_bit_depth": 1.535,
+          "sampler_bit_depth": 0.975,
           "sampler_workflow": 0.5199999999999999,
-          "sampler_classic_context": 21.644999999999996
+          "sampler_classic_context": 26.909999999999993
         }
       }
     ],

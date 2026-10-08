@@ -5,7 +5,7 @@
   "lineage": "Classic Afrobeat gathers the vintage African funk, highlife, rock and Afrobeat networks associated with pioneers such as Ebo Taylor, alongside later continuations of their sound. Its repertoire extends beyond a single national scene or fixed release-date boundary.",
   "recipe": "classic classic afrobeat, groove Percussion, Afro-diasporic electric branch. flatwound fingerstyle locked electric bass, credited organ unspecified, rhodes electric, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, hands layered congas, saxophone section alto two baritones, flute, legato single line trombone, trumpet, alnico nickel humbucker electric guitar. live tracking.",
   "recipe_chars": 416,
-  "score": 38.667,
+  "score": 38.671,
   "config": {
     "traditions": [
       "classic_afrobeat"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.105,
+          "voice_speech_song": 0.42,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.063,
-          "voice_multitrack_stack": 0.363,
+          "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }
       },
@@ -97,9 +97,9 @@
         "scores": {
           "keyboard_technique": -0.035,
           "rhodes_model": -0.035,
-          "rhodes_use": 0.231,
+          "rhodes_use": 0.1995,
           "rhodes_tine_material": 0.105,
-          "rhodes_hammer_tip": 0.4095,
+          "rhodes_hammer_tip": 0.378,
           "rhodes_pickup_position": 0.105
         }
       },
@@ -122,12 +122,12 @@
           "drum_technique": 2.5,
           "drumhead": 1,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0315,
+          "shell_wood": 0,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,
-          "cymbal_alloy": -0.2,
-          "cymbal_hammering": 2.8305000000000002,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 2.6625000000000005,
           "cymbal_lathing": 2.4000000000000004,
           "cymbal_finish": 1
         }
@@ -141,7 +141,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.1365,
+          "percussion_technique": 4.063,
           "conga_set": 0,
           "conga_skin": 0.16799999999999998,
           "conga_shell_wood": 0.16799999999999998
@@ -242,7 +242,7 @@
           "pickup_winding": 2.0315,
           "string_material": 1,
           "bridge": 1,
-          "scale_length": 0.3989999999999999,
+          "scale_length": 0.33599999999999997,
           "string_gauge": 0.8049999999999999,
           "finish": 0.0315,
           "string_tuning": 0

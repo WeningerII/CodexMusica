@@ -5,7 +5,7 @@
   "lineage": "German ska includes revival bands, ska-punk and acoustic ska-jazz ensembles. Local musicians adapt offbeat dance rhythms to a wide range of instrumental and vocal settings.",
   "recipe": "classic german ska, bass System, reggae diaspora branch. a 440 modern pitch us standard grand piano, venice catlin high twist renaissance bass cremonese pre 1750 modern setup double bass, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bass trombone trombone, 60s jazz canon vintage ambassador asymmetric drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 464,
-  "score": 54.574,
+  "score": 54.947,
   "config": {
     "traditions": [
       "german_ska"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.24149999999999996,
-          "grand_piano_brand": 0.4095,
+          "grand_piano_size": 0.3465,
+          "grand_piano_brand": 0.5145,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
           "piano_soundboard": 0.2,
@@ -58,7 +58,7 @@
           "bass_back_wood": -0.05,
           "bass_varnish": 1.8199999999999998,
           "bass_setup_period": 2.21,
-          "bass_play": 3.2335,
+          "bass_play": 3.202,
           "bass_rosin": 5.59,
           "bass_bow_stick": -0.05
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "wind_articulation": 9.95,
-          "sax_size": 0.378,
+          "sax_size": 0.483,
           "sax_reed": 0,
           "sax_body_alloy": 2.605,
           "sax_mouthpiece": 0,
@@ -101,7 +101,7 @@
           "trombone_mouthpiece": 2.6650000000000005,
           "trombone_mute": 0.0315,
           "trombone_technique": 0.6015,
-          "trombone_bell_metal": 0.21,
+          "trombone_bell_metal": 0.315,
           "trombone_maker_school": 0.105
         }
       },
@@ -113,7 +113,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": -0.05,
           "drumhead": 2.45,
           "drum_kit_kick_pedal": 0
         }

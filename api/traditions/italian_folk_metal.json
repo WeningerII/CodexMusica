@@ -5,7 +5,7 @@
   "lineage": "Italian folk metal represented by Elvenking’s violin-centered folk/power-metal synthesis. Exact defaults are an authored contemporary realization.",
   "recipe": "classic modern italian folk metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, Italian alpine spruce val di fiemme hard rock maple acer saccharum liebenzeller violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 613,
-  "score": 66.68,
+  "score": 66.71,
   "config": {
     "traditions": [
       "italian_folk_metal"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.78,
+          "voice_processing_chain": 0.768,
           "voice_multitrack_stack": 0.78,
           "voice_tessitura": 0
         }
@@ -65,7 +65,7 @@
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "d_standard"
         },
@@ -80,7 +80,7 @@
           "string_material": 0.0315,
           "bridge": 0.5774999999999999,
           "scale_length": 9.36,
-          "string_gauge": 0.6089999999999999,
+          "string_gauge": 0.5774999999999999,
           "finish": 0,
           "string_tuning": 0.39
         }
@@ -93,7 +93,7 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -103,7 +103,7 @@
           "pickup_config": 0.1365,
           "string_type": 4.875,
           "scale_length_b": 0.5774999999999999,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.063,
           "bass_technique": 3.805,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 0.7244999999999999,
+          "drumhead": 0.7979999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -142,7 +142,7 @@
           "orch_back_wood": 2.275,
           "orch_varnish": -0.035,
           "orch_setup_period": 0.26,
-          "orch_bow": 0.19949999999999998,
+          "orch_bow": 0.16799999999999998,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.39,
           "orch_rosin": 9.23

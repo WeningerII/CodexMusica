@@ -5,7 +5,7 @@
   "lineage": "Early American folk encompasses historical ballads, topical songs and vernacular repertoires carried through oral transmission, print and later revival performance. Nineteenth-century war songs and everyday narratives connect individual voices with shared social memory.",
   "recipe": "classic modern early american folk, ballad Poetry. one note per syllable, solo with instrumental accompaniment. banjo 5 string. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 265,
-  "score": 2.94,
+  "score": 3.07,
   "config": {
     "traditions": [
       "early_american_folk"
@@ -70,7 +70,7 @@
           "banjo_back": 0,
           "tone_ring": 0,
           "banjo_head": 0,
-          "banjo_pot": 0.327,
+          "banjo_pot": 0.457,
           "banjo_play": 0,
           "banjo_rim_wood": 0,
           "banjo_neck_wood": 0.6,

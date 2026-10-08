@@ -3,14 +3,14 @@
   "name": "Progressive rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1970s UK classical-and-jazz-influenced rock genre featuring extended composition, complex meter, virtuosic instrumental performance — codified through King Crimson (In the Court of the Crimson King 1969, the prog founding album), Yes (Fragile 1971, Close to the Edge 1972), Genesis (Selling England by the Pound 1973, the Peter Gabriel era), Pink Floyd (the post-Syd-Barrett expansion through Dark Side of the Moon 1973 and Wish You Were Here 1975), Emerson Lake and Palmer, Jethro Tull, Gentle Giant",
-  "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock classic psychedelic rock action rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, silver legato flute, string machine, five string extended low range warm low c prog rock magnetic pickup electric violin.",
-  "recipe_chars": 942,
-  "score": 761.976,
+  "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock action rock japanese math rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, silver yamaha modern Japanese mid to premium legato flute, string machine, five string extended low range warm low c prog rock magnetic pickup electric violin.",
+  "recipe_chars": 974,
+  "score": 756.265,
   "config": {
     "traditions": [
       "progressive_rock",
-      "classic_psychedelic_rock",
-      "action_rock"
+      "action_rock",
+      "japanese_math_rock"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "carnatic_classical_tradition",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 42.22000000000003,
-          "voice_quality": 19.825000000000003,
+          "voice_quality": 18.785000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.175,
-          "voice_articulation": 15.209999999999999,
+          "voice_articulation": 15.599999999999998,
           "voice_microtone": 41.475000000000016,
-          "voice_tradition": 6.425,
+          "voice_tradition": 7.65125,
           "voice_mechanism_compound": 7.995,
           "voice_estill_quality": 6.880000000000001,
-          "voice_speech_song": 15.599999999999998,
-          "voice_ensemble_config": 15.729999999999997,
+          "voice_speech_song": 15.989999999999997,
+          "voice_ensemble_config": 16.119999999999997,
           "voice_ornament_system": 7.285000000000001,
           "voice_pitch_organization": 4.65,
-          "voice_processing_chain": 12.598749999999999,
-          "voice_multitrack_stack": 8.170000000000002
+          "voice_processing_chain": 11.18,
+          "voice_multitrack_stack": 8.020000000000001
         }
       },
       {
@@ -67,7 +67,7 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 8.45,
@@ -76,13 +76,13 @@
           "neck_wood": 2.635,
           "fretboard": 2.635,
           "pickup_magnet": 0.785,
-          "pickup_winding": 3.8999999999999995,
+          "pickup_winding": 2.08,
           "string_material": 2.635,
-          "bridge": 1.06125,
+          "bridge": 1.21125,
           "scale_length": 2.08,
-          "string_gauge": 1.105,
+          "string_gauge": 1.25625,
           "finish": 0.435,
-          "string_tuning": 23.855
+          "string_tuning": 23.205000000000005
         }
       },
       {
@@ -161,16 +161,16 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "oscillator": "square_pulse",
+          "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "sustain_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 1.1949999999999998,
-          "oscillator": 3.8999999999999995,
-          "filter_topology": 4.744999999999999,
-          "envelope": 1.8562500000000002,
+          "electronic_technique": 1.0449999999999997,
+          "oscillator": 2.98,
+          "filter_topology": 2.925,
+          "envelope": 2.00625,
           "modulation": 1
         }
       },
@@ -206,14 +206,14 @@
           "flute_size": "piccolo_flute",
           "flute_material": "silver_flute",
           "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_powell_boston"
+          "flute_maker_school": "flute_yamaha"
         },
         "scores": {
           "wind_articulation": 5.1,
           "flute_size": 2.635,
           "flute_material": 1.135,
           "flute_technique": 0.35,
-          "flute_maker_school": 0.39
+          "flute_maker_school": 1.17
         }
       },
       {
@@ -227,7 +227,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sm_voice_count": 0.195,
-          "sm_chorus": 3.8999999999999995,
+          "sm_chorus": 2.08,
           "sm_voicing": 0.74
         }
       },

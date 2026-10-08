@@ -5,7 +5,7 @@
   "lineage": "Italian blues develops through local bands, clubs and collaborations with international blues musicians. Harmonica players such as Fabio Treves helped establish networks linking Italian performers with American repertoire and instrumental practice.",
   "recipe": "classic modern italian blues, functional Song, blues electric branch. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 413,
-  "score": 54.697,
+  "score": 55.032,
   "config": {
     "traditions": [
       "italian_blues"
@@ -23,9 +23,9 @@
         },
         "scores": {
           "harmonica_type": 0.063,
-          "harmonica_comb": 11.767,
-          "harmonica_reed": 11.536,
-          "harmonica_technique": 12.487,
+          "harmonica_comb": 11.914,
+          "harmonica_reed": 11.745999999999999,
+          "harmonica_technique": 12.3505,
           "harmonica_maker_school": 11.959999999999999,
           "harmonica_tuning": 5.85
         }
@@ -50,13 +50,13 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 0,
-          "body_wood": 0.063,
+          "body_wood": 0.1365,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 0.0315,
-          "bridge": 0.063,
+          "string_gauge": 0.1365,
+          "bridge": 0.0315,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0.063,

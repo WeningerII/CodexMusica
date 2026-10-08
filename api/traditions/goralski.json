@@ -1,152 +1,88 @@
 {
-  "id": "goralski",
-  "name": "Góralski",
+  "id": "polish_goralski",
+  "merged_from": "goralski",
+  "name": "Polish góralski (Tatra highlander)",
   "family": "global",
-  "lineage": "Highlander music of the Polish Tatras (Podhale), documented from the 19th century and shaped by Skalne Podhale village bands and post-war state ensembles — a lead prym violin improvising on inherited nuta melodic cycles, two or three sekund violins scraping harmonic seconds on offbeats, and a three-string basy cello marking the beat, supporting shouted high-register wierchowa singing and a free, non-metric couple dance with the Lydian raised fourth as its harmonic signature.",
-  "recipe": "classic early-1940s góralski, improv On Frame, string improv branch, Slavic balkan field work, European wedding rusyn folk hungarian folk. sygyt, breath veiled tone, straight note core, interlocked note trading. distant rubber fiddle, half rectified carpathian spruce hard rock maple acer saccharum French Polish violin orchestral, venice catlin high twist renaissance bass carpathian spruce European maple double bass, highland bagpipes. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 530,
-  "score": 154.375,
+  "lineage": "Polish góralski Tatra-Mountain highlander music-and-dance tradition of the Podhale region in southern Poland, performed by the Polish góral mountain-folk community. The kapela góralska ensemble centers on the prymista (lead violinist) accompanied by sekund (second-violin) and basy (three-string Tatra-style upright-bass), with characteristic open-string drone-and-shifted-tonal-center modal vocabulary distinct from broader Polish lowland folk-music. Performance contexts span village-festival celebrations, wedding ceremonies, and (since 1968) the international Folk-Music Festival in Zakopane. The post-1980 Tatra-cultural-revival under the local Highlander Union has consolidated institutional preservation. Distinguished from Slovak fujara solo and Czech moravian folk by Polish góralski Podhale-Tatra specific stylistic-conventions.",
+  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry newfoundland traditional song and dance music sean-nós solo singing. thick, breath veiled tone, straight note core, interlocked note trading. half rectified sitka spruce French Polish shellac pad Baroque setup violin orchestral. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 407,
+  "score": 229.13,
   "config": {
     "traditions": [
-      "goralski",
-      "rusyn_folk",
-      "hungarian_folk"
+      "polish_goralski",
+      "newfoundland_folk",
+      "sean_nos_solo"
     ],
     "instruments": [
       {
-        "id": "fiddle",
-        "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
-          "fiddle_strings": "gut_wound",
-          "fiddle_bow": "dark_rosin",
-          "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "arco",
-          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
-        },
-        "scores": {
-          "bowed_technique": 2.4500000000000006,
-          "fiddle_strings": 0,
-          "fiddle_bow": 0.09,
-          "fiddle_mute": 1.1549999999999998,
-          "fiddle_articulation": 1.435,
-          "fiddle_string_configuration": 0
-        }
-      },
-      {
-        "id": "violin_orchestral",
-        "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
-          "orch_strings": "half_rectified_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
-          "orch_setup_period": "baroque_setup_violin",
-          "orch_bow": "baroque_bow",
-          "orch_bow_stick": "brazilwood_stick_orch",
-          "orch_articulation": "arco_orch",
-          "orch_rosin": "bernardel_rosin_orch"
-        },
-        "scores": {
-          "bowed_technique": 2.4500000000000006,
-          "orch_strings": 1.25,
-          "orch_top_wood": 3.25,
-          "orch_back_wood": 2.795,
-          "orch_varnish": 2.25,
-          "orch_setup_period": 2.19,
-          "orch_bow": 1.8399999999999999,
-          "orch_bow_stick": -0.05,
-          "orch_articulation": 1.435,
-          "orch_rosin": -0.05
-        }
-      },
-      {
-        "id": "double_bass",
-        "slots": {
-          "bowed_technique": "bowed_sul_tasto",
-          "bass_size": "bass_three_quarter",
-          "bass_strings": "venice_catlin_bass",
-          "bass_top_wood": "carpathian_spruce_bass",
-          "bass_back_wood": "bosnian_flamed_maple_bass",
-          "bass_varnish": "spirit_varnish_bass",
-          "bass_setup_period": "baroque_setup_bass",
-          "bass_play": "bass_pizz",
-          "bass_rosin": "pop_kolstein_rosin",
-          "bass_bow_stick": "brazilwood_stick_bass"
-        },
-        "scores": {
-          "bowed_technique": 1.1049999999999998,
-          "bass_size": 0.135,
-          "bass_strings": 2.295,
-          "bass_top_wood": 3.25,
-          "bass_back_wood": 2.1449999999999996,
-          "bass_varnish": -0.05,
-          "bass_setup_period": 2.19,
-          "bass_play": 0.12999999999999998,
-          "bass_rosin": 2.245,
-          "bass_bow_stick": -0.05
-        }
-      },
-      {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.39,
-          "voice_quality": 18.65499999999999,
+          "voice_register": 14.924999999999995,
+          "voice_quality": 15.209999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 15.924999999999995,
-          "voice_microtone": 15.534999999999993,
-          "voice_tradition": 10.075,
-          "voice_mechanism_compound": 4.745,
-          "voice_estill_quality": 4.29,
-          "voice_speech_song": 16.964999999999996,
-          "voice_ensemble_config": 14.754999999999995,
-          "voice_ornament_system": 2.860000000000001,
-          "voice_pitch_organization": 3.5050000000000003,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 2.6350000000000002
+          "voice_vibrato": 2.9550000000000005,
+          "voice_articulation": 19.045,
+          "voice_microtone": 21.189999999999998,
+          "voice_tradition": 36.95249999999999,
+          "voice_mechanism_compound": 4.875,
+          "voice_estill_quality": 6.8575,
+          "voice_speech_song": 21.580000000000002,
+          "voice_ensemble_config": 19.37,
+          "voice_ornament_system": 28.095,
+          "voice_pitch_organization": 2.600000000000001,
+          "voice_processing_chain": 7.539999999999998,
+          "voice_multitrack_stack": 7.669999999999999
         }
       },
       {
-        "id": "highland_bagpipes",
+        "id": "violin_orchestral",
         "slots": {
-          "wind_articulation": "wind_folk_melodic",
-          "highland_drones": "highland_3_drones",
-          "highland_chanter": "highland_blackwood",
-          "highland_drone_reeds": "highland_synthetic_drone_reeds",
-          "highland_chanter_reed": "highland_cane_chanter_reed",
-          "highland_bag": "highland_hide_bag"
+          "bowed_technique": "bowed_celtic_session",
+          "orch_strings": "half_rectified_gut_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "french_polish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "wind_articulation": 2.395,
-          "highland_drones": 0,
-          "highland_chanter": -0.035,
-          "highland_drone_reeds": 0.45499999999999996,
-          "highland_chanter_reed": 0.65,
-          "highland_bag": -0.7
+          "bowed_technique": 6.669999999999999,
+          "orch_strings": 6.345,
+          "orch_top_wood": 1.17,
+          "orch_back_wood": 0.09999999999999999,
+          "orch_varnish": 7.45,
+          "orch_setup_period": 1.755,
+          "orch_bow": 2.535,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.39,
+          "orch_rosin": 2.21
         }
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_nagra_ethnographic_field",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -154,19 +90,37 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "tape_15ips"
+      "medium": "digital_high"
     },
-    "tuning": "nordic_modal_drone_double_stops",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "nordic_modal_drone_double_stops",
+    "tuning": "twelve_tet",
     "room": "mountain_valley",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "bowed_technique": "bowed_chopped_old_time",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "tape_15ips",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

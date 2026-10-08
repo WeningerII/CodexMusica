@@ -5,7 +5,7 @@
   "lineage": "Swedish-Norwegian offshoot of black metal defined by Bathory's Hammerheart and Twilight of the Gods (1990-91) and extended by Enslaved, Einherjer and Amon Amarth — slow-to-mid tempo tremolo and power-chord riffs in minor modes, martial toms and mid-paced double-kick rather than constant blasting, wide reverberant multitracked male chant choruses over Norse-mythological lyrics, keyboard horn and choir pads, and epic six-to-ten minute forms with long instrumental build sections.",
   "recipe": "classic Northern European early-1990s viking metal, distorted Rock, black branch, folk metal metal, doom metal, symphonic metal pagan metal. thick, false fold engaged, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, analog poly synth, lur, finnish karelian drone under melody birch carved regional drone like tagelharpa, ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 849,
-  "score": 550.527,
+  "score": 550.347,
   "config": {
     "traditions": [
       "viking_metal",
@@ -31,7 +31,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 52.25,
+          "electric_technique": 52.205,
           "amp_make": 25.024999999999995,
           "body_wood": 25.414999999999996,
           "neck_wood": 4.4975,
@@ -41,7 +41,7 @@
           "string_material": 1.045,
           "bridge": 4.4975,
           "scale_length": 22.229999999999997,
-          "string_gauge": 5.5424999999999995,
+          "string_gauge": 5.4975,
           "finish": 0,
           "string_tuning": 35.1
         }
@@ -54,7 +54,7 @@
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -103,15 +103,15 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 33.225,
+          "voice_register": 33.27,
           "voice_quality": 6.145000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.915,
           "voice_articulation": 19.5,
           "voice_microtone": 22.554999999999996,
-          "voice_tradition": 23.479999999999997,
-          "voice_mechanism_compound": 49.06000000000001,
+          "voice_tradition": 23.434999999999995,
+          "voice_mechanism_compound": 49.01500000000001,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 20.150000000000002,
           "voice_ensemble_config": 22.750000000000004,
@@ -159,7 +159,7 @@
           "tagelharpa_body_wood": "tagelharpa_birch_carved"
         },
         "scores": {
-          "bowed_technique": 16.717499999999998,
+          "bowed_technique": 16.6725,
           "tagelharpa_form": 3.17,
           "tagelharpa_context": 2.795,
           "tagelharpa_string_material": 0.195,

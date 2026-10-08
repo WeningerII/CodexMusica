@@ -5,7 +5,7 @@
   "lineage": "Classic Finnish pop connects established popular-song repertoire with dance-band, beat-guitar and iskelmä traditions. Later performers continue to reinterpret songs associated with earlier decades.",
   "recipe": "classic classic finnish pop, functional Song, europop branch. solo with instrumental accompaniment. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 286,
-  "score": 18.184,
+  "score": 18.152,
   "config": {
     "traditions": [
       "classic_finnish_pop"
@@ -38,7 +38,7 @@
           "pickup_winding": 2,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.8505,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0

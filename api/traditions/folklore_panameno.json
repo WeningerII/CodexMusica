@@ -5,7 +5,7 @@
   "lineage": "The traditional music of the Panamanian interior provinces of Herrera, Los Santos and Veraguas — the mejorana, a five-string guitar accompanying sung décimas and the socavón; the tamborito, a call-and-response women's song over three hand drums in a brisk 2/4; and cumbia panameña with accordion, violin, churuca scraper and tambor, all danced at village patronal festivals and codified for stage from the 1940s.",
   "recipe": "classic mid-1940s folklore panameño, groove Percussion, Latin am branch, Caribbean carnival processional, tropical song functional song bahamian junkanoo rara. vocal fry, breath veiled tone, straight note core, interlocked note trading. low mid rich spectrum broken in fast cedar classical nylon-string guitar, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, leather castagnari Italian premium folk music accordion, two stick head and shell steady pulse tambora colombiana, gourd wood guiro, traditional leather maracas. adobe room. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 648,
-  "score": 193.942,
+  "score": 194.086,
   "config": {
     "traditions": [
       "folklore_panameno",
@@ -77,7 +77,7 @@
           "reed_config": 0.85,
           "bellows": 1,
           "voicing_chamber": 0,
-          "accordion_maker_school": 2.91
+          "accordion_maker_school": 2.9145
         }
       },
       {
@@ -132,7 +132,7 @@
           "voice_vibrato": 0.8449999999999999,
           "voice_articulation": 21.644999999999992,
           "voice_microtone": 19.95499999999999,
-          "voice_tradition": 14.54,
+          "voice_tradition": 14.679499999999999,
           "voice_mechanism_compound": 4.16,
           "voice_estill_quality": 3.9650000000000007,
           "voice_speech_song": 23.854999999999997,

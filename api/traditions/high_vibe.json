@@ -5,7 +5,7 @@
   "lineage": "High vibe connects a popular-music listening community with expressive vocal and layered song approaches. Performers can combine acoustic accompaniment with repeated recorded textures.",
   "recipe": "classic high vibe, functional Song, soul R&B branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, chopped vocal sample rhythmic bed. ukulele, layered sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 303,
-  "score": 13.102,
+  "score": 13.038,
   "config": {
     "traditions": [
       "high_vibe"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.63,
+          "voice_speech_song": 0.5670000000000001,
           "voice_ensemble_config": 3.9,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

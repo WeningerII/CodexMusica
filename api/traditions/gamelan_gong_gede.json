@@ -1,0 +1,189 @@
+{
+  "id": "gamelan_gong_gede",
+  "name": "Gamelan gong gede (Balinese temple orchestra)",
+  "family": "classical",
+  "lineage": "Large ceremonial bronze orchestra of Balinese temple festivals and the former courts, and the ensemble from which gong kebyar developed; only a few villages, such as Batur and Sulahan, still keep one. Its stately lelambatan pieces are led by trompong kettle-gong rows (here the reyong card in trompong form) over jublag and jegogan metallophones, paired kendang, large ceng-ceng kopyak cymbals, a kajar and a cycle of hanging gongs.",
+  "recipe": "classic modern gamelan gong gede, art Music, southeast Asian branch. reyong, jublag, jegogan, gamelan balinese paired male female kendang indonesian, ceng ceng, kajar, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 260,
+  "score": 12.361,
+  "config": {
+    "traditions": [
+      "gamelan_gong_gede"
+    ],
+    "instruments": [
+      {
+        "id": "reyong",
+        "slots": {
+          "reyong_form": "reyong_trompong",
+          "reyong_technique": "reyong_norot",
+          "reyong_tuning": "reyong_pelog_selisir"
+        },
+        "scores": {
+          "reyong_form": 0.39,
+          "reyong_technique": 0.36487499999999995,
+          "reyong_tuning": 0.6697500000000001
+        }
+      },
+      {
+        "id": "jublag",
+        "slots": {
+          "jublag_build": "jublag_bronze_calung",
+          "jublag_mallet": "jublag_padded",
+          "jublag_role": "jublag_pokok"
+        },
+        "scores": {
+          "jublag_build": 0,
+          "jublag_mallet": 0.03599999999999999,
+          "jublag_role": 0.337125
+        }
+      },
+      {
+        "id": "jegogan",
+        "slots": {
+          "jegogan_build": "jegogan_bronze_bamboo_resonators",
+          "jegogan_mallet": "jegogan_padded_disc",
+          "jegogan_role": "jegogan_pokok_skeleton"
+        },
+        "scores": {
+          "jegogan_build": 0.39,
+          "jegogan_mallet": 0.03599999999999999,
+          "jegogan_role": 0.1365
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 1.3,
+          "kendang_context": 5.2,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "ceng_ceng",
+        "slots": {
+          "ceng_ceng_form": "ceng_ceng_kopyak",
+          "ceng_ceng_technique": "ceng_ceng_kotekan",
+          "ceng_ceng_alloy": "ceng_ceng_perunggu"
+        },
+        "scores": {
+          "ceng_ceng_form": 0.03712499999999999,
+          "ceng_ceng_technique": 0.36487499999999995,
+          "ceng_ceng_alloy": 0
+        }
+      },
+      {
+        "id": "kajar",
+        "slots": {
+          "kajar_form": "kajar_gong_gede",
+          "kajar_technique": "kajar_damped"
+        },
+        "scores": {
+          "kajar_form": 1.405,
+          "kajar_technique": 0
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0.53325,
+          "gong_striker": 0.03599999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "reyong": [
+        "reyong_form",
+        "reyong_technique",
+        "reyong_tuning"
+      ],
+      "jublag": [
+        "jublag_build",
+        "jublag_mallet",
+        "jublag_role"
+      ],
+      "jegogan": [
+        "jegogan_build",
+        "jegogan_mallet",
+        "jegogan_role"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "ceng_ceng": [
+        "ceng_ceng_form",
+        "ceng_ceng_technique",
+        "ceng_ceng_alloy"
+      ],
+      "kajar": [
+        "kajar_form",
+        "kajar_technique"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pelog_slendro_balinese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_balinese",
+    "room": "field_recording",
+    "parts": {
+      "reyong_form": "reyong_trompong",
+      "reyong_technique": "reyong_norot",
+      "reyong_tuning": "reyong_pelog_selisir",
+      "jublag_build": "jublag_bronze_calung",
+      "jublag_mallet": "jublag_padded",
+      "jublag_role": "jublag_pokok",
+      "jegogan_build": "jegogan_bronze_bamboo_resonators",
+      "jegogan_mallet": "jegogan_padded_disc",
+      "jegogan_role": "jegogan_pokok_skeleton",
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "ceng_ceng_form": "ceng_ceng_kopyak",
+      "ceng_ceng_technique": "ceng_ceng_kotekan",
+      "ceng_ceng_alloy": "ceng_ceng_perunggu",
+      "kajar_form": "kajar_gong_gede",
+      "kajar_technique": "kajar_damped",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

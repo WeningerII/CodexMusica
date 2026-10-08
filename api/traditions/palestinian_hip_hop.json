@@ -5,7 +5,7 @@
   "lineage": "Palestinian hip-hop communities; selected early DAM collective-MC production branch",
   "recipe": "classic modern palestinian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler, sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 304,
-  "score": 53.995,
+  "score": 53.814,
   "config": {
     "traditions": [
       "palestinian_hip_hop"
@@ -35,7 +35,7 @@
           "voice_register": 0,
           "voice_quality": 12.025,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.105,
           "voice_vibrato": 0,
           "voice_articulation": 0.38475,
           "voice_microtone": 0,
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 10.659999999999997,
-          "voice_ensemble_config": 0.19500000000000003,
+          "voice_ensemble_config": 0.19275000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
@@ -76,7 +76,7 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 5.8549999999999995,
+          "electronic_technique": 5.707999999999999,
           "rompler_preset_bank": 0.39,
           "rompler_context": 0.78,
           "rompler_lineage": 0.78

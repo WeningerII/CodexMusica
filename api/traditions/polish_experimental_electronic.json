@@ -5,7 +5,7 @@
   "lineage": "Polish experimental electronic music explores sound design, sampling and performance beyond a single dance style. Producers and live acts develop personal relationships between rhythm, texture and electronic composition.",
   "recipe": "classic polish experimental electronic, experimental Elec, industrial noise branch. glitched textural sampler, digital subtractive. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 211,
-  "score": 31.031,
+  "score": 30.999,
   "config": {
     "traditions": [
       "polish_experimental_electronic"
@@ -37,7 +37,7 @@
         },
         "scores": {
           "electronic_technique": 0.19500000000000003,
-          "va_archetypes": 0.546,
+          "va_archetypes": 0.5145,
           "digital_subtractive_context": 5.069999999999999
         }
       }

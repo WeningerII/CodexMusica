@@ -5,7 +5,7 @@
   "lineage": "North American and Icelandic indie-folk-pop tendency of roughly 2009-2016, an algorithmically-named counterpart to stomp-and-holler distinguished by lighter, often female or mixed-gender lead voices — 100-140 BPM four-on-the-floor foot-stomp and handclap percussion, strummed dreadnought guitar with mandolin, glockenspiel and upright piano coloration, group 'hey' shouts and airy multitracked harmony over major-key diatonic progressions.",
   "recipe": "classic mid-2010s stomp and flutter, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock folk rock telugu folk. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, bowl back Italian redwood hard rock maple x brace modern mandolin mandolin, block chord upright piano, mid attack plastic glockenspiel, stomp boot foot stomp, communal wide group massed hand clap. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 752,
-  "score": 287.45,
+  "score": 287.015,
   "config": {
     "traditions": [
       "stomp_and_flutter",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 39.269999999999996,
+          "voice_register": 39.224999999999994,
           "voice_quality": 5.330000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 17.41999999999999,
           "voice_tradition": 32.5,
           "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 5.98,
+          "voice_estill_quality": 5.86,
           "voice_speech_song": 23.009999999999994,
           "voice_ensemble_config": 17.744999999999994,
           "voice_ornament_system": 3.640000000000001,
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_compressed_glued"
         },
         "scores": {
-          "multitrack_stack_density": 1.95,
+          "multitrack_stack_density": 1.785,
           "multitrack_stack_era_aesthetic": 3.4849999999999994,
           "multitrack_stack_processing": 1.47
         }
@@ -78,7 +78,7 @@
           "acoustic_technique": 28.345,
           "string_tuning": 0.7474999999999999,
           "top_wood": 1.04,
-          "back_sides": 0.8049999999999999,
+          "back_sides": 0.7,
           "string_acoustic": 1.625
         }
       },

@@ -3,9 +3,9 @@
   "name": "Hawaiian punk",
   "family": "rock_punk",
   "lineage": "Hawaiian punk includes rock-and-roll-oriented guitar bands in the Honolulu scene.",
-  "recipe": "classic hawaiian punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 353,
-  "score": 45.128,
+  "recipe": "classic hawaiian punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 335,
+  "score": 43.797,
   "config": {
     "traditions": [
       "hawaiian_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 14.43,
-          "body_wood": 1.263,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 1.263,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.453,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

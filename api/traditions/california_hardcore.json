@@ -5,7 +5,7 @@
   "lineage": "California hardcore includes regional punk networks that connect direct ensemble attack with melodic and rhythmic influences from earlier scenes.",
   "recipe": "classic california hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, soft attack transient basswood electric bass, driving sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 42.476,
+  "score": 42.339,
   "config": {
     "traditions": [
       "california_hardcore"
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 7.461999999999999,
-          "drumhead": 0.273,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0
         }
       },

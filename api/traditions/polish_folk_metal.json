@@ -5,7 +5,7 @@
   "lineage": "Polish folk metal combines metal and rock instrumentation with folk-song materials and timbres.",
   "recipe": "classic modern polish folk metal, distorted Rock, folk metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, hard rock maple liebenzeller metal infused cello. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 476,
-  "score": 67.797,
+  "score": 67.671,
   "config": {
     "traditions": [
       "polish_folk_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 18.8965,
+          "electric_technique": 18.865,
           "amp_make": 7.605,
           "body_wood": 7.8,
           "neck_wood": 0.0315,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.1575,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 0.0945,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.231,
-          "voice_multitrack_stack": 0.0315,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       },
@@ -141,7 +141,7 @@
           "cello_back_wood": 3.185,
           "cello_varnish": -0.035,
           "cello_setup_period": 0.26,
-          "cello_bow_grip": 0.1365,
+          "cello_bow_grip": 0.105,
           "cello_rosin": 7.67,
           "cello_bow_stick": -0.05
         }

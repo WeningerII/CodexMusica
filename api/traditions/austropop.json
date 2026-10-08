@@ -3,14 +3,14 @@
   "name": "Austropop",
   "family": "pop_rock",
   "lineage": "Austrian dialect-language pop-rock codified in Vienna from about 1971 onward through Wolfgang Ambros's 'Da Hofa', Georg Danzer, Rainhard Fendrich, the STS trio and later Falco — mid-tempo 4/4 guitar-and-piano song forms at 90-130 BPM with Anglo-American rock and singer-songwriter chord vocabulary, Viennese-dialect lyrics carrying satire, Schmäh and social commentary, conversational half-sung baritone delivery, and Heurigen-derived accordion or Schrammel colour dropped into an otherwise standard band arrangement.",
-  "recipe": "classic Central European early-1970s austropop, functional Song, europop branch, pop rock functional song, anglo singer song ballad poetry yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. cedar flatwound thomastik strummed open chord ringing overtones dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, castagnari Italian premium folk music straight accordion, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. german liedermacher kabarett berlin. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 948,
-  "score": 625.363,
+  "recipe": "classic Central European early-1970s austropop, functional Song, europop branch, pop rock functional song, anglo singer song ballad poetry yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. cedar phosphor bronze modern martin fingerpicked dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, castagnari Italian premium folk music straight accordion, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. german liedermacher kabarett berlin. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 927,
+  "score": 637.193,
   "config": {
     "traditions": [
       "austropop",
       "yacht_rock",
-      "skiffle"
+      "folk_rock"
     ],
     "instruments": [
       {
@@ -23,50 +23,50 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 55.85500000000001,
-          "voice_quality": 10.139999999999997,
+          "voice_register": 55.730000000000004,
+          "voice_quality": 9.1,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.274999999999999,
-          "voice_articulation": 18.654999999999994,
-          "voice_microtone": 44.72500000000001,
-          "voice_tradition": 15.729999999999997,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 3.4400000000000004,
-          "voice_speech_song": 25.934999999999995,
-          "voice_ensemble_config": 18.589999999999993,
-          "voice_ornament_system": 2.9850000000000003,
+          "voice_vibrato": 6.695,
+          "voice_articulation": 17.61499999999999,
+          "voice_microtone": 41.85000000000001,
+          "voice_tradition": 16.542499999999993,
+          "voice_mechanism_compound": 2.6649999999999996,
+          "voice_estill_quality": 5.6225000000000005,
+          "voice_speech_song": 24.894999999999992,
+          "voice_ensemble_config": 17.54999999999999,
+          "voice_ornament_system": 3.285,
           "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 8.98,
-          "voice_multitrack_stack": 5.46
+          "voice_processing_chain": 9.83,
+          "voice_multitrack_stack": 6.694999999999999
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "eb_standard",
           "top_wood": "cedar",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "thomastik_flat_top"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 14.02,
-          "string_tuning": 1.925,
-          "top_wood": 2.73,
-          "back_sides": 0.69,
-          "string_acoustic": 3.8999999999999995
+          "acoustic_technique": 14.699999999999994,
+          "string_tuning": 0.8999999999999999,
+          "top_wood": 3.77,
+          "back_sides": 0.39,
+          "string_acoustic": 3.575
         }
       },
       {
@@ -80,32 +80,32 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "vintage_trem",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 12.324375,
-          "amp_make": 16.1525,
-          "body_wood": 2.925,
-          "neck_wood": 2.925,
-          "fretboard": 2.47,
+          "electric_technique": 11.824374999999998,
+          "amp_make": 15.079999999999997,
+          "body_wood": 3.575,
+          "neck_wood": 3.575,
+          "fretboard": 3.5100000000000002,
           "pickup_magnet": 0.39,
-          "string_material": 0.39,
-          "string_gauge": 2.535,
-          "bridge": 0.39,
-          "scale_length": 2.535,
-          "finish": 0.39,
-          "string_tuning": 15.86,
+          "string_material": 0.585,
+          "string_gauge": 3.575,
+          "bridge": 0.24,
+          "scale_length": 3.575,
+          "finish": 0.09,
+          "string_tuning": 17.095,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -115,13 +115,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.1525,
-          "body_wood": 2.73,
+          "amp_make": 15.144999999999998,
+          "body_wood": 3.575,
           "pickup_config": 0.4256249999999999,
-          "string_type": 33.098124999999996,
-          "scale_length_b": 2.535,
-          "fretted_or_not": 1.045,
-          "bass_technique": 26.165,
+          "string_type": 35.473124999999996,
+          "scale_length_b": 3.575,
+          "fretted_or_not": 1.1949999999999998,
+          "bass_technique": 28.689999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,8 +133,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.17,
-          "drumhead": 11.44,
+          "drum_technique": 28.544999999999998,
+          "drumhead": 10.79,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -152,15 +152,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 15.024999999999999,
-          "grand_piano_size": 2.925,
-          "grand_piano_brand": 4.615,
-          "piano_hammer": 13.649999999999999,
-          "piano_rim": 14.039999999999996,
-          "piano_soundboard": 11.395,
+          "keyboard_technique": 14.975,
+          "grand_piano_size": 3.575,
+          "grand_piano_brand": 5.46,
+          "piano_hammer": 14.884999999999996,
+          "piano_rim": 15.274999999999995,
+          "piano_soundboard": 10.745,
           "piano_pinblock": 2.135,
           "piano_plate": 0.45499999999999996,
-          "piano_pitch_standard": 3.25
+          "piano_pitch_standard": 2.21
         }
       },
       {
@@ -175,13 +175,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 10.735,
-          "accordion_reed_material": 2.535,
-          "musette_offset": 0.78,
-          "reed_config": 4.199999999999999,
+          "free_reed_technique": 15.609999999999996,
+          "accordion_reed_material": 3.575,
+          "musette_offset": 0.39,
+          "reed_config": 1.8200000000000003,
           "bellows": 0,
           "voicing_chamber": 0.39,
-          "accordion_maker_school": 4.484999999999999
+          "accordion_maker_school": 5.524999999999998
         }
       },
       {
@@ -192,15 +192,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 15.024999999999999,
-          "drawbar_setting": 26.215,
-          "rotary_speed": 26.27,
-          "percussion_setting": 13.584999999999999,
-          "tonewheel_model": 22.099999999999994,
-          "leslie_cabinet_model": -0.05
+          "keyboard_technique": 14.975,
+          "drawbar_setting": 28.74,
+          "rotary_speed": 28.494999999999997,
+          "percussion_setting": 14.819999999999999,
+          "tonewheel_model": 17.159999999999997,
+          "leslie_cabinet_model": 0.06499999999999977
         }
       }
     ],

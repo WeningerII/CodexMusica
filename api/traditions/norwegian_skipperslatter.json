@@ -5,7 +5,7 @@
   "lineage": "Norwegian-Scandinavian sailor work-song tradition (skipperslåttar = \"ship-sailor tunes,\" skanssanger = \"quarterdeck songs\") continuous from 18th-19th-century Norwegian-and-broader-Scandinavian maritime-trade work-song practice through 20th-century Norwegian-folk-revival into modern Norwegian-coastal-cultural-practice; foundational repertoire includes \"Pål sine høner\" (sailor work-coordination song), Norwegian sea-shanty translations",
   "recipe": "classic modern norwegian skipperslåttar, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic balkan field work, European drinking song russian zhnitvenye pesni romanian colinde de seceriş. thick, close mic intimate, straight onset, leader call answered. castagnari Italian premium folk music straight accordion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 418,
-  "score": 118.769,
+  "score": 118.452,
   "config": {
     "traditions": [
       "norwegian_skipperslatter",
@@ -39,14 +39,14 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 8.173124999999999,
+          "voice_articulation": 8.069999999999999,
           "voice_microtone": 8.45,
-          "voice_tradition": 25.663124999999994,
+          "voice_tradition": 25.259124999999994,
           "voice_mechanism_compound": 1.7550000000000001,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 14.689999999999996,
           "voice_ensemble_config": 9.23,
-          "voice_ornament_system": 1.2349999999999997,
+          "voice_ornament_system": 1.1599999999999997,
           "voice_pitch_organization": 5.069999999999999,
           "voice_processing_chain": 1.4949999999999999,
           "voice_multitrack_stack": 0.78
@@ -58,7 +58,7 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lmm",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
@@ -67,9 +67,9 @@
           "free_reed_technique": 10.619999999999997,
           "accordion_reed_material": 0.195,
           "musette_offset": 0.39,
-          "reed_config": 0,
+          "reed_config": 0.15,
           "bellows": 0.3,
-          "voicing_chamber": 0.105,
+          "voicing_chamber": 0.22049999999999997,
           "accordion_maker_school": 7.084999999999999
         }
       }

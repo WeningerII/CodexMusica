@@ -5,7 +5,7 @@
   "lineage": "Rock catarinense encompasses Santa Catarina’s local rock communities, including melodic punk bands from Florianópolis.",
   "recipe": "classic rock catarinense, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 394,
-  "score": 56.369,
+  "score": 54.731,
   "config": {
     "traditions": [
       "rock_catarinense"
@@ -25,22 +25,22 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 15.08,
-          "body_wood": 1.7954999999999999,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 1.5225,
+          "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 0.40950000000000003,
-          "scale_length": 1.4174999999999998,
-          "string_gauge": 0.546,
-          "finish": 0.1365,
+          "bridge": 0.273,
+          "scale_length": 1.281,
+          "string_gauge": 0.40950000000000003,
+          "finish": 0,
           "string_tuning": 0
         }
       },
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 7.475,
-          "body_wood": 0.8190000000000002,
+          "body_wood": 0.546,
           "pickup_config": 0.273,
-          "string_type": 17.2675,
-          "scale_length_b": 0.40950000000000003,
+          "string_type": 17.131,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },

@@ -1,7 +1,7 @@
 # Codex Musica — guide for AI agents
 
 This repository publishes a **static, server-free "API"**: pre-compiled recording
-**recipes** for **7121 recorded-music traditions** and data for **1671 instruments**.
+**recipes** for **7755 recorded-music traditions** and data for **1671 instruments**.
 There is no server to call, no API key, and no rate limit — every "endpoint" is just a
 plain JSON file you fetch and read.
 
@@ -19,7 +19,7 @@ For any tradition, you get:
 
 Base URL: `https://codexmusica.com`
 
-**Fastest path — one fetch for everything:** `…/api/all.json` returns all 7121
+**Fastest path — one fetch for everything:** `…/api/all.json` returns all 7755
 traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you
 have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->
 
@@ -232,6 +232,10 @@ rules, and invariants. Source: <https://github.com/WeningerII/CodexMusica>
   renaming one record can never move another record's picks.
   <!-- @promise: name-isolation -->
 - **Stable URLs.** The `{id}` values are the catalog ids listed in the index files.
+  A tradition merged into a duplicate keeps its id as an alias: `traditions/{id}.json`
+  still answers with the record of the tradition it was merged into (plus
+  `merged_from`), the index files list every alias, and the CLI, the connector and
+  the app all accept it. <!-- @promise: retired-ids-resolve -->
 - **Reproduce locally.** Clone the repo and run `node scripts/recipe.js --tradition <id>`
   for live generation, or `npm run build:api` to regenerate the whole static set.
 

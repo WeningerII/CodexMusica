@@ -3,9 +3,9 @@
   "name": "Bakersfield country",
   "family": "vernacular",
   "lineage": "California Central Valley honky-tonk-derived country tradition that emerged in 1950s-60s Bakersfield as a West Coast reaction against the smoother Nashville Sound — codified through Buck Owens (Capitol Records Bakersfield voice from 1959 onward, Together Again 1964) and Merle Haggard (post-Owens Bakersfield extension, Mama Tried 1968, Okie from Muskogee 1969), played by the Buckaroos (Owens band led by Don Rich) and the Strangers (Haggards band); built on Telecaster-and-pedal-steel-foreground arrangement, faster shuffle tempos than typical Nashville fare, and Dust-Bowl-migration cultural lineage",
-  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country lubbock sound. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
-  "recipe_chars": 854,
-  "score": 481.133,
+  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country lubbock sound. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 851,
+  "score": 478.993,
   "config": {
     "traditions": [
       "bakersfield",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -38,17 +38,17 @@
           "voice_quality": 12.089999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.5445,
+          "voice_vibrato": 23.537374999999994,
           "voice_articulation": 12.154999999999994,
           "voice_microtone": 11.959999999999992,
           "voice_tradition": 4.875,
           "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 26.952374999999996,
+          "voice_estill_quality": 26.543874999999996,
           "voice_speech_song": 18.784999999999993,
           "voice_ensemble_config": 13.779999999999994,
           "voice_ornament_system": 1.4300000000000002,
           "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 6.40675,
+          "voice_processing_chain": 6.43175,
           "voice_multitrack_stack": 3.184999999999999
         }
       },
@@ -65,14 +65,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 27.477499999999996,
-          "amp_make": 24.652499999999993,
+          "electric_technique": 27.309499999999996,
+          "amp_make": 24.233499999999992,
           "pickup_steel": 0.65,
           "string_setup": 11.83,
           "bar_material": 1.95,
-          "pedal_steel_brand": 30.423,
-          "pedal_steel_neck_config": 28.580875,
-          "pedal_steel_strings": 28.531249999999996
+          "pedal_steel_brand": 30.4,
+          "pedal_steel_neck_config": 28.147375,
+          "pedal_steel_strings": 28.475749999999998
         }
       },
       {
@@ -85,7 +85,7 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -94,7 +94,7 @@
         },
         "scores": {
           "electric_technique": 26.15,
-          "amp_make": 24.652499999999993,
+          "amp_make": 24.233499999999992,
           "body_wood": 1.95,
           "neck_wood": 1.95,
           "fretboard": 1.885,
@@ -113,7 +113,7 @@
         "slots": {
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -121,12 +121,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 24.066,
+          "amp_make": 23.8085,
           "body_wood": 1.95,
-          "pickup_config": 0.0315,
+          "pickup_config": 0,
           "string_type": 4.3875,
           "scale_length_b": 0.65,
-          "fretted_or_not": 0.03712499999999999,
+          "fretted_or_not": 0.04462499999999999,
           "bass_technique": 23.154999999999998,
           "electric_bass_string_configuration": 0
         }
@@ -140,7 +140,7 @@
         },
         "scores": {
           "drum_technique": 12.609999999999996,
-          "drumhead": 1.005,
+          "drumhead": 1.055,
           "drum_kit_kick_pedal": 0
         }
       },

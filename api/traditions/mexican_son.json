@@ -5,7 +5,7 @@
   "lineage": "The family of regional Mexican string-band dance forms descended from the seventeenth-century Spanish son and fandango — son jarocho in Veracruz, son jalisciense in the mariachi heartland, son huasteco, son calentano and son istmeño — sharing sesquiáltera 6/8-3/4 metre, cyclic harmonic cells with improvised coplas, communal zapateado stamping on a tarima, and locally distinct rosters from jarana and requinto jarocho to vihuela, guitarrón and violins.",
   "recipe": "classic Southwestern American early-1940s son mexicano, functional Song, Mexican branch, tejano border functional song, Latin am troubadour ballad poetry ranchera milonga. thick, full chest belt, slow rate, interlocked note trading. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 915,
-  "score": 345.397,
+  "score": 346.132,
   "config": {
     "traditions": [
       "mexican_son",
@@ -24,7 +24,7 @@
         "scores": {
           "arpa_jarocha_strings": 20.01,
           "arpa_jarocha_body_wood": 2.25,
-          "arpa_jarocha_string_material": 11.275000000000002,
+          "arpa_jarocha_string_material": 11.230000000000002,
           "arpa_jarocha_role": 36.724999999999994
         }
       },
@@ -38,7 +38,7 @@
           "requinto_jarocho_strings": "requinto_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 8.17,
+          "plucked_traditional_technique": 8.365,
           "requinto_jarocho_pluck": 12.07,
           "requinto_jarocho_tuning": 0.5,
           "requinto_jarocho_body_wood": 2.25,
@@ -55,7 +55,7 @@
           "jarana_jarocha_strings": "jarana_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 8.17,
+          "plucked_traditional_technique": 8.365,
           "jarana_size": 11.74,
           "jarana_jarocha_context": 2.925,
           "jarana_jarocha_body_wood": 7.865,
@@ -72,7 +72,7 @@
           "vihuela_mexicana_strings": "vihuela_mexicana_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 8.17,
+          "plucked_traditional_technique": 8.365,
           "vihuela_mexicana_back": 4.354999999999999,
           "vihuela_mexicana_context": 2.08,
           "vihuela_mexicana_body_wood": 4.809999999999999,
@@ -92,7 +92,7 @@
           "guitarron_body": 0.845,
           "guitarron_body_wood": 4.809999999999999,
           "guitarron_strings": 1.69,
-          "guitarron_string_material": 2.4299999999999997,
+          "guitarron_string_material": 2.385,
           "guitarron_technique": 7.6049999999999995
         }
       },
@@ -114,7 +114,7 @@
           "bowed_technique": 0.75,
           "orch_strings": 0.295,
           "orch_top_wood": 3.59,
-          "orch_back_wood": 2.575,
+          "orch_back_wood": 2.8600000000000003,
           "orch_varnish": 2.0949999999999998,
           "orch_setup_period": 1.3,
           "orch_bow": 2.82,
@@ -158,7 +158,7 @@
           "voice_ensemble_config": 20.34499999999999,
           "voice_ornament_system": 0.8449999999999998,
           "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 4.59,
+          "voice_processing_chain": 4.545,
           "voice_multitrack_stack": 2.73
         }
       }

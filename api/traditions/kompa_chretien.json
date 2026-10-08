@@ -5,7 +5,7 @@
   "lineage": "Kompa chrétien connects Haitian Christian songs and worship audiences with kompa-influenced popular music. Artists and listeners bring devotional texts into recorded and live dance-band settings.",
   "recipe": "classic kompa chrétien, ritual Devotional, christian gospel branch. group vocals, live take. single coil electric guitar, electric bass, drum kit, electronic keyboard unspecified. treated studio.",
   "recipe_chars": 195,
-  "score": 2.859,
+  "score": 2.659,
   "config": {
     "traditions": [
       "kompa_chretien"
@@ -77,8 +77,8 @@
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 0.294,
-          "bridge": 0.40950000000000003,
+          "string_gauge": 0.3675,
+          "bridge": 0.273,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0,
           "shell_thickness": 0,
-          "bearing_edges": 0.40950000000000003,
+          "bearing_edges": 0.273,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.15000000000000002,

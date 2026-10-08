@@ -1,0 +1,135 @@
+{
+  "id": "chaozhou_daluogu",
+  "name": "Chaozhou daluogu (Teochew big gong-and-drum)",
+  "family": "global",
+  "lineage": "Large gong-and-drum branch of Chaozhou (Teochew) music, popular in the Chaoshan region of eastern Guangdong and the Teochew communities of Southeast Asia, and played both seated and in parades. The big-drum player leads and conducts the band, the gongs form its core and the suona carries the melody, with fiddles, zheng, yangqin, flute and cymbals in larger formations (the acoustic drum card stands in for the Chaozhou big drum).",
+  "recipe": "classic modern chaozhou daluogu, carnival Processional, east Asian branch. membrane drum pulse resonant acoustic membrane drum, suona, daluo, naobo, chazi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 17.74,
+  "config": {
+    "traditions": [
+      "chaozhou_daluogu"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_membrane_drum",
+        "slots": {
+          "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+          "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant"
+        },
+        "scores": {
+          "acoustic_membrane_drum_form": 6.89,
+          "acoustic_membrane_drum_gesture": 6.718249999999999
+        }
+      },
+      {
+        "id": "suona",
+        "slots": {
+          "suona_size": "suona_zhongyin",
+          "suona_context": "suona_guchui_band",
+          "suona_body": "suona_rosewood_copper"
+        },
+        "scores": {
+          "suona_size": 1.45,
+          "suona_context": 1.8199999999999998,
+          "suona_body": -0.05
+        }
+      },
+      {
+        "id": "daluo",
+        "slots": {
+          "daluo_type": "daluo_chaozhou",
+          "daluo_beater": "daluo_padded"
+        },
+        "scores": {
+          "daluo_type": 0.6,
+          "daluo_beater": 0.1365
+        }
+      },
+      {
+        "id": "naobo",
+        "slots": {
+          "naobo_type": "naobo_dabo",
+          "naobo_stroke": "naobo_open_clash"
+        },
+        "scores": {
+          "naobo_type": 0.1995,
+          "naobo_stroke": 0.0315
+        }
+      },
+      {
+        "id": "chazi",
+        "slots": {
+          "chazi_stroke": "chazi_crash",
+          "chazi_size": "chazi_xiaocha"
+        },
+        "scores": {
+          "chazi_stroke": 0.063,
+          "chazi_size": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_membrane_drum": [
+        "acoustic_membrane_drum_form",
+        "acoustic_membrane_drum_gesture"
+      ],
+      "suona": [
+        "suona_size",
+        "suona_context",
+        "suona_body"
+      ],
+      "daluo": [
+        "daluo_type",
+        "daluo_beater"
+      ],
+      "naobo": [
+        "naobo_type",
+        "naobo_stroke"
+      ],
+      "chazi": [
+        "chazi_stroke",
+        "chazi_size"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "chinese_pentatonic_gong",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "chinese_pentatonic_gong",
+    "room": "field_recording",
+    "parts": {
+      "acoustic_membrane_drum_form": "acoustic_membrane_drum_form_unspecified",
+      "acoustic_membrane_drum_gesture": "acoustic_membrane_drum_gesture_resonant",
+      "suona_size": "suona_zhongyin",
+      "suona_context": "suona_guchui_band",
+      "suona_body": "suona_rosewood_copper",
+      "daluo_type": "daluo_chaozhou",
+      "daluo_beater": "daluo_padded",
+      "naobo_type": "naobo_dabo",
+      "naobo_stroke": "naobo_open_clash",
+      "chazi_stroke": "chazi_crash",
+      "chazi_size": "chazi_xiaocha"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

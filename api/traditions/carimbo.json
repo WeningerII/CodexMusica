@@ -5,7 +5,7 @@
   "lineage": "Afro-indigenous round dance of coastal Pará in Brazilian Amazonia, named for the curimbó log drum straddled and hand-struck by the player, documented in Marapanim and Salvaterra and professionalized on record in the 1960s-70s by Pinduca and Verequete — fast duple pulse around 120-140 BPM with two curimbós, maracas, banjo or guitar, transverse flute or clarinet and short responsorial verses.",
   "recipe": "classic West African mid-1960s carimbó, groove Percussion, Brazilian branch, tropical song functional song, Brazilian carnival processional chicha funaná. thick, breath veiled tone, slow rate, interlocked note trading. traditional cowhide canonical candomble atabaque, ganza, reco reco, cedar plain gut sheep gut unsplit classical nylon-string guitar, round tenor saxophone, hand clap, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. tin roofed shack. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 584,
-  "score": 147.267,
+  "score": 147.462,
   "config": {
     "traditions": [
       "carimbo",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.0200000000000014,
+          "voice_register": 3.2150000000000016,
           "voice_quality": 9.685,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "atabaque_role": 0.39,
           "atabaque_skin": 1.365,
-          "atabaque_shell_wood": 0.69
+          "atabaque_shell_wood": 0.735
         }
       },
       {
@@ -99,7 +99,7 @@
           "top_wood_classical": 7.15,
           "bracing_classical": 0.78,
           "string_classical": 1.5499999999999998,
-          "attack_technique_cl": 0.69
+          "attack_technique_cl": 0.735
         }
       },
       {
@@ -130,7 +130,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 0.74,
+          "clap_technique": 0.845,
           "clap_capture": 0.195
         }
       },
@@ -145,7 +145,7 @@
         "scores": {
           "choir_size": 4.744999999999999,
           "choir_polyphonic_configuration": 1.02,
-          "choir_regional_canonical_configuration": 3.625,
+          "choir_regional_canonical_configuration": 3.4299999999999997,
           "choir_ensemble_repertoire": 1.3
         }
       }

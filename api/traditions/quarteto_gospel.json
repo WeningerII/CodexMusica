@@ -3,9 +3,9 @@
   "name": "Quarteto gospel",
   "family": "blues_gospel",
   "lineage": "Quarteto gospel centers Brazilian Christian quartet singing, including Adventist broadcast and concert traditions. Arautos do Rei exemplify the established first-tenor, second-tenor, baritone and bass vocal roles.",
-  "recipe": "classic modern quarteto gospel, ritual Devotional, christian gospel branch. sacred liturgical global choir ensemble. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 320,
-  "score": 4.325,
+  "recipe": "classic modern quarteto gospel, ritual Devotional, christian gospel branch. a cappella small 3 to 8 one per part sacred liturgical global choir ensemble. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 357,
+  "score": 4.976,
   "config": {
     "traditions": [
       "quarteto_gospel"
@@ -20,10 +20,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 0.819,
+          "choir_size": 1.3649999999999998,
           "choir_polyphonic_configuration": 0.3735,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 2.2575
+          "choir_ensemble_repertoire": 2.3625
         }
       }
     ],

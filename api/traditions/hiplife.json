@@ -5,7 +5,7 @@
   "lineage": "Ghanaian hip-hop-highlife fusion codified through Reggie Rockstone Asante (the New York-Ghana cross-Atlantic founder, 1994 album Makaa Maka), Obrafour, VIP, Tic Tac, Sarkodie (the modern hiplife-into-Afrobeats crossover bridge), then extended into the contemporary Ghanaian hiplife / azonto / Afrobeats hybrid",
   "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito ghanaian hip hop. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 614,
-  "score": 161.629,
+  "score": 161.524,
   "config": {
     "traditions": [
       "hiplife",
@@ -38,17 +38,17 @@
           "voice_quality": 11.3425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9325,
+          "voice_vibrato": 3.0825,
           "voice_articulation": 7.865,
           "voice_microtone": 7.475,
-          "voice_tradition": 14.912500000000001,
+          "voice_tradition": 14.852500000000001,
           "voice_mechanism_compound": 2.015,
           "voice_estill_quality": 1.8199999999999998,
           "voice_speech_song": 10.497499999999999,
           "voice_ensemble_config": 7.995,
           "voice_ornament_system": 2.470000000000001,
           "voice_pitch_organization": 0.9099999999999998,
-          "voice_processing_chain": 5.319999999999999,
+          "voice_processing_chain": 5.364999999999999,
           "voice_multitrack_stack": 3.7050000000000005
         }
       },
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 6.682499999999999,
+          "tr808_voice": 6.7725,
           "drum_machine_808_context": 2.4699999999999998,
           "tr808_production_origin": 1.09
         }
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 5.4399999999999995,
-          "sampler_archetypes": 7.3,
+          "electronic_technique": 5.289999999999999,
+          "sampler_archetypes": 7.21,
           "sampler_bit_depth": 1.285,
-          "sampler_workflow": 6.236249999999999,
+          "sampler_workflow": 6.191249999999999,
           "sampler_classic_context": 18.265
         }
       },
@@ -96,13 +96,13 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
           "electric_technique": 5.600000000000001,
           "amp_make": 1.4962499999999999,
-          "body_wood": 1.4762499999999998,
+          "body_wood": 1.43125,
           "neck_wood": 1,
           "fretboard": 1,
           "pickup_magnet": 1.09,
@@ -111,7 +111,7 @@
           "bridge": 0.3,
           "scale_length": 2.225,
           "string_gauge": 0.255,
-          "finish": 0,
+          "finish": 0.045,
           "string_tuning": 2.18
         }
       },
@@ -127,7 +127,7 @@
           "percussion_technique": 6.58625,
           "conga_set": 0.045,
           "conga_skin": 1.045,
-          "conga_shell_wood": 1.38625
+          "conga_shell_wood": 1.3412499999999998
         }
       }
     ],

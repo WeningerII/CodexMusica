@@ -1,0 +1,313 @@
+region,id,pin,belongs,why
+west_africa,gambian_pop,"London, United Kingdom","Serrekunda, Gambia","Gambian pop genre (Sona Jobarteh exemplar) pinned to a London diaspora point, not Gambia"
+west_africa,ghanaian_pop,"Toronto, Canada","Accra, Ghana",Ghanaian pop pinned via Ata Kak's Toronto recording; genre centre is Accra/Kumasi
+west_africa,classic_afrobeat,"Los Angeles, United States","Lagos, Nigeria",Classic Afrobeat (Ebo Taylor exemplar) pinned to an LA studio credit; genre is Lagos/Accra
+west_africa,liberian_pop,"Knoxville, United States","Monrovia, Liberia",Liberian pop pinned to a diaspora DJ's Mixcloud location rather than Monrovia
+west_africa,gumbe,"Lisbon, Portugal","Bissau, Guinea-Bissau",Gumbé is Guinea-Bissau's national popular genre; pinned to a Lisbon diaspora project
+west_africa,kora,"Cardigan, United Kingdom","Ziguinchor, Senegal",Kora (Manding harp) genre pinned to a Welsh harp-kora collaboration album
+west_africa,djembe,"Melbourne, Australia","Conakry, Guinea",Djembe genre pinned to an Australian teacher; repertoire is Malinke (Guinea/Mali)
+west_africa,christian_afrobeat,"London, United Kingdom","Lagos, Nigeria",Afrobeats-gospel field is predominantly Nigerian; pinned to one London church event
+west_africa,musique_touareg,"Tamanrasset, Algeria","Kidal, Mali",Transnational Tuareg imzad/tende; exemplars Tartit and Amanar are Malian; Algeria pin defensible
+central_africa,rap_congolais,"Paris, France","Kinshasa, Dem. Rep. Congo",Congolese rap category pinned to one Paris diaspora artist (Youssoupha); home scene is Kinshasa/Brazzaville
+central_africa,batida,"Lisbon, Portugal","Lisbon, Portugal","Angolan-diaspora electronic genre born in Lisbon suburbs; pin correct, but derives from Angolan kuduro"
+central_africa,urban_kiz,"Lisbon, Portugal","Paris, France","European diaspora offshoot of Angolan kizomba; consolidated in Paris/Lisbon dance scenes, not Angola"
+central_africa,musique_centrafricaine,"Southwestern CAR label, country=Congo","Bangui, Central African Rep.",CAR national category geocoded into Republic of Congo; country column contradicts its own pin label
+central_africa,musique_urbaine_kinshasa,"Lubumbashi, Dem. Rep. Congo","Kinshasa, Dem. Rep. Congo","Kinshasa urban-music category pinned 1,500 km away to one Lubumbashi DJ"
+east_africa,amharic_pop,"Israel (country point), Israel","Addis Ababa, Ethiopia",Amharic-language pop pinned to one Israeli diaspora artist (AvevA); scene centre is Addis
+east_africa,ethiopian_pop,"Krems, Austria","Addis Ababa, Ethiopia",Pinned to an Austrian session of Gigi's album; Ethiopian pop is Addis-centred
+east_africa,somali_pop,"Neukölln, Berlin, Germany","Mogadishu, Somalia","Pinned to a Berlin session of Dur-Dur Band, a 1980s Mogadishu band"
+east_africa,tigrigna_pop,"France (country point), France","Asmara, Eritrea",Pinned to a French producer's rework of Eritrean/Tigrayan singers
+east_africa,sudanese_pop,"Washington, United States","Khartoum, Sudan",Pinned to an NPR Tiny Desk show by a diaspora band
+east_africa,liwa_swahili,"Muscat, Oman","Zanzibar, Tanzania",Record frames liwa as Zanzibar/Mombasa Swahili-coast dance; Muscat is the Gulf branch
+east_africa,nubian_music_nile,"Aswan, Egypt","Aswan, Egypt","Pin defensible, but entry spans Aswan-to-Dongola; Sudanese Nubia unrepresented"
+east_africa,nubian_traditional,"Abu Simbel, Egypt","Abu Simbel, Egypt",Pin defensible; exemplar Mohammed Wardi is Sudanese Nubian
+southern_africa,malagasy_pop,"Paris, France","Antananarivo, Madagascar",Madagascar's national pop field pinned to one diaspora artist's Paris profile.
+southern_africa,musica_mocambicana,"Évora, Portugal","Maputo, Mozambique",Mozambican national music category pinned to a single EP's Portuguese studio location.
+southern_africa,musique_mahoraise,"Lorient, France","Mamoudzou, Mayotte",Mayotte (Comoro archipelago) music pinned to a Breton diaspora rehearsal community.
+southern_africa,afro_soul,"Lagos, Nigeria","Johannesburg, South Africa","All exemplars (Letta Mbulu, Masekela, Thandiswa Mazwai, Mahlasela) are South African; Xhosa/Zulu lyrics."
+southern_africa,swazi_pop,"Cape Town, South Africa","Mbabane, eSwatini",Eswatini pop pinned to a Cape Town concert venue of one touring artist.
+southern_africa,dancehall_mauricien,"Saint-Pierre, Réunion (France)","Port Louis, Mauritius",Mauritian dancehall pinned to a Réunion tour stop; country coded France.
+southern_africa,juhoansi_healing_nom,Nyae Nyae (point coded Botswana),"Tsumkwe, Namibia",Nyae Nyae Ju|'hoansi heartland is in Namibia; pin falls on Botswana side.
+north_africa_arab,algerian_folk,"Paris, France","Algiers, Algeria",Algerian folk pinned via Souad Massi's Paris base; tradition centred in Algeria
+north_africa_arab,kabyle_moderne,"Paris, France","Tizi Ouzou, Algeria",Modern Kabyle song pinned to a Paris concert venue; Kabylie is the homeland
+north_africa_arab,deep_rai,"Paris, France","Oran, Algeria","Raï (Zahouania, Cheb Faycal exemplars) pinned to a Paris DJ network; raï is Oranais"
+north_africa_arab,reggae_maghreb,"Grenoble, France","Algiers, Algeria","Gnawa Diffusion diaspora pin is defensible, but the genre is Maghrebi"
+north_africa_arab,tunisian_pop,"Brussels, Belgium","Tunis, Tunisia",Tunisian pop (Saber Rebai exemplar) pinned to a Brussels diaspora artist
+north_africa_arab,tunisian_alternative,"Nice, France","Tunis, Tunisia",Tunisian alternative pinned to one Nice concert by Ÿuma
+north_africa_arab,syrian_pop,"Ras al-Ayn, Turkey","Ras al-Ayn, Syria",Ras al-Ayn is a Syrian town; country field wrongly says Turkey
+north_africa_arab,yemeni_pop,"Tel Aviv, Israel","Sana'a, Yemen","Yemeni pop pinned via an Israeli Yemenite-Jewish artist, not Yemen"
+north_africa_arab,iraqi_hip_hop,"Detroit, United States of America","Baghdad, Iraq",Iraqi hip hop pinned to a Detroit diaspora SoundCloud profile
+north_africa_arab,palestinian_pop,"Washington, United States of America","Ramallah, Palestine",Palestinian pop pinned to 47SOUL's NPR Tiny Desk venue
+north_africa_arab,palestinian_hip_hop,"Lod, Israel","Lod / Ramallah, Palestine",Palestinian scene; DAM's Lod anchor puts it outside Palestine's count
+north_africa_arab,palestinian_traditional,"Isfiya, Israel","Galilee / Ramallah, Palestine",Palestinian oud tradition counted under Israel via artist birthplace
+north_africa_arab,palestinian_alternative,"Majdal Shams (Golan), Israel","Haifa / Ramallah, Palestine",Palestinian indie pinned to a Golan studio; country set to Israel
+north_africa_arab,arabic_hip_hop,"Lod, Israel","Beirut, Lebanon (pan-Arab)",Pan-Arab rap umbrella pinned to one Lod crew
+north_africa_arab,arab_groove,"Paris, France","Beirut, Lebanon",Lebanese producer Hadi Zeidan's Arab groove pinned to Paris
+north_africa_arab,arab_alternative,"Durham, United States of America","Amman, Jordan / Beirut, Lebanon","Arab alt scene (Autostrad, Mashrou' Leila) pinned to a North Carolina act"
+north_africa_arab,arab_experimental,"Stoke Newington, United Kingdom","Cairo, Egypt / Beirut, Lebanon",Arab experimental pinned to one London oudist
+north_africa_arab,arabic_instrumental,"New York, United States of America","Cairo, Egypt",Arabic maqam taqsim pinned to a New York oud release
+north_africa_arab,belly_dance,"Cambridge, United States of America","Cairo, Egypt",Raqs sharqi music pinned to a 1975 Massachusetts nightclub LP
+north_africa_arab,qanun,"Hastings-on-Hudson, United States of America","Cairo, Egypt",Arab qanun repertoire pinned to one New York-state recording town
+north_africa_arab,oud,"New York, United States of America","Baghdad, Iraq / Tunis, Tunisia",Arab oud pinned via Anouar Brahem's NY session; Tunisian/Iraqi schools
+north_africa_arab,assyrian_pop,"Chicago, United States of America","Baghdad / Nineveh, Iraq",Assyrian pop pinned to Chicago diaspora; homeland is northern Iraq
+north_africa_arab,sorani_pop,"Stockholm, Sweden","Sulaymaniyah, Iraq",Sorani Kurdish pop (Adnan Karim) pinned to a Stockholm concert
+anatolia_iran_caucasus_centralasia,persian_pop_los_angeles,"Tehrangeles, United States of America","Los Angeles, United States",Defensible: named Tehrangeles diaspora scene; roots in pre-1979 Tehran pop
+anatolia_iran_caucasus_centralasia,persian_underground_hip_hop,"Melbourne, Australia","Tehran, Iran","Exemplars Hichkas, Bahram, Fadaei are Tehran underground; Melbourne is one concert"
+anatolia_iran_caucasus_centralasia,persian_drill,"London, United Kingdom","Tehran, Iran",021kid and Hiphopologist are Tehran-based; London branch is minor
+anatolia_iran_caucasus_centralasia,persian_sad_rap,France,"Tehran, Iran",Persian-language sad rap centred in Iran; country-level France pin from one rapper
+anatolia_iran_caucasus_centralasia,persian_electronic,"London, United Kingdom","Tehran, Iran",Pinned via Ash Koosha's London label; Tehran electronic scene is the core
+anatolia_iran_caucasus_centralasia,persian_rock,"New York, United States of America","Tehran, Iran",Persian-language rock pinned via one New York artist
+anatolia_iran_caucasus_centralasia,afghan_rap,"Munich, Germany","Kabul, Afghanistan",Afghan rap pinned to one diaspora upload; Kabul scene is the genre centre
+anatolia_iran_caucasus_centralasia,hazaragi_pop,"Vienna, Austria","Kabul, Afghanistan","Hazaragi (Dawood Sarkhosh) pop belongs to Hazarajat/Kabul/Quetta, not Vienna"
+anatolia_iran_caucasus_centralasia,balochi_pop,"Stockholm, Sweden","Zahedan, Iran",Exemplar Rostam Mirlashari is Iranian Baloch from Sistan-Baluchestan
+anatolia_iran_caucasus_centralasia,sorani_pop,"Stockholm, Sweden","Sulaymaniyah, Iraq",Sorani Kurdish pop centres on Iraqi/Iranian Kurdistan; Stockholm is one concert
+anatolia_iran_caucasus_centralasia,kurdish_hip_hop,"Bonn (Kurdish diaspora branch), Germany","Diyarbakır, Turkey",Kurdish-language rap centres in Kurdistan; Bonn pin from German-language rapper Xatar
+anatolia_iran_caucasus_centralasia,armenian_hip_hop,"Washington, United States of America","Yerevan, Armenia",Pinned at a White House protest; Armenian rap centres on Yerevan
+anatolia_iran_caucasus_centralasia,caucasian_classical,"New York, United States of America","Yerevan, Armenia",Khachaturian/Armenian concert repertoire pinned to a New York booklet session
+anatolia_iran_caucasus_centralasia,caucasian_classical_piano,"Munich, Germany","Tbilisi, Georgia",Georgian (Buniatishvili) piano lineage pinned to a Munich recital
+anatolia_iran_caucasus_centralasia,turkish_alt_pop,"Paris, France","Istanbul, Turkey",Turkish alt-pop pinned to one artist's Paris profile
+anatolia_iran_caucasus_centralasia,oriental_classical,"New York, United States of America","Istanbul, Turkey",Turkish pianist exemplar; repertoire is Turkish/Middle Eastern concert music
+anatolia_iran_caucasus_centralasia,assyrian_pop,"Chicago, United States of America","Tehran, Iran","1970s Assyrian pop formed in Tehran/Urmia (Ashur Bet Sargis, Evin Agassi); Chicago is diaspora"
+anatolia_iran_caucasus_centralasia,pontian_folk,"Thessaloniki, Greece","Thessaloniki, Greece",Defensible post-1923 diaspora pin; Black Sea Anatolian origin already pinned as pontic_greek
+russia_siberia_arctic,russian_chanson,"Odesa, Ukraine","Moscow, Russia","Odesa blatnyak origin defensible, but Krug/Novikov/Radio Chanson genre is Russian"
+russia_siberia_arctic,russian_synthpop,"Berlin, Germany","Saint Petersburg, Russia",Russian synthpop pinned to exemplar Chikiss's later Berlin base
+russia_siberia_arctic,russian_experimental_electronic,"Berlin, Germany","Moscow, Russia",Russian experimental electronic pinned to Dasha Rush's Berlin diaspora base
+russia_siberia_arctic,russian_edm,"Los Angeles, United States of America","Moscow, Russia",Russian EDM pinned to ARTY's Los Angeles studio
+russia_siberia_arctic,russian_jazz,"Brooklyn, United States of America","Moscow, Russia",Russian jazz pinned to one Brooklyn session by émigré Alex Sipiagin
+russia_siberia_arctic,russian_classical_piano,"London, United Kingdom","Moscow, Russia",Russian piano school pinned to a Wigmore Hall recording city
+russia_siberia_arctic,russian_modern_classical,"London, United Kingdom","Moscow, Russia",Russian modern classical pinned to a London church session by a Scottish pianist
+russia_siberia_arctic,russian_romanticism,"New York City, United States of America","Saint Petersburg, Russia",Lyapunov's Russian Romanticism pinned to a New York label point
+russia_siberia_arctic,russian_alt_pop,"Amsterdam, Netherlands","Izhevsk / Moscow, Russia",Russian alt pop (OQJAV) pinned to one Amsterdam diaspora concert
+russia_siberia_arctic,russian_trap_metal,"Lancashire, United Kingdom","Moscow, Russia",Russian trap metal pinned to one practitioner's Lancashire home
+russia_siberia_arctic,bard,"Brooklyn, United States of America","Moscow, Russia",Russian bard-song tag pinned to a Brooklyn émigré; duplicates russian_bard_song
+russia_siberia_arctic,zhenskiy_rep,"Berlin, Germany","Moscow / Kazan, Russia",Russian women's rap (AIGEL) pinned to vocalist's Berlin base
+russia_siberia_arctic,inuit_pop,"Montréal, Canada","Salluit (Nunavik), Canada",Inuit pop pinned to Montréal; Elisapie's Inuktitut repertoire is Nunavik-rooted
+russia_siberia_arctic,caucasian_folk,"Tbilisi, Georgia","Tbilisi, Georgia / Makhachkala, Russia","Caucasus composite includes Dagestani, Chechen, Circassian; North-Caucasus share counted in Georgia"
+russia_siberia_arctic,karelian_folk_music,"Karelia, Finland","Kalevala (Viena Karelia), Russia",Karelian rune-song core is Viena/Russian Karelia; cross-border pin defensible
+russia_siberia_arctic,sami_yoik,"Kautokeino, Norway","Kautokeino, Norway","In scope, correctly pinned: Sámi yoik outside the four-country list"
+russia_siberia_arctic,sami_northern_luohti,"Kautokeino, Norway","Kautokeino, Norway","In scope, correctly pinned: Northern Sámi luohti"
+russia_siberia_arctic,sami_skolt_leudd,"Sevettijärvi, Finland","Sevettijärvi, Finland","In scope, correctly pinned: Skolt Sámi leuʹdd"
+russia_siberia_arctic,sami_southern_vuelie,"Snåsa, Norway","Snåsa, Norway","In scope, correctly pinned: Southern Sámi vuelie"
+russia_siberia_arctic,sami_yoik_tracking,"Kautokeino, Norway","Kautokeino, Norway","In scope, correctly pinned: Sámi hunting yoik"
+russia_siberia_arctic,sami_vuolle_domestic,"Sápmi, Sweden","Sápmi, Sweden","In scope, correctly pinned: Sámi vuolle/domestic song"
+russia_siberia_arctic,sami_noaidi_drum_journey,"Sápmi, Sweden","Sápmi, Sweden","In scope, correctly pinned: noaidi drum-chant"
+russia_siberia_arctic,sami_yoik_tradition,"Kautokeino, Norway","Kautokeino, Norway","In scope, correctly pinned: Sámi yoik umbrella (near-duplicate of sami_yoik)"
+russia_siberia_arctic,sami,"Norway, Norway","Kautokeino, Norway",In scope: everynoise Sámi joik-electronic; country-centroid pin
+russia_siberia_arctic,lapland_hip_hop,"Inari, Finland","Inari, Finland","In scope, correctly pinned: Inari Sámi rap (AMOC)"
+russia_siberia_arctic,inuit_katajjaq,"Iqaluit, Canada","Puvirnituq (Nunavik) / Iqaluit, Canada","In scope, correctly pinned in Canadian Arctic: Inuit katajjaq"
+russia_siberia_arctic,inuit_traditional,"Iqaluit, Canada","Iqaluit, Canada","In scope, correctly pinned: Inuit drum-dance and pisiq"
+russia_siberia_arctic,yupik_yuraq,"Quinhagak / Qanirtuuq, United States of America","Quinhagak, United States of America","In scope, correctly pinned: Alaska Yup'ik yuraq"
+russia_siberia_arctic,haida_welcome_song,"Old Massett, Canada","Old Massett, Canada",Borderline in scope (Haida also in Alaska); correctly pinned
+india,indian_classical,"Fairfax, United States","Delhi, India",Hindustani classical (Sultan Khan sarangi) pinned to a US recording studio
+india,sitar,"Leeds, United Kingdom","Varanasi, India",Hindustani sitar repertoire pinned to a UK diaspora artist's home city
+india,tabla,"Leicester, United Kingdom","Varanasi, India",Hindustani tabla tradition pinned to a Leicester festival concert venue
+india,shehnai,"London, United Kingdom","Varanasi, India",Benares shehnai tradition pinned to a London Southbank performance
+india,sarod,"Richmond, United States","Kolkata, India",Maihar-gharana sarod pinned to a California studio session
+india,santoor,"Boston, United States","Mumbai, India",Hindustani santoor (Shivkumar Sharma lineage) pinned to a Boston chapel concert
+india,bansuri,"Eagle Rock, United States","Mumbai, India",Hindustani bansuri raga repertoire pinned to a Los Angeles concert
+india,indian_percussion,"London, United Kingdom","Varanasi, India",Benares tabla (Kishan Maharaj) pinned to a 1995 London recital
+india,nadaswaram,"Adelaide, Australia","Thanjavur, India",Tamil nadaswaram-thavil temple music pinned to a WOMADelaide festival set
+india,sarangi,"Lahore, Pakistan","Delhi, India",Hindustani sarangi mostly Indian lineage; Lahore exemplar defensible but secondary
+india,baps,"Chino Hills, United States","Ahmedabad, India",Gujarati Swaminarayan kirtan pinned to a California temple event
+india,classic_punjabi_pop,"Los Angeles, United States","Ludhiana, India",Classic Punjabi pop pinned to one diaspora producer's LA studio
+india,malayalam_cover,"Edmonton, Canada","Kochi, India",Malayalam film-song covers pinned to a Canadian YouTube duo
+india,tamil_worship,"Mississauga, Canada","Chennai, India",Tamil Christian worship industry centred in Chennai; pinned to a Canadian church
+india,goa_psytrance,"Tokyo, Japan","Anjuna, India",Genre named for Goa beach-party origin; pinned to Tokyo practitioners
+south_asia_rest,balochi_pop,"Stockholm, Sweden","Quetta, Pakistan",Baloch-language pop pinned to one diaspora exemplar's city; Baloch heartland is Pakistani/Iranian Balochistan
+south_asia_rest,chakma_pop,"Kamalanagar, India","Rangamati, Bangladesh",Majority of Chakma speakers and media live in Chittagong Hill Tracts
+south_asia_rest,nepali_indie,"Kalimpong, India","Kathmandu, Nepal",Nepali-language indie scene centred in Kathmandu; pinned to one Darjeeling-hills artist
+south_asia_rest,bengali_baul,"Birbhum, India","Kushtia, Bangladesh",Shared; Lalon lineage at Kushtia and UNESCO Baul inscription are Bangladesh's
+south_asia_rest,bengali_folk_lokgeeti,"Bengal, India","Rangpur, Bangladesh","Shared; bhawaiya, gambhira and most exemplars sit in Bangladesh"
+south_asia_rest,qawwali,"Nizamuddin, India","Faisalabad, Pakistan",Shared; Delhi origin defensible but all three exemplars are Pakistani
+south_asia_rest,nohay,"Lucknow, India","Karachi, Pakistan",Shared; all four exemplars from Karachi cassette industry
+china,tibetan_hip_hop,"Zurich, Switzerland","Lhasa, China",Tibetan-language rap scene (Lhasa/Xining) pinned to a Swiss diaspora rapper's city
+china,tibetan_pop,"Seattle, United States","Lhasa, China",Tibetan pop industry (Lhasa/Xining/Chengdu) pinned to a US fusion-project recording city
+china,tibetan_folk_pop,"Dharamshala, India","Lhasa, China","Exile anchor defensible, but Tibetan folk-pop is centred in Tibet/Amdo; contested"
+china,tibetan_mantra,"Bergneustadt, Germany","Lhasa, China",Tibetan mantra repertoire pinned to a German new-age label locality
+china,uyghur_pop,"Sydney, Australia","Urumqi, China",Uyghur pop industry (Urumqi) pinned to a single Australian diaspora trio
+china,chinese_classical,"Amsterdam, Netherlands","Beijing, China",Chinese concert repertoire pinned to a Dutch recording venue
+china,chinese_classical_performance,"Singapore, Singapore","Beijing, China",Chinese classical performance pinned to one Singapore concert venue
+china,chinese_classical_piano,"Berlin, Germany","Beijing, China",Chinese piano repertoire pinned to a Berlin live-recording venue
+china,chinese_jazz,"New York City, United States","Shanghai, China",Chinese jazz pinned to New York; Shanghai is the historic and current centre
+china,chinese_electronic,"Brooklyn, United States","Shanghai, China",Chinese electronic scene pinned to a Brooklyn artist; Shanghai/Beijing clubs are its base
+china,chinese_electropop,"Singapore, Singapore","Beijing, China",Chinese electropop pinned to a single Esplanade programme listing
+china,chinese_audiophile,"Singapore, Singapore","Taipei, Taiwan","Chinese audiophile vocal genre is a Taiwan/Hong Kong label phenomenon, pinned to Singapore"
+china,chinese_worship,"Tustin, United States","Taipei, Taiwan",Chinese-language worship centred in Taiwan/HK; US ministry base is a diaspora anchor
+china,cantonese_worship,"Houston, United States","Hong Kong, Hong Kong",Cantonese worship's core is Hong Kong churches; pinned to a Houston ministry
+china,vintage_chinese_pop,"Kuala Lumpur, Malaysia","Shanghai, China",Vintage Chinese pop (Shanghai/HK shidaiqu) pinned to a Malaysian revival artist
+mainland_sea,cambodian_pop,"Los Angeles, United States","Phnom Penh, Cambodia",Khmer-language pop is a Phnom Penh industry; pin follows diaspora band Dengue Fever
+mainland_sea,hmong_pop,"Saint Paul, United States","Saint Paul, United States","Diaspora-led genre; pin defensible, but homeland Hmong pop (Laos/Thailand/Vietnam) unrepresented"
+mainland_sea,karen_pop,"San Diego, United States","Hpa-an, Myanmar",Karen-language pop rooted in Kayin State/Thai border; pin follows one diaspora artist
+mainland_sea,zomi_pop,"Washington, United States","Tedim, Myanmar",Zomi are Chin of Tedim/Tonzang; pin is a diaspora community anchor
+mainland_sea,theravada_pali_chant,"Kandy, Sri Lanka","Kandy, Sri Lanka",Pan-Theravada; Sri Lanka pin defensible but Burmese/Thai/Lao/Khmer chant styles folded in
+maritime_sea,vispop,"Stockholm, Sweden","Cebu City, Philippines","Record describes Cebuano Vispop (Kurt Fick, Jewel Villaflores) yet is pinned to Stockholm, likely conflated with Swedish vispop"
+maritime_sea,singaporean_electronic,"New York, United States of America","Singapore, Singapore",Singaporean electronic category pinned to one producer's New York base; scene centre is Singapore
+maritime_sea,indonesian_neo_psychedelia,"Amsterdam, Netherlands","Jakarta, Indonesia","Pinned via diaspora band Nusantara Beat; defensible as diaspora, but Indonesian psych revival centres on Jakarta/Bandung"
+maritime_sea,maluku_pop,"Deventer, Netherlands",Netherlands (Moluccan diaspora),"Defensible: Dutch-Moluccan exemplars (Massada, Sahuleka); Ambon home repertoire already covered by lagu_maluku"
+maritime_sea,indorock,"The Hague, Netherlands","The Hague, Netherlands",Defensible: Indo-Dutch repatriate genre born in The Hague; kroncong/Hawaiian roots in the East Indies
+oceania,australian_dance,"Los Angeles, United States","Melbourne, Australia","Australian dance branch pinned to expatriate producer's LA base, not an Australian scene"
+oceania,jawaiian,"Salinas, United States","Honolulu, Hawaii (United States)",Jawaiian is Hawaiian island reggae; pin follows a California diaspora trio
+oceania,samoan_pop,"Byron Bay, Australia","Apia, Samoa",Samoan pop industry is Apia/Pago Pago and Auckland; pin follows diaspora artist Bobby Alu
+indigenous_north_america,inuit_pop,"Montréal, Canada","Salluit / Kuujjuaq (Nunavik), Canada",Pinned to Elisapie's Montréal base; Inuktitut pop is rooted in Nunavik/Nunavut communities
+indigenous_north_america,native_american_contemporary,"New York, United States of America","Albuquerque / Phoenix, United States of America",Label-profile city; Native contemporary songwriting circuit centres on Southwest labels and communities
+indigenous_north_america,musica_chiapaneca,"Mexico City, Mexico","Tuxtla Gutiérrez / San Cristóbal (Chiapas), Mexico",Chiapas repertoire incl. Indigenous-language song pinned to ensemble's Mexico City release profile
+indigenous_north_america,native_american_flute_music,"Flagstaff, United States of America","Anadarko, Oklahoma / Pine Ridge, United States of America",Describes Plains/Woodlands courting flute; Flagstaff reflects Nakai revival only. Defensible
+indigenous_north_america,rap_femenino_mexicano,"Oaxaca, Mexico","Mexico City, Mexico",National women's-rap slice pinned to Zapotec exemplar Mare Advertencia; inflates Indigenous Oaxaca
+indigenous_north_america,musica_mixteca,"Mixteca, Mexico","Huajuapan de León (Mixteca), Mexico","Pin OK, but lead exemplar Banda de Tlahuitoltepec is Mixe (Ayuuk), not Mixtec"
+indigenous_north_america,apache_hunting_medicine,"White Mountain, United States of America","White Mountain, United States of America","Pin OK, but exemplars are Northern Plains powwow drums; near-duplicate of powwow"
+andes_amazon_central_america,guyanese_pop,"New York, United States of America","Georgetown, Guyana",Guyanese pop pinned to a single New York diaspora artist (Juke Ross)
+andes_amazon_central_america,jazz_tico,"Brooklyn, United States of America","San José, Costa Rica",Costa Rican jazz pinned to one Brooklyn diaspora quartet
+andes_amazon_central_america,jazz_boliviano,"Melbourne, Australia","La Paz, Bolivia",Bolivian jazz pinned to one Melbourne club gig of a Bolivian pianist
+andes_amazon_central_america,hip_hop_boliviano,"São Paulo, Brazil","El Alto / La Paz, Bolivia",Bolivian hip hop pinned to São Paulo diaspora; El Alto Aymara rap is the centre
+andes_amazon_central_america,charango,"Los Angeles, United States of America","Potosí / La Paz, Bolivia",Andean charango repertoire pinned to a Los Angeles solo player
+andes_amazon_central_america,surinamese_hip_hop,"Amsterdam, Netherlands","Paramaribo, Suriname",Surinamese hip hop pinned to Amsterdam diaspora institution
+andes_amazon_central_america,dancehall_guyanaise,"Paris, France","Cayenne, French Guiana",French Guianese dancehall pinned to Paris artist base
+andes_amazon_central_america,raices,"San Juan, Puerto Rico","La Paz, Bolivia","Altiplano panpipe/charango roots current (Kjarkas, Inti-Illimani) pinned to Puerto Rico"
+andes_amazon_central_america,latin_american_baroque,"Machico, Portugal","Concepción (Chiquitos), Bolivia",Colonial Latin American repertoire pinned to a Madeira festival; Chiquitos/Cusco/Lima are core sources
+andes_amazon_central_america,aleke,"Apatou, France","Apatou, French Guiana","Guianese Maroon genre pinned correctly but country-coded France, so counted outside region"
+andes_amazon_central_america,awasa,"Papaïchton, France","Papaïchton, French Guiana",Aluku Maroon drum-dance pinned in French Guiana but country-coded France
+caribbean_mexico_colven,criolla,"Lima, Peru","Havana, Cuba","Cuban criolla art-song (Casas Romero, Anckermann) per its own lineage; pin confused with Peruvian música criolla"
+caribbean_mexico_colven,reggae_bultron,"Panama City, Panama","San Juan, Puerto Rico","Lineage is 1990s San Juan underground (DJ Nelson, DJ Playero); Panama pin contradicts record"
+caribbean_mexico_colven,cumbia_rap,"Buenos Aires, Argentina","Monterrey, Mexico","Lineage names Monterrey crossover: Control Machete, Celso Piña, El Gran Silencio, Cartel de Santa"
+caribbean_mexico_colven,cumbia_ranchera,"Santa Fe, Argentina","Monterrey, Mexico","Lineage is Mexican (Monterrey, Guadalajara, Bajío; Los Bukis, Bryndis, Temerarios); Argentine pin unexplained"
+caribbean_mexico_colven,rnb_en_espanol,"Madrid, Spain","Mexico City, Mexico","Lineage centres Mexico City/Bogotá/Santiago/LA (Girl Ultra, Kali Uchis); Madrid absent from it"
+caribbean_mexico_colven,haitian_gospel,"Montreal, Canada","Port-au-Prince, Haiti",Haitian gospel pinned to one diaspora singer's Montreal base
+caribbean_mexico_colven,kompa_chretien,"Paris, France","Port-au-Prince, Haiti",Haitian Christian kompa pinned to a Paris DJ's SoundCloud locality
+caribbean_mexico_colven,trap_dominicano,"Bronx, United States","Santo Domingo, Dominican Rep.",Dominican trap pinned to Bronx diaspora branch (Sie7etr3); genre centre is DR
+caribbean_mexico_colven,colombian_black_metal,"Seattle, United States","Medellín, Colombia",Pinned via Inquisition's later Seattle base; scene is Medellín/Bogotá
+caribbean_mexico_colven,colombian_electronic,"Melbourne, Australia","Bogotá, Colombia",Colombian electronic pinned to one Melbourne-based act (Amaru Tribe)
+caribbean_mexico_colven,electronica_venezuela,"Berlin, Germany","Caracas, Venezuela",Venezuelan electronic pinned to a Berlin label release by Aérea Negrot
+caribbean_mexico_colven,mexican_classical,"Chicago, United States","Mexico City, Mexico",Mexican concert music (Ponce) pinned to a Chicago label's recording city
+caribbean_mexico_colven,trinidadian_reggae,"London, United Kingdom","Port of Spain, Trinidad and Tobago",Trinidadian reggae pinned to a London-based artist
+caribbean_mexico_colven,gospel_papiamento,"Schiedam, Netherlands","Willemstad, Curaçao",Papiamentu gospel pinned to a Dutch diaspora singer's town
+caribbean_mexico_colven,antilliaanse_rap,"Amsterdam, Netherlands","Willemstad, Curaçao",Dutch-Caribbean rap pinned to Amsterdam diaspora (Young Ellens)
+caribbean_mexico_colven,rap_antillais,"Paris, France","Fort-de-France, Martinique",French Antillean rap pinned to a Paris club DJ mixtape
+caribbean_mexico_colven,jazz_caraibes,"Cologne, Germany","Fort-de-France, Martinique",Martinican Caribbean jazz pinned to Grégory Privat's Cologne recording session
+caribbean_mexico_colven,orquesta_cubana,"Austin, United States","Havana, Cuba",Cuban orquesta format pinned to a KUTX studio session in Austin
+caribbean_mexico_colven,trio_cubano,"Los Angeles, United States","Santiago de Cuba, Cuba",Cuban trío tradition pinned to an LA-based trio
+caribbean_mexico_colven,afro_cuban_percussion,"New York City, United States","Havana, Cuba",Afro-Cuban percussion pinned to a NYC instructional album
+caribbean_mexico_colven,guitarra_mexicana,"Silver City, United States","Mexico City, Mexico",Mexican guitar repertoire pinned to a New Mexico guitarist's hometown
+caribbean_mexico_colven,traditional_reggae,"South Florida, United States","Kingston, Jamaica",Jamaican roots band Chalice pinned to a member's Florida residence
+caribbean_mexico_colven,mariachi_cristiano,Guatemala,"Guadalajara, Mexico",Mexican-origin mariachi worship genre pinned to one Guatemalan ensemble
+caribbean_mexico_colven,latin_american_baroque,"Machico, Portugal","Puebla / Mexico City, Mexico",Colonial cathedral repertory pinned to a Madeira festival venue; centres were New Spain and Peru
+brazil_southern_cone,electronica_argentina,"Berlin, Germany","Buenos Aires, Argentina",Argentine-named electronica genre pinned to one diaspora duo's Berlin label base
+brazil_southern_cone,argentine_indie,"Madrid, Spain","Buenos Aires, Argentina",Argentine indie pinned to a Madrid diaspora artist; scene centres on Buenos Aires/La Plata
+brazil_southern_cone,bossa_nova_jazz,"Seattle, United States of America","Rio de Janeiro, Brazil","Bossa-jazz idiom pinned to one Seattle band; genre originates Rio, 1958-63"
+se_europe_east_europe,polish_classical,"Dunwich, United Kingdom","Warsaw, Poland",Polish composers' repertoire pinned to an English recording hall (Potton Hall)
+se_europe_east_europe,polish_contemporary_classical,"Dunwich, United Kingdom","Warsaw, Poland",Polish new-music scene pinned to an English recording venue
+se_europe_east_europe,hungarian_contemporary_classical,"Vienna, Austria","Budapest, Hungary",Hungarian composers pinned to a Vienna recording hall
+se_europe_east_europe,hungarian_classical_performance,"Lugano, Switzerland","Budapest, Hungary",Hungarian performance tradition pinned to a Swiss label recording locality
+se_europe_east_europe,romanian_classical_piano,"Besançon, France","Bucharest, Romania","Pinned to Lipatti's Besançon recital, not the Romanian school"
+se_europe_east_europe,ukrainian_classical,"Mount Vernon, United States of America","Kyiv, Ukraine",Ukrainian concert repertoire pinned to a US recording locality
+se_europe_east_europe,ukrainian_classical_piano,"London, United Kingdom","Kyiv, Ukraine",Ukrainian piano school pinned to London recording locality
+se_europe_east_europe,ukrainian_contemporary_classical,"Munich, Germany","Kyiv, Ukraine",Ukrainian new music pinned to a Munich recording locality
+se_europe_east_europe,greek_contemporary_classical,"Pittsburgh, United States of America","Athens, Greece",Greek composers pinned to a Carnegie Mellon recording session
+se_europe_east_europe,ukrainian_experimental,"Berlin, Germany","Lviv, Ukraine",Pinned to a 2026 Berlin concert; Tsymbrovsky's practice is Lviv-based
+se_europe_east_europe,ukrainian_folk_pop,"Toronto, Canada","Kyiv, Ukraine",Ukrainian folk-pop pinned to a single diaspora artist's city
+se_europe_east_europe,albanian_hip_hop,"Stuttgart, Germany","Tirana, Albania",Albanian/Kosovar rap pinned to one diaspora rapper's hometown
+se_europe_east_europe,cypriot_pop,"Nicosia, N. Cyprus","Nicosia, Cyprus",Greek-Cypriot pop coded to Northern Cyprus country polygon
+se_europe_east_europe,bohemian_baroque,"Salzburg, Austria","Prague, Czechia",Bohemian Baroque pinned to Biber's Salzburg court service
+se_europe_east_europe,pontic_greek,"Trabzon (Pontus), Turkey","Thessaloniki, Greece",Recorded Pontic tradition lives in Greece since 1923; duplicates pontian_folk
+control_british_isles,techno_folk,"Berlin, Germany","Edinburgh, United Kingdom","Record's own lineage: Martyn Bennett, Shooglenifty, Afro Celt; Scottish/London fusion pinned to Berlin."
+control_british_isles,hard_dance,"Rotterdam, Netherlands","London, United Kingdom",Described as British umbrella idiom of London's Trade/Frantic nights and Tidy Trax; pinned Rotterdam.
+control_british_isles,crank_wave,"Gdańsk, Poland","London, United Kingdom","Term for British post-punk current (Squid, Windmill Brixton scene); pinned to a Polish exemplar."
+control_british_isles,british_singer_songwriter,"Cévennes, France","London, United Kingdom","British songwriter cluster (Laura Marling, Ben Howard) pinned to one France-based expatriate."
+control_british_isles,britpop_revival,"Barcelona, Spain","London, United Kingdom",Revival of a British style; pinned to a single Barcelona band.
+control_british_isles,irish_neo_traditional,"Padua, Italy","Dublin, Ireland",Category describes Irish repertoire and practice; pinned to an Italian piper's recording site.
+control_british_isles,celtic_harp,"Seattle, United States of America","Dublin, Ireland",Irish/Scottish (and Breton) harp repertoire pinned to one Seattle lever-harp player.
+control_british_isles,deep_dubstep,"San Francisco, United States of America","Croydon, United Kingdom",Deep dubstep is the DMZ/Croydon soundsystem lineage; pinned to a San Francisco club night.
+control_british_isles,gospel_drill,"Ho, Ghana","London, United Kingdom",Exemplar is a 'UK Gospel Drill' mix; rationale concedes UK genre birthplace.
+control_us_roots,el_paso_indie,El Paso (country column: Mexico),"El Paso, United States of America","Pinned to El Paso, Texas but country assigned Mexico; coordinate falls on wrong side of border."
+control_us_roots,latino_comedy,El Paso (country column: Mexico),"El Paso, United States of America","US Latino comedy filmed in El Paso, Texas, yet country recorded as Mexico."
+control_us_roots,polka_dance,"Bohemia, Czechia","Cleveland / Upper Midwest, United States of America","All exemplars are American polka (Yankovic, Whoopee John, Welk, Sturr); models US polka, pinned at origin."
+control_us_roots,klezmer,"Odesa, Ukraine","New York, United States of America","Exemplars are NYC 78s and US revival (Brandwein, Tarras, Klezmatics); modeled sound is American klezmer."
+control_us_roots,yiddish_wedding_bulgar,"Odesa, Ukraine","New York, United States of America",Bulgar codified on New York 78s; every exemplar is a US recording or US revival band.
+control_us_roots,honky_tonk_piano,"Mainz, Germany","Texas / Southern saloons, United States of America",American saloon piano style pinned to a German sheet-music publisher's address.
+control_us_roots,modern_old_time,"Aberystwyth, United Kingdom","Southern Appalachians, United States of America",Appalachian old-time revival category pinned to one Welsh band's locality.
+control_us_roots,traditional_rockabilly,"Adelaide, Australia","Memphis, United States of America",Generic traditional rockabilly category pinned to an Australian representative artist.
+control_us_roots,alternative_country,"Naas, Ireland","Belleville / Chicago, United States of America",US alt-country genre pinned to one Irish representative artist.
+control_us_roots,alternative_americana,"Naas, Ireland","Nashville, United States of America",US Americana category pinned to one Irish representative artist.
+control_us_roots,tololoche,"Monterrey, Mexico","San Antonio / South Texas, United States of America",Lead exemplars Narciso Martínez and Santiago Jiménez Sr. are Texas conjunto founders; borderline.
+western_europe,german_opera,"Budapest, Hungary","Bayreuth, Germany","Wagner/German opera repertoire pinned to one touring recital in Budapest, not a German opera house."
+western_europe,german_renaissance,"Kraków, Poland","Munich, Germany","German Renaissance polyphony pinned to a 2011 Kraków concert series, not Munich/Nuremberg courts."
+western_europe,french_opera,"Barcelona, Spain","Paris, France",French opera (Gounod) pinned to a 2019 Barcelona recital rather than Paris opera houses.
+western_europe,old_school_ebm,"Gothenburg, Sweden","Brussels, Belgium",Old-school EBM originates with Front 242 (Brussels) and DAF (Düsseldorf); pinned to one present-day Swedish act.
+western_europe,deep_euro_house,"Los Angeles, USA","Osnabrück, Germany","Exemplars Robin Schulz, Tube & Berger are German producers; pinned to a Los Angeles DJ anchor."
+western_europe,nu_gabber,"Prague, Czechia","Berlin, Germany",Exemplar Brutalismus 3000 is Berlin-based; gabber roots Rotterdam; pinned to one Prague gig.
+western_europe,gregorian_chant,"Rome, Italy","Solesmes, France",Record says Romano-Frankish Carolingian synthesis restored by Solesmes; lead exemplar Solesmes Abbey Choir.
+nordic,danish_singer_songwriter,"Berlin, Germany","Copenhagen, Denmark",Danish category pinned at one artist's (Agnes Obel) Berlin working base
+nordic,swedish_classical,"Bristol, United Kingdom","Stockholm, Sweden",Swedish repertoire category pinned to a UK recording venue
+nordic,swedish_contemporary_classical,"Washington, United States of America","Stockholm, Sweden",Swedish composition category pinned to a US recording locality
+nordic,new_weird_finland,"Stockholm, Sweden","Helsinki, Finland",Finnish free-folk scene pinned to Stockholm EMS studio of one album
+nordic,ecm_style_jazz,"Munich, Germany","Oslo, Norway",Lineage says sound codified at Oslo's Rainbow Studio; Munich is only label HQ
+nordic,jazztronica,"London, United Kingdom","Oslo, Norway","Codifiers named are Norwegian (Molvær, Wesseltoft, Jaga Jazzist)"
+southern_europe,makina,"Newcastle, United Kingdom","Barcelona, Spain","Own record says it formed at Barcelona clubs (Pont Aeri, Chasis); Newcastle is a later export"
+southern_europe,spanish_renaissance,"London, United Kingdom","Seville, Spain",Spanish Golden Age polyphony pinned to Tallis Scholars' London recording church
+southern_europe,spanish_classical,"London, United Kingdom","Madrid, Spain",Spanish repertoire category pinned to a London recording venue (Stephen Hough)
+southern_europe,italian_opera,"London, United Kingdom","Milan, Italy",Italian opera category pinned to a Wigmore Hall recital
+southern_europe,italian_pop,"Vilnius, Lithuania","Milan, Italy",Italian pop category pinned to one minor artist's Lithuanian base
+southern_europe,portuguese_contemporary_classical,"Cardiff, United Kingdom","Lisbon, Portugal",Portuguese composition category pinned to one composer's Welsh working base
+southern_europe,flamenco_fusion,"Miami, United States of America","Madrid, Spain",Flamenco fusion pinned to a Venezuelan-origin Miami dance company
+southern_europe,rumba,"Arles, France","Barcelona, Spain","'Spanish popular song' rumba (Peret, Los Chichos) pinned at Gipsy Kings' Arles base"
+japan_korea,korean_contemporary_classical,"Paris, France","Seoul, South Korea",Korean new-music scene; Paris is only one festival/recording context
+japan_korea,korean_classical_piano,"Berlin, Germany","Seoul, South Korea",Korean pianist/conservatory field; Berlin is just a label recording city
+japan_korea,korean_experimental,"Berlin, Germany","Seoul, South Korea",Korean experimental scene pinned to a diaspora cellist's current base
+japan_korea,korean_classical_performance,"Bristol (England), United Kingdom","Seoul, South Korea",Korean concert-performance field pinned to one recording location
+japan_korea,korean_underground_rap,"London, United Kingdom","Seoul, South Korea","Seoul crew networks (Daenamhyup, Rock Bottom) pinned at a touring event city"
+japan_korea,korean_traditional,"Washington, United States of America","Seoul, South Korea","Korean gugak (sanjo, kayagum) pinned to a Smithsonian concert venue"
+japan_korea,japanese_classical,"Danderyd, Sweden","Tokyo, Japan",Japanese art-music field pinned to a booklet recording location
+japan_korea,japanese_classical_performance,"Snape Maltings, United Kingdom","Tokyo, Japan",Japanese concert-performance field pinned to Uchida's recording hall
+japan_korea,japanese_classical_piano,"Princeton, United States of America","Tokyo, Japan",Japanese piano field pinned to a single US recital city
+jewish_roma,klezmer,"Odesa, Ukraine","Odesa, Ukraine","Ashkenazi wedding-band tradition; diaspora pin correct, region has no Israel/klezmer cross-link"
+jewish_roma,cantorial_khazonus,"Vilnius, Lithuania","Vilnius, Lithuania",Ashkenazi hazzanut; plausible Eastern European pin
+jewish_roma,jewish_cantorial_recitative,"New York, United States of America","New York, United States of America","Golden-age recorded hazzanut; New York recording hub, fine"
+jewish_roma,hasidic_niggun,"Podolia, Ukraine","Podolia, Ukraine","Hasidic wordless melody; Baal Shem Tov heartland, fine"
+jewish_roma,chabad_niggunim,"Lyubavichi, Russia","Lyubavichi, Russia","Chabad niggunim; movement's namesake town, fine"
+jewish_roma,yemenite_torah_cantillation,"Sana'a, Yemen","Sana'a, Yemen",Yemenite Jewish liturgy; origin pin fine though community now mostly in Israel
+jewish_roma,sephardi_bakkashot,"Aleppo, Syria","Aleppo, Syria",Aleppan bakkashot school; correct origin pin
+jewish_roma,sefardi_romancero,"Thessaloniki, Greece","Thessaloniki, Greece",Ladino song; Salonica a defensible Sephardi centre
+jewish_roma,yiddish_folk,"Vilnius, Lithuania","Vilnius, Lithuania","Ashkenazi secular song; YIVO/Vilna centre, fine"
+jewish_roma,yiddish_vigndlid,"Vilnius, Lithuania","Vilnius, Lithuania",Yiddish cradle song; same Vilnius anchor as other Yiddish entries
+jewish_roma,yiddish_spinning_domestic,"Vilnius, Lithuania","Vilnius, Lithuania","Yiddish domestic song; Vilnius anchor, fine"
+jewish_roma,yiddish_wedding_bulgar,"Odesa, Ukraine","Odesa, Ukraine",Klezmer dance repertoire; Odesa plausible
+jewish_roma,jewish_maggid_preaching,"Vilnius, Lithuania","Vilnius, Lithuania","Maggid preaching; Dubner/Vilna lineage, fine"
+jewish_roma,klezmer_jazz_fusion,"New York, United States of America","New York, United States of America",American klezmer revival-jazz; correct
+jewish_roma,chasidic_pop,"Crown Heights, United States of America","Crown Heights, United States of America","Orthodox Jewish pop; NY industry, though Israel equally central"
+jewish_roma,jewish_kaddish,"Jerusalem, Palestine",Jerusalem (pan-Jewish liturgy),Pan-diaspora liturgy; Jerusalem coded Palestine while other Jerusalem/Israeli entries coded Israel
+jewish_roma,israeli_folk,"Jerusalem, Palestine","Jerusalem, Israel",Israeli genre (Bustan Abraham branch) country-coded Palestine; inconsistent with Israel-coded peers
+jewish_roma,israeli_singer_songwriter,"Haifa, Lebanon","Haifa, Israel",Haifa is in Israel; country field wrongly Lebanon (geocoding error)
+jewish_roma,festigal,"Haifa, Lebanon","Haifa / Tel Aviv, Israel",Israeli Hanukkah children's festival; Haifa wrongly coded Lebanon
+jewish_roma,israeli_classical_piano,"Monmouth, United Kingdom","Tel Aviv, Israel","Pinned to Welsh recording studio, not Israeli performance tradition"
+jewish_roma,jewish_hip_hop,"New York City, United States of America","New York City, United States of America","Diaspora scene (Kosha Dillz, Matisyahu); pin fine"
+jewish_roma,jewish_pop,"Los Angeles, United States of America","Los Angeles, United States of America",American Jewish pop; pin fine
+jewish_roma,jewish_a_capella,"New York City, United States of America","New York City, United States of America",American Jewish a cappella; pin fine
+jewish_roma,judaica,United States (country centroid),"New York, United States of America","Debbie Friedman branch pinned to national centroid, not a locality"
+jewish_roma,moroccan_traditional,"Tetuan, Morocco","Tetouan, Morocco",Selected branch is Sephardic Haketia romance (Alicia Benassayag); pin fine
+jewish_roma,gypsy_jazz,"Paris, France","Paris, France",Sinti/Manouche jazz; correct pin
+jewish_roma,flamenco,"Seville, Spain","Seville, Spain",Gitano-Andalusian tradition; correct
+jewish_roma,cante_flamenco,"Jerez, Spain","Jerez de la Frontera, Spain",Gitano cante core; correct
+jewish_roma,rumba_catalana,"Gràcia, Spain","Barcelona (Gràcia), Spain",Catalan Gitano rumba; correct
+jewish_roma,rumba,"Arles, France","Arles, France","Gipsy Kings branch; French Gitan rumba, fine"
+jewish_roma,hungarian_cimbalom_trad,"Budapest, Hungary","Budapest, Hungary",Romungro restaurant bands; correct
+jewish_roma,hungarian_magyar_nota,"Budapest, Hungary","Budapest, Hungary",Performed by Roma cigányzenekar; correct
+jewish_roma,csardas,"Budapest, Hungary","Budapest, Hungary",Roma-led restaurant dance music; correct
+jewish_roma,romanian_lautari,"Clejani, Romania","Clejani, Romania",Roma lăutari village (Taraf de Haïdouks); correct
+jewish_roma,muzica_lautareasca,"Bucharest, Romania","Bucharest, Romania",Roma professional repertory; correct
+jewish_roma,manele,"Bucharest, Romania","Bucharest, Romania",Romanian Roma party-pop; correct
+jewish_roma,balkan_brass_fanfara,"Guča, Serbia","Vranje, Serbia",Guča is festival site in western Serbia; Roma brass heartland is Vranje/Bujanovac
+jewish_roma,balkan_brass,"Guča, Serbia","Vranje, Serbia",Same: festival site rather than the southern-Serbian Roma orkestar centre
+jewish_roma,roma_svatba_balkan,"Šutka, North Macedonia","Šutka (Skopje), North Macedonia",Roma municipality; correct
+jewish_roma,tallava,"Pristina, Kosovo","Pristina / Ferizaj, Kosovo",Roma-Ashkali keyboard wedding song; pin acceptable
+jewish_roma,turkish_romani_cumbus,"Istanbul, Turkey","Istanbul (Sulukule), Turkey",Turkish Roman music; correct
+jewish_roma,oyun_havasi,"Istanbul, Turkey","Istanbul / Edirne, Turkey",Roman-musician dance repertoire; fine
+jewish_roma,gypsy,"Saratov, Russia","Moscow, Russia",Generic 'Gypsy' umbrella pinned to one guitarist's birthplace; Russian Romani centre is Moscow
+jewish_roma,gypsy_punk,"Lower East Side, United States of America","Lower East Side, New York, United States of America",Gogol Bordello diaspora fusion; correct
+jewish_roma,kosovan_indie,"Prishtina, Kosovo","Prishtina, Kosovo","Branch is Gipsy Groove, a Balkan Romani band; genre label, not pin, is off"
+jewish_roma,slovenske_chvaly,"Čičava, Slovakia","Čičava, Slovakia",Branch is a Slovak/Romani Pentecostal praise band; pin fine
+settler_diaspora,canadian_celtic,"Accord, United States","Halifax / Cape Breton, Canada","Canadian Celtic scene pinned to a New York recording studio, not any Canadian locality"
+settler_diaspora,canadian_classical_piano,"London, United Kingdom","Toronto, Canada",Canadian classical-piano category pinned to a London base outside Canada
+settler_diaspora,australian_dance,"Los Angeles, United States","Melbourne, Australia",Australian dance branch pinned to an expatriate producer's LA base
+settler_diaspora,bhangra_modern,"Punjab, India","Birmingham / Southall, United Kingdom",Own lineage calls modern bhangra a 1980s UK-Punjabi diaspora pop genre
+settler_diaspora,coupe_decale_ivorian,"Abidjan, Côte d'Ivoire","Paris, France",Own lineage: emerged in early-2000s Paris Ivorian diaspora clubs before moving to Abidjan
+settler_diaspora,merenrap,"Santo Domingo, Dominican Rep.","New York (Washington Heights), United States",Dominican-New York hybrid; Proyecto Uno and Fulanito were New York based
+settler_diaspora,punjabi_hip_hop,"Ludhiana, India","Brampton, Canada",Lineage cites UK/Canadian diaspora origin and Brampton production axis; pin defensible either way

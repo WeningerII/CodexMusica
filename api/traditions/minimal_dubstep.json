@@ -5,7 +5,7 @@
   "lineage": "Sparse UK soundsystem dubstep; selected early Mala / Digital Mystikz branch",
   "recipe": "classic modern minimal dubstep, bass System, uk soundsystem branch. sampler, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 252,
-  "score": 13.148,
+  "score": 13.106,
   "config": {
     "traditions": [
       "minimal_dubstep"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.6499999999999999,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.10349999999999998,
+          "sampler_bit_depth": 0.16649999999999998,
           "sampler_workflow": -0.1,
           "sampler_classic_context": 0.6499999999999999
         }
@@ -37,7 +37,7 @@
         },
         "scores": {
           "electronic_technique": 9.1,
-          "va_archetypes": 0.705,
+          "va_archetypes": 0.6,
           "digital_subtractive_context": -0.035
         }
       }

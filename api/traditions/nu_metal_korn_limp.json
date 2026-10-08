@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-early-2000s American heavy-rock subgenre integrating hip-hop rhythmic-vocal influence, down-tuned-seven-string-guitar metal aesthetic, and confessional-aggressive-personal-trauma lyrical content. Korn (Bakersfield, 1993-onward), Deftones, Limp Bizkit, Slipknot, and Linkin Park constitute the canonical roster. The 1998 Family Values Tour consolidated the genre's commercial peak.",
   "recipe": "classic Los Angeles modern nu metal, distorted Rock, avant branch, us hip hop gangsta. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, jazz-trained brushes-and-sticks drum kit, sampled chopped turntable. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 610,
-  "score": 219.74,
+  "score": 219.563,
   "config": {
     "traditions": [
       "nu_metal_korn_limp",
@@ -33,20 +33,20 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 7.83675,
-          "voice_quality": 13.952250000000001,
+          "voice_register": 7.788,
+          "voice_quality": 13.903500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6075000000000004,
           "voice_articulation": 10.074999999999998,
           "voice_microtone": 9.879999999999999,
-          "voice_tradition": 8.966500000000002,
-          "voice_mechanism_compound": 12.994749999999998,
+          "voice_tradition": 8.84275,
+          "voice_mechanism_compound": 13.050999999999998,
           "voice_estill_quality": 0.7799999999999998,
-          "voice_speech_song": 13.755250000000002,
+          "voice_speech_song": 13.706500000000002,
           "voice_ensemble_config": 10.204999999999997,
           "voice_ornament_system": 2.600000000000002,
-          "voice_pitch_organization": 3.835000000000001,
+          "voice_pitch_organization": 3.8312500000000007,
           "voice_processing_chain": 9.37,
           "voice_multitrack_stack": 6.8575
         }
@@ -69,7 +69,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 14.8715,
+          "electric_technique": 14.92775,
           "amp_make": 7.605,
           "body_wood": 7.475,
           "neck_wood": 0.845,
@@ -97,7 +97,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.2245,
+          "amp_make": 4.2575,
           "body_wood": 0.845,
           "pickup_config": 0.105,
           "string_type": 9.099999999999998,
@@ -128,7 +128,7 @@
         },
         "scores": {
           "electronic_technique": 6.550000000000001,
-          "turntable_technique": 9.285250000000001
+          "turntable_technique": 9.236500000000001
         }
       }
     ],

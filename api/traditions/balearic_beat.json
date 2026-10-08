@@ -3,14 +3,14 @@
   "name": "Balearic Beat",
   "family": "electronic",
   "lineage": "Continuing Balearic DJ and production practice, 1980-present. Ibiza, mid-1980s, codified by DJ Alfredo Fiorito's open-air sets at Amnesia and carried to Britain in 1987 by Paul Oakenfold and Danny Rampling — a 100-120 BPM eclectic mode joining dub-delayed guitar, nylon-string and slide figures, warm analogue pads and loose live-feel drum machine programming, with long unhurried arrangements and sun-facing major-key harmony.",
-  "recipe": "classic modern balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song hauntology deep tropical house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly synth, TR-909, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, glitched textural sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
-  "recipe_chars": 748,
-  "score": 232.932,
+  "recipe": "classic modern balearic beat, electronic Dance, continental branch, deep house house, ambient experimental electric, europop functional song deep tropical house organic house. extended whistle, breath veiled tone, slow rate, interlocked note trading. analog poly synth, TR-909, cedar nylon strummed open chord ringing overtones classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, field sampler, hohner melodica canonical 1959 dub roots tradition melodica. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
+  "recipe_chars": 736,
+  "score": 215.015,
   "config": {
     "traditions": [
       "balearic_beat",
-      "hauntology_aesthetic",
-      "deep_tropical_house"
+      "deep_tropical_house",
+      "organic_house"
     ],
     "instruments": [
       {
@@ -18,11 +18,11 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 4.1450000000000005,
+          "electronic_technique": 1.8949999999999998,
           "poly_archetypes": 0.78,
           "poly_voices": 0.345,
           "poly_maker_lineage": 0.995
@@ -36,9 +36,9 @@
           "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 13.445,
+          "tr909_voice": 20.445,
           "drum_machine_909_context": 1.04,
-          "tr909_production_origin": -0.035
+          "tr909_production_origin": 0.325
         }
       },
       {
@@ -52,12 +52,12 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 3.05,
+          "acoustic_technique": 3.425,
           "string_tuning": 0,
-          "top_wood_classical": 6.25,
+          "top_wood_classical": 4.94,
           "bracing_classical": 0.15,
-          "string_classical": 3.540000000000001,
-          "attack_technique_cl": 2.6650000000000005
+          "string_classical": 3.3900000000000006,
+          "attack_technique_cl": 2.47
         }
       },
       {
@@ -73,11 +73,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.785000000000001,
-          "body_wood": 2.4400000000000004,
+          "amp_make": 1.9849999999999999,
+          "body_wood": 2.29,
           "pickup_config": 0.195,
-          "string_type": 3.2600000000000007,
-          "scale_length_b": 3.1850000000000005,
+          "string_type": 2.31,
+          "scale_length_b": 3.035,
           "fretted_or_not": 0,
           "bass_technique": 3.2,
           "electric_bass_string_configuration": 0
@@ -86,7 +86,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -104,22 +104,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 3.4200000000000013,
-          "voice_quality": 6.110000000000001,
+          "voice_register": 2.925,
+          "voice_quality": 5.135000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.485,
-          "voice_articulation": 17.225,
-          "voice_microtone": 18.979999999999997,
+          "voice_vibrato": 4.745,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 14.429999999999993,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 5.070000000000002,
-          "voice_speech_song": 20.28,
-          "voice_ensemble_config": 17.55,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 5.655000000000001,
+          "voice_speech_song": 16.119999999999997,
+          "voice_ensemble_config": 13.844999999999994,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 2.8400000000000003,
-          "voice_processing_chain": 17.025,
-          "voice_multitrack_stack": 3.9300000000000006
+          "voice_pitch_organization": 2.04,
+          "voice_processing_chain": 19.724999999999998,
+          "voice_multitrack_stack": 3.7800000000000007
         }
       },
       {
@@ -128,15 +128,15 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 6.250000000000001,
+          "electronic_technique": 1.6999999999999997,
           "sampler_archetypes": 1.445,
           "sampler_bit_depth": 2.49,
-          "sampler_workflow": 6.250000000000001,
-          "sampler_classic_context": 35.59
+          "sampler_workflow": 2.045,
+          "sampler_classic_context": 39.739999999999995
         }
       },
       {
@@ -148,7 +148,7 @@
           "melodica_maker_school": "melodica_hohner_canonical"
         },
         "scores": {
-          "keyboard_technique": 1.3975,
+          "keyboard_technique": 1.7799999999999998,
           "melodica_use": 3.4,
           "melodica_pitch": 0.78,
           "melodica_maker_school": 1.2500000000000002

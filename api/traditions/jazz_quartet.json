@@ -5,7 +5,7 @@
   "lineage": "Jazz quartet brings four instrumental voices into a compact improvising ensemble. A horn with piano, bass and drums is a common configuration, while guitar, organ and other combinations support different approaches to melodic and rhythmic interaction.",
   "recipe": "classic modern jazz quartet, improv On Frame, American jazz branch. saxophone, a 440 modern pitch us standard grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 350,
-  "score": 49.867,
+  "score": 50.484,
   "config": {
     "traditions": [
       "jazz_quartet"
@@ -25,11 +25,11 @@
         "scores": {
           "wind_articulation": -0.035,
           "sax_size": 0.19500000000000003,
-          "sax_reed": 0.105,
+          "sax_reed": 0.1785,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.48849999999999993
+          "sax_maker_school": 0.5559999999999999
         }
       },
       {
@@ -46,8 +46,8 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.0735,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.147,
           "grand_piano_brand": 0.105,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
@@ -64,7 +64,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.063,
+          "upright_strings": 0.16799999999999998,
           "upright_play": 11.25
         }
       },
@@ -87,11 +87,11 @@
           "drum_technique": 10.399999999999999,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0735,
-          "shell_thickness": 0.042749999999999996,
+          "shell_wood": 0.252,
+          "shell_thickness": 0,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.11249999999999999,
-          "cymbal_alloy": 11.315999999999997,
+          "snare_wires": 0.186,
+          "cymbal_alloy": 11.389499999999998,
           "cymbal_hammering": 11.641,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0

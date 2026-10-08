@@ -3,9 +3,9 @@
   "name": "Arrocha",
   "family": "global",
   "lineage": "Bahian romantic dance song that emerged in Itabuna and Salvador around 1999-2003 through Zé Maria, Silvano Sales and the Pagode/brega circuit — slow to mid-tempo 4/4 at roughly 75-100 BPM with a lurching offbeat keyboard-and-bass push, cheap romantic synth strings and organ, clean guitar arpeggios, programmed drums, and an unadorned, sob-inflected male lead voice singing plain-spoken heartbreak lyrics for close partner dancing.",
-  "recipe": "classic 1999-2003 arrocha, functional Song, Brazilian song branch, tropical song functional song coladeira barbadian pop. extended whistle, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, mahogany rosewood clean strummed single coil electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 666,
-  "score": 198.327,
+  "recipe": "classic 1999-2003 arrocha, functional Song, Brazilian song branch, tropical song functional song coladeira barbadian pop. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly synth, mahogany rosewood clean strummed single coil electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, drum machine analog. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 655,
+  "score": 198.225,
   "config": {
     "traditions": [
       "arrocha",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 4.647499999999999,
+          "voice_register": 4.740000000000001,
           "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 19.499999999999993,
           "voice_tradition": 5.2975,
           "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 2.1449999999999996,
+          "voice_estill_quality": 2.19,
           "voice_speech_song": 32.175,
           "voice_ensemble_config": 21.384999999999994,
           "voice_ornament_system": 1.14,
-          "voice_pitch_organization": 0.8949999999999999,
+          "voice_pitch_organization": 0.8499999999999999,
           "voice_processing_chain": 4.160000000000001,
           "voice_multitrack_stack": 3.1200000000000006
         }
@@ -61,7 +61,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.64,
+          "electronic_technique": 6.3999999999999995,
           "poly_archetypes": 0.195,
           "poly_voices": 0,
           "poly_maker_lineage": -1.435
@@ -92,7 +92,7 @@
           "fretboard": 2.925,
           "pickup_magnet": 0.435,
           "string_material": 0.435,
-          "string_gauge": 4.485,
+          "string_gauge": 4.53,
           "bridge": 0.49499999999999994,
           "scale_length": 2.9899999999999998,
           "finish": 0,

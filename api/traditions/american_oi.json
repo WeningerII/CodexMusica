@@ -5,7 +5,7 @@
   "lineage": "American Oi! developed within US street-punk scenes influenced by British Oi! and related punk traditions. Long Island’s Templars, founded in 1990, connect this lineage with 1970s punk, early British rock and metal influences.",
   "recipe": "classic mid-1970s american oi, distorted Rock, punk branch. equal tempered, notated speech melody, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 375,
-  "score": 56.877,
+  "score": 56.058,
   "config": {
     "traditions": [
       "american_oi"
@@ -66,22 +66,22 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 5.135,
-          "amp_make": 19.527,
+          "amp_make": 19.3905,
           "body_wood": 1.3,
-          "neck_wood": 0.40950000000000003,
+          "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 0.40950000000000003,
+          "bridge": 0.273,
           "scale_length": 1.3,
-          "string_gauge": 0.546,
-          "finish": 0.1365,
+          "string_gauge": 0.40950000000000003,
+          "finish": 0,
           "string_tuning": 4.55
         }
       },
@@ -94,7 +94,7 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       }

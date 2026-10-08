@@ -5,7 +5,7 @@
   "lineage": "Music of Paraíba, including regional songwriting and exchanges among samba, bossa nova and other Brazilian popular styles.",
   "recipe": "classic música paraibana, functional Song, Brazilian song branch. solo with instrumental accompaniment. low mid rich spectrum cedar classical nylon-string guitar, credited auxiliary percussion, electric bass, drum kit, trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 326,
-  "score": 5.614,
+  "score": 5.813,
   "config": {
     "traditions": [
       "musica_paraibana"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.273,
-          "voice_multitrack_stack": 0.2415,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       },
@@ -65,8 +65,8 @@
         "scores": {
           "acoustic_technique": -0.25,
           "string_tuning": 0,
-          "top_wood_classical": 1.7745000000000002,
-          "bracing_classical": 0.5145,
+          "top_wood_classical": 2.0475000000000003,
+          "bracing_classical": 0.4095,
           "string_classical": 0.1365,
           "attack_technique_cl": 0
         }

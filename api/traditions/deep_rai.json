@@ -1,67 +1,157 @@
 {
-  "id": "deep_rai",
-  "name": "Deep Rai",
+  "id": "rai",
+  "merged_from": "deep_rai",
+  "name": "Raï",
   "family": "global",
-  "lineage": "Deep rai is a discovery label connecting Algerian and wider Maghrebi popular-song repertoires with diaspora producers and DJs. Its listening network includes singers such as Zahouania and Cheb Faycal alongside producers including DJ Kim, keeping older raï songs in circulation through contemporary records and dance programmes.",
-  "recipe": "classic deep rai, electronic Dance. dj playback mixing electronic keyboard unspecified. live tracking.",
-  "recipe_chars": 102,
-  "score": 0.326,
+  "lineage": "Algerian popular-music genre that emerged in Oran in the 1970s as modernization of older raï bedoui (rural bedouin praise-poetry) — codified through the Cheb generation of the 1980s: Cheb Khaled (the king of raï, his 1992 Didi the international breakthrough), Cheb Mami, Cheb Hasni (assassinated 1994 during the Algerian civil war), Chaba Fadela, Cheb Hamid",
+  "recipe": "classic West African mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry chaoui song rrways. extended whistle, breath veiled tone, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 557,
+  "score": 148.31,
   "config": {
     "traditions": [
-      "deep_rai"
+      "rai",
+      "chaoui_aures",
+      "rways_souss"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "voice",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.063
+          "voice_register": 9.795,
+          "voice_quality": 16.964999999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.9,
+          "voice_articulation": 11.439999999999996,
+          "voice_microtone": 12.674999999999995,
+          "voice_tradition": 8.97,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 4.4750000000000005,
+          "voice_speech_song": 15.079999999999997,
+          "voice_ensemble_config": 11.569999999999997,
+          "voice_ornament_system": 2.3949999999999996,
+          "voice_pitch_organization": 3.315000000000001,
+          "voice_processing_chain": 8.1,
+          "voice_multitrack_stack": 5.580000000000001
         }
       },
       {
-        "id": "electronic_keyboard_unspecified",
+        "id": "accordion",
         "slots": {
-          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          "free_reed_technique": "free_reed_orchestral_ensemble",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.26349999999999996
+          "free_reed_technique": 1.8449999999999998,
+          "accordion_reed_material": 1.5,
+          "musette_offset": 0.8,
+          "reed_config": 0.3,
+          "bellows": 0.3,
+          "voicing_chamber": 0.9099999999999999,
+          "accordion_maker_school": 6.76
+        }
+      },
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_synthetic_mylar",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 1.4949999999999999,
+          "darbuka_material": 0.585,
+          "darbuka_skin": 0.585,
+          "darbuka_regional_style": 6.76
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 6.85,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": 0.325
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ],
-      "electronic_keyboard_unspecified": [
-        "electronic_keyboard_identity",
-        "keyboard_technique"
-      ]
-    },
-    "room": "live_room",
+    "room": "dakar_mbalax_oran_rai_studio",
+    "archetype": "arch_oran_pop_rai_cassette",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "transformer_solid_state",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": null
+      "medium": "cassette_medium"
     },
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "west_north_african_mbalax_rai_polyrhythmic",
+    "room": "dakar_mbalax_oran_rai_studio",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified",
-      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
-      "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "maqam_inflected",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "reed_config": "lmm",
+      "musette_offset": "dry_tuning",
+      "electronic_technique": "electronic_pad_drone",
+      "percussion_technique": "percussion_hands_layered",
+      "darbuka_material": "darbuka_aluminum_sombaty",
+      "darbuka_skin": "darbuka_synthetic_mylar",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty"
     },
-    "pin_parts": true
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "cassette_medium",
+    "chain_console": "colored"
   }
 }

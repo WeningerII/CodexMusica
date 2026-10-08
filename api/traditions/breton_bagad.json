@@ -1,0 +1,154 @@
+{
+  "id": "breton_bagad",
+  "name": "Bagad (Breton pipe band)",
+  "family": "global",
+  "lineage": "Breton pipe band modelled on the Scottish pipe band, joining a section of bombardes to a section of biniou braz, the Great Highland bagpipe as adopted in Brittany (the biniou card set to its bras register), and a drum corps of snare, tenor and bass drums. The federation Bodadeg ar Sonerion, founded during the Second World War, organised the bands and their national championship of bagadoù, contested since 1949, and the Festival Interceltique de Lorient became a principal stage for the bands' arranged suites of Breton dance tunes, airs and marches.",
+  "recipe": "classic late-1940s bagad, drone Modal, wind pipe branch. paired bombarde, African blackwood canonical breton modern cane arundo donax canonical breton goatskin canonical breton biniou, high-tension snare buzz rudimental pipe band pipe band snare, pipe band flourishing tenor bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 365,
+  "score": 52.093,
+  "config": {
+    "traditions": [
+      "breton_bagad"
+    ],
+    "instruments": [
+      {
+        "id": "bombarde",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "bombarde_use": "bombarde_couple_biniou"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "bombarde_use": 8.3365
+        }
+      },
+      {
+        "id": "biniou",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "biniou_register": "biniou_bras",
+          "biniou_context": "biniou_bagad",
+          "biniou_chanter_wood": "biniou_african_blackwood",
+          "biniou_reed": "biniou_cane_canonical",
+          "biniou_bag": "biniou_goatskin_canonical"
+        },
+        "scores": {
+          "wind_articulation": -0.15000000000000002,
+          "biniou_register": 10.6525,
+          "biniou_context": 0.1995,
+          "biniou_chanter_wood": 3.2815,
+          "biniou_reed": 3.3314999999999997,
+          "biniou_bag": 3.3
+        }
+      },
+      {
+        "id": "pipe_band_snare",
+        "slots": {
+          "pipe_snare_head": "pipe_snare_kevlar",
+          "pipe_snare_play": "pipe_snare_rudimental_ensemble"
+        },
+        "scores": {
+          "pipe_snare_head": 1.25,
+          "pipe_snare_play": 9.992499999999998
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_pipe_band",
+          "tenor_drum_head": "tenor_drum_mylar",
+          "tenor_drum_beater": "tenor_drum_felt_mallets",
+          "tenor_drum_shell": "tenor_drum_lug_ply"
+        },
+        "scores": {
+          "tenor_drum_form": 11.892499999999998,
+          "tenor_drum_head": -0.035,
+          "tenor_drum_beater": -0.1,
+          "tenor_drum_shell": -0.1
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.2415,
+          "bass_drum_beater": 0
+        }
+      }
+    ],
+    "pinned": {
+      "bombarde": [
+        "wind_articulation",
+        "bombarde_use"
+      ],
+      "biniou": [
+        "wind_articulation",
+        "biniou_register",
+        "biniou_context",
+        "biniou_chanter_wood",
+        "biniou_reed",
+        "biniou_bag"
+      ],
+      "pipe_band_snare": [
+        "pipe_snare_head",
+        "pipe_snare_play"
+      ],
+      "tenor_drum": [
+        "tenor_drum_form",
+        "tenor_drum_head",
+        "tenor_drum_beater",
+        "tenor_drum_shell"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "bombarde_use": "bombarde_couple_biniou",
+      "biniou_register": "biniou_bras",
+      "biniou_context": "biniou_bagad",
+      "biniou_chanter_wood": "biniou_african_blackwood",
+      "biniou_reed": "biniou_cane_canonical",
+      "biniou_bag": "biniou_goatskin_canonical",
+      "pipe_snare_head": "pipe_snare_kevlar",
+      "pipe_snare_play": "pipe_snare_rudimental_ensemble",
+      "tenor_drum_form": "tenor_drum_pipe_band",
+      "tenor_drum_head": "tenor_drum_mylar",
+      "tenor_drum_beater": "tenor_drum_felt_mallets",
+      "tenor_drum_shell": "tenor_drum_lug_ply",
+      "bass_drum_size": "bass_drum_concert",
+      "bass_drum_beater": "bass_drum_felt_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

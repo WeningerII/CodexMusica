@@ -3,14 +3,14 @@
   "name": "Cornish folk",
   "family": "global",
   "lineage": "Traditional music of Cornwall documented from the 1820s Sandys and Gilbert carol collections and revived from the 1970s alongside the Cornish-language movement — four-part west-gallery Christmas carols sung by male-heavy village choirs, harbour shanties from the Port Isaac and Padstow coast, the Furry Dance and Obby Oss processional tunes on melodeon and accordion, and Kernewek-language song set to modal fiddle and pipe accompaniment.",
-  "recipe": "classic mid-1820s cornish folk, ballad Poetry, Celtic balladic branch, atlantic Southeast Asian shanty, European carnival processional newfoundland outport sea-shanty and work-song american clipper-ship shanty. thick, breath veiled tone, straight onset, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional aka four part motangole ngue osese diyei global traditional polyphonic choir ensemble, Celtic straight melodeon diatonic, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, bass drum. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 684,
-  "score": 220.064,
+  "recipe": "classic mid-1820s cornish folk, ballad Poetry, Celtic balladic branch, atlantic Southeast Asian shanty, European carnival processional newfoundland outport sea-shanty and work-song cape verdean funaná. thick, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei global traditional polyphonic choir ensemble, Celtic straight melodeon diatonic, leather castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base drone like fiddle, bass drum. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 666,
+  "score": 209.604,
   "config": {
     "traditions": [
       "cornish_folk",
       "newfoundland_outport_shanty",
-      "american_clipper_shanty"
+      "cape_verdean_funana_maritime"
     ],
     "instruments": [
       {
@@ -29,42 +29,42 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.75,
-          "voice_quality": 12.544999999999993,
+          "voice_register": 8.15,
+          "voice_quality": 13.584999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.56,
+          "voice_vibrato": 0.7149999999999999,
           "voice_articulation": 17.16,
-          "voice_microtone": 18.265,
-          "voice_tradition": 20.1895,
-          "voice_mechanism_compound": 2.8599999999999994,
-          "voice_estill_quality": 3.0550000000000006,
-          "voice_speech_song": 23.4,
-          "voice_ensemble_config": 18.525,
-          "voice_ornament_system": 7.775000000000002,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 3.5850000000000004,
-          "voice_multitrack_stack": 3.0550000000000006
+          "voice_microtone": 18.264999999999997,
+          "voice_tradition": 19.214499999999997,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 4.745,
+          "voice_speech_song": 22.522500000000004,
+          "voice_ensemble_config": 20.41,
+          "voice_ornament_system": 7.820000000000002,
+          "voice_pitch_organization": 2.6000000000000005,
+          "voice_processing_chain": 3.8850000000000007,
+          "voice_multitrack_stack": 4.095000000000001
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "mixed_4_part_satb",
+          "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 3.9,
-          "choir_polyphonic_configuration": 4.094999999999999,
+          "choir_size": 3.38,
+          "choir_polyphonic_configuration": 3.7049999999999996,
           "choir_regional_canonical_configuration": 1.95,
-          "choir_ensemble_repertoire": 6.5
+          "choir_ensemble_repertoire": 5.915
         }
       },
       {
@@ -75,8 +75,8 @@
           "melodeon_diatonic_context": "melodeon_diatonic_celtic"
         },
         "scores": {
-          "free_reed_technique": 9.194999999999999,
-          "melodeon_rows": 6.434999999999999,
+          "free_reed_technique": 7.719999999999999,
+          "melodeon_rows": 5.3875,
           "melodeon_diatonic_context": 2.0100000000000002
         }
       },
@@ -92,13 +92,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 9.194999999999999,
+          "free_reed_technique": 7.719999999999999,
           "accordion_reed_material": 0.375,
           "musette_offset": 2.1045,
-          "reed_config": 0.7,
+          "reed_config": 0.85,
           "bellows": 1.15,
           "voicing_chamber": 0.45499999999999996,
-          "accordion_maker_school": 9.1
+          "accordion_maker_school": 8.515
         }
       },
       {
@@ -112,11 +112,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 9.305,
-          "fiddle_strings": 1.69,
-          "fiddle_bow": 4.225,
+          "bowed_technique": 7.725,
+          "fiddle_strings": 0.845,
+          "fiddle_bow": 2.1125,
           "fiddle_mute": 0.7,
-          "fiddle_articulation": 1.4449999999999998,
+          "fiddle_articulation": 1.5949999999999998,
           "fiddle_string_configuration": 0
         }
       },

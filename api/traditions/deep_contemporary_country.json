@@ -5,7 +5,7 @@
   "lineage": "An archival country discovery cluster including Kathy Mattea, Linda Davis, Rick Trevino and Mark Collie. Deep is treated as the classifier’s catalogue label, not as a historical claim of one hidden or acoustically deep subgenre.",
   "recipe": "classic modern deep contemporary country, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. deep indian rosewood rosewood dreadnought acoustic guitar, 17 ply hard rock maple a 440 modern pitch us standard grand piano, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 616,
-  "score": 134.3,
+  "score": 133.641,
   "config": {
     "traditions": [
       "deep_contemporary_country"
@@ -40,13 +40,13 @@
           "voice_articulation": -0.14,
           "voice_microtone": 1.6899999999999997,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.6157499999999999,
-          "voice_estill_quality": 9.972999999999999,
+          "voice_mechanism_compound": 0.53325,
+          "voice_estill_quality": 9.8905,
           "voice_speech_song": 5.135,
           "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.2104999999999997,
+          "voice_processing_chain": 2.233,
           "voice_multitrack_stack": 0.78
         }
       },
@@ -64,7 +64,7 @@
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 2.95,
-          "string_acoustic": 0.6209999999999999
+          "string_acoustic": 0.4845
         }
       },
       {
@@ -82,11 +82,11 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.3045,
+          "grand_piano_size": 0.168,
           "grand_piano_brand": 1.3,
           "piano_hammer": -0.035,
           "piano_rim": 1.17,
-          "piano_soundboard": -0.035,
+          "piano_soundboard": -0.05,
           "piano_pinblock": -0.05,
           "piano_plate": -0.035,
           "piano_pitch_standard": 2.015
@@ -105,8 +105,8 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 10.690999999999999,
-          "amp_make": 9.764249999999997,
+          "electric_technique": 10.554499999999997,
+          "amp_make": 9.786749999999998,
           "pickup_steel": 0.105,
           "string_setup": 4.9399999999999995,
           "bar_material": 0.39,
@@ -128,9 +128,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.666499999999997,
+          "amp_make": 9.688999999999998,
           "body_wood": 0.21,
-          "pickup_config": 0.5159999999999999,
+          "pickup_config": 0.3795,
           "string_type": 0.39,
           "scale_length_b": 0.243,
           "fretted_or_not": 0.042749999999999996,

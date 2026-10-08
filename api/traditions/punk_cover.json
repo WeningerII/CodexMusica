@@ -3,9 +3,9 @@
   "name": "Punk cover",
   "family": "rock_punk",
   "lineage": "Punk cover is represented here by Me First and the Gimme Gimmes. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic punk cover, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 403,
-  "score": 51.792,
+  "recipe": "classic punk cover, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 394,
+  "score": 50.664,
   "config": {
     "traditions": [
       "punk_cover"
@@ -25,22 +25,22 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 15.079999999999997,
-          "body_wood": 1.029,
-          "neck_wood": 0.273,
+          "body_wood": 0.756,
+          "neck_wood": 0.1365,
           "fretboard": 0.063,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1,
-          "scale_length": 0.7875,
+          "scale_length": 0.651,
           "string_gauge": 1,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0.3
         }
       },
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.546,
+          "body_wood": 0.273,
           "pickup_config": 0.1365,
           "string_type": 4.875,
-          "scale_length_b": 0.273,
+          "scale_length_b": 0.1365,
           "fretted_or_not": 0.39,
           "bass_technique": 14.0315,
           "electric_bass_string_configuration": 0
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.354
         }
       }
     ],

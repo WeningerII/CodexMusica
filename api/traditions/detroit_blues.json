@@ -5,7 +5,7 @@
   "lineage": "Postwar Michigan electric blues built by Delta migrants working the auto plants, codified 1948-1962 by John Lee Hooker, Eddie Burns, Baby Boy Warren and Bobo Jenkins on Sensation, Fortune and JVB — one-chord droning boogie at 90-130 BPM over amplified guitar with heavy tremolo, stomping foot as the only percussion on early sides, later a small combo with amplified harp and a shuffling drum kit.",
   "recipe": "classic North American mid-1950s detroit blues, functional Song, blues electric branch, blues narrative delta narrative, soul R&B functional song doo-wop. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, bare foot hollow platform foot stomp. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 809,
-  "score": 363.767,
+  "score": 364.352,
   "config": {
     "traditions": [
       "detroit_blues",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 33.10000000000001,
+          "voice_register": 33.05500000000001,
           "voice_quality": 19.04500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 22.595,
           "voice_articulation": 14.949999999999998,
           "voice_microtone": 21.24,
-          "voice_tradition": 17.099999999999998,
+          "voice_tradition": 17.054999999999996,
           "voice_mechanism_compound": 5.784999999999999,
           "voice_estill_quality": 7.0200000000000005,
           "voice_speech_song": 19.889999999999997,
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 5.545,
-          "amp_make": 10.235,
+          "amp_make": 10.34,
           "body_wood": 0.195,
           "neck_wood": 0.345,
           "fretboard": 0.345,
@@ -81,7 +81,7 @@
           "bridge": 0.105,
           "scale_length": 0.195,
           "finish": 0.3,
-          "string_tuning": 10.834999999999999,
+          "string_tuning": 10.94,
           "single_coil_pickup_construction": 0
         }
       },
@@ -96,12 +96,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.3,
-          "harmonica_comb": 23.974999999999998,
-          "harmonica_reed": 20.964999999999996,
+          "harmonica_type": 0.6,
+          "harmonica_comb": 23.884999999999998,
+          "harmonica_reed": 20.814999999999998,
           "harmonica_technique": 29,
-          "harmonica_maker_school": 20.989999999999995,
-          "harmonica_tuning": 9.57
+          "harmonica_maker_school": 21.139999999999993,
+          "harmonica_tuning": 9.765
         }
       },
       {
@@ -117,7 +117,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.234999999999998,
+          "amp_make": 10.339999999999998,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 11.2125,
@@ -136,7 +136,7 @@
         },
         "scores": {
           "drum_technique": 14.234999999999996,
-          "drumhead": 3.289999999999999,
+          "drumhead": 3.244999999999999,
           "drum_kit_kick_pedal": 0
         }
       },

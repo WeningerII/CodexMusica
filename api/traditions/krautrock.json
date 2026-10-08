@@ -3,9 +3,9 @@
   "name": "Krautrock",
   "family": "rock_punk",
   "lineage": "West German experimental rock genre that emerged in 1968-1980 — codified through Can (Tago Mago 1971, Ege Bamyasi 1972, Future Days 1973), Kraftwerk (Autobahn 1974, Trans-Europe Express 1977 — the electronic-pop founding albums), Neu! (Neu! 1972, Neu! 2 1973 — the motorik-rhythm-foundation albums), Faust, Amon Düül II, Tangerine Dream, Cluster, Harmonia, Popol Vuh; characterized by repetitive motorik rhythm (the Klaus Dinger drumbeat), tape-loop and tape-delay manipulation, modular-synthesizer sequencing, and a deliberate philosophical break from Anglo-American rock idiom",
-  "recipe": "classic Central European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric illbient mallsoft. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
-  "recipe_chars": 707,
-  "score": 148.505,
+  "recipe": "classic Central European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric illbient mallsoft. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
+  "recipe_chars": 692,
+  "score": 148.715,
   "config": {
     "traditions": [
       "krautrock",
@@ -42,7 +42,7 @@
           "bridge": 0.195,
           "scale_length": 1.885,
           "finish": 0,
-          "string_tuning": 8.319999999999999,
+          "string_tuning": 8.26,
           "single_coil_pickup_construction": 0
         }
       },
@@ -106,7 +106,7 @@
           "drawbar_setting": "rock_drawbars",
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
-          "tonewheel_model": "tonewheel_hammond_b3",
+          "tonewheel_model": "tonewheel_hammond_a100",
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
@@ -114,7 +114,7 @@
           "drawbar_setting": 12.499999999999996,
           "rotary_speed": 12.449999999999996,
           "percussion_setting": 5.209999999999999,
-          "tonewheel_model": 5.59,
+          "tonewheel_model": 5.860000000000001,
           "leslie_cabinet_model": 0.78
         }
       }

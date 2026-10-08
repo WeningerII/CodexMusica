@@ -5,7 +5,7 @@
   "lineage": "Portuguese-language Christian music rooted in Reformed theology and congregational devotion.",
   "recipe": "classic musica crista reformada, ritual Devotional, christian gospel branch. one note per syllable. acoustic guitar, harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 3.768,
+  "score": 3.526,
   "config": {
     "traditions": [
       "musica_crista_reformada"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.8625,
+          "voice_speech_song": 0.6825000000000001,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.294,
+          "string_acoustic": 0.3675,
           "acoustic_om_technique": 0.6864999999999999
         }
       },
@@ -85,7 +85,7 @@
           "harmonica_reed": -0.07,
           "harmonica_technique": 0.8449999999999999,
           "harmonica_maker_school": 0,
-          "harmonica_tuning": 0.9555
+          "harmonica_tuning": 0.8190000000000001
         }
       }
     ],

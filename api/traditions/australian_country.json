@@ -5,7 +5,7 @@
   "lineage": "Australian country spans rural narrative traditions and contemporary crossover recording. The chosen modern branch follows Kasey Chambers’s documented country career and guitar-and-drums studio practice.",
   "recipe": "classic modern australian country, functional Song, country branch. breath veiled tone, wide pitch sway, narrative, neutral third half flat. low mid rich spectrum phosphor bronze modern martin dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, Fender tweed amp American 50s amp tweed breakup stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 572,
-  "score": 118.53,
+  "score": 117.981,
   "config": {
     "traditions": [
       "australian_country"
@@ -36,17 +36,17 @@
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.731499999999999,
-          "voice_articulation": 0.9889999999999999,
+          "voice_vibrato": 12.7,
+          "voice_articulation": 0.9259999999999998,
           "voice_microtone": 3.9000000000000012,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.4215,
-          "voice_estill_quality": 13.102999999999998,
+          "voice_mechanism_compound": 0.495,
+          "voice_estill_quality": 13.071499999999999,
           "voice_speech_song": 6.4350000000000005,
           "voice_ensemble_config": 4.42,
-          "voice_ornament_system": 0.2315,
+          "voice_ornament_system": 0.26,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 2.567,
+          "voice_processing_chain": 2.5355000000000003,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -55,15 +55,15 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
-          "top_wood": "engelmann",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
-          "top_wood": 0.105,
-          "back_sides": 0.294,
+          "top_wood": 0.0315,
+          "back_sides": 0.22049999999999997,
           "string_acoustic": 1.168
         }
       },
@@ -85,14 +85,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 13.9075,
+          "electric_technique": 13.876,
           "amp_make": 12.758999999999999,
-          "body_wood": 0.294,
+          "body_wood": 0.22049999999999997,
           "neck_wood": 0,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.105,
+          "pickup_magnet": 0,
           "string_material": 0.3779999999999999,
-          "string_gauge": 0.4305,
+          "string_gauge": 0.357,
           "bridge": 1.0315,
           "scale_length": 0,
           "finish": 0,
@@ -118,8 +118,8 @@
           "pickup_config": 1.168,
           "string_type": 1.2205,
           "scale_length_b": 1.0945,
-          "fretted_or_not": 0.3989999999999999,
-          "bass_technique": 13.9075,
+          "fretted_or_not": 0.3675,
+          "bass_technique": 13.876,
           "electric_bass_string_configuration": 0
         }
       },

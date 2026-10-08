@@ -5,7 +5,7 @@
   "lineage": "Iraqi hip-hop connects Iraqi rappers and producers at home and across diasporic networks. Individual voices and collaborations develop local expression within wider Arabic and international hip-hop practice.",
   "recipe": "classic iraqi hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 198,
-  "score": 44.2,
+  "score": 44.498,
   "config": {
     "traditions": [
       "iraqi_hip_hop"
@@ -38,12 +38,12 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3315,
+          "voice_articulation": 0.363,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 10.718,
+          "voice_speech_song": 10.985,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

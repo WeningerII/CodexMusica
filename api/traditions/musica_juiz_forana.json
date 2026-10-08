@@ -3,9 +3,9 @@
   "name": "Musica Juiz-Forana",
   "family": "rock_punk",
   "lineage": "Music associated with Juiz de Fora, including independent rock, punk and contemporary songwriting.",
-  "recipe": "classic musica juiz-forana, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. electric bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
-  "recipe_chars": 264,
-  "score": 25.088,
+  "recipe": "classic musica juiz-forana, distorted Rock, punk branch. solo with instrumental accompaniment. electric bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
+  "recipe_chars": 241,
+  "score": 24.679,
   "config": {
     "traditions": [
       "musica_juiz_forana"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.609,
+          "voice_speech_song": 0.47250000000000003,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -102,7 +102,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0

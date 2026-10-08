@@ -5,7 +5,7 @@
   "lineage": "Brazilian interior fusion emerging in the 1980s-90s in São Paulo, Minas and the Center-West, setting viola caipira tunings, moda de viola melodies and dupla third-singing against a distorted electric-guitar rock rhythm section, popularized by Almir Sater's crossover work and by bands blending cateretê and pagode-de-viola rhythms with 4/4 rock backbeat at 110-140 BPM.",
   "recipe": "classic North American mid-1980s rock caipira, distorted Rock, regional branch, Brazilian song functional song, country rock country modern country rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira, Fender blackface amp American 60s amp spring reverb bright mahogany maple humbucker electric steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 888,
-  "score": 562.68,
+  "score": 563.524,
   "config": {
     "traditions": [
       "rock_caipira",
@@ -43,10 +43,10 @@
           "voice_microtone": 34.20000000000001,
           "voice_tradition": 6.5649999999999995,
           "voice_mechanism_compound": 3.0000000000000004,
-          "voice_estill_quality": 24.084999999999994,
+          "voice_estill_quality": 24.144999999999992,
           "voice_speech_song": 17.939999999999998,
           "voice_ensemble_config": 12.869999999999996,
-          "voice_ornament_system": 2.085,
+          "voice_ornament_system": 2.109,
           "voice_pitch_organization": 1.69,
           "voice_processing_chain": 7.345000000000001,
           "voice_multitrack_stack": 5.0375
@@ -90,18 +90,18 @@
         },
         "scores": {
           "electric_technique": 19.624999999999996,
-          "amp_make": 20.15,
+          "amp_make": 20.299999999999997,
           "body_wood": 1.69,
-          "neck_wood": 0.6900000000000001,
+          "neck_wood": 0.705,
           "fretboard": 0.195,
           "pickup_magnet": 0.65,
           "pickup_winding": 0.65,
           "string_material": 0.9899999999999999,
-          "bridge": 0.6900000000000001,
-          "scale_length": 1.38,
-          "string_gauge": 0.93,
+          "bridge": 0.705,
+          "scale_length": 1.41,
+          "string_gauge": 0.9450000000000001,
           "finish": 0.15,
-          "string_tuning": 14.635
+          "string_tuning": 14.806000000000001
         }
       },
       {
@@ -118,11 +118,11 @@
         },
         "scores": {
           "amp_make": 19.774999999999995,
-          "body_wood": 1.38,
+          "body_wood": 1.41,
           "pickup_config": 0.65,
-          "string_type": 33.55,
+          "string_type": 33.565,
           "scale_length_b": 0.65,
-          "fretted_or_not": 1.6,
+          "fretted_or_not": 1.615,
           "bass_technique": 33.35000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -152,8 +152,8 @@
         "scores": {
           "acoustic_technique": 21.819999999999997,
           "string_tuning": 0.7499999999999999,
-          "top_wood": 0.7350000000000001,
-          "back_sides": 0.435,
+          "top_wood": 0.75,
+          "back_sides": 0.4545,
           "string_acoustic": 1.4
         }
       },
@@ -171,12 +171,12 @@
         },
         "scores": {
           "electric_technique": 21.875,
-          "amp_make": 20.15,
-          "pickup_steel": 0.6900000000000001,
-          "string_setup": 8.944999999999999,
+          "amp_make": 20.299999999999997,
+          "pickup_steel": 0.705,
+          "string_setup": 8.985499999999998,
           "bar_material": 1.69,
-          "pedal_steel_brand": 20.505,
-          "pedal_steel_neck_config": 20.719999999999995,
+          "pedal_steel_brand": 20.524499999999996,
+          "pedal_steel_neck_config": 20.764999999999997,
           "pedal_steel_strings": 19.775
         }
       }

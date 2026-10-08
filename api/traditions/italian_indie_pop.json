@@ -5,7 +5,7 @@
   "lineage": "Italian indie pop connects independent songwriting with retro-pop, guitar-band and keyboard-based approaches.",
   "recipe": "classic italian indie pop, functional Song, europop branch. group vocals, live take. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 296,
-  "score": 31.292,
+  "score": 31.88,
   "config": {
     "traditions": [
       "italian_indie_pop"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 10.7,
           "amp_make": 1.17,
-          "body_wood": 0.7875000000000001,
+          "body_wood": 0.9240000000000002,
           "neck_wood": 0.273,
           "fretboard": 0.1365,
           "pickup_magnet": 0.2415,
           "pickup_winding": 0.36,
           "string_material": 0,
           "bridge": 0.273,
-          "scale_length": 0.5775,
+          "scale_length": 0.6825000000000001,
           "string_gauge": 0.3045,
           "finish": 0,
           "string_tuning": 0
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.714,
+          "voice_ensemble_config": 0.9554999999999998,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.714
+          "voice_multitrack_stack": 0.9554999999999998
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "poly_archetypes": 0.9570000000000001,
+          "poly_archetypes": 0.8205,
           "poly_voices": 0.39,
           "poly_maker_lineage": -0.035
         }

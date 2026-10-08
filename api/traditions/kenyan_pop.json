@@ -5,7 +5,7 @@
   "lineage": "Kenyan pop connects local singers and songwriting communities with contemporary popular arrangements and international influences.",
   "recipe": "classic kenyan pop, functional Song, African pop branch. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 224,
-  "score": 13.165,
+  "score": 12.892,
   "config": {
     "traditions": [
       "kenyan_pop"
@@ -23,9 +23,9 @@
         "scores": {
           "acoustic_technique": 11.2,
           "string_tuning": 0,
-          "top_wood": 0.3045,
+          "top_wood": 0.168,
           "back_sides": 0.147,
-          "string_acoustic": 0.6405000000000001
+          "string_acoustic": 0.504
         }
       },
       {

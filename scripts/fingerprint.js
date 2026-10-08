@@ -29,7 +29,7 @@ for (const a of args) {
   }
 }
 
-const tradId = positional[0];
+const tradId = C.resolveTraditionId(positional[0]);
 if (!tradId) {
   console.error('Usage: fingerprint.js <tradition_id> [--aesthetic=<id>] [--json]');
   console.error('Run nearest_neighbor.js first if you need to find the right tradition_id.');

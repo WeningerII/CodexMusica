@@ -3,9 +3,9 @@
   "name": "Indie napoletano",
   "family": "vernacular",
   "lineage": "Indie napoletano connects independent songwriters in Naples, including artists working in Neapolitan. Intimate acoustic writing coexists with fuller collaborative arrangements.",
-  "recipe": "classic indie napoletano, ballad Poetry, chanson fado branch. one note per syllable, unprocessed natural acoustic. fingerpicked acoustic resonator guitar, electric bass, grand piano, pump organ harmonium, acoustic only no pickup mandolin, mountain dulcimer, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 366,
-  "score": 7.826,
+  "recipe": "classic indie napoletano, ballad Poetry, chanson fado branch. unprocessed natural acoustic. fingerpicked acoustic resonator guitar, electric bass, grand piano, pump organ harmonium, acoustic only no pickup mandolin, mountain dulcimer, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 343,
+  "score": 6.957,
   "config": {
     "traditions": [
       "indie_napoletano"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.5549999999999999,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 0.363,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.6315,
-          "voice_multitrack_stack": 0.39,
+          "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
       },
@@ -120,13 +120,13 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.0225,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
-          "piano_plate": -0.07,
+          "piano_plate": -0.1,
           "piano_pitch_standard": 0.7149999999999999
         }
       },
@@ -160,7 +160,7 @@
           "mandolin_shape": -0.05,
           "mandolin_top": -0.05,
           "mandolin_back": -0.05,
-          "mandolin_bracing": -0.035,
+          "mandolin_bracing": -0.05,
           "mandolin_strings": 0,
           "mandolin_fingerboard": 0,
           "mandolin_pickup": 1.69
@@ -177,7 +177,7 @@
         },
         "scores": {
           "acoustic_technique": -0.1,
-          "dulcimer_strings": 0.3045,
+          "dulcimer_strings": 0.1995,
           "dulcimer_tuning": 0.0315,
           "dulcimer_body_wood": 0.1365,
           "dulcimer_string_material": 0.1365
@@ -200,16 +200,16 @@
         },
         "scores": {
           "drum_technique": 0.6499999999999999,
-          "drumhead": 0.2415,
+          "drumhead": 0.1365,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.159,
           "shell_thickness": 0,
-          "bearing_edges": 0,
+          "bearing_edges": 0.0225,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.12750000000000003,
-          "cymbal_lathing": -0.10500000000000001,
-          "cymbal_finish": 0.105
+          "cymbal_lathing": -0.11850000000000002,
+          "cymbal_finish": 0
         }
       }
     ],

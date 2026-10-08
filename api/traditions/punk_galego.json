@@ -5,7 +5,7 @@
   "lineage": "Punk galego groups Galician garage and punk-rock bands within regional independent networks.",
   "recipe": "classic punk galego, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit, theremin. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 361,
-  "score": 52.871,
+  "score": 51.916,
   "config": {
     "traditions": [
       "punk_galego"
@@ -30,8 +30,8 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 17.527,
-          "body_wood": 1.7954999999999999,
+          "amp_make": 17.3905,
+          "body_wood": 1.5225,
           "neck_wood": 0.063,
           "fretboard": 0.273,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.5225,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,7 +133,7 @@
           "electronic_technique": -0.07,
           "theremin_model": -0.035,
           "theremin_technique": -0.05,
-          "theremin_lineage": 0.9870000000000001
+          "theremin_lineage": 0.8505
         }
       }
     ],

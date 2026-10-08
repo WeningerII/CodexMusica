@@ -5,7 +5,7 @@
   "lineage": "Gótico brasileiro connects Brazilian gothic-rock and post-punk communities through bands, recordings and live performance. Electronic production and guitar-based songwriting meet in varied local approaches.",
   "recipe": "classic gótico brasileiro, distorted Rock, gothic rock branch. duet, live take. humbucker electric acoustic guitar, electric bass, analog poly synth, sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 278,
-  "score": 5.976,
+  "score": 5.844,
   "config": {
     "traditions": [
       "gotico_brasileiro"
@@ -72,17 +72,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.6405,
-          "neck_wood": 0.504,
+          "body_wood": 0.7139999999999999,
+          "neck_wood": 0.4724999999999999,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0,
-          "scale_length": 1.0079999999999998,
-          "string_gauge": 0.2835,
+          "scale_length": 0.9449999999999998,
+          "string_gauge": 0.1785,
           "finish": 0.1365,
-          "string_tuning": 0.063
+          "string_tuning": 0.0315
         }
       },
       {
@@ -98,7 +98,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.504,
+          "string_acoustic": 0.4724999999999999,
           "acoustic_om_technique": -0.25
         }
       },
@@ -116,10 +116,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6405,
+          "body_wood": 0.7139999999999999,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.26249999999999996,
+          "scale_length_b": 0.19949999999999998,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -152,9 +152,9 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.525,
+          "sampler_bit_depth": 0.49349999999999994,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": -0.05
+          "sampler_classic_context": -0.035
         }
       },
       {
@@ -167,9 +167,9 @@
         },
         "scores": {
           "kick_voice": 0,
-          "snare_voice": 0,
+          "snare_voice": 0.0315,
           "hat_voice": 0,
-          "shuffle_quantize": 0
+          "shuffle_quantize": 0.0315
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Westcoast Flow",
   "family": "hip_hop",
   "lineage": "Westcoast flow gathers contemporary West Coast rap and melodic vocal production. The named discovery cohort includes Los Angeles artists who combine conversational rhythmic delivery, sung hooks and producer-led beats, with connections to local R&B and club music.",
-  "recipe": "classic westcoast flow, mc Rhythm, us hip hop branch. solo with instrumental accompaniment. sampler. treated studio.",
-  "recipe_chars": 116,
-  "score": 4.495,
+  "recipe": "classic westcoast flow, mc Rhythm, us hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. sampler. treated studio.",
+  "recipe_chars": 154,
+  "score": 4.62,
   "config": {
     "traditions": [
       "westcoast_flow"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.399,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.5355000000000001,
           "voice_tessitura": 0
         }
       },
@@ -62,11 +62,11 @@
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
-          "electronic_technique": 2.5,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.1365,
+          "electronic_technique": 2.5315,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": 0.26,
-          "sampler_classic_context": -0.05
+          "sampler_classic_context": -0.035
         }
       }
     ],

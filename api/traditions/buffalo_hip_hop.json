@@ -3,9 +3,9 @@
   "name": "Buffalo hip hop",
   "family": "hip_hop",
   "lineage": "Buffalo hip hop includes the Griselda network and other local artists. The selected WWCD-era branch centers the collective’s MC voices and Daringer/Beat Butcha’s sample-like, self-recorded production.",
-  "recipe": "classic modern buffalo hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, echo word punctuation. sampled chopped sampler, sampled chopped sampler drum machine, soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 363,
-  "score": 62.375,
+  "recipe": "classic modern buffalo hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, group vocals, echo word punctuation. sampled chopped sampler, sampled chopped sampler drum machine, basswood soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 386,
+  "score": 63.023,
   "config": {
     "traditions": [
       "buffalo_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 8.645,
-          "voice_ensemble_config": 0.441,
+          "voice_ensemble_config": 0.5775,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -60,7 +60,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.878,
+          "electronic_technique": 5.9094999999999995,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.378,
           "sampler_workflow": -0.07,
@@ -76,7 +76,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 5.878,
+          "electronic_technique": 5.9094999999999995,
           "sample_bitdepth": 0.378,
           "sample_swing": 9.1,
           "sample_processing": 0.2415
@@ -92,7 +92,7 @@
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
-          "string_material": "nickel_plated_h",
+          "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
@@ -102,17 +102,17 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 0.9554999999999998,
-          "neck_wood": 0.1995,
+          "body_wood": 1.1234999999999997,
+          "neck_wood": 0.36750000000000005,
           "fretboard": 0.24150000000000002,
           "pickup_magnet": 0.21,
           "pickup_winding": 0.168,
-          "string_material": 0.18,
-          "bridge": 0.1995,
-          "scale_length": 1.2719999999999998,
-          "string_gauge": 0.3045,
+          "string_material": 0,
+          "bridge": 0.36750000000000005,
+          "scale_length": 1.0919999999999999,
+          "string_gauge": 0.504,
           "finish": 0.0315,
-          "string_tuning": 2.1735
+          "string_tuning": 2.2785
         }
       }
     ],

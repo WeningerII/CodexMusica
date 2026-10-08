@@ -5,7 +5,7 @@
   "lineage": "Purple sound emerged around Bristol producers including Joker, Guido and Gemmy, combining dubstep-related rhythm and bass with bright melodic synthesizer writing. Its connections with grime and other electronic scenes create an overlapping but recognizable production approach.",
   "recipe": "classic purple sound, bass System, uk soundsystem branch. digital subtractive, drum machine analog. live tracking.",
   "recipe_chars": 114,
-  "score": 4.98,
+  "score": 4.906,
   "config": {
     "traditions": [
       "purple_sound"
@@ -20,7 +20,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "va_archetypes": 0.105,
+          "va_archetypes": 0.0315,
           "digital_subtractive_context": 4.68
         }
       },

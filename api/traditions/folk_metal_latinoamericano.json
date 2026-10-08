@@ -5,7 +5,7 @@
   "lineage": "Latin American folk metal combines heavy-band writing with varied folk references, including the Argentine-origin Celtic crossover of Skiltron.",
   "recipe": "classic folk metal latinoamericano, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, basswood ernie ball slinky electric bass, sticks backbeat drum kit, melodic highland bagpipes. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 74.541,
+  "score": 74.148,
   "config": {
     "traditions": [
       "folk_metal_latinoamericano"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 16.5855,
+          "electric_technique": 16.701,
           "amp_make": 6.305000000000001,
           "body_wood": 6.5,
-          "neck_wood": 0,
+          "neck_wood": 0.0315,
           "fretboard": 0.168,
           "pickup_magnet": 0,
-          "pickup_winding": 0.39149999999999996,
-          "string_material": 0,
-          "bridge": 0.675,
+          "pickup_winding": 0.2115,
+          "string_material": 0.0315,
+          "bridge": 0.855,
           "scale_length": 0,
-          "string_gauge": 0.5609999999999999,
+          "string_gauge": 0.741,
           "finish": 0,
-          "string_tuning": 0.1395
+          "string_tuning": 0.1935
         }
       },
       {
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 6.5,
-          "pickup_config": 0.477,
+          "pickup_config": 0.29699999999999993,
           "string_type": 4.875,
           "scale_length_b": 0.5774999999999999,
           "fretted_or_not": 0.0315,
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.273
+          "voice_multitrack_stack": 0.3045
         }
       },
       {
@@ -130,12 +130,12 @@
           "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 15.958,
+          "wind_articulation": 15.715,
           "highland_drones": 0,
-          "highland_chanter": 0.39149999999999996,
+          "highland_chanter": 0.2115,
           "highland_drone_reeds": 0.28350000000000003,
-          "highland_chanter_reed": 0.159,
-          "highland_bag": 0.633
+          "highland_chanter_reed": 0.105,
+          "highland_bag": 0.45299999999999996
         }
       }
     ],

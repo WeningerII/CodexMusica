@@ -3,9 +3,9 @@
   "name": "Winnipeg hip hop",
   "family": "hip_hop",
   "lineage": "Winnipeg hip-hop encompasses collaborative MC, beatmaker and DJ communities, including the soul-inflected work of The Lytics.",
-  "recipe": "classic modern winnipeg hip hop, mc Rhythm, intl hip hop branch. rap, echo word punctuation. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 293,
-  "score": 40.543,
+  "recipe": "classic modern winnipeg hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, echo word punctuation. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 331,
+  "score": 40.576,
   "config": {
     "traditions": [
       "winnipeg_hip_hop"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.4112499999999999,
+          "voice_ensemble_config": 0.5097499999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -62,7 +62,7 @@
           "electronic_technique": 5.239,
           "sample_bitdepth": 0,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {
@@ -73,7 +73,7 @@
         },
         "scores": {
           "electronic_technique": 5.239,
-          "turntable_technique": 5.289
+          "turntable_technique": 5.328
         }
       }
     ],

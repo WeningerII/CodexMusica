@@ -5,7 +5,7 @@
   "lineage": "Turkish reggae adapts reggae’s bass-centered grooves within local songwriting and band culture. Groups such as Sattas connect Jamaican-derived practices with Turkish expression and influences from Anatolian music.",
   "recipe": "classic turkish reggae, bass System, reggae diaspora branch. small note groups per syllable, solo with instrumental accompaniment. humbucker electric guitar, electronic keyboard unspecified, drum kit, thumb muted electric bass, saxophone section alto tenor baritone, trumpet. live tracking.",
   "recipe_chars": 290,
-  "score": 16.032,
+  "score": 16.426,
   "config": {
     "traditions": [
       "turkish_reggae"
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "neck_wood": 0.3465,
+          "body_wood": 0.063,
+          "neck_wood": 0.4095,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
-          "pickup_winding": 0,
+          "pickup_winding": 0.0315,
           "string_material": 0.1995,
           "bridge": 0,
-          "scale_length": 0.693,
+          "scale_length": 0.819,
           "string_gauge": 0.8365,
           "finish": 0,
           "string_tuning": 0
@@ -112,10 +112,10 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
-          "drumhead": 0,
+          "drum_technique": -0.05,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
@@ -139,10 +139,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0315,
-          "pickup_config": 0.063,
+          "body_wood": 0.063,
+          "pickup_config": 0.16799999999999998,
           "string_type": -0.1,
-          "scale_length_b": 0,
+          "scale_length_b": 0.063,
           "fretted_or_not": 0,
           "bass_technique": 11.2,
           "electric_bass_string_configuration": 0
@@ -175,7 +175,7 @@
           "brass_mute": 0.0315,
           "trumpet_technique": -0.10500000000000001,
           "trumpet_bell_metal": 0.21,
-          "trumpet_maker_school": 0.105
+          "trumpet_maker_school": 0
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Late-twentieth-century compositional movement centered on Estonian Arvo Pärt, English John Tavener, and late-Polish Henryk Górecki, characterized by slow tempi, modal-and-triadic harmonic vocabulary, sacred-or-spiritual textual content (often Orthodox Christian liturgical), and minimal compositional means. Pärt's tintinnabuli style (developed 1976 onward in Spiegel im Spiegel, Cantus, and Tabula Rasa) and Tavener's The Protecting Veil (1989) constitute the canonical type-specimens.",
   "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 599,
-  "score": 280.7,
+  "score": 281.135,
   "config": {
     "traditions": [
       "holy_minimalism",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 16.97,
-          "voice_quality": 21.014999999999997,
+          "voice_register": 17.014999999999997,
+          "voice_quality": 21.059999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.2625,
+          "voice_vibrato": 7.4125000000000005,
           "voice_articulation": 18.32999999999999,
           "voice_microtone": 20.669999999999987,
           "voice_tradition": 18.46,
@@ -56,7 +56,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
@@ -67,11 +67,11 @@
         },
         "scores": {
           "keyboard_technique": 14.559999999999999,
-          "grand_piano_size": 0.225,
+          "grand_piano_size": 0.195,
           "grand_piano_brand": 0.78,
           "piano_hammer": 9.86,
-          "piano_rim": 14.41,
-          "piano_soundboard": 9.215,
+          "piano_rim": 14.68,
+          "piano_soundboard": 9.17,
           "piano_pinblock": 9.275,
           "piano_plate": 10.01,
           "piano_pitch_standard": 10.249999999999998

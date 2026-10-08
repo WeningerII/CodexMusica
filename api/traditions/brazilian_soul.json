@@ -58,7 +58,7 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "korina",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
@@ -71,18 +71,18 @@
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 9.782999999999998,
-          "body_wood": 0.504,
-          "neck_wood": 0.33599999999999997,
-          "fretboard": 0.2415,
+          "amp_make": 9.719999999999997,
+          "body_wood": 0.399,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
-          "string_material": 0.2415,
+          "string_material": 0.378,
           "bridge": 1.0735,
-          "scale_length": 0.6720000000000002,
+          "scale_length": 0.462,
           "string_gauge": 1.0735,
           "finish": 0,
-          "string_tuning": 1.0080000000000002
+          "string_tuning": 1.2075000000000002
         }
       },
       {
@@ -98,8 +98,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.480999999999996,
-          "body_wood": 0.6720000000000002,
+          "amp_make": 10.554499999999997,
+          "body_wood": 0.462,
           "pickup_config": 0.39,
           "string_type": 12.675,
           "scale_length_b": 0.39,

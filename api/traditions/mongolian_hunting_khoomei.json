@@ -1,16 +1,17 @@
 {
-  "id": "mongolian_hunting_khoomei",
-  "name": "Mongolian hunting-khoomei (throat-singing)",
+  "id": "mongolian_khoomei",
+  "merged_from": "mongolian_hunting_khoomei",
+  "name": "Mongolian khoomei overtone singing",
   "family": "global",
-  "lineage": "Mongolian-and-Tuvan hunting-khoomei (throat-singing) tradition continuous from premodern Central-Asian-steppe hunter-and-herder practice through 20th-century Soviet-era continuous performance into modern Mongolian-and-Tuvan continuous practice",
-  "recipe": "classic Northeast Asian modern mongolian hunting-khoomei, hunting Song, central Asian branch, arctic hunting song, indigenous hunting song, middle east n African praise song arabic madh and qasida sami yoik — animal-tracking and hunting song. sygyt, false fold engaged, slow rate, interlocked note trading. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 222.671,
+  "lineage": "Mongolian khoomei overtone-singing tradition. The technique produces a sustained chest-register fundamental while shaping the vocal tract to amplify upper partials of the harmonic series, generating a clearly audible whistle-tone melody floating above the fundamental. Khalkh-Mongol vocabulary distinguishes several techniques: kharkhiraa (low-register subharmonic kargyraa-equivalent), iisgerekh (mid-register sygyt-equivalent whistle-tone), shakhaa (constricted-throat variant), bagalzuuriin (deep throat-tension), and uyangiin (a singing-leaning lyrical variant). Performance contexts span solo concert, pastoral solo (a shepherd alone on the steppe), morin-khuur-accompanied ensemble, and the contemporary international touring circuit. Sundui, Tserendavaa, and Ganbold are the canonical twentieth-century khoomei masters; the post-1990 Mongolian state cultural-revival has produced a major export of khoomei performers internationally. The Smithsonian Folkways field recordings provide the principal Western-distributed documentation. Distinguished from Tuvan khoomei by Mongolian-Khalkh dialect-specific technique nomenclature and Mongolian-state-cultural-context performance framework (vs Tuvan-state-cultural-context); distinguished from Xhosa umngqokolo by Mongolian khoomei's throat-tension fundamental production (vs Xhosa's chest-register relaxed-fundamental); distinguished from Tibetan multiphonic yang chant by Mongolian khoomei's solo (vs ensemble-monastic) and secular (vs liturgical) configurations.",
+  "recipe": "classic Northeast Asian early-1990s mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal toyuk northern sámi luohti yoik. sygyt, false fold engaged, slow rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 607,
+  "score": 440.21,
   "config": {
     "traditions": [
-      "mongolian_hunting_khoomei",
-      "arabic_madh_qasida",
-      "sami_yoik_tracking"
+      "mongolian_khoomei",
+      "sakha_toyuk",
+      "sami_northern_luohti"
     ],
     "instruments": [
       {
@@ -28,28 +29,69 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 22.2245,
-          "voice_quality": 18.915,
+          "voice_register": 37.155,
+          "voice_quality": 36.51,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.151499999999999,
-          "voice_articulation": 12.219999999999994,
-          "voice_microtone": 20.14999999999999,
-          "voice_tradition": 30.980999999999995,
-          "voice_mechanism_compound": 26.378,
-          "voice_estill_quality": 7.028,
-          "voice_speech_song": 25.7725,
-          "voice_ensemble_config": 12.544999999999993,
-          "voice_ornament_system": 11.114999999999998,
-          "voice_pitch_organization": 22.368499999999997,
-          "voice_processing_chain": 2.4699999999999998,
-          "voice_multitrack_stack": 2.34
+          "voice_vibrato": 6.415000000000001,
+          "voice_articulation": 20.8,
+          "voice_microtone": 24.83,
+          "voice_tradition": 38.89000000000001,
+          "voice_mechanism_compound": 32.41,
+          "voice_estill_quality": 8.32,
+          "voice_speech_song": 25.479999999999997,
+          "voice_ensemble_config": 19.694999999999997,
+          "voice_ornament_system": 9.62,
+          "voice_pitch_organization": 40.69999999999999,
+          "voice_processing_chain": 13.259999999999996,
+          "voice_multitrack_stack": 8.58
+        }
+      },
+      {
+        "id": "morin_khuur",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "morin_khuur_use": "morin_khuur_long_song",
+          "morin_khuur_construction": "morin_khuur_modern_wood",
+          "morin_khuur_body_wood": "morin_khuur_sycamore",
+          "morin_khuur_strings": "morin_khuur_horsehair_canonical"
+        },
+        "scores": {
+          "bowed_technique": 4.680000000000001,
+          "morin_khuur_use": 35.505,
+          "morin_khuur_construction": 6.24,
+          "morin_khuur_body_wood": 10.06,
+          "morin_khuur_strings": 2.795
+        }
+      },
+      {
+        "id": "tovshuur",
+        "slots": {
+          "tovshuur_strings": "tovshuur_two",
+          "tovshuur_body": "tovshuur_carved_wood_hide"
+        },
+        "scores": {
+          "tovshuur_strings": 15.02,
+          "tovshuur_body": 3.1699999999999995
+        }
+      },
+      {
+        "id": "throat_singing_voice",
+        "slots": {
+          "throat_mechanism_root": "throat_mechanism_M1_compound_with_overtones",
+          "throat_overtone_target_region": "throat_overtone_8th_to_12th_partial",
+          "throat_singing_voice_region": "throat_singing_voice_himalayan_ritual"
+        },
+        "scores": {
+          "throat_mechanism_root": 21.19,
+          "throat_overtone_target_region": 9.174999999999999,
+          "throat_singing_voice_region": 7.1850000000000005
         }
       }
     ],
@@ -73,20 +115,26 @@
     "tuning": "mongolian_pentatonic_long_song",
     "room": "open_steppe_outdoor",
     "parts": {
-      "voice_articulation": "narrative_voice",
-      "voice_speech_song": "voice_syllabic_singing",
       "voice_register": "kargyraa_register",
       "voice_quality": "lowered_larynx_voice",
+      "voice_speech_song": "voice_non_lexical_vocable",
       "voice_tradition": "khoomei_tuvan_tradition",
       "voice_pitch_organization": "voice_pitch_equal_tempered_12",
       "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
       "voice_multitrack_stack": "voice_multitrack_single_lead",
       "voice_microtone": "tempered_voice",
       "voice_ornament_system": "voice_ornament_sami_yoik",
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_aryepiglottic_steppe"
+      "voice_mechanism_compound": "voice_mechanism_aryepiglottic_steppe",
+      "bowed_technique": "bowed_legato_classical",
+      "morin_khuur_use": "morin_khuur_dance",
+      "morin_khuur_construction": "morin_khuur_traditional",
+      "morin_khuur_body_wood": "morin_khuur_sycamore",
+      "morin_khuur_strings": "morin_khuur_horsehair_canonical",
+      "tovshuur_strings": "tovshuur_two",
+      "tovshuur_body": "tovshuur_carved_wood_hide"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

@@ -1,0 +1,118 @@
+{
+  "id": "caboclinho_pernambucano",
+  "name": "Caboclinho (Pernambuco carnival caboclo groups)",
+  "family": "global",
+  "lineage": "Carnival tradition of Recife and the Pernambuco Zona da Mata in which groups costumed as Indigenous warriors dance in rows to a small terno; IPHAN has registered it as Brazilian cultural heritage. The terno combines a small cane pipe (gaita), a shaker (caracaxá) and a bass drum, while the dancers click wooden bow-and-arrow preacás in rhythm. The credited bamboo-flute card stands in for the gaita, the surdo for the bass drum, a source-unspecified shaker for the caracaxá and palitos for the preacás.",
+  "recipe": "classic modern caboclinho, carnival Processional, Brazilian branch. bamboo credited bamboo flute shaker source unspecified, surdo, palitos. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 219,
+  "score": 2.092,
+  "config": {
+    "traditions": [
+      "caboclinho_pernambucano"
+    ],
+    "instruments": [
+      {
+        "id": "credited_bamboo_flute_unspecified",
+        "slots": {
+          "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+          "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+          "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified"
+        },
+        "scores": {
+          "credited_bamboo_flute_unspecified_material": 1.1375,
+          "credited_bamboo_flute_unspecified_construction": 0,
+          "credited_bamboo_flute_unspecified_playing": 0
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.0315
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_hide",
+          "surdo_shell": "surdo_wood_staved"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 0.1365,
+          "surdo_shell": 0.1365
+        }
+      },
+      {
+        "id": "palitos",
+        "slots": {
+          "palitos_surface": "palitos_bench",
+          "palitos_pattern": "palitos_clave"
+        },
+        "scores": {
+          "palitos_surface": 0.3,
+          "palitos_pattern": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_bamboo_flute_unspecified": [
+        "credited_bamboo_flute_unspecified_material",
+        "credited_bamboo_flute_unspecified_construction",
+        "credited_bamboo_flute_unspecified_playing"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "palitos": [
+        "palitos_surface",
+        "palitos_pattern"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "credited_bamboo_flute_unspecified_material": "credited_bamboo_flute_unspecified_material_bamboo",
+      "credited_bamboo_flute_unspecified_construction": "credited_bamboo_flute_unspecified_construction_unspecified",
+      "credited_bamboo_flute_unspecified_playing": "credited_bamboo_flute_unspecified_playing_unspecified",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_hide",
+      "surdo_shell": "surdo_wood_staved",
+      "palitos_surface": "palitos_bench",
+      "palitos_pattern": "palitos_clave"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

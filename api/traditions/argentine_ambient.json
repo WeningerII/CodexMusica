@@ -5,7 +5,7 @@
   "lineage": "Argentina’s contemporary ambient and electroacoustic scene connects home recording and local sound environments with international independent labels. Its varied practices include synthesizer composition, guitar textures, tape collage and field-recording loops.",
   "recipe": "classic modern argentine ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, single coil electric guitar, layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 433,
-  "score": 28.99,
+  "score": 28.69,
   "config": {
     "traditions": [
       "argentine_ambient",
@@ -25,7 +25,7 @@
           "electronic_technique": 10.3,
           "oscillator": 0,
           "filter_topology": 0.195,
-          "envelope": 4.66,
+          "envelope": 4.51,
           "modulation": 0
         }
       },
@@ -58,7 +58,7 @@
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.24,
+          "string_tuning": 0.09,
           "single_coil_pickup_construction": 0
         }
       },

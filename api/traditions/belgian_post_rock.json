@@ -5,7 +5,7 @@
   "lineage": "Belgian post-rock includes piano-led instrumental ensembles working with guitar texture and dynamic rhythm.",
   "recipe": "classic belgian post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 17 ply hard rock maple grand piano, marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 357,
-  "score": 30.293,
+  "score": 30.613,
   "config": {
     "traditions": [
       "belgian_post_rock"
@@ -25,7 +25,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.289,
+          "keyboard_technique": 0.25,
           "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.03899999999999999,
           "piano_hammer": 4.42,
@@ -62,11 +62,11 @@
           "pickup_magnet": 0.105,
           "pickup_winding": 0.147,
           "string_material": 0.39,
-          "bridge": 0.45625,
+          "bridge": 0.6171249999999999,
           "scale_length": 0,
-          "string_gauge": 0.39325,
+          "string_gauge": 0.554125,
           "finish": 0,
-          "string_tuning": 0.08174999999999999
+          "string_tuning": 0.11887499999999998
         }
       },
       {

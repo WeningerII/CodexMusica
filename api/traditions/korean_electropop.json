@@ -5,7 +5,7 @@
   "lineage": "CIFIKA — HEX, Old Fantasy (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-2020s korean electropop, functional Song. solo with instrumental accompaniment, single performer unison double recorded take. analog poly synth, 7 ply quartersawn maple block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 304,
-  "score": 9.355,
+  "score": 9.463,
   "config": {
     "traditions": [
       "korean_electropop"
@@ -83,9 +83,9 @@
         "scores": {
           "keyboard_technique": 4.7,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.40950000000000003,
+          "grand_piano_brand": 0.4635,
           "piano_hammer": -0.1,
-          "piano_rim": 0.49999999999999994,
+          "piano_rim": 0.5539999999999999,
           "piano_soundboard": 0.26,
           "piano_pinblock": 1.2,
           "piano_plate": -0.1,

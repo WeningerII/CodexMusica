@@ -105,6 +105,7 @@
   var S = {
     pts: [],
     byId: {},
+    aliasOf: {},
     nodes: {},
     sigs: {},
     tokenIdx: {},
@@ -342,6 +343,7 @@
         syncControls();
         loadImages();
         var deep = new URLSearchParams(location.search).get('trad');
+        if (deep && !S.byId[deep] && S.aliasOf[deep]) deep = S.aliasOf[deep];
         if (deep && S.byId[deep]) {
           select(S.byId[deep]);
           flyTo(S.byId[deep]);
@@ -368,6 +370,11 @@
   }
 
   function ingest(idx, geo, sigs, world, treeMap, nodes, routes, threads, meta) {
+    // Retired (merged) ids, so an old ?trad= link lands on the tradition it became.
+    S.aliasOf = {};
+    (idx.aliases || []).forEach(function (a) {
+      S.aliasOf[a.id] = a.of;
+    });
     S.sigs = sigs;
     S.nodes = nodes;
     S.meta = meta;

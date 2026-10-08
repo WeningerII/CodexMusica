@@ -5,7 +5,7 @@
   "lineage": "Swedish Experimental encompasses exploratory sound practice across Sweden’s independent music networks.",
   "recipe": "classic swedish experimental, experimental Elec, industrial noise branch. analog synth, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 195,
-  "score": 18.145,
+  "score": 17.977,
   "config": {
     "traditions": [
       "swedish_experimental"
@@ -22,7 +22,7 @@
         },
         "scores": {
           "electronic_technique": -0.035,
-          "oscillator": 0.063,
+          "oscillator": 0.0315,
           "filter_topology": 0.39,
           "envelope": 0.28350000000000003,
           "modulation": 0
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": -0.035,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.5985,
+          "sampler_bit_depth": 0.462,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 17
         }

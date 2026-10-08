@@ -5,7 +5,7 @@
   "lineage": "Jazz pop brings popular-song melodies together with jazz-influenced phrasing, harmony and instrumental interplay.",
   "recipe": "classic jazz pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 337,
-  "score": 45.259,
+  "score": 45.04,
   "config": {
     "traditions": [
       "jazz_pop"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 11.3575,
           "amp_make": 1.8199999999999998,
-          "body_wood": 0.6194999999999999,
+          "body_wood": 0.483,
           "neck_wood": 0.2415,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.1365,
           "string_material": 0.0315,
           "bridge": 0.2415,
-          "scale_length": 0.6405000000000001,
+          "scale_length": 0.504,
           "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.054
         }
       },
       {

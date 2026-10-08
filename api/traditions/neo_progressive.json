@@ -5,7 +5,7 @@
   "lineage": "A later progressive-rock current extending symphonic rock through melodic songs and keyboard-led arrangements.",
   "recipe": "classic neo-progressive, distorted Rock, progressive rock branch. one note per syllable. melodic chordal electronic keyboard unspecified, humbucker electric guitar, cello, electric bass, saxophone, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 417,
-  "score": 48.749,
+  "score": 48.812,
   "config": {
     "traditions": [
       "neo_progressive"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6825,
+          "voice_speech_song": 0.714,
           "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -60,7 +60,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0.0315,
-          "keyboard_technique": 1.126
+          "keyboard_technique": 1.0945
         }
       },
       {
@@ -83,7 +83,7 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.1995,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
@@ -116,7 +116,7 @@
           "cello_back_wood": -0.07,
           "cello_varnish": -0.1,
           "cello_setup_period": 0.26,
-          "cello_bow_grip": 0.36750000000000005,
+          "cello_bow_grip": 0.399,
           "cello_rosin": -0.07,
           "cello_bow_stick": -0.10500000000000001
         }
@@ -135,7 +135,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.1995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -189,7 +189,7 @@
           "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 15.2045,
+          "cymbal_hammering": 15.172999999999998,
           "cymbal_lathing": 14.931499999999998,
           "cymbal_finish": 0
         }

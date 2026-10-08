@@ -3,9 +3,9 @@
   "name": "Spanish punk",
   "family": "rock_punk",
   "lineage": "Spanish punk develops through local independent band scenes and successive generations of performers.",
-  "recipe": "classic spanish punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 324,
-  "score": 41.647,
+  "recipe": "classic spanish punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 306,
+  "score": 41.028,
   "config": {
     "traditions": [
       "spanish_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 14.494999999999997,
-          "body_wood": 1.209,
+          "body_wood": 0.9359999999999999,
           "neck_wood": 0.063,
           "fretboard": 0.18,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.6650000000000005,
-          "body_wood": 1.209,
+          "body_wood": 0.9359999999999999,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 4.5,
-          "drumhead": 0.273,
+          "drumhead": 0.2,
           "drum_kit_kick_pedal": 0
         }
       },

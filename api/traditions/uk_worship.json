@@ -5,7 +5,7 @@
   "lineage": "UK worship music develops through churches, congregations and songwriters such as Graham Kendrick. Contemporary hymn writing and band-led worship connect biblical texts and communal singing with changing popular-song styles.",
   "recipe": "classic uk worship, ritual Devotional. small note groups per syllable. upright piano, dreadnought acoustic guitar, electric bass, drum kit. live tracking.",
   "recipe_chars": 154,
-  "score": 3.016,
+  "score": 3.141,
   "config": {
     "traditions": [
       "uk_worship"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.1575,
+          "voice_speech_song": 1.189,
           "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -62,7 +62,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "upright_use": 0.3,
-          "upright_piano_size": 0.0315
+          "upright_piano_size": 0.063
         }
       },
       {
@@ -75,7 +75,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": -0.1,
+          "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
@@ -96,12 +96,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.0735,
-          "pickup_config": 0.1785,
-          "string_type": 0.0735,
+          "body_wood": 0,
+          "pickup_config": 0.105,
+          "string_type": 0,
           "scale_length_b": 0,
           "fretted_or_not": 0.063,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -122,12 +122,12 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.546,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.609,
+          "shell_wood": 0.7665000000000002,
           "shell_thickness": 0,
           "bearing_edges": 0.105,
-          "snare_wires": 0.0735,
+          "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.15000000000000002,
           "cymbal_lathing": -0.10500000000000001,

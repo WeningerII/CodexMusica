@@ -5,7 +5,7 @@
   "lineage": "Russian metal spans diverse national heavy-music scenes and their intersections.",
   "recipe": "classic russian metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modern metal basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 37.089,
+  "score": 37.66,
   "config": {
     "traditions": [
       "russian_metal"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.105,
-          "bridge": 0.315,
+          "bridge": 0.445,
           "scale_length": 0,
-          "string_gauge": 0.147,
+          "string_gauge": 0.27699999999999997,
           "finish": 0,
-          "string_tuning": 0.063
+          "string_tuning": 0.102
         }
       },
       {
@@ -63,7 +63,7 @@
           "string_type": 0,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": 3.826,
+          "bass_technique": 3.7945,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.7349999999999999,
-          "voice_ensemble_config": 1.344,
+          "voice_speech_song": 0.9319999999999997,
+          "voice_ensemble_config": 1.4425,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 0.102,
           "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }

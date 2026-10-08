@@ -5,7 +5,7 @@
   "lineage": "Alessio Bondì — Rimmillu ru voti (2015). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic mid-2010s indie siciliano, ballad Poetry, chanson fado branch. solo with instrumental accompaniment, single lead single track no stacking. classical nylon-string guitar, harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 287,
-  "score": 10.954,
+  "score": 10.976,
   "config": {
     "traditions": [
       "indie_siciliano"
@@ -82,7 +82,7 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0,
+          "harmonica_type": 0.0225,
           "harmonica_comb": 0.8224999999999998,
           "harmonica_reed": 0.2225,
           "harmonica_technique": 1.0864999999999998,

@@ -1,16 +1,17 @@
 {
-  "id": "piedmont_fingerpicking",
-  "name": "Piedmont fingerpicking blues",
-  "family": "global",
-  "lineage": "Eastern-seaboard fingerpicked country blues tradition that flourished in the Piedmont region (Virginia, the Carolinas, Georgia) from the early 20th century — distinguished from the Mississippi Delta blues tradition (which is harder-edged and rhythmically heavier) by its lighter ragtime-derived right-hand fingerpicking, brighter harmonic vocabulary, and parlor-music influence; codified through Blind Boy Fuller (the Piedmont voice, recorded 1935-40), Blind Blake, the Reverend Gary Davis, Brownie McGhee, Sonny Terry, Etta Baker, Elizabeth Cotten (Freight Train, Shake Sugaree)",
-  "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song australian blues belgian blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 531,
-  "score": 417.765,
+  "id": "piedmont_blues",
+  "merged_from": "piedmont_fingerpicking",
+  "name": "Piedmont blues",
+  "family": "blues_gospel",
+  "lineage": "Country-blues tradition of the southern Atlantic seaboard (North Carolina, South Carolina, Virginia, Georgia) — characterized by alternating-thumb fingerpicking guitar accompaniment (the so-called Piedmont style), ragtime-influenced harmonic vocabulary, and a less mournful register than Delta blues — codified through Blind Boy Fuller, Reverend Gary Davis, Blind Blake, Sonny Terry and Brownie McGhee, with continuing transmission through the folk-revival pedagogical inheritance",
+  "recipe": "classic mid-1930s piedmont blues, functional Song, blues acoustic branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 463,
+  "score": 503.567,
   "config": {
     "traditions": [
-      "piedmont_fingerpicking",
-      "australian_blues",
-      "belgian_blues"
+      "piedmont_blues",
+      "classic_blues_women",
+      "jug_band"
     ],
     "instruments": [
       {
@@ -30,43 +31,43 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 42.94000000000001,
-          "voice_quality": 20.124999999999996,
+          "voice_register": 56.89500000000001,
+          "voice_quality": 9.25,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 35.625,
-          "voice_articulation": 11.114999999999997,
-          "voice_microtone": 32.035,
-          "voice_tradition": 15.859999999999996,
-          "voice_mechanism_compound": 2.795,
-          "voice_estill_quality": 7.705000000000001,
-          "voice_speech_song": 13.389999999999997,
-          "voice_ensemble_config": 11.764999999999993,
-          "voice_ornament_system": 1.8199999999999998,
-          "voice_pitch_organization": 1.885,
-          "voice_processing_chain": 4.549999999999999,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 45.88,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 42.77,
+          "voice_tradition": 24.31,
+          "voice_mechanism_compound": 4.16,
+          "voice_estill_quality": 9.977500000000001,
+          "voice_speech_song": 18.459999999999997,
+          "voice_ensemble_config": 16.184999999999995,
+          "voice_ornament_system": 1.54,
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 7.6049999999999995,
+          "voice_multitrack_stack": 2.7299999999999995
         }
       },
       {
-        "id": "acoustic_guitar_om",
+        "id": "acoustic_guitar_parlor",
         "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
-          "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
-          "string_acoustic": "martin_lifespan_om",
-          "acoustic_om_technique": "om_bottleneck_slide"
+          "top_wood_parlor": "cedar_p",
+          "back_sides_parlor": "mahogany_bs_p",
+          "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "string_tuning": 12.4,
-          "top_wood": 0.54,
-          "back_sides": 0.6749999999999999,
-          "string_acoustic": 0.8849999999999998,
-          "acoustic_om_technique": 37.91499999999999
+          "acoustic_technique": 16.799999999999997,
+          "string_tuning": 10.125,
+          "top_wood_parlor": 0.78,
+          "back_sides_parlor": 0.21,
+          "string_acoustic_parlor": 1.365
         }
       },
       {
@@ -80,41 +81,24 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.845,
-          "harmonica_comb": 34.365,
-          "harmonica_reed": 31.285,
-          "harmonica_technique": 34.045,
-          "harmonica_maker_school": 35.54,
-          "harmonica_tuning": 15.989999999999998
-        }
-      },
-      {
-        "id": "mountain_dulcimer",
-        "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
-          "dulcimer_strings": "dulcimer_4",
-          "dulcimer_tuning": "mixolydian_tuning",
-          "dulcimer_body_wood": "dulcimer_walnut_canonical",
-          "dulcimer_string_material": "dulcimer_phosphor_bronze"
-        },
-        "scores": {
-          "acoustic_technique": 11.285000000000002,
-          "dulcimer_strings": 1.2349999999999999,
-          "dulcimer_tuning": 0.39,
-          "dulcimer_body_wood": 0.6,
-          "dulcimer_string_material": 0.045
+          "harmonica_type": 2.7299999999999995,
+          "harmonica_comb": 52.81000000000001,
+          "harmonica_reed": 41.30000000000001,
+          "harmonica_technique": 46.57,
+          "harmonica_maker_school": 53.31,
+          "harmonica_tuning": 20.995000000000005
         }
       }
     ],
-    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "room": "parlor",
     "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "pre_field_recorder_portable",
-      "console": "console_german_tube_50s",
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "colored",
       "comp": null,
       "eq": null,
-      "amp": null,
+      "amp": "amp_american_tweed",
       "medium": "shellac_78"
     },
     "tuning": "twelve_tet",
@@ -124,7 +108,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "us_dustbowl_outdoor_woody_guthrie",
+    "room": "parlor",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
@@ -137,18 +121,19 @@
       "voice_microtone": "blue_notes",
       "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_belt",
-      "voice_vibrato": "straight_tone",
+      "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "harmonica_technique": "harm_blues_cross",
       "harmonica_type": "diatonic_blues",
-      "top_wood": "sitka_om",
-      "back_sides": "mahogany_bs_om",
-      "string_acoustic": "phosphor_om",
-      "acoustic_om_technique": "om_bottleneck_slide"
+      "acoustic_technique": "acoustic_bottleneck_slide",
+      "top_wood_parlor": "sitka_p",
+      "back_sides_parlor": "mahogany_bs_p",
+      "string_acoustic_parlor": "silk_steel_p"
     },
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_field_recorder_portable",
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
     "chain_medium": "shellac_78",
-    "chain_console": "console_german_tube_50s"
+    "chain_console": "colored",
+    "chain_amp": "amp_american_tweed"
   }
 }

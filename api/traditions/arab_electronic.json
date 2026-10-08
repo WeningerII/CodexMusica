@@ -5,7 +5,7 @@
   "lineage": "Arab electronic music develops through producers, singers, DJs and experimental musicians across Arab countries and diaspora networks. Contemporary club scenes bring Arabic vocal and melodic expression into house, techno and other electronic approaches.",
   "recipe": "classic arab electronic, electronic Dance. drum machine analog, analog mono synth.",
   "recipe_chars": 82,
-  "score": 2.74,
+  "score": 2.834,
   "config": {
     "traditions": [
       "arab_electronic"
@@ -38,8 +38,8 @@
         "scores": {
           "electronic_technique": 0.19500000000000003,
           "mono_oscillator": 0,
-          "mono_filter": 0.0315,
-          "mono_archetypes": 0.063,
+          "mono_filter": 0.063,
+          "mono_archetypes": 0.126,
           "mono_maker_lineage": -0.05
         }
       }

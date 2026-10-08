@@ -5,7 +5,7 @@
   "lineage": "Taiwanese hip-hop developed through local MCs, DJs, independent releases and university-club networks, with Mandarin and Taiyu rap alongside instrumental beatmaking.",
   "recipe": "classic modern taiwan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 327,
-  "score": 56.935,
+  "score": 57.229,
   "config": {
     "traditions": [
       "taiwan_hip_hop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.019,
+          "voice_speech_song": 13.205,
           "voice_ensemble_config": 3.38,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 5.2,
           "sampler_archetypes": 5.358,
-          "sampler_bit_depth": 0.213,
+          "sampler_bit_depth": 0.321,
           "sampler_workflow": 5.15,
           "sampler_classic_context": 10.594999999999999
         }

@@ -1,72 +1,73 @@
 {
-  "id": "son_cubano_clasico",
-  "name": "Son Cubano Clásico",
+  "id": "son_cubano",
+  "merged_from": "son_cubano_clasico",
+  "name": "Son cubano",
   "family": "global",
-  "lineage": "Classic Cuban son joins eastern Cuban song traditions with the urban sexteto and septeto sound established in Havana during the1920s and1930s. Tres-led instrumental passages and sung verses open into repeating montuno responses over interlocking percussion.",
-  "recipe": "classic son cubano clásico, groove Percussion, son salsa branch. thyroarytenoid dominant full chest belt belt projection human voice ensemble unspecified, cedar canonical Cuban tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, claves, maracas, bach stradivarius 180 canonical American orchestral trumpet. live tracking.",
-  "recipe_chars": 428,
-  "score": 42.076,
+  "lineage": "Cuban son tradition, the canonical Afro-Cuban song-form that became the foundational template for salsa, mambo, cha-cha-chá, and most Caribbean-Latin popular music 1900s-onward. Originated in eastern Cuban Oriente-province (Santiago de Cuba and Guantánamo region) late-19th-century out of changüí proto-son rural-Afro-Spanish-fusion, with classic ensemble of tres (small three-double-course guitar), Spanish guitar, bass (originally botija jug-bass, later contrabass), bongos, claves, and maracas. Migrated to Havana in the 1920s where the sexteto-and-septeto urban-commercial codification (adding trumpet) made son the international Cuban-music ambassador. The clave 3-2 (or reversed 2-3) two-bar wood-block rhythm anchors all son derivatives; the verse-montuno structure (canto verse-section, montuno call-and-response open-improvisation section) defines all subsequent Caribbean popular-song architectures.",
+  "recipe": "classic Caribbean mid-1900s son cubano, groove Percussion, son salsa branch, rumba Cuban rumba cubana yambú. kargyraa, breath veiled tone, slow rate, interlocked note trading. cedar canonical Cuban octave doubled bronze steel rural traditional strummed tres cubano, low mid rich spectrum cedar classical nylon-string guitar, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, regional wood hardwood claves, maracas, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, low mouthed timbale mounted mambo section montuno lift coro section cencerro, son changui anchor walking bass runs melodic bass movement forged iron tongues marimbula. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 965,
+  "score": 293.223,
   "config": {
     "traditions": [
-      "son_cubano_clasico"
+      "son_cubano",
+      "rumba_cubana",
+      "rumba_yambu"
     ],
     "instruments": [
       {
-        "id": "human_voice_ensemble_unspecified",
+        "id": "voice",
         "slots": {
-          "voice_register": "mix_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_register": "kargyraa_register",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "call_response_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_speech",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
-          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 1.1049999999999995,
+          "voice_register": 0.9999999999999999,
+          "voice_quality": 16.509999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": -0.035,
-          "voice_articulation": -0.14,
-          "voice_microtone": -0.3,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0.126,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "human_voice_ensemble_source_status": 0,
-          "human_voice_tracking_source_status": 0,
-          "voice_tessitura": 0
+          "voice_vibrato": 1.17,
+          "voice_articulation": 15.209999999999997,
+          "voice_microtone": 15.372499999999995,
+          "voice_tradition": 7.345000000000001,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 5.200000000000001,
+          "voice_speech_song": 18.394999999999996,
+          "voice_ensemble_config": 14.949999999999996,
+          "voice_ornament_system": 1.9249999999999998,
+          "voice_pitch_organization": 2.2099999999999995,
+          "voice_processing_chain": 3.5364999999999998,
+          "voice_multitrack_stack": 3.6399999999999997
         }
       },
       {
         "id": "tres_cubano",
         "slots": {
-          "plucked_traditional_technique": "plucked_dance_pattern",
+          "plucked_traditional_technique": "plucked_folk_strummed",
           "tres_courses": "tres_3x2",
           "tres_cubano_context": "tres_cubano_son",
           "tres_cubano_body_wood": "tres_cubano_cedar",
-          "tres_cubano_strings": "tres_cubano_steel_modern"
+          "tres_cubano_strings": "tres_cubano_octave_doubled"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "tres_courses": 9.54275,
-          "tres_cubano_context": 0.26549999999999996,
-          "tres_cubano_body_wood": 4.55,
-          "tres_cubano_strings": 0
+          "plucked_traditional_technique": 3.705,
+          "tres_courses": 16.33775,
+          "tres_cubano_context": 2.08,
+          "tres_cubano_body_wood": 13.975,
+          "tres_cubano_strings": 1.3
         }
       },
       {
@@ -76,63 +77,63 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "nylon_normal_cl",
-          "attack_technique_cl": "tirando_cl"
+          "string_classical": "nylon_high_cl",
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.38,
+          "acoustic_technique": 1.0499999999999998,
           "string_tuning": 0,
-          "top_wood_classical": 1.3,
+          "top_wood_classical": 4.095,
           "bracing_classical": 0.0315,
-          "string_classical": -0.035,
-          "attack_technique_cl": 0
+          "string_classical": 0.1365,
+          "attack_technique_cl": 0.24
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "gut_upright",
+          "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0,
-          "upright_play": -0.05
+          "upright_strings": 0.75,
+          "upright_play": 0.75
         }
       },
       {
         "id": "bongos",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
+          "percussion_technique": "percussion_open_slap",
           "bongos_skin": "bongos_mule_hide",
           "bongos_context": "bongos_son",
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": -0.1,
-          "bongos_skin": 16.9,
-          "bongos_context": 0.0315,
-          "bongos_shell_wood": 4.55
+          "percussion_technique": 14.853000000000002,
+          "bongos_skin": 32.66175,
+          "bongos_context": 0.7215,
+          "bongos_shell_wood": 13.975
         }
       },
       {
         "id": "claves",
         "slots": {
-          "claves_pattern": "claves_son_3_2",
+          "claves_pattern": "claves_rumba",
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 0.4455,
-          "claves_wood": 0.3165
+          "claves_pattern": 20.865000000000002,
+          "claves_wood": 2.145
         }
       },
       {
         "id": "maracas",
         "slots": {
-          "maracas_construction": "maracas_gourd",
+          "maracas_construction": "maracas_leather",
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
-          "maracas_construction": 0.0315,
+          "maracas_construction": 0.195,
           "maracas_filling": 0.0315
         }
       },
@@ -141,133 +142,92 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-          "brass_mute": "no_mute_brass",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.10500000000000001,
-          "brass_size": 0.378,
-          "trumpet_mouthpiece": -0.1,
-          "brass_mute": 0,
-          "trumpet_technique": -0.10500000000000001,
-          "trumpet_bell_metal": 0.621,
-          "trumpet_maker_school": 1.1145
+          "wind_articulation": 3.906,
+          "brass_size": 0.273,
+          "trumpet_mouthpiece": 2.6649999999999996,
+          "brass_mute": 0.15,
+          "trumpet_technique": 3.906,
+          "trumpet_bell_metal": 1.1365,
+          "trumpet_maker_school": 1.3
+        }
+      },
+      {
+        "id": "cencerro",
+        "slots": {
+          "cencerro_bell_type": "cencerro_mambo_bell",
+          "cencerro_context": "cencerro_montuno",
+          "cencerro_build": "cencerro_welded_steel"
+        },
+        "scores": {
+          "cencerro_bell_type": 3.9629999999999996,
+          "cencerro_context": 5.292249999999999,
+          "cencerro_build": 0
+        }
+      },
+      {
+        "id": "marimbula",
+        "slots": {
+          "marimbula_regional_form": "marimbula_form_cubana",
+          "marimbula_playing_role": "marimbula_role_walking",
+          "marimbula_construction": "marimbula_build_forged_iron"
+        },
+        "scores": {
+          "marimbula_regional_form": 24.476499999999998,
+          "marimbula_playing_role": 6.92075,
+          "marimbula_construction": 2.6865
         }
       }
     ],
-    "pinned": {
-      "human_voice_ensemble_unspecified": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "human_voice_ensemble_source_status",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "human_voice_tracking_source_status",
-        "voice_tessitura"
-      ],
-      "tres_cubano": [
-        "plucked_traditional_technique",
-        "tres_courses",
-        "tres_cubano_context",
-        "tres_cubano_body_wood",
-        "tres_cubano_strings"
-      ],
-      "classical_nylon_string_guitar": [
-        "acoustic_technique",
-        "string_tuning",
-        "top_wood_classical",
-        "bracing_classical",
-        "string_classical",
-        "attack_technique_cl"
-      ],
-      "upright_bass": [
-        "upright_strings",
-        "upright_play"
-      ],
-      "bongos": [
-        "percussion_technique",
-        "bongos_skin",
-        "bongos_context",
-        "bongos_shell_wood"
-      ],
-      "claves": [
-        "claves_pattern",
-        "claves_wood"
-      ],
-      "maracas": [
-        "maracas_construction",
-        "maracas_filling"
-      ],
-      "trumpet": [
-        "wind_articulation",
-        "brass_size",
-        "trumpet_mouthpiece",
-        "brass_mute",
-        "trumpet_technique",
-        "trumpet_bell_metal",
-        "trumpet_maker_school"
-      ]
-    },
-    "room": "live_room",
+    "room": "panart_puchito_havana_pre_1959",
+    "archetype": "arch_early_tape_havana",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "mic_rca_77dx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": "comp_vari_mu",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": null
+      "medium": "tape_15ips"
     },
+    "tuning": "son_clave_3_2",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "son_clave_3_2",
+    "room": "panart_puchito_havana_pre_1959",
     "parts": {
-      "voice_register": "mix_voice",
-      "voice_quality": "full_chest_belt_voice",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "slow_vibrato",
-      "voice_articulation": "call_response_voice",
-      "voice_microtone": "tempered_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "voice_estill_quality": "voice_estill_speech",
-      "voice_speech_song": "voice_syllabic_singing",
-      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "plucked_traditional_technique": "plucked_dance_pattern",
-      "tres_courses": "tres_3x2",
-      "tres_cubano_context": "tres_cubano_son",
-      "tres_cubano_body_wood": "tres_cubano_cedar",
-      "tres_cubano_strings": "tres_cubano_steel_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
-      "string_tuning": "standard_tuning",
       "top_wood_classical": "cedar_cl",
       "bracing_classical": "fan_torres_cl",
       "string_classical": "nylon_normal_cl",
       "attack_technique_cl": "tirando_cl",
-      "upright_strings": "gut_upright",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "voice_register": "mix_voice",
+      "voice_quality": "chest_mix_belt_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "slow_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
       "upright_play": "pizz_upright",
+      "upright_strings": "gut_wound_upright",
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_technique": "trumpet_punchy_ensemble",
       "percussion_technique": "percussion_hands_layered",
       "bongos_skin": "bongos_mule_hide",
       "bongos_context": "bongos_son",
@@ -276,14 +236,17 @@
       "claves_wood": "claves_cuban_hardwood",
       "maracas_construction": "maracas_gourd",
       "maracas_filling": "maracas_seeds",
-      "wind_articulation": "wind_punchy_ensemble",
-      "brass_size": "trumpet_b_flat",
-      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
-      "brass_mute": "no_mute_brass",
-      "trumpet_technique": "trumpet_punchy_ensemble",
-      "trumpet_bell_metal": "trumpet_yellow_brass",
-      "trumpet_maker_school": "trumpet_bach_stradivarius"
+      "plucked_traditional_technique": "plucked_tremolo",
+      "tres_courses": "tres_3x2",
+      "tres_cubano_context": "tres_cubano_son",
+      "tres_cubano_body_wood": "tres_cubano_cedar",
+      "tres_cubano_strings": "tres_cubano_octave_doubled"
     },
-    "pin_parts": true
+    "chain_mic": "mic_rca_77dx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_vari_mu",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_german_tube_50s"
   }
 }

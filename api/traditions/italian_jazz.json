@@ -5,7 +5,7 @@
   "lineage": "Italian jazz encompasses lyrical modern-jazz improvisation, exploratory ensemble playing and composition across local and international networks. Small groups bring together acoustic rhythm sections, brass, reeds, keyboards and amplified instruments in varied combinations.",
   "recipe": "classic modern italian jazz, improv On Frame, American jazz branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 464,
-  "score": 68.166,
+  "score": 68.387,
   "config": {
     "traditions": [
       "italian_jazz"
@@ -25,7 +25,7 @@
         "scores": {
           "wind_articulation": 1.013,
           "brass_size": 0.3045,
-          "trumpet_mouthpiece": 2.5865,
+          "trumpet_mouthpiece": 2.4815,
           "brass_mute": 0.147,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 1.105,
@@ -52,13 +52,13 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 0,
-          "body_wood": 0.147,
+          "body_wood": 0.1785,
           "neck_wood": 0.19949999999999998,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.34650000000000003,
-          "string_gauge": 0.21,
-          "bridge": 0.1365,
+          "string_gauge": 0.2415,
+          "bridge": 0.168,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0.0315,
@@ -93,13 +93,13 @@
         },
         "scores": {
           "drum_technique": 12.089999999999996,
-          "drumhead": 0,
+          "drumhead": 0.0315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.252,
+          "shell_wood": 0.2835,
           "shell_thickness": 0,
-          "bearing_edges": 0.1365,
+          "bearing_edges": 0.1995,
           "snare_wires": 0.147,
-          "cymbal_alloy": 13.746999999999998,
+          "cymbal_alloy": 13.851999999999999,
           "cymbal_hammering": 14.141,
           "cymbal_lathing": 2.6414999999999997,
           "cymbal_finish": 0

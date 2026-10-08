@@ -3,14 +3,14 @@
   "name": "Parchman prison work song",
   "family": "global",
   "lineage": "Mississippi State Penitentiary (Parchman Farm) Black prison-labor work-song tradition documented by John A. Lomax and Alan Lomax for the Library of Congress in their 1933-onward Southern field recordings — captured the antiphonal call-and-response work-song tradition (the lead-singer call answered by the gang chorus, synchronized to the axe-stroke or hoe-stroke timing) that preserved African polyrhythmic vocal practice in the most brutal post-Reconstruction prison-labor context; figures Leadbelly (Huddie Ledbetter, recorded at Angola Louisiana State Penitentiary 1933 by John Lomax), the broader Parchman prison-farm corpus continuing through Alan Lomaxs 1959 and 1968 return recordings",
-  "recipe": "classic Midwestern American modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel gospel singers. thick, breath veiled tone, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 487,
-  "score": 231.12,
+  "recipe": "classic Midwestern American modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel black british gospel gospel singers. thick, breath veiled tone, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic global traditional polyphonic choir ensemble. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 513,
+  "score": 198.471,
   "config": {
     "traditions": [
       "parchman_prison_song",
-      "gospel_singers",
-      "black_gospel_choir"
+      "black_british_gospel",
+      "gospel_singers"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 29.725750000000005,
+          "voice_register": 21.15075,
           "voice_quality": 10.659999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.825,
-          "voice_articulation": 31.868375000000004,
-          "voice_microtone": 15.699499999999995,
-          "voice_tradition": 33.80450000000001,
-          "voice_mechanism_compound": 1.8200000000000003,
-          "voice_estill_quality": 21.475,
-          "voice_speech_song": 24.277749999999997,
-          "voice_ensemble_config": 22.699625000000005,
+          "voice_vibrato": 4.45,
+          "voice_articulation": 28.498875000000005,
+          "voice_microtone": 12.674999999999995,
+          "voice_tradition": 28.789,
+          "voice_mechanism_compound": 1.4300000000000002,
+          "voice_estill_quality": 16.175,
+          "voice_speech_song": 21.189999999999998,
+          "voice_ensemble_config": 18.530125,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 6.19375,
-          "voice_multitrack_stack": 4.273750000000001
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 7.47425,
+          "voice_multitrack_stack": 4.940000000000001
         }
       },
       {
@@ -58,13 +58,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
           "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
-          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 6.228999999999998,
-          "choir_polyphonic_configuration": 5.003624999999999,
-          "choir_regional_canonical_configuration": 5.029,
-          "choir_ensemble_repertoire": 2.9899999999999998
+          "choir_size": 8.645,
+          "choir_polyphonic_configuration": 4.684124999999999,
+          "choir_regional_canonical_configuration": 4.728999999999999,
+          "choir_ensemble_repertoire": 1.95
         }
       }
     ],

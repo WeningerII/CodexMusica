@@ -1,176 +1,191 @@
 {
-  "id": "classic_punjabi_pop",
-  "name": "Classic punjabi pop",
+  "id": "punjabi_pop",
+  "merged_from": "classic_punjabi_pop",
+  "name": "Punjabi pop",
   "family": "pop",
-  "lineage": "Classic Punjabi pop connects established Punjabi-language popular song with ongoing recording and performance practice. Melodic singing meets a varied combination of regional percussion and modern instrumental arrangement.",
-  "recipe": "classic classic punjabi pop, functional Song, pop rock branch. solo with instrumental accompaniment. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, sitka hard rock maple x brace modern mandolin k and k twin mandolin, dhol, synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 472,
-  "score": 48.977,
+  "lineage": "Punjabi-language pop crystallised in the early 1990s across Jalandhar, Delhi and the UK diaspora as folk boliyan and tappe were set to programmed beats — Malkit Singh, Gurdas Maan and Daler Mehndi's cassette-era hits established the form of a driving 100-140 BPM dhol chaal with tumbi or algoza riff, harmonium or synth chord stabs, and an open-throated declamatory tenor with sharp gamak-like grace notes — remade after 2010 by Diljit Dosanjh and the Punjabi-Canadian axis into a slick DAW production still anchored to the dhol pattern.",
+  "recipe": "classic 1990-1993 punjabi pop, functional Song, south Asian pop branch, Afro-diasporic electric groove percussion funk viral afrofuturismo brasileiro. thick, breath veiled tone, fast rate, interlocked note trading. dhol, steel single string canonical Punjabi tumbi, algoza, harmonium indian, dholak, singing lead analog poly synth, pyramid pure nickel bass British mid 60s era electric bass, chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 612,
+  "score": 230.702,
   "config": {
     "traditions": [
-      "classic_punjabi_pop"
+      "punjabi_pop",
+      "funk_viral",
+      "afrofuturismo_brasileiro"
     ],
     "instruments": [
       {
-        "id": "acoustic_guitar_dread",
+        "id": "voice",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
-          "top_wood": "cedar",
-          "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "acoustic_technique": 11.6725,
-          "string_tuning": 0,
-          "top_wood": 0.3465,
-          "back_sides": 0.105,
-          "string_acoustic": 1.3
-        }
-      },
-      {
-        "id": "mandolin",
-        "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "mandolin_shape": "a_style",
-          "mandolin_top": "sitka_m",
-          "mandolin_back": "hard_rock_maple_mandolin",
-          "mandolin_bracing": "mandolin_x_brace",
-          "mandolin_strings": "thomastik_jazz_mandolin_flat",
-          "mandolin_fingerboard": "mandolin_ebony_fb",
-          "mandolin_pickup": "mandolin_k_k_twin_internal"
-        },
-        "scores": {
-          "acoustic_technique": 11.6725,
-          "mandolin_shape": 0.2415,
-          "mandolin_top": 1.1365,
-          "mandolin_back": 1.95,
-          "mandolin_bracing": 1.5415,
-          "mandolin_strings": 0.325,
-          "mandolin_fingerboard": 0,
-          "mandolin_pickup": 3.769999999999999
+          "voice_register": 14.384999999999994,
+          "voice_quality": 12.804999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.7349999999999999,
+          "voice_articulation": 17.549999999999994,
+          "voice_microtone": 17.35499999999999,
+          "voice_tradition": 11.53,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 4.94,
+          "voice_speech_song": 20.79999999999999,
+          "voice_ensemble_config": 17.289999999999992,
+          "voice_ornament_system": 3.45,
+          "voice_pitch_organization": 2.9050000000000002,
+          "voice_processing_chain": 5.2250000000000005,
+          "voice_multitrack_stack": 4.842500000000001
         }
       },
       {
         "id": "dhol",
         "slots": {
-          "dhol_form": "dhol_bihu",
+          "dhol_form": "dhol_punjabi",
           "dhol_repertoire": "dhol_bhangra_chaal",
-          "dhol_shell": "dhol_fiberglass"
+          "dhol_shell": "dhol_mango"
         },
         "scores": {
-          "dhol_form": 3.6399999999999997,
-          "dhol_repertoire": -0.07,
-          "dhol_shell": 1.0365
+          "dhol_form": 23.984999999999992,
+          "dhol_repertoire": 7.4350000000000005,
+          "dhol_shell": -0.05
+        }
+      },
+      {
+        "id": "tumbi",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "tumbi_construction": "tumbi_gourd",
+          "tumbi_context": "tumbi_fusion",
+          "tumbi_string": "tumbi_steel_modern"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.5,
+          "tumbi_construction": 0.65,
+          "tumbi_context": 1.2299999999999998,
+          "tumbi_string": 3.7949999999999995
+        }
+      },
+      {
+        "id": "algoza",
+        "slots": {
+          "algoza_pair": "algoza_melody_drone",
+          "algoza_breath": "algoza_pulsed"
+        },
+        "scores": {
+          "algoza_pair": 0,
+          "algoza_breath": 1.7550000000000001
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_qawwali"
+        },
+        "scores": {
+          "free_reed_technique": 2.97,
+          "harmonium_action": 0.39,
+          "harmonium_voicing": 0.585,
+          "harmonium_use": 1.09
         }
       },
       {
         "id": "dholak",
         "slots": {
           "dholak_use": "dholak_classical",
-          "dholak_construction": "dholak_synthetic",
-          "dholak_head": "dholak_synthetic_head",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
           "dholak_tensioning": "dholak_bolt_tuned"
         },
         "scores": {
-          "dholak_use": 1.69,
-          "dholak_construction": 1.1365,
-          "dholak_head": 1.1365,
-          "dholak_tensioning": 1.1365
+          "dholak_use": 0.33,
+          "dholak_construction": 0.345,
+          "dholak_head": 0.15,
+          "dholak_tensioning": 0.195
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "juno_60",
-          "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": -0.07,
-          "poly_archetypes": 2.0315,
-          "poly_voices": 0.231,
-          "poly_maker_lineage": -0.035
+          "electronic_technique": 11.785,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -1.085
         }
       },
       {
-        "id": "voice",
+        "id": "electric_bass",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "voice_articulation_source_unspecified",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_speech_song_local_unspecified",
-          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "humbucker_mm",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 2.6,
-          "voice_ornament_system": 0.0315,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
-          "voice_multitrack_stack": 0.39
+          "amp_make": 1.4299999999999997,
+          "body_wood": 0.63,
+          "pickup_config": 0.39,
+          "string_type": 2.6650000000000005,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0.24,
+          "bass_technique": 3.365,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_mpc",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 2.1125,
+          "sampler_archetypes": 2.3724999999999996,
+          "sampler_bit_depth": 0.09,
+          "sampler_workflow": 1.315,
+          "sampler_classic_context": 19.109999999999992
         }
       }
     ],
-    "pinned": {
-      "acoustic_guitar_dread": [
-        "acoustic_technique",
-        "string_tuning"
-      ],
-      "mandolin": [
-        "acoustic_technique"
-      ],
-      "analog_poly_synth": [
-        "electronic_technique"
-      ],
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
-      "mic": "dynamic_mic",
-      "pre": "transformerless",
+      "mic": "condenser_ldc",
+      "pre": "pre_500_series_modern",
       "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_active_parametric",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
       "medium": "digital_high"
     },
@@ -181,33 +196,11 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "treated_studio",
-    "parts": {
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_articulation": "voice_articulation_source_unspecified",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_speech_song_local_unspecified",
-      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
-      "voice_ornament_system": "voice_ornament_none",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_single_lead",
-      "acoustic_technique": "acoustic_strummed_ringing",
-      "string_tuning": "standard_tuning",
-      "electronic_technique": "electronic_pad_drone"
-    },
-    "pin_parts": true,
-    "chain_mic": "dynamic_mic",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_active_parametric",
+    "room": "studio_auteur_home_pro",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
     "chain_medium": "digital_high",
     "chain_console": "console_in_the_box"
   }

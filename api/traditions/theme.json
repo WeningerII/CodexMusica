@@ -5,7 +5,7 @@
   "lineage": "Delia Derbyshire / Ron Grainer — original 1963 Doctor Who television theme tape construction. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-1960s theme, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 153,
-  "score": 6.693,
+  "score": 6.824,
   "config": {
     "traditions": [
       "theme"
@@ -22,9 +22,9 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sampler_archetypes": 3,
-          "sampler_bit_depth": 1.2,
-          "sampler_workflow": 0.613,
+          "sampler_archetypes": 3.054,
+          "sampler_bit_depth": 1.308,
+          "sampler_workflow": 0.5814999999999999,
           "sampler_classic_context": 1.95
         }
       }

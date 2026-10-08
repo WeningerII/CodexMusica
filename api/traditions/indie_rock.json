@@ -5,7 +5,7 @@
   "lineage": "American and British guitar-band idiom that formed on independent labels — SST, Homestead, Twin/Tone, Rough Trade, Creation — between roughly 1983 and 1994 through R.E.M., Hüsker Dü, the Pixies, Pavement and Sonic Youth, defined by jangly or fuzzed single-coil guitars over unadorned drum-kit-bass rhythm sections at mid tempos, verse-chorus songwriting with quiet-loud dynamic swings, unpolished conversational vocals mixed level with the band, and cheap fast tracking in regional commercial studios.",
   "recipe": "classic North American early-1980s indie rock, distorted Rock, alternative branch, noise rock distorted rock, anglo singer song indie folk east anglia indie. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 896,
-  "score": 480.165,
+  "score": 480.765,
   "config": {
     "traditions": [
       "indie_rock",
@@ -31,7 +31,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.479999999999999,
+          "electric_technique": 10.674999999999999,
           "amp_make": 18.004999999999995,
           "body_wood": 1.885,
           "neck_wood": 1.885,
@@ -62,7 +62,7 @@
           "amp_make": 16.185000000000002,
           "body_wood": 2.78,
           "pickup_config": 1.195,
-          "string_type": 34.015,
+          "string_type": 34.57,
           "scale_length_b": 1.885,
           "fretted_or_not": 0.24,
           "bass_technique": 29.365000000000006,
@@ -116,8 +116,8 @@
           "voice_speech_song": 20.669999999999995,
           "voice_ensemble_config": 19.239999999999995,
           "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 3.0850000000000004,
-          "voice_processing_chain": 6.955000000000001,
+          "voice_pitch_organization": 2.9350000000000005,
+          "voice_processing_chain": 6.91,
           "voice_multitrack_stack": 2.665000000000002
         }
       },
@@ -139,13 +139,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 10.479999999999999,
+          "electric_technique": 10.674999999999999,
           "amp_make": 18.004999999999995,
           "body_wood": 2.275,
           "neck_wood": 1.885,
           "fretboard": 1.8199999999999998,
           "pickup_magnet": 1.195,
-          "pickup_winding": 2.08,
+          "pickup_winding": 1.9300000000000002,
           "string_material": 0.39,
           "bridge": 2.535,
           "scale_length": 1.885,

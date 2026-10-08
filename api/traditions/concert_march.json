@@ -3,14 +3,14 @@
   "name": "March (concert and military band)",
   "family": "classical",
   "lineage": "The European and American wind-band march, standardized in 19th-century military service bands and codified for the concert stage by John Philip Sousa's US Marine Band from 1880 and by Kenneth Alford in Britain — duple time at 112-120 BPM, an unvarying alternating-bass snare-and-bass-drum tread, multi-strain AABBCC form with a modulating trio and a piccolo or cornet obbligato descant, scored for cornets, clarinets, low brass, and sousaphone with no strings.",
-  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass wind symphony. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
-  "recipe_chars": 991,
-  "score": 157.143,
+  "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music baroque brass concert band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
+  "recipe_chars": 990,
+  "score": 157.587,
   "config": {
     "traditions": [
       "concert_march",
       "baroque_brass",
-      "wind_symphony"
+      "concert_band"
     ],
     "instruments": [
       {
@@ -24,10 +24,10 @@
         },
         "scores": {
           "wind_articulation": 5.79,
-          "cornet_pitch": 9.523749999999998,
-          "cornet_context": 4.029999999999999,
-          "cornet_bell_metal": 9.6375,
-          "cornet_maker_school": 9.3075
+          "cornet_pitch": 9.838749999999997,
+          "cornet_context": 2.9899999999999998,
+          "cornet_bell_metal": 9.749999999999998,
+          "cornet_maker_school": 9.517499999999998
         }
       },
       {
@@ -41,9 +41,9 @@
         },
         "scores": {
           "wind_articulation": 5.79,
-          "clarinet_body": 5.8500000000000005,
-          "clarinet_size": 2.15,
-          "clarinet_reed": 0.45499999999999996,
+          "clarinet_body": 6,
+          "clarinet_size": 2,
+          "clarinet_reed": 0.105,
           "clarinet_articulation": 0.45499999999999996
         }
       },
@@ -61,11 +61,11 @@
         "scores": {
           "wind_articulation": 5.79,
           "trombone_type": 0,
-          "trombone_mouthpiece": 8.41375,
-          "trombone_mute": 2.2512499999999998,
-          "trombone_technique": 0.35,
-          "trombone_bell_metal": 4.029999999999999,
-          "trombone_maker_school": 3.25
+          "trombone_mouthpiece": 8.95875,
+          "trombone_mute": 2.05625,
+          "trombone_technique": 0.45499999999999996,
+          "trombone_bell_metal": 2.9899999999999998,
+          "trombone_maker_school": 4.1
         }
       },
       {
@@ -75,8 +75,8 @@
           "sousaphone_context": "sousaphone_nola_brass_band"
         },
         "scores": {
-          "sousaphone_bore": 3.1849999999999996,
-          "sousaphone_context": 8.5725
+          "sousaphone_bore": 2.9899999999999998,
+          "sousaphone_context": 8.9325
         }
       },
       {
@@ -90,10 +90,10 @@
         },
         "scores": {
           "wind_articulation": 5.79,
-          "euph_use": 7.543749999999999,
-          "euphonium_pitch": 9.022499999999999,
-          "euphonium_bell_metal": 10.087499999999999,
-          "euphonium_maker_school": 9.3075
+          "euph_use": 8.503749999999998,
+          "euphonium_pitch": 9.232499999999998,
+          "euphonium_bell_metal": 10.139999999999999,
+          "euphonium_maker_school": 9.517499999999998
         }
       },
       {
@@ -105,8 +105,8 @@
         },
         "scores": {
           "wind_articulation": 5.79,
-          "piccolo_material": 1.94625,
-          "piccolo_context": 3.4949999999999997
+          "piccolo_material": 2.35625,
+          "piccolo_context": 3.9499999999999997
         }
       },
       {
@@ -117,7 +117,7 @@
         },
         "scores": {
           "bass_drum_size": 1.05625,
-          "bass_drum_beater": 3.3799999999999994
+          "bass_drum_beater": 2.9899999999999998
         }
       },
       {
@@ -129,8 +129,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "glockenspiel_size": 3.4949999999999997,
-          "glockenspiel_mallet": 3.83
+          "glockenspiel_size": 3.9499999999999997,
+          "glockenspiel_mallet": 2.925
         }
       },
       {
@@ -140,8 +140,8 @@
           "school_style": "corps_style"
         },
         "scores": {
-          "sections": 3.88,
-          "school_style": 2.4875
+          "sections": 2.9899999999999998,
+          "school_style": 2.9875
         }
       }
     ],

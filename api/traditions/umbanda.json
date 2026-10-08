@@ -1,18 +1,58 @@
 {
-  "id": "umbanda",
-  "name": "Umbanda ritual music (pontos cantados)",
+  "id": "umbanda_brazilian",
+  "merged_from": "umbanda",
+  "name": "Umbanda ceremonial",
   "family": "global",
-  "lineage": "Ritual repertoire of Umbanda, the syncretic Afro-Brazilian religion codified in Rio de Janeiro and Niterói from 1908 onward — pontos cantados sung in Portuguese in short strophic call-and-response over three atabaques (rum, rumpi, lé) plus agogô, at moderate 2/4 or 6/8 toques whose changing patterns summon specific entities during the giro.",
-  "recipe": "classic South American late-1900s umbanda ritual music, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion, sub saharan African praise song sákárà pagode. vocal fry, breath veiled tone, slow rate, interlocked note trading. atabaque, agogo, snappy thin to palm hand clap, samba tradition metal construction ganza. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 417,
-  "score": 147.707,
+  "lineage": "Rio and São Paulo 1908-onward syncretic Afro-Catholic-spiritualist liturgical tradition founded by Zélio Fernandino de Moraes (1908 first session) — fusing Catholic saints, candomblé orixás, Kardecist spiritualism, and Indigenous Brazilian ancestor cults; characterized by the gira ceremonial circle, pontos-cantados invocation songs, atabaque drum accompaniment, and the caboclo / preto-velho / criança guide-spirit roles",
+  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode roda de samba. thick, breath veiled tone, slow rate, interlocked note trading. atabaque, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 432,
+  "score": 122.335,
   "config": {
     "traditions": [
-      "umbanda",
-      "sakara_music",
-      "pagode"
+      "umbanda_brazilian",
+      "pagode",
+      "roda_de_samba"
     ],
     "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.0999999999999996,
+          "voice_quality": 21.96999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.8775,
+          "voice_articulation": 15.469999999999995,
+          "voice_microtone": 14.234999999999992,
+          "voice_tradition": 6.045,
+          "voice_mechanism_compound": 3.1500000000000004,
+          "voice_estill_quality": 2.0799999999999996,
+          "voice_speech_song": 16.249999999999996,
+          "voice_ensemble_config": 14.949999999999996,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 8.190000000000001
+        }
+      },
       {
         "id": "atabaque",
         "slots": {
@@ -22,103 +62,68 @@
         },
         "scores": {
           "atabaque_role": 0.39,
-          "atabaque_skin": 0.39,
+          "atabaque_skin": 0.195,
           "atabaque_shell_wood": 0.195
         }
       },
       {
-        "id": "agogo",
+        "id": "choir_ensemble",
         "slots": {
-          "agogo_bell": "agogo_double",
-          "agogo_context": "agogo_candomble"
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "agogo_bell": 3.7699999999999987,
-          "agogo_context": 7.02
-        }
-      },
-      {
-        "id": "hand_clap",
-        "slots": {
-          "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
-        },
-        "scores": {
-          "clap_technique": 2.34,
-          "clap_capture": 0.195
-        }
-      },
-      {
-        "id": "voice",
-        "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
-          "voice_vocal_tract": "tract_neutral",
-          "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
-          "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
-        },
-        "scores": {
-          "voice_register": 1.8850000000000002,
-          "voice_quality": 18.199999999999992,
-          "voice_vocal_tract": 0,
-          "voice_effort": 0,
-          "voice_vibrato": 2.61,
-          "voice_articulation": 15.404999999999998,
-          "voice_microtone": 14.429999999999993,
-          "voice_tradition": 19.279999999999998,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 18.004999999999995,
-          "voice_ensemble_config": 16.639999999999997,
-          "voice_ornament_system": 5.194999999999999,
-          "voice_pitch_organization": 4.815,
-          "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 6.954999999999999
-        }
-      },
-      {
-        "id": "ganza",
-        "slots": {
-          "ganza_source": "ganza_metal_cylinder"
-        },
-        "scores": {
-          "ganza_source": 3.574999999999999
+          "choir_size": 6.5,
+          "choir_polyphonic_configuration": 0.585,
+          "choir_regional_canonical_configuration": 3.4800000000000004,
+          "choir_ensemble_repertoire": 3.25
         }
       }
     ],
-    "room": "terreiro_outdoor_yard",
+    "room": "bahian_terreiro_outdoor",
     "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
-      "mic": "condenser_sdc",
+      "mic": "dynamic_mic",
       "pre": "pre_field_recorder_portable",
       "console": "clean",
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "tape_15ips"
     },
-    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "yoruba_juju_fuji_polyrhythmic",
-    "room": "terreiro_outdoor_yard",
-    "chain_mic": "condenser_sdc",
+    "tuning": "just_intonation",
+    "room": "bahian_terreiro_outdoor",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_just_intonation",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "choir_size": "chamber_choir",
+      "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
+      "atabaque_role": "atabaque_rum",
+      "atabaque_skin": "atabaque_cowhide",
+      "atabaque_shell_wood": "atabaque_jacaranda"
+    },
+    "chain_mic": "dynamic_mic",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "tape_15ips",
     "chain_console": "clean"
   }
 }

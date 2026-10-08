@@ -5,7 +5,7 @@
   "lineage": "Cantabrian folk includes regionally rooted song, dance, rabel playing and wind-and-drum practices. Rabel-accompanied singing sustains an intimate narrative tradition in which local bowed-instrument technique remains closely connected with the voice.",
   "recipe": "classic modern cantabrian folk, ballad Poetry. narrative, one note per syllable, solo with instrumental accompaniment. melodic bowed song accompaniment rabel castellano. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 307,
-  "score": 10.883,
+  "score": 11.182,
   "config": {
     "traditions": [
       "folk_cantabria"
@@ -38,7 +38,7 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 1.0399999999999998,
+          "voice_articulation": 1.0171249999999998,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.054,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.21487499999999998,
+          "voice_multitrack_stack": 0.03712499999999999,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
           "bowed_technique": 3.38,
           "rabel_form": 0,
           "rabel_soundboard": 0,
-          "rabel_use": 1.054
+          "rabel_use": 1.17775
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "New York, Glasgow and London circa 2011-2015 around L.I.E.S., Mister Saturday Night and Trilogy Tapes, with Ron Morelli, Legowelt, DJ Slugo-influenced raw-hardware producers and Huerco S. — 118-126 BPM house tracked live from drum machines and cheap samplers to cassette or one-take stereo, deliberately overdriven and detuned, with hiss, clipping and mis-timed loops kept in the mix.",
   "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric finnish electronic. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 357,
-  "score": 16.425,
+  "score": 16.47,
   "config": {
     "traditions": [
       "outsider_house",
@@ -26,12 +26,12 @@
       {
         "id": "drum_machine_606",
         "slots": {
-          "drum_machine_606_voice": "drum_machine_606_snare",
+          "drum_machine_606_voice": "drum_machine_606_kick",
           "drum_machine_606_context": "drum_machine_606_electro"
         },
         "scores": {
-          "drum_machine_606_voice": 0.15,
-          "drum_machine_606_context": 1.385
+          "drum_machine_606_voice": 0,
+          "drum_machine_606_context": 1.58
         }
       },
       {
@@ -47,8 +47,8 @@
           "electronic_technique": 0.16249999999999998,
           "mono_oscillator": 0.105,
           "mono_filter": -0.35,
-          "mono_archetypes": 0.32999999999999996,
-          "mono_maker_lineage": -1.435
+          "mono_archetypes": 0.285,
+          "mono_maker_lineage": -1.4499999999999997
         }
       },
       {
@@ -57,13 +57,13 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "tight_swing",
-          "sample_processing": "pitched_kick"
+          "sample_processing": "one_shots_layered"
         },
         "scores": {
           "electronic_technique": 0.22749999999999998,
           "sample_bitdepth": 0.39,
           "sample_swing": 9.125,
-          "sample_processing": 0.285
+          "sample_processing": 0.345
         }
       },
       {

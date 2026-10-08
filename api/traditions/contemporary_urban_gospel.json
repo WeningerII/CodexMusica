@@ -5,7 +5,7 @@
   "lineage": "Late-twentieth-century-onward African-American gospel music tradition modernizing the traditional church-choir-and-piano repertoire through R-and-B, funk, hip-hop, and quiet-storm production techniques — codified through Kirk Franklin (Why We Sing 1993), Mary Mary, Yolanda Adams, Donnie McClurkin, Israel and New Breed, with the genre serving as the contemporary mainstream of African-American sacred music",
   "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop souldies. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, tremolo gospel runs rhodes electric, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, melodic orchestral imitation pitched sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 864,
-  "score": 440.867,
+  "score": 440.297,
   "config": {
     "traditions": [
       "contemporary_urban_gospel",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 30.799999999999994,
+          "voice_register": 30.754999999999992,
           "voice_quality": 20.504999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.975,
-          "voice_articulation": 18.174999999999997,
+          "voice_vibrato": 5.17,
+          "voice_articulation": 18.369999999999997,
           "voice_microtone": 16.769999999999992,
-          "voice_tradition": 27.419999999999998,
+          "voice_tradition": 27.375,
           "voice_mechanism_compound": 2.8600000000000003,
           "voice_estill_quality": 26.377499999999994,
           "voice_speech_song": 21.58,
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 5.199999999999999,
           "choir_polyphonic_configuration": 3.639999999999999,
-          "choir_regional_canonical_configuration": 2.4699999999999998,
+          "choir_regional_canonical_configuration": 2.3949999999999996,
           "choir_ensemble_repertoire": 3.185
         }
       },
@@ -78,7 +78,7 @@
           "rhodes_pickup_position": "rhodes_pickup_close_bark"
         },
         "scores": {
-          "keyboard_technique": 26.384999999999998,
+          "keyboard_technique": 26.339999999999996,
           "rhodes_model": 1.04,
           "rhodes_use": 4.0299999999999985,
           "rhodes_tine_material": 0.39,
@@ -100,15 +100,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 26.384999999999998,
+          "keyboard_technique": 26.339999999999996,
           "grand_piano_size": 0.195,
           "grand_piano_brand": 3.4749999999999996,
-          "piano_hammer": 5.102499999999999,
-          "piano_rim": 8.6175,
+          "piano_hammer": 4.9075,
+          "piano_rim": 8.377500000000001,
           "piano_soundboard": 3.9999999999999996,
           "piano_pinblock": 0.85,
           "piano_plate": 3.835,
-          "piano_pitch_standard": 3.7049999999999996
+          "piano_pitch_standard": 3.675
         }
       },
       {
@@ -124,7 +124,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.4425,
+          "amp_make": 17.2475,
           "body_wood": 0.195,
           "pickup_config": 0.39,
           "string_type": 15.534999999999998,
@@ -143,7 +143,7 @@
         },
         "scores": {
           "drum_technique": 17.029999999999998,
-          "drumhead": 4.09,
+          "drumhead": 4.045,
           "drum_kit_kick_pedal": 0
         }
       },

@@ -1,0 +1,101 @@
+{
+  "id": "guloyas_cocolo_dance_drama",
+  "name": "Guloyas (Cocolo dance-drama of San Pedro de Macorís)",
+  "family": "global",
+  "lineage": "Masked dance-drama of the Cocolos, descendants of English-speaking migrants from the Eastern Caribbean who came to work in the sugar mills of San Pedro de Macorís from the late 19th century. The guloyas parade at Christmas and on the feast of St Peter, performing mummers' plays and dances to fife, kettle (snare) drum and bass drum; UNESCO proclaimed the Cocolo dance drama tradition a Masterpiece of the Oral and Intangible Heritage of Humanity.",
+  "recipe": "classic modern guloyas, carnival Processional, Caribbean branch. fife, snare bass drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 167,
+  "score": 2.898,
+  "config": {
+    "traditions": [
+      "guloyas_cocolo_dance_drama"
+    ],
+    "instruments": [
+      {
+        "id": "fife",
+        "slots": {
+          "fife_tradition": "fife_tradition_anglo_american",
+          "fife_build": "fife_build_grenadilla",
+          "fife_pitch": "fife_pitch_bflat",
+          "fife_role": "fife_role_corps_unison"
+        },
+        "scores": {
+          "fife_tradition": 1.1689999999999998,
+          "fife_build": -0.07,
+          "fife_pitch": 1.0389999999999997,
+          "fife_role": 0.9099999999999999
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_24_26_big",
+          "bass_drum_beater": "bass_drum_felt_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fife": [
+        "fife_tradition",
+        "fife_build",
+        "fife_pitch",
+        "fife_role"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "bass_drum": [
+        "bass_drum_size",
+        "bass_drum_beater"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "fife_tradition": "fife_tradition_anglo_american",
+      "fife_build": "fife_build_grenadilla",
+      "fife_pitch": "fife_pitch_bflat",
+      "fife_role": "fife_role_corps_unison",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "bass_drum_size": "bass_drum_24_26_big",
+      "bass_drum_beater": "bass_drum_felt_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Concert-and-coffeehouse acoustic blues consolidated in the US and British revival circuits 1948-1965 by Lead Belly, Josh White, Big Bill Broonzy, Brownie McGhee and Sonny Terry — moderate 80-120 BPM twelve-bar and ballad forms on fingerpicked acoustic or twelve-string guitar with harmonica, delivered in clear enunciated diction for a listening audience rather than a dance floor, often with topical or narrative lyrics.",
   "recipe": "classic Northern European mid-1950s folk blues, ballad Poetry, blues narrative branch, anglo singer song britfolk, anglo American protest song, blues acoustic functional song traditional blues british folk revival. thick, breath veiled tone, wide pitch sway, interlocked note trading. open tuning 12 string acoustic guitar 12 string, dadgad tuning bronze fingerpicked dreadnought acoustic guitar, reed pearwood marine band tradition brass traditional harmonica, upright bass. uk folk revival club 60s. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 596,
-  "score": 297.695,
+  "score": 297.239,
   "config": {
     "traditions": [
       "folk_blues",
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 22.125,
           "voice_articulation": 13.909999999999995,
-          "voice_microtone": 19.73,
-          "voice_tradition": 16.138749999999998,
+          "voice_microtone": 19.535,
+          "voice_tradition": 16.4125,
           "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 8.1325,
+          "voice_estill_quality": 7.8325,
           "voice_speech_song": 20.669999999999995,
           "voice_ensemble_config": 14.689999999999994,
           "voice_ornament_system": 2.3074999999999997,
-          "voice_pitch_organization": 0.4799999999999999,
-          "voice_processing_chain": 6.885,
-          "voice_multitrack_stack": 1.27
+          "voice_pitch_organization": 0.43499999999999994,
+          "voice_processing_chain": 6.869999999999999,
+          "voice_multitrack_stack": 1.3
         }
       },
       {
@@ -60,7 +60,7 @@
           "twelve_string_strings": "eighty_twenty_12"
         },
         "scores": {
-          "twelve_string_body": 0.585,
+          "twelve_string_body": 0.675,
           "twelve_string_tuning": 1.69,
           "twelve_string_strings": 1.3
         }
@@ -75,7 +75,7 @@
           "string_acoustic": "eighty_twenty"
         },
         "scores": {
-          "acoustic_technique": 21.425,
+          "acoustic_technique": 21.215,
           "string_tuning": 5.26,
           "top_wood": 0.585,
           "back_sides": 0.585,
@@ -93,12 +93,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 1.04,
-          "harmonica_comb": 20.895624999999995,
-          "harmonica_reed": 20.655624999999997,
+          "harmonica_type": 1.0306250000000001,
+          "harmonica_comb": 20.850624999999997,
+          "harmonica_reed": 20.325625,
           "harmonica_technique": 18.995,
-          "harmonica_maker_school": 19.544999999999998,
-          "harmonica_tuning": 9.805
+          "harmonica_maker_school": 19.814999999999998,
+          "harmonica_tuning": 9.879999999999999
         }
       },
       {
@@ -108,7 +108,7 @@
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 0.6299999999999999,
+          "upright_strings": 0.585,
           "upright_play": 0.195
         }
       }

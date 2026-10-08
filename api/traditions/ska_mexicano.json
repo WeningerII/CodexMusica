@@ -5,7 +5,7 @@
   "lineage": "Mexico City ska-rock hybrid codified between 1989 and 1998 by Maldita Vecindad, Panteón Rococó, Salón Victoria and La Tremenda Korte, marrying a 160-190 BPM offbeat guitar upstroke and walking bass to a Mexican street-band horn section (trumpet, trombone, tenor sax), cumbia and danzón interludes, and shouted barrio-political Spanish vocals delivered by a frontman over a driving one-drop-into-four snare.",
   "recipe": "classic late-1980s ska mexicano, bass System, reggae diaspora branch, regional distorted rock, iberian Latin protest song ska argentino chicano rock. thick, breath veiled tone, breath pulsed, interlocked note trading. heavy one piece matched to monette horn trumpet, bach 42 canonical American orchestral tenor bass trombone trombone, tenor gold brass warmer tone honking attack saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation pine single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 840,
-  "score": 318.766,
+  "score": 321.162,
   "config": {
     "traditions": [
       "ska_mexicano",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 13.299999999999995,
+          "voice_register": 13.464999999999995,
           "voice_quality": 9.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 21.57999999999999,
           "voice_tradition": 7.605,
           "voice_mechanism_compound": 3.1200000000000006,
-          "voice_estill_quality": 2.44,
+          "voice_estill_quality": 2.869,
           "voice_speech_song": 23.009999999999994,
           "voice_ensemble_config": 22.164999999999992,
           "voice_ornament_system": 2.02625,
@@ -66,7 +66,7 @@
         "scores": {
           "wind_articulation": 10,
           "brass_size": 0.39,
-          "trumpet_mouthpiece": 5,
+          "trumpet_mouthpiece": 5.3135,
           "brass_mute": 0,
           "trumpet_technique": 10,
           "trumpet_bell_metal": 0.65,
@@ -87,7 +87,7 @@
         "scores": {
           "wind_articulation": 10,
           "trombone_type": 0.045,
-          "trombone_mouthpiece": 5.09875,
+          "trombone_mouthpiece": 5.05375,
           "trombone_mute": 0,
           "trombone_technique": 2.34,
           "trombone_bell_metal": 0.65,
@@ -109,7 +109,7 @@
           "wind_articulation": 10,
           "sax_size": 2.275,
           "sax_reed": 0.39,
-          "sax_body_alloy": 1.3937499999999998,
+          "sax_body_alloy": 1.44325,
           "sax_mouthpiece": 0.39,
           "sax_technique": 1.275,
           "sax_maker_school": 0.4349999999999999
@@ -126,7 +126,7 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
-          "bridge": "two_point_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
@@ -135,14 +135,14 @@
         "scores": {
           "electric_technique": 4.074999999999999,
           "amp_make": 12.447499999999998,
-          "body_wood": 1.28625,
-          "neck_wood": 0.5,
-          "fretboard": 0.45,
+          "body_wood": 1.3649999999999998,
+          "neck_wood": 0.65,
+          "fretboard": 0.585,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 1.28625,
-          "bridge": 0,
-          "scale_length": 0.5,
+          "string_gauge": 1.3649999999999998,
+          "bridge": 0.0495,
+          "scale_length": 0.65,
           "finish": 0,
           "string_tuning": 7.345000000000001,
           "single_coil_pickup_construction": 0
@@ -152,22 +152,22 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 10.985,
-          "body_wood": 0.5,
-          "pickup_config": 0,
+          "body_wood": 0.65,
+          "pickup_config": 0.0495,
           "string_type": 16.7375,
-          "scale_length_b": 0.65,
+          "scale_length_b": 0.8150000000000001,
           "fretted_or_not": 0.195,
-          "bass_technique": 17.045,
+          "bass_technique": 17.2595,
           "electric_bass_string_configuration": 0
         }
       },
@@ -180,7 +180,7 @@
         },
         "scores": {
           "drum_technique": 20.409999999999993,
-          "drumhead": 1.78625,
+          "drumhead": 2.0149999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -194,11 +194,11 @@
           "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "combo_organ_model": 1.15625,
-          "combo_organ_voicing": 2.9675,
+          "combo_organ_voicing": 2.9225,
           "combo_organ_context": 8.190000000000001,
-          "amp_make": 1.6624999999999999
+          "amp_make": 1.7119999999999997
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Japanese jazz encompasses a long-established club and recording culture, spanning small-group improvisation, larger ensembles and solo performance. Modern jazz harmony, rhythmic experimentation and individual composition support a wide range of approaches.",
   "recipe": "classic modern japanese jazz, improv On Frame, American jazz branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 287,
-  "score": 22.785,
+  "score": 22.775,
   "config": {
     "traditions": [
       "japanese_jazz"
@@ -27,10 +27,10 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.186,
-          "grand_piano_brand": 0.105,
-          "piano_hammer": 3.0485,
-          "piano_rim": 2.912,
-          "piano_soundboard": 2.555,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": 3.08,
+          "piano_rim": 2.9435000000000002,
+          "piano_soundboard": 2.45,
           "piano_pinblock": 2.45,
           "piano_plate": 2.4890000000000003,
           "piano_pitch_standard": 5.85

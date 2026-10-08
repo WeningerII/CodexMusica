@@ -5,7 +5,7 @@
   "lineage": "Muzica creștină connects Romanian Christian recording, worship and outreach communities. Contemporary bands, soloists and choirs circulate devotional repertoire through churches, public events and recordings.",
   "recipe": "classic muzică creștină, ritual Devotional. saxophone, electronic keyboard unspecified. shoebox concert hall.",
   "recipe_chars": 109,
-  "score": 1.712,
+  "score": 1.705,
   "config": {
     "traditions": [
       "muzica_crestina"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.189,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0.23099999999999998,
           "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
@@ -66,7 +66,7 @@
         "scores": {
           "wind_articulation": -0.07,
           "sax_size": -0.05,
-          "sax_reed": 0.7735,
+          "sax_reed": 0.7,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
           "sax_technique": -0.035,
@@ -81,7 +81,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0.39
+          "keyboard_technique": 0.363
         }
       }
     ],

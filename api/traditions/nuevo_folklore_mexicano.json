@@ -3,14 +3,14 @@
   "name": "Nuevo folklore mexicano",
   "family": "global",
   "lineage": "Art-song reinterpretation of Mexican regional repertoire that took shape in Mexico City and Oaxaca from the late 1990s through the 2010s, in which conservatory- and rock-trained songwriters rebuild son jarocho, huapango, bolero ranchero and Oaxacan folk material with jarana and requinto alongside chamber strings and sparse studio production, at slower tempos, in through-composed forms, with restrained close-miked vocals in place of the traditional shouted delivery.",
-  "recipe": "classic 1997-1999 nuevo folklore mexicano, ballad Poetry, Latin am troubadour branch, Mexican functional song, iberian Latin protest song corridos adictivos bolero mexicano. thick, breath veiled tone, straight onset, interlocked note trading. palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana diatonic only son jarocho tradition gut pre modern son jarocho bass and harmony arpa jarocha, son jarocho standard strummed requinto jarocho, cedar fingerpicked classical nylon-string guitar, hard rock maple acer saccharum magic rosin modern acrylic base art printed violin orchestral, tehuana sones hormigo tonewood box resonated buzzing tela marimba centroamericana. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic 1997-1999 nuevo folklore mexicano, ballad Poetry, Latin am troubadour branch, Mexican functional song, iberian Latin protest song música andina chilena argentine canto nuevo / canto popular. thick, breath veiled tone, straight onset, interlocked note trading. palo escrito Mexican rosewood strummed jarana diatonic only son jarocho tradition gut pre modern son jarocho bass and harmony arpa jarocha, son jarocho standard strummed requinto jarocho, cedar fingerpicked classical nylon-string guitar, sitka spruce hard rock maple acer saccharum magic rosin modern acrylic base violin orchestral, tehuana sones hormigo tonewood box resonated buzzing tela marimba centroamericana. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 887,
-  "score": 188.835,
+  "score": 200.3,
   "config": {
     "traditions": [
       "nuevo_folklore_mexicano",
-      "corridos_adictivos",
-      "bolero_mexicano"
+      "musica_andina_chilena",
+      "argentine_canto_nuevo"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "jarana_jarocha_strings": "jarana_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 4.83,
+          "plucked_traditional_technique": 6.555,
           "jarana_size": 2.645,
-          "jarana_jarocha_context": 1.69,
-          "jarana_jarocha_body_wood": 7.669999999999999,
-          "jarana_jarocha_strings": 1.44
+          "jarana_jarocha_context": 0.78,
+          "jarana_jarocha_body_wood": 2.535,
+          "jarana_jarocha_strings": 0.7150000000000001
         }
       },
       {
@@ -40,10 +40,10 @@
           "requinto_jarocho_strings": "requinto_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 4.83,
-          "requinto_jarocho_pluck": 3.6449999999999996,
+          "plucked_traditional_technique": 6.555,
+          "requinto_jarocho_pluck": 3.795,
           "requinto_jarocho_tuning": 1.4949999999999999,
-          "requinto_jarocho_body_wood": 0.845,
+          "requinto_jarocho_body_wood": 0.195,
           "requinto_jarocho_strings": 0.195
         }
       },
@@ -58,38 +58,38 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 7.07,
+          "acoustic_technique": 9.47,
           "string_tuning": 0,
           "top_wood_classical": 7.475,
-          "bracing_classical": 1.65,
-          "string_classical": 0.975,
-          "attack_technique_cl": 1.04
+          "bracing_classical": 1.2999999999999998,
+          "string_classical": 0.585,
+          "attack_technique_cl": 0.65
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_chopped_old_time",
-          "orch_strings": "plain_sheep_gut_violin",
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "modern_synthetic_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
+          "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.7149999999999999,
-          "orch_strings": 0.12999999999999998,
-          "orch_top_wood": 0.7149999999999999,
-          "orch_back_wood": 1.625,
+          "bowed_technique": -0.05,
+          "orch_strings": 0.045,
+          "orch_top_wood": 1.1049999999999998,
+          "orch_back_wood": 2.125,
           "orch_varnish": 0.995,
-          "orch_setup_period": 0.52,
-          "orch_bow": 1.4949999999999999,
+          "orch_setup_period": 0.6174999999999999,
+          "orch_bow": 0.345,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.195,
+          "orch_articulation": 0.045,
           "orch_rosin": 1.145
         }
       },
@@ -109,27 +109,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 7.545000000000002,
-          "voice_quality": 10.010000000000002,
+          "voice_register": 8.67,
+          "voice_quality": 9.425,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
-          "voice_articulation": 11.114999999999997,
-          "voice_microtone": 10.919999999999993,
-          "voice_tradition": 4.68,
-          "voice_mechanism_compound": 5.069999999999999,
-          "voice_estill_quality": 4.68,
-          "voice_speech_song": 16.964999999999996,
-          "voice_ensemble_config": 12.544999999999996,
-          "voice_ornament_system": 1.6999999999999997,
-          "voice_pitch_organization": 0.9949999999999999,
-          "voice_processing_chain": 6.4350000000000005,
-          "voice_multitrack_stack": 3.9000000000000004
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 12.934999999999995,
+          "voice_microtone": 12.739999999999991,
+          "voice_tradition": 9.6525,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 3.6400000000000006,
+          "voice_speech_song": 20.279999999999994,
+          "voice_ensemble_config": 13.259999999999994,
+          "voice_ornament_system": 5.450000000000001,
+          "voice_pitch_organization": 0.65,
+          "voice_processing_chain": 7.215,
+          "voice_multitrack_stack": 4.485
         }
       },
       {
@@ -141,10 +141,10 @@
           "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
         },
         "scores": {
-          "arpa_jarocha_strings": 4.875,
-          "arpa_jarocha_body_wood": 0.845,
+          "arpa_jarocha_strings": 4.42,
+          "arpa_jarocha_body_wood": 0.195,
           "arpa_jarocha_string_material": 2.79,
-          "arpa_jarocha_role": 15.34
+          "arpa_jarocha_role": 17.94
         }
       },
       {
@@ -157,7 +157,7 @@
         "scores": {
           "marimba_centroamericana_form": 3.945,
           "marimba_centroamericana_ensemble": 2.6,
-          "marimba_centroamericana_material": 2.5
+          "marimba_centroamericana_material": 2.875
         }
       }
     ],

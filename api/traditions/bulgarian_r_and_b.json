@@ -5,7 +5,7 @@
   "lineage": "Bulgarian R&B is represented here by Ruth Koleva’s soul/R&B recording and Sofia performance practice. The selected Future Sweet branch combines foreground singing with keyboard harmony, guitar, bass, drums and trombone; independent album coverage names the players in these roles. The authored model selects electric piano for the nonspecific keyboard role and omits unspecified auxiliary percussion, rather than inventing folk instruments or historical studio hardware.",
   "recipe": "classic modern bulgarian r&b, functional Song, soul R&B branch. multi note runs per syllable, many notes per syllable, solo with instrumental accompaniment. electric piano tine, single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, bach 42 canonical American orchestral tenor trombone. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 529,
-  "score": 30.106,
+  "score": 30.117,
   "config": {
     "traditions": [
       "bulgarian_r_and_b"
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0.0315,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.43725
+          "voice_multitrack_stack": 0.34275
         }
       },
       {
@@ -83,8 +83,8 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
-          "neck_wood": 0.2415,
+          "body_wood": 0.231,
+          "neck_wood": 0.378,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0,
@@ -110,7 +110,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.33599999999999997,
+          "body_wood": 0.231,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -149,8 +149,8 @@
           "trombone_mouthpiece": -0.1,
           "trombone_mute": 0,
           "trombone_technique": 0.0315,
-          "trombone_bell_metal": 0.504,
-          "trombone_maker_school": 1.092
+          "trombone_bell_metal": 0.609,
+          "trombone_maker_school": 1.1655
         }
       }
     ],

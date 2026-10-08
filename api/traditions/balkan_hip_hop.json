@@ -5,7 +5,7 @@
   "lineage": "Balkan hip-hop networks; selected Dubioza Kolektiv live crossover branch",
   "recipe": "classic modern balkan hip hop, mc Rhythm, intl hip hop branch. duet. sampled chopped sampler, sub bass rompler workstation, clean strummed single coil electric guitar, electric bass, drum kit, saxophone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 348,
-  "score": 32.44,
+  "score": 32.23,
   "config": {
     "traditions": [
       "balkan_hip_hop"
@@ -76,8 +76,8 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 6.74975,
-          "rompler_preset_bank": 0.063,
+          "electronic_technique": 6.6027499999999995,
+          "rompler_preset_bank": 0.0315,
           "rompler_context": 0,
           "rompler_lineage": 0
         }
@@ -185,7 +185,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0.08174999999999999,
           "sax_technique": -0.15000000000000002,
-          "sax_maker_school": 0.6315
+          "sax_maker_school": 0.5999999999999999
         }
       }
     ],

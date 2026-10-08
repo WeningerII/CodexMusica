@@ -5,7 +5,7 @@
   "lineage": "New Zealand drum and bass connects electronic club production with an established live-band culture. Shapeshifter exemplifies the meeting of sung hooks, synthesizers, sampling and a rhythm section.",
   "recipe": "classic nz dnb, electronic Dance. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, drum kit, analog synth, sampler. live tracking.",
   "recipe_chars": 176,
-  "score": 14.916,
+  "score": 14.961,
   "config": {
     "traditions": [
       "nz_dnb"
@@ -133,7 +133,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": -0.10500000000000001,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       },

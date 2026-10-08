@@ -3,14 +3,14 @@
   "name": "Middle of the Road (MOR adult radio pop)",
   "family": "pop_rock",
   "lineage": "A US and UK radio-format category hardened between 1968 and 1980 in Los Angeles, Nashville and London studios around Karen Carpenter, Neil Diamond, Barry Manilow and Anne Murray — mid-tempo 4/4 ballads and soft shuffles at 70-110 BPM, close-miked unstrained lead vocal over acoustic guitar and electric piano, sweetened with orchestral strings, flugelhorn and stacked backing harmonies, brushes or restrained kit, and a key-change final chorus.",
-  "recipe": "classic North American late-1960s middle of the road, functional Song, pop rock branch, crooners functional song, pop rock yacht rock adult standards. thick, breath veiled tone, straight onset, interlocked note trading. cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, block chord electric piano tine, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sitka spruce hard rock maple acer saccharum modern setup longer neck violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet trumpet, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical.",
-  "recipe_chars": 988,
-  "score": 423.74,
+  "recipe": "classic North American late-1960s middle of the road, functional Song, pop rock branch, crooners functional song, pop rock yacht rock traditional pop music. thick, breath veiled tone, straight onset, interlocked note trading. cedar steel silk strummed open chord ringing overtones dreadnought acoustic guitar, block chord electric piano tine, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sitka spruce hard rock maple acer saccharum plucked pizzicato violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet trumpet, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 997,
+  "score": 417.615,
   "config": {
     "traditions": [
       "middle_of_the_road",
       "yacht_rock",
-      "adult_standards"
+      "traditional_pop_music"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 38.52000000000002,
-          "voice_quality": 12.349999999999993,
+          "voice_register": 39.64500000000002,
+          "voice_quality": 11.894999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.410000000000001,
-          "voice_articulation": 25.48,
-          "voice_microtone": 38.06,
-          "voice_tradition": 17.984999999999996,
-          "voice_mechanism_compound": 3.77,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 33.085,
-          "voice_ensemble_config": 23.075,
-          "voice_ornament_system": 0.63,
-          "voice_pitch_organization": 1.545,
-          "voice_processing_chain": 6.67,
-          "voice_multitrack_stack": 7.8149999999999995
+          "voice_vibrato": 6.785000000000001,
+          "voice_articulation": 23.725,
+          "voice_microtone": 39.080000000000005,
+          "voice_tradition": 18.179999999999996,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.9250000000000007,
+          "voice_speech_song": 31.98,
+          "voice_ensemble_config": 21.580000000000002,
+          "voice_ornament_system": 0.695,
+          "voice_pitch_organization": 1.4749999999999996,
+          "voice_processing_chain": 6.4750000000000005,
+          "voice_multitrack_stack": 7.904999999999999
         }
       },
       {
@@ -59,14 +59,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 15.764999999999999,
+          "acoustic_technique": 16.139999999999997,
           "string_tuning": 0,
-          "top_wood": 4.875,
-          "back_sides": 0.75,
-          "string_acoustic": 3.38
+          "top_wood": 4.42,
+          "back_sides": 0.6,
+          "string_acoustic": 3.0549999999999997
         }
       },
       {
@@ -77,16 +77,16 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 15.764999999999999,
-          "tine_voicing": 0.195,
-          "tine_effect": 8.54
+          "keyboard_technique": 16.139999999999997,
+          "tine_voicing": 0.15,
+          "tine_effect": 8.795
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -95,13 +95,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.334999999999999,
-          "body_wood": 3.185,
-          "pickup_config": 0.195,
-          "string_type": 20.15,
-          "scale_length_b": 4.16,
+          "amp_make": 9.299999999999999,
+          "body_wood": 2.73,
+          "pickup_config": 1.23,
+          "string_type": 20.63,
+          "scale_length_b": 3.5100000000000002,
           "fretted_or_not": 0.3,
-          "bass_technique": 19.245,
+          "bass_technique": 19.62,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,8 +113,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 26.585000000000004,
-          "drumhead": 15.704999999999998,
+          "drum_technique": 25.480000000000008,
+          "drumhead": 16.275,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,42 +127,42 @@
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "sul_pont_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
           "bowed_technique": 3.2,
-          "orch_strings": 0.78,
-          "orch_top_wood": 1.365,
-          "orch_back_wood": 9.224999999999998,
+          "orch_strings": 0.6,
+          "orch_top_wood": 2.2099999999999995,
+          "orch_back_wood": 9.045,
           "orch_varnish": 0.9099999999999999,
-          "orch_setup_period": 1.17,
-          "orch_bow": 0.65,
+          "orch_setup_period": 0.7149999999999999,
+          "orch_bow": 0.09,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.3,
-          "orch_rosin": 0.585
+          "orch_rosin": 0.75
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_classical_legato",
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_lead_mp",
           "brass_mute": "harmon_in",
-          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_technique": "trumpet_classical_legato",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 0.19500000000000003,
-          "brass_size": 0.75,
-          "trumpet_mouthpiece": 7.085000000000001,
+          "wind_articulation": 0.645,
+          "brass_size": 0.6,
+          "trumpet_mouthpiece": 7.595000000000001,
           "brass_mute": 0.195,
-          "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 2.145,
+          "trumpet_technique": 0.645,
+          "trumpet_bell_metal": 1.4949999999999999,
           "trumpet_maker_school": 3.4450000000000003
         }
       },
@@ -175,10 +175,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 6.825,
+          "choir_size": 6.434999999999999,
           "choir_polyphonic_configuration": 3.77,
-          "choir_regional_canonical_configuration": 5.045,
-          "choir_ensemble_repertoire": 2.535
+          "choir_regional_canonical_configuration": 3.869999999999999,
+          "choir_ensemble_repertoire": 1.69
         }
       }
     ],

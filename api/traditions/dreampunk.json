@@ -3,14 +3,14 @@
   "name": "Dreampunk",
   "family": "electronic",
   "lineage": "Named around 2016 by the Dream Catalogue label under HKE in the wake of the 2 8 1 4 records, dreampunk slows vaporwave's sample logic into 60-80 BPM or beatless long-form ambient — heavily reverbed and time-stretched synth pads, dial-tone and rain field recordings, distant Mandarin or Japanese speech samples, tape hiss and cassette wow — arranged as continuous album-length dystopian-city atmospheres.",
-  "recipe": "classic mid-2010s dreampunk, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric j-ambient dark ambient. glitched textural granular sustained pad analog poly synth, sustained pad digital subtractive, tape replay keyboard, field textural sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 411,
-  "score": 110.41,
+  "recipe": "classic mid-2010s dreampunk, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric j-ambient irish electronic. glitched textural granular sustained pad analog poly synth, sustained pad digital subtractive, tape replay keyboard, field textural sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 415,
+  "score": 93.964,
   "config": {
     "traditions": [
       "dreampunk",
       "j_ambient",
-      "dark_ambient"
+      "irish_electronic"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 12.94,
+          "electronic_technique": 12.065,
           "granular_use": 0.24,
-          "granular_synth_source": 8.709999999999999
+          "granular_synth_source": 7.41
         }
       },
       {
@@ -34,9 +34,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 12.3095,
-          "va_archetypes": 0.195,
-          "digital_subtractive_context": 13.259999999999998
+          "electronic_technique": 11.03375,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 8.645
         }
       },
       {
@@ -48,7 +48,7 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "tape_voice": 0.195,
+          "tape_voice": 0.49249999999999994,
           "tape_state": 0.15874999999999997
         }
       },
@@ -62,25 +62,25 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 12.94,
+          "electronic_technique": 12.065,
           "sampler_archetypes": 1.25,
-          "sampler_bit_depth": 1.04,
-          "sampler_workflow": 15.896999999999998,
-          "sampler_classic_context": 16.5
+          "sampler_bit_depth": 0.8574999999999999,
+          "sampler_workflow": 15.157499999999999,
+          "sampler_classic_context": 11.775
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 12.3095,
-          "poly_archetypes": 0.45499999999999996,
-          "poly_voices": 0.195,
+          "electronic_technique": 11.03375,
+          "poly_archetypes": 0.49249999999999994,
+          "poly_voices": 0.6224999999999999,
           "poly_maker_lineage": -0.7350000000000001
         }
       }

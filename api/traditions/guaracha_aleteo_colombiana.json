@@ -1,0 +1,98 @@
+{
+  "id": "guaracha_aleteo_colombiana",
+  "name": "Guaracha colombiana (aleteo electronic dance)",
+  "family": "electronic",
+  "lineage": "Colombian guaracha, also called aleteo or zapateo, is an electronic dance style that grew in the 2010s in the party scenes of Medellín and other Colombian cities out of tribal and Latin house. Made by DJ-producers for the dance floor, it stacks dense, fast percussion loops, chanted vocal shouts and synth or horn stabs over a four-on-the-floor kick; aleteo names the flapping-arm dance that goes with it.",
+  "recipe": "classic mid-2010s guaracha colombiana, electronic Dance, Latin electric branch, Latin house house. daw percussion source daw bass source electronic synthesis sequencing credited samples unspecified. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 344,
+  "score": 3.725,
+  "config": {
+    "traditions": [
+      "guaracha_aleteo_colombiana"
+    ],
+    "instruments": [
+      {
+        "id": "daw_percussion_source_unspecified",
+        "slots": {
+          "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_percussion_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "daw_bass_source_unspecified",
+        "slots": {
+          "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified"
+        },
+        "scores": {
+          "daw_bass_source_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "electronic_synthesis_sequencing_unspecified",
+        "slots": {
+          "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified"
+        },
+        "scores": {
+          "electronic_synthesis_sequencing_identity": 0
+        }
+      },
+      {
+        "id": "credited_samples_unspecified",
+        "slots": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        },
+        "scores": {
+          "credited_samples_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "daw_percussion_source_unspecified": [
+        "daw_percussion_source_unspecified_identity"
+      ],
+      "daw_bass_source_unspecified": [
+        "daw_bass_source_unspecified_identity"
+      ],
+      "electronic_synthesis_sequencing_unspecified": [
+        "electronic_synthesis_sequencing_identity"
+      ],
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "daw_percussion_source_unspecified_identity": "daw_percussion_source_unspecified_architecture_unspecified",
+      "daw_bass_source_unspecified_identity": "daw_bass_source_unspecified_architecture_unspecified",
+      "electronic_synthesis_sequencing_identity": "electronic_synthesis_sequencing_architecture_unspecified",
+      "credited_samples_identity": "credited_samples_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_std",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "North American and British mainstream pop of the 2010s made by artists who graduated out of teen-idol machinery into adult authorship — Ariana Grande, Selena Gomez, Demi Lovato, Halsey and Shawn Mendes working with Max Martin, Ilya Salmanzadeh and Ryan Tedder — built at 90-110 BPM on trap-derived hi-hat rolls and 808 sub-bass under sparse keyboard-and-plucked-synth beds, with stacked, heavily comped, lightly retuned vocal arrangements and whisper-to-whistle-register dynamic staging replacing the four-on-the-floor of prior teen pop.",
   "recipe": "classic mid-2010s post-teen pop, functional Song, pop rock branch, soul R&B functional song, us hip hop modern, pop rock synthpop doo-wop. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog poly plucked short envelope wavetable synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, pitched chopped sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 765,
-  "score": 537.84,
+  "score": 537.877,
   "config": {
     "traditions": [
       "post_teen_pop",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 42.30000000000002,
+          "voice_register": 42.25500000000002,
           "voice_quality": 19.110000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6325,
           "voice_articulation": 21.31999999999999,
           "voice_microtone": 32.55000000000001,
-          "voice_tradition": 30.840000000000003,
+          "voice_tradition": 30.6,
           "voice_mechanism_compound": 6.044999999999999,
-          "voice_estill_quality": 8.444999999999999,
+          "voice_estill_quality": 8.639999999999997,
           "voice_speech_song": 28.144999999999992,
           "voice_ensemble_config": 22.74999999999999,
           "voice_ornament_system": 3.4450000000000016,
-          "voice_pitch_organization": 2.22,
-          "voice_processing_chain": 11.082499999999998,
+          "voice_pitch_organization": 2.1750000000000003,
+          "voice_processing_chain": 11.044999999999998,
           "voice_multitrack_stack": 10.042500000000002
         }
       },
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 7.800000000000001,
-          "drum_machine_808_context": 6.6450000000000005,
+          "tr808_voice": 7.995,
+          "drum_machine_808_context": 6.840000000000001,
           "tr808_production_origin": 1.3649999999999998
         }
       },
@@ -75,7 +75,7 @@
         },
         "scores": {
           "electronic_technique": 26.075,
-          "poly_archetypes": 3.41,
+          "poly_archetypes": 3.305,
           "poly_voices": 0.24,
           "poly_maker_lineage": -0.7
         }
@@ -92,7 +92,7 @@
           "electronic_technique": 26.075,
           "wt_position": 1.3649999999999998,
           "wt_family": 1.3649999999999998,
-          "wt_polyphony": 1.475
+          "wt_polyphony": 1.43
         }
       },
       {
@@ -108,9 +108,9 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.564999999999998,
+          "amp_make": 14.669999999999998,
           "body_wood": 0.585,
-          "pickup_config": 2.9949999999999997,
+          "pickup_config": 3.0549999999999997,
           "string_type": 13,
           "scale_length_b": 1.3649999999999998,
           "fretted_or_not": 0.195,
@@ -136,11 +136,11 @@
           "grand_piano_size": 1,
           "grand_piano_brand": 0.845,
           "piano_hammer": 28.2,
-          "piano_rim": 29.315,
+          "piano_rim": 29.270000000000003,
           "piano_soundboard": 27.75,
           "piano_pinblock": 3.724999999999999,
           "piano_plate": 4.9725,
-          "piano_pitch_standard": 6.984999999999999
+          "piano_pitch_standard": 6.834999999999999
         }
       },
       {

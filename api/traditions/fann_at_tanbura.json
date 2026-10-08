@@ -3,21 +3,21 @@
   "name": "Fann at-Tanbura",
   "family": "global",
   "lineage": "Afro-Gulf ritual and entertainment music of Bahrain, Kuwait and the Saudi Eastern Province, carried by communities descended from East African and Sudanese people from the nineteenth century, centred on the six-string tanbura lyre played over a slow-building 6/8 or compound cycle, the mangūr goat-hoof rattle belt shaken by a dancer, tār frame drums, hand clapping and a leader's call answered by a heavy unison male chorus.",
-  "recipe": "classic early-1940s fann at-tanbura, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional, middle east n African praise song sufi zikr chant sindhi. extended whistle, declaimed, slow rate, interlocked note trading. six string strum and damp call-and-response tanbura kisir, mangour hoof rattle, walnut bent frame canonical Iranian goat skin canonical Sufi hands layered tar frame drum, snappy to palm hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 515,
-  "score": 195.28,
+  "recipe": "classic early-1940s fann at-tanbura, ritual Devotional, Afro-diasporic branch, Sufi ritual devotional, middle east n African praise song madih and dhikr sufi zikr chant. extended whistle, breath veiled tone, slow rate, interlocked note trading. six string strum and damp call-and-response tanbura kisir, mangour hoof rattle, walnut bent frame canonical Iranian goat skin canonical Sufi hands layered tar frame drum, snappy to palm hand clap. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 533,
+  "score": 193.975,
   "config": {
     "traditions": [
       "fann_at_tanbura",
-      "sufi_zikr_chant",
-      "sindhi"
+      "sudanese_madih_dhikr",
+      "sufi_zikr_chant"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.1049999999999998,
-          "voice_quality": 15.944999999999999,
+          "voice_register": 0.52,
+          "voice_quality": 18.784999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 15.599999999999994,
-          "voice_microtone": 18.71999999999999,
-          "voice_tradition": 17.6475,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 2.7950000000000004,
-          "voice_speech_song": 20.214999999999996,
-          "voice_ensemble_config": 16.184999999999995,
-          "voice_ornament_system": 11.575000000000003,
-          "voice_pitch_organization": 3.870000000000001,
-          "voice_processing_chain": 8.59,
-          "voice_multitrack_stack": 4.745
+          "voice_vibrato": 2.535,
+          "voice_articulation": 14.169999999999993,
+          "voice_microtone": 17.289999999999992,
+          "voice_tradition": 20.5075,
+          "voice_mechanism_compound": 1.95,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 18.134999999999994,
+          "voice_ensemble_config": 14.104999999999993,
+          "voice_ornament_system": 12.825000000000003,
+          "voice_pitch_organization": 4.395000000000001,
+          "voice_processing_chain": 6.825,
+          "voice_multitrack_stack": 2.665000000000001
         }
       },
       {
@@ -61,10 +61,10 @@
           "tanbura_kisir_bowl": "tanbura_kisir_bowl_wood_hide"
         },
         "scores": {
-          "tanbura_kisir_form": 5.335,
-          "tanbura_kisir_context": 23.107499999999998,
-          "tanbura_kisir_strings": -0.035,
-          "tanbura_kisir_bowl": -0.05
+          "tanbura_kisir_form": 6.085,
+          "tanbura_kisir_context": 21.872499999999995,
+          "tanbura_kisir_strings": -0.05,
+          "tanbura_kisir_bowl": -0.035
         }
       },
       {
@@ -75,7 +75,7 @@
         },
         "scores": {
           "mangour_material": 1.6,
-          "mangour_motion": 0.39
+          "mangour_motion": 0.345
         }
       },
       {
@@ -89,10 +89,10 @@
         },
         "scores": {
           "percussion_technique": 6.949999999999999,
-          "tar_size": 3.7049999999999996,
+          "tar_size": 5.005,
           "tar_frame_drum_context": 6.565000000000001,
-          "tar_frame_shell_wood": 2.535,
-          "tar_frame_head": 5.395
+          "tar_frame_shell_wood": 4.03,
+          "tar_frame_head": 6.695
         }
       },
       {
@@ -102,7 +102,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 2.34,
+          "clap_technique": 1.69,
           "clap_capture": 0.3
         }
       }

@@ -1,0 +1,104 @@
+{
+  "id": "tarawangsa",
+  "name": "Tarawangsa (Sundanese rice-ritual fiddle and zither)",
+  "family": "global",
+  "lineage": "Ritual music of Rancakalong in Sumedang and other upland West Javanese communities, played at rice-harvest ceremonies such as ngalaksa that honour the rice goddess Dewi Sri. A two-string bowed tarawangsa (here the rebab card) carries the melody over the jentreng, a small seven-string plucked zither (here the kacapi card), while participants dance, some into trance.",
+  "recipe": "classic modern tarawangsa, ritual Devotional, indigenous branch. carved hardwood canonical javanese rebab, interlocking kacapi. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 207,
+  "score": 6.752,
+  "config": {
+    "traditions": [
+      "tarawangsa"
+    ],
+    "instruments": [
+      {
+        "id": "rebab",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebab_region": "rebab_javanese",
+          "rebab_context": "rebab_gamelan",
+          "rebab_body": "rebab_wood_carved",
+          "rebab_skin": "ho_dama_kettle_drum_membranes_documented",
+          "rebab_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "bowed_technique": -0.035,
+          "rebab_region": 0.105,
+          "rebab_context": 0.39,
+          "rebab_body": 1.3,
+          "rebab_skin": 0,
+          "rebab_strings": 0
+        }
+      },
+      {
+        "id": "kacapi",
+        "slots": {
+          "kacapi_form": "kacapi_rincik",
+          "kacapi_repertoire": "kacapi_kacapi_suling",
+          "kacapi_laras": "kacapi_pelog_degung",
+          "kacapi_construction": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "kacapi_form": 2.5865,
+          "kacapi_repertoire": 2.45,
+          "kacapi_laras": 0.105,
+          "kacapi_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "rebab": [
+        "bowed_technique",
+        "rebab_region",
+        "rebab_context",
+        "rebab_body",
+        "rebab_skin",
+        "rebab_strings"
+      ],
+      "kacapi": [
+        "kacapi_form",
+        "kacapi_repertoire",
+        "kacapi_laras",
+        "kacapi_construction"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "rebab_region": "rebab_javanese",
+      "rebab_context": "rebab_gamelan",
+      "rebab_body": "rebab_wood_carved",
+      "rebab_skin": "ho_dama_kettle_drum_membranes_documented",
+      "rebab_strings": "dutar_strings_unspecified",
+      "kacapi_form": "kacapi_rincik",
+      "kacapi_repertoire": "kacapi_kacapi_suling",
+      "kacapi_laras": "kacapi_pelog_degung",
+      "kacapi_construction": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

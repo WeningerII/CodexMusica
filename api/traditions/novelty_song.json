@@ -3,14 +3,14 @@
   "name": "Novelty Song",
   "family": "pop",
   "lineage": "Anglo-American comic popular song tradition running from Tin Pan Alley sheet music of the 1900s through its commercial peak in the 1940s-60s with Spike Jones, Sheb Wooley, David Seville and Ray Stevens, built on thirty-two-bar AABA or twelve-bar frames at bright dance tempi, deliberately absurd lyrics, sound effects (gunshots, cowbells, whistles, anvils), cartoon vocal treatments including sped-up tape voices, and instrumental gimmicks such as kazoo, slide whistle and tuba glissandi.",
-  "recipe": "classic North American mid-1900s novelty song, functional Song, pop rock branch, stage performance spoken word, crooners functional song adult standards music hall. thick, breath veiled tone, pure, interlocked note trading. kazoo, compact tuba brass piston valves American school besson sovereign British brass band tuba, through composed jazz big band, pre muffled edge muffled brushes-and-sticks drum kit, block chord upright piano, whistle peanut train whistle, bright cutting metal beater anvil, glockenspiel. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 670,
-  "score": 191.11,
+  "recipe": "classic North American mid-1900s novelty song, functional Song, pop rock branch, stage performance spoken word, crooners functional song brill building pop lounge. thick, breath veiled tone, pure, interlocked note trading. kazoo, American orchestral brass piston valves American school besson sovereign British brass band tuba, extended harmony through composed jazz big band, pre muffled edge muffled brushes-and-sticks drum kit, block chord upright piano, whistle peanut train whistle, bright cutting metal beater anvil, glockenspiel. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 693,
+  "score": 177.57,
   "config": {
     "traditions": [
       "novelty_song",
-      "adult_standards",
-      "music_hall"
+      "brill_building_pop",
+      "lounge_exotica"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 14.124999999999995,
-          "voice_quality": 8.58,
+          "voice_register": 16.52499999999999,
+          "voice_quality": 9.749999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.495,
-          "voice_articulation": 20.604999999999997,
-          "voice_microtone": 18.719999999999995,
-          "voice_tradition": 8.575,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 4.42,
-          "voice_speech_song": 31.265,
-          "voice_ensemble_config": 18.199999999999996,
-          "voice_ornament_system": 0.195,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 18.329999999999995,
+          "voice_microtone": 16.474999999999998,
+          "voice_tradition": 9.324999999999998,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 3.41,
+          "voice_speech_song": 26.06499999999999,
+          "voice_ensemble_config": 16.574999999999992,
+          "voice_ornament_system": 0.8450000000000001,
           "voice_pitch_organization": 1.3,
-          "voice_processing_chain": 3.435,
-          "voice_multitrack_stack": 4.045000000000001
+          "voice_processing_chain": 2.7,
+          "voice_multitrack_stack": 3.8450000000000006
         }
       },
       {
@@ -65,7 +65,7 @@
         "id": "tuba",
         "slots": {
           "wind_articulation": "wind_classical_legato",
-          "tuba_pitch": "tuba_eb",
+          "tuba_pitch": "tuba_cc",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
           "tuba_valve_system": "tuba_piston_american",
@@ -73,11 +73,11 @@
         },
         "scores": {
           "wind_articulation": -0.05,
-          "tuba_pitch": 3.05,
-          "tuba_context": 3.28,
+          "tuba_pitch": 3.34,
+          "tuba_context": 2.2800000000000002,
           "tuba_bell_metal": 0.6950000000000001,
-          "tuba_valve_system": 2.9899999999999998,
-          "tuba_maker_school": 1.945
+          "tuba_valve_system": 3.4899999999999998,
+          "tuba_maker_school": 1.145
         }
       },
       {
@@ -88,7 +88,7 @@
         },
         "scores": {
           "sections": 0,
-          "era": 1.69
+          "era": 3.035
         }
       },
       {
@@ -99,8 +99,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.939999999999998,
-          "drumhead": 8.430000000000001,
+          "drum_technique": 17.159999999999993,
+          "drumhead": 9.18,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -109,12 +109,12 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "upright_use": "upright_honky_tonk",
-          "upright_piano_size": "upright_piano_spinet"
+          "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 8.325,
-          "upright_use": 1.19,
-          "upright_piano_size": 0.5
+          "keyboard_technique": 9.075,
+          "upright_use": 0.39,
+          "upright_piano_size": 0.3
         }
       },
       {
@@ -135,7 +135,7 @@
           "anvil_striker": "anvil_metal_beater"
         },
         "scores": {
-          "anvil_type": 0.65,
+          "anvil_type": 0.195,
           "anvil_striker": 1
         }
       },

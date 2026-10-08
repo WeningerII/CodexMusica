@@ -5,7 +5,7 @@
   "lineage": "Zimbabwean youth pop that exploded in Harare after the 2001 broadcasting policy mandating 75 percent local content, made almost entirely on home PCs by producers such as Delani Makhalima and Fortune Muparutsa — 90-105 BPM programmed R&B and dancehall drums, cheap sampled strings and rounded synth bass, Auto-Tuned melisma and rapped bridges, with lyrics code-switching between Shona and English.",
   "recipe": "classic early-2000s zimbabwean urban grooves, functional Song, African pop branch, intl hip hop MC rhythm vietnamese melodic rap motswako. extended whistle, rap, slow rate, interlocked note trading. sampled chopped sampler drum machine, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 626,
-  "score": 229.529,
+  "score": 228.924,
   "config": {
     "traditions": [
       "zim_urban_grooves",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.828749999999998,
+          "voice_register": 10.633749999999997,
           "voice_quality": 18.005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.4450000000000003,
           "voice_articulation": 24.440000000000005,
           "voice_microtone": 24.505000000000003,
-          "voice_tradition": 11.603124999999999,
+          "voice_tradition": 11.423124999999999,
           "voice_mechanism_compound": 3.575,
-          "voice_estill_quality": 3.3068750000000002,
+          "voice_estill_quality": 3.3475,
           "voice_speech_song": 28.145000000000007,
           "voice_ensemble_config": 23.92000000000001,
           "voice_ornament_system": 2.470000000000001,
@@ -64,21 +64,21 @@
           "electronic_technique": 4.775,
           "sample_bitdepth": 0.9750000000000001,
           "sample_swing": 6.5,
-          "sample_processing": 3.1500000000000004
+          "sample_processing": 3.345
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "prophet_5",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
           "electronic_technique": 9.374999999999998,
-          "poly_archetypes": 0,
-          "poly_voices": 0.435,
+          "poly_archetypes": 0.045,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -1.085
         }
       },
@@ -93,7 +93,7 @@
         },
         "scores": {
           "electronic_technique": 9.374999999999998,
-          "fm_algorithm": 0.78,
+          "fm_algorithm": 0.435,
           "fm_modulator_ratio": 0,
           "fm_polyphony": 0.3,
           "fm_model_lineage": 3.3149999999999995
@@ -112,27 +112,27 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.665,
+          "amp_make": 3.5600000000000005,
           "body_wood": 1.235,
           "pickup_config": 0.845,
-          "string_type": 3.2500000000000004,
+          "string_type": 3.1318750000000004,
           "scale_length_b": 1.8850000000000002,
           "fretted_or_not": 0,
-          "bass_technique": 0.42,
+          "bass_technique": 0.375,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
-          "multitrack_stack_density": "multitrack_density_3_part_third_fifth",
+          "multitrack_stack_density": "multitrack_density_5_part_cluster",
           "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.3,
+          "multitrack_stack_density": 0.39,
           "multitrack_stack_era_aesthetic": 0.4225,
-          "multitrack_stack_processing": 2.0225
+          "multitrack_stack_processing": 2.0799999999999996
         }
       }
     ],

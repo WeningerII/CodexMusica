@@ -1,0 +1,195 @@
+{
+  "id": "dolan_muqam",
+  "name": "Dolan muqam (Dolan Uyghur muqam of the Yarkand River)",
+  "family": "global",
+  "lineage": "Muqam suites of the Dolan Uyghurs of Merkit, Maralbeshi and Awat along the Yarkand River on the edge of the Taklamakan, performed by a group of male singers with the Dolan rawap and Dolan ghijek (both with sympathetic strings), the qalun zither and several dap frame drums; the rawap_kashgar, ghijek_uyghur and kalun_uyghur_zither cards stand in for the Dolan instruments. Each muqam opens with an unmetred section sung at full voice and moves through faster metred sections that draw dancers into the gathering; Dolan muqam is part of UNESCO's inscription of the Uyghur Muqam of Xinjiang and is distinct in repertoire and style from the Twelve Muqam.",
+  "recipe": "classic modern dolan muqam, drone Modal, heterophonic branch. same melody all voices. rawap kashgar, ghijek dap uyghur, kalun uyghur zither. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 4.597,
+  "config": {
+    "traditions": [
+      "dolan_muqam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_projected",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_heterophonic",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0.0315,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 2.3400000000000003,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 0.168,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "rawap_kashgar",
+        "slots": {
+          "rawap_kashgar_form": "rawap_kashgar_classic",
+          "rawap_kashgar_plectrum": "rawap_horn_pick"
+        },
+        "scores": {
+          "rawap_kashgar_form": 0.1365,
+          "rawap_kashgar_plectrum": 0
+        }
+      },
+      {
+        "id": "ghijek_uyghur",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "ghijek_form": "ghijek_kashgar",
+          "ghijek_bow": "ghijek_heavy"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "ghijek_form": 0.1365,
+          "ghijek_bow": 0
+        }
+      },
+      {
+        "id": "kalun_uyghur_zither",
+        "slots": {
+          "kalun_technique": "kalun_pluck_slide",
+          "kalun_strings": "kalun_double_course"
+        },
+        "scores": {
+          "kalun_technique": 0.3315,
+          "kalun_strings": 0
+        }
+      },
+      {
+        "id": "dap_uyghur",
+        "slots": {
+          "dap_uyghur_size": "dap_uyghur_large",
+          "dap_uyghur_technique": "dap_uyghur_center_rim"
+        },
+        "scores": {
+          "dap_uyghur_size": 0,
+          "dap_uyghur_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "rawap_kashgar": [
+        "rawap_kashgar_form",
+        "rawap_kashgar_plectrum"
+      ],
+      "ghijek_uyghur": [
+        "bowed_technique",
+        "ghijek_form",
+        "ghijek_bow"
+      ],
+      "kalun_uyghur_zither": [
+        "kalun_technique",
+        "kalun_strings"
+      ],
+      "dap_uyghur": [
+        "dap_uyghur_size",
+        "dap_uyghur_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_projected",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_heterophonic",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "rawap_kashgar_form": "rawap_kashgar_classic",
+      "rawap_kashgar_plectrum": "rawap_horn_pick",
+      "bowed_technique": "bowed_local_song_melody",
+      "ghijek_form": "ghijek_kashgar",
+      "ghijek_bow": "ghijek_heavy",
+      "kalun_technique": "kalun_pluck_slide",
+      "kalun_strings": "kalun_double_course",
+      "dap_uyghur_size": "dap_uyghur_large",
+      "dap_uyghur_technique": "dap_uyghur_center_rim"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

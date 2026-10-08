@@ -1,0 +1,77 @@
+{
+  "id": "ostrobothnian_menuett_polska",
+  "name": "Menuett och polska (Finland-Swedish Ostrobothnian fiddle dance)",
+  "family": "global",
+  "lineage": "Fiddle dance music of the Swedish-speaking communities of Ostrobothnia in western Finland, where the minuet, long gone from most of Europe, survived as a living folk dance alongside the polska, notably in Jeppo near Nykarleby. Otto Andersson's folk-music collection at Åbo Akademi documents it from the early twentieth century, Svenskt visarkiv later recorded fiddlers in Swedish-speaking Finland and Åland, and the minuet tradition of the Swedish-speaking areas is listed in the Finnish National Inventory of Living Heritage.",
+  "recipe": "classic early-1940s menuett och polska, improv On Frame, string improv branch. fiddle. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 178,
+  "score": 0.67,
+  "config": {
+    "traditions": [
+      "ostrobothnian_menuett_polska"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "dutar_strings_unspecified",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0.2415,
+          "fiddle_mute": 0.4515,
+          "fiddle_articulation": 0.2625,
+          "fiddle_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "dutar_strings_unspecified",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

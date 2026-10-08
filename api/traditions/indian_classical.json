@@ -1,33 +1,44 @@
 {
-  "id": "indian_classical",
-  "name": "Indian classical",
+  "id": "hindustani",
+  "merged_from": "indian_classical",
+  "name": "Hindustani classical",
   "family": "classical",
-  "lineage": "Indian classical is represented by Ustad Sultan Khan and Shri Rij Ram — Raga Bageshree, Sarangi: The Music of India. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, raga-informed tuning preset, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 203,
-  "score": 12.104,
+  "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
+  "recipe": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal maand tan singing. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, steel coconut shell shell tun indian cedar sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 840,
+  "score": 312.12,
   "config": {
     "traditions": [
-      "indian_classical"
+      "hindustani",
+      "maand_rajasthani",
+      "tan_singing"
     ],
     "instruments": [
       {
-        "id": "sarangi",
+        "id": "sitar",
         "slots": {
-          "bowed_technique": "bowed_microtonal_inflected",
-          "sarangi_belly": "goat_skin_sarangi",
-          "sarangi_taraf": "sarangi_40_strings",
-          "sarangi_bow": "horse_hair_loose",
-          "sarangi_main_strings": "sarangi_steel_main",
-          "sarangi_body_wood": "sarangi_tun_body"
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "synthetic_jawari",
+          "sitar_taraf": "taraf_13",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "bowed_technique": -0.15000000000000002,
-          "sarangi_belly": 0.588,
-          "sarangi_taraf": 0.1365,
-          "sarangi_bow": 0,
-          "sarangi_main_strings": 0.363,
-          "sarangi_body_wood": 0.44099999999999995
+          "plucked_traditional_technique": 19.99,
+          "sitar_neck": 0.045,
+          "sitar_resonator": 0.135,
+          "sitar_jawari": 0.09,
+          "sitar_taraf": 0.39,
+          "sitar_frets": 0.345,
+          "sitar_pluck": 10.27,
+          "sitar_main_strings": 0.545,
+          "sitar_jawari_style": 0.195,
+          "sitar_gharana": 15.339999999999998
         }
       },
       {
@@ -38,44 +49,160 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 6.4350000000000005,
-          "tabla_bayan": 3.9,
-          "tabla_syahi": 0.39
+          "tabla_dayan": 14.884999999999998,
+          "tabla_bayan": 10.27,
+          "tabla_syahi": 4.03
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_wooden_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 19.99,
+          "tanpura_size": 2.6,
+          "tanpura_jawari": 19.75,
+          "tanpura_strings": 4.8100000000000005,
+          "tanpura_string_material": 0.65,
+          "tanpura_body_wood": 0.635
+        }
+      },
+      {
+        "id": "santoor",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "santoor_courses": "santoor_70",
+          "santoor_mallets": "walnut_mallets",
+          "santoor_strings": "steel_strings_santoor",
+          "santoor_body_wood": "santoor_tun",
+          "santoor_lineage": "santoor_shivkumar_sharma_canon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 19.99,
+          "santoor_courses": 10.27,
+          "santoor_mallets": 0.045,
+          "santoor_strings": 10.919999999999998,
+          "santoor_body_wood": 4.68,
+          "santoor_lineage": 2.9899999999999998
+        }
+      },
+      {
+        "id": "sarod",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "sarod_fingerboard": "polished_steel",
+          "sarod_belly": "goat_skin_belly",
+          "sarod_pluck": "coconut_shell_pick",
+          "sarod_taraf": "taraf_eleven",
+          "sarod_body_wood": "sarod_tun_body",
+          "sarod_strings": "sarod_steel_bronze_modern",
+          "sarod_gharana": "sarod_maihar_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 19.99,
+          "sarod_fingerboard": 1.04,
+          "sarod_belly": 0.18,
+          "sarod_pluck": 10.27,
+          "sarod_taraf": 10.27,
+          "sarod_body_wood": 4.68,
+          "sarod_strings": 0.545,
+          "sarod_gharana": 10.629999999999999
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 19.7,
+          "bansuri_length": 3.1200000000000006,
+          "bansuri_ornament": 8.795,
+          "bansuri_body_material": 7.54,
+          "bansuri_lineage": 7.669999999999999
+        }
+      },
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_classical_solo",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 7.279999999999999,
+          "shehnai_use": 16.12,
+          "shehnai_body_wood": 6.954999999999999,
+          "shehnai_reed": 0.57,
+          "shehnai_lineage": 5.329999999999999
         }
       }
     ],
-    "pinned": {
-      "sarangi": [
-        "bowed_technique"
-      ]
-    },
-    "room": "treated_studio",
+    "room": "varanasi_benares_gharana_baithak",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
-      "mic": "condenser_sdc",
-      "pre": "transformerless",
-      "console": "console_in_the_box",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
-    "tuning": "shruti_22",
+    "tuning": "hindustani_thaat_alap_jod_jhala",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "shruti_22",
-    "room": "treated_studio",
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "varanasi_benares_gharana_baithak",
     "parts": {
-      "bowed_technique": "bowed_microtonal_inflected"
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "copper_bayan",
+      "tabla_syahi": "aged_syahi",
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "sitar_neck": "teak",
+      "sitar_resonator": "with_tumba",
+      "sitar_jawari": "antelope_horn",
+      "sitar_taraf": "taraf_13",
+      "sitar_frets": "tied_gut_parda",
+      "sitar_pluck": "wire_mizrab",
+      "sitar_main_strings": "sitar_bronze_steel_modern",
+      "sitar_jawari_style": "sitar_jawari_open",
+      "sitar_gharana": "sitar_maihar_gharana",
+      "tanpura_size": "female_size",
+      "tanpura_jawari": "curved_jawari",
+      "tanpura_strings": "four_string_classical",
+      "tanpura_string_material": "tanpura_bronze_steel",
+      "tanpura_body_wood": "tanpura_gourd_body",
+      "shehnai_register": "shehnai_standard_c",
+      "shehnai_use": "shehnai_classical_solo",
+      "shehnai_body_wood": "shehnai_sheesham_canonical",
+      "shehnai_reed": "shehnai_arundo_quadruple",
+      "shehnai_lineage": "shehnai_bismillah_khan_banaras",
+      "bansuri_length": "classical_bansuri",
+      "bansuri_ornament": "meend_bansuri",
+      "bansuri_body_material": "bansuri_assam_bamboo",
+      "bansuri_lineage": "bansuri_hariprasad_maihar"
     },
-    "pin_parts": true,
-    "chain_mic": "condenser_sdc",
-    "chain_pre": "transformerless",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
-    "chain_console": "console_in_the_box"
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored"
   }
 }

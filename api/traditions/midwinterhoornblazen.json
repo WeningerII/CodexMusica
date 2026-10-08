@@ -1,0 +1,63 @@
+{
+  "id": "midwinterhoornblazen",
+  "name": "Midwinterhoornblazen (Twente midwinter horn blowing)",
+  "family": "global",
+  "lineage": "Seasonal custom of the Twente and Achterhoek regions in the eastern Netherlands, in which players blow the midwinterhoorn, a curved, end-blown wooden horn about a metre long, from the start of Advent to Epiphany. Players often blow their calls over the opening of a farmyard well, which carries the sound across the fields, and local groups and competitions keep the custom, which is listed in the Dutch national inventory of intangible heritage; the tautari card stands in for the midwinterhoorn.",
+  "recipe": "classic modern midwinterhoornblazen, drone Modal, wind pipe branch. tautari. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 149,
+  "score": 0.298,
+  "config": {
+    "traditions": [
+      "midwinterhoornblazen"
+    ],
+    "instruments": [
+      {
+        "id": "tautari",
+        "slots": {
+          "tautari_length": "tautari_short",
+          "tautari_build": "tautari_birchbark_bound"
+        },
+        "scores": {
+          "tautari_length": 0.1365,
+          "tautari_build": 0.16149999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "tautari": [
+        "tautari_length",
+        "tautari_build"
+      ]
+    },
+    "room": "open_prairie",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "open_prairie",
+    "parts": {
+      "tautari_length": "tautari_short",
+      "tautari_build": "tautari_birchbark_bound"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

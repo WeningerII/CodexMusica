@@ -3,14 +3,14 @@
   "name": "Divya Prabandham (Tamil Vaishnavite hymns)",
   "family": "classical",
   "lineage": "Nalayira Divya Prabandham (\"Four Thousand Divine Hymns\") canonical Tamil Vaishnavite devotional poetry collection compiled in the eleventh century by Nathamuni from the earlier seventh-tenth century compositions of the twelve Alvar poet-saints. Performance: solo or small-group chanting in classical Tamil at Vaishnavite temple liturgical occasions (especially in the 108 Divya Desam temples), with strict cantillation traditions transmitted through hereditary Bhattar priest lineages and the Madhura Kavi Alvar disciples. The Srivaishnavite community considers these hymns equal to the Sanskrit Vedas as sacred scripture. Performance follows specific raga-mode assignments preserved through unbroken oral transmission.",
-  "recipe": "classic East African modern divya prabandham, ritual Devotional, hindu branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, slow rate, interlocked note trading. lalibela rock hewn church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 342,
-  "score": 192.572,
+  "recipe": "classic East African modern divya prabandham, ritual Devotional, hindu branch, indigenous ritual devotional mapuche tayil genealogical chant hudhud chants of the ifugao. extended whistle, breath veiled tone, slow rate, interlocked note trading. lalibela rock hewn church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 171.418,
   "config": {
     "traditions": [
       "divya_prabandham_tamil_vaishnav",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "ifugao_hudhud_chants"
     ],
     "instruments": [
       {
@@ -23,8 +23,8 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "polynesian_oli_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.3649999999999998,
-          "voice_quality": 40.300000000000004,
+          "voice_register": 2.2099999999999995,
+          "voice_quality": 33.67,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.335,
-          "voice_articulation": 14.624999999999998,
-          "voice_microtone": 14.234999999999994,
-          "voice_tradition": 16.25,
-          "voice_mechanism_compound": 10.770000000000001,
-          "voice_estill_quality": 14.433749999999996,
-          "voice_speech_song": 16.119999999999997,
-          "voice_ensemble_config": 16.9,
-          "voice_ornament_system": 14.150000000000002,
-          "voice_pitch_organization": 6.598749999999999,
-          "voice_processing_chain": 13.844999999999999,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_articulation": 13.259999999999996,
+          "voice_microtone": 12.869999999999994,
+          "voice_tradition": 14.560000000000002,
+          "voice_mechanism_compound": 7.0200000000000005,
+          "voice_estill_quality": 13.433749999999996,
+          "voice_speech_song": 14.559999999999997,
+          "voice_ensemble_config": 15.924999999999997,
+          "voice_ornament_system": 12.4,
+          "voice_pitch_organization": 7.098749999999999,
+          "voice_processing_chain": 9.555,
+          "voice_multitrack_stack": 6.37
         }
       }
     ],

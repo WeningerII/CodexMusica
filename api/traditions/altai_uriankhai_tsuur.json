@@ -1,0 +1,63 @@
+{
+  "id": "altai_uriankhai_tsuur",
+  "name": "Tsuur (Altai Uriankhai end-blown flute)",
+  "family": "global",
+  "lineage": "Music of the tsuur, a three-hole vertical end-blown pipe played by the Altai Uriankhai of Khovd aimag in western Mongolia, inscribed on UNESCO's List of Intangible Cultural Heritage in Need of Urgent Safeguarding. The player hums a low guttural drone in the throat while blowing, so that pipe tone and voice sound together, and the repertoire, including praises of the Altai mountains, imitates the sounds of water, birds and animals.",
+  "recipe": "classic modern tsuur, drone Modal, wind pipe branch. tsuur. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 139,
+  "score": 1.185,
+  "config": {
+    "traditions": [
+      "altai_uriankhai_tsuur"
+    ],
+    "instruments": [
+      {
+        "id": "tsuur",
+        "slots": {
+          "tsuur_material": "tsuur_larch",
+          "tsuur_technique": "tsuur_drone_hum"
+        },
+        "scores": {
+          "tsuur_material": 0.3315,
+          "tsuur_technique": 0.504
+        }
+      }
+    ],
+    "pinned": {
+      "tsuur": [
+        "tsuur_material",
+        "tsuur_technique"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "tsuur_material": "tsuur_larch",
+      "tsuur_technique": "tsuur_drone_hum"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

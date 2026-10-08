@@ -5,7 +5,7 @@
   "lineage": "Spanish post-punk includes bands connecting guitar textures with shoegaze and electronic-pop influences.",
   "recipe": "classic spanish post-punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 392,
-  "score": 32.08,
+  "score": 31.785,
   "config": {
     "traditions": [
       "spanish_post_punk"
@@ -31,13 +31,13 @@
         "scores": {
           "electric_technique": 5.45,
           "amp_make": 13.129999999999999,
-          "body_wood": 1.6485,
+          "body_wood": 1.386,
           "neck_wood": 0.063,
-          "fretboard": 0.1365,
+          "fretboard": 0.273,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.063,
-          "bridge": 0.1365,
+          "bridge": 0.273,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.6485,
+          "body_wood": 1.386,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -117,7 +117,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.042749999999999996,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }

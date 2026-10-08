@@ -5,7 +5,7 @@
   "lineage": "Complete Karan Kayu: Sapek Kayan Solo with Male Vocals, issued2016 by Tresno Records from its own June2015 field recordings in West Kalimantan. Exact track title positively identifies one solo sapek Kayan role plus male singing. Retain both complete roles; individual singer count and whether player also sings are not stated. Other compilation tracks with bronze percussion, belikan and nature recordings are not part of this selected full track. DroneModal.string scopes the positively documented melody-and-drone Kayan lute practice. Existing sape owner only offers named datun-julud dance, belian ritual or modern stage-fusion contexts; none is established for Karan Kayu. Isolated credited sapek Kayan owner retains source identity without importing those contexts or a false modern amplified model. Independent firsthand Kayan documentation supports a carved wooden open-backed lute with two strings, one melodic and one drone; no claim the separately described maker or exact specimen is this recording. Unknown source singer count remains unknown; single accompanied lead is an expressly authored realization, not measured number of humans. No anatomical vocal, pitch-system or global tuning claim. Controlled live-room rendition is explicitly authored, not the actual field recording location or equipment. Optional signal chain omitted. Separate physical controls preserve documented wooden open-backed construction, melody/drone string roles, three scalloped frets and plucked excitation; string material and absolute pitches remain unspecified.",
   "recipe": "classic borneo traditional, drone Modal, string branch. solo over instrumental drone, single lead single track no stacking. wooden hollow two string drone like short credited sapek kayan. live tracking.",
   "recipe_chars": 202,
-  "score": 44.247,
+  "score": 43.9,
   "config": {
     "traditions": [
       "borneo_traditional"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 10.352,
+          "voice_ensemble_config": 10.2575,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 9.239999999999998,
+          "voice_processing_chain": 0.2205,
+          "voice_multitrack_stack": 8.956499999999998,
           "voice_tessitura": 0
         }
       },

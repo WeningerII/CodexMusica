@@ -3,9 +3,9 @@
   "name": "Modern Downshift",
   "family": "rock",
   "lineage": "Modern Downshift is a discovery field around independent heavy and melodic rock. Amplified riffs, forceful rhythm sections and memorable sung hooks connect bands working across hard rock, alternative metal and post-grunge.",
-  "recipe": "classic modern downshift, distorted Rock, alternative branch. power chord humbucker electric guitar, electric bass, full lathed both sides lathed sticks backbeat drum kit. live tracking.",
-  "recipe_chars": 186,
-  "score": 41.686,
+  "recipe": "classic modern downshift, distorted Rock, alternative branch. one note per syllable. power chord humbucker electric guitar, electric bass, full lathed both sides lathed sticks backbeat drum kit. live tracking.",
+  "recipe_chars": 209,
+  "score": 41.974,
   "config": {
     "traditions": [
       "modern_downshift"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.38925,
-          "voice_ensemble_config": 0.273,
+          "voice_speech_song": 0.67425,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
@@ -79,10 +79,10 @@
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 0.8820000000000001,
+          "scale_length": 0.8190000000000002,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.042749999999999996
         }
       },
       {
@@ -125,9 +125,9 @@
         },
         "scores": {
           "drum_technique": 11.55,
-          "drumhead": 0.1365,
+          "drumhead": 0.17925000000000002,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.2415,
+          "shell_wood": 0.28425,
           "shell_thickness": 0,
           "bearing_edges": 2.105,
           "snare_wires": 0.042749999999999996,

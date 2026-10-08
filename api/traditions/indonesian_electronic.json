@@ -5,7 +5,7 @@
   "lineage": "Indonesian electronic music includes experimental producers and performers working between recorded sound, live instruments and digital manipulation.",
   "recipe": "classic indonesian electronic, experimental Elec, idm glitch branch. upright piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 8.094,
+  "score": 8.056,
   "config": {
     "traditions": [
       "indonesian_electronic"
@@ -36,7 +36,7 @@
           "electronic_technique": 0.26,
           "sample_bitdepth": 0.0735,
           "sample_swing": 7.5,
-          "sample_processing": 0.173625
+          "sample_processing": 0.1365
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Namibian pop develops through local and diaspora songwriters drawing on regional music and international popular styles. Artists such as Shishani bring soul, R&B, hip-hop and acoustic influences into this diverse field.",
   "recipe": "classic namibian pop, functional Song. unprocessed natural acoustic. block chord upright piano, strummed open chord ringing overtones dreadnought acoustic guitar, pocket fingerstyle locked electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking.",
   "recipe_chars": 308,
-  "score": 34.517,
+  "score": 34.709,
   "config": {
     "traditions": [
       "namibian_pop"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.273,
+          "voice_speech_song": 0.4215,
           "voice_ensemble_config": 0.4635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -130,7 +130,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 7.4,
-          "cymbal_lathing": 7.454000000000001,
+          "cymbal_lathing": 7.4967500000000005,
           "cymbal_finish": 0
         }
       }

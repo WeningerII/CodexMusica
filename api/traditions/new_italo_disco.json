@@ -3,9 +3,9 @@
   "name": "New Italo Disco",
   "family": "electronic",
   "lineage": "A 2007-2015 revivalist scene centred on Dutch, Italian and Scandinavian net-labels such as Bordello a Parigi and Slow Motion, reconstructing early-1980s Italo templates at 115-125 BPM using vintage Juno-106 and TR-808 hardware or emulations, long instrumental intros, deep-reverb claps and deliberately cold, deadpan vocals.",
-  "recipe": "classic mid-2010s new italo disco, experimental Elec, retro aesthetic branch, continental electronic dance, italo house house italo disco. thick, chest mix belt, pure, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, roland tr 8s modern aira digital recreation TR-808, string machine, monosynth acid bass, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 561,
-  "score": 184.18,
+  "recipe": "classic mid-2010s new italo disco, experimental Elec, retro aesthetic branch, continental electronic dance, italo house house italo disco. thick, chest mix belt, pure, interlocked note trading. sequential lineage canonical prophet 5 1978 san jose ca analog poly synth, roland tr 8s modern aira digital recreation TR-808, string machine, monosynth acid bass, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 554,
+  "score": 184.373,
   "config": {
     "traditions": [
       "new_italo_disco",
@@ -19,7 +19,7 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 2.2424999999999997,
@@ -37,8 +37,8 @@
         },
         "scores": {
           "tr808_voice": 0.325,
-          "drum_machine_808_context": 5.595000000000001,
-          "tr808_production_origin": 1.545
+          "drum_machine_808_context": 5.550000000000001,
+          "tr808_production_origin": 1.71
         }
       },
       {
@@ -65,7 +65,7 @@
           "accent_acid": "subtle_accent_acid"
         },
         "scores": {
-          "electronic_technique": 0.645,
+          "electronic_technique": 0.78,
           "wave_acid": 0.31499999999999995,
           "filter_acid": 0.39,
           "accent_acid": 0
@@ -92,22 +92,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.6500000000000012,
+          "voice_register": 2.5000000000000013,
           "voice_quality": 12.334999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.45,
+          "voice_vibrato": 1.4995,
           "voice_articulation": 12.999999999999995,
           "voice_microtone": 13.649999999999993,
-          "voice_tradition": 6.825,
+          "voice_tradition": 7.0395,
           "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 8.02,
+          "voice_estill_quality": 7.87,
           "voice_speech_song": 15.274999999999995,
           "voice_ensemble_config": 14.754999999999995,
           "voice_ornament_system": 6.775,
-          "voice_pitch_organization": 3.5950000000000006,
-          "voice_processing_chain": 18.705,
-          "voice_multitrack_stack": 8.195
+          "voice_pitch_organization": 3.4495000000000005,
+          "voice_processing_chain": 18.87,
+          "voice_multitrack_stack": 8.15
         }
       },
       {

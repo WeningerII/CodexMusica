@@ -3,27 +3,27 @@
   "name": "Glitchcore",
   "family": "electronic",
   "lineage": "Crystallized on TikTok and SoundCloud in 2019-2021 out of the hyperpop and nightcore edit scenes, glitchcore takes 160-180 BPM pitched-up vocals and applies stutter-repeat, bitcrush, timestretch and beat-repeat edits at sub-beat resolution over clipped 808s and blown-out drums, matched to strobing hyper-cut video and produced almost entirely in-the-box by teenage bedroom producers.",
-  "recipe": "classic 2019-2021 glitchcore, experimental Elec, pop experimental branch, idm glitch experimental electric, experimental MC rhythm drill'n'bass. multitrack vocal stack, glitched textural sampler, TR-808, glitched textural granular glitched textural wavetable synth. bedroom. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
-  "recipe_chars": 368,
-  "score": 134.435,
+  "recipe": "classic 2019-2021 glitchcore, experimental Elec, pop experimental branch, idm glitch experimental electric, experimental MC rhythm glitchbreak. hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, glitched textural sampler, TR-808, glitched textural granular glitched textural wavetable synth. bedroom. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
+  "recipe_chars": 414,
+  "score": 130.86,
   "config": {
     "traditions": [
       "glitchcore",
       "experimental_hip_hop",
-      "drill_and_bass"
+      "glitchbreak"
     ],
     "instruments": [
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_5_part_cluster",
-          "multitrack_stack_era_aesthetic": "multitrack_era_mid_1960s_double_tracking",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
           "multitrack_stack_density": 0.39,
-          "multitrack_stack_era_aesthetic": 1.0824674490095276e-16,
-          "multitrack_stack_processing": 0.7149999999999999
+          "multitrack_stack_era_aesthetic": -0.1,
+          "multitrack_stack_processing": 1.56
         }
       },
       {
@@ -40,7 +40,7 @@
           "sampler_archetypes": 3.935,
           "sampler_bit_depth": 0.21,
           "sampler_workflow": 21.25,
-          "sampler_classic_context": 21.384999999999994
+          "sampler_classic_context": 19.24
         }
       },
       {
@@ -51,9 +51,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 5.395,
-          "drum_machine_808_context": 3.4449999999999994,
-          "tr808_production_origin": 0.39
+          "tr808_voice": 4.095,
+          "drum_machine_808_context": 2.145,
+          "tr808_production_origin": 0.585
         }
       },
       {
@@ -65,8 +65,8 @@
         },
         "scores": {
           "electronic_technique": 21.445,
-          "granular_use": 0.65,
-          "granular_synth_source": 8.71
+          "granular_use": 0.585,
+          "granular_synth_source": 9.555
         }
       },
       {

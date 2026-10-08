@@ -5,7 +5,7 @@
   "lineage": "A Canadian country discovery cluster whose verified roster includes Corb Lund, Colter Wall, Terri Clark, Dean Brody and others. The selected branch follows Lund’s acoustic western-song practice rather than interpreting contemporary as compulsory pop electronics.",
   "recipe": "classic modern canadian contemporary country, functional Song, contemp main branch. thick, breath veiled tone, straight note core, equal tempered. dreadnought acoustic guitar, k and k twin internal mounted acoustic faithful mandolin, upright bass, pre muffled edge muffled brushes-and-sticks drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 439,
-  "score": 68.037,
+  "score": 67.329,
   "config": {
     "traditions": [
       "canadian_contemporary_country"
@@ -40,13 +40,13 @@
           "voice_articulation": -0.14,
           "voice_microtone": 3.6415000000000006,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.6869999999999999,
-          "voice_estill_quality": 10.010499999999999,
+          "voice_mechanism_compound": 0.6044999999999999,
+          "voice_estill_quality": 9.916749999999999,
           "voice_speech_song": 5.135,
           "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.834,
+          "voice_processing_chain": 1.84525,
           "voice_multitrack_stack": 1.3
         }
       },
@@ -57,14 +57,14 @@
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "silk_steel"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 2.504,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.3045,
-          "string_acoustic": 0.47250000000000003
+          "back_sides": 0.168,
+          "string_acoustic": 0.39
         }
       },
       {
@@ -83,9 +83,9 @@
           "acoustic_technique": 2.504,
           "mandolin_shape": 0.105,
           "mandolin_top": 0.39,
-          "mandolin_back": 0.6735,
+          "mandolin_back": 0.5685,
           "mandolin_bracing": 0.759,
-          "mandolin_strings": 0.47250000000000003,
+          "mandolin_strings": 0.33599999999999997,
           "mandolin_fingerboard": 0.0225,
           "mandolin_pickup": 3.7700000000000005
         }
@@ -93,11 +93,11 @@
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
+          "upright_strings": "synthetic_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.47250000000000003,
+          "upright_strings": 0.39,
           "upright_play": -0.05
         }
       },

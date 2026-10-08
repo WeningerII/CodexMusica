@@ -5,7 +5,7 @@
   "lineage": "K-pop ballads foreground expressive melody and vocal phrasing within Korean popular music. Intimate acoustic songs coexist with piano-led, band-based and orchestral arrangements.",
   "recipe": "classic k-pop ballad, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 281,
-  "score": 11.242,
+  "score": 11.05,
   "config": {
     "traditions": [
       "k_pop_ballad"
@@ -25,7 +25,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 0.354
+          "string_acoustic": 0.3
         }
       },
       {
@@ -42,13 +42,13 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 0.304,
+          "bowed_technique": 0.25,
           "cello_strings": 0,
           "cello_top_wood": -0.1,
           "cello_back_wood": -0.1,
           "cello_varnish": -0.1,
-          "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.4635,
+          "cello_setup_period": -0.1,
+          "cello_bow_grip": 0.40950000000000003,
           "cello_rosin": 0.2,
           "cello_bow_stick": -0.15000000000000002
         }

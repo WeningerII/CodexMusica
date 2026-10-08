@@ -5,7 +5,7 @@
   "lineage": "Atlantic Canadian hip-hop connects regional artists and independent networks with rap, sampling and turntablism. Musicians such as Buck 65 bring narrative delivery and experimental production into dialogue with the wider hip-hop tradition.",
   "recipe": "classic modern atlantic canada hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler, sampled chopped turntable. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 328,
-  "score": 84.635,
+  "score": 85.423,
   "config": {
     "traditions": [
       "atlantic_canada_hip_hop"
@@ -34,7 +34,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.63425,
+          "voice_quality": 14.82325,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -43,10 +43,10 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 13.551124999999999,
-          "voice_ensemble_config": 2.27375,
+          "voice_speech_song": 13.803125,
+          "voice_ensemble_config": 2.48375,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.03712499999999999,
           "voice_tessitura": 0

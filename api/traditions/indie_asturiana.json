@@ -5,7 +5,7 @@
   "lineage": "Indie asturiana connects independent performers and recording communities in Asturias. Songwriters combine acoustic and amplified instruments with varied chamber-like colours.",
   "recipe": "classic indie asturiana, distorted Rock, alternative branch. unprocessed natural acoustic. acoustic humbucker electric guitar, viola classical, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral trumpet, soft felt lacquer voiced 17 ply hard rock maple grand piano, cello, accordion, violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 553,
-  "score": 34.757,
+  "score": 36.161,
   "config": {
     "traditions": [
       "indie_asturiana"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.468,
+          "voice_processing_chain": 1.4365,
           "voice_multitrack_stack": 0.3,
           "voice_tessitura": 0
         }
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.714,
+          "string_acoustic": 0.8190000000000002,
           "acoustic_om_technique": -0.25
         }
       },
@@ -89,15 +89,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.5775,
-          "neck_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 0.273,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 0.168,
           "finish": 0,
           "string_tuning": 0
         }
@@ -141,7 +141,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.5775,
+          "body_wood": 0.6825000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -171,7 +171,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 6.181500000000001,
@@ -192,12 +192,12 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "brass_size": 0.105,
+          "brass_size": 0.2415,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
-          "trumpet_technique": -0.035,
-          "trumpet_bell_metal": 1.2285,
-          "trumpet_maker_school": 2.1525
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 1.5014999999999998,
+          "trumpet_maker_school": 2.457
         }
       },
       {
@@ -219,7 +219,7 @@
           "grand_piano_brand": 0,
           "piano_hammer": 3.1200000000000006,
           "piano_rim": 3.1200000000000006,
-          "piano_soundboard": -0.07,
+          "piano_soundboard": -0.1,
           "piano_pinblock": -0.07,
           "piano_plate": -0.07,
           "piano_pitch_standard": 0.325
@@ -263,8 +263,8 @@
         },
         "scores": {
           "free_reed_technique": -0.10500000000000001,
-          "accordion_reed_material": 0.4095,
-          "musette_offset": 0.3045,
+          "accordion_reed_material": 0.546,
+          "musette_offset": 0.273,
           "reed_config": 0,
           "bellows": 0,
           "voicing_chamber": 0,

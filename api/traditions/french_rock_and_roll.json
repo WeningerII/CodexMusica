@@ -5,7 +5,7 @@
   "lineage": "French rock-and-roll developed local guitar-band scenes around concise songs and vocal harmonies.",
   "recipe": "classic french rock-and-roll, distorted Rock, classic branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 312,
-  "score": 27.66,
+  "score": 27.88,
   "config": {
     "traditions": [
       "french_rock_and_roll"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 5.720000000000001,
-          "body_wood": 1.5119999999999998,
-          "neck_wood": 0.126,
+          "body_wood": 1.537,
+          "neck_wood": 0.0945,
           "fretboard": 0,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.126,
+          "string_material": 0.0945,
           "bridge": 0,
           "scale_length": 0,
-          "string_gauge": 0.0315,
+          "string_gauge": 0.0705,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.175,
-          "body_wood": 1.5119999999999998,
+          "body_wood": 1.537,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.313,
-          "drumhead": 0.6194999999999999,
+          "drumhead": 0.7495,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.378,
+          "voice_ensemble_config": 0.273,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.16899999999999998,
           "voice_multitrack_stack": 0.231,
           "voice_tessitura": 0
         }

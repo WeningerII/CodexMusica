@@ -5,7 +5,7 @@
   "lineage": "Ukrainian post-punk is represented here by Ragapop. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic ukrainian post-punk, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, sticks backbeat drum kit, analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 348,
-  "score": 29.226,
+  "score": 28.161,
   "config": {
     "traditions": [
       "ukrainian_post_punk"
@@ -25,22 +25,22 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 14.104999999999997,
-          "body_wood": 1.7954999999999999,
-          "neck_wood": 0.40950000000000003,
+          "body_wood": 1.5225,
+          "neck_wood": 0.273,
           "fretboard": 0.273,
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1.2730000000000001,
-          "scale_length": 1.4174999999999998,
+          "scale_length": 1.281,
           "string_gauge": 1,
-          "finish": 0.1365,
+          "finish": 0,
           "string_tuning": 0.3
         }
       },
@@ -48,12 +48,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.40950000000000003,
+          "drumhead": 0.3,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -121,9 +121,9 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.273,
+          "sample_bitdepth": 0.1365,
           "sample_swing": 0.75,
-          "sample_processing": 0.40950000000000003
+          "sample_processing": 0.273
         }
       }
     ],

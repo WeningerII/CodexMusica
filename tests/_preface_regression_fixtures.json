@@ -156,12 +156,6 @@
     "expectedPreface": "processional"
   },
   {
-    "traditionId": "anglican_choral_evensong",
-    "instrumentId": "pipe_organ",
-    "instrumentClass": "keyboard_acoustic",
-    "expectedPreface": "annunciatory"
-  },
-  {
     "traditionId": "aor",
     "instrumentId": "grand_piano",
     "instrumentClass": "keyboard_acoustic",
@@ -228,16 +222,16 @@
     "expectedPreface": "circling"
   },
   {
-    "traditionId": "bothy_ballad_doric",
+    "traditionId": "scottish_bothy_ballad",
     "instrumentId": "accordion",
     "instrumentClass": "free_reed",
     "expectedPreface": "klezmer-dancing"
   },
   {
-    "traditionId": "bothy_ballad_doric",
+    "traditionId": "scottish_bothy_ballad",
     "instrumentId": "melodeon_diatonic",
     "instrumentClass": "free_reed",
-    "expectedPreface": "hiraeth"
+    "expectedPreface": "street-pulsing"
   },
   {
     "traditionId": "ska_revival_2tone",
@@ -306,13 +300,7 @@
     "expectedPreface": "processional"
   },
   {
-    "traditionId": "anglican_choral_evensong",
-    "instrumentId": "choir_cathedral_satb",
-    "instrumentClass": "vocal_choir",
-    "expectedPreface": "annunciatory"
-  },
-  {
-    "traditionId": "anglican_choral_evensong",
+    "traditionId": "anglican_choral_cathedral",
     "instrumentId": "choir_ensemble",
     "instrumentClass": "vocal_choir",
     "expectedPreface": "annunciatory"

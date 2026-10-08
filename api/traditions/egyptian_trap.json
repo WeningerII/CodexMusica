@@ -3,9 +3,9 @@
   "name": "Egyptian trap",
   "family": "hip_hop",
   "lineage": "Egyptian trap/mahraganat crossover; selected Wegz and Molotof Dorak Gai branch",
-  "recipe": "classic modern egyptian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, retune speed 0ms hard correction robot effect. sampler drum machine, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 342,
-  "score": 33.069,
+  "recipe": "classic modern egyptian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. sampler drum machine, sub bass digital subtractive. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 380,
+  "score": 33.468,
   "config": {
     "traditions": [
       "egyptian_trap"
@@ -35,17 +35,17 @@
           "voice_register": 0,
           "voice_quality": 5.85,
           "voice_vocal_tract": 0,
-          "voice_effort": 0.1365,
+          "voice_effort": 0.105,
           "voice_vibrato": 0,
-          "voice_articulation": 0.03712499999999999,
+          "voice_articulation": 0.06862499999999999,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 5.785,
-          "voice_ensemble_config": 0.27375,
+          "voice_ensemble_config": 0.54675,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.1365,
           "voice_processing_chain": 3.9864999999999995,
           "voice_multitrack_stack": 0.337125
         }
@@ -60,9 +60,9 @@
         },
         "scores": {
           "electronic_technique": 2.537125,
-          "sample_bitdepth": 0.25349999999999995,
+          "sample_bitdepth": 0.32699999999999996,
           "sample_swing": 1.5,
-          "sample_processing": 0.105
+          "sample_processing": 0.1365
         }
       },
       {
@@ -73,7 +73,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 8.582624999999998,
+          "electronic_technique": 8.467124999999998,
           "va_archetypes": 0,
           "digital_subtractive_context": 2.8600000000000003
         }

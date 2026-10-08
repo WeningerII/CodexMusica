@@ -3,14 +3,14 @@
   "name": "Horror Punk",
   "family": "rock_punk",
   "lineage": "Invented by the Misfits in Lodi, New Jersey between 1977 and 1983 and continued by Samhain, Blitzkid and the Italian scene of the 2000s — 1950s doo-wop and Buddy Holly turnarounds with 'whoa-oh' backing vocals played at 160-200 BPM punk tempo under B-movie and gore lyrics, topped by a baritone crooned-then-barked lead vocal doused in tape slapback.",
-  "recipe": "classic North American mid-2000s horror punk, distorted Rock, punk branch, gothic rock distorted rock, soul R&B doowop deathrock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 611,
-  "score": 328.027,
+  "recipe": "classic North American mid-2000s horror punk, distorted Rock, punk branch, gothic rock distorted rock, soul R&B doowop deathrock coldwave. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 620,
+  "score": 328.407,
   "config": {
     "traditions": [
       "horror_punk",
       "deathrock",
-      "goth"
+      "coldwave"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_belt",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 24.969999999999995,
-          "voice_quality": 11.504999999999995,
+          "voice_register": 25.389999999999993,
+          "voice_quality": 8.450000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8349999999999997,
-          "voice_articulation": 20.279999999999998,
-          "voice_microtone": 22.97,
-          "voice_tradition": 4.225,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 18.524999999999995,
+          "voice_microtone": 23.345,
+          "voice_tradition": 3.335,
           "voice_mechanism_compound": 6.955000000000001,
-          "voice_estill_quality": 3.5100000000000002,
-          "voice_speech_song": 21.449999999999996,
-          "voice_ensemble_config": 18.654999999999998,
+          "voice_estill_quality": 3.665,
+          "voice_speech_song": 19.694999999999993,
+          "voice_ensemble_config": 17.744999999999997,
           "voice_ornament_system": 2.4000000000000004,
-          "voice_pitch_organization": 2.600000000000001,
-          "voice_processing_chain": 5.329999999999999,
-          "voice_multitrack_stack": 3.315000000000001
+          "voice_pitch_organization": 1.7549999999999994,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 2.925000000000001
         }
       },
       {
@@ -59,7 +59,7 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -70,26 +70,26 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.62,
-          "amp_make": 32.1425,
-          "body_wood": 0.845,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
-          "pickup_magnet": 1.4949999999999999,
-          "pickup_winding": 0.195,
-          "string_material": 0.195,
-          "bridge": 0.845,
-          "scale_length": 0.845,
-          "string_gauge": 1.4299999999999997,
-          "finish": 0.65,
-          "string_tuning": 10.92
+          "electric_technique": 15.245,
+          "amp_make": 31.394999999999992,
+          "body_wood": 1.95,
+          "neck_wood": 1.95,
+          "fretboard": 1.885,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 0.65,
+          "string_material": 0.65,
+          "bridge": 1.95,
+          "scale_length": 1.95,
+          "string_gauge": 2.34,
+          "finish": 0.845,
+          "string_tuning": 11.57
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.845,
-          "body_wood": 1.04,
+          "amp_make": 14.040000000000001,
+          "body_wood": 1.95,
           "pickup_config": 0.3,
-          "string_type": 26.8125,
-          "scale_length_b": 0.845,
-          "fretted_or_not": 0.195,
-          "bass_technique": 37.894999999999996,
+          "string_type": 27.3,
+          "scale_length_b": 1.95,
+          "fretted_or_not": 0.345,
+          "bass_technique": 37.55,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.91,
-          "drumhead": 2.9899999999999993,
+          "drum_technique": 21.285000000000004,
+          "drumhead": 2.795,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -1,0 +1,147 @@
+{
+  "id": "gamelan_beleganjur",
+  "name": "Gamelan beleganjur (Balinese processional gamelan)",
+  "family": "global",
+  "lineage": "Processional gamelan of Bali, carried in temple processions and cremation parades. Paired kendang lead a large section of crashing ceng-ceng kopyak cymbals, a reyong whose kettles are carried by four players, a small timekeeping gong and hanging gongs; it has also become a competition form, lomba beleganjur, for youth groups.",
+  "recipe": "classic modern gamelan beleganjur, carnival Processional, east Asian branch. rapid interlocking gamelan balinese paired male female kendang indonesian, ceng ceng, reyong, kempli, gong tamtam. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 9.893,
+  "config": {
+    "traditions": [
+      "gamelan_beleganjur"
+    ],
+    "instruments": [
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_gendhing",
+          "kendang_context": "kendang_balinese",
+          "kendang_shell_wood": "chitravina_jackwood",
+          "kendang_head": "ho_dumang_double_headed_drum_membranes_documented"
+        },
+        "scores": {
+          "kendang_size": 3,
+          "kendang_context": 5.468,
+          "kendang_shell_wood": 0,
+          "kendang_head": 0
+        }
+      },
+      {
+        "id": "ceng_ceng",
+        "slots": {
+          "ceng_ceng_form": "ceng_ceng_kopyak",
+          "ceng_ceng_technique": "ceng_ceng_kotekan",
+          "ceng_ceng_alloy": "ceng_ceng_perunggu"
+        },
+        "scores": {
+          "ceng_ceng_form": 0.39,
+          "ceng_ceng_technique": 0.363,
+          "ceng_ceng_alloy": 0
+        }
+      },
+      {
+        "id": "reyong",
+        "slots": {
+          "reyong_form": "reyong_gong_kebyar_twelve",
+          "reyong_technique": "reyong_norot",
+          "reyong_tuning": "reyong_pelog_selisir"
+        },
+        "scores": {
+          "reyong_form": 0.39,
+          "reyong_technique": 0.3315,
+          "reyong_tuning": 0
+        }
+      },
+      {
+        "id": "kempli",
+        "slots": {
+          "kempli_form": "kempli_horizontal",
+          "kempli_beater": "kempli_wood_mallet"
+        },
+        "scores": {
+          "kempli_form": 0,
+          "kempli_beater": 0.063
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 0,
+          "gong_striker": 0.03712499999999999
+        }
+      }
+    ],
+    "pinned": {
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "ceng_ceng": [
+        "ceng_ceng_form",
+        "ceng_ceng_technique",
+        "ceng_ceng_alloy"
+      ],
+      "reyong": [
+        "reyong_form",
+        "reyong_technique",
+        "reyong_tuning"
+      ],
+      "kempli": [
+        "kempli_form",
+        "kempli_beater"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_ethnographic_field_digital",
+    "inline_chain": {
+      "mic": "mic_pair_ortf",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pelog_slendro_balinese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_balinese",
+    "room": "field_recording",
+    "parts": {
+      "kendang_size": "kendang_gendhing",
+      "kendang_context": "kendang_balinese",
+      "kendang_shell_wood": "chitravina_jackwood",
+      "kendang_head": "ho_dumang_double_headed_drum_membranes_documented",
+      "ceng_ceng_form": "ceng_ceng_kopyak",
+      "ceng_ceng_technique": "ceng_ceng_kotekan",
+      "ceng_ceng_alloy": "ceng_ceng_perunggu",
+      "reyong_form": "reyong_gong_kebyar_twelve",
+      "reyong_technique": "reyong_norot",
+      "reyong_tuning": "reyong_pelog_selisir",
+      "kempli_form": "kempli_horizontal",
+      "kempli_beater": "kempli_wood_mallet",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true,
+    "chain_mic": "mic_pair_ortf",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

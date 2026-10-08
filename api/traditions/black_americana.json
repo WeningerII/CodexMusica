@@ -3,14 +3,14 @@
   "name": "Black Americana",
   "family": "vernacular",
   "lineage": "Black musicians’ roots-music practice encompasses historical string-band lineages and contemporary authored work. Our Native Daughters supplies this representative collaborative branch, joining banjo-centered music and new songs about Black women’s histories.",
-  "recipe": "classic modern black americana, functional Song, americana branch, blues narrative ballad poetry jeju haenyeo songs talking blues. thick, breath veiled tone, wide pitch sway, narrative. wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, synthetic magic rosin modern acrylic base fiddle, open d tuning phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 540,
-  "score": 198.185,
+  "recipe": "classic modern black americana, functional Song, americana branch, blues narrative ballad poetry classic blues women jeju haenyeo songs. thick, breath veiled tone, wide pitch sway, narrative. compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, synthetic magic rosin modern acrylic base fiddle, open e tuning flatwound thomastik dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 543,
+  "score": 218.995,
   "config": {
     "traditions": [
       "black_americana",
-      "jeju_haenyeo_songs",
-      "talking_blues_dustbowl"
+      "classic_blues_women",
+      "jeju_haenyeo_songs"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "voice_tradition_source_unspecified",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 24.409999999999993,
-          "voice_quality": 23.205000000000002,
+          "voice_register": 31.695000000000004,
+          "voice_quality": 22.912499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.365,
-          "voice_articulation": 5.07,
-          "voice_microtone": 15.209999999999997,
+          "voice_vibrato": 23.505000000000006,
+          "voice_articulation": 3.6075000000000004,
+          "voice_microtone": 20.470000000000006,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 2.7299999999999995,
-          "voice_estill_quality": 9.695,
-          "voice_speech_song": 24.505000000000003,
-          "voice_ensemble_config": 2.5350000000000006,
-          "voice_ornament_system": 1.9499999999999993,
-          "voice_pitch_organization": 1.045,
-          "voice_processing_chain": 5.265000000000001,
-          "voice_multitrack_stack": 3.1200000000000006
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 9.88,
+          "voice_speech_song": 25.804999999999996,
+          "voice_ensemble_config": 3.0875000000000004,
+          "voice_ornament_system": 1.8849999999999996,
+          "voice_pitch_organization": 1.9825000000000002,
+          "voice_processing_chain": 5.9799999999999995,
+          "voice_multitrack_stack": 3.2500000000000004
         }
       },
       {
@@ -67,16 +67,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 1.69,
-          "tone_ring": 1.69,
-          "banjo_head": 16.445000000000004,
-          "banjo_pot": 0.65,
-          "banjo_play": 0.27,
+          "banjo_back": 1.2349999999999999,
+          "tone_ring": 0.845,
+          "banjo_head": 17.55,
+          "banjo_pot": 0.195,
+          "banjo_play": 0.24,
           "banjo_rim_wood": 0.78,
           "banjo_neck_wood": 0.6,
           "banjo_strings": 0,
-          "banjo_bridge": 0.7499999999999997,
-          "banjo_setup_period": 14.690000000000001
+          "banjo_bridge": 3.2499999999999987,
+          "banjo_setup_period": 16.639999999999997
         }
       },
       {
@@ -90,11 +90,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.9099999999999999,
+          "bowed_technique": -0.07,
           "fiddle_strings": 1.6,
           "fiddle_bow": 4.2,
           "fiddle_mute": 0.45499999999999996,
-          "fiddle_articulation": 1.04,
+          "fiddle_articulation": 1.2349999999999999,
           "fiddle_string_configuration": 0
         }
       },
@@ -102,17 +102,17 @@
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
-          "top_wood": "mahogany_top",
+          "string_tuning": "open_e",
+          "top_wood": "adirondack",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 1.405,
-          "string_tuning": 3.4000000000000004,
-          "top_wood": 0.845,
-          "back_sides": 0.845,
-          "string_acoustic": 1.69
+          "acoustic_technique": 0.26,
+          "string_tuning": 3.45,
+          "top_wood": 0.78,
+          "back_sides": 0.51,
+          "string_acoustic": 2.5349999999999997
         }
       }
     ],

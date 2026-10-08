@@ -5,7 +5,7 @@
   "lineage": "West Bengali pop connects Bengali-language popular songs, songwriters and audiences in West Bengal. Film music, independent releases and live performances contribute overlapping strands to this regional field.",
   "recipe": "classic west bengali pop, functional Song, south Asian pop branch. single lead single track no stacking. upright piano. shoebox concert hall.",
   "recipe_chars": 141,
-  "score": 1.643,
+  "score": 1.659,
   "config": {
     "traditions": [
       "west_bengali_pop"
@@ -60,7 +60,7 @@
           "upright_piano_size": "upright_piano_standard"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "upright_use": 0.34650000000000003,
           "upright_piano_size": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Japanese Buddhist chant encompasses the vocal practices of Japan’s Buddhist schools and lay communities. Transmitted from continental Asia and developed through distinct temple lineages, it ranges from elaborate shōmyō to syllabic sutra recitation, ceremonial narratives and devotional hymns. Clergy and lay practitioners preserve these traditions through ritual, instruction and communal singing.",
   "recipe": "classic japanese buddhist chant, ritual Devotional, buddhist branch. metrical pitched chant fixed rhythm fixed rhythm chant cycle human voice ensemble unspecified. shoebox concert hall.",
   "recipe_chars": 185,
-  "score": 2.971,
+  "score": 2.978,
   "config": {
     "traditions": [
       "japanese_buddhist_chant"
@@ -46,7 +46,7 @@
           "voice_speech_song": 2.6,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.37050000000000005,
+          "voice_processing_chain": 0.378,
           "human_voice_ensemble_source_status": 0,
           "human_voice_tracking_source_status": 0,
           "voice_tessitura": 0

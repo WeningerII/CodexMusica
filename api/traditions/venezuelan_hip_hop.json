@@ -5,7 +5,7 @@
   "lineage": "Caracas barrio rap that emerged in the 1990s in Petare and 23 de Enero and was defined by Vagos y Maleantes, Guerrilla Seca and above all Canserbero between 2005 and 2013: 85-95 BPM boom-bap and later dark orchestral trap beats, samples of salsa, tambor and Venezuelan gaita records, and a heavily rhymed, existential Spanish verse style in Caraqueno slang delivered over sparse minor loops.",
   "recipe": "classic mid-1990s venezuelan hip hop, mc Rhythm, intl hip hop branch, us hip hop conscious rap jazz rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, chopped sampler, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, soft felt lacquer voiced 17 ply hard rock maple European spruce grand piano, congas, hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 601,
-  "score": 418.11,
+  "score": 418.258,
   "config": {
     "traditions": [
       "venezuelan_hip_hop",
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.718624999999996,
-          "voice_quality": 35.54174999999999,
+          "voice_register": 11.754624999999995,
+          "voice_quality": 35.783249999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.103749999999998,
+          "voice_vibrato": 7.259749999999999,
           "voice_articulation": 26.975000000000005,
           "voice_microtone": 28.210000000000004,
-          "voice_tradition": 12.977374999999999,
+          "voice_tradition": 12.945874999999997,
           "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 5.594499999999999,
-          "voice_speech_song": 33.01599999999999,
+          "voice_estill_quality": 5.289999999999999,
+          "voice_speech_song": 33.19599999999999,
           "voice_ensemble_config": 24.895000000000003,
           "voice_ornament_system": 6.435000000000001,
           "voice_pitch_organization": 1.0999999999999999,
@@ -59,7 +59,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 12.243749999999999,
+          "electronic_technique": 12.279749999999998,
           "turntable_technique": 12.961874999999997
         }
       },
@@ -73,11 +73,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 12.243749999999999,
+          "electronic_technique": 12.279749999999998,
           "sampler_archetypes": 19.402499999999996,
           "sampler_bit_depth": 2.4749999999999996,
           "sampler_workflow": 14.249999999999998,
-          "sampler_classic_context": 40.729
+          "sampler_classic_context": 40.885000000000005
         }
       },
       {
@@ -88,8 +88,8 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 12.705124999999999,
-          "drum_machine_808_context": 2.9575000000000005,
+          "tr808_voice": 12.558124999999999,
+          "drum_machine_808_context": 2.76175,
           "tr808_production_origin": 0.45499999999999996
         }
       },
@@ -106,10 +106,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.80275,
+          "amp_make": 8.62425,
           "body_wood": 0.78,
           "pickup_config": 1.2349999999999999,
-          "string_type": 9.09175,
+          "string_type": 9.099999999999998,
           "scale_length_b": 1.0399999999999998,
           "fretted_or_not": 0.03599999999999999,
           "bass_technique": 5.8199999999999985,
@@ -130,7 +130,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 5.199999999999999,
+          "keyboard_technique": 5.235999999999999,
           "grand_piano_size": 1.4949999999999999,
           "grand_piano_brand": 2.275,
           "piano_hammer": 1.9174999999999998,
@@ -164,7 +164,7 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.400875,
+          "multitrack_stack_density": 0.520875,
           "multitrack_stack_era_aesthetic": 0.4225,
           "multitrack_stack_processing": 2.1264999999999996
         }

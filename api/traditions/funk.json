@@ -5,7 +5,7 @@
   "lineage": "African-American rhythmic-displacement genre codified by James Brown 1965 onward (Out of Sight, Papas Got a Brand New Bag, Cold Sweat, Funky Drummer) and extended through Sly and the Family Stone, the Meters, Parliament-Funkadelic, Earth Wind and Fire, Tower of Power, Ohio Players, Bootsy Collins, the entire JBs / Maceo / Fred Wesley horn-section canon",
   "recipe": "classic Midwestern American mid-1960s funk, groove Percussion, funk percussive branch, soul R&B functional song gospel soul doo-wop. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet ostinato full spectrum slow chorale tonewheel organ, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, hohner d6 canonical 1971 1981 funk era ostinato clavinet. cincinnati 1943-1971 indie-commercial king records studios cincinnati. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 975,
-  "score": 516.977,
+  "score": 516.827,
   "config": {
     "traditions": [
       "funk",
@@ -31,8 +31,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 23.689999999999998,
-          "amp_make": 27.305,
+          "electric_technique": 23.645,
+          "amp_make": 27.215,
           "body_wood": 0.195,
           "neck_wood": 2.055,
           "fretboard": 1.905,
@@ -59,7 +59,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 18.99,
+          "amp_make": 19.095,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 20.312499999999996,
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 15.664999999999994,
-          "drumhead": 3.289999999999999,
+          "drumhead": 3.244999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,7 +113,7 @@
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 17.57,
+          "wind_articulation": 17.33,
           "sax_size": 12.524999999999999,
           "sax_reed": 1.3,
           "sax_body_alloy": 0.25,
@@ -134,12 +134,12 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 17.57,
+          "wind_articulation": 17.33,
           "brass_size": 1.3,
           "trumpet_mouthpiece": 3.7700000000000005,
           "brass_mute": 0.195,
-          "trumpet_technique": 17.57,
-          "trumpet_bell_metal": 0.72,
+          "trumpet_technique": 17.33,
+          "trumpet_bell_metal": 0.8700000000000001,
           "trumpet_maker_school": 3.5749999999999993
         }
       },
@@ -164,21 +164,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 22.674999999999997,
+          "voice_register": 22.629999999999995,
           "voice_quality": 23.205000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4299999999999997,
           "voice_articulation": 18.589999999999996,
           "voice_microtone": 15.794999999999991,
-          "voice_tradition": 20.595,
+          "voice_tradition": 20.549999999999997,
           "voice_mechanism_compound": 3.25,
-          "voice_estill_quality": 17.319999999999997,
+          "voice_estill_quality": 17.514999999999997,
           "voice_speech_song": 21.319999999999993,
           "voice_ensemble_config": 16.11999999999999,
           "voice_ornament_system": 1.7549999999999994,
           "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 11.979999999999997,
+          "voice_processing_chain": 12.174999999999997,
           "voice_multitrack_stack": 8.384999999999998
         }
       },
@@ -196,7 +196,7 @@
           "clavinet_pickup": 1.1949999999999998,
           "clavinet_context": 1.905,
           "clavinet_model": 6.369999999999999,
-          "clavinet_string_material": 0.585
+          "clavinet_string_material": 0.78
         }
       }
     ],

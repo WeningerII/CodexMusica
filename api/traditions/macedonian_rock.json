@@ -3,9 +3,9 @@
   "name": "Macedonian rock",
   "family": "rock",
   "lineage": "Macedonian rock includes guitar-led bands and new-wave and post-punk approaches associated with the Skopje scene.",
-  "recipe": "classic macedonian rock, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 371,
-  "score": 52.796,
+  "recipe": "classic macedonian rock, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 380,
+  "score": 53.91,
   "config": {
     "traditions": [
       "macedonian_rock"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 8.905000000000001,
-          "body_wood": 2.4255,
-          "neck_wood": 0.441,
+          "body_wood": 2.667,
+          "neck_wood": 0.546,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.441,
-          "scale_length": 1.743,
-          "string_gauge": 0.441,
+          "bridge": 0.546,
+          "scale_length": 1.8795000000000002,
+          "string_gauge": 0.546,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 6.5649999999999995,
-          "body_wood": 0.8820000000000001,
-          "pickup_config": 0.273,
+          "body_wood": 1.0920000000000003,
+          "pickup_config": 0.40950000000000003,
           "string_type": 14.625,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.546,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 11.25,
-          "drumhead": 0.5145,
+          "drumhead": 0.546,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.2415,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0
         }
       }

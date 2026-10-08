@@ -3,13 +3,13 @@
   "name": "Electropunk",
   "family": "rock_punk",
   "lineage": "Style running from Suicide's 1977 New York duo format through Alec Empire and Le Tigre in the 1990s, using a distorted drum machine and a screaming monophonic synth in place of a rhythm section, with shouted or slap-back-echoed vocals over relentless one-chord ostinatos at 130-160 BPM and no guitar solos or harmonic development.",
-  "recipe": "classic European mid-1990s electropunk, distorted Rock, punk branch, industrial noise experimental electric, continental electronic dance aggrotech futurepop. thick, breath veiled tone, straight note core, interlocked note trading. analog mono synth, drum machine analog, lead instrument elevated psychedelic foregrounded organ driven rock combo organ, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation power chord single coil electric guitar, drum machine 606. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 605,
-  "score": 152.807,
+  "recipe": "classic European mid-1990s electropunk, distorted Rock, punk branch, industrial noise experimental electric, continental electronic dance electroclash futurepop. thick, breath veiled tone, straight note core, interlocked note trading. analog mono synth, drum machine analog, psychedelic foregrounded organ driven rock block chord combo organ, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, drum machine 606. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 594,
+  "score": 165.675,
   "config": {
     "traditions": [
       "electropunk",
-      "aggrotech",
+      "electroclash",
       "futurepop"
     ],
     "instruments": [
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.940000000000002,
-          "voice_quality": 7.995,
+          "voice_register": 8.369999999999994,
+          "voice_quality": 6.045,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 14.494999999999994,
-          "voice_microtone": 14.68999999999999,
-          "voice_tradition": 7.15,
-          "voice_mechanism_compound": 9.035,
-          "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 14.949999999999992,
-          "voice_ensemble_config": 15.274999999999993,
-          "voice_ornament_system": 1.4399999999999997,
-          "voice_pitch_organization": 1.4299999999999997,
-          "voice_processing_chain": 10.255,
-          "voice_multitrack_stack": 3.380000000000001
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 14.689999999999996,
+          "voice_microtone": 15.534999999999995,
+          "voice_tradition": 4.7125,
+          "voice_mechanism_compound": 6.825,
+          "voice_estill_quality": 4.2250000000000005,
+          "voice_speech_song": 15.599999999999994,
+          "voice_ensemble_config": 15.469999999999995,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 11.17,
+          "voice_multitrack_stack": 3.0875000000000004
         }
       },
       {
@@ -62,9 +62,9 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 1.1249999999999998,
-          "mono_oscillator": 0,
-          "mono_filter": 0.39,
+          "electronic_technique": 1.9999999999999998,
+          "mono_oscillator": 0.65,
+          "mono_filter": 1.2349999999999999,
           "mono_archetypes": 0.585,
           "mono_maker_lineage": -0.035
         }
@@ -78,10 +78,10 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.195,
-          "snare_voice": 0.195,
-          "hat_voice": 0.195,
-          "shuffle_quantize": 2.615
+          "kick_voice": 0.6950000000000001,
+          "snare_voice": 0.045,
+          "hat_voice": 0.285,
+          "shuffle_quantize": 3.1850000000000005
         }
       },
       {
@@ -94,43 +94,43 @@
           "amp_make": "amp_unspecified"
         },
         "scores": {
-          "keyboard_technique": 2.775,
-          "combo_organ_model": 1.9174999999999998,
-          "combo_organ_voicing": 2.7299999999999995,
-          "combo_organ_context": 2.6,
+          "keyboard_technique": 3.65,
+          "combo_organ_model": 2.6649999999999996,
+          "combo_organ_voicing": 3.25,
+          "combo_organ_context": 3.5100000000000002,
           "amp_make": 0
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "neck_wood": "wenge_neck",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "flatwound_elec",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6.5,
-          "amp_make": 8.995000000000001,
+          "electric_technique": 6.270000000000001,
+          "amp_make": 10.57,
           "body_wood": 0.435,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
+          "neck_wood": 0.48,
+          "fretboard": 0.43499999999999994,
           "pickup_magnet": 0.24,
-          "string_material": 0.195,
-          "string_gauge": 0.39,
-          "bridge": 0.24,
+          "string_material": 0.285,
+          "string_gauge": 1.04,
+          "bridge": 0.65,
           "scale_length": 0.39,
           "finish": 0.045,
-          "string_tuning": 4.745,
+          "string_tuning": 5.655000000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -141,8 +141,8 @@
           "drum_machine_606_context": "drum_machine_606_electro"
         },
         "scores": {
-          "drum_machine_606_voice": 0.585,
-          "drum_machine_606_context": 1.34
+          "drum_machine_606_voice": 1.0999999999999999,
+          "drum_machine_606_context": 4.665
         }
       }
     ],

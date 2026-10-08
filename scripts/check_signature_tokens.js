@@ -28,8 +28,8 @@
 //   references/_tradition_signatures.json   the signature table (canonical)
 //   references/_soundword_vocab.json        every token classed cultural | style | sonic
 //   references/_signature_rulings.json      a verdict per (tradition, cultural token)
-//   src/app.js                              the TRADITION_SIGNATURES mirror
-//   codex.html                              the shipped page's (minified) copy of it
+//   references/10_tradition_signatures.js   the TRADITION_SIGNATURES mirror (generated)
+//   api/engine.json                         the lazy page's copy of it (an engine table)
 //   the catalog via scripts/_loader.js      which keys are real tradition ids, and
 //                                           each record's prose for the quote check
 //
@@ -37,8 +37,8 @@
 //   UNCLASSED       a token on a real tradition id that the vocabulary does not class,
 //                   so a new token cannot slip in without someone deciding what it is
 //   UNRULED         a (tradition, cultural token) pair with no ruling
-//   FALSE_SURVIVES  a pair ruled false still present in the table, in the src/app.js
-//                   mirror, or in codex.html — every copy of the table the product
+//   FALSE_SURVIVES  a pair ruled false still present in the table, in the generated
+//                   mirror, or in api/engine.json — every copy of the table the product
 //                   publishes (the atlas and the connector read the JSON itself)
 //   STALE_RULING    a ruling on an id that is no longer a tradition, or on a token the
 //                   vocabulary does not class cultural (the two files disagree)
@@ -69,8 +69,8 @@ const ROOT = path.join(__dirname, '..');
 const SIGS_FILE = 'references/_tradition_signatures.json';
 const VOCAB_FILE = 'references/_soundword_vocab.json';
 const RULINGS_FILE = 'references/_signature_rulings.json';
-const APP_FILE = 'src/app.js';
-const HTML_FILE = 'codex.html';
+const APP_FILE = 'references/10_tradition_signatures.js';
+const ENGINE_FILE = 'api/engine.json';
 
 const CLASSES = new Set(['cultural', 'style', 'sonic']);
 const VERDICTS = new Set(['attested', 'loose', 'false']);
@@ -109,6 +109,22 @@ function extractSignatureBlock(text) {
     }
   }
   return null;
+}
+
+// api/engine.json is one JSON array, one element per line; the signatures are
+// the element ["TRADITION_SIGNATURES", {…}] (scripts/_page_tables.js).
+function readEngineMirror(rel) {
+  const abs = path.join(ROOT, rel);
+  if (!fs.existsSync(abs)) return { rel, error: `${rel} is missing` };
+  try {
+    const rows = JSON.parse(fs.readFileSync(abs, 'utf8'));
+    const row = rows.find((r) => Array.isArray(r) && r[0] === 'TRADITION_SIGNATURES');
+    if (!row || !row[1] || typeof row[1] !== 'object')
+      return { rel, error: `no TRADITION_SIGNATURES in ${rel}` };
+    return { rel, obj: row[1] };
+  } catch (e) {
+    return { rel, error: `${rel} does not parse: ${e.message}` };
+  }
 }
 
 function readMirror(rel) {
@@ -257,7 +273,11 @@ function main() {
 
   // ── no false pair in the table or in either published copy of it ──
   const falsePairs = rulings.filter((r) => r && r.verdict === 'false');
-  const mirrors = [{ rel: SIGS_FILE, obj: sigs }, readMirror(APP_FILE), readMirror(HTML_FILE)];
+  const mirrors = [
+    { rel: SIGS_FILE, obj: sigs },
+    readMirror(APP_FILE),
+    readEngineMirror(ENGINE_FILE),
+  ];
   for (const m of mirrors) {
     if (m.error) {
       block.MALFORMED.push(`${m.error} — this gate cannot vouch for what it cannot read`);
@@ -363,7 +383,7 @@ function main() {
   }
   console.log(
     `SIGNATURE GATE: PASS — every cultural pair ruled, 0 false pairs in the table, ` +
-      `src/app.js or codex.html, every token classed` +
+      `the generated mirror or api/engine.json, every token classed` +
       (review.length ? `; ${review.length} advisory` : '') +
       '.'
   );

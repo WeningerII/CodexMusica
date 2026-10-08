@@ -24,7 +24,7 @@
         "scores": {
           "electronic_technique": 5.98,
           "wave_acid": 0.195,
-          "filter_acid": 2.01375,
+          "filter_acid": 1.96875,
           "accent_acid": 4.7006250000000005
         }
       },
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 12.244374999999998,
           "sampler_archetypes": 1.17,
-          "sampler_bit_depth": 0.345,
+          "sampler_bit_depth": 0.39,
           "sampler_workflow": 11.375,
           "sampler_classic_context": 17.7125
         }

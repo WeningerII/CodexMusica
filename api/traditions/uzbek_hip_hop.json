@@ -5,7 +5,7 @@
   "lineage": "Uzbek hip-hop joins local-language rap and melodic song within Uzbekistan’s urban performance and recording communities.",
   "recipe": "classic modern uzbek hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 240,
-  "score": 27.838,
+  "score": 27.733,
   "config": {
     "traditions": [
       "uzbek_hip_hop"
@@ -62,7 +62,7 @@
           "electronic_technique": 5.24275,
           "sample_bitdepth": 0,
           "sample_swing": 9.1,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

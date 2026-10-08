@@ -1,0 +1,65 @@
+{
+  "id": "valdres_langeleik",
+  "name": "Langeleik (Valdres drone-zither music)",
+  "family": "global",
+  "lineage": "Playing tradition of the langeleik, a long box zither with one fretted melody string and several drone strings, strummed with a plectrum while the left hand stops the melody string, kept alive above all in Valdres. The National Library of Norway issued Høyre du mann - langeleikopptak 1955-83, a compilation of 42 archival langeleik recordings.",
+  "recipe": "classic mid-1950s langeleik, drone Modal, string branch. rhythmic dance driving langeleik. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 182,
+  "score": 8.191,
+  "config": {
+    "traditions": [
+      "valdres_langeleik"
+    ],
+    "instruments": [
+      {
+        "id": "langeleik",
+        "slots": {
+          "langeleik_form": "langeleik_valdres",
+          "langeleik_repertoire": "langeleik_dance_slatt",
+          "langeleik_strings": "dutar_strings_unspecified"
+        },
+        "scores": {
+          "langeleik_form": 7.566,
+          "langeleik_repertoire": 1.2999999999999998,
+          "langeleik_strings": 0
+        }
+      }
+    ],
+    "pinned": {
+      "langeleik": [
+        "langeleik_form",
+        "langeleik_repertoire",
+        "langeleik_strings"
+      ]
+    },
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "field_recording",
+    "parts": {
+      "langeleik_form": "langeleik_valdres",
+      "langeleik_repertoire": "langeleik_dance_slatt",
+      "langeleik_strings": "dutar_strings_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
+    "chain_console": "clean"
+  }
+}

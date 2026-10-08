@@ -3,9 +3,9 @@
   "name": "Finnish pop punk",
   "family": "rock_punk",
   "lineage": "Finnish pop punk joins melodic group singing with upbeat amplified band arrangements.",
-  "recipe": "classic finnish pop punk, distorted Rock, punk branch. one note per syllable, group vocals. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, basswood electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 390,
-  "score": 45.927,
+  "recipe": "classic finnish pop punk, distorted Rock, punk branch. one note per syllable, group vocals. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 372,
+  "score": 45.219,
   "config": {
     "traditions": [
       "finnish_pop_punk"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 14.104999999999997,
-          "body_wood": 1.029,
+          "body_wood": 0.756,
           "neck_wood": 0.063,
           "fretboard": 0,
           "pickup_magnet": 0,
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.029,
+          "body_wood": 0.756,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 1.3,
-          "voice_ensemble_config": 1.267,
+          "voice_ensemble_config": 1.159,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.108,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       }

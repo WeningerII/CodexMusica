@@ -5,7 +5,7 @@
   "lineage": "Fluxwork gathers exploratory electronic artists whose music develops through evolving patterns and textures. Modular synthesis offers one approach within this overlapping experimental field.",
   "recipe": "classic fluxwork, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 243,
-  "score": 11.038,
+  "score": 11.092,
   "config": {
     "traditions": [
       "fluxwork"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": 8.556999999999999,
           "mod_voltage_source": 1.3,
-          "mod_patch_density": 0,
+          "mod_patch_density": 0.054,
           "mod_lineage": 1.181
         }
       }

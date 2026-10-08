@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
   "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre.",
   "recipe_chars": 997,
-  "score": 954.986,
+  "score": 954.818,
   "config": {
     "traditions": [
       "country_rock",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 86.87000000000002,
-          "voice_quality": 12.548749999999991,
+          "voice_quality": 12.39874999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.909999999999997,
+          "voice_vibrato": 25.864999999999995,
           "voice_articulation": 14.299999999999994,
           "voice_microtone": 45.870000000000026,
-          "voice_tradition": 25.792499999999993,
+          "voice_tradition": 26.182499999999994,
           "voice_mechanism_compound": 2.405,
-          "voice_estill_quality": 28.474999999999994,
+          "voice_estill_quality": 28.429999999999996,
           "voice_speech_song": 20.994999999999994,
           "voice_ensemble_config": 15.209999999999992,
-          "voice_ornament_system": 1.2349999999999997,
+          "voice_ornament_system": 1.2012499999999997,
           "voice_pitch_organization": 0.7124999999999999,
-          "voice_processing_chain": 8.852500000000001,
+          "voice_processing_chain": 8.807500000000001,
           "voice_multitrack_stack": 7.843750000000001
         }
       },
@@ -66,7 +66,7 @@
           "string_tuning": 0.7149999999999999,
           "top_wood": 1.235,
           "back_sides": 0.15,
-          "string_acoustic": 2.8412499999999996
+          "string_acoustic": 2.7962499999999997
         }
       },
       {
@@ -79,9 +79,9 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "two_point_trem",
-          "scale_length": "scale_short",
+          "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
@@ -94,9 +94,9 @@
           "fretboard": 1.17,
           "pickup_magnet": 0.195,
           "string_material": 1.7024999999999997,
-          "string_gauge": 1.2750000000000001,
+          "string_gauge": 1.235,
           "bridge": 0.195,
-          "scale_length": 1.24,
+          "scale_length": 1.235,
           "finish": 0,
           "string_tuning": 21.190000000000005,
           "single_coil_pickup_construction": 0
@@ -140,9 +140,9 @@
         "scores": {
           "amp_make": 25.326249999999998,
           "body_wood": 1.235,
-          "pickup_config": 0.345,
+          "pickup_config": 0.38999999999999996,
           "string_type": 47.623750000000015,
-          "scale_length_b": 2.3400000000000003,
+          "scale_length_b": 2.2950000000000004,
           "fretted_or_not": 0.195,
           "bass_technique": 40.45625000000001,
           "electric_bass_string_configuration": 0
@@ -219,8 +219,8 @@
           "bowed_technique": 25.649999999999995,
           "fiddle_strings": 1.6012499999999998,
           "fiddle_bow": 0,
-          "fiddle_mute": 1.2750000000000001,
-          "fiddle_articulation": 0.9950000000000001,
+          "fiddle_mute": 1.1700000000000002,
+          "fiddle_articulation": 0.9500000000000001,
           "fiddle_string_configuration": 0
         }
       }

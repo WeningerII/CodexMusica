@@ -5,7 +5,7 @@
   "lineage": "Indigenous South and East Siberian traditions of the Sakha, Tuvan, Altai and Khakas peoples, documented from Aleksei Anokhin's early-1900s expeditions through Soviet Melodiya ethnographic issues — overtone throat singing in khöömei, kargyraa and sygyt styles, the khomus jaw harp played with breath-shaped resonance, bowed igil and byzaanchy over pentatonic long-song melodies, epic olonkho and kai narration in free rhythm, and horse-gait rhythmic imitation.",
   "recipe": "classic Northeast Asian 1900-1903 siberian folk music, drone Modal, overtone branch, central Asian hunting song, arctic indigenous tuvan folk music central asian folk. sygyt, breath veiled tone, breath pulsed, interlocked note trading. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range central Asian steppe canonical research site throat singing voice, staccato dance rhythmic khomus, wood larch canonical tuvan pastoral solo igil, cylindrical tuvan tradition hide horsehair unison byzaanchy, doshpuluur, chatkhan. taiga natural reverb. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 666,
-  "score": 277.476,
+  "score": 274.794,
   "config": {
     "traditions": [
       "siberian_folk",
@@ -34,8 +34,8 @@
           "khomus_material": "khomus_forged_steel"
         },
         "scores": {
-          "khomus_form": 11.64,
-          "khomus_technique": 2.85,
+          "khomus_form": 11.4,
+          "khomus_technique": 2.895,
           "khomus_material": -0.05
         }
       },
@@ -52,7 +52,7 @@
           "bowed_technique": -0.035,
           "igil_body": 2.34,
           "igil_string": 0.65,
-          "igil_body_wood": 2.145,
+          "igil_body_wood": 1.914375,
           "igil_tradition": 1.95
         }
       },
@@ -67,10 +67,10 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "byzaanchy_body": 7.605,
+          "byzaanchy_body": 6.894375,
           "byzaanchy_face": 5.75,
           "byzaanchy_strings": 5.67875,
-          "byzaanchy_context": 10.410625
+          "byzaanchy_context": 10.320625
         }
       },
       {
@@ -118,20 +118,20 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 14.296249999999999,
+          "voice_register": 13.65125,
           "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.568125,
+          "voice_vibrato": 6.688124999999999,
           "voice_articulation": 21.774999999999995,
           "voice_microtone": 26.974999999999994,
-          "voice_tradition": 18.101875,
-          "voice_mechanism_compound": 15.40625,
+          "voice_tradition": 17.696875,
+          "voice_mechanism_compound": 15.34625,
           "voice_estill_quality": 3.9650000000000003,
           "voice_speech_song": 28.664999999999996,
           "voice_ensemble_config": 21.904999999999998,
-          "voice_ornament_system": 5.980000000000002,
-          "voice_pitch_organization": 16.71375,
+          "voice_ornament_system": 5.6800000000000015,
+          "voice_pitch_organization": 16.54875,
           "voice_processing_chain": 2.6650000000000005,
           "voice_multitrack_stack": 1.69
         }

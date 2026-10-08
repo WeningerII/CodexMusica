@@ -3,14 +3,14 @@
   "name": "UK Dance",
   "family": "electronic",
   "lineage": "British commercial dance-pop consolidated in London and Manchester from the late 2000s as garage, house and drum-and-bass producers crossed into the singles chart — Duke Dumont, Disclosure, Rudimental, Gorgon City, Sigala and Chase & Status codifying a 120-128 BPM four-on-the-floor (or 174 BPM liquid D&B) template built on filtered piano-and-organ house stabs, sidechained sub-bass, chopped garage-swing hi-hats and a full-throated guest topline sung rather than rapped.",
-  "recipe": "classic 2007-2009 uk dance, electronic Dance, house branch, garage house u s house, uk soundsystem bass system, eurodance electronic dance new york garage house. thick, breath veiled tone, straight onset, interlocked note trading. sub bass analog poly synth, roland tr 8s modern aira digital recreation TR-909, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, chopped sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond a 100 built in Leslie home spinet gospel runs full spectrum fast tremolo tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 829,
-  "score": 346.41,
+  "recipe": "classic 2007-2009 uk dance, electronic Dance, house branch, garage house u s house, uk soundsystem bass system, eurodance electronic dance diva house ballroom. thick, breath veiled tone, straight onset, interlocked note trading. sub bass analog poly synth, TR-909, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, chopped sampler, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs full spectrum fast tremolo tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 807,
+  "score": 342.33,
   "config": {
     "traditions": [
       "uk_dance",
-      "new_york_garage_house",
-      "us_garage"
+      "diva_house",
+      "ballroom_house"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.229999999999999,
-          "voice_quality": 11.114999999999991,
+          "voice_register": 9.879999999999997,
+          "voice_quality": 13.194999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 20.735,
-          "voice_microtone": 20.929999999999996,
-          "voice_tradition": 6.825,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 5.4,
-          "voice_speech_song": 22.36,
-          "voice_ensemble_config": 26.779999999999998,
-          "voice_ornament_system": 1.3649999999999998,
+          "voice_vibrato": 3.0550000000000006,
+          "voice_articulation": 19.629999999999995,
+          "voice_microtone": 19.629999999999992,
+          "voice_tradition": 8.11,
+          "voice_mechanism_compound": 2.4699999999999998,
+          "voice_estill_quality": 5.6,
+          "voice_speech_song": 20.669999999999995,
+          "voice_ensemble_config": 24.63499999999999,
+          "voice_ornament_system": 1.1049999999999995,
           "voice_pitch_organization": 1.135,
-          "voice_processing_chain": 21.595,
-          "voice_multitrack_stack": 4.195
+          "voice_processing_chain": 21.45,
+          "voice_multitrack_stack": 6.532500000000001
         }
       },
       {
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "prophet_5",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 6.11,
-          "poly_archetypes": 2.9899999999999998,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": -1.085
+          "electronic_technique": 5.46,
+          "poly_archetypes": 2.295,
+          "poly_voices": 0.38999999999999996,
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -72,12 +72,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
-          "tr909_voice": 30.125000000000004,
-          "drum_machine_909_context": 1.69,
-          "tr909_production_origin": 1.3
+          "tr909_voice": 28.624999999999996,
+          "drum_machine_909_context": 2.535,
+          "tr909_production_origin": 0
         }
       },
       {
@@ -86,20 +86,20 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "thumb_muted",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.360000000000001,
-          "body_wood": 0.845,
-          "pickup_config": 5.194999999999999,
-          "string_type": 7.540000000000001,
-          "scale_length_b": 1.95,
-          "fretted_or_not": 0.65,
-          "bass_technique": 3.2,
+          "amp_make": 6.857499999999999,
+          "body_wood": 0.65,
+          "pickup_config": 4.29,
+          "string_type": 6.760000000000002,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.045,
+          "bass_technique": 1.5699999999999998,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,11 +113,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.3649999999999998,
-          "sampler_archetypes": 0.325,
+          "electronic_technique": 2.0149999999999997,
+          "sampler_archetypes": 1.17,
           "sampler_bit_depth": 0.52,
-          "sampler_workflow": 1.2999999999999998,
-          "sampler_classic_context": 59.57500000000001
+          "sampler_workflow": 1.6949999999999998,
+          "sampler_classic_context": 57.269999999999996
         }
       },
       {
@@ -134,15 +134,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 6.825,
-          "grand_piano_size": 2.9899999999999998,
+          "keyboard_technique": 7.219999999999999,
+          "grand_piano_size": 2.295,
           "grand_piano_brand": 0.65,
           "piano_hammer": 3.2,
           "piano_rim": 3.2,
           "piano_soundboard": 3.245,
           "piano_pinblock": -0.05,
-          "piano_plate": 2.8600000000000003,
-          "piano_pitch_standard": 5.0699999999999985
+          "piano_plate": 2.195,
+          "piano_pitch_standard": 7.669999999999999
         }
       },
       {
@@ -151,17 +151,17 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "gospel_drawbars",
           "rotary_speed": "fast_tremolo",
-          "percussion_setting": "percussion_on_short",
+          "percussion_setting": "percussion_off",
           "tonewheel_model": "tonewheel_hammond_a100",
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 6.825,
-          "drawbar_setting": 6.735,
-          "rotary_speed": 3.2,
-          "percussion_setting": 0.12999999999999998,
-          "tonewheel_model": 9.555,
-          "leslie_cabinet_model": 0.325
+          "keyboard_technique": 7.219999999999999,
+          "drawbar_setting": 6.614999999999998,
+          "rotary_speed": 4.074999999999999,
+          "percussion_setting": 0,
+          "tonewheel_model": 12.289999999999997,
+          "leslie_cabinet_model": 1.8199999999999998
         }
       }
     ],

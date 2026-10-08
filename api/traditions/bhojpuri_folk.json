@@ -1,55 +1,71 @@
 {
-  "id": "bhojpuri_folk",
-  "name": "Bhojpuri folk",
-  "family": "vernacular",
-  "lineage": "Bhojpuri folk in eastern Uttar Pradesh and Bihar includes migration songs, birha, seasonal repertories and music for life-cycle occasions. Singers and community ensembles sustain these text-centered practices through oral transmission, public performance and contemporary recording.",
-  "recipe": "classic modern bhojpuri folk, ballad Poetry. one note per syllable. melodic straight harmonium indian, dholak, manjira. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 257,
-  "score": 9.258,
+  "id": "bhojpuri_lok_geet",
+  "merged_from": "bhojpuri_folk",
+  "name": "Bhojpuri Lok Geet (village folk song)",
+  "family": "global",
+  "lineage": "Village song repertoire of the Bhojpuri-speaking belt of eastern Uttar Pradesh and western Bihar, documented from the nineteenth century and carried into print and recording by Bhikhari Thakur's Launda Nach theatre from the 1920s — seasonal and life-cycle cycles (kajri, chaita, sohar, vivah geet, birha, purbi) sung mostly by women in unison or by a male birha soloist, over dholak and naal with harmonium drone and manjira, in short strophic cycles at moderate walking tempo with nasal, high-tessitura, heavily portamento-laden delivery.",
+  "recipe": "classic mid-1920s bhojpuri lok geet, domestic Rhythm, south Asian branch, south Asian field work, south Asian wedding, south Asian pop functional song bhojpuri pop saraiki pop. thick, breath veiled tone, slow rate, interlocked note trading. dholak, vocal male straight harmonium indian, naal drum, dark folk clay tabla. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 411,
+  "score": 212.294,
   "config": {
     "traditions": [
-      "bhojpuri_folk"
+      "bhojpuri_lok_geet",
+      "bhojpuri_pop",
+      "saraiki_pop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "voice_register_source_unspecified",
-          "voice_quality": "voice_quality_source_unspecified",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "voice_vibrato_local_unspecified",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "voice_microtone_local_unspecified",
-          "voice_tradition": "voice_tradition_source_unspecified",
-          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-          "voice_estill_quality": "voice_estill_quality_source_unspecified",
-          "voice_speech_song": "voice_syllabic_singing",
-          "voice_ensemble_config": "voice_ensemble_live_group",
-          "voice_ornament_system": "voice_ornament_system_source_unspecified",
-          "voice_pitch_organization": "voice_pitch_source_unspecified",
-          "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-          "voice_tessitura": "voice_tessitura_source_unspecified"
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 0,
-          "voice_quality": 0,
+          "voice_register": 14.228749999999994,
+          "voice_quality": 10.724999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0,
-          "voice_articulation": 0.13000000000000003,
-          "voice_microtone": 0,
-          "voice_tradition": 0,
-          "voice_mechanism_compound": 0,
-          "voice_estill_quality": 0,
-          "voice_speech_song": 1.3,
-          "voice_ensemble_config": 0,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
-          "voice_tessitura": 0
+          "voice_vibrato": 1.56,
+          "voice_articulation": 24.765000000000004,
+          "voice_microtone": 24.18,
+          "voice_tradition": 19.7275,
+          "voice_mechanism_compound": 3.445,
+          "voice_estill_quality": 5.59,
+          "voice_speech_song": 33.605000000000004,
+          "voice_ensemble_config": 24.895000000000003,
+          "voice_ornament_system": 9.915000000000001,
+          "voice_pitch_organization": 9.225625,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 5.140000000000001
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_classical",
+          "dholak_construction": "dholak_large",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.135,
+          "dholak_construction": 1.4949999999999999,
+          "dholak_head": 0.24,
+          "dholak_tensioning": 0.24
         }
       },
       {
@@ -58,125 +74,62 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonium_action": "harmonium_hand_pump",
           "harmonium_voicing": "harmonium_male",
-          "harmonium_use": "harmonium_folk_song"
+          "harmonium_use": "harmonium_qawwali"
         },
         "scores": {
-          "free_reed_technique": 5.309500000000001,
-          "harmonium_action": 0.39,
-          "harmonium_voicing": 0.39,
-          "harmonium_use": 0.39
+          "free_reed_technique": 5.785,
+          "harmonium_action": 1.235,
+          "harmonium_voicing": 2.925,
+          "harmonium_use": 1.5999999999999999
         }
       },
       {
-        "id": "dholak",
+        "id": "naal_drum",
         "slots": {
-          "dholak_use": "dholak_folk_song",
-          "dholak_construction": "dholak_large",
-          "dholak_head": "dholak_goat_skin_canonical",
-          "dholak_tensioning": "dholak_rope_tuning"
+          "naal_form": "naal_fiber",
+          "naal_tuning": "naal_plain"
         },
         "scores": {
-          "dholak_use": 0.3,
-          "dholak_construction": 0.273,
-          "dholak_head": 0,
-          "dholak_tensioning": 0
+          "naal_form": 0.2025,
+          "naal_tuning": 0.195
         }
       },
       {
-        "id": "manjira",
+        "id": "tabla",
         "slots": {
-          "manjira_form": "manjira_taal_small",
-          "manjira_stroke": "manjira_tala_ostinato",
-          "manjira_metal": "manjira_brass"
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "clay_bayan",
+          "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "manjira_form": 0.2,
-          "manjira_stroke": -0.1,
-          "manjira_metal": -0.05
+          "tabla_dayan": 0.7799999999999998,
+          "tabla_bayan": 2.73,
+          "tabla_syahi": 6.564999999999999
         }
       }
     ],
-    "pinned": {
-      "voice": [
-        "voice_register",
-        "voice_quality",
-        "voice_vocal_tract",
-        "voice_effort",
-        "voice_vibrato",
-        "voice_articulation",
-        "voice_microtone",
-        "voice_tradition",
-        "voice_mechanism_compound",
-        "voice_estill_quality",
-        "voice_speech_song",
-        "voice_ensemble_config",
-        "voice_ornament_system",
-        "voice_pitch_organization",
-        "voice_processing_chain",
-        "voice_multitrack_stack",
-        "voice_tessitura"
-      ],
-      "harmonium_indian": [
-        "harmonium_action",
-        "harmonium_use"
-      ],
-      "dholak": [
-        "dholak_use",
-        "dholak_tensioning"
-      ],
-      "manjira": [
-        "manjira_form",
-        "manjira_stroke"
-      ]
-    },
-    "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "room": "field_recording",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
-      "pre": "pre_500_series_modern",
+      "pre": "pre_field_recorder_portable",
       "console": "clean",
-      "comp": "comp_none",
-      "eq": "eq_none",
+      "comp": null,
+      "eq": null,
       "amp": null,
-      "medium": "digital_high"
+      "medium": "tape_15ips"
     },
+    "tuning": "shruti_22",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "parlor",
-    "parts": {
-      "voice_articulation": "narrative_voice",
-      "voice_tradition": "voice_tradition_source_unspecified",
-      "voice_ensemble_config": "voice_ensemble_live_group",
-      "voice_register": "voice_register_source_unspecified",
-      "voice_quality": "voice_quality_source_unspecified",
-      "voice_vocal_tract": "tract_neutral",
-      "voice_effort": "effort_moderate",
-      "voice_vibrato": "voice_vibrato_local_unspecified",
-      "voice_microtone": "voice_microtone_local_unspecified",
-      "voice_speech_song": "voice_syllabic_singing",
-      "voice_ornament_system": "voice_ornament_system_source_unspecified",
-      "voice_pitch_organization": "voice_pitch_source_unspecified",
-      "voice_processing_chain": "voice_processing_unprocessed",
-      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
-      "voice_estill_quality": "voice_estill_quality_source_unspecified",
-      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
-      "voice_tessitura": "voice_tessitura_source_unspecified",
-      "harmonium_action": "harmonium_hand_pump",
-      "harmonium_use": "harmonium_folk_song",
-      "dholak_use": "dholak_folk_song",
-      "dholak_tensioning": "dholak_rope_tuning",
-      "manjira_form": "manjira_taal_small",
-      "manjira_stroke": "manjira_tala_ostinato"
-    },
-    "pin_parts": true,
+    "tuning": "shruti_22",
+    "room": "field_recording",
     "chain_mic": "condenser_sdc",
-    "chain_pre": "pre_500_series_modern",
-    "chain_comp": "comp_none",
-    "chain_eq": "eq_none",
-    "chain_medium": "digital_high",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "tape_15ips",
     "chain_console": "clean"
   }
 }

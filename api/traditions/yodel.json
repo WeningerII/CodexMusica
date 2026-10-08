@@ -1,16 +1,17 @@
 {
-  "id": "yodel",
-  "name": "Yodel",
+  "id": "alpine_yodel",
+  "merged_from": "yodel",
+  "name": "Alpine yodel (Austrian-Swiss-Bavarian Jodel)",
   "family": "global",
-  "lineage": "Alpine herding-call vocal technique of Switzerland, Austria and Bavaria documented from the eighteenth century and paralleled in Georgian krimanchuli, Central African forest polyphony and American cowboy song — rapid repeated breaks between chest and falsetto register on nonsense syllables, often built on the natural harmonic series of the alphorn so that the eleventh partial sounds as the flattened 'alphorn fa', performed solo or in two- and three-voice juuzli over a held bass drone.",
-  "recipe": "classic modern yodel, drone Modal, overtone branch, vocal drone modal, pre commercial country old west frontier music naturjodel. thick, breath veiled tone, straight note core, interlocked note trading. alpine 3 4m alphorn, treble parlor concert zither alpine, brass petosa seattle American premium straight accordion. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 398,
-  "score": 213.247,
+  "lineage": "Alpine Jodel (\"yodel\") vocal tradition of the Austrian Tyrol, Swiss German-speaking cantons, and Bavarian Alps, characterized by rapid alternation between chest-register and falsetto-register on extended vowel-only melodic phrases (without text). Developed historically as a cattle-herder long-distance signaling system in the high mountain pastures, with parallel survival as social-celebration song in village gathering contexts. Performance ranges from solo Naturjodler unaccompanied lyrical-melodic form to multipart Jodler-with-Stubenmusik chamber-ensemble accompanied versions. The Swiss Yodel Festival (Eidgenössisches Jodlerfest, founded 1924) constitutes the institutional anchor; the parallel Austrian-Tyrolean and Bavarian regional traditions maintain village-level transmission.",
+  "recipe": "classic mid-1920s alpine yodel, drone Modal, vocal branch, blues narrative work song coco brasileiro jeju haenyeo songs. thick, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 273,
+  "score": 187.562,
   "config": {
     "traditions": [
-      "yodel",
-      "old_west",
-      "naturjodel"
+      "alpine_yodel",
+      "coco_brasileiro",
+      "jeju_haenyeo_songs"
     ],
     "instruments": [
       {
@@ -30,71 +31,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.765000000000001,
-          "voice_quality": 13.324999999999992,
+          "voice_register": 8.0065,
+          "voice_quality": 27.039999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.630000000000001,
-          "voice_articulation": 21.189999999999998,
-          "voice_microtone": 24.43999999999999,
-          "voice_tradition": 15.73,
-          "voice_mechanism_compound": 6.565000000000001,
-          "voice_estill_quality": 11.765,
-          "voice_speech_song": 26.779999999999998,
-          "voice_ensemble_config": 23.269999999999992,
-          "voice_ornament_system": 3.477500000000001,
-          "voice_pitch_organization": 12.869999999999997,
-          "voice_processing_chain": 7.155,
-          "voice_multitrack_stack": 3.9650000000000007
-        }
-      },
-      {
-        "id": "alphorn",
-        "slots": {
-          "alphorn_length": "alphorn_fis_3_4m",
-          "alphorn_material": "alphorn_carbon_modern"
-        },
-        "scores": {
-          "alphorn_length": 1.5999999999999999,
-          "alphorn_material": 0.495
-        }
-      },
-      {
-        "id": "concert_zither_alpine",
-        "slots": {
-          "concert_zither_alpine_type": "concert_zither_alpine_diskant",
-          "concert_zither_alpine_context": "concert_zither_alpine_stubenmusik",
-          "concert_zither_alpine_strings": "concert_zither_alpine_strings_gut"
-        },
-        "scores": {
-          "concert_zither_alpine_type": 5.705,
-          "concert_zither_alpine_context": 4.875,
-          "concert_zither_alpine_strings": 1.44
-        }
-      },
-      {
-        "id": "accordion",
-        "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_petosa_seattle"
-        },
-        "scores": {
-          "free_reed_technique": 8.315000000000001,
-          "accordion_reed_material": 3.04,
-          "musette_offset": 2.795,
-          "reed_config": 0.51,
-          "bellows": 0.42000000000000004,
-          "voicing_chamber": 0,
-          "accordion_maker_school": 2.3
+          "voice_vibrato": 6.664500000000001,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 21.514999999999997,
+          "voice_tradition": 15.989999999999997,
+          "voice_mechanism_compound": 10.204999999999998,
+          "voice_estill_quality": 8.059999999999999,
+          "voice_speech_song": 32.175,
+          "voice_ensemble_config": 17.159999999999997,
+          "voice_ornament_system": 4.6800000000000015,
+          "voice_pitch_organization": 1.755,
+          "voice_processing_chain": 7.391,
+          "voice_multitrack_stack": 8.709999999999999
         }
       }
     ],
@@ -107,19 +63,34 @@
       "comp": null,
       "eq": null,
       "amp": null,
-      "medium": "digital_std"
+      "medium": "digital_high"
     },
-    "tuning": "just_intonation",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "just_intonation",
+    "tuning": "twelve_tet",
     "room": "mountain_valley",
+    "parts": {
+      "voice_register": "falsetto",
+      "voice_quality": "yodel_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation"
+    },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",
-    "chain_medium": "digital_std",
+    "chain_medium": "digital_high",
     "chain_console": "clean"
   }
 }

@@ -5,7 +5,7 @@
   "lineage": "Pinoy reggae connects Filipino singers and musical communities with reggae traditions. Live bands and digital rub-a-dub productions offer different ways to combine local vocal expression with recurring reggae rhythms.",
   "recipe": "classic pinoy reggae, bass System, reggae diaspora branch. solo with instrumental accompaniment. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 217,
-  "score": 3.269,
+  "score": 3.3,
   "config": {
     "traditions": [
       "pinoy_reggae"
@@ -62,7 +62,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sample_bitdepth": 0.063,
+          "sample_bitdepth": 0.0945,
           "sample_swing": -0.05,
           "sample_processing": 0.21
         }

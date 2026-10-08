@@ -5,7 +5,7 @@
   "lineage": "Dogri pop centres Dogri-language songs within a varied popular-music field. Literary settings and stage performances connect regional language and melody with different accompaniment styles.",
   "recipe": "classic dogri pop, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, flute, dark clay tabla, song accompaniment harmonium indian. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 364,
-  "score": 26.188,
+  "score": 25.233,
   "config": {
     "traditions": [
       "dogri_pop"
@@ -21,7 +21,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 11.2,
+          "acoustic_technique": 11.231499999999999,
           "string_tuning": 0,
           "top_wood": 0.21000000000000002,
           "back_sides": 0.168,
@@ -41,8 +41,8 @@
           "wind_articulation": -0.035,
           "flute_size": 0.3315,
           "flute_material": 0.3,
-          "flute_technique": 0.8819999999999999,
-          "flute_maker_school": 0.9239999999999999
+          "flute_technique": 0.609,
+          "flute_maker_school": 0.651
         }
       },
       {
@@ -54,7 +54,7 @@
         },
         "scores": {
           "tabla_dayan": 0,
-          "tabla_bayan": 1.2915,
+          "tabla_bayan": 1.155,
           "tabla_syahi": 1.3125000000000002
         }
       },
@@ -68,7 +68,7 @@
         },
         "scores": {
           "free_reed_technique": 0.0315,
-          "harmonium_action": 1.9675,
+          "harmonium_action": 1.7995,
           "harmonium_voicing": 0.6,
           "harmonium_use": 3.25
         }
@@ -106,7 +106,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.6,
-          "voice_ornament_system": 0.1365,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.5670000000000001

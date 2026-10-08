@@ -5,7 +5,7 @@
   "lineage": "Orquesta Akokán — complete three-song KUTX Studio1A session,10May2022. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic orquesta cubana, groove Percussion, Cuban branch. cedar canonical Cuban tres cubano, grand piano, saxophone section alto tenor baritone, flute, trumpet, trombone, electric bass, mule hide canonical Cuban premium oak staved canonical Cuban congas, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, timbales stick played. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 449,
-  "score": 9.748,
+  "score": 11.071,
   "config": {
     "traditions": [
       "orquesta_cubana"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.345,
-          "voice_ensemble_config": 0.0675,
+          "voice_ensemble_config": 0.20400000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0,
+          "voice_multitrack_stack": 0.1365,
           "voice_tessitura": 0
         }
       },
@@ -63,9 +63,9 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.05,
-          "tres_courses": 1.5,
+          "tres_courses": 1.6575,
           "tres_cubano_context": 0,
-          "tres_cubano_body_wood": 1.5,
+          "tres_cubano_body_wood": 1.6575,
           "tres_cubano_strings": 0
         }
       },
@@ -176,7 +176,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.105,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -196,8 +196,8 @@
         "scores": {
           "percussion_technique": -0.1,
           "conga_set": 0,
-          "conga_skin": 1.5,
-          "conga_shell_wood": 1.5
+          "conga_skin": 1.6575,
+          "conga_shell_wood": 1.6575
         }
       },
       {
@@ -210,9 +210,9 @@
         },
         "scores": {
           "percussion_technique": -0.1,
-          "bongos_skin": 1.45,
+          "bongos_skin": 1.6075,
           "bongos_context": 0,
-          "bongos_shell_wood": 1.5
+          "bongos_shell_wood": 1.6575
         }
       },
       {

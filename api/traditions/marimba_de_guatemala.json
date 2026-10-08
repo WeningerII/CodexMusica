@@ -5,7 +5,7 @@
   "lineage": "National instrumental tradition of Guatemala running from the colonial-era gourd-resonated marimba de tecomates through the nineteenth-century marimba sencilla to Sebastián Hurtado's 1894 chromatic marimba doble, played by three to seven mallet players sharing one or two keyboards in sones chapines, guarimbas and the anthem-like 'Luna de Xelajú', with mirliton-buzzed cedar keys and steady 6/8 or 3/4 pulse.",
   "recipe": "classic mid-1890s marimba de guatemala, groove Percussion, Latin am branch, tropical song functional song, andean carnival processional música costeña tunantada. extended whistle, breath veiled tone, slow rate, interlocked note trading. gourd resonated multi player full ensemble marimba centroamericana, marimba orchestral, Baroque setup lighter bass bar no endpin lower tension double bass, bass drum. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 495,
-  "score": 131.407,
+  "score": 131.242,
   "config": {
     "traditions": [
       "marimba_de_guatemala",
@@ -23,7 +23,7 @@
         "scores": {
           "marimba_centroamericana_form": 8.799999999999999,
           "marimba_centroamericana_ensemble": 6.095,
-          "marimba_centroamericana_material": 2.8949999999999996
+          "marimba_centroamericana_material": 2.8499999999999996
         }
       },
       {
@@ -73,7 +73,7 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.3,
+          "bass_drum_size": 0.39,
           "bass_drum_beater": 0.845
         }
       },
@@ -105,7 +105,7 @@
           "voice_vibrato": 3.12,
           "voice_articulation": 14.689999999999996,
           "voice_microtone": 13.259999999999993,
-          "voice_tradition": 7.615000000000001,
+          "voice_tradition": 7.405000000000001,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 6.115000000000001,
           "voice_speech_song": 18.264999999999997,

@@ -5,7 +5,7 @@
   "lineage": "Greece’s house music scene spans deep, tech and vocal house through local clubs, producers and independent labels. Athens-centered networks connect dance-floor production with international DJ circulation.",
   "recipe": "classic modern greek house, electronic Dance, house branch, tech house house, deep house house latin tech house dutch tech house. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 378,
-  "score": 52.849,
+  "score": 54.106,
   "config": {
     "traditions": [
       "greek_house",
@@ -24,7 +24,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "sample_bitdepth": 0.045,
-          "sample_swing": 0.045,
+          "sample_swing": 0.285,
           "sample_processing": 0.195
         }
       },
@@ -40,9 +40,9 @@
         "scores": {
           "electronic_technique": 1.885,
           "oscillator": 2.08,
-          "filter_topology": 0.43500000000000005,
-          "envelope": 0.435,
-          "modulation": 0.21
+          "filter_topology": 0.33,
+          "envelope": 0.24,
+          "modulation": 0
         }
       },
       {
@@ -57,9 +57,9 @@
         "scores": {
           "electronic_technique": 0.26,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": -0.07,
-          "sampler_classic_context": 46.603750000000005
+          "sampler_bit_depth": 0.18,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 48.37125
         }
       }
     ],

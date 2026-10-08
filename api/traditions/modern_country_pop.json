@@ -5,7 +5,7 @@
   "lineage": "Modern country pop connects narrative country songwriting with accessible pop hooks and contemporary recording. Songwriters move between intimate acoustic performance and fuller studio arrangements, retaining clear vocal stories while drawing on both country and pop influences.",
   "recipe": "classic modern country pop, functional Song, country branch. solo with instrumental accompaniment, unprocessed natural acoustic. phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
   "recipe_chars": 240,
-  "score": 19.769,
+  "score": 19.765,
   "config": {
     "traditions": [
       "modern_country_pop"
@@ -37,7 +37,7 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": -0.035,
+          "voice_vibrato": -0.05,
           "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.615,
+          "voice_processing_chain": 1.657,
           "voice_multitrack_stack": 0.31499999999999995,
           "voice_tessitura": 0
         }
@@ -62,11 +62,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.626,
+          "acoustic_technique": 13.563,
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": 0,
-          "string_acoustic": 2.168
+          "string_acoustic": 2.1995
         }
       }
     ],

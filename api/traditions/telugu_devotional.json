@@ -3,9 +3,9 @@
   "name": "Telugu Devotional",
   "family": "vernacular",
   "lineage": "Telugu devotional music brings sacred poetry and praise into temple worship, community singing, concerts and recordings. Annamacharya and later saint-poets remain important sources, with classical settings, folk-derived songs and newer arrangements circulating through religious institutions and popular devotional media.",
-  "recipe": "classic telugu devotional, ritual Devotional, hindu branch. carnatic, many notes per syllable, solo with instrumental accompaniment, carnatic gamaka kampita nokku jaaru sphurita. lalgudi lineage carnatic violin carnatic, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, tanpura. shoebox concert hall.",
-  "recipe_chars": 332,
-  "score": 39.739,
+  "recipe": "classic telugu devotional, ritual Devotional, hindu branch. carnatic, many notes per syllable, solo with instrumental accompaniment, carnatic gamaka kampita nokku jaaru sphurita. synthetic core modern lalgudi lineage carnatic violin carnatic, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, tanpura. shoebox concert hall.",
+  "recipe_chars": 354,
+  "score": 41.471,
   "config": {
     "traditions": [
       "telugu_devotional"
@@ -64,9 +64,9 @@
         "scores": {
           "bowed_technique": -0.11850000000000002,
           "violin_carnatic_tuning": 8.45,
-          "violin_carnatic_posture": 0.63,
-          "violin_carnatic_strings": 0.756,
-          "violin_carnatic_lineage": 1.6380000000000001
+          "violin_carnatic_posture": 0.4515,
+          "violin_carnatic_strings": 1.029,
+          "violin_carnatic_lineage": 1.911
         }
       },
       {
@@ -81,9 +81,9 @@
         "scores": {
           "mridangam_heads": 1.69,
           "mridangam_use": 0,
-          "mridangam_shell_wood": 1.5329999999999997,
-          "mridangam_heads_material": 0.546,
-          "mridangam_lineage": 1.5015
+          "mridangam_shell_wood": 1.8059999999999996,
+          "mridangam_heads_material": 0.819,
+          "mridangam_lineage": 1.7745
         }
       },
       {
@@ -101,8 +101,8 @@
           "tanpura_size": 0,
           "tanpura_jawari": 3.95,
           "tanpura_strings": 0,
-          "tanpura_string_material": 0.6825000000000001,
-          "tanpura_body_wood": 0.546
+          "tanpura_string_material": 0.9555,
+          "tanpura_body_wood": 0.819
         }
       }
     ],

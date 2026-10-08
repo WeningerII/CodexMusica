@@ -5,7 +5,7 @@
   "lineage": "The Medway towns’ garage-rock and punk scene, rooted in raw rhythm-and-blues and independent recording.",
   "recipe": "classic medway sound, distorted Rock, punk branch. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit. live tracking.",
   "recipe_chars": 186,
-  "score": 42.104,
+  "score": 41.967,
   "config": {
     "traditions": [
       "medway_sound"
@@ -79,7 +79,7 @@
           "pickup_winding": 0.147,
           "string_material": 0.0315,
           "bridge": 0,
-          "scale_length": 0.8190000000000002,
+          "scale_length": 0.546,
           "string_gauge": 0.7,
           "finish": 0,
           "string_tuning": 0
@@ -131,7 +131,7 @@
           "shell_thickness": 0,
           "bearing_edges": 0.1995,
           "snare_wires": 0,
-          "cymbal_alloy": 2.6230000000000007,
+          "cymbal_alloy": 2.7595000000000005,
           "cymbal_hammering": 7.172999999999999,
           "cymbal_lathing": 6.8999999999999995,
           "cymbal_finish": 0

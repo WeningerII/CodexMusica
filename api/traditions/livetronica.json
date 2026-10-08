@@ -5,7 +5,7 @@
   "lineage": "Livetronica — live instrumental performance integrated with electronic production and looping.",
   "recipe": "classic livetronica, improv On Frame, fusion branch. humbucker electric guitar, sampler, electric bass, dark bronze bell bronze drum kit, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 249,
-  "score": 15.775,
+  "score": 15.774,
   "config": {
     "traditions": [
       "livetronica"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": -0.07,
           "amp_make": 0,
           "body_wood": 0.1905,
           "neck_wood": 0.4095,
@@ -39,7 +39,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.273,
-          "string_gauge": 0.23399999999999999,
+          "string_gauge": 0.3075,
           "finish": 0,
           "string_tuning": 0
         }
@@ -56,7 +56,7 @@
         "scores": {
           "electronic_technique": -0.035,
           "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.3465,
+          "sampler_bit_depth": 0.378,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 2.7300000000000004
         }
@@ -129,7 +129,7 @@
         "scores": {
           "keyboard_technique": -0.035,
           "grand_piano_size": 0,
-          "grand_piano_brand": 0.273,
+          "grand_piano_brand": 0.1365,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

@@ -3,21 +3,21 @@
   "name": "British blues",
   "family": "blues_gospel",
   "lineage": "London-centred electric blues of roughly 1962-1970, codified by Alexis Korner and Cyril Davies at the Marquee and by John Mayall's Bluesbreakers, whose 1966 sessions with Eric Clapton set the template — Chicago-derived twelve-bar and eight-bar forms at 80-160 BPM, shuffle and 12/8 slow-blues feels, amplified harmonica, overdriven single-coil and Les Paul guitar through cranked combo amps, walking or riff bass, and a strained, imitative white-English vocal reaching for Delta and Chicago phrasing.",
-  "recipe": "classic British mid-1960s british blues, functional Song, blues electric branch, blues acoustic functional song, classic distorted rock, American jazz improv on frame kansas city jazz latin jazz. thick, blues-shouter, straight onset, interlocked note trading. marshall plexi amp British rock amp maple pau ferro ceramic single coil electric marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, pearwood marine band tradition double brass chromatic canon hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 998,
-  "score": 577.605,
+  "recipe": "classic British mid-1960s british blues, functional Song, blues electric branch, blues acoustic functional song, classic distorted rock, American jazz improv on frame latin jazz blue note. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric Fender blackface amp American 60s amp spring reverb bright open string slide resonance humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, pearwood marine band tradition double brass chromatic canon hohner marine band 1896 canonical blues trossingen harmonica, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs fast tremolo tonewheel organ. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu.",
+  "recipe_chars": 991,
+  "score": 587.928,
   "config": {
     "traditions": [
       "british_blues",
-      "kansas_city_jazz",
-      "latin_jazz"
+      "latin_jazz",
+      "blue_note"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -25,41 +25,41 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 45.19000000000003,
-          "voice_quality": 14.592499999999992,
+          "voice_register": 47.04000000000003,
+          "voice_quality": 14.202499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.375000000000014,
-          "voice_articulation": 21.774999999999995,
-          "voice_microtone": 25.225000000000012,
-          "voice_tradition": 23.13000000000001,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 2.9250000000000007,
-          "voice_speech_song": 27.884999999999994,
-          "voice_ensemble_config": 22.879999999999992,
-          "voice_ornament_system": 0.7999999999999999,
-          "voice_pitch_organization": 1.9349999999999998,
-          "voice_processing_chain": 6.629999999999998,
-          "voice_multitrack_stack": 3.465
+          "voice_vibrato": 21.500000000000007,
+          "voice_articulation": 24.31,
+          "voice_microtone": 25.350000000000005,
+          "voice_tradition": 23.10500000000001,
+          "voice_mechanism_compound": 3.9650000000000003,
+          "voice_estill_quality": 3.6,
+          "voice_speech_song": 28.925000000000004,
+          "voice_ensemble_config": 24.830000000000002,
+          "voice_ornament_system": 1.0399999999999998,
+          "voice_pitch_organization": 1.89,
+          "voice_processing_chain": 6.434999999999999,
+          "voice_multitrack_stack": 3.2699999999999996
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_overdriven_lead",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
-          "neck_wood": "maple",
-          "fretboard": "pau_ferro_fb",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.495,
-          "amp_make": 5.695,
+          "electric_technique": 2.54,
+          "amp_make": 6.215,
           "body_wood": 0.585,
-          "neck_wood": 1.04,
-          "fretboard": 1.04,
-          "pickup_magnet": 1.04,
-          "string_material": 1.04,
-          "string_gauge": 1.8399999999999999,
+          "neck_wood": 0.585,
+          "fretboard": 0.5199999999999999,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.9449999999999998,
           "bridge": 0.15,
           "scale_length": 0.585,
           "finish": 0,
-          "string_tuning": 10.985,
+          "string_tuning": 9.879999999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -89,10 +89,10 @@
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_overdriven_lead",
-          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany_maple_cap",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
@@ -103,19 +103,19 @@
           "string_tuning": "open_g"
         },
         "scores": {
-          "electric_technique": 2.495,
-          "amp_make": 5.695,
+          "electric_technique": 2.54,
+          "amp_make": 6.215,
           "body_wood": 0.585,
-          "neck_wood": 1.04,
-          "fretboard": 1.04,
+          "neck_wood": 0.585,
+          "fretboard": 0.5199999999999999,
           "pickup_magnet": 0.3,
           "pickup_winding": 0.745,
-          "string_material": 1.04,
+          "string_material": 0.39,
           "bridge": 0.585,
           "scale_length": 0.585,
-          "string_gauge": 1.8399999999999999,
+          "string_gauge": 1.9449999999999998,
           "finish": 0,
-          "string_tuning": 9.879999999999999
+          "string_tuning": 8.58
         }
       },
       {
@@ -123,7 +123,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -131,13 +131,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.51,
-          "body_wood": 0.585,
-          "pickup_config": 0,
-          "string_type": 22.830000000000013,
-          "scale_length_b": 0.975,
-          "fretted_or_not": 0.195,
-          "bass_technique": 24.075000000000014,
+          "amp_make": 8.485,
+          "body_wood": 0.78,
+          "pickup_config": 0.15,
+          "string_type": 23.10500000000001,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0.15,
+          "bass_technique": 24.050000000000008,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,8 +149,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.035000000000004,
-          "drumhead": 23.67500000000001,
+          "drum_technique": 37.215,
+          "drumhead": 23.80000000000001,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -165,31 +165,31 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "harmonica_type": 9.405000000000005,
-          "harmonica_comb": 19.99,
-          "harmonica_reed": 24.420000000000016,
-          "harmonica_technique": 22.470000000000013,
-          "harmonica_maker_school": 22.197499999999998,
-          "harmonica_tuning": 23.055000000000014
+          "harmonica_type": 9.455000000000004,
+          "harmonica_comb": 17.319999999999997,
+          "harmonica_reed": 24.04500000000001,
+          "harmonica_technique": 22.595000000000013,
+          "harmonica_maker_school": 18.784999999999997,
+          "harmonica_tuning": 22.835000000000008
         }
       },
       {
         "id": "tonewheel_organ",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
+          "keyboard_technique": "keyboard_gospel_chord_runs",
           "drawbar_setting": "jazz_drawbars",
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_short",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 0.9099999999999999,
-          "drawbar_setting": 22.96500000000001,
-          "rotary_speed": 2.495,
-          "percussion_setting": 22.125000000000014,
-          "tonewheel_model": 21.970000000000013,
-          "leslie_cabinet_model": 0.195
+          "keyboard_technique": 3.795,
+          "drawbar_setting": 23.04500000000001,
+          "rotary_speed": 5.42,
+          "percussion_setting": 22.40000000000001,
+          "tonewheel_model": 25.67000000000001,
+          "leslie_cabinet_model": 0.25
         }
       }
     ],

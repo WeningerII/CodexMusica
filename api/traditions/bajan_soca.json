@@ -5,7 +5,7 @@
   "lineage": "Barbadian soca style shaped around the Crop Over festival since the 1980s and codified by Square One, Krosfyah and later producers such as Nicholas Brancker and Stiffy's circle, mixing 130-155 BPM soca grooves with the local 'ragga soca' and bashment-soca accents, live or sampled horn sections, tuk-band snare-and-bass-drum inflections, and melodic sung hooks alongside chanted crowd calls.",
   "recipe": "classic North American mid-1980s bajan soca, carnival Processional, Caribbean branch, tropical song functional song, reggae diaspora bass system raggamuffin kaneka. raised subglottal pressure, one note per syllable, group vocals, live take. brushes-and-sticks drum kit, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass, one man band yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, saxophone, heavy one piece matched to monette horn ensemble trumpet, soca engine room iron trinidadian iron, tambourine orch. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 781,
-  "score": 100.237,
+  "score": 100.717,
   "config": {
     "traditions": [
       "bajan_soca",
@@ -45,7 +45,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.87,
+          "voice_speech_song": 3.17,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -80,7 +80,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.619999999999999,
+          "amp_make": 6.574999999999999,
           "body_wood": 2.145,
           "pickup_config": 0.545,
           "string_type": 8.865,
@@ -101,7 +101,7 @@
         "scores": {
           "electronic_technique": 0.4225,
           "rompler_preset_bank": 2.88,
-          "rompler_context": 5.09,
+          "rompler_context": 5.239999999999999,
           "rompler_lineage": 2.08
         }
       },
@@ -135,16 +135,16 @@
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_schilke"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 2.2350000000000003,
           "brass_size": 0.435,
-          "trumpet_mouthpiece": 5.085,
-          "brass_mute": 0.195,
+          "trumpet_mouthpiece": 5.385,
+          "brass_mute": 0.15,
           "trumpet_technique": 2.2350000000000003,
           "trumpet_bell_metal": 0.7349999999999999,
-          "trumpet_maker_school": 0.9600000000000001
+          "trumpet_maker_school": 0.7799999999999998
         }
       },
       {

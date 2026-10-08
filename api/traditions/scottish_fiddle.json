@@ -5,7 +5,7 @@
   "lineage": "Scottish violin tradition codified in eighteenth-century printed collections by Niel and Nathaniel Gow, William Marshall and James Scott Skinner and sustained through Shetland, North-East and Cape Breton streams — built on the strathspey with its dotted rhythms and inverted 'Scotch snap', plus reels, jigs, marches and free-time slow airs and laments, played with a driving detached bow, double-stop drones on open strings and pipe-derived grace figures, at reel tempos near 120 BPM.",
   "recipe": "classic Northern European modern scottish fiddle tradition, improv On Frame, Celtic traditional branch, string improv improv on frame, Celtic hebridean domestic rhythm sardinian boci de tela irish spinning song. synthetic magic rosin modern acrylic base fiddle, upright piano, dadgad tuning phosphor bronze modern martin drone like modal dreadnought acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, bellows blown d major border pipe tradition African blackwood canonical Scottish cane arundo donax canonical Scottish smallpipes scottish smallpipes, leather castagnari Italian premium folk music drone like accordion. scottish bothy farmhouse kitchen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 743,
-  "score": 110.195,
+  "score": 109.94,
   "config": {
     "traditions": [
       "scottish_fiddle",
@@ -20,15 +20,15 @@
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco",
+          "fiddle_articulation": "pizz",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 10.120000000000001,
           "fiddle_strings": 2.295,
           "fiddle_bow": 5.22,
-          "fiddle_mute": 0.345,
-          "fiddle_articulation": 0.525,
+          "fiddle_mute": 0.645,
+          "fiddle_articulation": 0.41999999999999993,
           "fiddle_string_configuration": 0
         }
       },
@@ -42,7 +42,7 @@
         "scores": {
           "keyboard_technique": -0.035,
           "upright_use": 0.24,
-          "upright_piano_size": 9.09
+          "upright_piano_size": 9.15
         }
       },
       {
@@ -56,7 +56,7 @@
         },
         "scores": {
           "acoustic_technique": 11.275000000000002,
-          "string_tuning": 19.745,
+          "string_tuning": 19.55,
           "top_wood": 0.39,
           "back_sides": 0.44999999999999996,
           "string_acoustic": 2.5349999999999997
@@ -70,8 +70,8 @@
           "celtic_harp_strings": "celtic_gut"
         },
         "scores": {
-          "acoustic_technique": 2.795000000000001,
-          "celtic_harp_levers": 3.0799999999999996,
+          "acoustic_technique": 2.4650000000000007,
+          "celtic_harp_levers": 3.0349999999999997,
           "celtic_harp_strings": 3.6399999999999997
         }
       },
@@ -85,8 +85,8 @@
           "smallpipes_bag": "smallpipes_leather_canonical"
         },
         "scores": {
-          "smallpipes_bellows_blown": 8.685,
-          "smallpipes_pitch": 6.234999999999999,
+          "smallpipes_bellows_blown": 8.985,
+          "smallpipes_pitch": 6.085,
           "smallpipes_chanter_wood": 3.0949999999999998,
           "smallpipes_reed": 3.0999999999999996,
           "smallpipes_bag": 3.0999999999999996
@@ -96,7 +96,7 @@
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_drone_under",
-          "accordion_reed_material": "steel_reeds",
+          "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
           "reed_config": "lm_only",
           "bellows": "cardboard_leather",
@@ -105,8 +105,8 @@
         },
         "scores": {
           "free_reed_technique": 10.57,
-          "accordion_reed_material": 0.43499999999999994,
-          "musette_offset": 2.9949999999999997,
+          "accordion_reed_material": 0.39,
+          "musette_offset": 2.9499999999999997,
           "reed_config": 0.7499999999999999,
           "bellows": 1.95,
           "voicing_chamber": 0.345,

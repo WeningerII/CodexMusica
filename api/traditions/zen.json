@@ -5,7 +5,7 @@
   "lineage": "Zen-labelled listening music draws on imagery and practices of contemplation across acoustic improvisation, ambient composition and relaxation recordings. Cross-cultural collaborations helped circulate Japanese instrumental colors within this broad recorded-music field.",
   "recipe": "classic zen, experimental Elec, ambient branch. clarinet, koto, shakuhachi. treated studio.",
   "recipe_chars": 91,
-  "score": 1.217,
+  "score": 1.994,
   "config": {
     "traditions": [
       "zen"
@@ -40,11 +40,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.325,
-          "koto_strings": 0,
-          "koto_picks": 0.273,
-          "koto_body_wood": 0.1785,
-          "koto_strings_material": 0.1785,
-          "koto_bridge_material": 0.1785
+          "koto_strings": 0.105,
+          "koto_picks": 0.378,
+          "koto_body_wood": 0.252,
+          "koto_strings_material": 0.252,
+          "koto_bridge_material": 0.252
         }
       },
       {
@@ -60,8 +60,8 @@
           "wind_articulation": -0.1,
           "shaku_length": -0.05,
           "shaku_technique": 0,
-          "shakuhachi_body_material": 0.21,
-          "shakuhachi_lineage": 0.1785
+          "shakuhachi_body_material": 0.45149999999999996,
+          "shakuhachi_lineage": 0.2835
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s British rock movement (peaking 1994-1997) characterized by deliberate British-cultural-identity assertion against American grunge dominance, melodic guitar-pop influences from the Kinks-and-Beatles British-Invasion era, and explicit working-and-middle-class British lyrical content. Blur, Oasis, Pulp, Suede, Elastica, and the Verve constitute the canonical roster; the 1995 Blur-vs-Oasis chart-rivalry constitutes the canonical cultural-event.",
   "recipe": "classic British 1994-1997 britpop, distorted Rock, classic branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 628,
-  "score": 348.382,
+  "score": 348.482,
   "config": {
     "traditions": [
       "britpop",
@@ -38,10 +38,10 @@
           "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
+          "voice_vibrato": 2.475,
           "voice_articulation": 13.324999999999996,
           "voice_microtone": 28.674999999999997,
-          "voice_tradition": 7.0200000000000005,
+          "voice_tradition": 6.9750000000000005,
           "voice_mechanism_compound": 5.525000000000001,
           "voice_estill_quality": 0.6499999999999999,
           "voice_speech_song": 12.479999999999995,
@@ -70,14 +70,14 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 13.11,
+          "electric_technique": 13.12,
           "amp_make": 19.109999999999996,
           "body_wood": 7.6049999999999995,
           "neck_wood": 2.535,
           "fretboard": 2.47,
           "pickup_magnet": 0.195,
           "pickup_winding": 1.5,
-          "string_material": 0.15,
+          "string_material": 0.345,
           "bridge": 2.535,
           "scale_length": 5.069999999999999,
           "string_gauge": 2.535,

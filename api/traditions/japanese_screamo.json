@@ -5,7 +5,7 @@
   "lineage": "Japanese screamo includes bands using layered guitars to expand emotionally intense vocal performance.",
   "recipe": "classic japanese screamo, distorted Rock, emo branch. solo with instrumental accompaniment. basswood humbucker electric guitar, basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 278,
-  "score": 17.945,
+  "score": 17.273,
   "config": {
     "traditions": [
       "japanese_screamo"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.8199999999999998,
-          "body_wood": 1.764,
+          "body_wood": 1.4805000000000001,
           "neck_wood": 0.168,
-          "fretboard": 0.1365,
+          "fretboard": 0.168,
           "pickup_magnet": 0,
           "pickup_winding": 0.168,
           "string_material": 0.168,
-          "bridge": 0.273,
+          "bridge": 0.3045,
           "scale_length": 0,
-          "string_gauge": 0.3045,
+          "string_gauge": 0.1995,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0.0315
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.764,
+          "body_wood": 1.4805000000000001,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.063,
@@ -113,11 +113,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6104999999999999,
+          "voice_ensemble_config": 0.579,
           "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.1995,
+          "voice_multitrack_stack": 0.273,
           "voice_tessitura": 0
         }
       }

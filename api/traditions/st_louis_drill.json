@@ -5,7 +5,7 @@
   "lineage": "St Louis drill represents the city and county’s distinct street-rap branches in dialogue with Chicago drill.",
   "recipe": "classic modern st louis drill, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler drum machine, grand piano, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 295,
-  "score": 18.566,
+  "score": 18.151,
   "config": {
     "traditions": [
       "st_louis_drill"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.1995,
+          "voice_ensemble_config": 1.168,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.03712499999999999
         }
       },
       {
@@ -56,20 +56,20 @@
           "electronic_technique": "electronic_sample_chopped",
           "sample_bitdepth": "sixteen_bit",
           "sample_swing": "mid_swing",
-          "sample_processing": "one_shots_layered"
+          "sample_processing": "pitched_kick"
         },
         "scores": {
           "electronic_technique": 2.2,
           "sample_bitdepth": 0.105,
           "sample_swing": 3.9,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_5_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
@@ -80,8 +80,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.105,
-          "grand_piano_brand": 0.3045,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.273,
           "piano_hammer": 0.26,
           "piano_rim": -0.035,
           "piano_soundboard": -0.035,
@@ -99,9 +99,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 2.297,
+          "electronic_technique": 2.1500000000000004,
           "poly_archetypes": 0,
-          "poly_voices": 0.3045,
+          "poly_voices": 0.273,
           "poly_maker_lineage": -0.035
         }
       }

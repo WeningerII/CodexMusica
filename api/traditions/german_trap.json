@@ -5,7 +5,7 @@
   "lineage": "German trap developed through local rapper-and-producer networks adapting electronic trap practice. Ufo361, Sonus030 and AT Beatz exemplify a Berlin-associated strand combining layered sample material with melodic vocal processing.",
   "recipe": "classic modern german trap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, retune speed 0ms hard correction robot effect. sampler, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 326,
-  "score": 25.804,
+  "score": 25.966,
   "config": {
     "traditions": [
       "german_trap"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2535,
+          "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 3.0865,
@@ -64,7 +64,7 @@
         "scores": {
           "electronic_technique": 2.2855000000000003,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.318,
+          "sampler_bit_depth": 0.465,
           "sampler_workflow": 0.9427499999999999,
           "sampler_classic_context": 7.084999999999999
         }
@@ -79,9 +79,9 @@
         },
         "scores": {
           "electronic_technique": 2.2855000000000003,
-          "sample_bitdepth": 0.159,
+          "sample_bitdepth": 0.23249999999999998,
           "sample_swing": 2.5,
-          "sample_processing": 0.105
+          "sample_processing": 0
         }
       }
     ],

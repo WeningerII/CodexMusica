@@ -5,7 +5,7 @@
   "lineage": "Halloween music gathers seasonal songs, theatrical effects and concert repertoire around playful fright and supernatural imagery. Community celebrations and curated listening bring novelty recordings, organ classics, soundtrack material and other styles into a shared seasonal setting.",
   "recipe": "classic halloween, art Music, western common practice branch. schnitger hamburg canonical north German Baroque late 17th century pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 239,
-  "score": 10.467,
+  "score": 11.287,
   "config": {
     "traditions": [
       "halloween"
@@ -26,10 +26,10 @@
           "keyboard_technique": 2.8,
           "pipe_organ_class": 0,
           "pipe_organ_context": 5.2,
-          "pipe_organ_voicing_school": 1.3125000000000002,
-          "pipe_organ_pipe_alloy": 0.40950000000000003,
-          "pipe_organ_temperament": 0.336,
-          "pipe_organ_action": 0.40950000000000003
+          "pipe_organ_voicing_school": 1.5855000000000001,
+          "pipe_organ_pipe_alloy": 0.546,
+          "pipe_organ_temperament": 0.47250000000000003,
+          "pipe_organ_action": 0.6825000000000001
         }
       }
     ],

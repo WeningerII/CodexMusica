@@ -1,50 +1,79 @@
 {
-  "id": "deep_big_room",
-  "name": "Deep Big Room",
+  "id": "big_room_house",
+  "merged_from": "deep_big_room",
+  "name": "Big room house (EDM festival)",
   "family": "electronic",
-  "lineage": "Deep big room gathers a deeper discovery cohort of festival-oriented electronic producers. Strong melodic hooks, staged builds and forceful drops connect big-room house with trance and progressive-house influences, circulating through releases, remixes and mixed programmes.",
-  "recipe": "classic deep big room, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
-  "recipe_chars": 101,
-  "score": 0.039,
+  "lineage": "Early-2010s house subgenre engineered for large festival main-stage performance contexts. Characterized by enormous-build-up-and-drop song-structure, simplified melodic and harmonic content, massive distorted-synth festival-anthem peak-sections, and predictable formulaic arrangement. Hardwell, Martin Garrix, Dimitri Vegas & Like Mike, and the Spinnin' Records-Revealed Recordings label rosters define the canonical sound. Tomorrowland, Ultra Music Festival, and EDC Las Vegas constitute the canonical festival circuit.",
+  "recipe": "classic 2010-2013 big room house, electronic Dance, house branch, thrash metal djent. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 401,
+  "score": 17.635,
   "config": {
     "traditions": [
-      "deep_big_room"
+      "big_room_house",
+      "djent"
     ],
     "instruments": [
       {
-        "id": "dj_playback_mixing_unspecified",
+        "id": "drum_machine_808",
         "slots": {
-          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+          "tr808_voice": "tr808_cowbell",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.03899999999999999
+          "tr808_voice": 0.845,
+          "drum_machine_808_context": 0.845,
+          "tr808_production_origin": 1.5599999999999994
+        }
+      },
+      {
+        "id": "analog_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "oscillator": "triangle_osc",
+          "filter_topology": "transistor_ladder",
+          "envelope": "sustain_env",
+          "modulation": "no_mod"
+        },
+        "scores": {
+          "electronic_technique": 2.6,
+          "oscillator": 1.495,
+          "filter_topology": 0.19500000000000003,
+          "envelope": 1.45,
+          "modulation": 0.195
         }
       }
     ],
-    "pinned": {
-      "dj_playback_mixing_unspecified": [
-        "dj_playback_mixing_identity"
-      ]
-    },
-    "room": "live_room",
+    "room": "studio_distributed_production",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
-      "mic": null,
-      "pre": null,
-      "console": null,
-      "comp": null,
-      "eq": null,
+      "mic": "condenser_ldc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_distressor_modern",
+      "eq": "eq_massenburg_mastering",
       "amp": null,
-      "medium": null
+      "medium": "digital_high"
     },
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "room": "live_room",
+    "tuning": "twelve_tet",
+    "room": "studio_distributed_production",
     "parts": {
-      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+      "tr808_voice": "tr808_kick_long",
+      "drum_machine_808_context": "drum_machine_808_trap",
+      "tr808_production_origin": "tr808_roland_osaka_canonical",
+      "electronic_technique": "electronic_bass_sub"
     },
-    "pin_parts": true
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_distressor_modern",
+    "chain_eq": "eq_massenburg_mastering",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
   }
 }

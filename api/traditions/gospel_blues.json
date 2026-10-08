@@ -3,14 +3,14 @@
   "name": "Gospel Blues",
   "family": "blues_gospel",
   "lineage": "Sacred blues sung to blues guitar accompaniment, crystallized on race records 1927-1935 by Blind Willie Johnson, Rev. Gary Davis and Washington Phillips and carried into the 1940s by Sister Rosetta Tharpe — 70-110 BPM twelve-bar and hymn-derived forms, bottleneck slide answering the voice, hand claps and congregational responses, and a rasped or shouted delivery preaching rather than lamenting.",
-  "recipe": "classic mid-1930s gospel blues, ritual Devotional, christian gospel branch, christian gospel pentecostal, blues acoustic functional song, christian gospel spirituals african-american spirituals. thick, declaimed, wide pitch sway, leader call answered. open e tuning fingerpicked steel resonator open e tuning fingerpicked parlor acoustic guitar, snappy to palm hand clap, choir southern black gospel, foot stomp. pentecostal storefront church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 516,
-  "score": 317.147,
+  "recipe": "classic mid-1930s gospel blues, ritual Devotional, christian gospel branch, christian gospel pentecostal, blues acoustic functional song, christian gospel spirituals african-american spirituals country blues. thick, declaimed, wide pitch sway, leader call answered. open e tuning bronze fingerpicked steel resonator open e tuning fingerpicked parlor acoustic guitar, snappy to palm hand clap, choir southern black gospel, foot stomp. pentecostal storefront church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 537,
+  "score": 316.525,
   "config": {
     "traditions": [
       "gospel_blues",
       "spirituals_african_american",
-      "acoustic_blues"
+      "country_blues"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 40.825,
+          "voice_register": 41.185,
           "voice_quality": 28.225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.125,
-          "voice_articulation": 19.514499999999998,
-          "voice_microtone": 23.5995,
+          "voice_vibrato": 22,
+          "voice_articulation": 20.315,
+          "voice_microtone": 24.384999999999998,
           "voice_tradition": 36.269999999999996,
-          "voice_mechanism_compound": 2.275,
+          "voice_mechanism_compound": 1.4300000000000002,
           "voice_estill_quality": 17.099999999999998,
-          "voice_speech_song": 23.07499999999999,
-          "voice_ensemble_config": 20.27999999999999,
+          "voice_speech_song": 23.39999999999999,
+          "voice_ensemble_config": 19.49999999999999,
           "voice_ornament_system": 10.775000000000002,
-          "voice_pitch_organization": 2.0839999999999996,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 1.9499999999999997
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 4.159999999999999,
+          "voice_multitrack_stack": 2.405
         }
       },
       {
@@ -58,15 +58,15 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_e",
           "cone_type": "biscuit",
-          "body_resonator": "brass_body",
-          "res_strings": "phosphor_res"
+          "body_resonator": "steel_body",
+          "res_strings": "eighty_twenty_res"
         },
         "scores": {
-          "acoustic_technique": 6.512,
-          "string_tuning": 13.275,
+          "acoustic_technique": 6.26,
+          "string_tuning": 13.8,
           "cone_type": 0.8749999999999999,
           "body_resonator": 0.845,
-          "res_strings": 0.845
+          "res_strings": 1.04
         }
       },
       {
@@ -76,14 +76,14 @@
           "string_tuning": "open_e",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "rosewood_bs_p",
-          "string_acoustic_parlor": "phosphor_p"
+          "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 6.512,
-          "string_tuning": 13.275,
+          "acoustic_technique": 6.26,
+          "string_tuning": 13.8,
           "top_wood_parlor": 0.845,
           "back_sides_parlor": 0.5199999999999999,
-          "string_acoustic_parlor": 0.845
+          "string_acoustic_parlor": 0.89
         }
       },
       {
@@ -93,8 +93,8 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 3.835,
-          "clap_capture": 0.65
+          "clap_technique": 3.38,
+          "clap_capture": 0.5700000000000001
         }
       },
       {
@@ -107,7 +107,7 @@
         "scores": {
           "voices": 1.17,
           "accompaniment": 0.8,
-          "era": 18.199999999999996
+          "era": 17.614999999999995
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Malayalam madh is a praise-song field in Kerala Muslim musical life, especially devotional address to the Prophet. Local-language texts circulate through community gatherings, religious institutions, song collections and contemporary recordings, alongside Arabic and other regional-language praise.",
   "recipe": "classic malayalam madh, praise Song, indian subcontinent branch. tar frame drum. live tracking.",
   "recipe_chars": 95,
-  "score": 2.183,
+  "score": 1.631,
   "config": {
     "traditions": [
       "malayalam_madh"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.19500000000000003,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.2265,
-          "voice_multitrack_stack": 0.1995,
+          "voice_processing_chain": 0.195,
+          "voice_multitrack_stack": 0.168,
           "voice_tessitura": 0
         }
       },
@@ -64,9 +64,9 @@
         "scores": {
           "percussion_technique": -0.1,
           "tar_size": 0.105,
-          "tar_frame_drum_context": 0.672,
-          "tar_frame_shell_wood": 0.39,
-          "tar_frame_head": 0.105
+          "tar_frame_drum_context": 0.378,
+          "tar_frame_shell_wood": 0.3,
+          "tar_frame_head": 0
         }
       }
     ],

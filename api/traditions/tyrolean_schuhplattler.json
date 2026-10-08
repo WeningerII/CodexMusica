@@ -5,7 +5,7 @@
   "lineage": "Tyrolean Schuhplattler folk-dance-and-music tradition of the Austrian Tyrol, South Tyrol (Italy), and Bavarian Alps, in which male dancers perform synchronized choreography involving rhythmic slapping of thighs, knees, and shoe-soles in characteristic accelerating patterns, accompanied by Stubenmusik chamber-ensemble of zither, hammered dulcimer (Hackbrett), accordion, double-bass, and voice. The tradition crystallized in seventeenth-eighteenth century Alpine villages from earlier courtship-display dance-forms. Performance contexts span the Heimatabend folkloric-evening tourist-demonstrations, village-festival celebrations, and the canonical Schuhplattlerverein dance-association competitions. Distinguished from broader German Alpine music by Schuhplattler's specific male-percussive-choreographic register.",
   "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion banda militar. thick, breath veiled tone, slow rate, interlocked note trading. ensemble piano accordion, spruce top modern concert steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer, harp armed dance lilting concert zither alpine, dance driving standard bass straight steirische harmonika. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 543,
-  "score": 194.977,
+  "score": 195.357,
   "config": {
     "traditions": [
       "tyrolean_schuhplattler",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.7950000000000004,
+          "voice_register": 3.8265000000000007,
           "voice_quality": 10.529999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2,
+          "voice_vibrato": 2.275,
           "voice_articulation": 16.054999999999996,
           "voice_microtone": 15.014999999999993,
           "voice_tradition": 10.594999999999999,
@@ -79,7 +79,7 @@
           "kantele_strings": 0.195,
           "kantele_context": 3.185,
           "kantele_body_wood": 1.04,
-          "kantele_string_material": 2.535
+          "kantele_string_material": 2.6715
         }
       },
       {
@@ -94,7 +94,7 @@
           "hammer_dulcimer_courses": 1.3,
           "hammer_material": 1.3,
           "hammered_dulcimer_body_wood": 1.3,
-          "hammered_dulcimer_strings": 1.5999999999999999
+          "hammered_dulcimer_strings": 1.7365
         }
       },
       {

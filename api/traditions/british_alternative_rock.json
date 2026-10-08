@@ -5,7 +5,7 @@
   "lineage": "British alternative rock connects bands exploring varied approaches to amplified song, from direct guitar music to electronic-rock hybrids. Independent scenes and touring networks support contrasting vocal styles, rhythmic approaches and production methods.",
   "recipe": "classic modern british alternative rock, distorted Rock, alternative branch. one note per syllable. single coil electric guitar, analog synth, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter wah / envelope filter.",
   "recipe_chars": 414,
-  "score": 42.317,
+  "score": 42.276,
   "config": {
     "traditions": [
       "british_alternative_rock"
@@ -36,7 +36,7 @@
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.142125,
-          "string_gauge": 0.9099999999999999,
+          "string_gauge": 0.868,
           "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,

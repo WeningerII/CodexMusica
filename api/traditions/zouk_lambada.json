@@ -3,14 +3,14 @@
   "name": "Zouk-Lambada",
   "family": "global",
   "lineage": "Late-1990s Brazilian hybrid formed in Porto Seguro and Rio dance schools when lambada dancers adopted the slower French Antillean zouk-love groove of Kassav' and Ophélia, codified through Brazilian 'lambazouk' bands and Cape Verdean-Antillean crossovers — programmed 4/4 at 90-110 BPM with a syncopated gwo-ka-derived kick pattern, glossy DX-style electric piano and synth pads, chorused guitar arpeggios, and soft breathy Creole or Portuguese vocals.",
-  "recipe": "classic 1997-1999 zouk-lambada, functional Song, tropical song branch, African pop functional song rumba lingala zimbabwean urban grooves. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, mahogany rosewood soft down tuning clean strummed single coil electric guitar, mahogany thomastik infeld low tension jazz warm walking electric bass, mule hide canonical Cuban premium oak staved canonical Cuban congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
-  "recipe_chars": 842,
-  "score": 185.742,
+  "recipe": "classic 1997-1999 zouk-lambada, functional Song, tropical song branch, African pop functional song zimbabwean urban grooves south african pop. extended whistle, breath veiled tone, straight onset, interlocked note trading. drum machine analog, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, soft down tuning clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, high pitched lead congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 834,
+  "score": 214.035,
   "config": {
     "traditions": [
       "zouk_lambada",
-      "rumba_lingala",
-      "zim_urban_grooves"
+      "zim_urban_grooves",
+      "south_african_pop"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "kick_voice": 0.525,
           "snare_voice": 0.525,
           "hat_voice": 0,
-          "shuffle_quantize": 1.3
+          "shuffle_quantize": 0.7799999999999998
         }
       },
       {
@@ -37,7 +37,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 8.29,
+          "electronic_technique": 14.764999999999997,
           "poly_archetypes": 0.33,
           "poly_voices": 0.345,
           "poly_maker_lineage": -0.035
@@ -47,10 +47,10 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_soldano_slo100",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "flatwound_elec",
           "string_gauge": "g_11",
@@ -61,81 +61,81 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.844999999999999,
-          "amp_make": 1.4299999999999997,
-          "body_wood": 1.3,
-          "neck_wood": 1.3,
-          "fretboard": 1.2349999999999999,
+          "electric_technique": 14.844999999999997,
+          "amp_make": 1.6949999999999996,
+          "body_wood": 0.65,
+          "neck_wood": 0.375,
+          "fretboard": 0.435,
           "pickup_magnet": 0.24,
           "string_material": 0.15,
-          "string_gauge": 1.3,
+          "string_gauge": 0.65,
           "bridge": 0.7650000000000001,
-          "scale_length": 1.3,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 1.3,
+          "string_tuning": 1.4949999999999999,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "thomastik_jazz_bass_flat",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking",
+          "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.4299999999999997,
-          "body_wood": 1.3,
+          "amp_make": 3.3150000000000004,
+          "body_wood": 0.65,
           "pickup_config": 0.525,
-          "string_type": 3.25,
-          "scale_length_b": 1.3,
+          "string_type": 2.5999999999999996,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.195,
-          "bass_technique": 2.5,
+          "bass_technique": 0.25,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 10.519999999999992,
-          "voice_quality": 7.865,
+          "voice_register": 16.664999999999996,
+          "voice_quality": 6.175,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.135,
-          "voice_articulation": 17.224999999999994,
-          "voice_microtone": 16.834999999999994,
-          "voice_tradition": 10.432500000000001,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 25.739999999999995,
-          "voice_ensemble_config": 16.119999999999994,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 16.834999999999994,
+          "voice_microtone": 16.44499999999999,
+          "voice_tradition": 18.654999999999998,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 24.244999999999994,
+          "voice_ensemble_config": 17.419999999999995,
           "voice_ornament_system": 0.5399999999999999,
-          "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 2.47,
-          "voice_multitrack_stack": 2.7950000000000004
+          "voice_pitch_organization": 0.15,
+          "voice_processing_chain": 3.38,
+          "voice_multitrack_stack": 3.8675000000000006
         }
       },
       {
@@ -148,11 +148,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 8.29,
-          "fm_algorithm": 0.8450000000000001,
+          "electronic_technique": 14.764999999999997,
+          "fm_algorithm": 0.345,
           "fm_modulator_ratio": 0.28500000000000003,
-          "fm_polyphony": 0.39,
-          "fm_model_lineage": 4.9399999999999995
+          "fm_polyphony": 0.845,
+          "fm_model_lineage": 7.669999999999999
         }
       },
       {
@@ -164,10 +164,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.26,
-          "conga_set": 0.39,
-          "conga_skin": 1.3,
-          "conga_shell_wood": 1.3
+          "percussion_technique": 1.1049999999999998,
+          "conga_set": 1.04,
+          "conga_skin": 0.9149999999999998,
+          "conga_shell_wood": 0.9149999999999998
         }
       }
     ],

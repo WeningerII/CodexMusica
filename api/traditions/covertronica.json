@@ -5,7 +5,7 @@
   "lineage": "Covertronica gathers electronic dance reinterpretations of familiar songs, connecting vocal remakes and remix production with club and streaming circulation. Producers rebuild recognizable hooks for contemporary dance arrangements, while DJs bring those records into continuous programmes.",
   "recipe": "classic covertronica, electronic Dance, house branch. dj playback mixing unspecified. live tracking.",
   "recipe_chars": 100,
-  "score": 0.054,
+  "score": 0,
   "config": {
     "traditions": [
       "covertronica"
@@ -17,7 +17,7 @@
           "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
         },
         "scores": {
-          "dj_playback_mixing_identity": 0.054
+          "dj_playback_mixing_identity": 0
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s–2010s Puerto Rican and New York studio hybrid, codified by Víctor Manuelle's crossovers, N'Klabe and Marc Anthony's urban collaborations — salsa montuno and mambo sections at 95–105 BPM cut against reggaeton dembow, rap verses, sampled loops and heavily compressed programmed percussion alongside a live rhythm section.",
   "recipe": "classic Caribbean 1997-1999 salsa urbana, groove Percussion, son salsa branch, reggaeton MC rhythm, tropical song functional song cubatón. extended whistle, rap, straight onset, interlocked note trading. mule hide canonical Cuban premium oak staved canonical Cuban congas, pre modern classic salsa brass timbales, pyramid pure nickel bass British mid 60s era sub heavy electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, student commercial trombone, TR-808, sampler, mule hide canonical Cuban son premium oak staved canonical Cuban bongos. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
   "recipe_chars": 721,
-  "score": 203.36,
+  "score": 204.08,
   "config": {
     "traditions": [
       "salsa_urbana",
@@ -45,17 +45,17 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.4299999999999995,
-          "body_wood": 0,
+          "body_wood": 0.09,
           "pickup_config": 0.975,
           "string_type": 1.755,
           "scale_length_b": 0.39,
@@ -78,7 +78,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 2.475,
+          "keyboard_technique": 2.52,
           "grand_piano_size": 0.44999999999999996,
           "grand_piano_brand": 0.195,
           "piano_hammer": 3.4699999999999998,
@@ -101,7 +101,7 @@
           "trombone_maker_school": "trombone_yamaha_xeno"
         },
         "scores": {
-          "wind_articulation": 1.8999999999999997,
+          "wind_articulation": 1.9449999999999996,
           "trombone_type": 0.845,
           "trombone_mouthpiece": 2.9549999999999996,
           "trombone_mute": 0.44999999999999996,
@@ -133,7 +133,7 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 1.595,
+          "electronic_technique": 1.79,
           "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.39,
           "sampler_workflow": 0.325,
@@ -175,7 +175,7 @@
           "voice_ensemble_config": 15.404999999999992,
           "voice_ornament_system": 5.005000000000002,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 3.845,
+          "voice_processing_chain": 4.19,
           "voice_multitrack_stack": 8.515
         }
       },

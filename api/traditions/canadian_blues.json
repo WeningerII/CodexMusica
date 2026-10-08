@@ -5,7 +5,7 @@
   "lineage": "Canadian blues sustains the African American blues tradition through local clubs, touring bands, recordings and festivals. Organizations such as the Toronto Blues Society link performers, audiences and educational programmes across a national network that embraces acoustic blues and amplified bands.",
   "recipe": "classic canadian blues, functional Song, blues electric branch. unprocessed natural acoustic, single lead single track no stacking. blues slide open string slide resonance humbucker electric guitar, electric bass, digital subtractive, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, saxophone, bach 42 canonical American orchestral tenor trombone, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 519,
-  "score": 111.094,
+  "score": 112.262,
   "config": {
     "traditions": [
       "canadian_blues"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.69,
-          "voice_multitrack_stack": 1.0290000000000001,
+          "voice_multitrack_stack": 1.239,
           "voice_tessitura": 0
         }
       },
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_5_h",
@@ -72,15 +72,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 1.0399999999999998,
-          "body_wood": 0.1995,
-          "neck_wood": 0.1995,
+          "body_wood": 0.3045,
+          "neck_wood": 0.27299999999999996,
           "fretboard": 0.0315,
           "pickup_magnet": 0.16799999999999998,
           "pickup_winding": 0.147,
           "string_material": 0.0315,
-          "bridge": 0.1995,
-          "scale_length": 0.39899999999999997,
-          "string_gauge": 0.4725,
+          "bridge": 0.27299999999999996,
+          "scale_length": 0.5459999999999999,
+          "string_gauge": 0.6194999999999999,
           "finish": 0.0315,
           "string_tuning": 8.84
         }
@@ -91,7 +91,7 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "tape_wound_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 1.4299999999999997,
-          "body_wood": 0.39899999999999997,
+          "body_wood": 0.5459999999999999,
           "pickup_config": 0.0315,
-          "string_type": 0.26,
-          "scale_length_b": 0.1995,
+          "string_type": 0.43050000000000005,
+          "scale_length_b": 0.27299999999999996,
           "fretted_or_not": 0.063,
           "bass_technique": -0.11850000000000002,
           "electric_bass_string_configuration": 0
@@ -133,9 +133,9 @@
         },
         "scores": {
           "harmonica_type": 0.294,
-          "harmonica_comb": 18.4855,
-          "harmonica_reed": 17.361,
-          "harmonica_technique": 17.991,
+          "harmonica_comb": 18.4225,
+          "harmonica_reed": 17.4345,
+          "harmonica_technique": 17.854499999999998,
           "harmonica_maker_school": 22.035,
           "harmonica_tuning": 8.84
         }
@@ -147,13 +147,13 @@
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "rose_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_split_tone_overblown",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
-          "sax_size": 0.1995,
+          "sax_size": 0.27299999999999996,
           "sax_reed": 0.063,
           "sax_body_alloy": -0.035,
           "sax_mouthpiece": 0.0315,
@@ -191,7 +191,7 @@
         },
         "scores": {
           "drum_technique": -0.035,
-          "drumhead": 0.1995,
+          "drumhead": 0.27299999999999996,
           "drum_kit_kick_pedal": 0
         }
       }

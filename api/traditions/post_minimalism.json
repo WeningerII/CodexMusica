@@ -5,7 +5,7 @@
   "lineage": "Emerging in New York and Britain circa 1975-1990 as composers including John Adams, Michael Nyman, Louis Andriessen, Arvo Pärt and the Bang on a Can circle absorbed Reich-Glass pulse technique back into functional harmony, expressive phrase-shape and long-form architecture — steady eighth-note motor pulse, additive but audibly directional harmonic rhythm, mixed amplified chamber forces (piano, mallets, electric guitar, saxophones, strings), fully notated with no improvisation and dynamic arcs the earlier minimalists refused.",
   "recipe": "classic British mid-1980s post-minimalism, art Music, western modern branch, ambient experimental electric, art rock distorted rock art punk motorpop. soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, marimba sitka spruce hard rock maple acer saccharum oil varnish amber tinted violin orchestral, treble-extended articulate rubber vibraphone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, gold brass warmer tone ebonite saxophone, string quartet inst, engelmann spruce hard rock maple oil varnish amber tinted modern setup cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
   "recipe_chars": 709,
-  "score": 224.96,
+  "score": 226.34,
   "config": {
     "traditions": [
       "post_minimalism",
@@ -30,11 +30,11 @@
           "keyboard_technique": 5.574999999999999,
           "grand_piano_size": 1.045,
           "grand_piano_brand": 0.65,
-          "piano_hammer": 13.905,
+          "piano_hammer": 13.95,
           "piano_rim": 13.71,
           "piano_soundboard": 7.74,
           "piano_pinblock": 6.445,
-          "piano_plate": 6.25,
+          "piano_plate": 6.4,
           "piano_pitch_standard": 9.835
         }
       },
@@ -47,7 +47,7 @@
         },
         "scores": {
           "percussion_technique": 1.75,
-          "marimba_size": 1,
+          "marimba_size": 1.15,
           "marimba_orchestral_bar": 0.65
         }
       },
@@ -61,7 +61,7 @@
         },
         "scores": {
           "percussion_technique": 1.75,
-          "vibe_motor": 1.1949999999999998,
+          "vibe_motor": 1.345,
           "vibe_mallets": 2.04,
           "vibe_bar_material": 0
         }
@@ -92,10 +92,10 @@
           "pickup_magnet": 1.04,
           "string_material": 1.56,
           "string_gauge": 1.4,
-          "bridge": 0.3,
+          "bridge": 0.40499999999999997,
           "scale_length": 1.345,
           "finish": 0,
-          "string_tuning": 10.805,
+          "string_tuning": 10.61,
           "single_coil_pickup_construction": 0
         }
       },
@@ -117,7 +117,7 @@
           "sax_body_alloy": 6.4,
           "sax_mouthpiece": 1.155,
           "sax_technique": 0.825,
-          "sax_maker_school": 0.44999999999999996
+          "sax_maker_school": 0.36
         }
       },
       {
@@ -152,10 +152,10 @@
           "cello_top_wood": 3.75,
           "cello_back_wood": 11.21,
           "cello_varnish": 6.25,
-          "cello_setup_period": 5.245,
-          "cello_bow_grip": 1,
+          "cello_setup_period": 5.3500000000000005,
+          "cello_bow_grip": 1.15,
           "cello_rosin": 6.835,
-          "cello_bow_stick": 6.5
+          "cello_bow_stick": 6.65
         }
       },
       {
@@ -176,13 +176,13 @@
           "bowed_technique": 3.25,
           "orch_strings": 0.7,
           "orch_top_wood": 5.045,
-          "orch_back_wood": 12.65,
+          "orch_back_wood": 12.845,
           "orch_varnish": 6.25,
-          "orch_setup_period": 5.245,
+          "orch_setup_period": 5.3500000000000005,
           "orch_bow": 1,
-          "orch_bow_stick": 6.5,
+          "orch_bow_stick": 6.65,
           "orch_articulation": 1.2449999999999999,
-          "orch_rosin": 7.11
+          "orch_rosin": 7.32
         }
       }
     ],

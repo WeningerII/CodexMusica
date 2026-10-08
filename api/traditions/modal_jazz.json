@@ -5,7 +5,7 @@
   "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Impressions and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
   "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal borneo traditional rogaland musikk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, no chemical hardener t rivet 17 ply hard rock maple sitka spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 676,
-  "score": 196.655,
+  "score": 196.69,
   "config": {
     "traditions": [
       "modal_jazz",
@@ -48,7 +48,7 @@
         "scores": {
           "wind_articulation": 4,
           "brass_size": 0.845,
-          "trumpet_mouthpiece": 15.905,
+          "trumpet_mouthpiece": 15.754999999999999,
           "brass_mute": 1.0999999999999999,
           "trumpet_technique": 4,
           "trumpet_bell_metal": 0.795,
@@ -66,18 +66,18 @@
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
           "keyboard_technique": 2.2500000000000004,
           "grand_piano_size": 0.995,
           "grand_piano_brand": 0.845,
-          "piano_hammer": 5.494999999999999,
-          "piano_rim": 6.0649999999999995,
+          "piano_hammer": 5.539999999999999,
+          "piano_rim": 6.214999999999999,
           "piano_soundboard": 4.9399999999999995,
           "piano_pinblock": 4.934999999999999,
           "piano_plate": 4.39,
-          "piano_pitch_standard": 7.425
+          "piano_pitch_standard": 7.414999999999998
         }
       },
       {

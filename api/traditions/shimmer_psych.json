@@ -5,7 +5,7 @@
   "lineage": "Spook Houses — Trying (2012), complete nine-track album. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic early-2010s shimmer psych, distorted Rock, alternative branch. one note per syllable, duet, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, saw bowed hand saw musical saw, yellow brass canonical 70 30 bach stradivarius trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 452,
-  "score": 36.475,
+  "score": 37.126,
   "config": {
     "traditions": [
       "shimmer_psych"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 0.8999999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.6,
           "voice_tessitura": 0
         }
@@ -73,14 +73,14 @@
           "electric_technique": 2.21,
           "amp_make": 0,
           "body_wood": 0.39,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.6825000000000001,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0,
           "bridge": 0,
-          "scale_length": 1.1550000000000002,
-          "string_gauge": 1.573,
+          "scale_length": 1.3650000000000004,
+          "string_gauge": 1.468,
           "finish": 0,
           "string_tuning": 1.3
         }
@@ -129,7 +129,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 1.8415000000000001,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
+          "bearing_edges": 0.2415,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 5.931500000000001,
@@ -161,11 +161,11 @@
         },
         "scores": {
           "wind_articulation": 0.2,
-          "brass_size": 0.105,
+          "brass_size": 0.2415,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0.273,
-          "trumpet_technique": 0.3235,
-          "trumpet_bell_metal": 1.2285,
+          "trumpet_technique": 0.25,
+          "trumpet_bell_metal": 1.5014999999999998,
           "trumpet_maker_school": 0.39
         }
       }

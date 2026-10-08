@@ -5,7 +5,7 @@
   "lineage": "Coined in Berlin in 1993 by Alec Empire, who founded the Digital Hardcore Recordings label and Atari Teenage Riot to fuse hardcore punk's shouted political sloganeering with 180-220 BPM breakbeat programming — Amen and Funky Drummer breaks pushed into clipping distortion, downtuned electric guitar riffs cut into sampler-triggered stabs, screamed dual male-female vocals in German and English, and an anti-fascist agitprop lyric stance shaped by the post-reunification squat scene.",
   "recipe": "classic Central European early-1990s digital hardcore, experimental Elec, industrial noise branch, punk distorted rock, hardstyle electronic dance flashcore frenchcore. thick, breath veiled tone, slow rate, interlocked note trading. glitched textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, analog mono synth, roland tr 8s modern aira digital recreation TR-909, rock canon ernie ball slinky electric bass. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 683,
-  "score": 228.012,
+  "score": 227.427,
   "config": {
     "traditions": [
       "digital_hardcore",
@@ -18,7 +18,7 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "roland_s750",
-          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_hiphop"
         },
@@ -44,7 +44,7 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_c"
         },
         "scores": {
@@ -57,10 +57,10 @@
           "pickup_winding": 0.21,
           "string_material": 0.09,
           "bridge": 0.845,
-          "scale_length": 2.025,
+          "scale_length": 1.8299999999999998,
           "string_gauge": 0.845,
-          "finish": 0.195,
-          "string_tuning": 2.46
+          "finish": 0,
+          "string_tuning": 2.4599999999999995
         }
       },
       {
@@ -95,7 +95,7 @@
           "voice_mechanism_compound": 20.535,
           "voice_estill_quality": 2.7950000000000004,
           "voice_speech_song": 17.679999999999993,
-          "voice_ensemble_config": 18.63,
+          "voice_ensemble_config": 18.435,
           "voice_ornament_system": 1.0399999999999996,
           "voice_pitch_organization": 0.9099999999999999,
           "voice_processing_chain": 14.645000000000001,
@@ -136,7 +136,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_modern_modeling",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",

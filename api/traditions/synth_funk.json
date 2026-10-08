@@ -5,7 +5,7 @@
   "lineage": "Synth funk places electronic keyboards and drum-machine grooves at the centre of funk, extending the sound of boogie and electronic soul.",
   "recipe": "classic synth funk, groove Percussion, funk percussive branch. analog poly synth, drum machine analog. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 182,
-  "score": 0.283,
+  "score": 0.703,
   "config": {
     "traditions": [
       "synth_funk"
@@ -21,8 +21,8 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "poly_archetypes": 0,
-          "poly_voices": 0.0315,
+          "poly_archetypes": 0.105,
+          "poly_voices": 0.273,
           "poly_maker_lineage": -0.035
         }
       },
@@ -35,9 +35,9 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.0315,
-          "snare_voice": 0.105,
-          "hat_voice": 0,
+          "kick_voice": 0.063,
+          "snare_voice": 0.0735,
+          "hat_voice": 0.0735,
           "shuffle_quantize": -0.05
         }
       }

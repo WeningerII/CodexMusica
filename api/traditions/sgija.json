@@ -5,7 +5,7 @@
   "lineage": "South African township dance strain that surfaced around 2019-2021 in Gauteng out of amapiano and Pretoria's Bacardi house, driven by Felo Le Tee, Mellow & Sleazy, Kabza-adjacent producers and dance crews — 112-118 BPM, dominated by a long pitched log-drum bass figure, dry shaker-and-clap grid, siren-like synth stabs and repeated shouted isiZulu/Sepitori chants rather than sung verses.",
   "recipe": "classic 2019-2021 sgija, electronic Dance, African dance branch, deep house house, Afro-diasporic MC rhythm funk consciente turkish deep house. extended whistle, breath veiled tone, straight onset, interlocked note trading. log drum, TR-808, sub bass analog poly synth, close dry hand clap, deep foundational bass rhythm calabash shekere. no single room 2015-present distributed distributed production. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 486,
-  "score": 146.985,
+  "score": 146.685,
   "config": {
     "traditions": [
       "sgija",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.6949999999999996,
           "voice_pitch_organization": 1.3499999999999999,
           "voice_processing_chain": 13.254999999999999,
-          "voice_multitrack_stack": 5.465000000000001
+          "voice_multitrack_stack": 5.525000000000001
         }
       },
       {
@@ -60,7 +60,7 @@
         },
         "scores": {
           "log_drum_voice": 1.84,
-          "log_drum_context": 3.65
+          "log_drum_context": 3.8
         }
       },
       {
@@ -71,8 +71,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 4.039999999999999,
-          "drum_machine_808_context": 3.5749999999999993,
+          "tr808_voice": 3.8899999999999997,
+          "drum_machine_808_context": 3.5149999999999997,
           "tr808_production_origin": 0.495
         }
       },
@@ -85,7 +85,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 3.985,
+          "electronic_technique": 3.835,
           "poly_archetypes": 0.345,
           "poly_voices": 0.345,
           "poly_maker_lineage": -1.8549999999999998
@@ -98,7 +98,7 @@
           "clap_capture": "clap_close_dry"
         },
         "scores": {
-          "clap_technique": 0.675,
+          "clap_technique": 0.525,
           "clap_capture": 1.15
         }
       },

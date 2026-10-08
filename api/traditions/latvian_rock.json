@@ -5,7 +5,7 @@
   "lineage": "Latvian rock includes independent guitar bands with melodic song-centered arrangements.",
   "recipe": "classic latvian rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp basswood electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 346,
-  "score": 34.152,
+  "score": 34.77,
   "config": {
     "traditions": [
       "latvian_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.818,
+          "electric_technique": 0.7865,
           "amp_make": 6.11,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "neck_wood": 0.105,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 0,
           "pickup_winding": 0.1365,
           "string_material": 0.105,
-          "bridge": 0.273,
+          "bridge": 0.33699999999999997,
           "scale_length": 0,
-          "string_gauge": 0.273,
+          "string_gauge": 0.33699999999999997,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.03899999999999999
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.5649999999999995,
-          "body_wood": 2.4255,
+          "body_wood": 2.667,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.5145,
+          "drumhead": 0.546,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.273,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.168,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

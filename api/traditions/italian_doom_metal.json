@@ -5,7 +5,7 @@
   "lineage": "Italian doom metal represented by Doomraiser’s heavy, psychedelic-tinged electric ensemble. Exact defaults are an authored contemporary realization.",
   "recipe": "classic modern italian doom metal, distorted Rock, doom branch. orange amp British heavy crunch basswood low output no compression riff driven humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 451,
-  "score": 87.399,
+  "score": 86.635,
   "config": {
     "traditions": [
       "italian_doom_metal"
@@ -71,13 +71,13 @@
         },
         "scores": {
           "electric_technique": 14.288999999999998,
-          "amp_make": 13.348499999999998,
+          "amp_make": 13.075499999999998,
           "body_wood": 6.499999999999999,
           "neck_wood": 0.78,
           "fretboard": 0.78,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 1.17,
-          "string_material": 0.39,
+          "pickup_magnet": 0.3,
+          "pickup_winding": 1.1355,
+          "string_material": 0.3,
           "bridge": 0.78,
           "scale_length": 6.499999999999999,
           "string_gauge": 1.56,
@@ -98,7 +98,7 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.348499999999998,
+          "amp_make": 13.075499999999998,
           "body_wood": 0.78,
           "pickup_config": 0,
           "string_type": 4.875,
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 2.0799999999999996,
+          "drumhead": 2.0451249999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,12 +127,12 @@
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": 0.26,
           "poly_archetypes": 1.95,
-          "poly_voices": 1.157125,
+          "poly_voices": 1.188625,
           "poly_maker_lineage": 0.975
         }
       }
