@@ -285,6 +285,9 @@ export const lyricCapacity = () => bridge.capacity();
 // that matters — it has answered at least one request in this process, so its
 // replay memo is populated. Read straight off the bridge; see workerState().
 export const lyricWorkerState = () => bridge.workerState();
+// Private reader jobs share this worker; this is not a connector tool or a
+// provider entrance. The lookup bridge retains its existing separate contract.
+export const readerPythonBridge = bridge;
 export const _workerInternals = bridge.internals;
 
 const EXIT_MEANING = {

@@ -5104,6 +5104,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
+      'mcp/test_reader_job_store.mjs': 'offline durable Library reader job regressions',
+      'mcp/test_reader_client.mjs': 'offline signed Library reader route and scheduler regressions',
+      'mcp/test_reader_integration.mjs':
+        'local catalog Library reader interruption/resume regressions',
       'mcp/test_lookup_queue.mjs': 'offline lookup-does-not-queue-behind-a-grade regression',
       'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
       'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
@@ -5146,6 +5150,7 @@ await check('validation: actionable errors', () => {
       'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',
+      'mcp/READER_RUNTIME.md': 'Library reader operator documentation',
       'mcp/BATTERY_RECOVERY.md': 'battery recovery operator documentation',
       'mcp/test_gemini_proposer.py':
         "the kitchen proposer's own suite (M-254) — spawned by this suite against a stub Gemini; the image carries gemini_proposer.py and not its test",
@@ -6535,6 +6540,38 @@ if __name__ == '__main__':
     });
     m279.flood = await bridge.runVerb(['flood']);
     bridge.internals.kill();
+
+    // A typed reader lease has its own bounded budget. An immediate local
+    // protocol reply lets the real bridge expose that wall without waiting
+    // ten minutes or importing a source/model pipeline into this fixture.
+    const readerWorkerPath = join(m279.dir, 'mcp', 'reader-deadline-worker.py');
+    writeFileSync(
+      readerWorkerPath,
+      `import sys, json
+for line in sys.stdin:
+    request = json.loads(line)
+    print(json.dumps({'id': request['id'], 'code': 0, 'reader_result': {
+        'status': 'yielded', 'reason': 'YIELD', 'provider_calls': 0}}), flush=True)
+`
+    );
+    const readerBridge = createPythonBridge({
+      python: process.env.LYRIC_PYTHON || 'python3',
+      harnessDir,
+      workerPath: readerWorkerPath,
+      harnessEnv: () => ({ ...process.env, PYTHONDONTWRITEBYTECODE: '1' }),
+      timeoutMs: M279_KILL_MS,
+      workerEnabled: true,
+    });
+    const reader = (options = {}) =>
+      readerBridge.runReaderLease(
+        { lease_ms: 600000 },
+        { onReaderCheckpoint: () => ({}), ...options }
+      );
+    m279.readerDefault = await reader();
+    m279.readerShort = await reader({ timeoutMs: 2500 });
+    m279.readerCapped = await reader({ timeoutMs: 700000 });
+    m279.readerCaller = await reader({ deadlineAt: performance.now() + 900 });
+    readerBridge.internals.kill();
   } catch (error) {
     m279.error = error;
   }
@@ -6648,11 +6685,39 @@ if __name__ == '__main__':
         M279_KILL_MS,
         'the budget VALUE is reported, never moved'
       );
-      const bridgeSrc = readFileSync(new URL('./python_bridge.js', import.meta.url), 'utf8');
-      assert.ok(
-        /const deadlineAt = Math\.min\(at \+ timeoutMs, external - reserve\);/.test(bridgeSrc),
-        'the deadline arithmetic is untouched: this repair reports it and computes nothing new'
-      );
+      assert.equal(wall.caller_deadline_ms, null);
+      assert.equal(wall.reserve_ms, 0, 'without a caller deadline there is no delivery reserve');
+      const callerMinimum = (deadline) => {
+        assert.ok(deadline.caller_deadline_ms > 0);
+        assert.ok(
+          Math.abs(deadline.reserve_ms - Math.min(1000, deadline.caller_deadline_ms * 0.05)) <= 1,
+          'the delivery reserve is five percent of the remaining caller wall, capped at one second'
+        );
+        assert.ok(
+          Math.abs(
+            deadline.cap_ms -
+              Math.min(deadline.tool_budget_ms, deadline.caller_deadline_ms - deadline.reserve_ms)
+          ) <= 1,
+          'the actual cap is the minimum of this family budget and the caller wall less its reserve'
+        );
+      };
+      callerMinimum(caller);
+      for (const [result, budget] of [
+        [m279.readerDefault, 605000],
+        [m279.readerShort, 2500],
+        [m279.readerCapped, 605000],
+      ]) {
+        assert.equal(result.code, 0, `the typed local reader fixture answered: ${result.stderr}`);
+        assert.equal(result.path, 'warm-reader', 'reader work cannot enter a cold replay');
+        assert.equal(result.reader_result.provider_calls, 0);
+        assert.equal(result.tool_deadline.tool_budget_ms, budget);
+        assert.equal(result.tool_deadline.cap_ms, budget);
+        assert.equal(result.tool_deadline.bound_by, 'tool_budget');
+      }
+      assert.equal(m279.readerCaller.code, 0);
+      assert.equal(m279.readerCaller.tool_deadline.tool_budget_ms, 605000);
+      assert.equal(m279.readerCaller.tool_deadline.bound_by, 'caller_deadline');
+      callerMinimum(m279.readerCaller.tool_deadline);
       const [projected] = m279Projected([{ name: 'lyric_revise', ...m279Row(m279.inCook) }]);
       assert.equal(projected.tool_deadline.cap_seconds, M279_KILL_MS / 1000);
       assert.equal(projected.tool_deadline.bound_by, 'tool_budget');

@@ -103,3 +103,9 @@ assets/earth-tiles
 # lyric-harness/map: trace.json and ran.json are written by map/trace.mjs and
 # map/build.py and byte-compared by `map/build.py --check`; a reflow would churn them.
 lyric-harness/map/*.json
+
+# Generated immutable Library transport artifacts and identity contracts.
+/lyric-harness/library/snapshot/
+/lyric-harness/data/library_identity_registry.json.gz
+/lyric-harness/library/methods.json
+/lyric-harness/library/schema.json

@@ -17,7 +17,13 @@ COPY lyric-harness ./lyric-harness
 RUN cd lyric-harness \
  && python3 -c "import lyric_harness; lyric_harness.fetch_data()" \
  && python3 quality/fetch_data.py --runtime \
+ && python3 -m library.registry > library/methods.json \
+ && python3 -c "from pathlib import Path; from library.contracts import RESULT_SCHEMA, canonical_json; Path('library/schema.json').write_text(canonical_json(RESULT_SCHEMA) + '\\n', encoding='utf-8')" \
+ && python3 -m library.catalog build --output /build/library-canonical \
+      --repo-sha 04d53f113ad3b484a5a61686e2e152edf07c5b1b \
+      --source-manifest library/catalog_sources.json \
  && python3 quality/release_assets.py --assemble /runtime/lyric-harness \
+      --reader-catalog /build/library-canonical \
  && python3 quality/release_assets.py --root /runtime/lyric-harness \
       --staged-data /runtime/lyric-harness/data --check
 
@@ -32,6 +38,7 @@ COPY references ./references
 # than a failed COPY. The exact file is git-ignored and its siblings
 # (`.part`, `.bak`) are docker-ignored, so nothing ships either by accident.
 COPY mcp/*.js mcp/production-config.json mcp/capacity_verification.json* ./mcp/
+COPY mcp/qualify_reader.mjs ./mcp/
 COPY mcp/worker.py mcp/gemini_proposer.py ./mcp/
 # Only approved runtime assets reach a final layer; research corpora and optional
 # uncleared norms remain outside the deployed image.
@@ -88,6 +95,7 @@ RUN cd /app/lyric-harness \
 ENV BUILD_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV LYRIC_RELEASE_ASSETS_REQUIRED=1
+ENV READER_CATALOG_DIR=/app/lyric-harness/library/snapshot
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp
