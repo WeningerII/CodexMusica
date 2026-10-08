@@ -822,6 +822,18 @@ def test_the_shadow_reaches_what_the_suites_read():
             os.path.join(tree, "../.claude/render_form_hook.sh"))
         check("and the Stop hook keeps its executable bit through the mirror",
               os.path.exists(hook) and os.access(hook, os.X_OK), hook)
+        lexical = subprocess.run([sys.executable, "-c", """
+import lyric_harness as LH
+from quality.release_assets import manifest, verify_asset
+for asset in manifest(LH.HERE + '/data/runtime_assets.json')['assets']:
+    if asset['base'] == 'root':
+        verify_asset(asset['id'], root=LH.HERE)
+LH.fetch_data(download=False)
+print('every declared root asset verifies; lexical baseline staged offline')
+"""], cwd=tree, capture_output=True, text=True, timeout=60)
+        check("declared root assets stay regular and exact inside a real shadow",
+              lexical.returncode == 0,
+              (lexical.stdout + lexical.stderr).strip())
         probe = subprocess.run([sys.executable, "-c", """
 from pathlib import Path
 from quality.lyric_reader import ROOT, lyric_items, calibration_items
@@ -863,6 +875,22 @@ print('source printings 2, declared work votes 1')
         check("every SIBLING_RULES directory present at the repo root is "
               "present in the shadow", not absent,
               f"declared {declared}, absent {absent or 'none'}")
+        # The copy policy must also isolate writes. A planted defect may write
+        # its own input, but cannot poison the original or the frozen snapshot.
+        import hashlib
+        from pathlib import Path
+        cmu = os.path.join(tree, "cmudict.dict")
+        original = os.path.join(mutate.ROOT, "cmudict.dict")
+        frozen = os.path.join(mutate._SNAPSHOT["path"],
+                              mutate.HARNESS_DIRNAME, "cmudict.dict")
+        expected = hashlib.sha256(Path(original).read_bytes()).hexdigest()
+        regular = not os.path.islink(cmu) and not os.path.islink(frozen)
+        if regular:
+            with open(cmu, "ab") as stream:
+                stream.write(b'\nshadow write isolation probe\n')
+        check("a shadow asset write cannot change the source or next mutant",
+              regular and all(hashlib.sha256(Path(path).read_bytes()).hexdigest() == expected
+                  for path in (original, frozen)))
     finally:
         shutil.rmtree(mutate.shadow_root(tree), ignore_errors=True)
 
