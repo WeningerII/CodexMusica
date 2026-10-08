@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import fs from 'node:fs';
 import { createRuntimeAssetReader } from './runtime_assets.js';
 
 const assetInventory = {
@@ -124,6 +125,90 @@ test('cached readiness notices an undeclared file in an existing unlisted nested
     writeFileSync(extra, 'unapproved');
     assert.equal(reader().ok, false);
     assert.equal(checks, 2);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('cached reader readiness rechecks a held body inserted beneath an existing snapshot directory', (t) => {
+  const directory = mkdtempSync(join(tmpdir(), 'runtime-reader-extra-'));
+  const fixtureRoot = join(directory, 'harness');
+  const sourceRoot = fileURLToPath(new URL('../lyric-harness/', import.meta.url)).replace(
+    /\/$/,
+    ''
+  );
+  const retainedSnapshot = 'a'.repeat(64);
+  const currentDirectory = 'library/snapshot';
+  const retainedDirectory = `${currentDirectory}/${retainedSnapshot}`;
+  const readings = join(fixtureRoot, retainedDirectory, 'readings');
+  const heldBody = join(readings, 'undeclared-held-reading.json');
+  const proof = join(directory, 'proof.json');
+  mkdirSync(readings, { recursive: true });
+  mkdirSync(join(fixtureRoot, 'data'), { recursive: true });
+  writeFileSync(proof, '{"version":1}');
+  for (const relative of [
+    `${currentDirectory}/manifest.json`,
+    `${retainedDirectory}/manifest.json`,
+  ]) {
+    writeFileSync(join(fixtureRoot, relative), '{"approved":"fixture"}');
+  }
+  writeFileSync(
+    join(fixtureRoot, 'data/runtime_assets.json'),
+    JSON.stringify({
+      version: 1,
+      assets: [
+        { id: 'library_catalog', directory: currentDirectory },
+        { id: `library_catalog_${retainedSnapshot}`, directory: retainedDirectory },
+      ].map((asset) => ({
+        ...asset,
+        base: 'root',
+        runtime: true,
+        decision: 'approved',
+        files: [{ path: `${asset.directory}/manifest.json` }],
+      })),
+    })
+  );
+  // The runtime reader has a fixed installed root. Redirect its filesystem
+  // reads to actual fixture files so no repository manifest is overwritten.
+  const fixturePath = (file) => {
+    if (typeof file !== 'string') return file;
+    if (file === sourceRoot) return fixtureRoot;
+    return file.startsWith(`${sourceRoot}/`)
+      ? join(fixtureRoot, file.slice(sourceRoot.length + 1))
+      : file;
+  };
+  for (const name of ['readFileSync', 'statSync', 'realpathSync', 'readdirSync']) {
+    const original = fs[name];
+    t.mock.method(fs, name, (file, ...args) => original(fixturePath(file), ...args));
+  }
+  let checks = 0;
+  const reader = createRuntimeAssetReader({
+    env: {
+      LYRIC_RELEASE_ASSETS_REQUIRED: '1',
+      LYRIC_STAGED_DATA: join(fixtureRoot, 'data'),
+      LYRIC_CAPACITY_ATTESTATION: proof,
+    },
+    source: () => 'fixed',
+    run: (_python, args) => {
+      if (!args[0].endsWith('release_assets.py')) return { status: 0 };
+      checks++;
+      return existsSync(heldBody)
+        ? {
+            status: 2,
+            stdout: JSON.stringify({ ok: false, errors: ['undeclared held reader body'] }),
+          }
+        : assetInventory;
+    },
+  });
+  try {
+    assert.equal(reader().ok, true);
+    assert.equal(reader().ok, true);
+    assert.equal(checks, 1, 'unchanged snapshot readiness should stay cached');
+    writeFileSync(heldBody, '{"availability":"held","body":"withheld words"}');
+    const refused = reader();
+    assert.equal(refused.ok, false);
+    assert.match(refused.errors.join(' '), /undeclared held reader body/);
+    assert.equal(checks, 2, 'a nested insertion must execute inventory again');
   } finally {
     rmSync(directory, { recursive: true, force: true });
   }

@@ -1,0 +1,117 @@
+name: Library Site
+
+on:
+  pull_request:
+    paths:
+      - 'sites/library/**'
+      - '.github/workflows/library-site.yml'
+  push:
+    branches: ['**']
+    paths:
+      - 'sites/library/**'
+      - '.github/workflows/library-site.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: library-site-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  library-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: sites/library
+        shell: bash
+    env:
+      CLOUDFLARE_CF_FETCH_ENABLED: 'false'
+      WRANGLER_SEND_METRICS: 'false'
+      WRANGLER_WRITE_LOGS: 'false'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+          package_json_file: sites/library/package.json
+          run_install: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the immutable frontend dependency graph
+        run: pnpm install --frozen-lockfile
+      - name: Typecheck the approved frontend
+        run: pnpm exec tsc --noEmit
+      - name: Verify signed package publication and corruption refusal
+        run: node scripts/test-library-package-import.cjs
+
+      # The approved Site deliberately retains its qualified immutable catalog.
+      # Current main contains later corpus additions and is not this fixture.
+      # Only source inputs are fetched; canonical JSON/gzip assets are generated.
+      - name: Read the qualified historical catalog inputs
+        uses: actions/checkout@v5
+        with:
+          repository: WeningerII/CodexMusica
+          ref: ceab2d61b79006621570bdd8a40b3fb5f69f9329
+          path: .library-site-fixture
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /lyric-harness/library/
+            /lyric-harness/corpus/
+            /lyric-harness/data/library_identity_registry.json*
+            /lyric-harness/data/sources.tsv
+            /lyric-harness/data/authority.tsv
+            /lyric-harness/data/calibration_work_editions.json
+            /lyric-harness/data/lyric_label_prefixes.json
+            /lyric-harness/lyric_harness.py
+            /lyric-harness/quality/lyric_reader.py
+            /lyric-harness/quality/provenance.py
+            /lyric-harness/quality/populate_authority.py
+      - name: Reconstruct and verify the qualified canonical snapshot
+        working-directory: .library-site-fixture/lyric-harness
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from library.catalog import build
+
+          root = Path.cwd()
+          source_manifest = root / 'library/catalog_sources.json'
+          source_pin = json.loads(source_manifest.read_text())['repository_commit']
+          assert source_pin == '04d53f113ad3b484a5a61686e2e152edf07c5b1b'
+          manifest = build(root, root / 'library/snapshot', source_pin,
+                           source_manifest=source_manifest)
+          assert manifest['snapshot_id'] == '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e'
+          assert manifest['counts']['reading_units'] == 32220
+          assert manifest['counts']['readable_reading_units'] == 20865
+          print(json.dumps({'snapshot_id': manifest['snapshot_id'], 'counts': manifest['counts']}))
+          PY
+      - name: Generate the verified rights-filtered Site export
+        working-directory: .library-site-fixture/lyric-harness
+        run: |
+          python3 -m library.catalog_site_export \
+            --source library/snapshot \
+            --output "$RUNNER_TEMP/library-site-export"
+      - name: Stage verified catalog assets with the current frontend script
+        run: |
+          python3 scripts/stage-library.py \
+            "$RUNNER_TEMP/library-site-export" \
+            "$GITHUB_WORKSPACE/.library-site-fixture/lyric-harness/library/snapshot"
+      - name: Build the frontend and its local D1 and R2 bindings
+        run: pnpm run build
+      - name: Verify the full catalog census and source boundaries
+        run: node scripts/test-library-catalog.cjs
+      # The export controller check reuses the catalog imported into this same
+      # local D1/R2 state; it must run after the full catalog check.
+      - name: Verify exports, viewer isolation and held-reading refusal
+        env:
+          LIBRARY_EXPORT_TEST_OUTPUT: ${{ runner.temp }}/library-export-verification
+        run: node scripts/test-library-export-api.cjs

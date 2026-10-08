@@ -11,9 +11,15 @@ COPY mcp/requirements-runtime.txt ./
 RUN python3 -m pip install --no-cache-dir --break-system-packages \
     --only-binary=:all: --require-hashes -r requirements-runtime.txt
 
+# The approved Library Site keeps this snapshot identity in every request.
+# Retain only its admitted catalog from the exact already-qualified image;
+# advancing the connector must not remove the Site's immutable source bytes.
+FROM ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7 AS approved-library
+
 FROM runtime-base AS assets
 WORKDIR /source
 COPY lyric-harness ./lyric-harness
+COPY --from=approved-library /app/lyric-harness/library/snapshot /build/library-approved-5226
 RUN cd lyric-harness \
  && python3 -c "import lyric_harness; lyric_harness.fetch_data()" \
  && python3 quality/fetch_data.py --runtime \
@@ -24,6 +30,9 @@ RUN cd lyric-harness \
       --source-manifest library/catalog_sources.json \
  && python3 quality/release_assets.py --assemble /runtime/lyric-harness \
       --reader-catalog /build/library-canonical \
+      --retain-reader-catalog /build/library-approved-5226 \
+        5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e \
+        ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7 \
  && python3 quality/release_assets.py --root /runtime/lyric-harness \
       --staged-data /runtime/lyric-harness/data --check
 
