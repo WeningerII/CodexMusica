@@ -293,6 +293,7 @@ try {
       secret: process.env.READER_BRIDGE_SECRET,
       site: process.env.READER_SITE_ID,
       resolveIdentity: resolver.resolveIdentity,
+      prepareRequest: resolver.prepareRequest,
     })
   );
   readerScheduler.kick();

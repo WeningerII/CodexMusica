@@ -117,5 +117,10 @@ lyric-harness/map/*.json
 /lyric-harness/imports/gutenberg-ten/audit.json
 /lyric-harness/imports/gutenberg-ten/source_manifest.json
 
+# Next batch uses the same byte-reproducible source adapters.
+/lyric-harness/imports/gutenberg-next-ten/*/candidates.json
+/lyric-harness/imports/gutenberg-next-ten/*/boundaries.json
+/lyric-harness/imports/gutenberg-next-ten/audit.json
+/lyric-harness/imports/gutenberg-next-ten/source_manifest.json
 # Independent Sites package: preserve the reviewed source and its locked inputs.
 /sites/library/
