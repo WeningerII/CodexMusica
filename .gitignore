@@ -52,3 +52,7 @@ __pycache__/
 
 # Generated immutable Library artifacts are built and verified for release.
 /lyric-harness/library/snapshot/
+
+# Isolated historical inputs and transport output for the Library Site checks.
+/.library-site-fixture/
+/.library-export/
