@@ -5131,8 +5131,10 @@ const TRADITION_SIGNATURES = {
 //          first view draws from it alone.
 //       2. api/browse_prose.json, every genre's prose, asked for once the first
 //          view has painted (loadProse) and merged by id into the rows already
-//          in memory. Until it lands, search covers names only and a reader
-//          shows a genre's prose as loading (proseState), never as absent.
+//          in memory, with the genre tree's node descriptions ("tree"),
+//          merged by id into TREE_NODES. Until it lands, search covers names
+//          only, a reader shows a genre's prose as loading (proseState), never
+//          as absent, and the picker's tree rows leave their descriptions out.
 //          Once it lands, search, the tree, find-similar and fingerprints run
 //          locally with recall and display identical to the embedded build.
 //       3. api/traditions/{id}.json, the few row fields an IMPORT needs
@@ -5155,6 +5157,11 @@ const Catalog = (() => {
   const _proseListeners = [];      // onProse: called after every load settles
   let _proseOnline = false;        // the 'online' retry is registered
   let _nameIndex = null;           // names-only search rows, while !_proseAll
+  // The genre tree's node descriptions (TREE_NODES[].description). The lazy
+  // page's TREE_NODES carries each node's id, name and parent only; the
+  // descriptions ride in browse_prose.json under "tree" and merge in place.
+  // True from the start where TREE_NODES carries them (the embedded build).
+  let _treeProse = typeof TREE_NODES !== 'undefined' && TREE_NODES.some((n) => n.description);
 
   function bootFromGlobals() {
     if (typeof TRADITIONS === 'undefined') return false;
@@ -5222,6 +5229,11 @@ const Catalog = (() => {
   // Merged IN PLACE: pages hold these row and extras objects (G.sorted,
   // G.members, the search index's rows), so a merge is seen by every reader.
   function mergeProse(p) {
+    // The tree first: a prose file that lacks some genres still carries it.
+    if (p && p.tree && typeof TREE_NODES !== 'undefined') {
+      for (const n of TREE_NODES) if (typeof p.tree[n.id] === 'string') n.description = p.tree[n.id];
+      _treeProse = true;
+    }
     const seen = new Set();
     for (const it of (p && p.items) || []) {
       const row = _byId.get(it && it.id);
@@ -5412,6 +5424,7 @@ const Catalog = (() => {
     hasProse: (id) => proseState(id) === 'here',
     proseLoaded: () => _proseAll,
     proseFailed: () => !_proseAll && _proseFailed,
+    treeProse: () => _treeProse,       // the tree's node descriptions have merged (embedded: always)
   };
 })();
 
@@ -23616,7 +23629,12 @@ function renderTreeNode(node, depth) {
   html += `<span class="tree-chevron ${expanded ? 'expanded' : ''}">${icon('chevron-right', 12)}</span>`;
   html += `<div>`;
   html += `<div class="tree-row-name">${(typeof traditionGlyphsHTML==='function'?traditionGlyphsHTML(node.id,28):'')}${esc(node.name)}</div>`;
-  if (node.description && depth > 0) html += `<div class="tree-row-desc">${esc(node.description)}</div>`;
+  // Lazy shell: a node's description arrives with the genres' prose. Until
+  // then the row leaves it out (no claim) and the picker redraws on settle.
+  if (depth > 0) {
+    if (node.description) html += `<div class="tree-row-desc">${esc(node.description)}</div>`;
+    else if (!Catalog.treeProse()) _pickerProsePending = true;
+  }
   html += `</div>`;
   html += `<div class="tree-row-count">${leafCount}</div>`;
   html += `</div>`;

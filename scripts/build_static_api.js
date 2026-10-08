@@ -233,7 +233,10 @@ async function main() {
     path.join(OUT, 'browse_boot.json'),
     bootIndex(browseItems, C.TRADITION_EXTRAS, starters)
   );
-  writeJsonCompact(path.join(OUT, 'browse_prose.json'), proseIndex(browseItems));
+  // The genre tree's node descriptions ride here too, under "tree": the lazy
+  // page's TREE_NODES carries only each node's id, name and parent, and the
+  // picker leaves a description out until this file lands.
+  writeJsonCompact(path.join(OUT, 'browse_prose.json'), proseIndex(browseItems, C.TREE_NODES));
 
   // ---- nav_glyphs.json: room and preface glyph artwork, fetched on demand ----
   // The lazy shell leaves NAV_GLYPH_SVGS (references/09_nav_glyphs.js) out of

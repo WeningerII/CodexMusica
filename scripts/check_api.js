@@ -27,7 +27,8 @@
 //   • browse.json, browse_boot.json and browse_prose.json are exactly what
 //     scripts/_browse_tables.js derives from the catalog (the lazy app boots
 //     from the second and reads the third after its first paint; the first
-//     stays published).
+//     stays published), and the third's "tree" is the genre tree's node
+//     descriptions, keyed by TREE_NODES ids.
 //   • engine.json (the instrument engine the lazy shell fetches) is exactly what
 //     scripts/_page_tables.js derives from references/: one element per line,
 //     unmerged, page-stripped, its digest the digest of its tables and of the
@@ -321,6 +322,26 @@ if (browse) {
       'browse_prose.json',
       want.filter((w, i) => !same(B.proseItem(w), items[i])).map((w) => w.id)
     );
+    // The genre tree's node descriptions, which the lazy page's TREE_NODES
+    // leaves out and merges back by id from here. Without them its picker
+    // never draws one; a key no node has would never be shown.
+    const tree = prose.tree && typeof prose.tree === 'object' ? prose.tree : null;
+    const nodeIds = new Set(C.TREE_NODES.map((n) => n.id));
+    if (!tree)
+      fail(
+        'browse_prose.json carries no "tree" (the genre tree\'s node descriptions); run npm run build:api'
+      );
+    else {
+      const stray = Object.keys(tree).filter((id) => !nodeIds.has(id));
+      if (stray.length)
+        fail(
+          `browse_prose.json: "tree" names ${stray.length} id(s) TREE_NODES does not have (e.g. ${stray.slice(0, 5).join(', ')})`
+        );
+      if (!same(tree, B.treeProse(C.TREE_NODES)))
+        fail(
+          'browse_prose.json: "tree" differs from the node descriptions references/04_tree.js has; run npm run build:api'
+        );
+    }
   }
 }
 

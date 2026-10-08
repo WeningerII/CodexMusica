@@ -73,6 +73,9 @@
 //   commit skips table  -> build_html.js --check (CODEX_ENGINE_COMMIT leaves a render table's slot empty)
 //   decode drops tail   -> check_lazy_app.js  (the page decodes fewer signatures than the file carries)
 //   strip too wide      -> check_api.js       (the page copy drops signatures that are not empty)
+//   tree prose inline   -> build_html.js --check (the tree's descriptions are back in the lazy page)
+//   tree prose missing  -> check_api.js       (the prose file no longer carries the tree's descriptions)
+//   tree prose no redraw -> check_lazy_app.js (the picker is not redrawn when the tree's descriptions land)
 //   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
 //   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
@@ -1656,6 +1659,69 @@ if (want('10n', 'strip-too-wide')) {
     'strip-too-wide -> check_api.js',
     gate(d, ['scripts/check_api.js']),
     /engine\.json: its TRADITION_SIGNATURES line does not decode to references\/_tradition_signatures\.json less its empty lists/
+  );
+}
+
+// 10c, 10o, 10p. THE TREE'S DESCRIPTIONS. The lazy page's TREE_NODES carries
+//     each node's id, name and parent only (build_html.js LAZY_DROP_FIELDS);
+//     the descriptions ride in api/browse_prose.json under "tree" and merge
+//     back by id when the prose lands. Until then the picker leaves a row's
+//     description out, claims nothing, and redraws once the prose settles.
+
+// 10c. tree-prose-inline -> build_html.js --check
+//     The strip emptied: about 30 KB of descriptions, gzipped, back in the
+//     lazy page's first download, for rows only an expanded picker draws.
+if (want('10c', 'tree-prose-inline')) {
+  const d = mkenv(['scripts', 'references', 'src']);
+  plantIn(
+    d,
+    'scripts/build_html.js',
+    "const LAZY_DROP_FIELDS = LAZY ? { TREE_NODES: [['', ['description']]] } : {};",
+    'const LAZY_DROP_FIELDS = {};'
+  );
+  record(
+    'tree-prose-inline -> build_html.js --check',
+    htmlCheck(d),
+    /TREE_NODES carries description in a lazy page/
+  );
+}
+
+// 10o. tree-prose-missing -> check_api.js
+//     browse_prose.json written without "tree": the lazy picker would never
+//     draw a node description. The file is rewritten by the planted code, so
+//     it is what that code derives; check_api holds it to references/.
+//     (check_lazy_app's W-tree fails it too: the picker never fills in.)
+if (want('10o', 'tree-prose-missing')) {
+  const d = mkenv(['scripts', 'references', 'api']);
+  plantIn(d, 'scripts/_browse_tables.js', '    tree: treeProse(nodes),\n', '');
+  execFileSync(
+    'node',
+    [
+      '-e',
+      "const C = require('./scripts/_loader.js'); const B = require('./scripts/_browse_tables.js'); " +
+        'const items = C.TRADITIONS.map((t) => B.browseItem(t, C.TRADITION_EXTRAS[t.id] || {})); ' +
+        "require('fs').writeFileSync('api/browse_prose.json', JSON.stringify(B.proseIndex(items, C.TREE_NODES)));",
+    ],
+    { cwd: d, stdio: 'pipe' }
+  );
+  record(
+    'tree-prose-missing -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /browse_prose\.json carries no "tree"/
+  );
+}
+
+// 10p. tree-prose-no-redraw -> check_lazy_app.js  (W-tree)
+//     A row that leaves its description out without marking the picker: when
+//     no genre row asks for prose, the picker is never redrawn and the
+//     descriptions that landed stay undrawn until it is reopened.
+if (want('10p', 'tree-prose-no-redraw')) {
+  const d = lazyEnv();
+  plantIn(d, 'src/app.js', '    else if (!Catalog.treeProse()) _pickerProsePending = true;\n', '');
+  record(
+    'tree-prose-no-redraw -> check_lazy_app.js',
+    lazyGate(d, '--only=window'),
+    /window W-tree: a tree row left its description out and did not mark the picker pending/
   );
 }
 

@@ -73,6 +73,13 @@
 //   full search's order, and says so; a detail and the picker say "loading",
 //   never "none"; nothing reads the engine. After the release the list and the
 //   picker on screen equal the embedded build's.
+//   W-tree: the genre tree's node descriptions (api/browse_prose.json "tree").
+//   Held, the picker, every node expanded, draws every row and no description,
+//   and says none is missing; a root holding only branches, expanded alone,
+//   marks the picker for the redraw by its rows alone. Released, the picker
+//   redraws itself in place as the embedded build's, and every node's row is
+//   the embedded build's. Failed (404), the rows stay without descriptions,
+//   claim nothing, and one Retry (reopening the picker) asks exactly once more.
 //
 //   ENGINE (section `engine`; each check but E6, a census of the code, boots
 //   its own lazy page with api/engine.json held, against one embedded page
@@ -1809,6 +1816,144 @@ async function windowSection(embedHtml, lazyHtml) {
   } finally {
     embedDom.window.close();
     lazyDom.window.close();
+  }
+}
+
+// W-tree. The genre tree's node descriptions, which the lazy page's TREE_NODES
+// leaves out and api/browse_prose.json carries under "tree". The picker opens
+// with every node expanded (FULL), and with only the roots that hold no genre
+// (LEAF_FREE): there no genre row asks for prose, so only the tree's own rows
+// can mark the picker for a redraw. Once the prose is in, every node's row,
+// drawn as an expanded parent draws it, is the embedded build's (NODE_ROWS).
+// (FULL is not compared whole with the embedded build: with the prose in, a
+// genre row draws its exemplars, and a genre whose exemplars the catalog holds
+// as one string, not a list, stops renderTradLeaf in both builds.)
+const TREE_OPEN = (which) => `
+  document.getElementById('btn-traditions').click();
+  const leafFree = getRoots().filter((r) => getChildren(r.id).every((k) => TREE_NODES.some((n) => n.id === k.id)) && !getCrossRefLeaves(r.id).length);
+  app.treeExpanded = new Set(${which === 'full' ? 'TREE_NODES.map((n) => n.id)' : 'leafFree.map((r) => r.id)'});
+  renderTradPicker();`;
+const TREE_STATE = `const p = document.getElementById('picker-trad');
+  return { html: p.innerHTML, text: p.textContent, descs: p.querySelectorAll('.tree-row-desc').length,
+    rows: p.querySelectorAll('.tree-row').length, nodes: TREE_NODES.length, pending: _pickerProsePending, leafFree: leafFree.length };`;
+const NODE_ROWS = `const keep = app.treeExpanded; app.treeExpanded = new Set();
+  try { return TREE_NODES.map((n) => renderTreeNode(n, 1)).join(''); } finally { app.treeExpanded = keep; }`;
+// Words that would claim a description is absent rather than not here yet.
+const TREE_ABSENT =
+  /no description|description (?:is )?(?:missing|unavailable)|could not be loaded|Couldn.t load/i;
+async function windowTree(embedHtml, lazyHtml) {
+  const embedDom = bootDom(embedHtml, makeFetchShim({ deny: '*' }), { url: SITE });
+  const hold = { 'api/browse_prose.json': deferred() };
+  const lazyDom = bootDom(lazyHtml, makeFetchShim({ deny: ['api/tradition_images.json'], hold }), {
+    url: SITE,
+  });
+  const log = [];
+  const deadDom = bootDom(
+    lazyHtml,
+    makeFetchShim({ deny: ['api/browse_prose.json', 'api/tradition_images.json'], log }),
+    { url: SITE }
+  );
+  const opened = (which) => `${TREE_OPEN(which)}\n${TREE_STATE}`;
+  const held = { prose: false };
+  try {
+    await Promise.all([
+      runProbe(embedDom, SETTLE),
+      runProbe(lazyDom, SETTLE, 15000, held),
+      runProbe(deadDom, SETTLE, 15000, held),
+    ]);
+    const eLeafFree = await runProbe(embedDom, opened('leafFree'));
+    const eRows = await runProbe(embedDom, NODE_ROWS);
+    const full = await runProbe(lazyDom, opened('full'), 15000, held);
+    const leafFree = await runProbe(lazyDom, opened('leafFree'), 15000, held);
+    const crashed = [eLeafFree, eRows, full, leafFree].find((r) => r && r.__err);
+    if (crashed) return fail(`window W-tree: probe crashed: ${crashed.__err}`);
+    if (!/tree-row-desc/.test(eRows))
+      fail('window W-tree: the embedded build draws no node description — the check is vacuous');
+    if (!eLeafFree.leafFree || !eLeafFree.descs)
+      fail(
+        'window W-tree: no root holds only branches, so no expansion leaves the genres out — the redraw check is vacuous'
+      );
+    // HELD. Every node is drawn, none with a description, and nothing says one
+    // is missing; the tree's rows alone mark the picker for the redraw.
+    if (full.rows !== full.nodes)
+      fail(
+        `window W-tree: every node expanded draws ${full.rows} tree rows before the prose; TREE_NODES has ${full.nodes}`
+      );
+    if (leafFree.rows !== eLeafFree.rows)
+      fail(
+        `window W-tree: the branch-only roots expanded draw ${leafFree.rows} tree rows before the prose, the embedded build ${eLeafFree.rows}`
+      );
+    for (const [which, r] of [
+      ['every node', full],
+      ['branch-only roots', leafFree],
+    ]) {
+      if (r.descs)
+        fail(
+          `window W-tree: ${r.descs} node description(s) drawn before the prose landed (${which} expanded); the lazy page's TREE_NODES carries none`
+        );
+      if (TREE_ABSENT.test(r.text))
+        fail(
+          `window W-tree: the picker claims a description is absent while it loads: ${JSON.stringify(r.text.match(TREE_ABSENT)[0])}`
+        );
+    }
+    if (leafFree.pending !== true)
+      fail(
+        'window W-tree: a tree row left its description out and did not mark the picker pending, so the prose would never redraw it'
+      );
+    // RELEASE. The picker redraws itself in place (this probe renders nothing)
+    // as the embedded build's for the same expansion, and every node's row is
+    // the embedded build's.
+    hold['api/browse_prose.json'].release();
+    const after = await runProbe(lazyDom, `${FRAMES(3)}\nconst leafFree = [];\n${TREE_STATE}`);
+    const rows = await runProbe(lazyDom, NODE_ROWS);
+    if (after.__err || rows.__err)
+      fail('window W-tree AFTER: probe crashed: ' + (after.__err || rows.__err));
+    else {
+      if (after.html !== eLeafFree.html)
+        fail(
+          `window W-tree: the picker was not redrawn as the embedded build's once the tree's descriptions landed ${firstDiff(after.html, eLeafFree.html)}`
+        );
+      if (rows !== eRows)
+        fail(
+          `window W-tree: the tree's rows differ from the embedded build's once the prose landed ${firstDiff(rows, eRows)}`
+        );
+    }
+    // FAILED. The prose answers 404: the rows stay without descriptions and say
+    // nothing is missing; one Retry (reopening the picker) asks exactly once more.
+    const dw = deadDom.window;
+    await waitFor(() => dw.eval('Catalog.proseFailed()'), 15000, 'proseFailed never set').catch(
+      () => {}
+    );
+    if (!dw.eval('Catalog.proseFailed()'))
+      fail(
+        'window W-tree: a 404 on the prose never failed the load — the failure check is vacuous'
+      );
+    else {
+      const before = fetchesOf(log, 'api/browse_prose.json').length;
+      const dead = await runProbe(deadDom, opened('full'), 15000, held);
+      await sleep(300);
+      const asked = fetchesOf(log, 'api/browse_prose.json').length - before;
+      if (dead.__err) fail('window W-tree FAILED: probe crashed: ' + dead.__err);
+      else {
+        if (dead.descs)
+          fail(`window W-tree: ${dead.descs} node description(s) drawn with the prose failed`);
+        if (TREE_ABSENT.test(dead.text))
+          fail(
+            `window W-tree: with the prose failed the picker claims a description is absent: ${JSON.stringify(dead.text.match(TREE_ABSENT)[0])}`
+          );
+      }
+      if (asked !== 1)
+        fail(
+          `window W-tree: one Retry (reopening the picker) after the prose failed made ${asked} request(s); want exactly 1`
+        );
+    }
+    note(
+      'window W-tree: no node description before the prose, none claimed missing; redrawn in place as the embedded build; a failed load retried once'
+    );
+  } finally {
+    embedDom.window.close();
+    lazyDom.window.close();
+    deadDom.window.close();
   }
 }
 
@@ -3826,7 +3971,10 @@ async function engineRefused(lazyHtml, id) {
   }
   if (ONLY.includes('window')) {
     await windowSection(embedHtml, lazyHtml);
-    ran.push('the window before the prose and the instrument data');
+    await windowTree(embedHtml, lazyHtml);
+    ran.push(
+      "the window before the prose and the instrument data (W-tree: the genre tree's descriptions held, released, failed)"
+    );
   }
   if (ONLY.includes('engine')) {
     const e = await engineSection(embedHtml, lazyHtml);

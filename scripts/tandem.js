@@ -791,6 +791,17 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   if (!/\bconst INSTRUMENT_INDEX\s*=/.test(html)) {
     throw new Error('shipped codex.html missing INSTRUMENT_INDEX — the first view has no names');
   }
+  // The genre tree's node descriptions are out of the page too: the lazy build
+  // keeps each node's id, name and parent (the first view reads those), and
+  // the picker merges the descriptions from api/browse_prose.json "tree".
+  const at = html.search(/\bconst TREE_NODES\s*=/);
+  if (at < 0) throw new Error('shipped codex.html missing TREE_NODES — the first view has no tree');
+  const treeBlock = html.slice(at, html.indexOf('</script>', at));
+  if (/[{,]\s*"?description"?\s*:/.test(treeBlock)) {
+    throw new Error(
+      'shipped codex.html carries TREE_NODES descriptions — they load from api/browse_prose.json "tree"'
+    );
+  }
   const P = require('./_page_tables.js');
   const slots = [...html.matchAll(/\blet\s+([A-Za-z_$][\w$]*(?:\s*,\s*[A-Za-z_$][\w$]*)*)\s*;/g)]
     .map((m) => m[1].split(/\s*,\s*/))
@@ -818,7 +829,7 @@ check('shipped codex.html is the lazy shell (no embedded tradition or engine tab
   return (
     'no TRADITIONS/TRADITION_EXTRAS or engine tables in page; boots from ' +
     `api/browse_boot.json, the engine from api/engine.json into one \`let\` of ${slots[0].length} slots, ` +
-    "its digests the source's"
+    "its digests the source's; TREE_NODES without its descriptions"
   );
 });
 check('JS parseable (vm.Script syntax check)', () => {

@@ -166,6 +166,16 @@ const LAZY_OMIT = new Set(['05_traditions.js', '06_extras.js', ...(LAZY ? P.ENGI
 // it (Engine in src/app.js, src/engine_preload.js). The embedded build keeps
 // them inline.
 const LAZY_DROP_TABLES = LAZY ? new Set(['NAV_GLYPH_SVGS', ...P.ENGINE_TABLES]) : new Set();
+// Fields the lazy shell leaves out of a table it otherwise ships, in the shape
+// of PAGE_DROP_FIELDS (table -> [path, fields]). The genre tree's node
+// descriptions are about 30 KB gzipped, and only the picker's expanded rows draw
+// them: the first view reads each node's id, name and parent alone (the Genre
+// page's browse column, its membership and its crumbs). They ride in
+// api/browse_prose.json under "tree" (scripts/_browse_tables.js treeProse), and
+// Catalog.mergeProse puts them back by id; until then the picker leaves a row's
+// description out and redraws when the prose settles. The embedded build keeps
+// them.
+const LAZY_DROP_FIELDS = LAZY ? { TREE_NODES: [['', ['description']]] } : {};
 
 // ─────────────────────── templates are required source ───────────────────────
 // The HTML template and the app are first-class source files under src/. They
@@ -320,7 +330,15 @@ function stripForPage(file, source) {
   const names = [...source.matchAll(/^(?:const|let|var)\s+([A-Z_][A-Z0-9_]*)\s*=/gm)].map(
     (m) => m[1]
   );
-  if (!names.some((n) => PAGE_DROP_TABLES.has(n) || LAZY_DROP_TABLES.has(n) || PAGE_DROP_FIELDS[n]))
+  if (
+    !names.some(
+      (n) =>
+        PAGE_DROP_TABLES.has(n) ||
+        LAZY_DROP_TABLES.has(n) ||
+        PAGE_DROP_FIELDS[n] ||
+        LAZY_DROP_FIELDS[n]
+    )
+  )
     return source;
   // Only those declarations survive the re-emit, so a file that is rewritten
   // may hold nothing else at top level. A function, an `if`, a statement that
@@ -355,6 +373,9 @@ function stripForPage(file, source) {
   for (const name of names) {
     if (PAGE_DROP_TABLES.has(name) || LAZY_DROP_TABLES.has(name)) continue;
     const value = P.stripTable(name, vm.runInContext(name, ctx));
+    for (const [pathSpec, fields] of LAZY_DROP_FIELDS[name] || [])
+      for (const node of P.reach(P.tableElements(value), pathSpec))
+        for (const k of fields) delete node[k];
     out.push(`const ${name} = ${JSON.stringify(value).replace(/<\//g, '<\\/')};`);
   }
   return out.join('\n') + '\n';
@@ -1046,6 +1067,35 @@ if (flags.check) {
       `check: FAIL — the page-only data strip leaked: ${[...new Set(leaked)].join(', ')}`
     );
     process.exit(4);
+  }
+  // The genre tree's node descriptions: a lazy page carries none (they ride in
+  // api/browse_prose.json "tree", which check_api.js holds to references/), and
+  // an embedded page carries every one references/04_tree.js has. Stated here
+  // from the page and the references file alone, not from LAZY_DROP_FIELDS, so
+  // a strip that stops dropping them fails.
+  {
+    const descs = `JSON.stringify(TREE_NODES.filter((n) => n.description).map((n) => [n.id, n.description]))`;
+    const treeCtx = vm.createContext({});
+    vm.runInContext(fs.readFileSync(path.join(REFS, '04_tree.js'), 'utf8'), treeCtx, {
+      filename: '04_tree.js',
+    });
+    const want = vm.runInContext(descs, treeCtx);
+    const got = probe(descs);
+    const n = JSON.parse(got).length;
+    if (LAZY ? n : got !== want) {
+      console.error(
+        LAZY
+          ? `check: FAIL — TREE_NODES carries description in a lazy page (${n} nodes); the lazy build leaves it out (LAZY_DROP_FIELDS) and the page reads it from api/browse_prose.json "tree"`
+          : `check: FAIL — the embedded page's TREE_NODES descriptions differ from references/04_tree.js (${n} of ${JSON.parse(want).length})`
+      );
+      process.exit(4);
+    }
+    if (!LAZY && !n) {
+      console.error(
+        'check: FAIL — references/04_tree.js has no node descriptions; the check is vacuous'
+      );
+      process.exit(4);
+    }
   }
   const checks = [];
   if (LAZY)
